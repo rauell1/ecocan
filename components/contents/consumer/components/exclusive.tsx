@@ -27,7 +27,7 @@ const cardContent = [
 
 export default function Exclusive() {
   return (
-    <div className="bg-[url('/assets/images/consumer/bananas-bg.svg')] h-[36rem] bg-center bg-cover flex items-center mb-24">
+    <div className="bg-[url('/assets/images/consumer/bananas-bg.svg')] lg:h-[36rem] bg-center bg-cover flex items-center mb-24">
         <div className="max-w-[69.375rem] mx-auto px-4 xl:px-0">
           <TextWithCards
             title="Exclusive benefits for ECOnsumers"

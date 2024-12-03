@@ -33,7 +33,7 @@ export default function EventsHero() {
         linkColor={isScrolled ? "text-black" : "text-white"}
       />
       <div className="lg:h-[36rem] xl:h-[47.575rem]">
-        <div className="bg-[url('/assets/images/events/events-hero-bg.jpeg')] lg:h-[36rem] xl:h-[44rem] bg-center relative after:absolute after:inset-0 after:content-[''] after:bg-black/90 after:opacity-70 after:z-10">
+        <div className="bg-[url('/assets/images/events/events-hero-bg.jpeg')] lg:h-[36rem] xl:h-[46.85rem] bg-center relative after:absolute after:inset-0 after:content-[''] after:bg-black/90 after:opacity-70 after:z-10">
           <div className=" xl:max-w-[69.375rem] flex flex-col md:flex md:flex-row mx-auto lg:my-0 lg:gap-12 lg:pt-[3.125rem] xl:pt-0">
             <div className="flex flex-col gap-4 lg:mt-28 xl:mt-96 md:w-1/2 px-4 xl:px-0 text-white z-50">
               <div>

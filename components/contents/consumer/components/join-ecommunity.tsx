@@ -48,7 +48,7 @@ export default function JoinEcommunity() {
   return (
     <AlertDialog>
       <AlertDialogTrigger asChild>
-        <Button className="rounded-full bg-transparent border border-primary text-primary hover:bg-transparent xl:h-[3rem] xl:py-3 xl:px-8 ml-4">
+        <Button className="rounded-full bg-transparent border border-white text-white hover:bg-transparent h-[3rem] py-3 px-8">
           <span className="relative z-10 text-base">Join ECOmmunity</span>
           <LucideArrowRight className="ml-2" />
         </Button>

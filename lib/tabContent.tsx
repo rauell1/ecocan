@@ -25,17 +25,9 @@ export interface TabContent {
       hero: <EcoStationHero/>,
       content: <EcoStationContent/>,
     },
-    "ECOurier": {
-        hero: <CourierHero/>,
-        content: <CourierContent/>,
-    },
     "ECO-Producer": {
         hero: <ProducerHero/>,
         content: <ProducerContent/>,
-    },
-    "ECO-Recycler": {
-        hero: <RecyclerHero/>,
-        content: <RecyclerContent/>,
     },
     "ECO-Events": {
         hero: <EventsHero/>,
