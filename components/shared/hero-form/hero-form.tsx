@@ -29,10 +29,10 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import Link from "next/link";
+import HyperLink from "../hyperlink/hyperlink";
 
 interface HeroFormProps {
-    title?: string;
-
+  title?: string;
 }
 
 const formSchema = z.object({
@@ -48,7 +48,7 @@ const formSchema = z.object({
     .max(15, "Contact number can't exceed 15 digits"),
 });
 
-export default function HeroForm({title = "1, 2, 3. Go!!"}:HeroFormProps) {
+export default function HeroForm({ title = "1, 2, 3. Go!!" }: HeroFormProps) {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -67,11 +67,11 @@ export default function HeroForm({title = "1, 2, 3. Go!!"}:HeroFormProps) {
   }
 
   return (
-    <Card className="lg:mt-96 xl:mt-64 rounded-2xl xl:w-full lg:me-4 xl:me-0 xl:absolute left-44 shadow-2xl">
+    <Card className="rounded-2xl w-5/6 ms-auto mt-8 me-6 xl:me-0 xl:mt-0 shadow-2xl">
       <CardHeader className="text-[#23262FCC]">
-        <CardTitle className="text-3xl">{title}</CardTitle>
-        <CardDescription className="xl:text-xl font-light">
-          Already a partner?{" "}
+        <CardTitle className="text-3xl text-black">{title}</CardTitle>
+        <CardDescription className="xl:text-sm font-light text-black">
+          Already in the ECOmmunity?{" "}
           <Link href="/" className="text-green-500 hover:underline">
             Log in
           </Link>
@@ -81,100 +81,72 @@ export default function HeroForm({title = "1, 2, 3. Go!!"}:HeroFormProps) {
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
             <div className="grid grid-cols-2 gap-4">
-                <FormField
-                  control={form.control}
-                  name="businessName"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel>Business Legal Name</FormLabel>
-                      <FormControl>
-                        <Input placeholder="Enter business name" {...field} />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-                <FormField
-                  control={form.control}
-                  name="tradingName"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel>Business Trading Name</FormLabel>
-                      <FormControl>
-                        <Input placeholder="Enter business name" {...field} />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-            </div>
-            <div className="grid grid-cols-2 gap-4">
-                <FormField
-                  control={form.control}
-                  name="businessAddress"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel>Address/ street name</FormLabel>
-                      <FormControl>
-                        <Input placeholder="Enter your address" {...field} />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-                <FormField
-                  control={form.control}
-                  name="region"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel>Region</FormLabel>
-                      <FormControl>
-                        <Input placeholder="Enter your address" {...field} />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
+              <FormField
+                control={form.control}
+                name="businessName"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Business Legal Name</FormLabel>
+                    <FormControl>
+                      <Input placeholder="Enter business name" {...field} />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+              <FormField
+                control={form.control}
+                name="businessAddress"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Address/ street name</FormLabel>
+                    <FormControl>
+                      <Input placeholder="Enter your address" {...field} />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
             </div>
             <div className="grid grid-cols-2 xl:grid-cols-1 gap-4">
-                <FormField
-                  control={form.control}
-                  name="businessType"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel>Business type</FormLabel>
-                      <Select
-                        onValueChange={field.onChange}
-                        defaultValue={field.value}
-                      >
-                        <FormControl>
-                          <SelectTrigger>
-                            <SelectValue placeholder="Select business type" />
-                          </SelectTrigger>
-                        </FormControl>
-                        <SelectContent>
-                          <SelectItem value="type1">Type 1</SelectItem>
-                          <SelectItem value="type2">Type 2</SelectItem>
-                          <SelectItem value="type3">Type 3</SelectItem>
-                        </SelectContent>
-                      </Select>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-                <FormField
-                  control={form.control}
-                  name="email"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel>Email</FormLabel>
+              <FormField
+                control={form.control}
+                name="businessType"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Business type</FormLabel>
+                    <Select
+                      onValueChange={field.onChange}
+                      defaultValue={field.value}
+                    >
                       <FormControl>
-                        <Input placeholder="Enter email address" {...field} />
+                        <SelectTrigger>
+                          <SelectValue placeholder="Select business type" />
+                        </SelectTrigger>
                       </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
+                      <SelectContent>
+                        <SelectItem value="type1">Type 1</SelectItem>
+                        <SelectItem value="type2">Type 2</SelectItem>
+                        <SelectItem value="type3">Type 3</SelectItem>
+                      </SelectContent>
+                    </Select>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+              <FormField
+                control={form.control}
+                name="email"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Email</FormLabel>
+                    <FormControl>
+                      <Input placeholder="Enter email address" {...field} />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
             </div>
             <FormField
               control={form.control}
@@ -205,10 +177,12 @@ export default function HeroForm({title = "1, 2, 3. Go!!"}:HeroFormProps) {
                 </FormItem>
               )}
             />
-            <Button
-              type="submit"
-              className="w-full rounded-full"
-            >
+            <p className="text-sm">
+              By clicking "Get Started," I agree to the{" "}
+              <HyperLink link="ECO-Station terms & conditions," href="/" /> and{" "}
+              <HyperLink link="privacy policy" href="/" />.
+            </p>
+            <Button type="submit" className="w-full rounded-full">
               Get Started
             </Button>
           </form>

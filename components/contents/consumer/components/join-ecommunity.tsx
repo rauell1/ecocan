@@ -49,7 +49,7 @@ export default function JoinEcommunity() {
     <AlertDialog>
       <AlertDialogTrigger asChild>
         <Button className="rounded-full bg-transparent border border-white text-white hover:bg-transparent h-[3rem] py-3 px-8">
-          <span className="relative z-10 text-base">Join ECOmmunity</span>
+          <span className="relative z-[9999] text-base">Join ECOmmunity</span>
           <LucideArrowRight className="ml-2" />
         </Button>
       </AlertDialogTrigger>
@@ -65,7 +65,7 @@ export default function JoinEcommunity() {
               alt="buy online with ecocan"
               width={400}
               height={100}
-              className="mx-auto"
+              className="mx-auto z-[9999]"
             />
           }
           item={

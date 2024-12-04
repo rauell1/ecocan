@@ -48,6 +48,7 @@ const NavigationBar: React.FC<NavigationBarProps> = ({
     <nav
       className={clsx(
         "fixed top-0 left-0 right-0 md:px-4 z-[9999] transition-all duration-300",
+        isOpen ? "bg-white": "",
         className
       )}
     >
@@ -68,7 +69,7 @@ const NavigationBar: React.FC<NavigationBarProps> = ({
           >
             <svg
               className={`fill-current h-6 w-6 ${
-                isScrolled ? "text-primary" : "text-white"
+                isScrolled ? "text-primary" : "hidden"
               } ${isOpen ? "hidden" : "block"}`}
               viewBox="0 0 20 20"
               xmlns="http://www.w3.org/2000/svg"
