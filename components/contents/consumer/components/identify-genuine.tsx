@@ -2,6 +2,7 @@ import React from "react";
 import Image from "next/image";
 import StyledText from "@/components/shared/styled-text";
 import { Nunito_Sans } from "next/font/google";
+import SecurityFeatures from "./security-features";
 
 const nunitoSans = Nunito_Sans({ subsets: ["latin"] });
 
@@ -61,18 +62,14 @@ const rightFeatures: FeatureItem[] = [
 
 export default function IdentifyGenuine() {
   return (
-    <div className="mx-auto px-4">
+    <div className="mx-auto">
       <div className="text-center mb-8">
         <h2 className="text-3xl font-semibold mb-2">
           How to identify genuine products
         </h2>
-        <p className="text-lg">How ECOCAN Authentication Works:</p>
       </div>
-      <div className="flex flex-col md:flex-row items-center">
-        <div className="md:w-2/5">
-          <FeatureList items={leftFeatures} />
-        </div>
-        <div className="md:w-1/4">
+      <div className="flex flex-col md:flex-row gap-6">
+        <div className="md:w-1/3">
           <Image
             src="/assets/images/consumer/identify-genuine.svg"
             alt="ECOCAN Authentication"
@@ -81,20 +78,9 @@ export default function IdentifyGenuine() {
             className="mx-auto"
           />
         </div>
-        <div className="md:w-2/5">
-          <div className="ms-auto w-5/6">
-            <FeatureList items={rightFeatures} startIndex={4} />
-          </div>
+        <div className="md:w-3/4">
+          <SecurityFeatures/>
         </div>
-      </div>
-      <div className="relative h-[6rem] w-[12rem] mx-auto overflow-hidden">
-        <Image
-          src="/assets/images/consumer/identify-ball.svg"
-          alt="ECOCAN Authentication"
-          width={47}
-          height={47}
-          className="w-auto h-auto absolute -top-10 -right-2"
-        />
       </div>
     </div>
   );

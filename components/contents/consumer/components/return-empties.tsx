@@ -31,15 +31,56 @@ const timelineData = {
       description:
         "Scan your ECOCAN ID to the RVM, place your empties into the infeed, then complete the session. And you’ll immediately receive applicable deposits directly into your ECO-wallet",
     },
+    {
+      image: "/assets/images/consumer/how.svg",
+      title: "Or recycle via ECOCAN RVMs",
+      description:
+        "Scan your ECOCAN ID to the RVM, place your empties into the infeed, then complete the session. And you’ll immediately receive applicable deposits directly into your ECO-wallet",
+    },
   ],
 };
 
 export default function ReturnEmpties() {
   return (
-    <Timeline
-      title={timelineData.title}
-      subtitle={timelineData.subtitle}
-      items={timelineData.items}
-    />
+    <div className="py-24 bg-[#2F313F] text-white relative">
+      <Timeline
+        title={timelineData.title}
+        subtitle={timelineData.subtitle}
+        items={timelineData.items}
+      />
+       <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 1440 100"
+            className="absolute bottom-0 z-50 hidden lg:block"
+          >
+            <path
+              fill="#F3F3F6"
+              fill-opacity="1"
+              d="M0,80L1440,0L1440,340L0,340Z"
+            ></path>
+          </svg>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 600 530"
+            className="absolute bottom-0 z-50 hidden md:block lg:hidden"
+          >
+            <path
+              fill="#F3F3F6"
+              fill-opacity="1"
+              d="M0,300L600,0L600,600L0,600Z"
+            ></path>
+          </svg>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 350 510"
+            className="absolute bottom-0 z-50 md:hidden"
+          >
+            <path
+              fill="#F3F3F6"
+              fill-opacity="1"
+              d="M0,280L350,0L540,540L0,540Z"
+            ></path>
+          </svg>
+    </div>
   );
 }

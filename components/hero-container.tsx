@@ -32,12 +32,12 @@ export default function HeroContainer() {
           </TabsContent>
         ))}
         <div className="justify-center items-center flex pt-8">
-          <TabsList className="bg-white border-none rounded-full">
+          <TabsList className="bg-white border-[#E6E6E6] rounded-full">
             {Object.keys(tabContent).map((tab) => (
               <TabsTrigger
                 key={tab}
                 value={tab}
-                className="rounded-full md:w-36 text-[#0000004D] text-xs md:text-base z-50"
+                className="rounded-full w-[5.575rem] md:w-36 text-[#0000004D] text-xs md:text-base z-50"
               >
                 {tab.charAt(0).toUpperCase() + tab.slice(1)}
               </TabsTrigger>

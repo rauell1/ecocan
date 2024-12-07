@@ -1,9 +1,9 @@
+import React, { useState, useEffect } from "react";
+import Image from "next/image";
 import HyperLink from "@/components/shared/hyperlink/hyperlink";
 import ImageAndItem from "@/components/shared/image-and-item/image-and-item";
-import StyledText from "@/components/shared/styled-text";
 import TextWithCards from "@/components/shared/text-with-cards/text-with-cards";
 import { Card } from "@/components/ui/card";
-import { beachBottle } from "@/lib/imageIndex";
 import {
   Carousel,
   CarouselContent,
@@ -11,61 +11,91 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
-import Image from "next/image";
-import React from "react";
+import { type CarouselApi } from "@/components/ui/carousel";
 
 const litterContent = [
   {
-    content:
-      "When you carelessly discard empties instead of returning them to ECO-stations, you'll be helping counterfeit criminals. Who will simply pick the empties, fill them with fake drinks, and put them back to the market. And they'll look exactly similar as genuine drinks",
+    title: "1. Illicit refill",
+    description:
+      "When you carelessly discard empties instead of returning them to ECO-stations, you'll be helping counterfeit criminals. Who will simply pick the empties, fill them with fake drinks, and put them back to the market. And to the naked eye, they'll appear similar to genuine products but contain dangerously potent substances",
+    image: "/assets/images/consumer/refill.svg",
   },
   {
-    content: (
-      <p>
-        But with <HyperLink link="EcocanApp" href="/" />, you now have the power
-        to identify fakes. Nevertheless, ensure to return your empties to
-        ECO-stations, that we completely starve these criminals{" "}
-      </p>
+    title: "2. Fight back",
+    description: (
+      <>
+        But with EcocanApp, you now have the power to identify and avoid such
+        fakes. Nevertheless, ensure to return your empties to ECO-Stations for
+        recycling, that we completely kick these criminals out of the market
+      </>
     ),
+    image: "/assets/images/consumer/fight-back.svg",
   },
   {
-    content: (
-      <p>
-        If you’re a producer who doesn’t safeguard the integrity of your
-        products, nor facilitate elaborate recycling of the post-consumer
-        empties, you’re inadvertently supporting counterfeit trade
-      </p>
-    ),
+    title: "3. Loophole",
+    description:
+      "And if you're a producer who doesn't safeguard the integrity of your products, nor facilitate elaborate recycling of post-consumer empties, you're inadvertently supporting counterfeit trade, thus endangering the life of your customers",
+    image: "/assets/images/consumer/loophole.svg",
   },
   {
-    content: (
-      <p>
-        So, let’s join hands in the <HyperLink link="ECOmmunity" href="/" /> and
-        stop these criminals, protect our health from harmful fake drinks,
-        ensure we get value for money, and safeguard our legitimate businesses
-      </p>
-    ),
+    title: "4. Joint effort",
+    description:
+      "So, let's join hands in the ECOmmunity to facilitate product authentication and empties recycling, that we stop these criminals, protect our health from harmful fake drinks, ensure we get value for money, and safeguard our legitimate businesses",
+    image: "/assets/images/consumer/joint-effort.svg",
   },
 ];
 
 export default function WasteLitter() {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [api, setApi] = useState<CarouselApi>();
+  const [currentImage, setCurrentImage] = useState(litterContent[0].image);
+  const [isTransitioning, setIsTransitioning] = useState(false);
+
+  useEffect(() => {
+    if (!api) {
+      return;
+    }
+
+    api.on("select", () => {
+      const newIndex = api.selectedScrollSnap();
+      setCurrentIndex(newIndex);
+      
+      // Handle image transition
+      setIsTransitioning(true);
+      setTimeout(() => {
+        setCurrentImage(litterContent[newIndex].image);
+        setIsTransitioning(false);
+      }, 300); // Match this with your CSS transition duration
+    });
+  }, [api]);
+
   return (
-    <>
+    <div className="pb-24">
       <ImageAndItem
-        className="gap-12 items-center"
+        title={<p className="text-left">Did you know...?</p>}
+        className="gap-12 md:flex-row-reverse"
         image={
-          <Image
-            src={beachBottle}
-            alt="beach bottle"
-            width={1000}
-            height={1000}
-            className="w-full h-full"
-          />
+          <div className="xl:w-[31.25rem] h-[31.25rem] overflow-hidden">
+            <Image
+              src={currentImage}
+              alt={`Slide ${currentIndex + 1} image`}
+              width={500}
+              height={500}
+              className={`w-full h-full transition-opacity duration-300 ${
+                isTransitioning ? "opacity-0" : "opacity-100"
+              }`}
+            />
+          </div>
         }
         item={
           <TextWithCards
             className="w-full"
-            title="Waste litter => Counterfeit trade"
+            subtitle={
+              <p className="text-2xl mb-8 font-semibold">
+                {`Waste litter =>`} <br />
+                Counterfeit trade
+              </p>
+            }
             description="Counterfeit criminals often lack capacity to legitimately acquire new bottles for their illegal fake drinks. Instead, they rely on genuine used empties carelessly thrown in the environment, as their primary source of packaging."
             customCard={
               <>
@@ -74,19 +104,25 @@ export default function WasteLitter() {
                     align: "start",
                   }}
                   className="w-full"
+                  setApi={setApi}
                 >
-                  <CarouselContent className="px-2 py-4 mt-6">
-                    {litterContent.map((card, index) => (
-                      <CarouselItem key={index} className="md:basis-4/6">
-                        <Card className="border-none shadow-lg p-4 h-full">
+                  <CarouselContent className="px-2 py-4 lg:mt-20 xl:mt-24">
+                    {litterContent.map((item, index) => (
+                      <CarouselItem key={index} className="md:basis-full">
+                        <Card className="border-none p-4 h-full">
                           <div className="text-accent/50 text-sm">
-                            {card.content}
+                            {item.title && (
+                              <h2 className="font-semibold text-lg text-black">{item.title}</h2>
+                            )}
+                            <p className="text-[#238A23]">
+                              {item.description}
+                            </p>
                           </div>
                         </Card>
                       </CarouselItem>
                     ))}
                   </CarouselContent>
-                  <div className="absolute top-2 right-14">
+                  <div className="absolute top-8 right-14">
                     <CarouselPrevious />
                     <CarouselNext />
                   </div>
@@ -96,6 +132,6 @@ export default function WasteLitter() {
           />
         }
       />
-    </>
+    </div>
   );
 }

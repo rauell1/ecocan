@@ -29,7 +29,7 @@ export default function ImageAndItem({
         <h2 className="text-[2rem] font-bold">{title}</h2>
         <p
           className={clsx(
-             "text-[#23262FCC]",
+             "text-[#23262FCC] my-6",
             mainClassName
           )}
         >
@@ -38,7 +38,7 @@ export default function ImageAndItem({
         <p className="text-accent font-light text-lg">{description}</p>
       </div>
       <div className={clsx("md:flex flex-col md:flex-row", className)}>
-        <div className="relative w-1/2 ">{image}</div>
+        <div className="relative w-1/2">{image}</div>
         <div className="md:w-1/2 space-y-4 me-auto">{item}</div>
       </div>
     </div>

@@ -13,14 +13,21 @@ const images = [
 
 export default function TapTap() {
   const [selectedImage, setSelectedImage] = useState(0);
-  const [isVisible, setIsVisible] = useState(true);
+  const [preloadedImages, setPreloadedImages] = useState<string[]>([]);
+
+  useEffect(() => {
+    const preloadImages = () => {
+      images.forEach((src) => {
+        const img = new window.Image();
+        img.src = src;
+      });
+      setPreloadedImages(images);
+    };
+    preloadImages();
+  }, []);
 
   const handleAccordionSelect = (id: number) => {
-    setIsVisible(false);
-    setTimeout(() => {
-      setSelectedImage(id - 1);
-      setIsVisible(true);
-    }, 300);
+    setSelectedImage(id - 1);
   };
 
   return (
@@ -29,17 +36,22 @@ export default function TapTap() {
       title="How EcocanApp works"
       subtitle="Tap Tap Tap, and, Wallah!"
       image={
-        <Image
-          src={images[selectedImage]}
-          alt={`EcocanApp step ${selectedImage + 1}`}
-          className={`object-cover transition-opacity duration-300 ease-in-out ${
-            isVisible ? "opacity-100" : "opacity-0"
-          }`}
-          width={500}
-          height={100}
-          priority
-          loading="eager"
-        />
+        <div className="relative w-full h-[31.25rem] rounded-2xl overflow-hidden">
+          {preloadedImages.map((src, index) => (
+            <Image
+              key={src}
+              src={src}
+              alt={`EcocanApp step ${index + 1}`}
+              className={`absolute top-0 left-0 w-full h-full object-cover transition-opacity duration-300 ease-in-out ${
+                index === selectedImage ? "opacity-100" : "opacity-0"
+              }`}
+              width={500}
+              height={500}
+              priority={index === 0}
+              loading="eager"
+            />
+          ))}
+        </div>
       }
       item={<AccordionDemo onSelect={handleAccordionSelect} />}
     />

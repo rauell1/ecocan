@@ -34,7 +34,7 @@ export default function CtaCardComponent() {
                 variant="outline"
                 className="bg-transparent hover:bg-transparent border-white text-white hover:text-white rounded-full h-[3rem] py-3 px-8 text-base"
               >
-                Become an Econsumer
+                Join the ECOmmunity
               </Button>
             </div>
           }

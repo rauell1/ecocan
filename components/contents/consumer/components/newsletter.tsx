@@ -14,7 +14,7 @@ export default function Newsletter() {
           description={
             <p>
               Subscribe to our newsletter and stay updated
-              <br /> with what&apos;s happening within the Ecommunity.
+              <br /> with what&apos;s happening within the ECOmmunity.
             </p>
           }
           component={
@@ -35,13 +35,13 @@ export default function Newsletter() {
         />
       }
       image={
-        <div className="relative lg:h-[28rem] overflow-hidden">
+        <div className="">
           <Image
-            src="/assets/images/courier/courier-four-img.svg"
+            src="/assets/images/consumer/newsletter-img.svg"
             alt="multiple image"
             width={900}
             height={100}
-            className="absolute top-0 left-14"
+            className="ms-auto"
           />
         </div>
       }
