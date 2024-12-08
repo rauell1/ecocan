@@ -19,7 +19,7 @@ export default function HeroContainer() {
               <TabsTrigger
                 key={tab}
                 value={tab}
-                className="rounded-full w-[5.575rem] md:w-36 text-[#0000004D] text-xs md:text-base z-50"
+                className="rounded-full w-[5.575rem] md:w-36 text-[#0000004D] text-[0.6875rem] md:text-base z-50"
               >
                 {tab.charAt(0).toUpperCase() + tab.slice(1)}
               </TabsTrigger>

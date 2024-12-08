@@ -7,7 +7,7 @@ export default function SellMore() {
     <div className="pb-24">
       <div className="max-w-[69.375rem] mx-auto">
         <div className="bg-[url('/assets/images/eco-station/success-pride.svg')] bg-cover bg-center relative after:absolute after:inset-0 after:content-[''] after:bg-black/90 after:opacity-50 after:-z-10 overflow-hidden z-50 rounded-[2rem] h-[27rem] flex flex-col justify-center">
-          <div className="lg:w-1/2 mx-auto text-center lg:text-start lg:ms-auto text-white z-20 me-8">
+          <div className="lg:w-1/2 text-center lg:text-start lg:ms-auto text-white z-20 mx-8">
             <h2 className="text-[2rem] font-semibold">
               Your success, our pride
             </h2>
