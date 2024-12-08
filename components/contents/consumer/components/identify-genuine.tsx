@@ -68,17 +68,17 @@ export default function IdentifyGenuine() {
           How to identify genuine products
         </h2>
       </div>
-      <div className="flex flex-col md:flex-row gap-6">
-        <div className="md:w-1/3">
+      <div className="flex flex-col lg:flex-row gap-6">
+        <div className="lg:w-1/3">
           <Image
             src="/assets/images/consumer/identify-genuine.svg"
             alt="ECOCAN Authentication"
             width={300}
             height={600}
-            className="mx-auto"
+            className="mx-auto lg:mx-0"
           />
         </div>
-        <div className="md:w-3/4">
+        <div className="lg:w-3/4">
           <SecurityFeatures/>
         </div>
       </div>

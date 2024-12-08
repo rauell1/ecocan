@@ -58,7 +58,7 @@ const cardContent = [
 
 export default function Exclusive() {
   return (
-    <div className="bg-[#FAFAFA] bg-center bg-cover flex items-center py-24">
+    <div className="bg-[#FAFAFA] bg-center bg-cover md:flex items-center py-24 hidden">
       <div className="max-w-[69.375rem] mx-auto px-4 xl:px-0">
         <TextWithCards
           title="Exclusive benefits for ECOnsumers"
@@ -77,7 +77,7 @@ export default function Exclusive() {
           customCard={
             <FeaturesGrid
               features={cardContent}
-              className="h-[31.25rem] bg-no-repeat rounded-3xl p-4 flex flex-col justify-end overflow-hidden shadow-md"
+              className="h-[22rem] lg:h-[28rem] xl:h-[31.25rem] bg-no-repeat rounded-3xl p-4 flex flex-col justify-end overflow-hidden lg:shadow-md"
               gap="gap-4"
             />
           }

@@ -108,7 +108,7 @@ export default function GetStarted() {
       customCard={
         <FeaturesGrid
           features={consumerFeatures}
-          className="lg:h-[33.25rem] xl:h-[41.25rem] bg-center p-4 flex flex-col justify-end after:absolute after:inset-0 after:content-[''] after:bg-black/40 after:opacity-70 after:z-10 overflow-hidden"
+          className="h-[28rem] lg:h-[33.25rem] xl:h-[41.25rem] bg-center p-4 flex flex-col justify-end after:absolute after:inset-0 after:content-[''] after:bg-black/40 after:opacity-70 after:z-10 overflow-hidden"
         />
       }
     />

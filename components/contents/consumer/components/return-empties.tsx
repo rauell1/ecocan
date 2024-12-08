@@ -5,7 +5,7 @@ import React from "react";
 const timelineData = {
   title: "How to return eligible empties",
   subtitle: (
-    <div className="text-base w-4/5">
+    <div className="text-sm md:text-base md:w-4/5">
       Only return empties of Aluminium cans, PET, Glass bottles and beverage
       cartons carrying ECOCAN Security codes. And are published on the ECOCAN
       website, and ECO-products section of EcocanApp.{" "}
@@ -33,9 +33,8 @@ const timelineData = {
     },
     {
       image: "/assets/images/consumer/how.svg",
-      title: "Or recycle via ECOCAN RVMs",
-      description:
-        "Scan your ECOCAN ID to the RVM, place your empties into the infeed, then complete the session. And you’ll immediately receive applicable deposits directly into your ECO-wallet",
+      title: "SO how does this ECO-system work?",
+      description: <HyperLink href="/" link="Learn more"/>
     },
   ],
 };
@@ -61,24 +60,13 @@ export default function ReturnEmpties() {
           </svg>
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 600 530"
+            viewBox="0 0 600 120"
             className="absolute bottom-0 z-50 hidden md:block lg:hidden"
           >
             <path
               fill="#F3F3F6"
               fill-opacity="1"
-              d="M0,300L600,0L600,600L0,600Z"
-            ></path>
-          </svg>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 350 510"
-            className="absolute bottom-0 z-50 md:hidden"
-          >
-            <path
-              fill="#F3F3F6"
-              fill-opacity="1"
-              d="M0,280L350,0L540,540L0,540Z"
+              d="M0,100L600,0L600,600L0,600Z"
             ></path>
           </svg>
     </div>

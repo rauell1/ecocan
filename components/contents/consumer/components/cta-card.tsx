@@ -9,11 +9,11 @@ import CtaCard from "@/components/shared/cta-card/cta-card";
 export default function CtaCardComponent() {
   return (
     <CtaCard
-      className="bg-[url('/assets/images/consumer/consumer-cta-card.jpeg')] py-[3.75rem] ps-[7.25rem] bg-cover bg-center relative after:absolute after:inset-0 after:content-[''] after:bg-black/90 after:opacity-50 after:-z-10 overflow-hidden z-50"
+      className="bg-[url('/assets/images/consumer/consumer-cta-card.jpeg')] py-[3.75rem] px-4 lg:ps-[7.25rem] bg-cover bg-center relative after:absolute after:inset-0 after:content-[''] after:bg-black/90 after:opacity-50 after:-z-10 overflow-hidden z-50"
       item={
         <TextWithComponent
           title={
-            <h2 className="text-white text-[2.5rem] mb-3">
+            <h2 className="text-white text-4xl lg:text-[2.5rem] mb-3">
               Cheers to ECO-
               <br />
               friendly savings!
@@ -21,12 +21,13 @@ export default function CtaCardComponent() {
           }
           description={
             <span className="text-white">
-              Save BIG, while, Saving the planet. Only with <br /> EcocanApp.
+              Only with EcocanApp.
             </span>
           }
           component={
-            <div className="flex gap-4">
+            <div className="flex flex-col md:flex-row gap-4">
               <PrimaryButton
+              className="hover:bg-primary"
                 buttonText="Download App"
                 buttonIcon={<LucideDownload />}
               />
@@ -41,13 +42,13 @@ export default function CtaCardComponent() {
         />
       }
       image={
-        <div className="w-[19.75rem] h-[22.625rem] mx-auto">
+        <div className="w-[19.75rem] h-[22.625rem] mx-auto hidden lg:block">
           <Image
             src="/assets/images/mobile-alt.svg"
             alt=""
             width={100}
             height={100}
-            className="w-full h-full"
+            className="w-full h-full "
           />
         </div>
       }

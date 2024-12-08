@@ -37,7 +37,7 @@ export function FaqSection() {
   const [selectedItem, setSelectedItem] = useState("item-1");
 
   return (
-    <div className="max-w-4xl mx-auto p-6">
+    <div className="max-w-4xl mx-auto">
       <ImageAndItem title="Frequently Asked Questions (FAQs)"/>
       <Accordion
         type="single"

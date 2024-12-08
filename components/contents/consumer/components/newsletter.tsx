@@ -7,7 +7,7 @@ import ImageAndItem from "@/components/shared/image-and-item/image-and-item";
 export default function Newsletter() {
   return (
     <ImageAndItem
-      className="md:flex-row-reverse items-center max-w-[65rem] mx-auto"
+      className="lg:flex-row-reverse items-center max-w-[65rem] mx-auto"
       item={
         <TextWithComponent
           title="Stay in the loop"
@@ -18,7 +18,7 @@ export default function Newsletter() {
             </p>
           }
           component={
-            <div className="mb-4 border border-[#E6E8EC] bg-white rounded-full flex items-center w-4/5">
+            <div className="mb-4 border border-[#E6E8EC] bg-white rounded-full flex items-center lg:w-4/5">
               <Input
                 placeholder="Enter your email"
                 className="text-[#777E90] border-none rounded-full focus:outline-none focus:border-none focus:ring-0"
@@ -35,13 +35,13 @@ export default function Newsletter() {
         />
       }
       image={
-        <div className="">
+        <div className="md:hidden lg:block">
           <Image
             src="/assets/images/consumer/newsletter-img.svg"
             alt="multiple image"
             width={900}
             height={100}
-            className="ms-auto"
+            className="lg:ms-auto"
           />
         </div>
       }

@@ -6,7 +6,7 @@ import { LucideArrowUpLeft, LucideArrowUpRight } from "lucide-react";
 
 export default function EnergyEfficiency() {
   return (
-    <div>
+    <div className="hidden lg:block">
       <CtaCard
         className="bg-[url('/assets/images/consumer/energy-efficiency.svg')] h-[33.75rem] bg-cover bg-center rounded-[2rem] ps-12 mb-24"
         item={

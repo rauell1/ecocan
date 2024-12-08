@@ -96,13 +96,13 @@ export default function DefaultHero() {
           </svg>
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 350 510"
+            viewBox="0 0 350 480"
             className="absolute bottom-0 z-50 md:hidden"
           >
             <path
               fill="#FAFAFA"
               fill-opacity="1"
-              d="M0,280L350,0L540,540L0,540Z"
+              d="M0,260L350,0L540,540L0,540Z"
             ></path>
           </svg>
         </div>

@@ -14,7 +14,7 @@ const rvmContent = [
     content: (
       <div>
         <h2 className="font-bold text-lg text-black">Verification</h2>
-        <p>
+        <p className="text-sm lg:text-base">
           Located at selected ECO-Stations, ECOnsumers identify themselves with
           their ECOCAN ID, before placing empties into the in-feed. It then
           authenticates the empties by taking up to 1000 pictures/second, to
@@ -30,7 +30,7 @@ const rvmContent = [
     content: (
       <div>
         <h2 className="font-bold text-lg text-black">Refund</h2>
-        <p>
+        <p className="text-sm lg:text-base">
           If the empties are eligible, ECOcans will accept them and calculate
           the deposit owed, which is then digitally refunded into ECO-wallets.
           If the empties are ineligible, they’ll be rejected, and no deposit
@@ -47,7 +47,7 @@ const rvmContent = [
     content: (
       <div>
         <h2 className="font-bold text-lg text-black">Sustainability</h2>
-        <p>
+        <p className="text-sm lg:text-base">
           The energy efficient Pure ECOcans are the world’s smallest patented
           RVMs, yet equipped with even better capabilities than larger RVMs.
           i.e., digital deposit refund eliminates need for paper receipts;
@@ -70,7 +70,7 @@ export default function WhatIsEcocan() {
     <div className="relative bg-[#F3F3F6]">
       <div className="max-w-[69.375rem] mx-auto pb-36 px-4 xl:px-0">
         <ImageAndItem
-          className="md:flex-row-reverse items-center"
+          className="lg:flex-row-reverse items-center gap-6 lg:gap-12"
           image={
             <Image
               src="/assets/images/consumer/rvm.svg"
@@ -85,7 +85,7 @@ export default function WhatIsEcocan() {
             <TextWithComponent
               title="What is an ECOcan?"
               description={
-                <p className="w-4/5">
+                <p className="md:w-4/5">
                   The ECOCAN Reverse Vending Machine is an automated device,
                   that accepts eligible empties returned for recycling, and
                   refunds applicable deposit money digitally into ECO-wallets
@@ -96,11 +96,11 @@ export default function WhatIsEcocan() {
         />
         <TextWithCards
           customCard={
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-3 lg:gap-6 mt-12">
               {rvmContent.map((card, index) => (
                 <WhiteBgCard
                   iconPath={card.iconPath}
-                  className="border-none bg-white shadow-sm"
+                  className="border-none bg-white shadow-sm z-[9997]"
                   key={index}
                   content={card.content}
                 />
@@ -122,27 +122,16 @@ export default function WhatIsEcocan() {
       </svg>
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 600 530"
+        viewBox="0 0 600 120"
         className="absolute bottom-0 z-50 hidden md:block lg:hidden"
       >
         <path
-          fill="#fff"
+          fill="#FAFAFA"
           fill-opacity="1"
-          d="M0,300L600,0L600,600L0,600Z"
+          d="M0,100L600,0L600,600L0,600Z"
         ></path>
       </svg>
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 350 510"
-        className="absolute bottom-0 z-50 md:hidden"
-      >
-        <path
-          fill="#fff"
-          fill-opacity="1"
-          d="M0,280L350,0L540,540L0,540Z"
-        ></path>
-      </svg>
-      <Image src="/assets/images/consumer/green-rectangles.svg" alt="green rectangles" className="absolute bottom-0 -left-2 z-[9997] w-[20.25rem]" width={100} height={100}/>
+      <Image src="/assets/images/consumer/green-rectangles.svg" alt="green rectangles" className="absolute bottom-0 -left-2 z-[9997] w-[20.25rem] hidden md:block" width={100} height={100}/>
     </div>
   );
 }

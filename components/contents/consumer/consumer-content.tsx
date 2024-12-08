@@ -24,35 +24,42 @@ import WhatIsEcocan from "./components/what-is-ecocan";
 import CtaCard from "@/components/shared/cta-card/cta-card";
 import EnergyEfficiency from "./components/energy-efficiency";
 
-
-
 export default function ConsumerContent() {
   return (
     <>
       <div className="">
-        <div className="max-w-[69.375rem] mx-auto pb-24 py-8 px-4">
+        <div className="max-w-[69.375rem] mx-auto pb-24 py-8 px-4 xl:px-0">
           <GetStarted />
         </div>
-        <div className="bg-[#F3F3F6] py-24">
-          <div className="max-w-[69.375rem] mx-auto py-8 px-4">
+        <div className="bg-[#F3F3F6] py-24 ">
+          <div className="max-w-[69.375rem] mx-auto py-8 px-4 xl:px-0">
             <TapTap />
           </div>
         </div>
         <div className="bg-white py-24">
-          <div className="max-w-[69.375rem] mx-auto py-8 px-4">
+          <div className="max-w-[69.375rem] mx-auto py-8 px-4 xl:px-0">
             <IdentifyGenuine />
           </div>
         </div>
         <div className="bg-[#F3F3F6]">
           <ReturnEmpties />
-          <WhatIsEcocan/>
-          <Exclusive /> 
+          <WhatIsEcocan />
+          <Exclusive />
         </div>
       </div>
 
       <div className="max-w-[69.375rem] mx-auto space-y-24 px-4 xl:px-0">
         <WasteLitter />
-        <EnergyEfficiency/>
+        <EnergyEfficiency />
+      </div>
+      <div className="w-screen pb-24 md:hidden">
+        <Image
+          src="/assets/images/consumer/mobile-cta.svg"
+          alt="cta"
+          className="w-full"
+          width={100}
+          height={100}
+        />
       </div>
 
       <div className="max-w-[69.375rem] mx-auto space-y-24 px-4 xl:px-0">

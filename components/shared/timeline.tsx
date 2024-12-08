@@ -5,7 +5,7 @@ import clsx from "clsx";
 interface TimelineItem {
   image: string;
   title: string;
-  description: string;
+  description?: React.ReactNode;
 }
 
 interface TimelineProps {
@@ -22,13 +22,13 @@ const Timeline: React.FC<TimelineProps> = ({ title, subtitle, items, className }
 
   return (
     <div className="max-w-[69.375rem] mx-auto px-4 xl:px-0">
-      <h2 className="text-3xl font-bold mb-2">{title}</h2>
-      <div className="text-lg mb-6">{subtitle}</div>
+      <h2 className="text-2xl md:text-3xl font-bold mb-2">{title}</h2>
+      <p className="md:text-lg mb-6">{subtitle}</p>
 
       <div className="relative">
         <div 
           className={clsx(
-            "absolute left-[40%] top-0 w-[1px] bg-white transform -translate-x-1/2",
+            "absolute left-[45%] md:left-[40%] top-0 w-[1px] bg-white transform -translate-x-1/2",
             className
           )}
           style={{ height: lineHeight }}
@@ -43,9 +43,9 @@ const Timeline: React.FC<TimelineProps> = ({ title, subtitle, items, className }
             {/* Container for the entire row */}
             <div className="flex items-stretch">
               {/* Left side with image */}
-              <div className="w-2/5 pr-8">
-                <div className="relative w-11/12">
-                  <div className="w-full h-[12.5rem] rounded-2xl overflow-hidden relative">
+              <div className="w-2/5 md:pr-8">
+                <div className="relative md:w-11/12">
+                  <div className="w-full h-36 md:h-[12.5rem] rounded-2xl overflow-hidden relative">
                     <Image
                       src={item.image}
                       alt={item.title}
@@ -60,7 +60,7 @@ const Timeline: React.FC<TimelineProps> = ({ title, subtitle, items, className }
               </div>
 
               {/* Connector dot */}
-              <div className="absolute left-[40%] top-0 -translate-x-1/2">
+              <div className="absolute left-[45%] md:left-[40%] top-0 -translate-x-1/2">
                 <div className={clsx(
                   "w-3 h-3 bg-white transition-transform duration-300",
                   activeIndex === index ? "scale-150" : ""
@@ -69,19 +69,19 @@ const Timeline: React.FC<TimelineProps> = ({ title, subtitle, items, className }
 
               {/* Right side with content */}
               <div className="w-3/5">
-                <div className="w-10/12 mx-auto transition-colors duration-300">
+                <div className="w-10/12 ms-auto md:mx-auto transition-colors duration-300">
                   <h3 className={clsx(
                     "font-bold mb-2 transition-colors duration-300",
                     activeIndex === index ? "text-white" : "text-white/70"
                   )}>
                     {item.title}
                   </h3>
-                  <p className={clsx(
-                    "font-light transition-colors duration-300",
+                  <div className={clsx(
+                    "font-light transition-colors duration-300 text-xs md:text-sm lg:text-base",
                     activeIndex === index ? "text-white" : "text-white/70"
                   )}>
                     {item.description}
-                  </p>
+                  </div>
                 </div>
               </div>
             </div>
