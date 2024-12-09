@@ -19,10 +19,8 @@ const steps = [
       </div>
     ),
     step: (
-      <p className="mb-3 w-3/4 font-light leading-7 text-left text-[#23262fcc]">
-        Use <HyperLink href="/" link="EcocanApp" /> to reliably authenticate
-        genuine drinks carrying{" "}
-        <HyperLink href="/" link="ECOCAN security codes" />
+      <p className="mb-3 w-4/5 font-light leading-7 text-left text-[#23262fcc]">
+        EcocanApp enables reliable authentication of genuine beverages carrying ECOCAN Security codes, before purchase
       </p>
     ),
   },
@@ -39,9 +37,8 @@ const steps = [
       </div>
     ),
     step: (
-      <p className="mb-3 w-3/4 font-light leading-7 text-left text-[#23262fcc]">
-        After enjoying your drink, return empties to ECO-Stations for recycling,
-        via the <HyperLink href="/" link="ECOCAN DRS" />
+      <p className="mb-3 w-4/5 font-light leading-7 text-left text-[#23262fcc]">
+        After enjoying genuine drinks, the ECOmmunity can return eligible empties to the nearest ECO-Station for recycling, via the <HyperLink href="/" link="ECOCAN DRS" />
       </p>
     ),
   },
@@ -58,7 +55,7 @@ const steps = [
       </div>
     ),
     step: (
-      <p className="mb-3 w-3/4 font-light leading-7 text-left text-[#23262fcc]">
+      <p className="mb-3 w-4/5 font-light leading-7 text-left text-[#23262fcc]">
         The <HyperLink href="/" link="ECOCAN TnT" /> enables real time
         monitoring of counterfeiting attemps
       </p>
@@ -69,24 +66,22 @@ const steps = [
 export default function Intervention() {
   return (
     <TextWithComponent
-      title="Much needed intervention"
+      title="Re-imagined intervention"
       description={
-        <div className="w-3/5">
+        <div className="md:w-8/12">
           <p>
-            ECOCAN offers a suite of advanced technology solutions, to empower
-            the ECOmmunity to effectively combat harmful counterfeit trade.
-            These intelligent solutions provide high security, yet most
-            affordable anti-counterfeit protection
+          ECOCAN offers a suite of advanced technology solutions, to empower the ECOmmunity to effectively combat counterfeits. This offering provides high-level security, most affordably.
           </p>
         </div>
       }
       component={
         <ImageAndItem
-          className="md:flex-row-reverse items-center"
+          className="lg:flex-row-reverse items-center"
           image={
             <Image
-              src="/assets/images/solutions/scan.svg"
+              src="/assets/images/solutions/intervention.svg"
               alt="ecocan scan"
+              className="rounded-[2rem] ms-auto"
               width={500}
               height={100}
             />

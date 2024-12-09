@@ -31,26 +31,28 @@ export default function SectionPage({ params }: SectionPageProps) {
         className={isScrolled ? "bg-white" : "bg-transparent backdrop-blur-xl"}
         logoSrc="/assets/images/ecocan-logo.svg"
       />
-      <div className="max-w-[69.375rem] mx-auto px-4 xl:px-0 pt-24">
-        <Breadcrumb>
-          <BreadcrumbList>
-            <BreadcrumbItem>
-              <BreadcrumbLink onClick={() => router.push('/solutions')} className="cursor-pointer">
-                Solutions
-              </BreadcrumbLink>
-            </BreadcrumbItem>
-            <BreadcrumbSeparator />
-            <BreadcrumbItem>
-              <BreadcrumbPage>
-                {params.section.split('-').map(word => 
-                  word.charAt(0).toUpperCase() + word.slice(1)
-                ).join(' ')}
-              </BreadcrumbPage>
-            </BreadcrumbItem>
-          </BreadcrumbList>
-        </Breadcrumb>
+      <div>
+        <div className="max-w-[69.375rem] mx-auto px-4 xl:px-0 pt-24">
+            <Breadcrumb>
+              <BreadcrumbList>
+                <BreadcrumbItem>
+                  <BreadcrumbLink onClick={() => router.push('/solutions')} className="cursor-pointer">
+                    Solutions
+                  </BreadcrumbLink>
+                </BreadcrumbItem>
+                <BreadcrumbSeparator />
+                <BreadcrumbItem>
+                  <BreadcrumbPage>
+                    {params.section.split('-').map(word =>
+                      word.charAt(0).toUpperCase() + word.slice(1)
+                    ).join(' ')}
+                  </BreadcrumbPage>
+                </BreadcrumbItem>
+              </BreadcrumbList>
+            </Breadcrumb>
+        </div>
         
-        <div className="mt-8">
+        <div>
           <SectionComponent />
         </div>
       </div>

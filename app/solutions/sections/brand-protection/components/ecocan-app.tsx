@@ -6,6 +6,7 @@ import Image from "next/image";
 import React from "react";
 import EcocanAppFeatures from "./ecocan-app-features";
 import { Nunito_Sans } from "next/font/google";
+import PrimaryButton from "@/components/shared/primary-btn";
 
 const nunitoSans = Nunito_Sans({ subsets: ["latin"] });
 
@@ -13,15 +14,29 @@ export default function EcocanApp() {
   return (
     <div className="space-y-12">
       <div className={`text-center space-y-4 ${nunitoSans.className}`}>
-          <h2 className="text-3xl font-bold">EcocanApp</h2>
-          <p>
-            EcocanApp is our proprietary, free to use, mobile application, enabling
-            ECOnsumers to easily and reliably authenticate genuine products. <br/>By
-            simply scanning the ECOCAN Security codes printed on eligible products’
-            packaging, to ensure their authenticity{" "}
-          </p>
+        <h2 className="text-3xl font-extrabold">EcocanApp</h2>
+        <p className="text-[#2F313F] lg:w-4/5 xl:w-1/2 mx-auto">
+          EcocanApp is our proprietary,{" "}
+          <span className="font-bold">free to use</span> mobile application,
+          enabling ECOnsumers to easily and reliably verify genuine products. By
+          simply scanning the{" "}
+          <span className="font-bold">ECOCAN Security codes</span> printed onto
+          eligible products&apos; packaging. To guarantee their authenticity
+        </p>
       </div>
-      <EcocanAppFeatures/>
+      <div className="text-center relative">
+        <Image
+          src="/assets/images/solutions/mobile-block.svg"
+          alt=""
+          width={1000}
+          height={100}
+          className="mx-auto"
+        />
+        <PrimaryButton
+          buttonText="Download App"
+          className="md:absolute bottom-4 lg:bottom-8 lg:left-1/2 md:-translate-x-[5.125rem] hover:bg-primary text-sm lg:text-base"
+        />
+      </div>
     </div>
   );
 }

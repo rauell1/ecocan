@@ -15,26 +15,24 @@ import { type CarouselApi } from "@/components/ui/carousel";
 
 const litterContent = [
   {
-    title: "1. Illicit refill",
+    title: "Traceability",
     description:
-      "When you carelessly discard empties instead of returning them to ECO-stations, you'll be helping counterfeit criminals. Who will simply pick the empties, fill them with fake drinks, and put them back to the market. And to the naked eye, they'll appear similar to genuine products but contain dangerously potent substances",
-    image: "/assets/images/consumer/refill.svg",
+      "To ensure each product is unique, is digitally connected, and can be traced. ECOnsumers scan these codes with their ECO-scanners to authenticate the products in under 3 seconds.",
+    image: "/assets/images/solutions/security.svg",
   },
   {
-    title: "2. Fight back",
+    title: "Heading",
     description: (
       <>
-        But with EcocanApp, you now have the power to identify and avoid such
-        fakes. Nevertheless, ensure to return your empties to ECO-Stations for
-        recycling, that we completely kick these criminals out of the market
+        But with EcocanApp, you now have the power to identify and avoid such fakes. Nevertheless, ensure to return your empties to ECO-Stations for recycling, that we completely kick these criminals out of the market
       </>
     ),
     image: "/assets/images/consumer/fight-back.svg",
   },
   {
-    title: "3. Loophole",
+    title: "Loophole",
     description:
-      "And if you're a producer who doesn't safeguard the integrity of your products, nor facilitate elaborate recycling of post-consumer empties, you're inadvertently supporting counterfeit trade, thus endangering the life of your customers",
+      "So, let's join hands in the ECOmmunity and stop these criminals, protect our health from harmful fake drinks, ensure we get value for money, and safeguard our legitimate businesses",
     image: "/assets/images/consumer/loophole.svg",
   },
   {
@@ -45,7 +43,7 @@ const litterContent = [
   },
 ];
 
-export default function WasteLitter() {
+export default function SecurityCodesSlider() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [api, setApi] = useState<CarouselApi>();
   const [currentImage, setCurrentImage] = useState(litterContent[0].image);
@@ -68,7 +66,7 @@ export default function WasteLitter() {
         await Promise.all(imagePromises);
         setImagesPreloaded(true);
       } catch (error) {
-        console.error('Error preloading images:', error);
+        console.error("Error preloading images:", error);
         // Still set as preloaded to not block the UI
         setImagesPreloaded(true);
       }
@@ -85,12 +83,12 @@ export default function WasteLitter() {
     api.on("select", () => {
       const newIndex = api.selectedScrollSnap();
       setCurrentIndex(newIndex);
-      
+
       setIsTransitioning(true);
       setTimeout(() => {
         setCurrentImage(litterContent[newIndex].image);
         setIsTransitioning(false);
-      }, 300); 
+      }, 300);
     });
   }, [api]);
 
@@ -105,7 +103,6 @@ export default function WasteLitter() {
   return (
     <div className="hidden md:block">
       <ImageAndItem
-        title={<p className="text-left">Did you know...?</p>}
         className="lg:gap-12 lg:flex-row-reverse"
         image={
           <div className="xl:w-[31.25rem] hidden lg:block w-4/6 lg:w-full mx-auto lg:mx-0 lg:h-[31.25rem] overflow-hidden">
@@ -125,12 +122,18 @@ export default function WasteLitter() {
           <TextWithCards
             className="w-full"
             subtitle={
-              <p className="text-2xl mb-8 font-semibold">
-                {`Waste litter =>`} <br />
-                Counterfeit trade
+              <p className="text-4xl mb-8 font-semibold text-white">
+                {`ECOCAN`} <br />
+                Security Codes
               </p>
             }
-            description="Counterfeit criminals often lack capacity to legitimately acquire new bottles for their illegal fake drinks. Instead, they rely on genuine used empties carelessly thrown in the environment, as their primary source of packaging."
+            description={
+              <p className="text-[#888D92]">
+                <HyperLink href="/" link="ECOCAN Security Codes" /> are
+                serialized, blockchain-compatible, anti-copy codes. Which are
+                only printed onto packaging of genuine eligible products.{" "}
+              </p>
+            }
             customCard={
               <>
                 <Carousel
@@ -146,11 +149,11 @@ export default function WasteLitter() {
                         <Card className="border-none p-4 h-full shadow-none">
                           <div className="text-accent/50 text-sm">
                             {item.title && (
-                              <h2 className="font-semibold text-lg text-black">{item.title}</h2>
+                              <h2 className="font-semibold text-lg text-black">
+                                {item.title}
+                              </h2>
                             )}
-                            <p className="text-[#238A23]">
-                              {item.description}
-                            </p>
+                            <p className="text-[#238A23]">{item.description}</p>
                           </div>
                         </Card>
                       </CarouselItem>

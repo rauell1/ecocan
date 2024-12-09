@@ -11,7 +11,7 @@ export default function Intersection() {
             alt="white man collecting plastic"
             width={300}
             height={500}
-            className="object-cover"
+            className="lg:w-full lg:h-full object-cover"
           />
         </div>
         <div className="lg:w-1/2 h-full lg:space-y-8 md:flex p-8 lg:p-0 lg:flex-col lg:items-center lg:justify-center gap-4 lg:gap-0">

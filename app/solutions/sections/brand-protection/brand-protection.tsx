@@ -1,35 +1,24 @@
 import React from "react";
 import GlobalCountryExample from "./components/global-country-example";
 import Image from "next/image";
-import {
-  serialized,
-} from "@/lib/imageIndex";
+import { serialized } from "@/lib/imageIndex";
 import WasteLitter from "./components/waste-litter";
 import Intervention from "./components/intervention";
 import TnT from "./components/ecocan-tnt";
 import SecurityCodes from "./components/security-codes";
 import EcocanApp from "./components/ecocan-app";
+import Heading from "./components/heading";
 
 export default function BrandProtection() {
   return (
     <div className="space-y-24">
-      <GlobalCountryExample />
-      {/* waste litter */}
-      <WasteLitter />
-      {/* much needed intervention */}
-      <Intervention />
-      {/* ecocan tnt */}
-      <TnT />
+      <Heading />
+      <div className="max-w-[69.375rem] mx-auto px-4 xl:px-0 space-y-24">
+        <WasteLitter />
+        <Intervention />
+        <TnT />
+      </div>
       <SecurityCodes />
-      <Image
-        src={serialized}
-        width={1000}
-        height={1000}
-        alt="serialized and non-serialized"
-        className="w-full h-full shadow-lg rounded-2xl"
-        priority
-      />
-      {/* more on the ecocan app */}
       <EcocanApp />
     </div>
   );

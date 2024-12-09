@@ -2,6 +2,7 @@ import React from "react";
 import Image from "next/image";
 import StyledText from "@/components/shared/styled-text";
 import { Nunito_Sans } from "next/font/google";
+import clsx from "clsx";
 
 const nunitoSans = Nunito_Sans({ subsets: ["latin"] });
 
@@ -9,19 +10,19 @@ type FeatureItem = {
   title: string;
 };
 
-const FeatureList: React.FC<{ items: FeatureItem[]; startIndex?: number }> = ({
+const FeatureList: React.FC<{ items: FeatureItem[]; startIndex?: number; className?:string }> = ({
   items,
-  startIndex = 1,
+  className,
 }) => (
-  <ul className="space-y-12">
+  <div className="space-y-12">
     {items.map((item, index) => (
-      <li key={index}>
+      <div key={index} className={clsx(`border w-3/5 text-center p-4`, className)}>
         <h3 className={`${nunitoSans.className}`}>
-          {startIndex + index}. {item.title}
+          {item.title}
         </h3>
-      </li>
+      </div>
     ))}
-  </ul>
+  </div>
 );
 
 const leftFeatures: FeatureItem[] = [
@@ -45,33 +46,24 @@ const rightFeatures: FeatureItem[] = [
 export default function EcocanAppFeatures() {
   return (
     <div className="mx-auto px-4">
-      <div className="flex flex-col md:flex-row items-center">
-        <div className="md:w-1/3 text-right">
-          <FeatureList items={leftFeatures} />
+      <div className="grid md:grid-cols-3 items-center">
+        <div className="border relative">
+          <FeatureList items={leftFeatures} className="ms-auto"/>
         </div>
-        <div className="md:w-1/3">
+        <div className="relative h-[33.875rem]">
           <Image
-            src="/assets/images/solutions/ecocan-app.svg"
+            src="/assets/images/solutions/circular-mobile.svg"
             alt="ECOCAN Authentication"
-            width={300}
+            width={1000}
             height={600}
-            className="mx-auto"
+            className="mx-auto absolute top-0 left-5"
           />
         </div>
-        <div className="md:w-1/3">
+        <div className="">
           <div>
             <FeatureList items={rightFeatures} startIndex={3} />
           </div>
         </div>
-      </div>
-      <div className="relative h-[6rem] w-[12rem] mx-auto overflow-hidden">
-        <Image
-          src="/assets/images/solutions/red-ball.svg"
-          alt="ECOCAN Authentication"
-          width={47}
-          height={47}
-          className="w-auto h-auto absolute -top-10 -right-2"
-        />
       </div>
     </div>
   );

@@ -45,14 +45,14 @@ export default function TnT() {
   return (
     <>
         <ImageAndItem
-          className="gap-12 items-center"
+          className="gap-12"
           image={
             <Image
-              src={computer}
+              src="/assets/images/solutions/tnt.svg"
               alt="beach bottle"
               width={1000}
               height={1000}
-              className="w-full h-full"
+              className="w-full h-full rounded-[2rem]"
             />
           }
           item={
@@ -73,7 +73,7 @@ export default function TnT() {
                     <HyperLink
                       link="Learn More"
                       href="/"
-                      className="text-[#000000bf] after:bg-[#000000bf]"
+                      className="text-black after:bg-[#000000bf]"
                     />
                     <LucideChevronRight size={18}/>
                   </div>
@@ -82,7 +82,6 @@ export default function TnT() {
             />
           }
         />
-        <p className="text-center font-semibold">The ECOCAN TnT is powered by our proprietary EcocanApp,<br/> ECOCAN Security codes, and the ECOCAN DRS</p>
     </>
   );
 }
