@@ -3,7 +3,7 @@ import React from "react";
 
 export default function Download() {
   return (
-    <div className="max-w-[69.375rem] mx-auto px-4 xl:px-0 bg-[url('/assets/images/solutions/download-bg.svg')] lg:h-[43.75rem] flex flex-col justify-center">
+    <div className="max-w-[69.375rem] mx-auto px-4 xl:px-0 bg-[url('/assets/images/solutions/download-bg.svg')] hidden lg:h-[43.75rem] lg:flex flex-col justify-center">
       <div className="ms-5">
         <h1 className="text-white text-5xl font-semibold">
           ECOCAN, your unfair <br />

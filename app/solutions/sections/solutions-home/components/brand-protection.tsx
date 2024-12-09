@@ -16,7 +16,7 @@ export default function BrandProtection() {
           <Image
             src="/assets/images/consumer/rvm.svg"
             alt="Online store"
-            className="object-cover rounded-3xl"
+            className="object-cover rounded-3xl me-auto"
             priority
             width={500}
             height={100}

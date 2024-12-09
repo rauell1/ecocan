@@ -38,7 +38,7 @@ export default function ImageAndItem({
         <div className="text-accent font-light text-lg">{description}</div>
       </div>
       <div className={clsx("flex flex-col-reverse lg:flex-row", className)}>
-        <div className="relative lg:w-1/2">{image}</div>
+        <div className="relative lg:w-1/2 me-auto">{image}</div>
         <div className="lg:w-1/2 space-y-4 me-auto w-full">{item}</div>
       </div>
     </div>
