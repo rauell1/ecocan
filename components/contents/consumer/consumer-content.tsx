@@ -10,7 +10,7 @@ import TextWithComponent from "./components/text-with-component";
 import { FaqSection } from "./components/faq";
 import WhiteBgCard from "@/components/shared/white-bg-card";
 import CustomCard from "@/components/shared/text-with-cards/custom-card";
-import WasteLitter from "@/app/solutions/components/brand-protection/components/waste-litter";
+import WasteLitter from "@/app/solutions/sections/brand-protection/components/waste-litter";
 import IdentifyGenuine from "./components/identify-genuine";
 import News from "./components/news";
 import ReturnEmpties from "./components/return-empties";

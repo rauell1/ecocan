@@ -82,12 +82,12 @@ const footerData: FooterColumn[] = [
 
 export default function Footer() {
   return (
-    <footer className="bg-[#FCFCFD] px-4 xl:px-0">
+    <footer className="bg-[#2F313F] px-4 xl:px-0">
       <div className="xl:max-w-[69.375rem] mx-auto grid py-[6.25rem] grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
         {footerData.map((column, index) => (
           <div key={index}>
             {column.title && (
-              <h3 className="font-semibold mb-4">{column.title}</h3>
+              <h3 className="font-semibold mb-4 text-[#E6E8EC]">{column.title}</h3>
             )}
             {column.items.map((item, itemIndex) => {
               switch (item.type) {
@@ -128,7 +128,7 @@ export default function Footer() {
                     <div key={itemIndex} className="gap-8">
                       <a
                         href={item.href}
-                        className="block mb-4 text-gray-600 hover:text-gray-800 gap-8"
+                        className="block mb-4 text-[#888D92] hover:text-gray-500 gap-8"
                       >
                         {item.content}
                       </a>
@@ -142,7 +142,7 @@ export default function Footer() {
                     >
                       <Input
                         placeholder="Enter your email"
-                        className="text-[#777E90] border-none rounded-full focus:outline-none focus:border-none focus:ring-0"
+                        className="text-[#E6E8EC] bg-transparent border-none rounded-full focus:outline-none focus:border-none focus:ring-0"
                       />
                       <Image
                         src="/assets/icons/right-arrow.svg"

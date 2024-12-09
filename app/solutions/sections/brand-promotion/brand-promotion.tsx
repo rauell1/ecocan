@@ -38,7 +38,7 @@ const accordionItems = [
   },
 ];
 
-export default function ConsumerEngagement() {
+export default function BrandPromotion() {
   return (
     <div className="space-y-24">
       <TextWithComponent
