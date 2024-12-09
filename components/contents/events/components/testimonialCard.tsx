@@ -12,10 +12,10 @@ interface TestimonialCardProps {
 
 const TestimonialCard: React.FC<TestimonialCardProps> = ({ image, name, surname, testimony, title }) => {
   return (
-    <div className="max-w-[504px] rounded-xl overflow-hidden shadow-lg p-4 bg-[#FEFEFE]">
+    <div className="max-w-[504px] rounded-xl overflow-hidden shadow-lg p-4 bg-gradient-to-br from-[#6B6B78] to-[#888D92]">
       <div className="flex items-center mb-4">
         <Image className="w-[2.5rem] h-[2.5rem] rounded-full mr-1" width={1000} height={1000} src={image} alt={`${name} ${surname}`} />
-        <div className="text-base font-bold leading-5">
+        <div className="text-base font-bold leading-5 text-white">
           {name} {surname}
         </div>
         <div className="flex ms-auto">
@@ -26,12 +26,12 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({ image, name, surname,
           <LucideStar size={18} className="text-[#FFDD4C] fill-[#FFDD4C]"/>
         </div>
       </div>
-      <p className="text-gray-700 text-base font-normal leading-6 mb-4">
+      <p className="text-white/60 text-sm font-normal leading-6 mb-4">
         {testimony}
       </p>
       <div className="flex justify-between items-center">
         <span className="text-gray-900 text-sm font-bold leading-5">{name}</span>
-        <span className="text-gray-600 text-sm font-normal leading-5">{title}</span>
+        <span className="text-white/60 text-sm font-normal leading-5">{title}</span>
       </div>
     </div>
   );

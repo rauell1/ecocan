@@ -4,42 +4,42 @@ import TestimonialCard from "./testimonialCard";
 const testimonialsData = [
   {
     image: "/assets/images/events/memoji.png",
-    name: "John",
-    surname: "Doe",
-    testimony: "This is a great product! I highly recommend it to everyone.",
+    name: "Kenya Rugby",
+    surname: "International Safari 7s",
+    testimony: "Our official 2023 international Safari Sevens sustainability partners, ECOCAN. Asante sana for keeping us green!",
     title: "CEO, Company Inc.",
   },
   {
     image: "/assets/images/events/memoji.png",
-    name: "Jane",
-    surname: "Smith",
-    testimony: "Amazing experience! Will definitely use this service again.",
+    name: "Sportspesa",
+    surname: "Legends",
+    testimony: "Dear Ecocan... asanteni sana for supporting the #SportPesaLegendsCup we couldn't have done it without you. #KEvUGLegends #WazeeHukumbuka",
     title: "CTO, Tech Solutions",
   },
   {
     image: "/assets/images/events/memoji.png",
-    name: "Alice",
-    surname: "Johnson",
-    testimony: "Highly satisfied with the results. Great job!",
+    name: "Kenya",
+    surname: "Harlequins",
+    testimony: "Committed to a cleaner, greener future! Excited to introduce Christie 7s official waste management partner, ECOCAN, dedicated to sustainable solutions that keep our environment pristine.",
     title: "Manager, Business Corp.",
   },
   {
     image: "/assets/images/events/memoji.png",
-    name: "Bob",
-    surname: "Brown",
-    testimony: "Exceptional quality and service. Five stars!",
+    name: " Kabeberi",
+    surname: "7s",
+    testimony: "Exciting news! We are teaming up with ECOCAN to make #Kabeberi 7s an ECO-friendly event. Let’s tackle plastic pollution together. Say no to single use plastics and help keep our environment clean by disposing of litter in designated trash points around the venue",
     title: "Director, Creative Agency",
   },
 ];
 
 const Testimonials = () => {
   return (
-    <div className="bg-white my-16">
+    <div className="bg-[#2F313F] py-12 px-4 xl:px-0">
       <div className="max-w-[69.375rem] mx-auto py-8">
         <h2 className="bg-gradient-to-tr from-[#228B22] via-[#FFDD4C] to-[#FFDD4C] text-transparent bg-clip-text capitalize mb-2 text-center text-[2rem] font-medium">
           Testimonials
         </h2>
-        <div className="grid grid-cols-2 gap-5 mb-5">
+        <div className="grid lg:grid-cols-2 gap-5 mb-5">
           {testimonialsData.map((testimonial, index) => (
             <TestimonialCard
               key={index}

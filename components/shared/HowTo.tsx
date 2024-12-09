@@ -47,7 +47,7 @@ const HowTo: React.FC<HowToProps> = ({
     <div className="py-24 bg-[#2F313F] text-white relative">
       <div className="max-w-[69.375rem] mx-auto px-4 xl:px-0">
         <ImageAndItem
-        className="lggap-12 xl:gap-0"
+        className="lg:gap-12 xl:gap-0"
           item={<Item />}
           image={
             <Image
