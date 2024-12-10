@@ -105,7 +105,7 @@ export default function WasteLitter() {
   return (
     <div className="hidden md:block">
       <ImageAndItem
-        title={<p className="text-left">Did you know...?</p>}
+        title={<div className="text-left">Did you know...?</div>}
         className="lg:gap-12 lg:flex-row-reverse"
         image={
           <div className="xl:w-[31.25rem] hidden lg:block w-4/6 lg:w-full mx-auto lg:mx-0 lg:h-[31.25rem] overflow-hidden">
@@ -146,11 +146,11 @@ export default function WasteLitter() {
                         <Card className="border-none p-4 h-full shadow-none">
                           <div className="text-accent/50 text-sm">
                             {item.title && (
-                              <h2 className="font-semibold text-lg text-black">{item.title}</h2>
+                              <div className="font-semibold text-lg text-black">{item.title}</div>
                             )}
-                            <p className="text-[#238A23]">
+                            <div className="text-[#238A23]">
                               {item.description}
-                            </p>
+                            </div>
                           </div>
                         </Card>
                       </CarouselItem>

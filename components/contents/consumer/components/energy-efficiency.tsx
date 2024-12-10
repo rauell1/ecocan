@@ -2,7 +2,7 @@ import CtaCard from "@/components/shared/cta-card/cta-card";
 import React from "react";
 import TextWithComponent from "./text-with-component";
 import { Button } from "@/components/ui/button";
-import { LucideArrowUpLeft, LucideArrowUpRight } from "lucide-react";
+import { LucideArrowUpRight } from "lucide-react";
 
 export default function EnergyEfficiency() {
   return (

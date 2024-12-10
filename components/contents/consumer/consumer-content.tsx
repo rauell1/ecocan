@@ -1,27 +1,19 @@
 "use client";
 
 import React from "react";
-import TextWithCards from "../../shared/text-with-cards/text-with-cards";
-import ImageAndItem from "@/components/shared/image-and-item/image-and-item";
 import Image from "next/image";
-import HyperLink from "@/components/shared/hyperlink/hyperlink";
 
-import TextWithComponent from "./components/text-with-component";
 import { FaqSection } from "./components/faq";
-import WhiteBgCard from "@/components/shared/white-bg-card";
-import CustomCard from "@/components/shared/text-with-cards/custom-card";
 import WasteLitter from "@/app/solutions/sections/brand-protection/components/waste-litter";
 import IdentifyGenuine from "./components/identify-genuine";
 import News from "./components/news";
 import ReturnEmpties from "./components/return-empties";
-import BuyOnline from "./components/buy-online";
 import Exclusive from "./components/exclusive";
 import Newsletter from "./components/newsletter";
 import CtaCardComponent from "./components/cta-card";
 import TapTap from "./components/tap-tap";
 import GetStarted from "./components/get-started";
 import WhatIsEcocan from "./components/what-is-ecocan";
-import CtaCard from "@/components/shared/cta-card/cta-card";
 import EnergyEfficiency from "./components/energy-efficiency";
 
 export default function ConsumerContent() {

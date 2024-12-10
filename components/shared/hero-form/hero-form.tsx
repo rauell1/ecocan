@@ -178,7 +178,7 @@ export default function HeroForm({ title = "1, 2, 3. Go!!" }: HeroFormProps) {
               )}
             />
             <p className="text-sm">
-              By clicking "Get Started," I agree to the{" "}
+              By clicking &ldquo;Get Started&rdquo;, I agree to the{" "}
               <HyperLink link="ECO-Station terms & conditions," href="/" /> and{" "}
               <HyperLink link="privacy policy" href="/" />.
             </p>

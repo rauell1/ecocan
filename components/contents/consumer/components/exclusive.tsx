@@ -12,7 +12,7 @@ const cardContent = [
     answer: (
       <div className="space-y-4">
         Whenever you return 10 eligible empties for recycling, you&apos;ll get
-        back the deposit money, + we'll reward you with up to 30% discount on
+        back the deposit money, + we&apos;ll reward you with up to 30% discount on
         your next ECO-purchase. Just activate your coupon while at the
         ECO-station, show the one-time coupon QR code to the Egent, and pay
         less!
@@ -29,7 +29,7 @@ const cardContent = [
         <p>
           Before you buy an ECO-product, authenticate it using your ECO-scanner.
           And after enjoying the drink, return to ECO-stations the exact same
-          empties you authenticated. And we'll reward you with up to a 50%
+          empties you authenticated. And we&apos;ll reward you with up to a 50%
           loyalty discount on your next ECO-product purchase.
         </p>
       </div>
@@ -44,7 +44,7 @@ const cardContent = [
       <div className="space-y-4">
         <p>
           Whenever you return 10 eligible empties for recycling, you&apos;ll get
-          back the deposit money, + we'll reward you with up to 30% discount on
+          back the deposit money, + we&apos;ll reward you with up to 30% discount on
           your next ECO-purchase. Just activate your coupon while at the
           ECO-station, show the one-time coupon QR code to the Egent, and pay
           less!

@@ -28,7 +28,7 @@ const consumerFeatures = [
         </p>
 
         <p>
-          If it's genuine, an authentication page will pop up. But if it’s a
+          If it's genuine, an authentication page will pop up. But if it&apos;s a
           fake, the App will instantly alert you, and block access to the
           verification page.
         </p>
@@ -99,11 +99,11 @@ export default function GetStarted() {
     <TextWithCards
       title="Get Started"
       description={
-        <p className="w-4/5">
+        <div className="w-4/5">
           Whether you want to keep your environment clean, earn extra cash, or
           to safeguard your health from fake drinks. With EcocanApp, it&apos;s
           all just a <HyperLink link="click away!" href="/" />
-        </p>
+        </div>
       }
       customCard={
         <FeaturesGrid
