@@ -28,7 +28,7 @@ const consumerFeatures = [
         </p>
 
         <p>
-          If it's genuine, an authentication page will pop up. But if it&apos;s a
+          If it&apos;s genuine, an authentication page will pop up. But if it&apos;s a
           fake, the App will instantly alert you, and block access to the
           verification page.
         </p>
