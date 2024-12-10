@@ -53,7 +53,7 @@ export default function DefaultHero() {
                 </div>
               </div>
             </div>
-            <div className="z-[9995] lg:hidden">
+            <div className="z-[999] lg:hidden">
               <Image
                 src="/assets/images/consumer/hero-mobile.svg"
                 alt="hero-image"
@@ -62,7 +62,7 @@ export default function DefaultHero() {
                 height={500}
               />
             </div>
-            <div className="lg:h-[32rem] xl:h-[44rem] md:w-1/2 relative overflow-hidden lg:overflow-visible z-[9995] hidden lg:flex">
+            <div className="lg:h-[32rem] xl:h-[44rem] md:w-1/2 relative overflow-hidden lg:overflow-visible z-[99] hidden lg:flex">
               <Image
                 src="/assets/images/consumer/consumer-hero-mobile.svg"
                 className="xl:max-w-[40rem] mt-12"

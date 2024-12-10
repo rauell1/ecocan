@@ -53,7 +53,7 @@ export default function JoinEcommunity() {
           <LucideArrowRight className="ml-2" />
         </Button>
       </AlertDialogTrigger>
-      <AlertDialogContent>
+      <AlertDialogContent className="z-[9999]">
         <AlertDialogCancel className="hover:bg-transparent text-black/60 hover:text-black w-fit border-none">
           <LucideX />
         </AlertDialogCancel>
