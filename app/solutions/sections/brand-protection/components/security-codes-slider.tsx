@@ -15,30 +15,30 @@ import { type CarouselApi } from "@/components/ui/carousel";
 
 const litterContent = [
   {
-    title: "Traceability",
+    title: "1. Traceability",
     description:
       "To ensure each product is unique, is digitally connected, and can be traced. ECOnsumers scan these codes with their ECO-scanners to authenticate the products in under 3 seconds.",
     image: "/assets/images/solutions/security.svg",
   },
   {
-    title: "Heading",
+    title: "2. Anti-counterfeit",
     description: (
       <>
-        But with EcocanApp, you now have the power to identify and avoid such fakes. Nevertheless, ensure to return your empties to ECO-Stations for recycling, that we completely kick these criminals out of the market
+        If counterfeit criminals attempt to copy the Security codes and print them onto fake products, they will fail the verification process. And the TnT will immediately notify of the illegal attempt
       </>
     ),
     image: "/assets/images/consumer/fight-back.svg",
   },
   {
-    title: "Loophole",
+    title: "3. Anti-smuggling",
     description:
-      "So, let's join hands in the ECOmmunity and stop these criminals, protect our health from harmful fake drinks, ensure we get value for money, and safeguard our legitimate businesses",
+      "And if a genuine eligible product is diverted or smuggled from its geo-fenced market, or any other suspicious activity is detected, the proactive TnT will immediately disable the attached Security codes, and instantly notify concerned parties.",
     image: "/assets/images/consumer/loophole.svg",
   },
   {
-    title: "4. Joint effort",
+    title: "4. Turn-key",
     description:
-      "So, let's join hands in the ECOmmunity to facilitate product authentication and empties recycling, that we stop these criminals, protect our health from harmful fake drinks, ensure we get value for money, and safeguard our legitimate businesses",
+      "Measuring as small as 9mm x 9mm, these multi-layered codes are digitally delivered to authorized printers, for seamless printing onto product packaging or labels using existing technology. No equipment customization needed",
     image: "/assets/images/consumer/joint-effort.svg",
   },
 ];
@@ -50,7 +50,6 @@ export default function SecurityCodesSlider() {
   const [isTransitioning, setIsTransitioning] = useState(false);
   const [imagesPreloaded, setImagesPreloaded] = useState(false);
 
-  // Preload all images when component mounts
   useEffect(() => {
     const preloadImages = async () => {
       try {
@@ -67,7 +66,6 @@ export default function SecurityCodesSlider() {
         setImagesPreloaded(true);
       } catch (error) {
         console.error("Error preloading images:", error);
-        // Still set as preloaded to not block the UI
         setImagesPreloaded(true);
       }
     };
@@ -146,10 +144,10 @@ export default function SecurityCodesSlider() {
                   <CarouselContent className="px-2 py-4 mt-20 xl:mt-24">
                     {litterContent.map((item, index) => (
                       <CarouselItem key={index} className="md:basis-full">
-                        <Card className="border-none p-4 h-full shadow-none">
-                          <div className="text-accent/50 text-sm">
+                        <Card className="border-none p-4 h-full shadow-none bg-[#888d924d]">
+                          <div className="text-white text-sm">
                             {item.title && (
-                              <h2 className="font-semibold text-lg text-black">
+                              <h2 className="font-semibold text-lg text-white">
                                 {item.title}
                               </h2>
                             )}

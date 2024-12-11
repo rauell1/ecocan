@@ -25,7 +25,7 @@ export default function ImageAndItem({
 }: ImageAndItemProps) {
   return (
     <div className="">
-      <div className={clsx("text-center", fDivClassName)}>
+      <div className={clsx("lg:text-center", fDivClassName)}>
         <div className="text-[2rem] font-bold">{title}</div>
         <div
           className={clsx(

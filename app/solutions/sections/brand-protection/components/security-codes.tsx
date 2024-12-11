@@ -1,6 +1,3 @@
-import HyperLink from "@/components/shared/hyperlink/hyperlink";
-import ImageAndItem from "@/components/shared/image-and-item/image-and-item";
-import Image from "next/image";
 import React from "react";
 import SecurityCodesSlider from "./security-codes-slider";
 import Advantages from "./advantages";

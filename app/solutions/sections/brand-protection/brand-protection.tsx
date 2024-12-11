@@ -1,7 +1,4 @@
 import React from "react";
-import GlobalCountryExample from "./components/global-country-example";
-import Image from "next/image";
-import { serialized } from "@/lib/imageIndex";
 import WasteLitter from "./components/waste-litter";
 import Intervention from "./components/intervention";
 import TnT from "./components/ecocan-tnt";

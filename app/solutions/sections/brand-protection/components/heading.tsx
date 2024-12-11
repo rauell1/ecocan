@@ -84,7 +84,7 @@ const litterContent = [
 export default function Heading() {
 
   return (
-    <div className="max-w-[69.375rem] mx-auto px-4 xl:px-0 pt-24">
+    <div className="max-w-[69.375rem] mx-auto px-4 xl:px-0">
       <TextWithComponent
         title={
           <div className="space-y-4">

@@ -211,7 +211,7 @@ const Footer = () => {
               <p className="text-gray-400">+358440816059 / +358408470927</p>
             </div>
           </div>
-          <div className="col-span-10 md:col-span-4 grid grid-cols-2">
+          <div className="col-span-10 md:col-span-4 gap-4 lg:gap-0 grid grid-cols-2">
             <Image
               src="/assets/images/gdpr-badge.svg"
               alt="GDPR Compliant"

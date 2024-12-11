@@ -1,25 +1,18 @@
 import React from "react";
 import { ArrowRight } from "lucide-react";
-import TextWithCards from "../../shared/text-with-cards/text-with-cards";
-import CustomCard from "../../shared/text-with-cards/custom-card";
-import ImageAndItem from "../../shared/image-and-item/image-and-item";
-import Image from "next/image";
 import HyperLink from "@/components/shared/hyperlink/hyperlink";
 import { FaqSection } from "../consumer/components/faq";
 import CtaCard from "@/components/shared/cta-card/cta-card";
-import PrimaryButton from "@/components/shared/primary-btn";
 import { Button } from "@/components/ui/button";
 import HowTo from "../../shared/HowTo";
 import TextWithComponent from "../consumer/components/text-with-component";
 import SellMore from "./components/sell-more";
-import { ReusableAccordion } from "../../shared/accordion";
 import News from "../consumer/components/news";
 import WhyEcostation from "./components/why-ecostation";
 import AvailRvm from "./components/avail-rvm";
 import BusinessInsights from "./components/business-insights";
 import SideHustle from "./components/side-hustle";
 
-const iconSize = 18;
 
 const howToData = [
   {

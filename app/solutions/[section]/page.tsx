@@ -6,6 +6,7 @@ import NavigationBar from '@/components/shared/navbar/navbar';
 import { useScroll } from '@/lib/useScroll';
 import { notFound } from 'next/navigation';
 import { sectionComponents, SectionType } from '../sections';
+import { sectionConfigs } from '@/types/section';
 
 interface SectionPageProps {
   params: {
@@ -22,39 +23,72 @@ export default function SectionPage({ params }: SectionPageProps) {
     notFound();
   }
 
-  // Get the component for this section
   const SectionComponent = sectionComponents[params.section as SectionType];
+  const sectionConfig = sectionConfigs[params.section] || {
+    hasHeroLayout: false,
+    breadcrumbStyle: {
+      textColor: 'text-gray-600',
+      separatorColor: 'text-gray-400'
+    }
+  };
+
+
+  const BreadcrumbNav = () => (
+    <Breadcrumb>
+      <BreadcrumbList>
+        <BreadcrumbItem>
+          <BreadcrumbLink 
+            onClick={() => router.push('/solutions')} 
+            className={`cursor-pointer z-[999] ${sectionConfig.breadcrumbStyle?.textColor}`}
+          >
+            Solutions
+          </BreadcrumbLink>
+        </BreadcrumbItem>
+        <BreadcrumbSeparator className={`z-[999] ${sectionConfig.breadcrumbStyle?.separatorColor}`} />
+        <BreadcrumbItem>
+          <BreadcrumbPage className={`z-[999] ${sectionConfig.breadcrumbStyle?.textColor}`}>
+            {params.section.split('-').map(word =>
+              word.charAt(0).toUpperCase() + word.slice(1)
+            ).join(' ')}
+          </BreadcrumbPage>
+        </BreadcrumbItem>
+      </BreadcrumbList>
+    </Breadcrumb>
+  );
 
   return (
     <div>
-      <NavigationBar
-        className={isScrolled ? "bg-white" : "bg-transparent backdrop-blur-xl"}
-        logoSrc="/assets/images/ecocan-logo.svg"
-      />
-      <div>
-        <div className="max-w-[69.375rem] mx-auto px-4 xl:px-0 pt-24">
-            <Breadcrumb>
-              <BreadcrumbList>
-                <BreadcrumbItem>
-                  <BreadcrumbLink onClick={() => router.push('/solutions')} className="cursor-pointer">
-                    Solutions
-                  </BreadcrumbLink>
-                </BreadcrumbItem>
-                <BreadcrumbSeparator />
-                <BreadcrumbItem>
-                  <BreadcrumbPage>
-                    {params.section.split('-').map(word =>
-                      word.charAt(0).toUpperCase() + word.slice(1)
-                    ).join(' ')}
-                  </BreadcrumbPage>
-                </BreadcrumbItem>
-              </BreadcrumbList>
-            </Breadcrumb>
+      {sectionConfig.hasHeroLayout ? (
+        <div 
+          className="min-h-[75vh] lg:min-h-[90vh] bg-right lg:bg-center relative after:absolute after:inset-0 after:content-[''] after:bg-black/70 lg:after:bg-black/60 after:opacity-70 after:z-10"
+          style={{
+            backgroundImage: `url(${sectionConfig.backgroundImage})`,
+            backgroundSize: 'cover',
+          }}
+        >
+          <NavigationBar
+            className={isScrolled ? "bg-white" : "bg-transparent text-white backdrop-blur-none"}
+            logoSrc={isScrolled ? "/assets/images/ecocan-logo.svg": "/assets/images/ecocan-logo-alt.svg"}
+          />
+          <div className="max-w-[69.375rem] mx-auto px-4 xl:px-0 pt-24">
+            <BreadcrumbNav />
+            {sectionConfig.heroContent}
+          </div>
         </div>
-        
+      ) : (
         <div>
-          <SectionComponent />
+          <NavigationBar
+            className={isScrolled ? "bg-white" : "bg-transparent"}
+            logoSrc="/assets/images/ecocan-logo.svg"
+          />
+          <div className="max-w-[69.375rem] mx-auto px-4 xl:px-0 pt-24">
+            <BreadcrumbNav />
+          </div>
         </div>
+      )}
+      
+      <div className={sectionConfig.hasHeroLayout ? "" : "mt-8"}>
+        <SectionComponent />
       </div>
     </div>
   );
