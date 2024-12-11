@@ -2,90 +2,56 @@ import TextWithComponent from "@/components/contents/consumer/components/text-wi
 import { ItemList } from "@/components/contents/courier/components/ItemList";
 import HyperLink from "@/components/shared/hyperlink/hyperlink";
 import ImageAndItem from "@/components/shared/image-and-item/image-and-item";
-import StyledText from "@/components/shared/styled-text";
-import TextWithCards from "@/components/shared/text-with-cards/text-with-cards";
-import { alphaMale, beachBottleTall, ecostation } from "@/lib/imageIndex";
 import Image from "next/image";
 import React from "react";
 import HowItWorks from "./components/how-it-works";
 import Cooperation from "./components/cooperation";
 import FunFacts from "./components/fun-facts";
-
-const howToData = [
-  {
-    id: 1,
-    title: "You’ll be helping reduce packaging litter in the environment",
-  },
-  {
-    id: 2,
-    title:
-      "Combat illicit trade by depriving counterfeit criminals of their primary source of packaging",
-  },
-  {
-    id: 3,
-    title:
-      "And increasing the usefulness of used packaging which are recycled to make new bottles ",
-  },
-  {
-    id: 4,
-    title:
-      "Therefore, reducing CO2e emissions, significantly curbing global warming and climate change",
-  },
-  {
-    id: 5,
-    title:
-      "And we will make sure your recycling experience is most convenient, and pleasantly unforgettable.",
-  },
-];
+import Heading from "./components/heading";
+import SmallDeeds from "./components/small-deeds";
+import Process from "./components/process";
+import ClosedLoop from "./components/closed-loop";
 
 export default function PackagingRecycling() {
   return (
-    <div className="space-y-24">
-      <TextWithComponent
-        title="Packaging Recycling"
-        description={
-          <div className="w-[81%] space-y-4">
-            <p>
-              ECOCAN D.R.S is a circular economy platform, which streamlines the
-              extensive collection and recycling of{" "}
-              <HyperLink link="genuine eligible empties" href="/" />. And
-              ensures participants make money for taking part
-            </p>
-            <p>
-              This is achieved by creating a marketplace for used empties, by
-              conveniently connecting ECO-Producers and ECO-Recyclers seeking to
-              ‘buy’ empties for reuse or recycling, with ECOnsumers who have the
-              empties but lack access to the market
-            </p>
-          </div>
-        }
-      />
-      <HowItWorks/>
+    <>
+      <div className="space-y-24 pb-24">
+        <Heading />
+        {/* <HowItWorks/> */}
+      </div>
       {/* recycling is cooperation */}
-     <Cooperation/>
-      {/* small deeds */}
-      <ImageAndItem
-      className="md:flex-row-reverse items-center"
-        item={
-          <TextWithComponent
-            title="Small deeds, with BIG impacts"
-            description="Whether your motivation for returning empties is to earn money, or because you are ecologically conscious:"
-            component={howToData.map((data) => {
-              return <ItemList id={data.id} title={data.title} key={data.id} />;
-            })}
-          />
-        }
-        image={
-          <Image
-            src="/assets/images/solutions/small-deeds.svg"
-            alt="eco station"
-            width={1000}
-            height={1000}
-            className="w-full h-full"
-          />
-        }
-      />
-      <FunFacts/>
-    </div>
+      <Cooperation />
+      <div>
+        {/* small deeds */}
+        <div className="bg-[#F6F6F6] pt-12 pb-36 space-y-24 relative">
+          <Process/>
+          <ClosedLoop/>
+          <SmallDeeds />
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 1440 100"
+            className="absolute bottom-0 z-50 hidden lg:block"
+          >
+            <path
+              fill="white"
+              fill-opacity="1"
+              d="M0,80L1440,0L1440,340L0,340Z"
+            ></path>
+          </svg>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 600 120"
+            className="absolute bottom-0 z-50 hidden md:block lg:hidden"
+          >
+            <path
+              fill="white"
+              fill-opacity="1"
+              d="M0,100L600,0L600,600L0,600Z"
+            ></path>
+          </svg>
+        </div>
+        <FunFacts />
+      </div>
+    </>
   );
 }

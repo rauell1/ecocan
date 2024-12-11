@@ -14,7 +14,7 @@ import { useMediaQuery } from "@/lib/useMediaQuery";
 
 interface Feature {
   id: number;
-  name: React.ReactNode;
+  name?: React.ReactNode;
   question?: React.ReactNode;
   answer?: React.ReactNode;
   icon: string;

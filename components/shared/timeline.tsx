@@ -9,7 +9,7 @@ interface TimelineItem {
 }
 
 interface TimelineProps {
-  title: string;
+  title: React.ReactNode;
   subtitle: React.ReactNode;
   items: TimelineItem[];
   className?: string;

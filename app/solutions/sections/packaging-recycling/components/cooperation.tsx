@@ -1,11 +1,12 @@
-import HyperLink from "@/components/shared/hyperlink/hyperlink";
 import Timeline from "@/components/shared/timeline";
 import React from "react";
 
 const timelineData = {
-  title: "Recycling is cooperation",
+  title: <div className="text-white">Recycling is cooperation</div>,
   subtitle: (
-    <p className="font-light">We all have a role to play in the ECOmmunity:</p>
+    <p className="font-light text-white">
+      We all have a role to play in the ECOmmunity:
+    </p>
   ),
   items: [
     {
@@ -37,11 +38,35 @@ const timelineData = {
 
 export default function Cooperation() {
   return (
-    <Timeline
-      className="bottom-[22.5%]"
-      title={timelineData.title}
-      subtitle={timelineData.subtitle}
-      items={timelineData.items}
-    />
+    <div className="bg-[#2F313F] py-24 relative">
+      <Timeline
+        className="bottom-[22.5%]"
+        title={timelineData.title}
+        subtitle={timelineData.subtitle}
+        items={timelineData.items}
+      />
+      <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 1440 100"
+            className="absolute bottom-0 z-50 hidden lg:block"
+          >
+            <path
+              fill="#F6F6F6"
+              fill-opacity="1"
+              d="M0,80L1440,0L1440,340L0,340Z"
+            ></path>
+          </svg>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 600 120"
+            className="absolute bottom-0 z-50 hidden md:block lg:hidden"
+          >
+            <path
+              fill="#F6F6F6"
+              fill-opacity="1"
+              d="M0,100L600,0L600,600L0,600Z"
+            ></path>
+          </svg>
+    </div>
   );
 }

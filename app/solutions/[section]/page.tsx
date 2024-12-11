@@ -7,6 +7,7 @@ import { useScroll } from '@/lib/useScroll';
 import { notFound } from 'next/navigation';
 import { sectionComponents, SectionType } from '../sections';
 import { sectionConfigs } from '@/types/section';
+import { LucideArrowLeft } from 'lucide-react';
 
 interface SectionPageProps {
   params: {
@@ -39,9 +40,10 @@ export default function SectionPage({ params }: SectionPageProps) {
         <BreadcrumbItem>
           <BreadcrumbLink 
             onClick={() => router.push('/solutions')} 
-            className={`cursor-pointer z-[999] ${sectionConfig.breadcrumbStyle?.textColor}`}
+            className={`cursor-pointer z-[999] flex items-center gap-2 bg-white rounded-full text-primary hover:text-primary p-2 px-4`}
           >
-            Solutions
+            <LucideArrowLeft size={18}/>
+            Back to Solutions
           </BreadcrumbLink>
         </BreadcrumbItem>
         <BreadcrumbSeparator className={`z-[999] ${sectionConfig.breadcrumbStyle?.separatorColor}`} />
