@@ -17,6 +17,7 @@ export default function PackagingRecycling() {
     <>
       <div className="space-y-24 pb-24">
         <Heading />
+        <HowItWorks/>
         {/* <HowItWorks/> */}
       </div>
       {/* recycling is cooperation */}

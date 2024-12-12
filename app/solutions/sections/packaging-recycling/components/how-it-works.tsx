@@ -2,6 +2,8 @@ import React from "react";
 import Image from "next/image";
 import StyledText from "@/components/shared/styled-text";
 import { Nunito_Sans } from "next/font/google";
+import TextWithComponent from "@/components/contents/consumer/components/text-with-component";
+import HiwImage from "./hiw-img";
 
 const nunitoSans = Nunito_Sans({ subsets: ["latin"] });
 
@@ -56,29 +58,15 @@ const rightFeatures: FeatureItem[] = [
 
 export default function HowItWorks() {
   return (
-    <div className="mx-auto px-4">
-      <h2 className="text-center text-3xl mb-8 font-semibold">
-        So how does it really work?
-      </h2>
-      <div className="flex flex-col md:flex-row items-center">
-        <div className="md:w-1/3 text-right">
-          <FeatureList items={leftFeatures} />
-        </div>
-        <div className="md:w-1/3">
-          <Image
-            src="/assets/images/solutions/works.svg"
-            alt="ECOCAN Authentication"
-            width={300}
-            height={600}
-            className="mx-auto"
-          />
-        </div>
-        <div className="md:w-1/3">
-          <div>
-            <FeatureList items={rightFeatures} startIndex={3} />
-          </div>
-        </div>
-      </div>
+    <div className="max-w-[69.375rem] mx-auto px-4 xl:px-0 hidden lg:block">
+      <TextWithComponent
+        className="text-center"
+        title="So how does it really work?"
+        description="Hover Over Icon To See More"
+        component={
+          <HiwImage/>
+        }
+      />
     </div>
   );
 }
