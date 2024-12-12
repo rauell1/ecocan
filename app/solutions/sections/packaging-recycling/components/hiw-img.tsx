@@ -96,7 +96,7 @@ const IconWrapper = ({ className, content, imagePath }: IconWrapperProps) => {
 export default function HiwImage() {
   const positions = [
     "top-[5.5rem] left-16",
-    "-top-4 left-[52%] -translate-x-1/2",
+    "-top-4 left-[51.5%] -translate-x-1/2",
     "top-[5.5rem] right-8 -translate-x-1/2",
     "top-1/2 -right-2 -translate-y-1/2",
     "bottom-[5.5rem] right-8 -translate-x-1/2",
@@ -151,6 +151,13 @@ export default function HiwImage() {
           </TooltipContent>
         </Tooltip>
       </TooltipProvider>
+      <Image
+        src="/assets/images/solutions/legend.svg"
+        alt="how it works"
+        className="absolute bottom-0 -right-36"
+        width={123}
+        height={144}
+      />
     </div>
   );
 }
