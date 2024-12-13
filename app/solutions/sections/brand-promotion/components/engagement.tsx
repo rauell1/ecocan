@@ -32,7 +32,7 @@ const accordionItems = [
 
 export default function Engagement() {
   return (
-    <div className='max-w-[69.375rem] mx-auto px-4 xl:px-0 pt-24'>
+    <div className='max-w-[69.375rem] mx-auto px-4 xl:px-0 py-8 lg:pt-24'>
         <ImageAndItem
           title="Re-imagined Engagement"
           className="lg:flex-row-reverse items-center"

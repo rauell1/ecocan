@@ -98,10 +98,10 @@ export default function HowToJoin() {
         }
         item={
           <div className="space-y-6">
-            <h2 className="font-semibold text-[2rem]">
+            <h2 className="font-semibold text-3xl lg:text-[2rem]">
               How to join the ECOmmunity
             </h2>
-            <p className="text-secondary text-xl">It&apos;s easy like Sunday morning</p>
+            <p className="text-secondary lg:text-xl">It&apos;s easy like Sunday morning</p>
             {howToData.map((data) => (
               <ItemList
                 key={data.id}

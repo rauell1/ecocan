@@ -20,15 +20,15 @@ export default function ConsumerContent() {
   return (
     <>
       <div className="">
-        <div className="max-w-[69.375rem] mx-auto pb-24 py-8 px-4 xl:px-0">
+        <div className="max-w-[69.375rem] mx-auto lg:pb-24 py-8 px-4 xl:px-0">
           <GetStarted />
         </div>
-        <div className="bg-[#F3F3F6] py-24 ">
+        <div className="bg-[#F3F3F6] lg:py-24 ">
           <div className="max-w-[69.375rem] mx-auto py-8 px-4 xl:px-0">
             <TapTap />
           </div>
         </div>
-        <div className="bg-white py-24">
+        <div className="bg-white lg:py-24">
           <div className="max-w-[69.375rem] mx-auto py-8 px-4 xl:px-0">
             <IdentifyGenuine />
           </div>
@@ -40,11 +40,11 @@ export default function ConsumerContent() {
         </div>
       </div>
 
-      <div className="max-w-[69.375rem] mx-auto space-y-24 px-4 xl:px-0">
+      <div className="max-w-[69.375rem] mx-auto space-y-8 lg:space-y-24 px-4 xl:px-0">
         <WasteLitter />
         <EnergyEfficiency />
       </div>
-      <div className="w-screen pb-24 md:hidden">
+      <div className="w-screen lg:pb-24 my-8 md:hidden">
         <Image
           src="/assets/images/consumer/mobile-cta.svg"
           alt="cta"

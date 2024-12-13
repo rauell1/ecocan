@@ -7,7 +7,7 @@ import Experience from "./components/experience";
 export default function BrandPromotion() {
   return (
     <>
-      <div className="space-y-24">
+      <div className="space-y-8 lg:space-y-24">
         <Engagement/>
         <Strategic/>
         <JustPrice />

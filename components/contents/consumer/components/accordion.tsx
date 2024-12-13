@@ -149,7 +149,7 @@ export function AccordionDemo({
               </AccordionTrigger>
             </div>
           </div>
-          <AccordionContent className={`text-secondary text-base`}>
+          <AccordionContent className={`text-secondary text-sm lg:text-base`}>
             {item.description}
           </AccordionContent>
         </AccordionItem>

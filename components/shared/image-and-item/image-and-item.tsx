@@ -26,16 +26,16 @@ export default function ImageAndItem({
   return (
     <div className="">
       <div className={clsx("lg:text-center", fDivClassName)}>
-        <div className="text-5xl font-bold">{title}</div>
+        <div className="text-3xl lg:text-5xl font-bold">{title}</div>
         <div
           className={clsx(
-             "text-secondary my-6 text-xl",
+             "text-secondary my-4 lg:my-6 text-base lg:text-xl",
             mainClassName
           )}
         >
           {subtitle}
         </div>
-        <div className="text-accent font-light text-xl">{description}</div>
+        <div className="text-accent font-light lg:text-xl">{description}</div>
       </div>
       <div className={clsx("flex flex-col-reverse lg:flex-row", className)}>
         <div className="relative lg:w-1/2 me-auto">{image}</div>

@@ -62,7 +62,7 @@ export default function SectionPage({ params }: SectionPageProps) {
     <div>
       {sectionConfig.hasHeroLayout ? (
         <div 
-          className="min-h-[75vh] lg:min-h-[90vh] bg-right lg:bg-center relative after:absolute after:inset-0 after:content-[''] after:bg-black/70 lg:after:bg-black/60 after:opacity-70 after:z-10"
+          className="min-h-[75vh] pb-8 lg:min-h-[90vh] bg-right lg:bg-center relative after:absolute after:inset-0 after:content-[''] after:bg-black/70 lg:after:bg-black/60 after:opacity-70 after:z-10"
           style={{
             backgroundImage: `url(${sectionConfig.backgroundImage})`,
             backgroundSize: 'cover',

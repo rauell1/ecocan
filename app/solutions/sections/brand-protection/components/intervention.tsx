@@ -19,7 +19,7 @@ const steps = [
       </div>
     ),
     step: (
-      <p className="mb-3 w-4/5 font-light leading-7 text-left text-[#23262fcc]">
+      <p className="mb-3 lg:w-4/5 font-light leading-7 text-left text-secondary">
         EcocanApp enables reliable authentication of genuine beverages carrying ECOCAN Security codes, before purchase
       </p>
     ),
@@ -37,7 +37,7 @@ const steps = [
       </div>
     ),
     step: (
-      <p className="mb-3 w-4/5 font-light leading-7 text-left text-[#23262fcc]">
+      <p className="mb-3 lg:w-4/5 font-light leading-7 text-left text-secondary">
         After enjoying genuine drinks, the ECOmmunity can return eligible empties to the nearest ECO-Station for recycling, via the <HyperLink href="/" link="ECOCAN DRS" />
       </p>
     ),
@@ -55,7 +55,7 @@ const steps = [
       </div>
     ),
     step: (
-      <p className="mb-3 w-4/5 font-light leading-7 text-left text-[#23262fcc]">
+      <p className="mb-3 lg:w-4/5 font-light leading-7 text-left text-secondary">
         The <HyperLink href="/" link="ECOCAN TnT" /> enables real time
         monitoring of counterfeiting attemps
       </p>
@@ -81,7 +81,7 @@ export default function Intervention() {
             <Image
               src="/assets/images/solutions/intervention.svg"
               alt="ecocan scan"
-              className="rounded-[2rem] ms-auto"
+              className="rounded-smooth-lg lg:rounded-smooth-xl ms-auto"
               width={500}
               height={100}
             />

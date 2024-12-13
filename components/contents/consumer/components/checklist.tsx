@@ -40,7 +40,7 @@ const CheckList: React.FC<CheckListProps> = ({
             </div>
           </div>
           <div>
-            <div className="text-lg font-medium">{item.step}</div>
+            <div className="text-base lg:text-lg font-medium">{item.step}</div>
             <div className="text-secondary text-base font-light">{item.description}</div>
           </div>
         </div>

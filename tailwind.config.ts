@@ -54,6 +54,10 @@ const config = {
         },
       },
       borderRadius: {
+        'smooth-sm': '0.5rem 0.5rem 0.5rem 0.5rem / 0.5rem 0.5rem 0.5rem 0.5rem',
+        'smooth': '1rem 1rem 1rem 1rem / 1rem 1rem 1rem 1rem',
+        'smooth-lg': '1.5rem 1.5rem 1.5rem 1.5rem / 1.5rem 1.5rem 1.5rem 1.5rem',
+        'smooth-xl': '2rem 2rem 2rem 2rem / 2rem 2rem 2rem 2rem',
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",

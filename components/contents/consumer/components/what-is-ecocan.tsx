@@ -33,8 +33,8 @@ const rvmContent = [
         <p className="text-sm lg:text-base">
           If the empties are eligible, ECOcans will accept them and calculate
           the deposit owed, which is then digitally refunded into ECO-wallets.
-          If the empties are ineligible, they&apos;ll be rejected, and no deposit
-          money will be issued. <br />
+          If the empties are ineligible, they&apos;ll be rejected, and no
+          deposit money will be issued. <br />
           Pure ECOcans are the first compacting, digital mini-RVMs in use
           worldwide
         </p>
@@ -48,9 +48,9 @@ const rvmContent = [
       <div>
         <h2 className="font-bold text-xl text-black my-4">Sustainability</h2>
         <p className="text-sm lg:text-base">
-          The energy efficient Pure ECOcans are the world&apos;s smallest patented
-          RVMs, yet equipped with even better capabilities than larger RVMs.
-          i.e., digital deposit refund eliminates need for paper receipts;
+          The energy efficient Pure ECOcans are the world&apos;s smallest
+          patented RVMs, yet equipped with even better capabilities than larger
+          RVMs. i.e., digital deposit refund eliminates need for paper receipts;
           increasing refund efficiency, conserving our forests, and reducing
           receipt litter
         </p>
@@ -68,7 +68,7 @@ const rvmContent = [
 export default function WhatIsEcocan() {
   return (
     <div className="relative bg-[#F3F3F6]">
-      <div className="max-w-[69.375rem] mx-auto pb-36 px-4 xl:px-0">
+      <div className="max-w-[69.375rem] mx-auto py-8 lg:pb-36 px-4 xl:px-0">
         <ImageAndItem
           className="lg:flex-row-reverse items-center gap-6 lg:gap-12"
           image={
@@ -93,7 +93,11 @@ export default function WhatIsEcocan() {
               }
               description={
                 <p>
-                  The Pure <span className="font-medium">ECO</span>-friendly trash <span className="font-medium">can</span> is an intelligent waste collection bin, that automatically accepts eligible empties returned for recycling, and digitally refunds applicable deposit money into ECO-wallets
+                  The Pure <span className="font-medium">ECO</span>-friendly
+                  trash <span className="font-medium">can</span> is an
+                  intelligent waste collection bin, that automatically accepts
+                  eligible empties returned for recycling, and digitally refunds
+                  applicable deposit money into ECO-wallets
                 </p>
               }
             />

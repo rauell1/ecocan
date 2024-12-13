@@ -8,12 +8,12 @@ import Download from './components/download'
 
 export default function SolutionsHome() {
   return (
-    <div className="space-y-24 pt-24">
+    <div className="space-y-12 lg:space-y-24 pt-8 lg:pt-24">
       <Offering/>
       <BrandProtection/>
       <BrandPromotion/>
       <PackagingRecycling/>
-      <div className="bg-white py-24 space-y-24">
+      <div className="bg-white lg:py-24 lg:space-y-24">
         <Intersection/>
         <Download/>
       </div>

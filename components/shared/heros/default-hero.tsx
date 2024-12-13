@@ -37,7 +37,7 @@ export default function DefaultHero() {
                   </span>
                 </h1>
               </div>
-              <div className="text-sm lg:text-lg xl:text-xl md:space-y-8 xl:space-y-6">
+              <div className="text-base xl:text-xl md:space-y-8 xl:space-y-6">
                 <p className="text-white text-start">
                   At ECOCAN, sustainability goes beyond environmental
                   conservation, to nurturing healthy and thriving communities.
@@ -106,8 +106,8 @@ export default function DefaultHero() {
             ></path>
           </svg>
         </div>
-        <div className="z-[999]">
-          <h2 className="text-center text-5xl font-bold z-[999]">
+        <div className="z-[999] mb-5 lg:mb-0">
+          <h2 className="text-center text-3xl xl:text-5xl font-bold z-[999]">
             The ECOmmunity
           </h2>
         </div>

@@ -47,7 +47,7 @@ const consumerFeatures = [
       </>
     ),
     question: (
-      <p className="font-normal text-secondary lg:w-11/12">
+      <p className="font-normal text-secondary w-11/12">
         are consumed everyday but 30% OF empties are mismanaged;{" "}
         <span className="font-semibold">INADEQUATE RECYCLING SYSTEMS</span> fuel
         this problem
@@ -69,7 +69,7 @@ export default function Heading() {
               gap="gap-4"
               className="bg-center p-4 flex flex-col justify-end overflow-hidden bg-[#F6F6F6]"
             />
-            <div className="space-y-4 w-4/5 text-[#888D92]">
+            <div className="space-y-4 lg:w-4/5 text-[#888D92]">
               <div>
                 <HyperLink href="/" link="ECOCAN D.R.S"/> is the first fully digital DRS worldwide, which
                 supports incentivised collection & closed-loop recycling of

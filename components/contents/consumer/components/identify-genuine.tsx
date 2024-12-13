@@ -10,8 +10,8 @@ import SecurityFeatures from "./security-features";
 export default function IdentifyGenuine() {
   return (
     <div className="mx-auto">
-      <div className="text-center mb-24">
-        <h2 className="text-5xl font-semibold">
+      <div className="text-center mb-8 lg:mb-24">
+        <h2 className="text-3xl lg:text-5xl font-semibold">
           How to identify genuine products
         </h2>
       </div>

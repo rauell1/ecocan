@@ -55,7 +55,7 @@ const FeaturesGrid: React.FC<FeaturesGridProps> = ({
     return (
       <div
         className={clsx(
-          `text-left p-4 rounded-2xl ${feature.bgImg} relative`,
+          `text-left p-4 rounded-smooth-lg lg:rounded-smooth-xl ${feature.bgImg} relative`,
           'transition-all duration-300 ease-in-out',
           'h-full',
           className
@@ -85,12 +85,15 @@ const FeaturesGrid: React.FC<FeaturesGridProps> = ({
               animate={{ height: "auto", opacity: 1 }}
               exit={{ height: 0, opacity: 0 }}
               transition={{ duration: 0.3, ease: "easeInOut" }}
-              className="mt-2 relative z-[999] font-light overflow-hidden"
+              className="mt-2 relative z-[999] font-light overflow-hidden hidden lg:block"
             >
               {feature.answer}
             </motion.div>
           )}
         </AnimatePresence>
+        <div className="mt-2 relative z-[999] font-light overflow-hidden lg:hidden">
+          {feature.answer}
+        </div>
       </div>
     );
   };

@@ -38,7 +38,7 @@ const timelineData = {
 
 export default function Cooperation() {
   return (
-    <div className="bg-[#2F313F] py-24 relative">
+    <div className="bg-[#2F313F] py-8 lg:py-24 relative">
       <Timeline
         className="bottom-[22.5%]"
         title={timelineData.title}
