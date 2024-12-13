@@ -23,7 +23,7 @@ export default function Avail() {
           <TextWithComponent
             title={
               <h2>
-                We'll avail{" "}
+                We&apos;ll avail{" "}
                 <span className="bg-gradient-to-r from-[#228B22] via-[#4AC63FCF] to-[#FFDD4C] text-transparent bg-clip-text">
                   ECOcans
                 </span>

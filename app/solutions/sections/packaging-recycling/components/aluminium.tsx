@@ -66,6 +66,7 @@ export default function Aluminium() {
               {factData.map((fact, index) => {
                 return (
                   <div
+                    key={index}
                     className={`rounded-2xl flex flex-col justify-end p-3 ${fact.imagePath} bg-cover bg-center`}
                   >
                     <TextWithComponent

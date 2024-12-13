@@ -60,7 +60,7 @@ const steps = [
     step: <p className="mb-3">Extended Producer Responsibility</p>,
     description: (
       <p>
-        A Nordic-design DRS is aligned with the 'Polluter Pays Principle', and
+        A Nordic-design DRS is aligned with the &lsquo;Polluter Pays Principle&rsquo;, and
         most effectively fulfils this mandate. Our traceability technology
         optimises this capability
       </p>

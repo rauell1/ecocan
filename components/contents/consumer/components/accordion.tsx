@@ -83,7 +83,7 @@ const accordionData: AccordionData[] = [
         </div>
         <div>
           Additionally, the App will inform you of the CO2e reduction & energy
-          savings you've made. And we'll reward your ECO-friendly efforts with
+          savings you&apos;ve made. And we&apos;ll reward your ECO-friendly efforts with
           exclusive discounts
         </div>
       </div>
