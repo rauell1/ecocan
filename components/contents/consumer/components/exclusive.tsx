@@ -77,7 +77,7 @@ export default function Exclusive() {
           customCard={
             <FeaturesGrid
               features={cardContent}
-              className="h-[22rem] lg:h-[28rem] xl:h-[31.25rem] bg-no-repeat rounded-3xl p-4 flex flex-col justify-end overflow-hidden lg:shadow-md"
+              className="h-[22rem] w-full border lg:h-[28rem] xl:h-[31.25rem] bg-no-repeat rounded-3xl p-4 flex flex-col justify-end overflow-hidden lg:shadow-md"
               gap="gap-4"
             />
           }
