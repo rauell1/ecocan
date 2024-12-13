@@ -1,176 +1,247 @@
-import Image from "next/image";
 import React from "react";
 import { Input } from "@/components/ui/input";
-import HyperLink from "../hyperlink/hyperlink";
+import Image from "next/image";
 import Link from "next/link";
 
-type FooterItem =
-  | { type: "logo"; src: string; alt: string }
-  | { type: "text" }
-  | {
-      type: "social";
-      links: { href: string; src: string; alt: string }[];
-    }
-  | { type: "link"; href: string; content: string }
-  | { type: "input"; placeholder: string };
-
-type FooterColumn = {
-  title: React.ReactNode;
-  items: FooterItem[];
-};
-
-const footerData: FooterColumn[] = [
-  {
-    title: null,
-    items: [
-      {
-        type: "logo",
-        src: "/assets/images/logo-curved.svg",
-        alt: "Company Logo",
-      },
-      {
-        type: "text",
-      },
-      {
-        type: "social",
-        links: [
-          {
-            href: "https://facebook.com",
-            src: "/assets/icons/facebook-brands-solid.svg",
-            alt: "Facebook",
-          },
-          {
-            href: "https://twitter.com",
-            src: "/assets/icons/twitter-brands-solid.svg",
-            alt: "Twitter",
-          },
-          {
-            href: "https://instagram.com",
-            src: "/assets/icons/instagram-brands-solid.svg",
-            alt: "Instagram",
-          },
-          {
-            href: "https://linkedin.com",
-            src: "/assets/icons/linkedin-brands-solid.svg",
-            alt: "LinkedIn",
-          },
-        ],
-      },
-    ],
-  },
-  {
-    title: <Link href="/">Home</Link>,
-    items: [
-      { type: "link", href: "/about-us", content: "About us" },
-      { type: "link", href: "/solutions", content: "Solutions" },
-      { type: "link", href: "/blog", content: "Blog" },
-      { type: "link", href: "/contact", content: "Contact us" },
-    ],
-  },
-  {
-    title: "Support",
-    items: [
-      { type: "link", href: "#", content: "Customer support" },
-      { type: "link", href: "#", content: "Privacy policy" },
-    ],
-  },
-  {
-    title: "JOIN OUR COMMUNITY🔥",
-    items: [{ type: "input", placeholder: "Enter your email" }],
-  },
-];
-
-export default function Footer() {
+const Footer = () => {
   return (
-    <footer className="bg-[#FCFCFD] px-4 xl:px-0">
-      <div className="xl:max-w-[69.375rem] mx-auto grid py-[6.25rem] grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
-        {footerData.map((column, index) => (
-          <div key={index}>
-            {column.title && (
-              <h3 className="font-semibold mb-4">{column.title}</h3>
-            )}
-            {column.items.map((item, itemIndex) => {
-              switch (item.type) {
-                case "logo":
-                  return (
-                    <div key={itemIndex} className="mb-4">
-                      <Image
-                        src={item.src}
-                        alt={item.alt}
-                        width={180}
-                        height={84}
-                      />
-                    </div>
-                  );
-                case "social":
-                  return (
-                    <div key={itemIndex} className="flex space-x-4 mb-4 gap-3">
-                      {item.links.map((link, linkIndex) => (
-                        <a
-                          key={linkIndex}
-                          href={link.href}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="hover:text-gray-800"
-                        >
-                          <Image
-                            src={link.src}
-                            alt={link.alt}
-                            width={24}
-                            height={24}
-                          />
-                        </a>
-                      ))}
-                    </div>
-                  );
-                case "link":
-                  return (
-                    <div key={itemIndex} className="gap-8">
-                      <a
-                        href={item.href}
-                        className="block mb-4 text-gray-600 hover:text-gray-800 gap-8"
-                      >
-                        {item.content}
-                      </a>
-                    </div>
-                  );
-                case "input":
-                  return (
-                    <div
-                      key={itemIndex}
-                      className="mb-4 border border-[#E6E8EC] rounded-full flex items-center"
-                    >
-                      <Input
-                        placeholder="Enter your email"
-                        className="text-[#777E90] border-none rounded-full focus:outline-none focus:border-none focus:ring-0"
-                      />
-                      <Image
-                        src="/assets/icons/right-arrow.svg"
-                        className="m-2"
-                        alt="right chevron arrow"
-                        width={32}
-                        height={32}
-                      />
-                    </div>
-                  );
-                default:
-                  return null;
-              }
-            })}
+    <footer className="bg-[#2F313F] px-4 py-16 text-white">
+      <div className="max-w-[69.375rem] mx-auto px-4 xl:px-0">
+        {/* Logo */}
+        <div className="mb-16">
+          <Image
+            src="/assets/images/logo-curved-white.svg"
+            alt="Ecocan Logo"
+            width={236}
+            height={84}
+            className="mx-auto"
+          />
+        </div>
+
+        {/* Main Content Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-10 mb-16">
+          {/* Home Links */}
+          <div className="col-span-10 md:col-span-2">
+            <h3 className="text-xl font-semibold mb-4">Home</h3>
+            <ul className="space-y-3 text-gray-400">
+              <li>
+                <Link href="/home" className="hover:text-white">
+                  Home
+                </Link>
+              </li>
+              <li>
+                <Link href="/solutions" className="hover:text-white">
+                  Solutions
+                </Link>
+              </li>
+              <li>
+                <Link href="/about-us" className="hover:text-white">
+                  About us
+                </Link>
+              </li>
+              <li>
+                <Link href="/contact-us" className="hover:text-white">
+                  Contact us
+                </Link>
+              </li>
+            </ul>
           </div>
-        ))}
-      </div>
-      <div className="max-w-5xl mx-auto py-4 border-t border-gray-200 flex justify-between items-center text-sm text-gray-600">
-        <span>© 2024 Ecocan. All Rights Reserved.</span>
-        <div className="flex space-x-8">
-          <a href="#" className="hover:text-gray-800">
-            Privacy Policy
-          </a>
-          <a href="#" className="hover:text-gray-800">
-            Terms & Conditions
-          </a>
+
+          {/* Data and Privacy */}
+          <div className="col-span-10 md:col-span-2">
+            <h3 className="text-xl font-semibold mb-4">Data and Privacy</h3>
+            <ul className="space-y-3 text-gray-400">
+              <li>
+                <Link href="/privacy-policy" className="hover:text-white">
+                  Privacy Policy
+                </Link>
+              </li>
+              <li>
+                <Link href="/customer-support" className="hover:text-white">
+                  Customer support
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* Our Socials */}
+          <div className="col-span-10 md:col-span-2">
+            <h3 className="text-xl font-semibold mb-4">Our Socials</h3>
+            <div className="grid grid-cols-3 gap-2 w-fit">
+              <Link href="https://facebook.com" className="w-fit">
+                <Image
+                  src="/assets/icons/facebook.svg"
+                  alt="Facebook"
+                  width={40}
+                  height={40}
+                />
+              </Link>
+              <Link href="https://twitter.com" className="w-fit">
+                <Image
+                  src="/assets/icons/X.svg"
+                  alt="Twitter"
+                  width={40}
+                  height={40}
+                />
+              </Link>
+              <Link href="https://instagram.com" className="w-fit">
+                <Image
+                  src="/assets/icons/Instagram.svg"
+                  alt="Instagram"
+                  width={40}
+                  height={40}
+                />
+              </Link>
+              <Link href="https://tiktok.com" className="w-fit">
+                <Image
+                  src="/assets/icons/tiktok.svg"
+                  alt="TikTok"
+                  width={40}
+                  height={40}
+                />
+              </Link>
+              <Link href="https://linkedin.com" className="w-fit">
+                <Image
+                  src="/assets/icons/linkedin.svg"
+                  alt="LinkedIn"
+                  width={40}
+                  height={40}
+                />
+              </Link>
+              <Link href="https://youtube.com" className="w-fit">
+                <Image
+                  src="/assets/icons/youtube.svg"
+                  alt="YouTube"
+                  width={40}
+                  height={40}
+                />
+              </Link>
+            </div>
+          </div>
+
+          {/* Newsletter */}
+          <div className="col-span-10 md:col-span-4">
+            <h3 className="text-xl font-semibold mb-4">Join Our Newsletter</h3>
+            <p className="text-gray-400 mb-4">
+              Subscribe to stay green and join our ECOcommunity to stay up to
+              date.
+            </p>
+            <div className="flex">
+              <Input
+                type="email"
+                placeholder="Enter your email address"
+                className="bg-gray-700 border-none rounded-l-full focus:ring-0"
+              />
+              <button className="bg-green-500 text-white px-6 rounded-r-full hover:bg-green-600">
+                Subscribe
+              </button>
+            </div>
+          </div>
+        </div>
+
+        {/* Office Locations */}
+        <div className="grid grid-cols-1 md:grid-cols-10 gap-8 mb-16">
+          {/* Kenya Office */}
+          <div className="col-span-10 md:col-span-3">
+            <h3 className="text-xl font-semibold mb-4">🇰🇪 Kenya Office</h3>
+            <div className="flex items-start gap-2">
+              <Image
+                src="/assets/icons/location.svg"
+                alt="GDPR Compliant"
+                width={16}
+                height={16}
+              />
+              <div>
+                <p className="text-gray-400">Plessey House, Boricho rd,</p>
+                <p className="text-gray-400">P.O.BOX 5686-00100</p>
+                <p className="text-gray-400 mb-2">Nairobi, Kenya</p>
+              </div>
+            </div>
+            <div className="flex items-start gap-2">
+              <Image
+                src="/assets/icons/email.svg"
+                alt="GDPR Compliant"
+                width={16}
+                height={16}
+              />
+              <p className="text-gray-400">info@ecocanafrica.com</p>
+            </div>
+            <div className="flex items-start gap-2">
+              <Image
+                src="/assets/icons/phone.svg"
+                alt="GDPR Compliant"
+                width={16}
+                height={16}
+              />
+              <p className="text-gray-400">+254738203770 / +254740376074</p>
+            </div>
+          </div>
+
+          {/* Finland Office */}
+          <div className="col-span-10 md:col-span-3 space-y-4">
+            <h3 className="text-xl font-semibold mb-4">🇫🇮 Finland Office</h3>
+            <div className="flex items-start gap-2">
+              <Image
+                src="/assets/icons/location.svg"
+                alt="GDPR Compliant"
+                width={16}
+                height={16}
+              />
+              <div className="self-start">
+                <p className="text-gray-400">Korkeavuorenkatu 7c 49</p>
+                <p className="text-gray-400">00140 Helsinki, Finland</p>
+              </div>
+            </div>
+            <div className="flex items-start gap-2">
+              <Image
+                src="/assets/icons/email.svg"
+                alt="GDPR Compliant"
+                width={16}
+                height={16}
+              />
+              <p className="text-gray-400">info@ecocanafrica.com</p>
+            </div>
+            <div className="flex items-start gap-2">
+              <Image
+                src="/assets/icons/phone.svg"
+                alt="GDPR Compliant"
+                width={16}
+                height={16}
+              />
+              <p className="text-gray-400">+358440816059 / +358408470927</p>
+            </div>
+          </div>
+          <div className="col-span-10 md:col-span-4 gap-4 lg:gap-0 grid grid-cols-2">
+            <Image
+              src="/assets/images/gdpr-badge.svg"
+              alt="GDPR Compliant"
+              width={160}
+              height={190}
+            />
+            <Image
+              src="/assets/images/odpc-badge.svg"
+              alt="ODPC Compliant"
+              width={160}
+              height={190}
+            />
+          </div>
+        </div>
+
+        {/* Copyright */}
+        <div className="border-t border-gray-700 pt-8 flex flex-col md:flex-row justify-between items-center text-gray-400">
+          <p>© 2024 Ecocan. All Rights Reserved.</p>
+          <div className="flex gap-8 mt-4 md:mt-0">
+            <Link href="/privacy" className="hover:text-white">
+              Privacy
+            </Link>
+            <Link href="/terms" className="hover:text-white">
+              Terms & Conditions
+            </Link>
+          </div>
         </div>
       </div>
     </footer>
   );
-}
+};
+
+export default Footer;

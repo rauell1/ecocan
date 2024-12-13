@@ -1,50 +1,88 @@
-import React from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 import clsx from "clsx";
 
 interface TimelineItem {
   image: string;
   title: string;
-  description: string;
+  description?: React.ReactNode;
 }
 
 interface TimelineProps {
-  title: string;
+  title: React.ReactNode;
   subtitle: React.ReactNode;
   items: TimelineItem[];
   className?: string;
 }
 
 const Timeline: React.FC<TimelineProps> = ({ title, subtitle, items, className }) => {
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  const lineHeight = `calc(100% - ${items.length > 1 ? '4rem' : '2rem'})`;
+
   return (
-    <div className="max-w-[69.375rem] mx-auto">
-      <h2 className="text-3xl font-bold mb-2">{title}</h2>
-      <div className="text-lg mb-6">{subtitle}</div>
+    <div className="max-w-[69.375rem] mx-auto px-4 xl:px-0">
+      <h2 className="text-2xl md:text-5xl font-bold mb-2">{title}</h2>
+      <p className="md:text-xl text-secondary my-12">{subtitle}</p>
 
       <div className="relative">
-        {/* This div creates the vertical line */}
-        <div className={clsx("absolute left-[40%] top-0 bottom-[30%] w-[1px] bg-black transform -translate-x-1/2", className)}></div>
+        <div 
+          className={clsx(
+            "absolute left-[45%] md:left-[40%] top-0 w-[1px] bg-white transform -translate-x-1/2",
+            className
+          )}
+          style={{ height: lineHeight }}
+        ></div>
 
         {items.map((item, index) => (
-          <div key={index} className="mb-8 flex items-stretch">
-            <div className="w-2/5 pr-8 flex">
-              <div className="relative w-11/12">
-                <div className="w-full h-[12.5rem] rounded-2xl overflow-hidden relative">
-                  <Image
-                    src={item.image}
-                    alt={item.title}
-                    fill
-                    className="object-cover object-bottom"
-                  />
+          <div 
+            key={index} 
+            className="group relative mb-8 hover:cursor-pointer"
+            onMouseEnter={() => setActiveIndex(index)}
+          >
+            {/* Container for the entire row */}
+            <div className="flex items-stretch">
+              {/* Left side with image */}
+              <div className="w-2/5 md:pr-8">
+                <div className="relative md:w-11/12">
+                  <div className="w-full h-36 md:h-[12.5rem] rounded-2xl overflow-hidden relative">
+                    <Image
+                      src={item.image}
+                      alt={item.title}
+                      fill
+                      className={clsx(
+                        "object-cover object-bottom transition-all duration-300",
+                        activeIndex === index ? "" : "grayscale"
+                      )}
+                    />
+                  </div>
                 </div>
-                {/* This creates the horizontal line connecting to the vertical line */}
-                <div className="absolute top-0 lg:-right-[20.5%] xl:-right-[19.25%] w-3 h-3 bg-black"></div>
               </div>
-            </div>
-            <div className="w-3/5 flex flex-col">
-              <div className="relative w-10/12 mx-auto">
-                <h3 className={`font-bold mb-2`}>{item.title}</h3>
-                <p className={`font-light`}>{item.description}</p>
+
+              {/* Connector dot */}
+              <div className="absolute left-[45%] md:left-[40%] top-0 -translate-x-1/2">
+                <div className={clsx(
+                  "w-3 h-3 bg-white transition-transform duration-300",
+                  activeIndex === index ? "scale-150" : ""
+                )}></div>
+              </div>
+
+              {/* Right side with content */}
+              <div className="w-3/5">
+                <div className="w-10/12 ms-auto md:mx-auto transition-colors duration-300">
+                  <h3 className={clsx(
+                    "font-bold mb-2 transition-colors duration-300 w-2/5",
+                    activeIndex === index ? "text-white" : "text-white/70"
+                  )}>
+                    {item.title}
+                  </h3>
+                  <div className={clsx(
+                    "font-light transition-colors duration-300 text-xs md:text-sm lg:text-base",
+                    activeIndex === index ? "text-white" : "text-white/70"
+                  )}>
+                    {item.description}
+                  </div>
+                </div>
               </div>
             </div>
           </div>

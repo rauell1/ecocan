@@ -18,8 +18,8 @@ export default function TextWithComponent({
   return (
     <>
       <div className={clsx("space-y-4", className)}>
-        <div className="text-[2rem] font-semibold">{title}</div>
-        <div className="text-accent">{description}</div>
+        <div className="text-5xl font-semibold">{title}</div>
+        <div className="text-secondary text-xl">{description}</div>
         {component && <div className="mt-5">{component}</div>}
       </div>
     </>

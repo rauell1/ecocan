@@ -7,7 +7,7 @@ import HyperLink from "@/components/shared/hyperlink/hyperlink";
 
 const steps = [
   {
-    id: 1,
+    id: 4,
     icon: (
       <div>
         <div className="w-[3.75rem] h-[3.75rem] shadow-lg bg-white  rounded-full flex items-center justify-center">
@@ -21,16 +21,12 @@ const steps = [
         </div>
       </div>
     ),
-    step: (
-      <p className="mb-3 font-poppins text-lg font-semibold leading-6 text-left">
-        Increased recycling rates
-      </p>
-    ),
+    step: <p className="mb-3">Increased recycling rates</p>,
     description:
       " You’re familiar with how difficult it is to capture empties circulated off-trade. But are also aware of the spellbinding magic of a worthwhile refundable deposit! So 1 + 1 = 2",
   },
   {
-    id: 2,
+    id: 3,
     icon: (
       <div>
         <div className="w-[3.75rem] h-[3.75rem] shadow-lg bg-white  rounded-full flex items-center justify-center">
@@ -43,16 +39,12 @@ const steps = [
         </div>
       </div>
     ),
-    step: (
-      <p className="mb-3 font-poppins text-lg font-semibold leading-6 text-left">
-        Highest purity empties
-      </p>
-    ),
+    step: <p className="mb-3">Highest purity empties</p>,
     description:
       "Recycling is more of a quality than quantity question. And a DRS elaborately delivers non-contaminated recyclate with over 30% greater market value",
   },
   {
-    id: 3,
+    id: 2,
     icon: (
       <div>
         <div className="w-[3.75rem] h-[3.75rem] shadow-lg bg-white  rounded-full flex items-center justify-center">
@@ -65,21 +57,17 @@ const steps = [
         </div>
       </div>
     ),
-    step: (
-      <p className="mb-3 font-poppins text-lg font-semibold leading-6 text-left">
-        Extended Producer Responsibility
-      </p>
-    ),
+    step: <p className="mb-3">Extended Producer Responsibility</p>,
     description: (
       <p>
-        A Nordic-design DRS is aligned with the{" "}
-        <HyperLink link="‘Polluter Pays Principle’" href="/" />, and most
-        effectively fulfils this mandate, ensuring everyone contributes{" "}
+        A Nordic-design DRS is aligned with the &lsquo;Polluter Pays Principle&rsquo;, and
+        most effectively fulfils this mandate. Our traceability technology
+        optimises this capability
       </p>
     ),
   },
   {
-    id: 4,
+    id: 1,
     icon: (
       <div>
         <div className="w-[3.75rem] h-[3.75rem] shadow-lg bg-white  rounded-full flex items-center justify-center">
@@ -92,40 +80,51 @@ const steps = [
         </div>
       </div>
     ),
-    step: (
-      <p className="mb-3 font-poppins text-lg font-semibold leading-6 text-left">
-        It’s the Gold-Standard
-      </p>
+    step: <p className="mb-3">It&apos;s the Gold-Standard</p>,
+    description: (
+      <div>
+        Endorsed by the UN, and EU&apos;s{" "}
+        <HyperLink
+          link="PPWR & SUP"
+          href="https://environment.ec.europa.eu/topics/waste-and-recycling/packaging-waste_en"
+        />{" "}
+        directives, a DRS is the only take-back system that can collect +90%
+        empties. And ECOCAN has enhanced this efficacy via the TnT & EcocanApp
+      </div>
     ),
-    description:
-      "Endorsed by the United Nation, and European Union’s PPWR and SUP directives, a DRS is the only known take-back system that can collect over 90% of eligible empties, with top-notch quality",
   },
 ];
 
 export default function DepositRefundSystem() {
   return (
-    <ImageAndItem
-      className="gap-12 items-center"
-      image={
-        <>
-          <h2 className="text-[1.85rem] font-semibold">
-            Why a Deposit Refund System?
-          </h2>
-          <p className="my-2">You&apos;re an expert, so we&apos;ll skip the 101</p>
-          <Image
-            src="/assets/images/recycler/drs.svg"
-            width={500}
-            height={100}
-            priority
-            alt="How to return eligible empties"
+    <div className="max-w-[69.375rem] mx-auto px-4 xl:px-0 pb-24">
+      <ImageAndItem
+        className="gap-12 items-center"
+        title={<h2 className="text-start">Why a Deposit Refund System?</h2>}
+        description={
+          <p className="my-8 text-secondary text-start">
+            You&apos;re an expert, so we&apos;ll skip the 101
+          </p>
+        }
+        image={
+          <>
+            <Image
+              src="/assets/images/recycler/drs.svg"
+              width={500}
+              height={100}
+              priority
+              alt="How to return eligible empties"
+            />
+          </>
+        }
+        item={
+          <TextWithComponent
+            component={
+              <CheckList items={steps} className="items-start gap-5" />
+            }
           />
-        </>
-      }
-      item={
-        <TextWithComponent
-          component={<CheckList items={steps} className="items-start gap-5" />}
-        />
-      }
-    />
+        }
+      />
+    </div>
   );
 }

@@ -7,13 +7,9 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { LucideCheckCircle2 } from "lucide-react";
 import HyperLink from "@/components/shared/hyperlink/hyperlink";
 import StyledText from "@/components/shared/styled-text";
 import Image from "next/image";
-import { Nunito_Sans } from "next/font/google";
-
-const nunitoSans = Nunito_Sans({ subsets: ["latin"] });
 
 interface AccordionData {
   id: number;
@@ -21,87 +17,93 @@ interface AccordionData {
   description: React.ReactNode;
 }
 
-const iconSize = 12;
-
 const accordionData: AccordionData[] = [
   {
     id: 1,
     title: "Get EcocanApp today",
     description: (
-      <>
-        <StyledText>
-          Download EcocanApp <HyperLink link="here" href="" />, sign up in under
+      <div className="space-y-2 w-11/12">
+        <div>
+          <HyperLink link="Download EcocanApp" href="" /> here, sign up in under
           2 minutes, and start earning today!
-        </StyledText>
-        <StyledText>
-          After registration, you can join the exclusive ECOmmunity here, to
-          enjoy jaw-dropping discounts, and Red-Carpet benefits.
-        </StyledText>
-      </>
+        </div>
+        <div>
+          {" "}
+          After registration, you can join the exclusive{" "}
+          <HyperLink link="ECOmmunity here" href="" />, to enjoy jaw-dropping
+          discounts, and VIP benefits.
+        </div>
+      </div>
     ),
   },
   {
     id: 2,
     title: "Scan to Authenticate",
     description: (
-      <>
-        <StyledText>
-          With <HyperLink link="Eco-Scanner" href="" />, you can easily and
-          securely tell what’s real from fake.
-        </StyledText>
-        <StyledText>
-          Just scan the ECOCAN security codes, and an authentication page will
-          pop up. If it doesn’t pop up,{" "}
-            <span className="text-red-500">it’s a fake! DON’T BUY IT!</span>
-        </StyledText>
-      </>
+      <div className="space-y-2 w-11/12">
+        <div>
+          With ECO-scanner, you can easily and securely tell what&apos;s real
+          from fake.
+        </div>
+        <div>
+          Scan attached ECOCAN Security codes, and an authentication page will
+          pop up. If it doesn&apos;t, it&apos;s a fake!{" "}
+          <span className="text-red-500">DON&apos;T BUY IT!</span>
+        </div>
+      </div>
     ),
   },
   {
     id: 3,
     title: "Return for recycling",
     description: (
-      <>
-        <StyledText>
-          After enjoying your drink, you can find the nearest ECO-station on ECOCAN Map with
-          just a quick tap.
-        </StyledText>
-        <StyledText>
-          While there, either hand your empties to Egents, or drop them into{" "}
-          <HyperLink link="ECOCAN R.V.Ms" href="/" />
-        </StyledText>
-      </>
+      <div className="space-y-2 w-11/12">
+        <div>
+          After enjoying your drink, navigate to the nearest or your favourite{" "}
+          <HyperLink link="ECO-Station" href="" /> on{" "}
+          <HyperLink link="ECOCAN Map" href="" />
+        </div>
+
+        <div>
+          While there, either hand your empties to{" "}
+          <HyperLink link="Egents" href="/" />, or drop them into{" "}
+          <HyperLink link="ECOcans" href="/" />
+        </div>
+      </div>
     ),
   },
   {
     id: 4,
     title: "Get paid, right away",
     description: (
-      <>
-        <StyledText>
-          Once your <HyperLink link="eligible empties" href="/" /> are verified
-          and accepted, you won&apos;t have to wait long for payday.
-        </StyledText>
-        <StyledText>
-          You&apos;ll get paid instantly, right into your Eco-wallet!
-        </StyledText>
-      </>
+      <div className="space-y-2 w-11/12">
+        <div>
+          Once your eligible empties are accepted, you&apos;ll get paid
+          instantly, right into your ECO-wallet!
+        </div>
+        <div>
+          Additionally, the App will inform you of the CO2e reduction & energy
+          savings you&apos;ve made. And we&apos;ll reward your ECO-friendly efforts with
+          exclusive discounts
+        </div>
+      </div>
     ),
   },
   {
     id: 5,
     title: "Your cash, Your call",
     description: (
-      <>
-        <StyledText>
-          You can order more drinks affordably from ECOCAN Market, transfer
-          deposits to friends, donate to charity, or cash out.
-        </StyledText>
-        <StyledText>
-          Take a peek at the <HyperLink link="EcocanApp tutorial" href="/" />{" "}
-          for more guidance!
-        </StyledText>
-      </>
+      <div className="space-y-2 w-11/12">
+        <div>
+          You can order more drinks affordably from
+          <HyperLink link="ECOCAN Market" href="/" />, transfer deposits to
+          friends, donate to charity, or cash out.
+        </div>
+        <div>
+          Take a look at the EcocanApp <HyperLink link="tutorial" href="/" />{" "}
+          for more!
+        </div>
+      </div>
     ),
   },
 ];
@@ -127,11 +129,7 @@ export function AccordionDemo({
       onValueChange={(value) => setOpenItem(value)}
     >
       {accordionData.map((item) => (
-        <AccordionItem
-          key={item.id}
-          value={`item-${item.id}`}
-          className="text-accent/80"
-        >
+        <AccordionItem key={item.id} value={`item-${item.id}`}>
           <div className="flex items-center">
             <div className="w-12 h-12 flex items-center">
               <Image
@@ -143,12 +141,17 @@ export function AccordionDemo({
               />
             </div>
             <div className="w-full">
-              <AccordionTrigger onClick={() => handleItemClick(item.id)} className={`text-lg ${nunitoSans.className}`}>
+              <AccordionTrigger
+                onClick={() => handleItemClick(item.id)}
+                className={`text-xl`}
+              >
                 {item.title}
               </AccordionTrigger>
             </div>
           </div>
-          <AccordionContent className={`font-medium ${nunitoSans.className}`}>{item.description}</AccordionContent>
+          <AccordionContent className={`text-secondary text-base`}>
+            {item.description}
+          </AccordionContent>
         </AccordionItem>
       ))}
     </Accordion>

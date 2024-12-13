@@ -1,180 +1,138 @@
 "use client";
 
 import React, { useState } from "react";
-import {
-  Sparkles,
-  LucideTriangleAlert,
-  LucideRecycle,
-  LucideCreditCard,
-} from "lucide-react";
-import Link from "next/link";
-import clsx from "clsx";
-import HyperLink from "../hyperlink/hyperlink";
 import Image from "next/image";
-import { greenBall } from "@/lib/imageIndex";
+import clsx from "clsx";
+import { motion, AnimatePresence } from "framer-motion";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
+import { useMediaQuery } from "@/lib/useMediaQuery";
 
 interface Feature {
   id: number;
-  name: string;
-  question: React.ReactNode;
+  name?: React.ReactNode;
+  question?: React.ReactNode;
   answer?: React.ReactNode;
   icon: string;
+  bgImg?: string;
 }
 
-const iconSize = 18;
-
-const defaultFeaturesData: Feature[] = [
-  {
-    id: 1,
-    name: "Avoid Fakes",
-    question:
-      "Did you know that over 30% of all beverages sold worldwide is illicit, hence harmful to you?",
-    answer: (
-      <div className="italic text-accent/50 space-y-4">
-        <p>
-          Eco-Scanner helps you to identify genuine <HyperLink link="eligible" href="/"/> beverages, before
-          purchase.
-        </p>
-
-        <p>
-          Just scan the unique <HyperLink link="ECOCAN security codes" href="/"/> printed only on genuine
-          beverages, to verify authenticity.
-        </p>
-
-        <p>
-          If it&apos;s a fake, EcocanApp will alert you instantly, and block
-          access to the authentication page.
-        </p>
-
-        <p><span className="text-red-500">DO NOT BUY</span> such fake products!</p>
-      </div>
-    ),
-    icon: "/assets/images/consumer/avoid-fakes.svg",
-  },
-  {
-    id: 2,
-    name: "Make Money",
-    question:
-      "Every week, you eat plastics equivalent to a whole credit card in your food! How?",
-    answer: (
-      <div className="italic text-accent/50 space-y-4">
-        <p>
-          Every day 1.4 Billion used <HyperLink link="empties" href="/" /> are
-          carelessly thrown into the environment.
-        </p>
-        <p>
-          And our oceans now contain over 1.7 trillion plastic particles, which
-          eventually end up on your plate.
-        </p>
-        <p>
-          Help us stop this, by turning in for recycling,{" "}
-          <HyperLink link="eligible" href="/" /> used empties of PET plastics,
-          Aluminium cans, Glass bottles, and drinks cartons, at any of our{" "}
-          <HyperLink link="Eco-Stations," href="/" /> and get paid.
-        </p>
-      </div>
-    ),
-    icon: "/assets/images/consumer/make-money.svg",
-  },
-  {
-    id: 3,
-    name: "Shop Online",
-    question: (
-      <p>
-        <HyperLink link="ECOCAN Market" href="/" /> is the go-to supermarket, in
-        your pocket
-      </p>
-    ),
-    answer: (
-      <div className="italic text-accent/50 space-y-4">
-        <p>
-          Order your favourite genuine drinks with just a few taps, then sit
-          back and relax. ECouriers will most affordably deliver it to you, in
-          minutes. Wherever. Whenever.
-        </p>
-        <p>
-          Or, allow us 60 minutes to aggregate orders,that we cut our carbon
-          footprint
-        </p>
-      </div>
-    ),
-    icon: "/assets/images/consumer/shop-online.svg",
-  },
-];
-
 interface FeaturesGridProps {
-  features?: Feature[];
-  bgColor?: string;
+  features: Feature[];
+  className?: string;
+  gap?: string;
 }
 
 const FeaturesGrid: React.FC<FeaturesGridProps> = ({
-  features = defaultFeaturesData,
-  bgColor = "bg-transparent",
+  features,
+  className,
+  gap = "gap-1"
 }) => {
   const [expandedFeature, setExpandedFeature] = useState<number | null>(null);
+  const isLargeScreen = useMediaQuery("(min-width: 1024px)") ?? false;
+  const [mounted, setMounted] = useState(false);
 
-  const toggleExpand = (id: number) => {
-    setExpandedFeature(expandedFeature === id ? null : id);
+  React.useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  const handleMouseEnter = (id: number) => {
+    setExpandedFeature(id);
   };
 
-  return (
-    <div>
+  const handleMouseLeave = () => {
+    setExpandedFeature(null);
+  };
+
+  const FeatureCard = ({ feature }: { feature: Feature }) => {
+    const isExpanded = expandedFeature === feature.id;
+    
+    return (
       <div
-        className={`mt-8 grid w-full grid-cols-2 gap-12 md:grid-cols-2 lg:grid-cols-3`}
+        className={clsx(
+          `text-left p-4 rounded-2xl ${feature.bgImg} relative`,
+          'transition-all duration-300 ease-in-out',
+          'h-full',
+          className
+        )}
+        onMouseEnter={() => handleMouseEnter(feature.id)}
+        onMouseLeave={handleMouseLeave}
       >
-        {features.map((feature) => {
-          const isExpanded = expandedFeature === feature.id;
-          return (
-            <div
-              key={feature.id}
-              className={`text-left ${bgColor} py-4 rounded-xl`}
+        <div className="w-[2.9375rem] h-[2.9375rem] overflow-hidden relative z-[999]">
+          <Image
+            src={feature.icon}
+            alt={`${feature.name} icon`}
+            className="w-full h-full"
+            width={47}
+            height={47}
+          />
+        </div>
+        <div className="text-xl my-4 font-semibold relative z-[999]">
+          {feature.name}
+        </div>
+        <div className="max-w-sm relative z-[999]">
+          {feature.question}
+        </div>
+        <AnimatePresence>
+          {isExpanded && feature.answer && (
+            <motion.div 
+              initial={{ height: 0, opacity: 0 }}
+              animate={{ height: "auto", opacity: 1 }}
+              exit={{ height: 0, opacity: 0 }}
+              transition={{ duration: 0.3, ease: "easeInOut" }}
+              className="mt-2 relative z-[999] font-light overflow-hidden"
             >
-              <div className="w-full h-16 overflow-hidden relative">
-                <Image
-                  src={feature.icon}
-                  alt="green icon"
-                  className="w-auto absolute -left-6"
-                  width={47}
-                  height={47}
-                />
-              </div>
-              <div className="text-md mb-1 font-semibold text-gray-900">
-                {feature.name}
-              </div>
-              <div className="font-regular max-w-sm text-sm text-[#00000080]">
-                {feature.question}
-              </div>
-              {feature.answer && (
-                <div className="mt-2 text-sm text-[#00000080]">
-                  {isExpanded
-                    ? feature.answer
-                    : `${feature.answer.toString().slice(0, 0)}`}
-                  <button
-                    onClick={() => toggleExpand(feature.id)}
-                    className={`text-accent/40 underline ${
-                      isExpanded ? "mt-4" : "mt-0"
-                    }`}
-                  >
-                    {isExpanded ? "Close" : "Read More"}
-                  </button>
-                </div>
-              )}
+              {feature.answer}
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </div>
+    );
+  };
+
+  if (!mounted) return null;
+
+  if (isLargeScreen) {
+    return (
+      <div className={`mt-8 grid w-full grid-cols-3 ${gap}`}>
+        {features.map((feature) => (
+          <FeatureCard key={feature.id} feature={feature} />
+        ))}
+      </div>
+    );
+  }
+
+  return (
+    <div className="relative w-full mt-8">
+      <div className="w-full overflow-hidden">
+        <Carousel className="w-full">
+          <div className="relative">
+            <CarouselContent className="-ml-2 md:-ml-4">
+              {features.map((feature) => (
+                <CarouselItem 
+                  key={feature.id} 
+                  className="pl-2 md:pl-4 md:basis-1/2 lg:basis-1/3"
+                >
+                  <div className="h-full">
+                    <FeatureCard feature={feature} />
+                  </div>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <div className="absolute top-8 right-20">
+              <CarouselPrevious />
+              <CarouselNext />
             </div>
-          );
-        })}
+          </div>
+        </Carousel>
       </div>
     </div>
   );
 };
 
-interface CustomCardProps extends FeaturesGridProps {}
-
-const CustomCard: React.FC<CustomCardProps> = (props) => {
-  return (
-    <div>
-      <FeaturesGrid {...props} />
-    </div>
-  );
-};
-
-export default CustomCard;
+export default FeaturesGrid;

@@ -13,13 +13,13 @@ export default function HeroContainer() {
             </TabsContent>
           ))}
         </div>
-        <div className="justify-center items-center flex pt-8 mt-8">
-          <TabsList className="bg-white border-none rounded-full">
+        <div className="justify-center items-center flex lg:pt-8 lg:mt-8">
+          <TabsList className="bg-white border-[#E6E6E6] rounded-full">
             {Object.keys(tabContent).map((tab) => (
               <TabsTrigger
                 key={tab}
                 value={tab}
-                className="rounded-full w-36 text-[#0000004D] z-50"
+                className="rounded-full w-[5.575rem] md:w-36 text-[#0000004D] text-[0.6875rem] md:text-base z-50"
               >
                 {tab.charAt(0).toUpperCase() + tab.slice(1)}
               </TabsTrigger>
@@ -31,13 +31,13 @@ export default function HeroContainer() {
             <div className="mt-12">{content}</div>
           </TabsContent>
         ))}
-        <div className="justify-center items-center flex pt-8">
-          <TabsList className="bg-white border-none rounded-full">
+        <div className="justify-center items-center flex py-8">
+          <TabsList className="bg-white border-[#E6E6E6] rounded-full">
             {Object.keys(tabContent).map((tab) => (
               <TabsTrigger
                 key={tab}
                 value={tab}
-                className="rounded-full w-36 text-[#0000004D] z-50"
+                className="rounded-full w-[5.575rem] md:w-36 text-[#0000004D] text-xs md:text-base z-50"
               >
                 {tab.charAt(0).toUpperCase() + tab.slice(1)}
               </TabsTrigger>

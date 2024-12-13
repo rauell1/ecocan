@@ -5,7 +5,7 @@ import React from "react";
 const timelineData = {
   title: "How to return eligible empties",
   subtitle: (
-    <div className="text-base w-4/5">
+    <div className="md:w-11/12">
       Only return empties of Aluminium cans, PET, Glass bottles and beverage
       cartons carrying ECOCAN Security codes. And are published on the ECOCAN
       website, and ECO-products section of EcocanApp.{" "}
@@ -27,19 +27,48 @@ const timelineData = {
     },
     {
       image: "/assets/images/consumer/recycle.svg",
-      title: "Or recycle via ECOCAN RVMs",
+      title: "Or recycle via ECOCANs",
       description:
         "Scan your ECOCAN ID to the RVM, place your empties into the infeed, then complete the session. And you’ll immediately receive applicable deposits directly into your ECO-wallet",
+    },
+    {
+      image: "/assets/images/consumer/how.svg",
+      title: "SO how does this green-tech ECO-system really work?",
+      description: <HyperLink href="/" link="Learn more"/>
     },
   ],
 };
 
 export default function ReturnEmpties() {
   return (
-    <Timeline
-      title={timelineData.title}
-      subtitle={timelineData.subtitle}
-      items={timelineData.items}
-    />
+    <div className="py-24 bg-[#2F313F] text-white relative">
+      <Timeline
+        title={timelineData.title}
+        subtitle={timelineData.subtitle}
+        items={timelineData.items}
+      />
+       <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 1440 100"
+            className="absolute bottom-0 z-50 hidden lg:block"
+          >
+            <path
+              fill="#F3F3F6"
+              fill-opacity="1"
+              d="M0,80L1440,0L1440,340L0,340Z"
+            ></path>
+          </svg>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 600 120"
+            className="absolute bottom-0 z-50 hidden md:block lg:hidden"
+          >
+            <path
+              fill="#F3F3F6"
+              fill-opacity="1"
+              d="M0,100L600,0L600,600L0,600Z"
+            ></path>
+          </svg>
+    </div>
   );
 }

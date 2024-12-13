@@ -22,8 +22,8 @@ const CheckList: React.FC<CheckListProps> = ({
 }) => {
   return (
     <div>
-      {items.map((item) => (
-        <div className={clsx("flex mt-5", className)} key={item.id}>
+      {items.map((item, index) => (
+        <div className={clsx("flex mt-5", className)} key={index}>
           <div>
             <div className="w-12 h-12 flex items-center justify-center">
               {item.icon ? (
@@ -40,8 +40,8 @@ const CheckList: React.FC<CheckListProps> = ({
             </div>
           </div>
           <div>
-            <div>{item.step}</div>
-            <div className="text-accent text-sm">{item.description}</div>
+            <div className="text-lg font-medium">{item.step}</div>
+            <div className="text-secondary text-base font-light">{item.description}</div>
           </div>
         </div>
       ))}

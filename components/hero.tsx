@@ -5,7 +5,7 @@ import HeroContainer from "./hero-container";
 export default function Hero() {
   return (
     <>
-      <div className=" hidden md:block">
+      <div className="hidden md:block">
         <HeroContainer/>
       </div>
     </>

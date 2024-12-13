@@ -17,10 +17,9 @@ interface NavigationBarProps {
 
 const navLinks = [
   { href: "/", label: "Home" },
-  { href: "/about-us", label: "About Us" },
   { href: "/solutions", label: "Solutions" },
+  { href: "/about-us", label: "About us" },
   { href: "/blog", label: "Blog" },
-  { href: "/contact", label: "Contact Us" },
 ];
 
 const NavigationBar: React.FC<NavigationBarProps> = ({
@@ -48,14 +47,15 @@ const NavigationBar: React.FC<NavigationBarProps> = ({
   return (
     <nav
       className={clsx(
-        "fixed top-0 left-0 right-0 md:px-4 border-b border-b-[#EDEDED] z-[9999] transition-all duration-300",
-        className,
+        "fixed top-0 left-0 right-0 md:px-4 z-[9999] transition-all duration-300",
+        isOpen ? "bg-white": "",
+        className
       )}
     >
       <div className="flex items-center justify-between flex-wrap xl:max-w-[69.375rem] mx-auto px-4 md:px-0">
         <div className="flex items-center flex-shrink-0 text-white py-4">
           <Image
-            src={logoSrc }
+            src={logoSrc}
             alt="ecocan logo"
             width={46}
             height={46}
@@ -68,18 +68,18 @@ const NavigationBar: React.FC<NavigationBarProps> = ({
             className="flex items-center px-3 py-2 rounded text-black-500 hover:text-black-400"
           >
             <svg
-              className={`fill-current h-6 w-6 text-[#00000080] ${
-                isOpen ? "hidden" : "block"
-              }`}
+              className={`fill-current h-6 w-6 ${
+                isScrolled ? "text-primary" : "hidden"
+              } ${isOpen ? "hidden" : "block"}`}
               viewBox="0 0 20 20"
               xmlns="http://www.w3.org/2000/svg"
             >
               <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
             </svg>
             <svg
-              className={`fill-current h-6 w-6 text-[#00000080] ${
-                isOpen ? "block" : "hidden"
-              }`}
+              className={`fill-current h-6 w-6 ${
+                isScrolled ? "text-primary" : "text-white"
+              } ${isOpen ? "block" : "hidden"}`}
               viewBox="0 0 20 20"
               xmlns="http://www.w3.org/2000/svg"
             >
@@ -98,7 +98,7 @@ const NavigationBar: React.FC<NavigationBarProps> = ({
                 href={link.href}
                 key={link.label}
                 className={clsx(
-                  "block md:inline-block text-center text-sm font-[500]",
+                  "block md:inline-block text-center text-sm font-medium",
                   linkColor
                 )}
               >
@@ -115,17 +115,19 @@ const NavigationBar: React.FC<NavigationBarProps> = ({
                 "text-primary hover:text-primary"
               )}
             >
-              Join ECOmmunity
+              Support
             </Button>
             <Button
               asChild
               className={clsx(
                 "rounded-full h-7 xl:h-8 text-black hover:text-primary bg-white hover:bg-white",
-                isScrolled ? "bg-primary text-white hover:bg-primary hover:text-white" : "bg-white",
+                isScrolled
+                  ? "bg-primary text-white hover:bg-primary hover:text-white"
+                  : "bg-white",
                 secondButtonClassName
               )}
             >
-              <Link href="/">ECOCAN MARKET</Link>
+              <Link href="/">Register</Link>
             </Button>
           </div>
         </div>

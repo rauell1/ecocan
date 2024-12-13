@@ -26,10 +26,10 @@ const HowTo: React.FC<HowToProps> = ({
   imageAlt,
 }) => {
   const Item = () => (
-    <div className="w-[31.3rem] h-[33.75rem] pl-[48px] ms-auto flex flex-col justify-center">
+    <div className="lg:w-[31.3rem] lg:h-[33.75rem] ms-auto flex flex-col justify-center">
       <div className="mt-1 mb-8">
-        <p className="text-2xl font-semibold pb-1">{itemsTitle}</p>
-        <p className="text-base text-[#23262fcc]">{itemsSubtitle}</p>
+        <p className="text-[2rem] font-semibold pb-1">{itemsTitle}</p>
+        <p className="text-xl text-secondary font-light">{itemsSubtitle}</p>
       </div>
       {items.map((data) => (
         <ItemList
@@ -44,20 +44,45 @@ const HowTo: React.FC<HowToProps> = ({
   );
 
   return (
-    <>
-      <ImageAndItem
-        item={<Item />}
-        image={
-          <Image
-            src={imageSrc}
-            className="w-full h-[33.5rem]"
-            width={500}
-            height={100}
-            alt={imageAlt}
-          />
-        }
-      />
-    </>
+    <div className="pt-24 pb-36 bg-[#2F313F] text-white relative">
+      <div className="max-w-[69.375rem] mx-auto px-4 xl:px-0">
+        <ImageAndItem
+        className="lg:gap-12 xl:gap-0"
+          item={<Item />}
+          image={
+            <Image
+              src={imageSrc}
+              className="w-full h-[33.5rem] hidden lg:block"
+              width={500}
+              height={100}
+              alt={imageAlt}
+            />
+          }
+        />
+      </div>
+      <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 1440 100"
+            className="absolute bottom-0 z-50 hidden lg:block"
+          >
+            <path
+              fill="white"
+              fill-opacity="1"
+              d="M0,80L1440,0L1440,340L0,340Z"
+            ></path>
+          </svg>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 600 120"
+            className="absolute bottom-0 z-50 hidden md:block lg:hidden"
+          >
+            <path
+              fill="white"
+              fill-opacity="1"
+              d="M0,100L600,0L600,600L0,600Z"
+            ></path>
+          </svg>
+    </div>
   );
 };
 
