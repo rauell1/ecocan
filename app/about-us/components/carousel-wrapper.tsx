@@ -86,7 +86,7 @@ interface NavigationArrowProps {
         </div>
   
         {currentPage < pages.length - 1 && (
-          <div className="absolute bottom-8 left-0 right-0 flex justify-center items-center gap-8 z-[999]">
+          <div className="absolute bottom-24 lg:bottom-8 left-0 right-0 flex justify-center items-center gap-8 z-[999]">
             <NavigationDots
               totalPages={pages.length}
               currentPage={currentPage}

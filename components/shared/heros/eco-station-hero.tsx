@@ -50,12 +50,12 @@ export default function EcoStationHero() {
                     </span>
                   </h1>
                 </div>
-                <div className="text-sm lg:text-lg xl:text-xl">
+                <div className="text-base xl:text-xl">
                   <p className="tracking-wide text-white text-start">
                     List your shop as an{" "}
                     <HyperLink link="ECO-station" href="/" />
-                    , and increase <br /> your sales, earn extra income on the
-                    side, and <br /> enjoy unmatched visibility
+                    , and increase your sales, earn extra income on the
+                    side, and enjoy unmatched visibility
                   </p>
                 </div>
               </div>

@@ -92,7 +92,7 @@ const producerFeatures = [
 
 export default function Efficiency() {
   return (
-    <div className="max-w-[69.375rem] mx-auto px-4 xl:px-0 pb-24">
+    <div className="max-w-[69.375rem] mx-auto px-4 xl:px-0 py-8 lg:pb-24">
       <TextWithCards
         title="Re-imagined efficiency"
         description={

@@ -38,14 +38,14 @@ export default function EventsHero() {
             <div className="w-full xl:max-w-[69.375rem] z-[9998] flex flex-col md:flex md:flex-row mx-auto lg:my-0 lg:gap-12 lg:pt-[3.125rem] xl:pt-0">
               <div className="flex flex-col gap-4 lg:mt-28 xl:mt-96 md:w-1/2 px-4 xl:px-0 text-white z-50">
                 <div>
-                  <h1 className="xl:text-6xl text-5xl text-start font-semibold">
+                  <h1 className="xl:text-[4rem] text-5xl text-start font-semibold">
                     <span className="bg-gradient-to-r from-[#228B22] via-[#4AC63F] to-[#FFDD4C] text-transparent bg-clip-text">
                     The{" "}Gig
                     </span>
                   </h1>
                 </div>
                 <div>
-                  <p className="tracking-wide text-sm lg:text-base xl:text-lg text-white  text-start my-5 xl:my-10">
+                  <p className="tracking-wide text-base xl:text-xl text-white  text-start my-5 xl:my-10">
                     Make it memorable, leave a lasting ECO-green<br/> impression, and
                     you&apos;ll be unforgettable!
                   </p>

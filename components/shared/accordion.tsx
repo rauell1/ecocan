@@ -31,7 +31,7 @@ export function ReusableAccordion({
     >
       {items.map((item) => (
         <AccordionItem key={item.id} value={item.id} className="w-full">
-          <AccordionTrigger className="text-xl">{item.question}</AccordionTrigger>
+          <AccordionTrigger className="text-xl text-start">{item.question}</AccordionTrigger>
           <AccordionContent className="text-base text-secondary">{item.answer}</AccordionContent>
         </AccordionItem>
       ))}

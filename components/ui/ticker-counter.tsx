@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { useInView, useMotionValue, useSpring, motion, animate } from 'framer-motion';
+import { motion, useAnimationControls } from 'framer-motion';
 
 export default function TickerCounter({
   value,
@@ -12,51 +12,66 @@ export default function TickerCounter({
 }) {
   const ref = useRef<HTMLSpanElement>(null);
   const [isCountComplete, setIsCountComplete] = useState(false);
-  const motionValue = useMotionValue(direction === 'down' ? value : 0);
-  const springValue = useSpring(motionValue, {
-    damping: 100,
-    stiffness: 100,
-  });
+  const controls = useAnimationControls();
+  const [hasAnimated, setHasAnimated] = useState(false);
 
-  const isInView = useInView(ref, { once: true, margin: '-100px' });
-
-  useEffect(() => {
-    if (isInView) {
-      motionValue.set(direction === 'down' ? 0 : value);
-    }
-  }, [motionValue, isInView, direction, value]);
-
-  useEffect(() => {
-    const unsubscribe = springValue.on('change', (latest) => {
-      if (ref.current) {
-        ref.current.textContent = Intl.NumberFormat('en-US').format(
-          Math.round(latest)
-        );
-        // Check if counting is complete
-        if (direction === 'up' && Math.round(latest) === value) {
-          setIsCountComplete(true);
-        } else if (direction === 'down' && Math.round(latest) === 0) {
-          setIsCountComplete(true);
-        }
+  // Function to animate the counter
+  const animateCounter = async () => {
+    if (hasAnimated) return; // Prevent re-running
+    
+    setHasAnimated(true);
+    const startValue = direction === 'down' ? value : 0;
+    const endValue = direction === 'down' ? 0 : value;
+    const duration = 2; // Animation duration in seconds
+    
+    const start = performance.now();
+    const updateCounter = () => {
+      if (!ref.current) return;
+      
+      const now = performance.now();
+      const progress = Math.min((now - start) / (duration * 1000), 1);
+      
+      // Easing function for smooth animation
+      const easeOutQuart = (x: number) => 1 - Math.pow(1 - x, 4);
+      const easedProgress = easeOutQuart(progress);
+      
+      const currentValue = startValue + (endValue - startValue) * easedProgress;
+      ref.current.textContent = Intl.NumberFormat('en-US').format(
+        Math.round(currentValue)
+      );
+      
+      if (progress < 1) {
+        requestAnimationFrame(updateCounter);
+      } else {
+        setIsCountComplete(true);
+        controls.start({ opacity: 1, y: 0 });
       }
-    });
+    };
+    
+    requestAnimationFrame(updateCounter);
+  };
 
-    return () => unsubscribe();
-  }, [springValue, value, direction]);
+  useEffect(() => {
+    // Start animation when component mounts
+    animateCounter();
+    
+    // Cleanup function
+    return () => {
+      setHasAnimated(false);
+      setIsCountComplete(false);
+    };
+  }, []); // Empty dependency array ensures it only runs once on mount
 
   return (
     <div className="flex items-start">
       <div>
-        +
-        <span ref={ref}>
-          0
-        </span>
+        +<span ref={ref}>0</span>
       </div>
       {label && (
         <motion.span
           className="text-sm ml-2 self-end text-[#888D92]"
           initial={{ opacity: 0, y: 10 }}
-          animate={isCountComplete ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }}
+          animate={controls}
           transition={{ duration: 0.5, ease: 'easeOut' }}
         >
           {label}

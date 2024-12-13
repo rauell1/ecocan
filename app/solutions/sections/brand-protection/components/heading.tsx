@@ -122,7 +122,7 @@ export default function Heading() {
                         />
                       </div>
                       <div className="lg:w-1/2">
-                        <Card className="border-none p-4 h-full shadow-none">
+                        <Card className="border-none py-4 lg:p-4 h-full shadow-none">
                           <div className="text-accent/50 text-sm">
                             {item.title && (
                               <h2 className="font-semibold text-3xl text-black">

@@ -41,7 +41,7 @@ const timelineData = {
 
 export default function ReturnEmpties() {
   return (
-    <div className="py-24 bg-[#2F313F] text-white relative">
+    <div className="lg:py-24 py-8 bg-[#2F313F] text-white relative">
       <Timeline
         title={timelineData.title}
         subtitle={timelineData.subtitle}

@@ -9,7 +9,7 @@ import Image from "next/image";
 export default function BrandPromotion() {
   return (
     <div className="bg-white">
-        <div className="max-w-[69.375rem] mx-auto px-4 xl:px-0 py-24">
+        <div className="max-w-[69.375rem] mx-auto px-4 xl:px-0 py-8 lg:py-24">
           <ImageAndItem
             className="items-center gap-6 lg:gap-12 lg:flex-row-reverse"
             image={

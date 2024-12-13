@@ -37,32 +37,16 @@ const FeatureCard = ({ title, description, imageSrc }: FeatureProps) => (
 
 export default function Optimize() {
   return (
-    <div className="bg-[#2F313F] p-8 my-24">
+    <div className="bg-[#2F313F] py-8 lg:p-8 lg:my-24">
       <div className="max-w-[69.375rem] mx-auto px-4 xl:px-0">
-        {/* <div className="flex justify-between">
-          <Image
-            src="/assets/images/producer/green-ball.svg"
-            alt="green ball"
-            width={32}
-            height={32}
-            className="w-auto h-auto"
-          />
-          <Image
-            src="/assets/images/producer/green-ball.svg"
-            alt="green ball"
-            width={32}
-            height={32}
-            className="w-auto h-auto"
-          />
-        </div> */}
         <div className="text-center mb-6">
-          <h2 className="text-[2rem] bg-gradient-to-br from-[#228B22] via-[#4AC63F] to-[#0000001A] text-transparent bg-clip-text font-semibold">
+          <h2 className="text-3xl lg:text-[2rem] bg-gradient-to-br from-[#228B22] via-[#4AC63F] to-[#0000001A] text-transparent bg-clip-text font-semibold">
             Optimise the value of{" "}
             <span className="bg-gradient-to-bl from-[#4AC63F] via-[#FFDD4C] to-[#4AC63F]  text-transparent bg-clip-text">
               your packaging
             </span>
           </h2>
-          <p className="text-secondary text-xl">
+          <p className="text-secondary lg:text-xl">
             With ECOCAN, a bottle is more than just a bottle
           </p>
         </div>
@@ -91,14 +75,6 @@ export default function Optimize() {
             }
             imageSrc="/assets/images/producer/optimize-4.svg"
           />
-        </div>
-        <div className="w-full flex items-center justify-center ">
-          <p className="text-white text-lg font-semibold leading-[1.5125rem] text-center mb-4">
-            Only ECOCAN can offer you this level of insight, security,
-            efficiency and <br />
-            sustainability. And we say this with Absolute Confidence! Prove us
-            wrong
-          </p>
         </div>
       </div>
     </div>

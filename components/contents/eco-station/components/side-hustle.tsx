@@ -5,7 +5,7 @@ import React from "react";
 
 export default function SideHustle() {
   return (
-    <div className="pb-24 pt-8 relative bg-white overflow-hidden">
+    <div className="lg:pb-24 pt-8 relative bg-white overflow-hidden">
       <div className="max-w-[69.375rem] mx-auto pb-24 px-4 xl:px-0">
         <ImageAndItem
           className="gap-12 items-center lg:flex-row-reverse"
@@ -23,13 +23,13 @@ export default function SideHustle() {
                 Side hustle, without
                 <br /> a hustle...
               </h2>
-              <p className="text-secondary text-lg">
+              <p className="text-secondary lg:text-lg">
                 While you record revenue growth for becoming an ECO-Station,
                 we&apos;ll efficiently take care of empties logistics. Simply
                 ping-us on your Egent App to request pick-up when you&apos;ve
                 collected sufficient empties.
               </p>
-              <div className="text-secondary text-lg">
+              <div className="text-secondary lg:text-lg">
                 And the TnT will dispatch <HyperLink href="/" link="ECOuries" />{" "}
                 on <HyperLink href="/" link="Electric mobility" /> just-in-time;
                 boosting productivity, while cutting CO2e & energy consumption.

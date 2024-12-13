@@ -107,7 +107,7 @@ export default function GetStarted() {
     <TextWithCards
       title="Get Started"
       description={
-        <div className="w-5/6">
+        <div className="lg:w-5/6">
           Whether you want to keep your environment clean, earn extra cash, or
           to safeguard your health from fake drinks. With EcocanApp, it&apos;s
           all just a <HyperLink link="click away!" href="/" />

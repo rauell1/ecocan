@@ -21,7 +21,7 @@ const steps = [
     step: (
       <div>
         <h2 className="font-semibold text-2xl">Environmental Impact</h2>
-        <p className="font-light text-sm leading-6 text-left text-[#888D92] w-4/5 lg:w-full">
+        <p className="font-light leading-6 text-left text-secondary w-full">
           Reduces waste sent to landfills, decreases litter, as well as GHGs
           emission from raw material extraction
         </p>
@@ -43,7 +43,7 @@ const steps = [
     step: (
       <div>
         <h2 className="font-semibold text-2xl">Energy Efficiency</h2>
-        <p className="font-light text-sm leading-6 text-left text-[#888D92] w-4/5 lg:w-full">
+        <p className="font-light leading-6 text-left text-secondary w-full">
           Requires less energy compared to producing products from virgin raw
           materials i.e., recycling aluminium cans requires only 5% of energy
           needed to make new cans
@@ -66,7 +66,7 @@ const steps = [
     step: (
       <div>
         <h2 className="font-semibold text-2xl">Sustainability</h2>
-        <p className="font-light text-sm leading-6 text-left text-[#888D92] w-4/5 lg:w-full]">
+        <p className="font-light leading-6 text-left text-secondary w-full]">
           Promotes resource conservation by continuously reusing materials. For
           example, recycling PET bottles reduces need to drill crude oil to make
           new plastic bottles
@@ -89,7 +89,7 @@ const steps = [
     step: (
       <div>
         <h2 className="font-semibold text-2xl">Economic  Advantage</h2>
-        <p className="font-light text-sm leading-6 text-left text-[#888D92] w-4/5 lg:w-full">
+        <p className="font-light leading-6 text-left text-secondary w-full">
           Reduces manufacturing costs i.e beverage producers can save upto 40%
           of packaging costs, thus sell their products more affordably
         </p>
@@ -104,7 +104,7 @@ export default function ClosedLoop() {
       <TextWithComponent
         title="Why Closed-Loop Recycling"
         description={
-          <div className="w-4/5 text-[#888D92]">
+          <div className="lg:w-4/5 text-secondary">
             Closed-loop recycling refers to a sustainable process whereby used
             bottles are recycled into new bottles of the same material value
             i.e. PET empties are recycled to manufacture new PET bottles. And
