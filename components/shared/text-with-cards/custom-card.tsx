@@ -99,7 +99,7 @@ const FeaturesGrid: React.FC<FeaturesGridProps> = ({
 
   if (isLargeScreen) {
     return (
-      <div className={`mt-8 grid w-full grid-cols-3 ${gap}`}>
+      <div className={`mt-8 grid xl:w-[69.375rem] grid-cols-3 ${gap}`}>
         {features.map((feature) => (
           <FeatureCard key={feature.id} feature={feature} />
         ))}
