@@ -21,7 +21,7 @@ const howToData = [
       </div>
     ),
     description: (
-      <p className="text-sm mt-2 text-[#888D92]">
+      <p className="mt-2 text-[#888D92]">
         With onboarding consultation, and walk through the <br/>
         legalities together
       </p>
@@ -39,7 +39,7 @@ const howToData = [
     ),
     title: "After onboarding, we'll tailor our systems for you",
     description: (
-      <p className="text-sm mt-2 text-[#888D92]">
+      <p className="mt-2 text-[#888D92]">
        By customising Security codes for your brands, and set up TnT 
         <br/> and DRS profiles for your organisation
       </p>
@@ -57,7 +57,7 @@ const howToData = [
     ),
     title: "Then digitally deliver the codes  to your printers",
     description: (
-      <p className="text-sm mt-2 text-[#888D92]">
+      <p className="mt-2 text-[#888D92]">
         For seamless printing onto your packaging using existing printing
         technology; no customisation needed
       </p>
@@ -75,7 +75,7 @@ const howToData = [
     ),
     title: "And you are good to go!",
     description: (
-      <p className="text-sm mt-2 text-[#888D92]">
+      <p className="mt-2 text-[#888D92]">
         Sit back and let the TnT & DRS handle the rest; protecting your <br/>
         brand, enhancing efficiency, and promoting sustainability
       </p>
@@ -98,10 +98,10 @@ export default function HowToJoin() {
         }
         item={
           <div className="space-y-6">
-            <h2 className="font-semibold text-3xl">
+            <h2 className="font-semibold text-[2rem]">
               How to join the ECOmmunity
             </h2>
-            <p className="text-[#888D92]">It&apos;s easy like Sunday morning</p>
+            <p className="text-secondary text-xl">It&apos;s easy like Sunday morning</p>
             {howToData.map((data) => (
               <ItemList
                 key={data.id}

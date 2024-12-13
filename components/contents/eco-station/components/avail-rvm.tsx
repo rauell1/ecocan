@@ -32,7 +32,7 @@ export default function AvailRvm() {
                 </div>
               }
               description={
-                <p className="lg:w-[29.375rem]">
+                <p className="pt-8 pb-12 font-light">
                   If over 100 ECOnsumers return empties to you every day, we can
                   help set up an <HyperLink link="ECOCAN R.V.M." href="/" /> To
                   boost your efficiency, and offer ECOnsumers unforgettable
@@ -44,7 +44,7 @@ export default function AvailRvm() {
                 <PrimaryButton
                   buttonText="Learn more"
                   buttonLink="/"
-                  className="hover:bg-primary"
+                  className="hover:bg-primary mt-auto"
                 />
               }
             />

@@ -44,7 +44,7 @@ export default function CtaCardComponent() {
       image={
         <div className="w-[19.75rem] h-[22.625rem] mx-auto hidden lg:block">
           <Image
-            src="/assets/images/mobile-alt.svg"
+            src="/assets/images/consumer/mobile-alt.svg"
             alt=""
             width={100}
             height={100}

@@ -15,8 +15,8 @@ interface ItemListProps {
         </div>
       </div>
       <div className="pt-0">
-        <p>{title}</p>
-        <div className="text-white/50">{description}</div>
+        <p className="text-lg">{title}</p>
+        <div className="text-secondary">{description}</div>
       </div>
     </div>
   );

@@ -23,7 +23,7 @@ const howToData = [
       </div>
     ),
     description: (
-      <p className="text-sm mt-2">
+      <p className="mt-2">
         We&apos;ll then reach out to you with next steps
       </p>
     ),
@@ -32,7 +32,7 @@ const howToData = [
     id: 2,
     title: "Sign the ECO-partnership agreement",
     description: (
-      <p className="text-sm mt-2">
+      <p className="mt-2">
         Everything is transparent, no hidden clauses
       </p>
     ),
@@ -41,7 +41,7 @@ const howToData = [
     id: 3,
     title: "Update your profile on ECOCAN Market",
     description: (
-      <p className="text-sm mt-2">
+      <p className="mt-2">
         We&apos;ll leave this to you, try to be creative
       </p>
     ),
@@ -50,7 +50,7 @@ const howToData = [
     id: 4,
     title: "Set your status “live”  and start earning",
     description: (
-      <p className="text-sm mt-2">
+      <p className="mt-2">
         We&apos;ll ensure you are prominently visible
       </p>
     ),
@@ -77,7 +77,7 @@ export default function EcoStationContent() {
         <News />
         <FaqSection />
         <CtaCard
-          className="bg-[url('/assets/images/eco-station/join-ecommunity-bg.svg')] ps-4 lg:ps-[7.25rem] h-[30.125rem] bg-cover bg-center relative"
+          className="bg-[url('/assets/images/eco-station/join-ecommunity-bg.svg')] ps-4 lg:ps-[7.25rem] h-[30.125rem] bg-cover bg-center relative after:absolute after:inset-0 after:content-[''] after:bg-black/60 after:opacity-70 after:z-10 overflow-hidden"
           item={
             <TextWithComponent
               title={
@@ -87,7 +87,7 @@ export default function EcoStationContent() {
               component={
                 <Button
                   variant="outline"
-                  className="bg-[#FFDD4C] hover:bg-[#FFDD4C] rounded-full h-[3rem] w-[24.3125rem] border-none px-8 text-base"
+                  className="bg-[#FFDD4C] hover:bg-[#FFDD4C] rounded-full h-[3rem] lg:w-[24.3125rem] border-none px-8 text-base"
                 >
                   Join ECOmmunity
                   <ArrowRight className="ms-4" />

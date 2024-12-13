@@ -34,14 +34,14 @@ export const SecurityFeatureCard = ({
           <div className="relative w-10 h-10">
             <Image src={number} alt="number" width={100} height={100} />
           </div>
-          <CardTitle className="text-xl font-semibold">{title}</CardTitle>
+          <CardTitle className="text-xl font-medium">{title}</CardTitle>
         </div>
       </CardHeader>
       <CardContent>
-        <p className="text-accent/70 text-sm">
+        <p className="text-secondary">
           {description}
           {highlight && (
-            <span className="text-red-500 font-semibold"> {highlight}</span>
+            <span className="text-red-500"> {highlight}</span>
           )}
         </p>
       </CardContent>

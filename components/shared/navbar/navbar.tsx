@@ -98,7 +98,7 @@ const NavigationBar: React.FC<NavigationBarProps> = ({
                 href={link.href}
                 key={link.label}
                 className={clsx(
-                  "block md:inline-block text-center text-sm font-[500]",
+                  "block md:inline-block text-center text-sm font-medium",
                   linkColor
                 )}
               >

@@ -26,11 +26,11 @@ export default function SolutionsContent() {
           <div className="xl:max-w-[69.375rem] flex flex-col md:flex md:flex-row mx-auto lg:my-0 lg:gap-12">
             <div className="px-4 xl:px-0 text-white z-50 mx-auto">
               <div>
-                <h1 className="lg:text-6xl text-5xl text-center font-semibold text-white">
+                <h1 className="lg:text-[4rem] text-5xl text-center font-semibold text-white">
                   Smart Sustainable Solutions
                 </h1>
               </div>
-              <div className="tracking-wide text-sm lg:text-base xl:text-lg font-light text-white my-10 space-y-4">
+              <div className="tracking-wide text-base lg:text-lg xl:text-xl font-light text-white my-10 space-y-4">
                 <p className="text-center w-3/5 mx-auto">
                   We seamlessly connect the physical and digital worlds in a
                   manner that is most sustainable to our planet, and to the life

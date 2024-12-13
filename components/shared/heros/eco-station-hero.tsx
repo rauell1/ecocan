@@ -42,7 +42,7 @@ export default function EcoStationHero() {
             <div className="w-full xl:max-w-[69.375rem] z-[9998] mx-auto lg:h-40 xl:h-[40rem] lg:flex lg:flex-row lg:gap-12 lg:items-center">
               <div className="flex flex-col gap-4 lg:pt-0 lg:w-1/2 px-4 xl:px-0 text-white lg:space-y-4">
                 <div>
-                  <h1 className="xl:text-6xl text-5xl text-start font-semibold">
+                  <h1 className="xl:text-[4rem] text-5xl text-start font-semibold">
                     Every day is
                     <br />
                     <span className="bg-gradient-to-r from-[#228B22] via-[#4AC63FCF] to-[#FFDD4C] text-transparent bg-clip-text">
@@ -50,7 +50,7 @@ export default function EcoStationHero() {
                     </span>
                   </h1>
                 </div>
-                <div className="text-sm lg:text-base xl:text-lg">
+                <div className="text-sm lg:text-lg xl:text-xl">
                   <p className="tracking-wide text-white text-start">
                     List your shop as an{" "}
                     <HyperLink link="ECO-station" href="/" />

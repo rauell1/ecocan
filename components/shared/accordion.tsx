@@ -20,7 +20,7 @@ interface ReusableAccordionProps {
 
 export function ReusableAccordion({
   items,
-  className = "",
+  className,
   defaultOpenItems,
 }: ReusableAccordionProps) {
   return (
@@ -30,9 +30,9 @@ export function ReusableAccordion({
       className={className}
     >
       {items.map((item) => (
-        <AccordionItem key={item.id} value={item.id}>
-          <AccordionTrigger>{item.question}</AccordionTrigger>
-          <AccordionContent>{item.answer}</AccordionContent>
+        <AccordionItem key={item.id} value={item.id} className="w-full">
+          <AccordionTrigger className="text-xl">{item.question}</AccordionTrigger>
+          <AccordionContent className="text-base text-secondary">{item.answer}</AccordionContent>
         </AccordionItem>
       ))}
     </Accordion>

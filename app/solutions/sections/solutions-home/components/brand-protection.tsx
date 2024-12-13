@@ -27,7 +27,7 @@ export default function BrandProtection() {
             title={
               <div className="space-y-4">
                 <h2>Brand Protection</h2>
-                <p className="text-sm font-medium text-[#2F313F]">
+                <p className="text-base font-medium text-[#2F313F]">
                   ECOCAN TnT / ECOCAN DRS / ECOCAN Security codes / EcocanApp
                 </p>
               </div>
@@ -45,7 +45,7 @@ export default function BrandProtection() {
               <PrimaryButton
                 buttonIcon={<LucideArrowRight />}
                 buttonText="Learn more"
-                className="hover:bg-primary"
+                className="hover:bg-primary mt-8"
                 buttonLink="/solutions/brand-protection"
               />
             }

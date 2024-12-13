@@ -1,17 +1,13 @@
 "use client";
 
-import { ArrowRight } from "lucide-react";
 import React from "react";
 import Optimize from "./components/optimize";
 import { FaqSection } from "../consumer/components/faq";
-import Image from "next/image";
-import { Button } from "@/components/ui/button";
 import CtaCard from "@/components/shared/cta-card/cta-card";
 import TextWithComponent from "../consumer/components/text-with-component";
 import DoMore from "./components/do-more";
 import BeyondBasics from "./components/beyond-basics";
 import HowToJoin from "./components/how-to-join";
-import Alchemy from "./components/alchemy";
 import Efficiency from "./components/efficiency";
 import DepositRefundSystem from "../recycler/components/drs";
 import DrsTakeover from "./components/drs-takeover";

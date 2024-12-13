@@ -28,9 +28,9 @@ const consumerFeatures = [
         </p>
 
         <p>
-          If it&apos;s genuine, an authentication page will pop up. But if it&apos;s a
-          fake, the App will instantly alert you, and block access to the
-          verification page.
+          If it&apos;s genuine, an authentication page will pop up. But if
+          it&apos;s a fake, the App will instantly alert you, and block access
+          to the verification page.
         </p>
 
         <p>
@@ -43,9 +43,13 @@ const consumerFeatures = [
   },
   {
     id: 2,
-    name: (<p className="text-white">Protect Planet</p>),
-    question:
-      (<p className="text-white">Every week, you eat plastics equivalent to a whole credit card in your food! How?</p>),
+    name: <p className="text-white">Protect Planet</p>,
+    question: (
+      <p className="text-white">
+        Every week, you eat plastics equivalent to a whole credit card in your
+        food! <br/>How?
+      </p>
+    ),
     answer: (
       <div className="text-white space-y-4">
         <p>
@@ -69,23 +73,27 @@ const consumerFeatures = [
   },
   {
     id: 3,
-    name: (<p className="text-white">Make Money</p>),
+    name: <p className="text-white">Make Money</p>,
     question: (
       <p className="text-white">
-        <HyperLink link="ECOCAN Market" href="/" /> is the go-to supermarket, in
-        your pocket
+        Earn extra income on the side, and enjoy great discounts, by simply
+        recycling your empties.
       </p>
     ),
     answer: (
       <div className="text-white space-y-4">
         <p>
-          Order your favourite genuine drinks with just a few taps, then sit
-          back and relax. ECouriers will most affordably deliver it to you, in
-          minutes. Wherever. Whenever.
+          After consuming your favourite eligible drinks, return the empties to
+          ECO-Stations, and get refunded the deposit money.
         </p>
         <p>
-          Or, allow us 60 minutes to aggregate orders,that we cut our carbon
-          footprint
+          Or if you pick eligible empties from the streets, turn them in to earn
+          the deposit.
+        </p>
+        <p>
+          To further appreciate your ECO-friendly efforts, we&apos;ll reward you
+          with Recycling Coupons and Sustainability Discounts. That you pay less
+          on your next purchases, hence save more!
         </p>
       </div>
     ),
@@ -99,7 +107,7 @@ export default function GetStarted() {
     <TextWithCards
       title="Get Started"
       description={
-        <div className="w-4/5">
+        <div className="w-5/6">
           Whether you want to keep your environment clean, earn extra cash, or
           to safeguard your health from fake drinks. With EcocanApp, it&apos;s
           all just a <HyperLink link="click away!" href="/" />

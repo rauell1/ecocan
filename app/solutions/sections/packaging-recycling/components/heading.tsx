@@ -13,7 +13,7 @@ const consumerFeatures = [
       </>
     ),
     question: (
-      <p className="font-normal text-[#42526B]">
+      <p className="font-normal text-secondary">
         are consumed every second globally, but 86% of used bottles are{" "}
         <span className="font-semibold">
           CARELESSLY LITTERED, DUMPED, OR BURNT IN OPEN AIR!
@@ -30,7 +30,7 @@ const consumerFeatures = [
       </>
     ),
     question: (
-      <p className="font-normal text-[#42526B]">
+      <p className="font-normal text-secondary">
         are used every hour, but 80% of empties are mismanaged; lack OF{" "}
         <span className="font-semibold">
           WILL TO RECYCLE PLAYS A MAJOR ROLE TO THIS CRISIS
@@ -47,7 +47,7 @@ const consumerFeatures = [
       </>
     ),
     question: (
-      <p className="font-normal text-[#42526B]">
+      <p className="font-normal text-secondary lg:w-11/12">
         are consumed everyday but 30% OF empties are mismanaged;{" "}
         <span className="font-semibold">INADEQUATE RECYCLING SYSTEMS</span> fuel
         this problem

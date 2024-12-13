@@ -7,7 +7,7 @@ export default function JustPrice() {
     <div className="max-w-[69.375rem] mx-auto px-4 xl:px-0">
       <TextWithComponent
         title={
-          <div className="text-center">
+          <div className="text-center lg:w-3/5 mx-auto">
             ECOnsumers care more than just the price
           </div>
         }

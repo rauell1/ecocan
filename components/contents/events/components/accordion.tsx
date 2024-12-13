@@ -26,17 +26,17 @@ const accordionData: AccordionData[] = [
     id: 1,
     title: "Prevent ticket counterfeiting",
     description: (
-      <>
-        <StyledText>
+      <div className="space-y-4">
+        <p>
           Our systems are designed for maximum security with real time
           traceability. Leverage this to secure your ticket sales with
           serialised <HyperLink link="ECOCAN Security codes" href="" />.
-        </StyledText>
-        <StyledText>
+        </p>
+        <p>
           The <HyperLink link="TnT" href="" /> will then monitor entry
           verification, and instantly alert of any irregularities
-        </StyledText>
-      </>
+        </p>
+      </div>
     ),
   },
   {
@@ -44,11 +44,9 @@ const accordionData: AccordionData[] = [
     title: "Offer VIP Experience",
     description: (
       <>
-        <StyledText>
-          Together, we can roll out the Red Carpet for ECOnsumers, offering them
-          priority access, allowing them to pre-order their drinks, maybe spoil
-          them with a complimentary bottle, and so much more
-        </StyledText>
+        Together, we can roll out the Red Carpet for ECOnsumers, offering them
+        priority access, allowing them to pre-order their drinks, maybe spoil
+        them with a complimentary bottle, and so much more
       </>
     ),
   },
@@ -57,11 +55,9 @@ const accordionData: AccordionData[] = [
     title: "Streamline fan engagement",
     description: (
       <>
-        <StyledText>
-          Keep fans informed with proactive updates sent directly to their
-          EcocanApp inbox. Which also enables them request for flexible refunds
-          or communicate cancellations with ease.
-        </StyledText>
+        Keep fans informed with proactive updates sent directly to their
+        EcocanApp inbox. Which also enables them request for flexible refunds
+        or communicate cancellations with ease.
       </>
     ),
   },
@@ -70,12 +66,10 @@ const accordionData: AccordionData[] = [
     title: "No more tech glitches",
     description: (
       <>
-        <StyledText>
-          High demand for your Bomb gig should be exciting, not stressful due to
-          digital systems crashes! The TnT is built for reliability, ensuring
-          smooth, anxiety-free access for fans. And peace of mind for you, even
-          for the biggest events.
-        </StyledText>
+        High demand for your Bomb gig should be exciting, not stressful due to
+        digital systems crashes! The TnT is built for reliability, ensuring
+        smooth, anxiety-free access for fans. And peace of mind for you, even
+        for the biggest events.
       </>
     ),
   },
@@ -105,7 +99,7 @@ export function AccordionDemo({
         <AccordionItem
           key={item.id}
           value={`item-${item.id}`}
-          className="text-accent/80"
+          className=""
         >
           <div className="flex items-center">
             <div className="w-12 h-12 flex items-center">
@@ -120,13 +114,13 @@ export function AccordionDemo({
             <div className="w-full">
               <AccordionTrigger
                 onClick={() => handleItemClick(item.id)}
-                className={`text-lg ${nunitoSans.className}`}
+                className={`text-xl`}
               >
                 {item.title}
               </AccordionTrigger>
             </div>
           </div>
-          <AccordionContent className={`font-medium ${nunitoSans.className}`}>
+          <AccordionContent className="text-secondary text-base">
             {item.description}
           </AccordionContent>
         </AccordionItem>

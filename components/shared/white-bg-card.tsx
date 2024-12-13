@@ -2,7 +2,6 @@ import React from "react";
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "../ui/card";
 import clsx from "clsx";
 import Image from "next/image";
-import { greenBall } from "@/lib/imageIndex";
 
 export default function WhiteBgCard({
   title,
@@ -37,7 +36,7 @@ export default function WhiteBgCard({
         </CardTitle>
       </CardHeader>
       <CardContent>
-        <div className="text-accent/70 text-sm">{content}</div>
+        <div className="text-secondary font-light">{content}</div>
       </CardContent>
       <CardFooter>
         {child}

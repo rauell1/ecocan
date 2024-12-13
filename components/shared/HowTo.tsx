@@ -28,8 +28,8 @@ const HowTo: React.FC<HowToProps> = ({
   const Item = () => (
     <div className="lg:w-[31.3rem] lg:h-[33.75rem] ms-auto flex flex-col justify-center">
       <div className="mt-1 mb-8">
-        <p className="text-2xl font-semibold pb-1">{itemsTitle}</p>
-        <p className="text-base text-white/50">{itemsSubtitle}</p>
+        <p className="text-[2rem] font-semibold pb-1">{itemsTitle}</p>
+        <p className="text-xl text-secondary font-light">{itemsSubtitle}</p>
       </div>
       {items.map((data) => (
         <ItemList
@@ -44,7 +44,7 @@ const HowTo: React.FC<HowToProps> = ({
   );
 
   return (
-    <div className="py-24 bg-[#2F313F] text-white relative">
+    <div className="pt-24 pb-36 bg-[#2F313F] text-white relative">
       <div className="max-w-[69.375rem] mx-auto px-4 xl:px-0">
         <ImageAndItem
         className="lg:gap-12 xl:gap-0"

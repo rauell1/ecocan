@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import clsx from "clsx";
+import { motion, AnimatePresence } from "framer-motion";
 import {
   Carousel,
   CarouselContent,
@@ -36,7 +37,6 @@ const FeaturesGrid: React.FC<FeaturesGridProps> = ({
   const isLargeScreen = useMediaQuery("(min-width: 1024px)") ?? false;
   const [mounted, setMounted] = useState(false);
 
-  // Handle mounted state
   React.useEffect(() => {
     setMounted(true);
   }, []);
@@ -63,41 +63,40 @@ const FeaturesGrid: React.FC<FeaturesGridProps> = ({
         onMouseEnter={() => handleMouseEnter(feature.id)}
         onMouseLeave={handleMouseLeave}
       >
-        <div className="w-full h-16 overflow-hidden relative z-[999]">
+        <div className="w-[2.9375rem] h-[2.9375rem] overflow-hidden relative z-[999]">
           <Image
             src={feature.icon}
             alt={`${feature.name} icon`}
-            className="w-auto"
+            className="w-full h-full"
             width={47}
             height={47}
           />
         </div>
-        <div className="text-xl mb-1 font-bold relative z-[999]">
+        <div className="text-xl my-4 font-semibold relative z-[999]">
           {feature.name}
         </div>
-        <div className="font-semibold max-w-sm text-sm relative z-[999]">
+        <div className="max-w-sm relative z-[999]">
           {feature.question}
         </div>
-        {feature.answer && (
-          <div 
-            className={clsx(
-              "mt-2 text-sm relative z-[999] transition-all duration-300",
-              isExpanded ? "opacity-100 max-h-full" : "opacity-0 max-h-0 overflow-hidden"
-            )}
-          >
-            {feature.answer}
-          </div>
-        )}
+        <AnimatePresence>
+          {isExpanded && feature.answer && (
+            <motion.div 
+              initial={{ height: 0, opacity: 0 }}
+              animate={{ height: "auto", opacity: 1 }}
+              exit={{ height: 0, opacity: 0 }}
+              transition={{ duration: 0.3, ease: "easeInOut" }}
+              className="mt-2 relative z-[999] font-light overflow-hidden"
+            >
+              {feature.answer}
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
     );
   };
 
-  // Wait for component to mount before rendering
-  if (!mounted) {
-    return null;
-  }
+  if (!mounted) return null;
 
-  // Render grid for desktop
   if (isLargeScreen) {
     return (
       <div className={`mt-8 grid w-full grid-cols-3 ${gap}`}>
@@ -108,7 +107,6 @@ const FeaturesGrid: React.FC<FeaturesGridProps> = ({
     );
   }
 
-  // Render carousel for mobile/tablet
   return (
     <div className="relative w-full mt-8">
       <div className="w-full overflow-hidden">

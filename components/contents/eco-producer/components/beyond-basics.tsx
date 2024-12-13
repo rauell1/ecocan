@@ -112,14 +112,14 @@ export default function BeyondBasics() {
       <TextWithCards
         title="Beyond the Basics"
         customCard={
-          <div className="md:flex lg:h-[33.75rem] lg:gap-6">
+          <div className="md:flex lg:h-[33.75rem] lg:gap-6 mt-8">
             <div className="grid gap-6 lg:w-1/2 mb-6 lg:mb-0">
               {features.map((feature) => (
                 <SecurityFeatureCard
                   key={feature.number}
                   {...feature}
                   className="lg:h-[125px]"
-                  cardHeaderStyles="flex"
+                  cardHeaderStyles="flex items-center"
                 />
               ))}
               <AIFeatureCard
@@ -146,7 +146,7 @@ export default function BeyondBasics() {
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-black/70 text-sm">
+                  <p className="text-black/70">
                     Packaging costs are skyrocketing! But we can help keep them
                     down by efficiently collecting your empties for reuse or
                     recycling, through the clean-loop ECOCAN DRS

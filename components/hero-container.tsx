@@ -31,7 +31,7 @@ export default function HeroContainer() {
             <div className="mt-12">{content}</div>
           </TabsContent>
         ))}
-        <div className="justify-center items-center flex pt-8">
+        <div className="justify-center items-center flex py-8">
           <TabsList className="bg-white border-[#E6E6E6] rounded-full">
             {Object.keys(tabContent).map((tab) => (
               <TabsTrigger

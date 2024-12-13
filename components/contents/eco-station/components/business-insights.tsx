@@ -1,4 +1,5 @@
 import { ReusableAccordion } from '@/components/shared/accordion'
+import HyperLink from '@/components/shared/hyperlink/hyperlink';
 import ImageAndItem from '@/components/shared/image-and-item/image-and-item'
 import Image from 'next/image'
 import React from 'react'
@@ -35,18 +36,17 @@ export default function BusinessInsights() {
     <div>
         <ImageAndItem
         className="md:flex-row-reverse items-center gap-12"
-        fDivClassName="text-start"
         title={
-          <div>
+          <div className="text-start">
             Intelligent insights,{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-br from-[#228B22] via-[#4AC63F] to-[#0000001A]">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#228B22] via-[#4AC63F] to-[#FFDD4C]">
               for smart business
             </span>
           </div>
         }
         subtitle={
-          <div className="lg:w-3/5">
-            Make data-driven decisions with insights from the ECOCAN TnT, giving
+          <div className="lg:w-4/5 text-start">
+            Make data-driven decisions with insights from the <HyperLink link='ECOCAN TnT' href='/'/>, giving
             you full visibility into your operations, allowing you to track Key
             Performance Indicators
           </div>

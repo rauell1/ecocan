@@ -35,7 +35,7 @@ export default function Jamming() {
           className="gap-8 lg:gap-12 items-center"
           title=" Re-imagined Jamming"
           subtitle= {
-            <div className="lg:w-1/2 mx-auto">
+            <div className="lg:w-3/5 mx-auto">
                 Get fans buzzing over your unforgettable gig with secured ticketing, personalised fan interaction, and exclusive sustainability perks
             </div>
           }

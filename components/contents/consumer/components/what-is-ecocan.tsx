@@ -13,7 +13,7 @@ const rvmContent = [
     iconPath: "/assets/images/all/scan.svg",
     content: (
       <div>
-        <h2 className="font-bold text-lg text-black">Verification</h2>
+        <h2 className="font-bold text-xl text-black my-4">Verification</h2>
         <p className="text-sm lg:text-base">
           Located at selected ECO-Stations, ECOnsumers identify themselves with
           their ECOCAN ID, before placing empties into the in-feed. It then
@@ -29,11 +29,11 @@ const rvmContent = [
     iconPath: "/assets/images/all/cash.svg",
     content: (
       <div>
-        <h2 className="font-bold text-lg text-black">Refund</h2>
+        <h2 className="font-bold text-xl text-black my-4">Refund</h2>
         <p className="text-sm lg:text-base">
           If the empties are eligible, ECOcans will accept them and calculate
           the deposit owed, which is then digitally refunded into ECO-wallets.
-          If the empties are ineligible, they’ll be rejected, and no deposit
+          If the empties are ineligible, they&apos;ll be rejected, and no deposit
           money will be issued. <br />
           Pure ECOcans are the first compacting, digital mini-RVMs in use
           worldwide
@@ -46,9 +46,9 @@ const rvmContent = [
     iconPath: "/assets/images/all/measure.svg",
     content: (
       <div>
-        <h2 className="font-bold text-lg text-black">Sustainability</h2>
+        <h2 className="font-bold text-xl text-black my-4">Sustainability</h2>
         <p className="text-sm lg:text-base">
-          The energy efficient Pure ECOcans are the world’s smallest patented
+          The energy efficient Pure ECOcans are the world&apos;s smallest patented
           RVMs, yet equipped with even better capabilities than larger RVMs.
           i.e., digital deposit refund eliminates need for paper receipts;
           increasing refund efficiency, conserving our forests, and reducing
@@ -83,12 +83,17 @@ export default function WhatIsEcocan() {
           }
           item={
             <TextWithComponent
-              title="What is an ECOcan?"
+              title={
+                <div className="text-[#2F313F]">
+                  What is an{" "}
+                  <span className="bg-gradient-to-r from-[#228B22] via-[#4AC63FCF] to-[#FFDD4C] text-transparent bg-clip-text">
+                    ECOcan?
+                  </span>
+                </div>
+              }
               description={
-                <p className="md:w-4/5">
-                  The ECOCAN Reverse Vending Machine is an automated device,
-                  that accepts eligible empties returned for recycling, and
-                  refunds applicable deposit money digitally into ECO-wallets
+                <p>
+                  The Pure <span className="font-medium">ECO</span>-friendly trash <span className="font-medium">can</span> is an intelligent waste collection bin, that automatically accepts eligible empties returned for recycling, and digitally refunds applicable deposit money into ECO-wallets
                 </p>
               }
             />
@@ -131,7 +136,13 @@ export default function WhatIsEcocan() {
           d="M0,100L600,0L600,600L0,600Z"
         ></path>
       </svg>
-      <Image src="/assets/images/consumer/green-rectangles.svg" alt="green rectangles" className="absolute bottom-0 -left-2 z-[9997] w-[20.25rem] hidden md:block" width={100} height={100}/>
+      <Image
+        src="/assets/images/consumer/green-rectangles.svg"
+        alt="green rectangles"
+        className="absolute bottom-0 -left-2 z-[9997] w-[20.25rem] hidden md:block"
+        width={100}
+        height={100}
+      />
     </div>
   );
 }

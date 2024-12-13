@@ -46,7 +46,7 @@ const CardComponent: React.FC<CardComponentProps> = ({ card, className }) => (
   <SimpleCard
     className={`border-none p-0 w-full ${className ?? ""}`}
     image={
-      <div className="h-[8.75rem] overflow-hidden relative">
+      <div className="h-52 overflow-hidden relative">
         <Image
           src={card.src}
           alt="image"
@@ -57,14 +57,12 @@ const CardComponent: React.FC<CardComponentProps> = ({ card, className }) => (
       </div>
     }
     title={
-      <div className="text-[1.125rem] font-medium leading-[1.625rem] text-left text-black">
+      <div className="text-xl font-medium leading-[1.625rem] text-left text-black">
         {card.content}
       </div>
     }
     content={
-      <div className="text-accent/50 text-sm font-light">
-        {card.description}
-      </div>
+      <div className="text-secondary font-light">{card.description}</div>
     }
   />
 );
@@ -75,7 +73,7 @@ const DoMore: React.FC = () => {
       <TextWithCards
         title="Do more, with less"
         description={
-          <div className="lg:w-3/4">
+          <div className="lg:w-4/5 my-8">
             Directly engage with ECOnsumers to elevate your presence, preserve
             their health to amplify your impact, and empower them to shape their
             future
@@ -97,7 +95,7 @@ const DoMore: React.FC = () => {
             </div>
 
             {/* Desktop Grid */}
-            <div className="hidden lg:grid grid-cols-4 gap-4 mt-6">
+            <div className="hidden lg:grid grid-cols-3 gap-8 mt-6">
               {cardContent.map((card, index) => (
                 <CardComponent key={index} card={card} />
               ))}

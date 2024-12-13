@@ -30,15 +30,15 @@ export default function DefaultHero() {
           <div className="xl:max-w-[69.375rem] flex flex-col lg:flex lg:flex-row mx-auto lg:gap-12 relative">
             <div className="flex flex-col gap-4 md:w-3/4 pt-12 lg:pt-0 lg:w-1/2 px-4 xl:px-0 text-white z-[99] lg:items-center justify-center lg:space-y-4">
               <div>
-                <h1 className="text-5xl xl:text-6xl text-start font-semibold">
+                <h1 className="text-5xl xl:text-[4rem] text-start font-semibold">
                   Re-imagining{" "}
                   <span className="bg-gradient-to-r from-[#228B22] via-[#4AC63FCF] to-[#FFDD4C] text-transparent bg-clip-text">
                     Sustainability
                   </span>
                 </h1>
               </div>
-              <div className="text-sm lg:text-base md:space-y-8 xl:space-y-6">
-                <p className="text-white text-start w-5/6">
+              <div className="text-sm lg:text-lg xl:text-xl md:space-y-8 xl:space-y-6">
+                <p className="text-white text-start">
                   At ECOCAN, sustainability goes beyond environmental
                   conservation, to nurturing healthy and thriving communities.
                   Download EcocanApp to avoid harmful fake drinks, and to make
@@ -74,13 +74,13 @@ export default function DefaultHero() {
           </div>
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 1440 300"
+            viewBox="0 0 1440 280"
             className="absolute bottom-0 z-50 hidden lg:block"
           >
             <path
               fill="#FAFAFA"
               fill-opacity="1"
-              d="M0,280L1440,0L1440,340L0,340Z"
+              d="M0,260L1440,0L1440,340L0,340Z"
             ></path>
           </svg>
           <svg
@@ -106,8 +106,8 @@ export default function DefaultHero() {
             ></path>
           </svg>
         </div>
-        <div className="z-[9999]">
-          <h2 className="text-center text-[2rem] font-bold z-[9999]">
+        <div className="z-[999]">
+          <h2 className="text-center text-5xl font-bold z-[999]">
             The ECOmmunity
           </h2>
         </div>

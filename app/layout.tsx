@@ -1,12 +1,7 @@
 import type { Metadata } from "next";
-import { Inter, Poppins } from "next/font/google";
 import "./globals.css";
 import Footer from "@/components/shared/footer/footer";
 
-const poppins = Poppins({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700" ,"900"]
-});
 
 export const metadata: Metadata = {
   title: "Ecocan",
@@ -20,7 +15,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={poppins.className}>
+      <body className="font-sans">
         {children}
         <Footer />
       </body>

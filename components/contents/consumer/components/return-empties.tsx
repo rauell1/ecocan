@@ -5,7 +5,7 @@ import React from "react";
 const timelineData = {
   title: "How to return eligible empties",
   subtitle: (
-    <div className="text-sm md:text-base md:w-4/5">
+    <div className="md:w-11/12">
       Only return empties of Aluminium cans, PET, Glass bottles and beverage
       cartons carrying ECOCAN Security codes. And are published on the ECOCAN
       website, and ECO-products section of EcocanApp.{" "}
@@ -27,13 +27,13 @@ const timelineData = {
     },
     {
       image: "/assets/images/consumer/recycle.svg",
-      title: "Or recycle via ECOCAN RVMs",
+      title: "Or recycle via ECOCANs",
       description:
         "Scan your ECOCAN ID to the RVM, place your empties into the infeed, then complete the session. And you’ll immediately receive applicable deposits directly into your ECO-wallet",
     },
     {
       image: "/assets/images/consumer/how.svg",
-      title: "SO how does this ECO-system work?",
+      title: "SO how does this green-tech ECO-system really work?",
       description: <HyperLink href="/" link="Learn more"/>
     },
   ],
