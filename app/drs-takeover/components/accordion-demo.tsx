@@ -37,7 +37,7 @@ const accordionData: AccordionData[] = [
     description: (
       <div className="space-y-2 w-11/12">
         Once empties are accepted, the attached ECOCAN Security codes are
-        immediately "killed"/disabled to prevent duplicate verification. ECOcans
+        immediately &ldquo;killed&rdquo;/disabled to prevent duplicate verification. ECOcans
         then compact the empties on the spot, ensuring they cannot be redeemed
         twice. This is followed by uploading unique transaction IDs to the TnT
         database in real-time, providing airtight security against back-end
@@ -65,7 +65,10 @@ const accordionData: AccordionData[] = [
     title: "Actionable Operational insights",
     description: (
       <div className="space-y-2 w-11/12">
-        Leverage TnT&apos;s data on usage patterns, daily activity, and weekly trends to streamline staffing and optimize operations. These insights also help shape effective in-store or external targeted marketing strategies
+        Leverage TnT&apos;s data on usage patterns, daily activity, and weekly
+        trends to streamline staffing and optimize operations. These insights
+        also help shape effective in-store or external targeted marketing
+        strategies
       </div>
     ),
   },
