@@ -50,9 +50,9 @@ export default function OurSuccessPopup() {
                     When you facilitate ECOnsumers to return eligible empties to
                     you, over 60% will most likely spend their deposit money
                     right back in your shop. They may proceed to spend their own
-                    money to buy other ECO-products in stock. And if you'll
+                    money to buy other ECO-products in stock. And if you&apso;ll
                     offer great service, for sure they will come back. Or buy
-                    more from you on ECOCAN Market. Most certainly, they'll
+                    more from you on ECOCAN Market. Most certainly, they&apso;ll
                     spread a good word about you.
                   </p>
                   <p>
