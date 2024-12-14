@@ -25,7 +25,7 @@ const Timeline: React.FC<TimelineProps> = ({ title, subtitle, items, className }
       <h2 className="text-3xl md:text-5xl font-bold mb-2">{title}</h2>
       <p className="lg:text-xl text-secondary my-6 lg:my-12">{subtitle}</p>
 
-      <div className="relative">
+      <div className="relative hidden md:block">
         <div 
           className={clsx(
             "absolute left-[45%] md:left-[40%] top-0 w-[1px] bg-white transform -translate-x-1/2",
@@ -45,7 +45,7 @@ const Timeline: React.FC<TimelineProps> = ({ title, subtitle, items, className }
               {/* Left side with image */}
               <div className="w-2/5 md:pr-8">
                 <div className="relative md:w-11/12">
-                  <div className="w-full h-36 md:h-[12.5rem] rounded-2xl overflow-hidden relative">
+                  <div className="w-full h-36 md:h-[12.5rem] rounded-smooth lg:rounded-smooth-lg overflow-hidden relative">
                     <Image
                       src={item.image}
                       alt={item.title}

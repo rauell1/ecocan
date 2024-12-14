@@ -74,8 +74,8 @@ export default function WhatIsEcocan() {
           image={
             <Image
               src="/assets/images/consumer/rvm.svg"
-              alt="Online store"
-              className="object-cover rounded-3xl ms-auto"
+              alt="Ecocan rvm"
+              className="object-cover ms-auto"
               priority
               width={500}
               height={100}

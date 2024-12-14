@@ -5,6 +5,7 @@ import Image from "next/image";
 import React from "react";
 import TextWithComponent from "./text-with-component";
 import CtaCard from "@/components/shared/cta-card/cta-card";
+import JoinEcommunity from "./join-ecommunity";
 
 export default function CtaCardComponent() {
   return (
@@ -31,12 +32,7 @@ export default function CtaCardComponent() {
                 buttonText="Download App"
                 buttonIcon={<LucideDownload />}
               />
-              <Button
-                variant="outline"
-                className="bg-transparent hover:bg-transparent border-white text-white hover:text-white rounded-full h-[3rem] py-3 px-8 text-base"
-              >
-                Join the ECOmmunity
-              </Button>
+              <JoinEcommunity showArrow={false} className="text-base" join="Join the ECOmmunity"/>
             </div>
           }
         />

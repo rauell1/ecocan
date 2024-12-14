@@ -13,6 +13,7 @@ export default function SideHustle() {
             <Image
               src="/assets/images/courier/hustle-rules.svg"
               alt="EcocanApp step"
+              className="ms-auto"
               width={500}
               height={100}
             />
@@ -23,13 +24,13 @@ export default function SideHustle() {
                 Side hustle, without
                 <br /> a hustle...
               </h2>
-              <p className="text-secondary lg:text-lg">
+              <p className="text-secondary lg:text-xl font-light">
                 While you record revenue growth for becoming an ECO-Station,
                 we&apos;ll efficiently take care of empties logistics. Simply
                 ping-us on your Egent App to request pick-up when you&apos;ve
                 collected sufficient empties.
               </p>
-              <div className="text-secondary lg:text-lg">
+              <div className="text-secondary lg:text-xl font-light">
                 And the TnT will dispatch <HyperLink href="/" link="ECOuries" />{" "}
                 on <HyperLink href="/" link="Electric mobility" /> just-in-time;
                 boosting productivity, while cutting CO2e & energy consumption.

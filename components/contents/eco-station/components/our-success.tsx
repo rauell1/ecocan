@@ -1,25 +1,29 @@
-import React from 'react'
+import { Button } from "@/components/ui/button";
+import { LucideArrowUpRight } from "lucide-react";
+import React from "react";
+import OurSuccessPopup from "./our-success-popup";
 
-export default function OurSuccess() {
+export default function SellMore() {
   return (
-    <div className="max-w-[1040px] lg:w-[898px] lg:h-[288px] gap-6 text-[#23262F]/[0.8] lg:mt-10">
-      <h1 className="font-bold text-[40px] leading-[56px] lg:mb-6">
-        Your success, our pride
-      </h1>
-      <h2 className="font-semibold text-[20px] leading-[24px] lg:mb-4">
-        Grow your business with our most intelligent insights
-      </h2>
-      <p className="font-normal text-[20px] leading-[24px]">
-        Facilitate ECOnsumers to return eligible empties to your shop for recycling. 
-        And over 60% will most likely spend their deposit money right back in your shop. 
-        And they will for sure come back, or place more orders online via ECOCAN Market. 
-        Certainly, they&apos;ll spread a good word about you.
-      </p>
-      <p className="font-normal text-[20px] leading-[24px] lg:mt-8">
-        While the ECOmmunity flocks to your store, we&apos;ll help you optimize sales by collecting 
-        and processing key data from your increased operations. And provide you with valuable insights 
-        to support your decision-making, and to boost your performance.
-      </p>
+   <>
+    <div className="lg:pb-24">
+      <div className="max-w-[69.375rem] mx-auto">
+        <div className="bg-[url('/assets/images/eco-station/success-pride.svg')] bg-cover bg-center relative after:absolute after:inset-0 after:content-[''] after:bg-black/50 after:opacity-50 after:-z-10 overflow-hidden z-50 rounded-smooth-lg lg:rounded-smooth-xl h-[33.75rem] flex flex-col justify-center">
+          <div className="lg:w-1/2 text-center lg:text-start lg:ms-auto text-white z-20 mx-8">
+            <h2 className="text-3xl lg:text-5xl font-semibold">
+              Your success, our pride
+            </h2>
+            <p className="my-4 lg:text-xl font-light">
+              Our vision of re-imagining sustainability for the better extends
+              to empowering communities to thrive. And this is reflected in our
+              commitment to connect passionate entrepreneurs like yourself, with
+              the ECO-friendly ECOmmunity, for sustainable commerce.
+            </p>
+            <OurSuccessPopup/>
+          </div>
+        </div>
+      </div>
     </div>
-  )
+   </>
+  );
 }

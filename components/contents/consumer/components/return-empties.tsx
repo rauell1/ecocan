@@ -34,7 +34,7 @@ const timelineData = {
     {
       image: "/assets/images/consumer/how.svg",
       title: "SO how does this green-tech ECO-system really work?",
-      description: <HyperLink href="/" link="Learn more"/>
+      description: <HyperLink href="/solutions/packaging-recycling" link="Learn more"/>
     },
   ],
 };
