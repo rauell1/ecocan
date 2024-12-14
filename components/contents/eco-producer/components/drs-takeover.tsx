@@ -3,6 +3,7 @@ import React from "react";
 import { Button } from "@/components/ui/button";
 import { LucideArrowUpLeft, LucideArrowUpRight } from "lucide-react";
 import TextWithComponent from "../../consumer/components/text-with-component";
+import DrsPopup from "./drs-popup";
 
 export default function DrsTakeover() {
   return (
@@ -24,15 +25,7 @@ export default function DrsTakeover() {
               </div>
             }
             component={
-              <div className="flex gap-4 group relative">
-                <Button
-                  variant="link"
-                  className="px-0"
-                >
-                  Learn more
-                  <LucideArrowUpRight className="ml-2 group-hover:scale-125 transition-all"/>
-                </Button>
-              </div>
+              <DrsPopup/>
             }
           />
         }

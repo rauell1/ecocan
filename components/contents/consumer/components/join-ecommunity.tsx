@@ -47,9 +47,16 @@ const howToData = [
   },
 ];
 
-const iconSize = 18;
 
-export default function JoinEcommunity({ className, showArrow = true, join = "Join ECOmmunity"  }: { className?: string; showArrow?: boolean; join?: string }) {
+export default function JoinEcommunity({
+  className,
+  showArrow = true,
+  join = "Join ECOmmunity",
+}: {
+  className?: string;
+  showArrow?: boolean;
+  join?: string;
+}) {
   return (
     <AlertDialog>
       <AlertDialogTrigger asChild>
@@ -107,10 +114,10 @@ export default function JoinEcommunity({ className, showArrow = true, join = "Jo
               ))}
               <div className="text-center text-[#23262fcc] space-y-4 text-sm">
                 <p>
-                  And we&apos;ll ensure to recognise and reward your ECO-friendly
-                  efforts. With Deposit money, exclusive Recycling coupons,
-                  Sustainability discounts, and Red-Carpet experience. To
-                  promote sustainable consumption
+                  And we&apos;ll ensure to recognise and reward your
+                  ECO-friendly efforts. With Deposit money, exclusive Recycling
+                  coupons, Sustainability discounts, and Red-Carpet experience.
+                  To promote sustainable consumption
                 </p>
               </div>
               <div>
