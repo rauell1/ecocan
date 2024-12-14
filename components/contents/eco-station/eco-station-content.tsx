@@ -6,7 +6,7 @@ import CtaCard from "@/components/shared/cta-card/cta-card";
 import { Button } from "@/components/ui/button";
 import HowTo from "../../shared/HowTo";
 import TextWithComponent from "../consumer/components/text-with-component";
-import SellMore from "./components/sell-more";
+import SellMore from "./components/our-success";
 import News from "../consumer/components/news";
 import WhyEcostation from "./components/why-ecostation";
 import AvailRvm from "./components/avail-rvm";

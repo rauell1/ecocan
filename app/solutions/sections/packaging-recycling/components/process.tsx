@@ -22,7 +22,7 @@ export default function Process() {
           <TextWithComponent
             title="Recycling process"
             description={
-              <div className="space-y-6 w-[85%]">
+              <div className="space-y-6">
                 <p>
                   Returned re-usable glass bottles are meticulously processed by
                   ECOCAN in a closed-loop, using state of the art
@@ -36,7 +36,7 @@ export default function Process() {
                   To ensure ECO-products are safely refilled in the most
                   hygienic, and highest quality, 100% re-used glass bottles.
                 </p>
-                <Button variant="link" className="px-0">
+                <Button variant="link" className="px-0 text-lg">
                   Read more
                 </Button>
               </div>

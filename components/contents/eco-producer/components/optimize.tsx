@@ -12,7 +12,7 @@ interface FeatureProps {
 
 const FeatureCard = ({ title, description, imageSrc }: FeatureProps) => (
   <div className="bg-tranparent text-white">
-    <div className="overflow-hidden rounded-[2rem]">
+    <div className="overflow-hidden rounded-smooth-xl">
       <Image
         src={imageSrc}
         alt={title}

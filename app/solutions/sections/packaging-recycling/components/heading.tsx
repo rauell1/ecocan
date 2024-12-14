@@ -69,13 +69,13 @@ export default function Heading() {
               gap="gap-4"
               className="bg-center p-4 flex flex-col justify-end overflow-hidden bg-[#F6F6F6]"
             />
-            <div className="space-y-4 lg:w-4/5 text-[#888D92]">
-              <div>
+            <div className="space-y-4 lg:w-4/5 text-[#888D92] lg:text-xl font-light">
+              <p>
                 <HyperLink href="/" link="ECOCAN D.R.S"/> is the first fully digital DRS worldwide, which
                 supports incentivised collection & closed-loop recycling of
                 genuine eligible empties. And ensures participants directly
                 benefit for taking part.
-              </div>
+              </p>
               <p>
                 This is achieved by creating a marketplace for used empties,
                 conveniently connecting ECO-Producers and ECO-Recyclers seeking

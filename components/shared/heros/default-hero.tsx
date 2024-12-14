@@ -49,7 +49,7 @@ export default function DefaultHero() {
                     buttonIcon={<LucideDownload />}
                     className="bg-white text-primary mb-4"
                   />
-                  <JoinEcommunity />
+                  <JoinEcommunity className="text-base"/>
                 </div>
               </div>
             </div>

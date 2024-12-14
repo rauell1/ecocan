@@ -45,7 +45,7 @@ export default function Glass() {
       <ImageAndItem
         className="gap-12"
         image={
-          <div className="space-y-6 border h-[40rem] p-4 rounded-3xl bg-[#D9D9D9] flex flex-col justify-end bg-[url('/assets/images/solutions/aluminium-cans-green.svg')] bg-cover relative after:absolute after:inset-0 after:content-[''] after:bg-black/30 after:opacity-70 after:z-10 overflow-hidden">
+          <div className="space-y-6 border lg:h-[34.375rem] xl:h-[40rem] p-4 rounded-3xl bg-[#D9D9D9] flex flex-col justify-end bg-[url('/assets/images/solutions/aluminium-cans-green.svg')] bg-cover relative after:absolute after:inset-0 after:content-[''] after:bg-black/30 after:opacity-70 after:z-10 overflow-hidden">
             <TextWithComponent
               className="bg-[#29292945] backdrop-blur-[2px] rounded-xl overflow-hidden p-3 relative z-[999] text-white"
               title="Did You Know?"

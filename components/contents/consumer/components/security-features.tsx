@@ -4,6 +4,8 @@ import Image from "next/image";
 import clsx from "clsx";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { LucideArrowUpRight } from "lucide-react";
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
 
 interface SecurityFeatureCardProps {
   number: string;
@@ -11,7 +13,7 @@ interface SecurityFeatureCardProps {
   description: React.ReactNode;
   className?: string;
   highlight?: string;
-  cardHeaderStyles? : string;
+  cardHeaderStyles?: string;
 }
 
 export const SecurityFeatureCard = ({
@@ -20,17 +22,17 @@ export const SecurityFeatureCard = ({
   description,
   className,
   highlight,
-  cardHeaderStyles
+  cardHeaderStyles,
 }: SecurityFeatureCardProps) => {
   return (
     <Card
       className={clsx(
-        "border-none rounded-xl overflow-hidden shadow-lg",
+        "border-none rounded-xl overflow-hidden shadow-md hover:shadow-xl",
         className
       )}
     >
       <CardHeader className="pb-2">
-        <div className={clsx ("gap-4 ", cardHeaderStyles)}>
+        <div className={clsx("gap-4 ", cardHeaderStyles)}>
           <div className="relative w-10 h-10">
             <Image src={number} alt="number" width={100} height={100} />
           </div>
@@ -40,9 +42,7 @@ export const SecurityFeatureCard = ({
       <CardContent>
         <p className="text-secondary">
           {description}
-          {highlight && (
-            <span className="text-red-500"> {highlight}</span>
-          )}
+          {highlight && <span className="text-red-500"> {highlight}</span>}
         </p>
       </CardContent>
     </Card>
@@ -62,34 +62,36 @@ export const AIFeatureCard = ({
   buttonText = "Learn more",
 }: AIFeatureCardProps) => {
   return (
-    <Card
-      className={clsx(
-        "rounded-xl overflow-hidden shadow-lg text-white p-0 group hover:cursor-pointer",
-        className
-      )}
-    >
-      <CardHeader className="pb-2">
-        <div className="flex justify-between">
-          <CardTitle className="text-xl font-semibold">{title}</CardTitle>
-          <LucideArrowUpRight
-            size={32}
-            className=" transition-transform group-hover:scale-125"
-          />
-        </div>
-      </CardHeader>
-      <CardContent className="space-y-4">
-        <p className="text-sm">{buttonText}</p>
-        <div className="w-[14.375rem] relative">
-          <Image
-            src="/assets/images/consumer/ai-chip.svg"
-            alt="AI Chip"
-            width={100}
-            height={150}
-            className="w-full absolute top-6 object-cover rounded-t-md"
-          />
-        </div>
-      </CardContent>
-    </Card>
+    <Link href="/solutions/brand-protection">
+      <Card
+        className={clsx(
+          "rounded-xl overflow-hidden hover:shadow-lg text-white p-0 group hover:cursor-pointer",
+          className
+        )}
+      >
+        <CardHeader className="pb-2">
+          <div className="flex justify-between">
+            <CardTitle className="text-xl font-semibold">{title}</CardTitle>
+            <LucideArrowUpRight
+              size={32}
+              className=" transition-transform group-hover:scale-125"
+            />
+          </div>
+        </CardHeader>
+        <CardContent className="space-y-4 pb-0">
+          <Button variant="link" className="text-sm p-0 text-white">{buttonText}</Button>
+          <div className="w-[14.375rem] relative">
+            <Image
+              src="/assets/images/consumer/ai-chip.svg"
+              alt="AI Chip"
+              width={100}
+              height={200}
+              className="w-full object-cover"
+            />
+          </div>
+        </CardContent>
+      </Card>
+    </Link>
   );
 };
 

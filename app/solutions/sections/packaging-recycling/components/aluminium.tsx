@@ -47,10 +47,10 @@ export default function Aluminium() {
         image={
           <div className="space-y-6 border lg:h-[34.375rem] xl:h-[40rem] p-4 rounded-3xl bg-[#D9D9D9] flex flex-col justify-end bg-[url('/assets/images/solutions/aluminium-cans-red.svg')] bg-cover relative after:absolute after:inset-0 after:content-[''] after:bg-black/30 after:opacity-70 after:z-10 overflow-hidden">
             <TextWithComponent
-              className="bg-[#29292945] backdrop-blur-[2px] rounded-xl overflow-hidden p-3 relative z-[999] text-white"
-              title="Did You Know?"
+              className="bg-[#29292945] backdrop-blur-[2px] rounded-smooth overflow-hidden p-3 relative z-[999] text-white"
+              title={<span className="text-3xl">Did You Know?</span>}
               description={
-                <p className="text-white">
+                <p className="text-white text-base">
                   That used aluminium cans are some of the most valuable scrap
                   materials in the whole world? And that they can be recycled
                   indefinitely without losing material value—yes, recycled
