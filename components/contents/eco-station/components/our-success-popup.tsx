@@ -88,17 +88,6 @@ export default function OurSuccessPopup() {
               d="M0,0L1440,0L1440,300L0,600Z"
             ></path>
           </svg>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 600 530"
-            className="absolute top-0 z-50 hidden md:block lg:hidden"
-          >
-            <path
-              fill="#F6F6F6"
-              fill-opacity="1"
-              d="M0,300L600,0L600,600L0,600Z"
-            ></path>
-          </svg>
       </AlertDialogContent>
     </AlertDialog>
   );

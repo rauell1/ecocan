@@ -54,15 +54,19 @@ interface AIFeatureCardProps {
   title: string;
   className?: string;
   buttonText?: string;
+  buttonLink?: string;
+  showImage?: Boolean;
 }
 
 export const AIFeatureCard = ({
   title,
   className,
   buttonText = "Learn more",
+  buttonLink = "/solutions/brand-protection",
+  showImage = true
 }: AIFeatureCardProps) => {
   return (
-    <Link href="/solutions/brand-protection">
+    <Link href={buttonLink}>
       <Card
         className={clsx(
           "rounded-xl overflow-hidden hover:shadow-lg text-white p-0 group hover:cursor-pointer",
@@ -80,7 +84,7 @@ export const AIFeatureCard = ({
         </CardHeader>
         <CardContent className="space-y-4 pb-0">
           <Button variant="link" className="text-sm p-0 text-white">{buttonText}</Button>
-          <div className="w-[14.375rem] relative">
+          {showImage && <div className="w-[14.375rem] relative">
             <Image
               src="/assets/images/consumer/ai-chip.svg"
               alt="AI Chip"
@@ -88,7 +92,7 @@ export const AIFeatureCard = ({
               height={200}
               className="w-full object-cover"
             />
-          </div>
+          </div>}
         </CardContent>
       </Card>
     </Link>

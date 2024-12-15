@@ -42,7 +42,7 @@ export default function Avail() {
                   intelligent RVMs.
                 </div>
                 <div>
-                  <PrimaryButton buttonText="Learn more" />
+                  <PrimaryButton buttonText="Learn more" buttonLink="/drs-takeover" className="hover:bg-primary"/>
                 </div>
               </div>
             }

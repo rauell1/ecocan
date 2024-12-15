@@ -7,13 +7,13 @@ import Image from "next/image";
 
 export default function AvailRvm() {
   return (
-    <div className="lg:pb-24">
+    <section className="lg:pb-24" id="">
       <div className="max-w-[69.375rem] mx-auto">
         <ImageAndItem
           className="lg:flex-row-reverse gap-6 lg:gap-12 items-center"
           image={
             <Image
-              src="/assets/images/consumer/rvm.svg"
+              src="/assets/images/eco-station/avail-rvm.svg"
               alt="RVM"
               className="object-cover rounded-3xl w-full h-full"
               priority
@@ -43,7 +43,7 @@ export default function AvailRvm() {
               component={
                 <PrimaryButton
                   buttonText="Learn more"
-                  buttonLink="/"
+                  buttonLink="/drs-takeover"
                   className="hover:bg-primary mt-auto"
                 />
               }
@@ -51,6 +51,6 @@ export default function AvailRvm() {
           }
         />
       </div>
-    </div>
+    </section>
   );
 }

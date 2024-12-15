@@ -126,6 +126,8 @@ export default function BeyondBasics() {
                 title="And so much more"
                 buttonText="See full offering here"
                 className="bg-primary hover:bg-primary/90"
+                buttonLink="/solutions"
+                showImage={false}
               />
             </div>
             <div className="lg:w-1/2 h-[24rem] lg:h-full bg-[url('/assets/images/producer/beyond-basics.svg')] bg-no-repeat flex flex-col p-8">
