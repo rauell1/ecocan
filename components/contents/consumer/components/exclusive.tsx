@@ -4,7 +4,7 @@ import WhiteBgCard from "@/components/shared/white-bg-card";
 import React from "react";
 import ExpandableContent from "./expandable-content";
 import FeaturesGrid from "@/components/shared/text-with-cards/custom-card";
-import JoinEcommunity from "./join-ecommunity";
+import JoinEcommunity from "../../../shared/join-ecommunity";
 
 const cardContent = [
   {
@@ -71,7 +71,7 @@ export default function Exclusive() {
           description={
             <span>
               Enjoy unbelievably jaw dropping benefits by simply joining the{" "}
-              <JoinEcommunity showArrow={false} className="text-primary text-xl font-normal p-0 underline" join="ECOmmunity"/>
+              <JoinEcommunity showArrow={false} className="text-primary text-xl font-normal p-0 underline underline-offset-8" join="ECOmmunity"/>
             </span>
           }
           className="mx-auto text-center"

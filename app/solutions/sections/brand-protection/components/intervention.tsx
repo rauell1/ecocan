@@ -65,36 +65,38 @@ const steps = [
 
 export default function Intervention() {
   return (
-    <TextWithComponent
-      title="Re-imagined intervention"
-      description={
-        <div className="md:w-8/12">
-          <p>
-          ECOCAN offers a suite of advanced technology solutions, to empower the ECOmmunity to effectively combat counterfeits. This offering provides high-level security, most affordably.
-          </p>
-        </div>
-      }
-      component={
-        <ImageAndItem
-          className="lg:flex-row-reverse items-center"
-          image={
-            <Image
-              src="/assets/images/solutions/intervention.svg"
-              alt="ecocan scan"
-              className="rounded-smooth-lg lg:rounded-smooth-xl ms-auto"
-              width={500}
-              height={100}
-            />
-          }
-          item={
-            <TextWithComponent
-              component={
-                <CheckList items={steps} className="items-start gap-5" />
-              }
-            />
-          }
-        />
-      }
-    />
+    <section id="ecocan-app">
+      <TextWithComponent
+        title="Re-imagined intervention"
+        description={
+          <div className="md:w-8/12">
+            <p>
+            ECOCAN offers a suite of advanced technology solutions, to empower the ECOmmunity to effectively combat counterfeits. This offering provides high-level security, most affordably.
+            </p>
+          </div>
+        }
+        component={
+          <ImageAndItem
+            className="lg:flex-row-reverse items-center"
+            image={
+              <Image
+                src="/assets/images/solutions/intervention.svg"
+                alt="ecocan scan"
+                className="rounded-smooth-lg lg:rounded-smooth-xl ms-auto"
+                width={500}
+                height={100}
+              />
+            }
+            item={
+              <TextWithComponent
+                component={
+                  <CheckList items={steps} className="items-start gap-5" />
+                }
+              />
+            }
+          />
+        }
+      />
+    </section>
   );
 }

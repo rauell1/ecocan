@@ -1,3 +1,4 @@
+import EligblePopup from "@/components/shared/eligble-popup";
 import HyperLink from "@/components/shared/hyperlink/hyperlink";
 import FeaturesGrid from "@/components/shared/text-with-cards/custom-card";
 import CustomCard from "@/components/shared/text-with-cards/custom-card";
@@ -10,7 +11,7 @@ const ecoStationFeatures = [
     name: "Reach new customers",
     question: (
       <p className="font-normal  text-secondary">
-        <HyperLink link="Sign-Up" href={"/"} /> here, and we&apos;ll link you up
+        <span className="font-bold">Sign-up</span> here, and we&apos;ll link you up
         with
         <br />
         the ECOmmunity
@@ -20,8 +21,8 @@ const ecoStationFeatures = [
       <div className="space-y-4  text-secondary">
         <div>
           Where ECOnsumers can buy from you on{" "}
-          <HyperLink link="ECOCAN market" href={"/"} /> or navigate to you on{" "}
-          <HyperLink link="ECOCAN Map" href={"/"} />{" "}
+          <HyperLink link="ECOCAN market" href={"#faq"} /> or navigate to you on{" "}
+          <HyperLink link="ECOCAN Map" href={"#faq"} />{" "}
         </div>
       </div>
     ),
@@ -32,7 +33,7 @@ const ecoStationFeatures = [
     name: "Earn commissions",
     question: (
       <p className="font-normal  text-secondary">
-        For every <HyperLink link="eligible" href={"/"} /> empty you accept,
+        For every <EligblePopup/> empty you accept,
         we&apos;ll pay you a commission
       </p>
     ),

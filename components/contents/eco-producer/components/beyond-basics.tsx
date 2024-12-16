@@ -31,8 +31,8 @@ const accordionItems = [
     answer: (
       <div>
         <p>
-          Deploy <HyperLink link="ECOCAN security codes" href="/" />,{" "}
-          <HyperLink link="ECOCAN TnT" href="/" />, and{" "}
+          Deploy <HyperLink link="ECOCAN security codes" href="/solutions/brand-protection#security-codes" />,{" "}
+          <HyperLink link="ECOCAN TnT" href="/solutions/brand-protection" />, and{" "}
           <HyperLink link="ECOCAN DRS" href="/" />, to prevent faking of your
           products. Then sit back, and watch your revenues grow from the
           reclaimed market share, and increased customer loyalty!
@@ -81,9 +81,9 @@ const features = [
     title: "Preserve your integrity",
     description: (
       <div>
-        Deploy <HyperLink href="/" link="ECOCAN Security codes" />,{" "}
-        <HyperLink href="/" link="ECOCAN TnT" />, and{" "}
-        <HyperLink href="/" link="EcocanApp" />, to prevent faking of your
+        Deploy <HyperLink href="/solutions/brand-protection#security-codes" link="ECOCAN Security codes" />,{" "}
+        <HyperLink href="/solutions/brand-protection#tnt" link="ECOCAN TnT" />, and{" "}
+        <HyperLink href="/solutions/brand-protection#ecocan-app" link="EcocanApp" />, to prevent faking of your
         products
       </div>
     ),

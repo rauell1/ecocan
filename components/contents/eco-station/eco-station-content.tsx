@@ -12,47 +12,39 @@ import WhyEcostation from "./components/why-ecostation";
 import AvailRvm from "./components/avail-rvm";
 import BusinessInsights from "./components/business-insights";
 import SideHustle from "./components/side-hustle";
-
+import JoinEcommunity from "../../shared/join-ecommunity";
 
 const howToData = [
   {
     id: 1,
     title: (
       <div>
-        <HyperLink link="Register Here" href="/" /> to grow your business
+        <span className="text-white">Register here</span> to grow your business
       </div>
     ),
     description: (
-      <p className="mt-2">
-        We&apos;ll then reach out to you with next steps
-      </p>
+      <p className="mt-2">We&apos;ll then reach out to you with next steps</p>
     ),
   },
   {
     id: 2,
     title: "Sign the ECO-partnership agreement",
     description: (
-      <p className="mt-2">
-        Everything is transparent, no hidden clauses
-      </p>
+      <p className="mt-2">Everything is transparent, no hidden clauses</p>
     ),
   },
   {
     id: 3,
     title: "Update your profile on ECOCAN Market",
     description: (
-      <p className="mt-2">
-        We&apos;ll leave this to you, try to be creative
-      </p>
+      <p className="mt-2">We&apos;ll leave this to you, try to be creative</p>
     ),
   },
   {
     id: 4,
     title: "Set your status “live”  and start earning",
     description: (
-      <p className="mt-2">
-        We&apos;ll ensure you are prominently visible
-      </p>
+      <p className="mt-2">We&apos;ll ensure you are prominently visible</p>
     ),
   },
 ];
@@ -81,17 +73,14 @@ export default function EcoStationContent() {
           item={
             <TextWithComponent
               title={
-                <p className="text-white text-5xl">Sustainable commerce</p>
+                <p className="text-white text-5xl">Sustainable commerce;</p>
               }
-              description={<span className="text-white">With ECOCAN</span>}
+              description={<span className="text-white">Save BIG while saving the planet!</span>}
               component={
-                <Button
-                  variant="outline"
-                  className="bg-[#FFDD4C] hover:bg-[#FFDD4C] rounded-full h-[3rem] lg:w-[24.3125rem] border-none px-8 text-base"
-                >
-                  Join ECOmmunity
-                  <ArrowRight className="ms-4" />
-                </Button>
+                <JoinEcommunity
+                  className="bg-[#FFDD4C] hover:bg-[#FFDD4C] rounded-full h-[3rem] lg:w-[24.3125rem] border-none px-8 text-base text-black"
+                  join="Join ECOmmunity"
+                />
               }
             />
           }

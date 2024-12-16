@@ -12,7 +12,7 @@ import PrimaryButton from "@/components/shared/primary-btn";
 import Image from "next/image";
 import HyperLink from "@/components/shared/hyperlink/hyperlink";
 import TextWithComponent from "../../consumer/components/text-with-component";
-import JoinEcommunity from "../../consumer/components/join-ecommunity";
+import JoinEcommunity from "../../../shared/join-ecommunity";
 
 export default function DrsPopup() {
   return (

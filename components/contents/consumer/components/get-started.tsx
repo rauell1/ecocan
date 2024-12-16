@@ -1,3 +1,4 @@
+import EligblePopup from "@/components/shared/eligble-popup";
 import HyperLink from "@/components/shared/hyperlink/hyperlink";
 import FeaturesGrid from "@/components/shared/text-with-cards/custom-card";
 import TextWithCards from "@/components/shared/text-with-cards/text-with-cards";
@@ -17,7 +18,7 @@ const consumerFeatures = [
       <div className="text-white space-y-4">
         <p>
           EcocanApp helps you to relaibly identify genuine{" "}
-          <HyperLink link="eligible" href="/" /> beverages, before purchase.
+          <EligblePopup/> beverages, before purchase.
           Thus safeguarding your health & fight counterfeits.
         </p>
 
@@ -53,7 +54,7 @@ const consumerFeatures = [
     answer: (
       <div className="text-white space-y-4">
         <p>
-          Every day 1.4 Billion used <HyperLink link="empties" href="/" /> are
+          Every day 1.4 Billion used <EligblePopup join="empties"/> are
           carelessly thrown into the environment.
         </p>
         <p>
@@ -62,7 +63,7 @@ const consumerFeatures = [
         </p>
         <p>
           Help us stop this, by turning in for recycling,{" "}
-          <HyperLink link="eligible" href="/" /> used empties of PET plastics,
+          <EligblePopup/> used empties of PET plastics,
           Aluminium cans, Glass bottles, and drinks cartons, at any of our{" "}
           <HyperLink link="Eco-Stations," href="/" /> and get paid.
         </p>
