@@ -7,7 +7,6 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { ChevronRight } from "lucide-react";
 import ImageAndItem from "@/components/shared/image-and-item/image-and-item";
 
 const faqData = [
@@ -37,7 +36,7 @@ export function FaqSection() {
   const [selectedItem, setSelectedItem] = useState("item-1");
 
   return (
-    <div className="max-w-4xl mx-auto">
+    <section className="max-w-4xl mx-auto" id="faq">
       <ImageAndItem title="Frequently Asked Questions (FAQs)"/>
       <Accordion
         type="single"
@@ -70,6 +69,6 @@ export function FaqSection() {
           );
         })}
       </Accordion>
-    </div>
+    </section>
   );
 }

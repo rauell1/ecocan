@@ -34,7 +34,7 @@ export default function AvailRvm() {
               description={
                 <p className="pt-8 pb-12 font-light">
                   If over 100 ECOnsumers return empties to you every day, we can
-                  help set up an <HyperLink link="ECOCAN R.V.M." href="/" /> To
+                  help set up an <span className="font-semibold">ECOcan.</span> To
                   boost your efficiency, and offer ECOnsumers unforgettable
                   recycling experience. That they&apos;ll keep coming back. And
                   spend more!

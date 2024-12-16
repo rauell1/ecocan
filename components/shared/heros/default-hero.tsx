@@ -6,7 +6,7 @@ import Image from "next/image";
 import React from "react";
 import NavigationBar from "../navbar/navbar";
 import { useScroll } from "@/lib/useScroll";
-import JoinEcommunity from "@/components/contents/consumer/components/join-ecommunity";
+import JoinEcommunity from "@/components/shared/join-ecommunity";
 import PrimaryButton from "../primary-btn";
 
 export default function DefaultHero() {
@@ -79,7 +79,7 @@ export default function DefaultHero() {
           >
             <path
               fill="#FAFAFA"
-              fill-opacity="1"
+              fillOpacity="1"
               d="M0,260L1440,0L1440,340L0,340Z"
             ></path>
           </svg>
@@ -90,7 +90,7 @@ export default function DefaultHero() {
           >
             <path
               fill="#FAFAFA"
-              fill-opacity="1"
+              fillOpacity="1"
               d="M0,300L600,0L600,600L0,600Z"
             ></path>
           </svg>
@@ -101,7 +101,7 @@ export default function DefaultHero() {
           >
             <path
               fill="#FAFAFA"
-              fill-opacity="1"
+              fillOpacity="1"
               d="M0,260L350,0L540,540L0,540Z"
             ></path>
           </svg>

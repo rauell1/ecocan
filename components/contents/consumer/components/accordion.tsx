@@ -10,6 +10,7 @@ import {
 import HyperLink from "@/components/shared/hyperlink/hyperlink";
 import StyledText from "@/components/shared/styled-text";
 import Image from "next/image";
+import JoinEcommunity from "../../../shared/join-ecommunity";
 
 interface AccordionData {
   id: number;
@@ -30,7 +31,7 @@ const accordionData: AccordionData[] = [
         <div>
           {" "}
           After registration, you can join the exclusive{" "}
-          <HyperLink link="ECOmmunity here" href="" />, to enjoy jaw-dropping
+          <JoinEcommunity className="p-0 border-none text-primary text-base underline underline-offset-4 font-normal" showArrow={false} join="ECOmmunity here"/>, to enjoy jaw-dropping
           discounts, and VIP benefits.
         </div>
       </div>
@@ -60,14 +61,14 @@ const accordionData: AccordionData[] = [
       <div className="space-y-2 w-11/12">
         <div>
           After enjoying your drink, navigate to the nearest or your favourite{" "}
-          <HyperLink link="ECO-Station" href="" /> on{" "}
-          <HyperLink link="ECOCAN Map" href="" />
+          <span className="font-semibold">ECO-Station,</span>{" "}
+          <HyperLink link="ECOCAN Map" href="#faq" />
         </div>
 
         <div>
           While there, either hand your empties to{" "}
-          <HyperLink link="Egents" href="/" />, or drop them into{" "}
-          <HyperLink link="ECOcans" href="/" />
+          <HyperLink link="Egents" href="#faq" />, or drop them into{" "}
+          <HyperLink link="ECOcans" href="#faq" />
         </div>
       </div>
     ),
@@ -95,8 +96,8 @@ const accordionData: AccordionData[] = [
     description: (
       <div className="space-y-2 w-11/12">
         <div>
-          You can order more drinks affordably from
-          <HyperLink link="ECOCAN Market" href="/" />, transfer deposits to
+          You can order more drinks affordably from{" "}
+          <span className="font-semibold">ECOCAN Market</span>, transfer deposits to
           friends, donate to charity, or cash out.
         </div>
         <div>

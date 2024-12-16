@@ -23,7 +23,12 @@ const litterContent = [
     title: "B. Turn-key solution",
     description: (
       <>
-        No back-room customisation nor lengthy pre-starts required! ECOcans are intelligently engineered for plug-and-play installation, ensuring you&apos;re always ready whenever customers want to recycle. Simply connect the devise to a standard single-phase household socket, and you&apos;re all set. Plus, these mobile devises come with industrial wheels for easy mobility, to wherever they&apos;re needed.
+        No back-room customisation nor lengthy pre-starts required! ECOcans are
+        intelligently engineered for plug-and-play installation, ensuring
+        you&apos;re always ready whenever customers want to recycle. Simply
+        connect the devise to a standard single-phase household socket, and
+        you&apos;re all set. Plus, these mobile devises come with industrial
+        wheels for easy mobility, to wherever they&apos;re needed.
       </>
     ),
     image: "/assets/images/eco-station/turn-key.svg",
@@ -127,7 +132,9 @@ export default function Operational() {
           item={
             <TextWithCards
               className="w-full"
-              title={<span className="text-4xl">1. Operational efficiency</span>}
+              title={
+                <span className="text-4xl">1. Operational efficiency</span>
+              }
               description="Unlock your sustainability potential with small efficient steps, but with massive impact"
               customCard={
                 <>

@@ -5,7 +5,7 @@ import Image from "next/image";
 import React from "react";
 import TextWithComponent from "./text-with-component";
 import CtaCard from "@/components/shared/cta-card/cta-card";
-import JoinEcommunity from "./join-ecommunity";
+import JoinEcommunity from "../../../shared/join-ecommunity";
 
 export default function CtaCardComponent() {
   return (
