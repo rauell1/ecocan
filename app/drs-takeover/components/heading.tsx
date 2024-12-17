@@ -5,7 +5,7 @@ import React from "react";
 export default function Heading() {
   return (
     <div className="relative">
-      <div className="py-8 lg:pb-36 lg:pt-44 max-w-[69.375rem] mx-auto px-4 xl:px-0 relative z-[999]">
+      <div className="py-8 lg:pb-36 lg:pt-44 max-w-[72rem] mx-auto px-4 xl:px-0 relative z-[999]">
         <TextWithComponent
           title="ECO-friendly cans"
           description={

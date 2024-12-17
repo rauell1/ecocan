@@ -28,9 +28,9 @@ const howToData = [
 
 export default function SmallDeeds() {
   return (
-    <div className="max-w-[69.375rem] mx-auto px-4 xl:px-0">
+    <div className="max-w-[72rem] mx-auto px-4 xl:px-0">
       <ImageAndItem
-        className="lg:flex-row-reverse items-center gap-12"
+        className="items-center gap-12"
         item={
           <TextWithComponent
             title={<div>Small deeds, <br/>with BIG impacts</div>}

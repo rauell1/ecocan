@@ -8,7 +8,7 @@ import Image from "next/image";
 export default function AvailRvm() {
   return (
     <section className="lg:pb-24" id="">
-      <div className="max-w-[69.375rem] mx-auto">
+      <div className="max-w-[72rem] mx-auto">
         <ImageAndItem
           className="lg:flex-row-reverse gap-6 lg:gap-12 items-center"
           image={

@@ -6,7 +6,7 @@ export default function Community() {
   return (
     <div className="bg-[url('/assets/images/solutions/community.svg')] lg:h-[45.75rem] bg-contain lg:bg-cover bg-center bg-no-repeat bg-black relative after:absolute after:inset-0 after:content-[''] lg:after:bg-black/20 after:opacity-70 after:z-10">
       <div>
-        <div className="max-w-[69.375rem] mx-auto lg:h-[45.75rem] relative z-[999] px-4 py-8 lg:p-0 flex items-center">
+        <div className="max-w-[72rem] mx-auto lg:h-[45.75rem] relative z-[999] px-4 py-8 lg:p-0 flex items-center">
           <TextWithComponent
             className="text-white"
             title="In the ECOmmunity"

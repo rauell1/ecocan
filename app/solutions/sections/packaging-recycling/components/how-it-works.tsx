@@ -58,7 +58,7 @@ const rightFeatures: FeatureItem[] = [
 
 export default function HowItWorks() {
   return (
-    <div className="max-w-[69.375rem] mx-auto px-4 xl:px-0 hidden lg:block">
+    <div className="max-w-[72rem] mx-auto px-4 xl:px-0 hidden lg:block">
       <TextWithComponent
         className="text-center"
         title="So how does it really work?"

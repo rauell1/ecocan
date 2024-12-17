@@ -13,7 +13,7 @@ import Matters from "./components/matters";
 
 export default function RecyclerContent() {
   return (
-    <div className="space-y-24 py-8 max-w-[69.375rem] mx-auto px-4 xl:px-0">
+    <div className="space-y-24 py-8 max-w-[72rem] mx-auto px-4 xl:px-0">
       <div className="space-y-12">
         <TextWithComponent
           title="Closed-loop recycling"

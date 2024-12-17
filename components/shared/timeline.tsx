@@ -26,7 +26,7 @@ const Timeline: React.FC<TimelineProps> = ({
   const lineHeight = `calc(100% - ${items.length > 1 ? "4rem" : "2rem"})`;
 
   return (
-    <div className="max-w-[69.375rem] mx-auto px-4 xl:px-0">
+    <div className="max-w-[72rem] mx-auto px-4 xl:px-0">
       <h2 className="text-3xl md:text-5xl font-bold mb-2">{title}</h2>
       <div className="lg:text-xl text-secondary my-6 lg:my-12">{subtitle}</div>
 

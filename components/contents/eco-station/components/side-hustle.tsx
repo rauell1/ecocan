@@ -6,7 +6,7 @@ import React from "react";
 export default function SideHustle() {
   return (
     <div className="lg:pb-24 pt-8 relative bg-white overflow-hidden">
-      <div className="max-w-[69.375rem] mx-auto pb-24 px-4 xl:px-0">
+      <div className="max-w-[72rem] mx-auto pb-24 px-4 xl:px-0">
         <ImageAndItem
           className="gap-12 items-center lg:flex-row-reverse"
           image={

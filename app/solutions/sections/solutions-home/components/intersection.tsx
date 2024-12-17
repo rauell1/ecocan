@@ -3,7 +3,7 @@ import React from "react";
 
 export default function Intersection() {
   return (
-    <div className="max-w-[69.375rem] mx-auto">
+    <div className="max-w-[72rem] mx-auto">
       <div className="lg:flex xl:rounded-3xl bg-[#F6F6F6] overflow-hidden items-center mx-auto">
         <div className="lg:w-1/2 hidden lg:block">
           <Image

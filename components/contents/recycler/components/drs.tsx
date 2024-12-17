@@ -97,7 +97,7 @@ const steps = [
 
 export default function DepositRefundSystem() {
   return (
-    <div className="max-w-[69.375rem] mx-auto px-4 xl:px-0 lg:pb-24 py-8">
+    <div className="max-w-[72rem] mx-auto px-4 xl:px-0 lg:pb-24 py-8">
       <ImageAndItem
         className="gap-12 items-center"
         title={<h2 className="text-start">Why a Deposit Refund System?</h2>}

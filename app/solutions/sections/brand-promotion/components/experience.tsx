@@ -5,7 +5,7 @@ import React from "react";
 export default function Experience() {
   return (
     <div className="pb-24">
-      <div className="max-w-[69.375rem] mx-auto px-4 xl:px-0">
+      <div className="max-w-[72rem] mx-auto px-4 xl:px-0">
         <div className="bg-[url('/assets/images/solutions/experience.svg')] bg-cover bg-center relative after:absolute after:inset-0 after:content-[''] after:bg-black/50 after:opacity-50 after:-z-10 overflow-hidden z-50 rounded-smooth-lg lg:rounded-smooth-xl py-8 flex flex-col justify-center">
           <div className="lg:w-3/4 text-center mx-auto text-white z-20 lg:space-y-8">
             <Image

@@ -1,5 +1,5 @@
 import React from "react";
-import HyperLink from "@/components/shared/hyperlink/hyperlink";
+import JoinEcommunity from "@/components/shared/join-ecommunity";
 
 const featureData = [
   {
@@ -7,8 +7,11 @@ const featureData = [
     name: "Collabo with us",
     question: (
       <p className="font-normal text-secondary">
-        <HyperLink link="Join the ECOmmunity" href="/" /> to elevate your event
-        to the next level.
+        <JoinEcommunity
+          className="border-none px-0 text-primary underline underline-offset-4 hover:text-primary text-base"
+          showArrow={false}
+        />{" "}
+        to elevate your event to the next level.
       </p>
     ),
     answer: (

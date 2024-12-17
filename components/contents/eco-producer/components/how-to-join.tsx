@@ -90,7 +90,7 @@ export default function HowToJoin() {
         className="items-center gap-6"
         image={
           <Image
-            src="/assets/images/producer/ecommunity-two.svg"
+            src="/assets/images/producer/ecommunity-two.png"
             alt="buy online with ecocan"
             width={500}
             height={100}

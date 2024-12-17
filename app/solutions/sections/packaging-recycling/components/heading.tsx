@@ -59,7 +59,7 @@ const consumerFeatures = [
 
 export default function Heading() {
   return (
-    <div className="max-w-[69.375rem] mx-auto px-4 xl:px-0">
+    <div className="max-w-[72rem] mx-auto px-4 xl:px-0">
       <TextWithComponent
         title="Re-imagined Recycling"
         component={
@@ -69,9 +69,9 @@ export default function Heading() {
               gap="gap-4"
               className="bg-center p-4 flex flex-col justify-end overflow-hidden bg-[#F6F6F6]"
             />
-            <div className="space-y-4 lg:w-4/5 text-[#888D92] lg:text-xl font-light">
+            <div className="space-y-4 lg:w-5/6 text-[#888D92] lg:text-xl font-light">
               <p>
-                <HyperLink href="/" link="ECOCAN D.R.S"/> is the first fully digital DRS worldwide, which
+                <span className="text-[#228B22]">ECOCAN D.R.S</span> is the <span className="font-medium">first fully digital DRS worldwide</span>, which
                 supports incentivised collection & closed-loop recycling of
                 genuine eligible empties. And ensures participants directly
                 benefit for taking part.

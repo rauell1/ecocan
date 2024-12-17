@@ -4,7 +4,7 @@ import JustPriceCards from "./just-price-cards";
 
 export default function JustPrice() {
   return (
-    <div className="max-w-[69.375rem] mx-auto px-4 xl:px-0">
+    <div className="max-w-[72rem] mx-auto px-4 xl:px-0">
       <TextWithComponent
         title={
           <div className="text-center lg:w-3/5 mx-auto">

@@ -23,7 +23,7 @@ const steps = [
 
 export default function GlobalCountryExample() {
   return (
-    <div className="flex gap-12 max-w-[69.375rem]">
+    <div className="flex gap-12 max-w-[72rem]">
       <div className="w-3/5">
         <Card className="bg-[#F6C92D] p-6 h-[26.25rem] rounded-2xl border-none">
           <CardHeader className="px-0 text-xl font-semibold">Global</CardHeader>

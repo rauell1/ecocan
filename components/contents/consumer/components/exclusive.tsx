@@ -1,8 +1,5 @@
-import HyperLink from "@/components/shared/hyperlink/hyperlink";
 import TextWithCards from "@/components/shared/text-with-cards/text-with-cards";
-import WhiteBgCard from "@/components/shared/white-bg-card";
 import React from "react";
-import ExpandableContent from "./expandable-content";
 import FeaturesGrid from "@/components/shared/text-with-cards/custom-card";
 import JoinEcommunity from "../../../shared/join-ecommunity";
 
@@ -60,7 +57,7 @@ const cardContent = [
 export default function Exclusive() {
   return (
     <div className="bg-[#FAFAFA] bg-center bg-cover md:flex items-center py-24 hidden">
-      <div className="max-w-[69.375rem] mx-auto px-4 xl:px-0">
+      <div className="max-w-[72rem] mx-auto px-4 xl:px-0">
         <TextWithCards
           title="Exclusive benefits for ECOnsumers"
           subtitle={

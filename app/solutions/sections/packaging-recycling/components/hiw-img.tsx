@@ -12,43 +12,43 @@ const tooltipContent = [
   {
     id: 1,
     content:
-      "Producers attach ECOCAN Security codes onto eligible products during production, and attach applicable deposit amount. They then inform ECOCAN of the volumes they intend to place on the market",
+      "ECO-producers purchase & utilise recycled bottles to package new products hence increasing their resource efficiency, & cutting cost of production",
     path: "/assets/images/solutions/recycle-icon.svg",
   },
   {
     id: 2,
     content:
-      "Producers attach ECOCAN Security codes onto eligible products during production, and attach applicable deposit amount. They then inform ECOCAN of the volumes they intend to place on the market",
+      "ECO-Producers print ECOCAN Security Codes onto eligible products, and attach applicable deposit money. They then inform ECOCAN of the volumes they place on the market",
     path: "/assets/images/solutions/industry-icon.svg",
   },
   {
     id: 3,
     content:
-      "Producers attach ECOCAN Security codes onto eligible products during production, and attach applicable deposit amount. They then inform ECOCAN of the volumes they intend to place on the market",
+      "Eligible products carrying ECOCAN Security Codes & deposit money are then delivered to retailers for sale",
     path: "/assets/images/solutions/shop-icon.svg",
   },
   {
     id: 4,
     content:
-      "Producers attach ECOCAN Security codes onto eligible products during production, and attach applicable deposit amount. They then inform ECOCAN of the volumes they intend to place on the market",
+      "ECOnsumers purchase eligible products paying Actual price + refundable deposit amount",
     path: "/assets/images/solutions/cart-icon.svg",
   },
   {
     id: 5,
     content:
-      "Producers attach ECOCAN Security codes onto eligible products during production, and attach applicable deposit amount. They then inform ECOCAN of the volumes they intend to place on the market",
+      "After enjoying the drink, ECOnsumers return empties to ECO-Stations to reclaim the deposit money.",
     path: "/assets/images/solutions/building-icon.svg",
   },
   {
     id: 6,
     content:
-      "Producers attach ECOCAN Security codes onto eligible products during production, and attach applicable deposit amount. They then inform ECOCAN of the volumes they intend to place on the market",
+      "⁠ECOuriers pick up retuned empties and drop them off to ECO-Recyclers",
     path: "/assets/images/solutions/cycle-icon.svg",
   },
   {
     id: 7,
     content:
-      "Producers attach ECOCAN Security codes onto eligible products during production, and attach applicable deposit amount. They then inform ECOCAN of the volumes they intend to place on the market",
+      "⁠ECO-Recyclers process the empties into new bottles ready for filling fresh drinks. Hence reducing reliance on virgin material, cutting CO2 emissions & energy consumption",
     path: "/assets/images/solutions/warehouse-icon.svg",
   },
 ];

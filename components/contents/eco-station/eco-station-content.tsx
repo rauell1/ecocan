@@ -62,7 +62,7 @@ export default function EcoStationContent() {
       />
 
       <SideHustle />
-      <div className="max-w-[69.375rem] mx-auto space-y-24 px-4 xl:px-0">
+      <div className="max-w-[72rem] mx-auto space-y-24 px-4 xl:px-0">
         <SellMore />
         <AvailRvm />
         <BusinessInsights />

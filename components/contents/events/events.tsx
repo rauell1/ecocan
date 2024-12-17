@@ -20,7 +20,7 @@ const Events = () => {
         <Rhythm />
         <Testimonials />
       </div>
-      <div className="space-y-24 py-8 max-w-[69.375rem] mx-auto px-4 xl:px-0">
+      <div className="space-y-24 py-8 max-w-[72rem] mx-auto px-4 xl:px-0">
         <FaqSection />
         <GreatMoments />
       </div>
