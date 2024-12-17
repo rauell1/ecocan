@@ -66,7 +66,7 @@ const howToData = [
 export default function BuyOnline() {
   return (
     <div className="bg-white">
-      <div className="max-w-[69.375rem] mx-auto pt-24 pb-12 px-4 xl:px-0">
+      <div className="max-w-[72rem] mx-auto pt-24 pb-12 px-4 xl:px-0">
         <ImageAndItem
           className="gap-12 items-center"
           image={

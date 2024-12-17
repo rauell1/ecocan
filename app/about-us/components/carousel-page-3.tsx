@@ -62,7 +62,7 @@ const accordionItems = [
 export default function CarouselPage3() {
   return (
     <div className="min-h-screen bg-[#2F313F]">
-      <div className="max-w-[69.375rem] mx-auto min-h-screen flex items-center">
+      <div className="max-w-[72rem] mx-auto min-h-screen flex items-center">
         <div className="px-4 xl:px-0 py-24 space-y-12 z-[999]">
           <ImageAndItem
             title={

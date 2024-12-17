@@ -4,10 +4,11 @@ import ImageAndItem from "@/components/shared/image-and-item/image-and-item";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import React from "react";
+import ProcessPopup from "./process-popup";
 
 export default function Process() {
   return (
-    <div className="max-w-[69.375rem] mx-auto px-4 xl:px-0">
+    <div className="max-w-[72rem] mx-auto px-4 xl:px-0">
       <ImageAndItem
         className="items-center gap-12"
         image={
@@ -36,9 +37,7 @@ export default function Process() {
                   To ensure ECO-products are safely refilled in the most
                   hygienic, and highest quality, 100% re-used glass bottles.
                 </p>
-                <Button variant="link" className="px-0 text-lg">
-                  Read more
-                </Button>
+                <ProcessPopup join="Read more"/>
               </div>
             }
           />

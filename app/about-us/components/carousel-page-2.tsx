@@ -6,7 +6,7 @@ import Image from "next/image";
 export default function CarouselPage2() {
   return (
     <div className="min-h-screen bg-white relative overflow-hidden">
-      <div className="max-w-[69.375rem] mx-auto flex items-center lg:my-0 lg:gap-12">
+      <div className="max-w-[72rem] mx-auto flex items-center lg:my-0 lg:gap-12">
         <div className="px-4 xl:px-0 py-24 space-y-12 z-[999]">
           <WhoWeAre />
           <Visionaries />

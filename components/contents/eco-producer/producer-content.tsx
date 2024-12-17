@@ -15,7 +15,7 @@ import DrsTakeover from "./components/drs-takeover";
 export default function ProducerContent() {
   return (
     <div className="w-full">
-      <div className="space-y-24 py-8 max-w-[69.375rem] mx-auto px-4 xl:px-0">
+      <div className="space-y-24 py-8 max-w-[72rem] mx-auto px-4 xl:px-0">
         <DoMore />
         <BeyondBasics />
         <HowToJoin />
@@ -24,7 +24,7 @@ export default function ProducerContent() {
       <Efficiency />
       <DepositRefundSystem />
       <DrsTakeover/>
-      <div className="space-y-24 py-8 max-w-[69.375rem] mx-auto px-4 xl:px-0">
+      <div className="space-y-24 py-8 max-w-[72rem] mx-auto px-4 xl:px-0">
         {/* faq */}
         <FaqSection />
 

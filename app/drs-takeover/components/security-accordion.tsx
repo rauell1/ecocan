@@ -4,7 +4,7 @@ import Image from "next/image";
 import { AccordionDemo } from "./accordion-demo";
 
 const images = [
-  "/assets/images/eco-station/insurance.svg",
+  "/assets/images/eco-station/qr.svg",
   "/assets/images/eco-station/insurance.svg",
   "/assets/images/eco-station/game.svg",
   "/assets/images/eco-station/insights.svg",

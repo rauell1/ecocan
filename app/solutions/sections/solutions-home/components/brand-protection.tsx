@@ -9,7 +9,7 @@ import Image from 'next/image';
 export default function BrandProtection() {
 
   return (
-    <div className="max-w-[69.375rem] mx-auto px-4 xl:px-0">
+    <div className="max-w-[72rem] mx-auto px-4 xl:px-0">
       <ImageAndItem
         className="items-center gap-6 lg:gap-12"
         image={

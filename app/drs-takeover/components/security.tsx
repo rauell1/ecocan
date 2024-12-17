@@ -6,7 +6,7 @@ import SecurityAccordion from "./security-accordion";
 export default function Security() {
   return (
     <div className="lg:pb-24">
-      <div className="max-w-[69.375rem] mx-auto px-4 xl:px-0 relative z-[999]">
+      <div className="max-w-[72rem] mx-auto px-4 xl:px-0 relative z-[999]">
         <TextWithComponent
           title={
             <span className="text-4xl">2. Security and technical efficiency</span>

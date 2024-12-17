@@ -35,7 +35,7 @@ const testimonialsData = [
 const Testimonials = () => {
   return (
     <div className="bg-[#2F313F] py-12 px-4 xl:px-0">
-      <div className="max-w-[69.375rem] mx-auto py-8">
+      <div className="max-w-[72rem] mx-auto py-8">
         <h2 className="bg-gradient-to-tr from-[#228B22] via-[#FFDD4C] to-[#FFDD4C] text-transparent bg-clip-text capitalize mb-2 text-center text-[2rem] font-medium">
           Testimonials
         </h2>

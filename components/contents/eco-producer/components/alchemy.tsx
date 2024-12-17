@@ -42,7 +42,7 @@ export default function Alchemy() {
   return (
     <div>
         <div className="bg-[url('/assets/images/consumer/bananas-bg.svg')] h-[36rem] bg-center bg-cover flex items-center my-16">
-        <div className="max-w-[69.375rem] mx-auto">
+        <div className="max-w-[72rem] mx-auto">
           <TextWithCards
             title="The Alchemy behind this ECOCAN magic"
             className="mx-auto text-center"

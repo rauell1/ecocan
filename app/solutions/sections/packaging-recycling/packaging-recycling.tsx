@@ -1,8 +1,3 @@
-import TextWithComponent from "@/components/contents/consumer/components/text-with-component";
-import { ItemList } from "@/components/contents/courier/components/ItemList";
-import HyperLink from "@/components/shared/hyperlink/hyperlink";
-import ImageAndItem from "@/components/shared/image-and-item/image-and-item";
-import Image from "next/image";
 import React from "react";
 import HowItWorks from "./components/how-it-works";
 import Cooperation from "./components/cooperation";

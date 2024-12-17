@@ -68,7 +68,7 @@ const rvmContent = [
 export default function WhatIsEcocan() {
   return (
     <div className="relative bg-[#F3F3F6]">
-      <div className="max-w-[69.375rem] mx-auto py-8 lg:pb-36 px-4 xl:px-0">
+      <div className="max-w-[72rem] mx-auto py-8 lg:pb-36 px-4 xl:px-0">
         <ImageAndItem
           className="lg:flex-row-reverse items-center gap-6 lg:gap-12"
           image={

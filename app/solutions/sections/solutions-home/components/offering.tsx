@@ -2,7 +2,7 @@ import React from "react";
 
 export default function Offering() {
   return (
-    <div className="max-w-[69.375rem] mx-auto px-4 xl:px-0">
+    <div className="max-w-[72rem] mx-auto px-4 xl:px-0">
       <div className="md:flex items-center">
         <div className="md:w-1/3 xl:w-1/2">
           <h2 className="text-5xl lg:w-1/2 leading-snug font-semibold text-center md:text-start">

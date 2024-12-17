@@ -69,7 +69,7 @@ const ecoStationFeatures = [
 
 export default function WhyEcostation() {
   return (
-    <div className="max-w-[69.375rem] mx-auto pb-8 lg:pb-24 px-4 xl:px-0">
+    <div className="max-w-[72rem] mx-auto pb-8 lg:pb-24 px-4 xl:px-0">
       <TextWithCards
         title="Why become an ECO-Station"
         description={

@@ -72,7 +72,7 @@ export default function SectionPage({ params }: SectionPageProps) {
             className={isScrolled ? "bg-white" : "bg-transparent text-white backdrop-blur-none"}
             logoSrc={isScrolled ? "/assets/images/ecocan-logo.svg": "/assets/images/ecocan-logo-alt.svg"}
           />
-          <div className="max-w-[69.375rem] mx-auto px-4 xl:px-0 pt-24">
+          <div className="max-w-[72rem] mx-auto px-4 xl:px-0 pt-24">
             <BreadcrumbNav />
             {sectionConfig.heroContent}
           </div>
@@ -83,7 +83,7 @@ export default function SectionPage({ params }: SectionPageProps) {
             className={isScrolled ? "bg-white" : "bg-transparent"}
             logoSrc="/assets/images/ecocan-logo.svg"
           />
-          <div className="max-w-[69.375rem] mx-auto px-4 xl:px-0 pt-24">
+          <div className="max-w-[72rem] mx-auto px-4 xl:px-0 pt-24">
             <BreadcrumbNav />
           </div>
         </div>

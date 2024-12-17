@@ -112,7 +112,7 @@ export default function Operational() {
 
   return (
     <div className="bg-[#F6F6F6] relative lg:pb-36">
-      <div className="max-w-[69.375rem] mx-auto px-4 xl:px-0 relative z-[999] py-8 lg:py-0">
+      <div className="max-w-[72rem] mx-auto px-4 xl:px-0 relative z-[999] py-8 lg:py-0">
         <ImageAndItem
           className="lg:gap-12 lg:flex-row-reverse"
           image={

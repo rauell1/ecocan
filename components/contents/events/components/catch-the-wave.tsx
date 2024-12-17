@@ -5,7 +5,7 @@ import featureData from "./featureData";
 
 export default function CatchTheWave() {
   return (
-    <div className="max-w-[69.375rem] mx-auto px-4 xl:px-0">
+    <div className="max-w-[72rem] mx-auto px-4 xl:px-0">
       <TextWithCards
         title="Catch the Wave"
         description={

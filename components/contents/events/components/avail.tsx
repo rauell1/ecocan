@@ -6,7 +6,7 @@ import PrimaryButton from "@/components/shared/primary-btn";
 
 export default function Avail() {
   return (
-    <div className="max-w-[69.375rem] mx-auto px-4 xl:px-0">
+    <div className="max-w-[72rem] mx-auto px-4 xl:px-0">
       <ImageAndItem
         className="items-center lg:flex-row-reverse gap-12 lg:gap-0"
         image={

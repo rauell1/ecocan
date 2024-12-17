@@ -149,7 +149,7 @@ export default function CourierContent() {
     setSelectedImage(id - 1);
   };
   return (
-    <div className="space-y-24 py-8 max-w-[69.375rem] mx-auto px-4 xl:px-0">
+    <div className="space-y-24 py-8 max-w-[72rem] mx-auto px-4 xl:px-0">
       <TextWithCards
         title="Let’s drive your hustle forward"
         customCard={<CustomCard features={featureData} />}
