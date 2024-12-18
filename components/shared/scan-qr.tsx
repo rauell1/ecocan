@@ -50,11 +50,13 @@ const howToData = [
 export default function ScanqrPopup({
   className,
   join,
-  showArrow = false
+  showArrow = false,
+  arrow = <LucideArrowRight className="ml-4"/>
 }: {
   className?: string;
   showArrow?: boolean;
   join?: string;
+  arrow?: React.ReactNode;
 }) {
   return (
     <AlertDialog>
@@ -67,7 +69,7 @@ export default function ScanqrPopup({
           )}
         >
           <span className="relative z-[999]">{join}</span>
-          {showArrow && <LucideArrowRight className="ml-4"/>}
+          {showArrow && arrow}
         </Button>
       </AlertDialogTrigger>
       <AlertDialogContent className="z-[9999] bg-white !w-fit">

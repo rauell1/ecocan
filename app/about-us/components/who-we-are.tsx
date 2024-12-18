@@ -14,13 +14,13 @@ export default function WhoWeAre() {
         </p>
       }
       description={
-        <div className="mt-4 text-[#23262fcc] w-4/5 space-y-4">
+        <div className="mt-4 text-[#23262fcc] lg:w-11/12 space-y-4">
           <p>
             Re-imagining sustainability for the better. Through our green-tech
             platform for comprehensive management of beverage products. That
             empowers and connects consumers, retailers, producers and recyclers,
             for sustainable commerce. This dynamic offering is powered by the{" "}
-            <HyperLink link="ECOCAN TnT:" href="/" /> a revolutionary technology
+            <HyperLink link="ECOCAN TnT:" href="/solutions/brand-protection#tnt" /> a revolutionary technology
             leveraging IoT, Blockchain, and AI. To enable reliable product
             authentication before purchase, facilitate elaborate empties
             recycling after consumption, and offer comprehensive insights and
@@ -29,9 +29,9 @@ export default function WhoWeAre() {
           </p>
           <p>
             At the core of the TnT is our smart{" "}
-            <HyperLink link="EcocanApp" href="/" />, robust , robust{" "}
-            <HyperLink link="ECOCAN security codes" href="/" />, and the
-            intricate <HyperLink link="ECOCAN DRS" href="/" />
+            <HyperLink link="EcocanApp" href="/solutions/brand-protection#ecocan-app" />, robust{" "}
+            <HyperLink link="ECOCAN security codes" href="/solutions/brand-protection#security-codes" />, and the
+            intricate <HyperLink link="ECOCAN DRS" href="/solutions/packaging-recycling" />
           </p>
         </div>
       }

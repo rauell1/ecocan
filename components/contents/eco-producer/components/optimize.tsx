@@ -14,7 +14,7 @@ interface FeatureProps {
 
 const FeatureCard = ({ title, description, imageSrc, href }: FeatureProps) => (
   <div className="bg-tranparent text-white">
-    <div className="overflow-hidden rounded-smooth-xl">
+    <div className="overflow-hidden">
       <Image
         src={imageSrc}
         alt={title}

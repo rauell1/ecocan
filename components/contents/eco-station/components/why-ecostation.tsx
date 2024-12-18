@@ -1,5 +1,6 @@
 import EligblePopup from "@/components/shared/eligble-popup";
 import HyperLink from "@/components/shared/hyperlink/hyperlink";
+import RegisterPopup from "@/components/shared/register-popup";
 import FeaturesGrid from "@/components/shared/text-with-cards/custom-card";
 import CustomCard from "@/components/shared/text-with-cards/custom-card";
 import TextWithCards from "@/components/shared/text-with-cards/text-with-cards";
@@ -11,7 +12,7 @@ const ecoStationFeatures = [
     name: "Reach new customers",
     question: (
       <p className="font-normal  text-secondary">
-        <span className="font-bold">Sign-up</span> here, and we&apos;ll link you up
+       <RegisterPopup/> here, and we&apos;ll link you up
         with
         <br />
         the ECOmmunity

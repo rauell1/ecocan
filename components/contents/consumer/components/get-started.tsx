@@ -18,14 +18,14 @@ const consumerFeatures = [
     answer: (
       <div className="text-white space-y-4">
         <p>
-          EcocanApp helps you to relaibly identify genuine{" "}
-          <EligblePopup/> beverages, before purchase.
-          Thus safeguarding your health & fight counterfeits.
+          EcocanApp helps you to relaibly identify genuine <EligblePopup />{" "}
+          beverages, before purchase. Thus safeguarding your health & fight
+          counterfeits.
         </p>
 
         <p>
           Just scan the unique{" "}
-          <HyperLink link="ECOCAN security codes" href="/" /> printed only on
+          <HyperLink link="ECOCAN security codes" href="#faq" /> printed only on
           genuine beverages, to verify authenticity.
         </p>
 
@@ -49,24 +49,25 @@ const consumerFeatures = [
     question: (
       <p className="text-white">
         Every week, you eat plastics equivalent to a whole credit card in your
-        food! <br/>How?
+        food! <br />
+        How?
       </p>
     ),
     answer: (
       <div className="text-white space-y-4">
         <p>
-          Every day 1.4 Billion used <EligblePopup join="empties"/> are
-          carelessly thrown into the environment.
+          1.5 Billion used bottles (empties) are carelessly thrown into the
+          environment every day. Much of this leaks into oceans that now contain
+          over 1.7 trillion plastic particles, that eventually end up onto your
+          plate. Through water & fish you consume.
         </p>
         <p>
-          And our oceans now contain over 1.7 trillion plastic particles, which
-          eventually end up on your plate.
+          The rest of empties are littered or burnt in open air. Increasing GHG
+          emissions, global warming & other health hazards.
         </p>
         <p>
-          Help us stop this, by turning in for recycling,{" "}
-          <EligblePopup/> used empties of PET plastics,
-          Aluminium cans, Glass bottles, and drinks cartons, at any of our{" "}
-          <HyperLink link="Eco-Stations," href="/" /> and get paid.
+          Together we can stop this pollution, by turning in for recycling
+          eligible used empties, at any ECO-Station near you.
         </p>
       </div>
     ),
@@ -112,7 +113,7 @@ export default function GetStarted() {
         <div className="lg:w-4/5">
           Whether you want to keep your environment clean, earn extra cash, or
           to safeguard your health from fake drinks. With EcocanApp, it&apos;s
-          all just a <ScanqrPopup join="click away!" className="text-lg"/>
+          all just a <ScanqrPopup join="click away!" className="text-lg" />
         </div>
       }
       customCard={
