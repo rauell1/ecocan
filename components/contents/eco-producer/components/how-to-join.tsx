@@ -3,6 +3,7 @@ import Image from "next/image";
 import React from "react";
 import { ItemList } from "../../courier/components/ItemList";
 import HyperLink from "@/components/shared/hyperlink/hyperlink";
+import RegisterPopup from "@/components/shared/register-popup";
 
 const howToData = [
   {
@@ -17,7 +18,7 @@ const howToData = [
     ),
     title: (
       <div>
-        <HyperLink link="Register Here" href="/" /> and we&apos;ll revert ASAP
+        <RegisterPopup join="Register Here" className="text-lg font-bold"/> and we&apos;ll revert ASAP
       </div>
     ),
     description: (

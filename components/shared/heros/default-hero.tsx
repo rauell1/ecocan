@@ -8,6 +8,7 @@ import NavigationBar from "../navbar/navbar";
 import { useScroll } from "@/lib/useScroll";
 import JoinEcommunity from "@/components/shared/join-ecommunity";
 import PrimaryButton from "../primary-btn";
+import ScanqrPopup from "../scan-qr";
 
 export default function DefaultHero() {
   const isScrolled = useScroll();
@@ -45,10 +46,7 @@ export default function DefaultHero() {
                   money while protecting the planet through recycling.
                 </p>
                 <div className="md:flex gap-4 mt-4 md:mt-0">
-                  <PrimaryButton
-                    buttonIcon={<LucideDownload />}
-                    className="bg-white text-primary mb-4"
-                  />
+                  <ScanqrPopup className="bg-white hover:bg-white text-primary mb-4 border px-8 no-underline font-medium" arrow={<LucideDownload className="ms-4"/>} join="Download App" showArrow={true}/>
                   <JoinEcommunity className="text-base"/>
                 </div>
               </div>

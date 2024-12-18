@@ -22,7 +22,7 @@ export default function Visionaries() {
               description={
                 <div>
                   <h2
-                    className={`bg-gradient-to-r my-2 from-[#228B22] via-[#FFDD4C] to-[#FFDD4C] text-transparent bg-clip-text font-semibold text-3xl`}
+                    className={`bg-gradient-to-r my-2 from-[#228B22] via-[#FFDD4C] to-[#FFDD4C] text-transparent bg-clip-text font-medium text-[2rem]`}
                   >
                     Building a COmmunity <br /> of
                     visionaries{" "}

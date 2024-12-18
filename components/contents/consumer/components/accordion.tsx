@@ -11,6 +11,7 @@ import HyperLink from "@/components/shared/hyperlink/hyperlink";
 import StyledText from "@/components/shared/styled-text";
 import Image from "next/image";
 import JoinEcommunity from "../../../shared/join-ecommunity";
+import ScanqrPopup from "@/components/shared/scan-qr";
 
 interface AccordionData {
   id: number;
@@ -25,14 +26,18 @@ const accordionData: AccordionData[] = [
     description: (
       <div className="space-y-2 w-11/12">
         <div>
-          <HyperLink link="Download EcocanApp" href="" /> here, sign up in under
-          2 minutes, and start earning today!
+          <ScanqrPopup join="Download EcocanApp" /> here, sign up in under 2
+          minutes, and start earning today!
         </div>
         <div>
           {" "}
           After registration, you can join the exclusive{" "}
-          <JoinEcommunity className="p-0 border-none text-primary text-base underline underline-offset-4 font-normal" showArrow={false} join="ECOmmunity here"/>, to enjoy jaw-dropping
-          discounts, and VIP benefits.
+          <JoinEcommunity
+            className="p-0 border-none text-primary text-base underline underline-offset-4 font-normal"
+            showArrow={false}
+            join="ECOmmunity here"
+          />
+          , to enjoy jaw-dropping discounts, and VIP benefits.
         </div>
       </div>
     ),
@@ -84,8 +89,8 @@ const accordionData: AccordionData[] = [
         </div>
         <div>
           Additionally, the App will inform you of the CO2e reduction & energy
-          savings you&apos;ve made. And we&apos;ll reward your ECO-friendly efforts with
-          exclusive discounts
+          savings you&apos;ve made. And we&apos;ll reward your ECO-friendly
+          efforts with exclusive discounts
         </div>
       </div>
     ),
@@ -97,8 +102,8 @@ const accordionData: AccordionData[] = [
       <div className="space-y-2 w-11/12">
         <div>
           You can order more drinks affordably from{" "}
-          <span className="font-semibold">ECOCAN Market</span>, transfer deposits to
-          friends, donate to charity, or cash out.
+          <span className="font-semibold">ECOCAN Market</span>, transfer
+          deposits to friends, donate to charity, or cash out.
         </div>
         <div>
           Take a look at the EcocanApp <HyperLink link="tutorial" href="/" />{" "}

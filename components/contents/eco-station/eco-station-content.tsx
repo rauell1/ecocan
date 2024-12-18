@@ -13,13 +13,14 @@ import AvailRvm from "./components/avail-rvm";
 import BusinessInsights from "./components/business-insights";
 import SideHustle from "./components/side-hustle";
 import JoinEcommunity from "../../shared/join-ecommunity";
+import RegisterPopup from "@/components/shared/register-popup";
 
 const howToData = [
   {
     id: 1,
     title: (
       <div className="text-white">
-        <span className="text-primary">Register here</span> to grow your
+        <RegisterPopup join="Register here" className="text-lg font-semibold"/> to grow your
         business
       </div>
     ),

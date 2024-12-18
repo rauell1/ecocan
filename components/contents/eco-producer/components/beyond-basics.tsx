@@ -12,68 +12,6 @@ import { title } from "process";
 import { number } from "zod";
 import Image from "next/image";
 
-const accordionItems = [
-  {
-    id: "item-1",
-    question: "Increase your sustainability",
-    answer: (
-      <div>
-        <p>
-          <HyperLink link="Register here" href="/" /> to join the Ecommunity,
-          and reduce your carbon, litter and energy footprint.
-        </p>
-      </div>
-    ),
-  },
-  {
-    id: "item-2",
-    question: "Protect your integrity!",
-    answer: (
-      <div>
-        <p>
-          Deploy <HyperLink link="ECOCAN security codes" href="/solutions/brand-protection#security-codes" />,{" "}
-          <HyperLink link="ECOCAN TnT" href="/solutions/brand-protection" />, and{" "}
-          <HyperLink link="ECOCAN DRS" href="/" />, to prevent faking of your
-          products. Then sit back, and watch your revenues grow from the
-          reclaimed market share, and increased customer loyalty!
-        </p>
-      </div>
-    ),
-  },
-  {
-    id: "item-3",
-    question: "Increase sales",
-    answer: (
-      <div className="space-y-6">
-        <p>
-          Get your products listed on{" "}
-          <HyperLink link="ECOCAN Market" href="/" />, and tap into the large
-          pool of ECOnsumers.
-        </p>
-        <p>
-          As bonus to increased revenues from this new market, you&apos;ll
-          receive unique insights from <HyperLink link="ECOCAN TnT" href="/" />,
-          and engage ECOnsumers with targeted marketing campaigns via{" "}
-          <HyperLink link="EcocanApp" href="/" />
-        </p>
-      </div>
-    ),
-  },
-  {
-    id: "item-4",
-    question: "Cut production cost",
-    answer: (
-      <div className="space-y-6">
-        <p>
-          Packaging costs are skyrocketing! But we can help keep your costs down
-          by collecting your empties for reuse or recycling, through the
-          clean-loop ECOCAN DRS. If you prefer, we can even process the
-          collected empties for you.
-        </p>
-      </div>
-    ),
-  },
-];
 
 const features = [
   {
