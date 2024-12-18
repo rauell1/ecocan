@@ -82,7 +82,7 @@ export default function JoinEcommunity({
             />
           }
           item={
-            <div className="space-y-6 bg-white h-full grid rounded-smooth-xl p-5">
+            <div className="space-y-6 bg-white h-full grid lg:rounded-smooth-xl p-5">
               <div className="flex justify-between">
                 <h2 className="text-[2rem] text-[#23262Fcc] font-bold">
                   Who Are We

@@ -79,7 +79,7 @@ export default function ScanqrPopup({
           alt="scan to download ecocan"
           width={540}
           height={540}
-          className="mx-auto z-[9999] hidden lg:block"
+          className="mx-auto z-[9999]"
         />
         <p className="font-semibold text-[#23262Fcc] text-center text-3xl lg:text-5xl mt-5">Scan to download <br/>EcocanApp</p>
       </AlertDialogContent>
