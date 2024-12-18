@@ -50,7 +50,7 @@ const howToData = [
 export default function EligblePopup({
   className,
   showArrow = false,
-  join = "eligble",
+  join = "eligible",
 }: {
   className?: string;
   showArrow?: boolean;

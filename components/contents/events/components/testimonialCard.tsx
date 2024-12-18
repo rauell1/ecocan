@@ -12,7 +12,7 @@ interface TestimonialCardProps {
 
 const TestimonialCard: React.FC<TestimonialCardProps> = ({ image, name, surname, testimony, title }) => {
   return (
-    <div className="max-w-[504px] rounded-xl overflow-hidden shadow-lg p-4 bg-gradient-to-br from-[#6B6B78] to-[#888D92]">
+    <div className="max-w-[504px] rounded-xl overflow-hidden shadow-lg p-4 bg-[#6b6b7867]">
       <div className="flex items-center mb-4">
         <Image className="w-[2.5rem] h-[2.5rem] rounded-full mr-1" width={1000} height={1000} src={image} alt={`${name} ${surname}`} />
         <div className="text-base font-bold leading-5 text-white">

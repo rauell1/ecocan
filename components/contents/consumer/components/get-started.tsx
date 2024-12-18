@@ -1,5 +1,6 @@
 import EligblePopup from "@/components/shared/eligble-popup";
 import HyperLink from "@/components/shared/hyperlink/hyperlink";
+import ScanqrPopup from "@/components/shared/scan-qr";
 import FeaturesGrid from "@/components/shared/text-with-cards/custom-card";
 import TextWithCards from "@/components/shared/text-with-cards/text-with-cards";
 import React from "react";
@@ -44,7 +45,7 @@ const consumerFeatures = [
   },
   {
     id: 2,
-    name: <p className="text-white">Protect Planet</p>,
+    name: <p className="text-white">Conserve Environment</p>,
     question: (
       <p className="text-white">
         Every week, you eat plastics equivalent to a whole credit card in your
@@ -106,12 +107,12 @@ const consumerFeatures = [
 export default function GetStarted() {
   return (
     <TextWithCards
-      title="Get Started"
+      title="Get started"
       description={
-        <div className="lg:w-5/6">
+        <div className="lg:w-4/5">
           Whether you want to keep your environment clean, earn extra cash, or
           to safeguard your health from fake drinks. With EcocanApp, it&apos;s
-          all just a <HyperLink link="click away!" href="/" />
+          all just a <ScanqrPopup join="click away!" className="text-lg"/>
         </div>
       }
       customCard={
