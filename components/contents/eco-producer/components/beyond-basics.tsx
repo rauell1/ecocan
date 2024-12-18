@@ -94,7 +94,7 @@ const features = [
     description: (
       <div>
         Reduce your carbon, litter and energy footprint via the{" "}
-        <HyperLink href="/" link="ECOCAN DRS" />
+        <HyperLink href="/solutions/packaging-recycling" link="ECOCAN DRS" />
       </div>
     ),
   },

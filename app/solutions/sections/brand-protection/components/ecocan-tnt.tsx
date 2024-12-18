@@ -21,7 +21,7 @@ export default function TnT() {
       className="transition-all duration-300 ease-in-out"
     >
       <p className="text-[#23262fcc] font-light w-11/12">
-        The <HyperLink link="ECOCAN Track and Trace" href="/" /> is a robust
+        The <span className="font-semibold">ECOCAN Track and Trace</span> is a robust
         cloud-based platform, that disrupts counterfeit trade by enabling
         AI-intelligent authentication, and real-time end-to-end traceability of
         genuine products. The TnT further deploys advanced data analytics tools
@@ -110,7 +110,7 @@ export default function TnT() {
         className="gap-12"
         image={
           <Image
-            src="/assets/images/solutions/tnt.svg"
+            src="/assets/images/solutions/tnt.png"
             alt="beach bottle"
             width={1000}
             height={1000}

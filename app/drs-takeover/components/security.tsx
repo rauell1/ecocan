@@ -13,7 +13,7 @@ export default function Security() {
           }
           description={
             <p className="lg:w-4/5">
-              The Anti-fraud <HyperLink href="/" link="TnT"/> safeguards the integrity of ECOcans, combining
+              The Anti-fraud <HyperLink href="/solutions/brand-protection#tnt" link="TnT"/> safeguards the integrity of ECOcans, combining
               advanced security features with optimized IoT functionality. To
               deliver maximum protection and value.
             </p>

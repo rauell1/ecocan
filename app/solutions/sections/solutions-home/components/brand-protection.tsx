@@ -14,7 +14,7 @@ export default function BrandProtection() {
         className="items-center gap-6 lg:gap-12"
         image={
           <Image
-            src="/assets/images/consumer/rvm.svg"
+            src="/assets/images/solutions/brand-protection.svg"
             alt="Online store"
             className="object-cover rounded-3xl me-auto"
             priority

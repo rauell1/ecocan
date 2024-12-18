@@ -7,6 +7,7 @@ import React from "react";
 import EcocanAppFeatures from "./ecocan-app-features";
 import { Nunito_Sans } from "next/font/google";
 import PrimaryButton from "@/components/shared/primary-btn";
+import ScanqrPopup from "@/components/shared/scan-qr";
 
 const nunitoSans = Nunito_Sans({ subsets: ["latin"] });
 
@@ -32,9 +33,9 @@ export default function EcocanApp() {
           height={100}
           className="mx-auto"
         />
-        <PrimaryButton
-          buttonText="Download App"
-          className="md:absolute bottom-4 lg:bottom-8 lg:left-1/2 md:-translate-x-[5.125rem] hover:bg-primary text-sm lg:text-base"
+        <ScanqrPopup
+          className="md:absolute bottom-4 lg:bottom-8 lg:left-1/2 md:-translate-x-[5.125rem] hover:bg-primary bg-primary text-sm lg:text-base text-white hover:text-white no-underline px-8"
+          join="Download App"
         />
       </div>
     </div>

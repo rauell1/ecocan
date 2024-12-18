@@ -20,7 +20,7 @@ const howToData = [
   {
     id: 1,
     title: (
-      <p className="text-[#404040] font-normal text-[0.9375rem]">
+      <p className="text-secondary font-normal text-[0.9375rem]">
         Create an EcocanApp account, and customise your ECOCAN ID
       </p>
     ),
@@ -28,7 +28,7 @@ const howToData = [
   {
     id: 2,
     title: (
-      <p className="text-[#404040] font-normal text-[0.9375rem]">
+      <p className="text-secondary font-normal text-[0.9375rem]">
         Participate in the{" "}
         <HyperLink href="/solutions/packaging-recycling" link="ECOCAN DRS," />{" "}
         and{" "}
@@ -40,7 +40,7 @@ const howToData = [
   {
     id: 3,
     title: (
-      <p className="text-[#404040] font-normal text-[0.9375rem]">
+      <p className="text-secondary font-normal text-[0.9375rem]">
         Support ECO-friendly brands with your purchases on ECOCAN Market
       </p>
     ),
@@ -91,7 +91,7 @@ export default function JoinEcommunity({
                   <LucideX />
                 </AlertDialogCancel>
               </div>
-              <h2 className="font-light">
+              <h2 className="font-light text-secondary">
                 We are an ECO-friendly COmmunity, united by a shared vision of a
                 healthy planet, free from pollution & counterfeits, and brimming
                 with limitless opportunities to thrive. Our sustainability bond
@@ -101,18 +101,14 @@ export default function JoinEcommunity({
               <div className="space-y-2 text-[#23262fcc] font-semibold">
                 <p>
                   Join us by closing the{" "}
-                  <HyperLink
-                    link="ECO loop"
-                    href="/"
-                    className="after:h-0 font-semibold"
-                  />{" "}
+                  <span className="text-primary">ECO-loop</span>{" "}
                   with 3 easy steps:
                 </p>
               </div>
               {howToData.map((data) => (
                 <ItemList key={data.id} title={data.title} id={data.id} />
               ))}
-              <div className="text-center text-[#23262fcc] space-y-4 text-sm">
+              <div className="text-secondary space-y-4 text-sm">
                 <p>
                   And we&apos;ll ensure to recognise and reward your
                   ECO-friendly efforts. With Deposit money, exclusive Recycling

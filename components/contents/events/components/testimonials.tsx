@@ -36,7 +36,7 @@ const Testimonials = () => {
   return (
     <div className="bg-[#2F313F] py-12 px-4 xl:px-0">
       <div className="max-w-[72rem] mx-auto py-8">
-        <h2 className="bg-gradient-to-tr from-[#228B22] via-[#FFDD4C] to-[#FFDD4C] text-transparent bg-clip-text capitalize mb-2 text-center text-[2rem] font-medium">
+        <h2 className="bg-gradient-to-r from-[#228B22] via-[#FFDD4C] to-[#FFDD4C] text-transparent bg-clip-text capitalize text-center text-3xl lg:text-5xl font-medium mb-8">
           Testimonials
         </h2>
         <div className="grid lg:grid-cols-2 gap-5 mb-5">
@@ -51,9 +51,6 @@ const Testimonials = () => {
             />
           ))}
         </div>
-        <p className="text-[#4AC63F] font-inter text-[16px] font-bold leading-[20px] text-center">
-          A win for the fan, for you, and most importantly, for the Environment
-        </p>
       </div>
     </div>
   );

@@ -18,33 +18,50 @@ const howToData = [
   {
     id: 1,
     title: (
-      <div>
-        <span className="text-white">Register here</span> to grow your business
+      <div className="text-white">
+        <span className="text-primary">Register here</span> to grow your
+        business
       </div>
     ),
     description: (
-      <p className="mt-2">We&apos;ll then reach out to you with next steps</p>
+      <p className="mt-2">
+        We&apos;ll then reach out with next steps. Have your business
+        documentation ready
+      </p>
     ),
   },
   {
     id: 2,
-    title: "Sign the ECO-partnership agreement",
+    title: <div className="text-white">Sign the ECO-partnership agreement</div>,
     description: (
-      <p className="mt-2">Everything is transparent, no hidden clauses</p>
+      <p className="mt-2">
+        Everything is transparent, no hidden clauses. We&apos;ll also be on
+        standby to help if needed
+      </p>
     ),
   },
   {
     id: 3,
-    title: "Update your profile on ECOCAN Market",
+    title: (
+      <div className="text-white">Update your profile on ECOCAN Market</div>
+    ),
     description: (
-      <p className="mt-2">We&apos;ll leave this to you, try to be creative</p>
+      <p className="mt-2">
+        We&apos;ll leave this to you, so try to be creative. That you stand out
+        more, and generate even better leads
+      </p>
     ),
   },
   {
     id: 4,
-    title: "Set your status “live”  and start earning",
+    title: (
+      <div className="text-white">
+        Go &ldquo;live&rdquo; and start earning
+      </div>
+    ),
     description: (
-      <p className="mt-2">We&apos;ll ensure you are prominently visible</p>
+      <p className="mt-2">We&apos;ll ensure you are prominently visible. So stock up nicely, 
+ready for increased sales & recycling action</p>
     ),
   },
 ];
@@ -75,7 +92,11 @@ export default function EcoStationContent() {
               title={
                 <p className="text-white text-5xl">Sustainable commerce;</p>
               }
-              description={<span className="text-white">Save BIG while saving the planet!</span>}
+              description={
+                <span className="text-white">
+                  Save BIG while saving the planet!
+                </span>
+              }
               component={
                 <JoinEcommunity
                   className="bg-[#FFDD4C] hover:bg-[#FFDD4C] rounded-full h-[3rem] lg:w-[24.3125rem] border-none px-8 text-base text-black"

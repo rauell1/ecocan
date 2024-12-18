@@ -1,4 +1,5 @@
 import PrimaryButton from "@/components/shared/primary-btn";
+import ScanqrPopup from "@/components/shared/scan-qr";
 import { LucideArrowRight } from "lucide-react";
 import Image from "next/image";
 import React from "react";
@@ -11,7 +12,7 @@ export default function Download() {
           ECOCAN, your unfair <br />
           advantage
         </h1>
-        <PrimaryButton buttonText="Download App" className="bg-white mt-5 text-primary" buttonIcon={<LucideArrowRight/>}/>
+        <ScanqrPopup join="Download App" showArrow={true} className="bg-white mt-5 text-primary hover:text-primary no-underline px-8 font-medium hover:bg-white"/>
         <div className="mt-20">
           <Image
             src="/assets/images/solutions/sdgs.svg"

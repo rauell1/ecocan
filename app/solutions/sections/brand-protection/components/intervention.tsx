@@ -20,7 +20,7 @@ const steps = [
     ),
     step: (
       <p className="mb-3 lg:w-4/5 font-light leading-7 text-left text-secondary">
-        EcocanApp enables reliable authentication of genuine beverages carrying ECOCAN Security codes, before purchase
+        <span className="font-semibold">EcocanApp</span> enables reliable authentication of genuine beverages carrying <span className="font-semibold">ECOCAN Security codes</span>, before purchase
       </p>
     ),
   },
@@ -38,7 +38,7 @@ const steps = [
     ),
     step: (
       <p className="mb-3 lg:w-4/5 font-light leading-7 text-left text-secondary">
-        After enjoying genuine drinks, the ECOmmunity can return eligible empties to the nearest ECO-Station for recycling, via the <HyperLink href="/" link="ECOCAN DRS" />
+        After enjoying genuine drinks, the ECOmmunity can return eligible empties to the nearest ECO-Station for recycling, via the <span className="font-semibold">ECOCAN DRS</span>
       </p>
     ),
   },
@@ -56,7 +56,7 @@ const steps = [
     ),
     step: (
       <p className="mb-3 lg:w-4/5 font-light leading-7 text-left text-secondary">
-        The <HyperLink href="/" link="ECOCAN TnT" /> enables real time
+        The <span className="font-semibold">ECOCAN TnT</span> enables real time
         monitoring of counterfeiting attemps
       </p>
     ),

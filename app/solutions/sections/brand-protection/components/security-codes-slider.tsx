@@ -27,19 +27,19 @@ const litterContent = [
         If counterfeit criminals attempt to copy the Security codes and print them onto fake products, they will fail the verification process. And the TnT will immediately notify of the illegal attempt
       </>
     ),
-    image: "/assets/images/consumer/fight-back.svg",
+    image: "/assets/images/solutions/security.svg",
   },
   {
     title: "3. Anti-smuggling",
     description:
       "And if a genuine eligible product is diverted or smuggled from its geo-fenced market, or any other suspicious activity is detected, the proactive TnT will immediately disable the attached Security codes, and instantly notify concerned parties.",
-    image: "/assets/images/consumer/loophole.svg",
+    image: "/assets/images/solutions/security.svg",
   },
   {
     title: "4. Turn-key",
     description:
       "Measuring as small as 9mm x 9mm, these multi-layered codes are digitally delivered to authorized printers, for seamless printing onto product packaging or labels using existing technology. No equipment customization needed",
-    image: "/assets/images/consumer/joint-effort.svg",
+    image: "/assets/images/solutions/security.svg",
   },
 ];
 
