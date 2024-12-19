@@ -2,8 +2,8 @@
 
 import React, { useEffect, useState } from "react";
 import NavigationBar from "../navbar/navbar";
-import HeroForm from "../hero-form/hero-form";
 import HyperLink from "../hyperlink/hyperlink";
+import EcostationForm from "../hero-form/hero-form";
 
 export default function EcoStationHero() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -60,7 +60,7 @@ export default function EcoStationHero() {
                 </div>
               </div>
               <div className="hidden lg:flex lg:w-1/2 z-[9998] self-center">
-                <HeroForm title="Let's grow together" />
+                <EcostationForm title="Let's grow together" />
               </div>
             </div>
           </div>

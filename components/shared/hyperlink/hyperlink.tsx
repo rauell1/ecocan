@@ -14,7 +14,7 @@ const HyperLink = ({
     <Link
       href={href}
       className={clsx(
-        "text-primary relative after:absolute after:content-[''] after:bg-primary/90 after:h-[1px] after:w-full after:left-0 after:bottom-[-2px]",
+        "text-primary relative underline underline-offset-4",
         className
       )}
     >

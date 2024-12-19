@@ -25,7 +25,7 @@ const Footer = () => {
             <h3 className="text-xl font-semibold mb-4">Home</h3>
             <ul className="space-y-3 text-gray-400">
               <li>
-                <Link href="/home" className="hover:text-white">
+                <Link href="/" className="hover:text-white">
                   Home
                 </Link>
               </li>
@@ -52,12 +52,12 @@ const Footer = () => {
             <h3 className="text-xl font-semibold mb-4">Data and Privacy</h3>
             <ul className="space-y-3 text-gray-400">
               <li>
-                <Link href="/privacy-policy" className="hover:text-white">
+                <Link href="/" className="hover:text-white">
                   Privacy Policy
                 </Link>
               </li>
               <li>
-                <Link href="/customer-support" className="hover:text-white">
+                <Link href="/" className="hover:text-white">
                   Customer support
                 </Link>
               </li>

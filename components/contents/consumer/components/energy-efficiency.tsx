@@ -3,6 +3,7 @@ import React from "react";
 import TextWithComponent from "./text-with-component";
 import { Button } from "@/components/ui/button";
 import { LucideArrowUpRight } from "lucide-react";
+import HyperLink from "@/components/shared/hyperlink/hyperlink";
 
 export default function EnergyEfficiency() {
   return (
@@ -29,13 +30,7 @@ export default function EnergyEfficiency() {
             }
             component={
               <div className="flex gap-4 group relative">
-                <Button
-                  variant="ghost"
-                  className="bg-transparent hover:bg-transparent border-white text-white hover:text-white rounded-full h-[3rem] py-3 px-0 relative after:absolute after:h-[1px] after:w-3/4 after:left-0 after:bottom-2 after:bg-white after:content-[''] after:z-10 text-base"
-                >
-                  Learn more
-                  <LucideArrowUpRight className="ml-2 group-hover:scale-125 transition-all"/>
-                </Button>
+                <HyperLink href="/solutions/packaging-recycling#fun-facts" link="Learn more" className="text-white hover:text-white font-medium"/>
               </div>
             }
           />

@@ -1,10 +1,10 @@
 import EligblePopup from "@/components/shared/eligble-popup";
+import EcostationForm from "@/components/shared/hero-form/hero-form";
 import HyperLink from "@/components/shared/hyperlink/hyperlink";
-import RegisterPopup from "@/components/shared/register-popup";
 import FeaturesGrid from "@/components/shared/text-with-cards/custom-card";
-import CustomCard from "@/components/shared/text-with-cards/custom-card";
 import TextWithCards from "@/components/shared/text-with-cards/text-with-cards";
 import React from "react";
+import RegisterPopup from "./register-popup";
 
 const ecoStationFeatures = [
   {
@@ -12,8 +12,10 @@ const ecoStationFeatures = [
     name: "Reach new customers",
     question: (
       <p className="font-normal  text-secondary">
-       <RegisterPopup/> here, and we&apos;ll link you up
-        with
+        <RegisterPopup
+          form={<EcostationForm title="Let's grow together"/>}
+        />{" "}
+        here, and we&apos;ll link you up with
         <br />
         the ECOmmunity
       </p>
@@ -34,8 +36,8 @@ const ecoStationFeatures = [
     name: "Earn commissions",
     question: (
       <p className="font-normal  text-secondary">
-        For every <EligblePopup/> empty you accept,
-        we&apos;ll pay you a commission
+        For every <EligblePopup /> empty you accept, we&apos;ll pay you a
+        commission
       </p>
     ),
     answer: (
