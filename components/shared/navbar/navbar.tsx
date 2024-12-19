@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import clsx from "clsx";
@@ -31,6 +32,7 @@ const NavigationBar: React.FC<NavigationBarProps> = ({
 }) => {
   const [isOpen, setIsOpen] = useState(false);
   const isScrolled = useScroll();
+  const pathname = usePathname();
 
   useEffect(() => {
     if (isOpen) {
@@ -43,6 +45,13 @@ const NavigationBar: React.FC<NavigationBarProps> = ({
       document.body.classList.remove("overflow-hidden");
     };
   }, [isOpen]);
+
+  const isLinkActive = (href: string) => {
+    if (href === '/') {
+      return pathname === href;
+    }
+    return pathname.startsWith(href);
+  };
 
   return (
     <nav
@@ -98,8 +107,9 @@ const NavigationBar: React.FC<NavigationBarProps> = ({
                 href={link.href}
                 key={link.label}
                 className={clsx(
-                  "block md:inline-block text-center text-sm font-medium",
-                  linkColor
+                  "block md:inline-block text-center text-sm font-medium transition-colors duration-200",
+                  isLinkActive(link.href) ? "text-primary" : linkColor,
+                  "hover:text-primary"
                 )}
               >
                 {link.label}

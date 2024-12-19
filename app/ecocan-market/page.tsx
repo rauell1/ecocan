@@ -2,7 +2,6 @@
 
 import React, { useState } from "react";
 import Carousel from "../about-us/components/carousel-wrapper";
-import Searchbar from "./components/searchbar";
 
 const images = [
   "/assets/images/ecocan-market/carousel-1.svg",
