@@ -62,7 +62,7 @@ export const AIFeatureCard = ({
   title,
   className,
   buttonText = "Learn more",
-  buttonLink = "/solutions/brand-protection",
+  buttonLink = "/solutions/brand-protection#security-codes",
   showImage = true
 }: AIFeatureCardProps) => {
   return (
