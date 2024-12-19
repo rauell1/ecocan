@@ -1,4 +1,3 @@
-import { ReusableAccordion } from "@/components/shared/accordion";
 import HyperLink from "@/components/shared/hyperlink/hyperlink";
 import TextWithCards from "@/components/shared/text-with-cards/text-with-cards";
 import React from "react";
@@ -7,9 +6,6 @@ import {
   SecurityFeatureCard,
 } from "../../consumer/components/security-features";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
-import clsx from "clsx";
-import { title } from "process";
-import { number } from "zod";
 import Image from "next/image";
 
 

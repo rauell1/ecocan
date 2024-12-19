@@ -1,11 +1,11 @@
 import PrimaryButton from "@/components/shared/primary-btn";
-import { Button } from "@/components/ui/button";
 import { LucideDownload } from "lucide-react";
 import Image from "next/image";
 import React from "react";
 import TextWithComponent from "./text-with-component";
 import CtaCard from "@/components/shared/cta-card/cta-card";
 import JoinEcommunity from "../../../shared/join-ecommunity";
+import ScanqrPopup from "@/components/shared/scan-qr";
 
 export default function CtaCardComponent() {
   return (
@@ -27,11 +27,7 @@ export default function CtaCardComponent() {
           }
           component={
             <div className="flex flex-col md:flex-row gap-4">
-              <PrimaryButton
-              className="hover:bg-primary"
-                buttonText="Download App"
-                buttonIcon={<LucideDownload />}
-              />
+              <ScanqrPopup join="Download App" className="bg-primary  hover:bg-primary px-8 font-medium text-white hover:text-white no-underline" showArrow={true} arrow={<LucideDownload className="ml-4"/>}/>
               <JoinEcommunity showArrow={false} className="text-base" join="Join the ECOmmunity"/>
             </div>
           }

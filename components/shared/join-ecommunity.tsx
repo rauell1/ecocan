@@ -7,7 +7,12 @@ import {
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
 import { Button } from "@/components/ui/button";
-import { LucideArrowRight, LucideChevronRight, LucideX } from "lucide-react";
+import {
+  LucideArrowRight,
+  LucideChevronRight,
+  LucideDownload,
+  LucideX,
+} from "lucide-react";
 import HowTo from "@/components/shared/HowTo";
 import ImageAndItem from "@/components/shared/image-and-item/image-and-item";
 import PrimaryButton from "@/components/shared/primary-btn";
@@ -15,6 +20,7 @@ import { ItemList } from "../contents/courier/components/ItemList";
 import Image from "next/image";
 import HyperLink from "@/components/shared/hyperlink/hyperlink";
 import clsx from "clsx";
+import ScanqrPopup from "./scan-qr";
 
 const howToData = [
   {
@@ -46,7 +52,6 @@ const howToData = [
     ),
   },
 ];
-
 
 export default function JoinEcommunity({
   className,
@@ -101,8 +106,8 @@ export default function JoinEcommunity({
               <div className="space-y-2 text-[#23262fcc] font-semibold">
                 <p>
                   Join us by closing the{" "}
-                  <span className="text-primary">ECO-loop</span>{" "}
-                  with 3 easy steps:
+                  <span className="text-primary">ECO-loop</span> with 3 easy
+                  steps:
                 </p>
               </div>
               {howToData.map((data) => (
@@ -117,9 +122,9 @@ export default function JoinEcommunity({
                 </p>
               </div>
               <div>
-                <PrimaryButton
-                  className="w-full hover:bg-primary"
-                  buttonText="Get started"
+                <ScanqrPopup
+                  join="Get Started"
+                  className="bg-primary w-full hover:bg-primary font-medium text-white hover:text-white no-underline"
                 />
               </div>
             </div>

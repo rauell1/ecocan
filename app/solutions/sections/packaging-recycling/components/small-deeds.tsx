@@ -36,7 +36,7 @@ export default function SmallDeeds() {
             title={<div>Small deeds, <br/>with BIG impacts</div>}
             description="Whether your motivation for recycling is to protect the planet or to earn deposit money:"
             component={howToData.map((data) => {
-              return <ItemList id={data.id} title={data.title} key={data.id} />;
+              return <ItemList id={data.id} description={data.title} key={data.id} />;
             })}
           />
         }

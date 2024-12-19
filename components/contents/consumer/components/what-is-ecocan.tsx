@@ -6,6 +6,7 @@ import TextWithComponent from "./text-with-component";
 import { LucideAward, LucideGem, LucideRecycle } from "lucide-react";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
+import HyperLink from "@/components/shared/hyperlink/hyperlink";
 
 const rvmContent = [
   {
@@ -54,12 +55,7 @@ const rvmContent = [
           increasing refund efficiency, conserving our forests, and reducing
           receipt litter
         </p>
-        <Button
-          variant="ghost"
-          className="px-0 font-bold underline hover:bg-transparent"
-        >
-          Learn more
-        </Button>
+       <HyperLink href="/drs-takeover" link="Learn more" className="text-secondary font-semibold"/>
       </div>
     ),
   },

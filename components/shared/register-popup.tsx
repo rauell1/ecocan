@@ -11,17 +11,20 @@ import Image from "next/image";
 import HyperLink from "@/components/shared/hyperlink/hyperlink";
 import clsx from "clsx";
 import HeroForm from "./hero-form/hero-form";
+import EcommunityForm from "./ecommunity-form";
 
 
 export default function RegisterPopup({
   className,
   join = "Sign-up",
   showArrow = false,
+  form = <EcommunityForm title="Let's do Business the Right way"/>,
   arrow = <LucideArrowRight className="ml-4"/>
 }: {
   className?: string;
   showArrow?: boolean;
   join?: string;
+  form?: React.ReactNode;
   arrow?: React.ReactNode;
 }) {
   return (
@@ -38,11 +41,11 @@ export default function RegisterPopup({
           {showArrow && arrow}
         </Button>
       </AlertDialogTrigger>
-      <AlertDialogContent className="z-[9999] !w-fit">
+      <AlertDialogContent className="z-[9999] !w-fit bg-white !rounded-smooth-lg xl:max-h-[90vh]">
         <AlertDialogCancel className="hover:bg-transparent bg-transparent text-black/60 hover:text-black w-fit border-none ms-auto">
           <LucideX />
         </AlertDialogCancel>
-        <HeroForm/>
+        {form}
       </AlertDialogContent>
     </AlertDialog>
   );

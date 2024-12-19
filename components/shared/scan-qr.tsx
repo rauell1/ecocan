@@ -3,49 +3,14 @@ import {
   AlertDialog,
   AlertDialogCancel,
   AlertDialogContent,
-  AlertDialogFooter,
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
 import { Button } from "@/components/ui/button";
-import { LucideArrowRight, LucideChevronRight, LucideX } from "lucide-react";
-import HowTo from "@/components/shared/HowTo";
-import ImageAndItem from "@/components/shared/image-and-item/image-and-item";
-import PrimaryButton from "@/components/shared/primary-btn";
-import { ItemList } from "../contents/courier/components/ItemList";
+import { LucideArrowRight, LucideX } from "lucide-react";
 import Image from "next/image";
 import HyperLink from "@/components/shared/hyperlink/hyperlink";
 import clsx from "clsx";
 
-const howToData = [
-  {
-    id: 1,
-    title: (
-      <p className="text-[#404040] font-normal text-[0.9375rem]">
-        Create an EcocanApp account, and customise your ECOCAN ID
-      </p>
-    ),
-  },
-  {
-    id: 2,
-    title: (
-      <p className="text-[#404040] font-normal text-[0.9375rem]">
-        Participate in the{" "}
-        <HyperLink href="/solutions/packaging-recycling" link="ECOCAN DRS," />{" "}
-        and{" "}
-        <HyperLink href="/solutions/brand-protection" link="Brand Protection" />{" "}
-        programmes
-      </p>
-    ),
-  },
-  {
-    id: 3,
-    title: (
-      <p className="text-[#404040] font-normal text-[0.9375rem]">
-        Support ECO-friendly brands with your purchases on ECOCAN Market
-      </p>
-    ),
-  },
-];
 
 export default function ScanqrPopup({
   className,

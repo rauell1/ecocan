@@ -22,7 +22,6 @@ const consumerFeatures = [
           beverages, before purchase. Thus safeguarding your health & fight
           counterfeits.
         </p>
-
         <p>
           Just scan the unique{" "}
           <HyperLink link="ECOCAN security codes" href="#faq" /> printed only on
@@ -36,7 +35,7 @@ const consumerFeatures = [
         </p>
 
         <p>
-          <span className="text-red-500">DO NOT BUY</span> such fake products!
+          <span className="text-[#F05C2B] font-medium">DO NOT BUY</span> such fake products!
         </p>
       </div>
     ),
@@ -119,7 +118,7 @@ export default function GetStarted() {
       customCard={
         <FeaturesGrid
           features={consumerFeatures}
-          className="h-[28rem] lg:h-[33.25rem] xl:h-[41.25rem] bg-center p-4 flex flex-col justify-end after:absolute after:inset-0 after:content-[''] after:bg-black/40 after:opacity-70 after:z-10 overflow-hidden"
+          className="h-[28rem] lg:h-[33.25rem] xl:h-[41.25rem] bg-center p-4 flex flex-col justify-end after:absolute after:inset-0 after:content-[''] after:bg-black/60 after:opacity-70 after:z-10 overflow-hidden"
         />
       }
     />

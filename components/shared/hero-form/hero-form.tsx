@@ -30,9 +30,11 @@ import {
 } from "@/components/ui/select";
 import Link from "next/link";
 import HyperLink from "../hyperlink/hyperlink";
+import clsx from "clsx";
 
-interface HeroFormProps {
+interface EcostationFormProps {
   title?: string;
+  className?: string;
 }
 
 const formSchema = z.object({
@@ -48,7 +50,10 @@ const formSchema = z.object({
     .max(15, "Contact number can't exceed 15 digits"),
 });
 
-export default function HeroForm({ title = "1, 2, 3. Go!!" }: HeroFormProps) {
+export default function EcostationForm({
+  title = "1, 2, 3. Go!!",
+  className,
+}: EcostationFormProps) {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -67,7 +72,12 @@ export default function HeroForm({ title = "1, 2, 3. Go!!" }: HeroFormProps) {
   }
 
   return (
-    <Card className="rounded-2xl w-5/6 ms-auto mt-8 me-6 xl:me-0 xl:mt-0 shadow-2xl">
+    <Card
+      className={clsx(
+        "rounded-2xl w-5/6 ms-auto",
+        className
+      )}
+    >
       <CardHeader className="text-[#23262FCC]">
         <CardTitle className="text-3xl text-black">{title}</CardTitle>
         <CardDescription className="xl:text-sm font-light text-black">
