@@ -25,7 +25,7 @@ export default function EcocanMarket() {
           <div
             key={index}
             style={{ backgroundImage: `url(${image})` }}
-            className="min-h-screen bg-center bg-cover"
+            className="min-h-screen bg-[-100px] lg:bg-center bg-cover"
           >
           </div>
         ))}
