@@ -44,13 +44,13 @@ export default function Optimize() {
     <div className="bg-[#2F313F] py-8 lg:p-8 lg:my-24">
       <div className="max-w-[72rem] mx-auto px-4 xl:px-0">
         <div className="text-center mb-6">
-          <h2 className="text-3xl lg:text-[2rem] bg-gradient-to-br from-[#228B22] via-[#4AC63F] to-[#0000001A] text-transparent bg-clip-text font-semibold">
+          <h2 className="text-3xl lg:text-5xl bg-gradient-to-br from-[#228B22] via-[#4AC63F] to-[#0000001A] text-transparent bg-clip-text font-semibold">
             Optimise the value of{" "}
             <span className="bg-gradient-to-bl from-[#4AC63F] via-[#FFDD4C] to-[#4AC63F]  text-transparent bg-clip-text">
               your packaging
             </span>
           </h2>
-          <p className="text-secondary lg:text-xl">
+          <p className="text-secondary lg:text-xl my-4">
             With ECOCAN, a bottle is more than just a bottle
           </p>
         </div>
@@ -84,6 +84,8 @@ export default function Optimize() {
             href="/solutions/packaging-recycling"
           />
         </div>
+        <p className="text-[2rem] font-semibold lg:w-11/12 text-white">Only ECOCAN can offer you this level of insight, security, efficiency 
+        and sustainability. And we say this with Absolute Confidence!</p>
       </div>
     </div>
   );

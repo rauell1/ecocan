@@ -8,7 +8,7 @@ const featureData = [
     question: (
       <p className="font-normal text-secondary">
         <JoinEcommunity
-          className="border-none px-0 text-primary underline underline-offset-4 hover:text-primary text-base"
+          className="border-none px-0 text-primary underline underline-offset-4 hover:text-primary text-base h-0"
           showArrow={false}
         />{" "}
         to elevate your event to the next level.

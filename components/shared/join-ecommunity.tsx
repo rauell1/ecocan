@@ -124,7 +124,7 @@ export default function JoinEcommunity({
               <div>
                 <ScanqrPopup
                   join="Get Started"
-                  className="bg-primary w-full hover:bg-primary font-medium text-white hover:text-white no-underline"
+                  className="bg-primary w-full hover:bg-primary font-medium text-white hover:text-white no-underline h-12"
                 />
               </div>
             </div>

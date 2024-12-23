@@ -67,7 +67,7 @@ const Carousel: React.FC<CarouselProps> = ({
   onPageChange,
   currentPage,
   setCurrentPage,
-  autoScrollInterval = 2000,
+  autoScrollInterval = 5000,
   autoScroll = true
 }) => {
   const [isPaused, setIsPaused] = useState(false);

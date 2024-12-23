@@ -112,9 +112,9 @@ export default function HiwImage() {
   });
 
   const toggleIcon = (key: keyof typeof clickedIcons) => {
-    setClickedIcons(prev => ({
+    setClickedIcons((prev) => ({
       ...prev,
-      [key]: !prev[key]
+      [key]: !prev[key],
     }));
   };
 
@@ -137,15 +137,18 @@ export default function HiwImage() {
       ))}
       <div className="absolute top-12 right-[30%] cursor-pointer">
         <div className="flex items-center gap-2 group">
-          <p className={clsx(
-            "text-xs transition-opacity duration-200",
-            clickedIcons.depositTransfer1 ? "opacity-100" : "opacity-0"
-          )}>
-            Deposit <br/>transfer
+          <p
+            className={clsx(
+              "text-xs transition-opacity duration-200",
+              clickedIcons.depositTransfer1 ? "opacity-100" : "opacity-0"
+            )}
+          >
+            Deposit <br />
+            transfer
           </p>
-          <div 
-            onClick={() => toggleIcon('depositTransfer1')}
-            className="rounded-full bg-[#B2B2B2] p-1"
+          <div
+            onClick={() => toggleIcon("depositTransfer1")}
+            className="rounded-full bg-[#B2B2B2]"
           >
             {clickedIcons.depositTransfer1 ? (
               <LucideX className="w-5 h-5 text-[#757575]" />
@@ -159,15 +162,18 @@ export default function HiwImage() {
       {/* Second plus icon */}
       <div className="absolute top-1/3 right-[7%] cursor-pointer">
         <div className="flex items-center gap-2">
-          <p className={clsx(
-            "text-xs transition-opacity duration-200",
-            clickedIcons.depositPayment ? "opacity-100" : "opacity-0"
-          )}>
-            Deposit <br/>payment
+          <p
+            className={clsx(
+              "text-xs transition-opacity duration-200",
+              clickedIcons.depositPayment ? "opacity-100" : "opacity-0"
+            )}
+          >
+            Deposit <br />
+            payment
           </p>
-          <div 
-            onClick={() => toggleIcon('depositPayment')}
-            className="rounded-full bg-[#B2B2B2] p-1"
+          <div
+            onClick={() => toggleIcon("depositPayment")}
+            className="rounded-full bg-[#B2B2B2]"
           >
             {clickedIcons.depositPayment ? (
               <LucideX className="w-5 h-5 text-[#757575]" />
@@ -181,15 +187,18 @@ export default function HiwImage() {
       {/* Third plus icon */}
       <div className="absolute top-[63%] right-[8%] cursor-pointer">
         <div className="flex items-center gap-2">
-          <p className={clsx(
-            "text-xs transition-opacity duration-200",
-            clickedIcons.depositTransfer2 ? "opacity-100" : "opacity-0"
-          )}>
-            Deposit <br/>transfer
+          <p
+            className={clsx(
+              "text-xs transition-opacity duration-200",
+              clickedIcons.depositTransfer2 ? "opacity-100" : "opacity-0"
+            )}
+          >
+            Deposit <br />
+            transfer
           </p>
-          <div 
-            onClick={() => toggleIcon('depositTransfer2')}
-            className="rounded-full bg-[#B2B2B2] p-1"
+          <div
+            onClick={() => toggleIcon("depositTransfer2")}
+            className="rounded-full bg-[#B2B2B2]"
           >
             {clickedIcons.depositTransfer2 ? (
               <LucideX className="w-5 h-5 text-[#757575]" />
@@ -200,36 +209,19 @@ export default function HiwImage() {
         </div>
       </div>
 
-      <TooltipProvider delayDuration={0}>
-        <Tooltip>
-          <TooltipTrigger asChild>
-            <div className="absolute top-1/2 -translate-y-1/2 left-[52%] -translate-x-1/2 p-4 rounded-full bg-white shadow-lg hover:shadow-xl group cursor-pointer">
-              <div className="p-4 rounded-full bg-white shadow-lg">
-                <div className="p-2 rounded-full bg-white shadow-lg group-hover:bg-primary/20">
-                  <Image
-                    src="/assets/images/solutions/ecocan-logo.svg"
-                    alt="how it works"
-                    className="px-1 py-3"
-                    width={85}
-                    height={85}
-                  />
-                </div>
-              </div>
-            </div>
-          </TooltipTrigger>
-          <TooltipContent
-            side="bottom"
-            sideOffset={10}
-            className="w-[220px] text-xs text-start"
-          >
-            <p>
-              Producers attach ECOCAN Security codes onto eligible products
-              during production, and attach applicable deposit amount. They then
-              inform ECOCAN of the volumes they intend to place on the market
-            </p>
-          </TooltipContent>
-        </Tooltip>
-      </TooltipProvider>
+      <div className="absolute top-1/2 -translate-y-1/2 left-[52%] -translate-x-1/2 p-4 rounded-full bg-white shadow-lg hover:shadow-xl group cursor-pointer">
+        <div className="p-4 rounded-full bg-white shadow-lg">
+          <div className="p-2 rounded-full bg-white shadow-lg group-hover:bg-primary/20">
+            <Image
+              src="/assets/images/solutions/ecocan-logo.svg"
+              alt="how it works"
+              className="px-1 py-3"
+              width={85}
+              height={85}
+            />
+          </div>
+        </div>
+      </div>
       <Image
         src="/assets/images/solutions/legend.svg"
         alt="how it works"

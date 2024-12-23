@@ -7,66 +7,6 @@ import HyperLink from "@/components/shared/hyperlink/hyperlink";
 
 const steps = [
   {
-    id: 4,
-    icon: (
-      <div>
-        <div className="w-[3.75rem] h-[3.75rem] shadow-lg bg-white  rounded-full flex items-center justify-center">
-          <Image
-            src="/assets/images/recycler/recycle_icon.svg"
-            width={40}
-            height={40}
-            alt="icon"
-            className="w-"
-          />
-        </div>
-      </div>
-    ),
-    step: <p className="mb-3">Increased recycling rates</p>,
-    description:
-      " You’re familiar with how difficult it is to capture empties circulated off-trade. But are also aware of the spellbinding magic of a worthwhile refundable deposit! So 1 + 1 = 2",
-  },
-  {
-    id: 3,
-    icon: (
-      <div>
-        <div className="w-[3.75rem] h-[3.75rem] shadow-lg bg-white  rounded-full flex items-center justify-center">
-          <Image
-            src="/assets/images/recycler/hour_glass_icon.svg"
-            width={40}
-            height={40}
-            alt="icon"
-          />
-        </div>
-      </div>
-    ),
-    step: <p className="mb-3">Highest purity empties</p>,
-    description:
-      "Recycling is more of a quality than quantity question. And a DRS elaborately delivers non-contaminated recyclate with over 30% greater market value",
-  },
-  {
-    id: 2,
-    icon: (
-      <div>
-        <div className="w-[3.75rem] h-[3.75rem] shadow-lg bg-white  rounded-full flex items-center justify-center">
-          <Image
-            src="/assets/images/recycler/earth_icon.svg"
-            width={40}
-            height={40}
-            alt="icon"
-          />
-        </div>
-      </div>
-    ),
-    step: <p className="mb-3">Extended Producer Responsibility</p>,
-    description: (
-      <p>
-        A Nordic-design DRS is aligned with the &lsquo;Polluter Pays Principle&rsquo;, and
-        most effectively fulfils this mandate. Our traceability technology
-        optimises this capability
-      </p>
-    ),
-  },
-  {
     id: 1,
     icon: (
       <div>
@@ -93,6 +33,67 @@ const steps = [
       </div>
     ),
   },
+  {
+    id: 2,
+    icon: (
+      <div>
+        <div className="w-[3.75rem] h-[3.75rem] shadow-lg bg-white  rounded-full flex items-center justify-center">
+          <Image
+            src="/assets/images/recycler/earth_icon.svg"
+            width={40}
+            height={40}
+            alt="icon"
+          />
+        </div>
+      </div>
+    ),
+    step: <p className="mb-3">Extended Producer Responsibility</p>,
+    description: (
+      <p>
+        A Nordic-design DRS is aligned with the &lsquo;Polluter Pays Principle&rsquo;, and
+        most effectively fulfils this mandate. Our traceability technology
+        optimises this capability
+      </p>
+    ),
+  },
+  {
+    id: 3,
+    icon: (
+      <div>
+        <div className="w-[3.75rem] h-[3.75rem] shadow-lg bg-white  rounded-full flex items-center justify-center">
+          <Image
+            src="/assets/images/recycler/hour_glass_icon.svg"
+            width={40}
+            height={40}
+            alt="icon"
+          />
+        </div>
+      </div>
+    ),
+    step: <p className="mb-3">Highest purity empties</p>,
+    description:
+      "Recycling is more of a quality than quantity question. And a DRS elaborately delivers non-contaminated recyclate with over 30% greater market value",
+  },
+  {
+    id: 4,
+    icon: (
+      <div>
+        <div className="w-[3.75rem] h-[3.75rem] shadow-lg bg-white  rounded-full flex items-center justify-center">
+          <Image
+            src="/assets/images/recycler/recycle_icon.svg"
+            width={40}
+            height={40}
+            alt="icon"
+            className="w-"
+          />
+        </div>
+      </div>
+    ),
+    step: <p className="mb-3">Increased recycling rates</p>,
+    description:
+      " You’re familiar with how difficult it is to capture offtrade empties. But are also aware of the spellbinding magic of a worthwhile deposit! We’ve further sweetened this with coupons & discounts",
+  },
+  
 ];
 
 export default function DepositRefundSystem() {
