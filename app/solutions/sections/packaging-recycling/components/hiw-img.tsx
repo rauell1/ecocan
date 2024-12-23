@@ -6,7 +6,8 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
-import React from "react";
+import React, { useState } from "react";
+import { LucidePlus, LucidePlusCircle, LucideX } from "lucide-react";
 
 const tooltipContent = [
   {
@@ -42,13 +43,13 @@ const tooltipContent = [
   {
     id: 6,
     content:
-      "⁠ECOuriers pick up retuned empties and drop them off to ECO-Recyclers",
+      "ECOuriers pick up retuned empties and drop them off to ECO-Recyclers",
     path: "/assets/images/solutions/cycle-icon.svg",
   },
   {
     id: 7,
     content:
-      "⁠ECO-Recyclers process the empties into new bottles ready for filling fresh drinks. Hence reducing reliance on virgin material, cutting CO2 emissions & energy consumption",
+      "ECO-Recyclers process the empties into new bottles ready for filling fresh drinks. Hence reducing reliance on virgin material, cutting CO2 emissions & energy consumption",
     path: "/assets/images/solutions/warehouse-icon.svg",
   },
 ];
@@ -104,6 +105,19 @@ export default function HiwImage() {
     "bottom-[5.75rem] left-[4.5rem]",
   ];
 
+  const [clickedIcons, setClickedIcons] = useState({
+    depositTransfer1: false,
+    depositPayment: false,
+    depositTransfer2: false,
+  });
+
+  const toggleIcon = (key: keyof typeof clickedIcons) => {
+    setClickedIcons(prev => ({
+      ...prev,
+      [key]: !prev[key]
+    }));
+  };
+
   return (
     <div className="w-fit mx-auto relative">
       <Image
@@ -121,6 +135,71 @@ export default function HiwImage() {
           imagePath={item.path}
         />
       ))}
+      <div className="absolute top-12 right-[30%] cursor-pointer">
+        <div className="flex items-center gap-2 group">
+          <p className={clsx(
+            "text-xs transition-opacity duration-200",
+            clickedIcons.depositTransfer1 ? "opacity-100" : "opacity-0"
+          )}>
+            Deposit <br/>transfer
+          </p>
+          <div 
+            onClick={() => toggleIcon('depositTransfer1')}
+            className="rounded-full bg-[#B2B2B2] p-1"
+          >
+            {clickedIcons.depositTransfer1 ? (
+              <LucideX className="w-5 h-5 text-[#757575]" />
+            ) : (
+              <LucidePlus className="w-5 h-5 text-[#757575] rotate-180" />
+            )}
+          </div>
+        </div>
+      </div>
+
+      {/* Second plus icon */}
+      <div className="absolute top-1/3 right-[7%] cursor-pointer">
+        <div className="flex items-center gap-2">
+          <p className={clsx(
+            "text-xs transition-opacity duration-200",
+            clickedIcons.depositPayment ? "opacity-100" : "opacity-0"
+          )}>
+            Deposit <br/>payment
+          </p>
+          <div 
+            onClick={() => toggleIcon('depositPayment')}
+            className="rounded-full bg-[#B2B2B2] p-1"
+          >
+            {clickedIcons.depositPayment ? (
+              <LucideX className="w-5 h-5 text-[#757575]" />
+            ) : (
+              <LucidePlus className="w-5 h-5 text-[#757575]" />
+            )}
+          </div>
+        </div>
+      </div>
+
+      {/* Third plus icon */}
+      <div className="absolute top-[63%] right-[8%] cursor-pointer">
+        <div className="flex items-center gap-2">
+          <p className={clsx(
+            "text-xs transition-opacity duration-200",
+            clickedIcons.depositTransfer2 ? "opacity-100" : "opacity-0"
+          )}>
+            Deposit <br/>transfer
+          </p>
+          <div 
+            onClick={() => toggleIcon('depositTransfer2')}
+            className="rounded-full bg-[#B2B2B2] p-1"
+          >
+            {clickedIcons.depositTransfer2 ? (
+              <LucideX className="w-5 h-5 text-[#757575]" />
+            ) : (
+              <LucidePlus className="w-5 h-5 text-[#757575]" />
+            )}
+          </div>
+        </div>
+      </div>
+
       <TooltipProvider delayDuration={0}>
         <Tooltip>
           <TooltipTrigger asChild>
