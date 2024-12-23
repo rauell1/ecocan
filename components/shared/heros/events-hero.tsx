@@ -1,5 +1,4 @@
-
-"use client"
+"use client";
 import React, { useEffect, useState } from "react";
 import NavigationBar from "../navbar/navbar";
 import HeroForm from "../hero-form/hero-form";
@@ -23,12 +22,14 @@ export default function EventsHero() {
   }, []);
   return (
     <>
-       <NavigationBar
-        logoSrc={isScrolled ? "/assets/images/ecocan-logo.svg": "/assets/images/ecocan-logo-alt.svg"}
-        className={
+      <NavigationBar
+        logoSrc={
           isScrolled
-            ? "bg-white"
-            : "bg-transparent text-white border-b-0 "
+            ? "/assets/images/ecocan-logo.svg"
+            : "/assets/images/ecocan-logo-alt.svg"
+        }
+        className={
+          isScrolled ? "bg-white" : "bg-transparent text-white border-b-0 "
         }
         linkColor={isScrolled ? "text-black" : "text-white"}
       />
@@ -40,14 +41,13 @@ export default function EventsHero() {
                 <div>
                   <h1 className="xl:text-[4rem] text-5xl text-start font-semibold">
                     <span className="bg-gradient-to-r from-[#228B22] via-[#4AC63F] to-[#FFDD4C] text-transparent bg-clip-text">
-                    The{" "}Gig
+                      The Gig
                     </span>
                   </h1>
                 </div>
                 <div>
-                  <p className="tracking-wide text-base xl:text-xl text-white  text-start my-5 xl:my-10">
-                    Make it memorable, leave a lasting ECO-green<br/> impression, and
-                    you&apos;ll be unforgettable!
+                  <p className="tracking-wide text-base xl:text-xl text-white  text-start my-5 xl:my-10 lg:w-3/4">
+                    Make it memorable by leaving a lasting ECO-green footprint.
                   </p>
                 </div>
               </div>

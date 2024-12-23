@@ -8,7 +8,6 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import HyperLink from "@/components/shared/hyperlink/hyperlink";
-import StyledText from "@/components/shared/styled-text";
 import Image from "next/image";
 import JoinEcommunity from "../../../shared/join-ecommunity";
 import ScanqrPopup from "@/components/shared/scan-qr";
@@ -26,14 +25,14 @@ const accordionData: AccordionData[] = [
     description: (
       <div className="space-y-2 w-11/12">
         <div>
-          <ScanqrPopup join="Download EcocanApp" /> here, sign up in under 2
+          <ScanqrPopup join="Download EcocanApp" className="h-0 font-medium"/> here, sign up in under 2
           minutes, and start earning today!
         </div>
         <div>
           {" "}
           After registration, you can join the exclusive{" "}
           <JoinEcommunity
-            className="p-0 border-none text-primary text-base underline underline-offset-4 font-normal"
+            className="p-0 border-none text-primary text-base underline underline-offset-4 font-normal h-0"
             showArrow={false}
             join="ECOmmunity here"
           />

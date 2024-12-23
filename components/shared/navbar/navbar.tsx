@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import clsx from "clsx";
 import { useScroll } from "@/lib/useScroll";
+import RegisterPopup from "../register-popup";
 
 interface NavigationBarProps {
   logoSrc: string;
@@ -137,7 +138,7 @@ const NavigationBar: React.FC<NavigationBarProps> = ({
                 secondButtonClassName
               )}
             >
-              <Link href="/">Register</Link>
+              <RegisterPopup join="Register" className="font-medium h-0 no-underline"/>
             </Button>
           </div>
         </div>

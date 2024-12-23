@@ -30,10 +30,10 @@ const accordionData: AccordionData[] = [
         <p>
           Our systems are designed for maximum security with real time
           traceability. Leverage this to secure your ticket sales with
-          serialised <HyperLink link="ECOCAN Security codes" href="" />.
+          serialised <HyperLink link="ECOCAN Security codes" href="/solutions/brand-protection#security-codes" />.
         </p>
         <p>
-          The <HyperLink link="TnT" href="" /> will then monitor entry
+          The <HyperLink link="TnT" href="/solutions/brand-protection#tnt" /> will then monitor entry
           verification, and instantly alert of any irregularities
         </p>
       </div>

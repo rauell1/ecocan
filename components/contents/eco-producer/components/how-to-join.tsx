@@ -18,7 +18,7 @@ const howToData = [
     ),
     title: (
       <div>
-        <RegisterPopup join="Register Here" className="text-lg font-bold"/> and we&apos;ll revert ASAP
+        <RegisterPopup join="Register Here" className="text-lg font-bold h-0"/> and we&apos;ll revert ASAP
       </div>
     ),
     description: (

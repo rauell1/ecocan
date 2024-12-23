@@ -31,6 +31,7 @@ import {
 import Link from "next/link";
 import HyperLink from "../hyperlink/hyperlink";
 import clsx from "clsx";
+import { LucideMapPin } from "lucide-react";
 
 interface EcostationFormProps {
   title?: string;
@@ -72,12 +73,7 @@ export default function EcostationForm({
   }
 
   return (
-    <Card
-      className={clsx(
-        "rounded-2xl w-5/6 ms-auto",
-        className
-      )}
-    >
+    <Card className={clsx("rounded-2xl w-5/6 ms-auto", className)}>
       <CardHeader className="text-[#23262FCC]">
         <CardTitle className="text-3xl text-black">{title}</CardTitle>
         <CardDescription className="xl:text-sm font-light text-black">
@@ -109,10 +105,15 @@ export default function EcostationForm({
                 name="businessAddress"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Address/ street name</FormLabel>
-                    <FormControl>
-                      <Input placeholder="Enter your address" {...field} />
-                    </FormControl>
+                    <FormLabel>Address</FormLabel>
+                    <div className="relative">
+                      <LucideMapPin className="absolute left-3 top-1/2 h-6 w-6 -translate-y-1/2 text-white fill-primary" />
+                      <Input
+                        className="pl-10"
+                        placeholder="Pin location"
+                        {...field}
+                      />
+                    </div>
                     <FormMessage />
                   </FormItem>
                 )}
@@ -124,14 +125,17 @@ export default function EcostationForm({
                 name="businessType"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Business type</FormLabel>
+                    <FormLabel>Business Type</FormLabel>
                     <Select
                       onValueChange={field.onChange}
                       defaultValue={field.value}
                     >
                       <FormControl>
                         <SelectTrigger>
-                          <SelectValue placeholder="Select business type" />
+                          <SelectValue
+                            placeholder="Type of businesss"
+                            className=" placeholder:text-secondary"
+                          />
                         </SelectTrigger>
                       </FormControl>
                       <SelectContent>

@@ -29,7 +29,7 @@ export default function ScanqrPopup({
         <Button
           variant="ghost"
           className={clsx(
-            `rounded-full bg-transparent text-primary hover:bg-transparent h-[3rem] py-3 px-0 text-base font-light underline underline-offset-[6px] hover:text-primary`,
+            `rounded-full bg-transparent text-primary hover:bg-transparent h-12 py-3 px-0 text-base font-light underline underline-offset-[6px] hover:text-primary`,
             className
           )}
         >
