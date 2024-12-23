@@ -17,19 +17,19 @@ const timelineData = {
       image: "/assets/images/consumer/verify.svg",
       title: "Verify eligibility",
       description:
-        "The empties should be intact, not compacted nor deformed. And with ECOCAN security codes clearly visible. Authenticate them by scanning the attached codes",
+        "The empties should be intact, not compacted nor deformed. And with ECOCAN security codes clearly visible & readable. Verify them by scanning with EcocanApp",
     },
     {
       image: "/assets/images/consumer/egents.svg",
-      title: "Return to Egents",
+      title: "Return for Recycling",
       description:
-        "Then use ECOCAN Map to find the nearest ECO-Station, where Egents will verify your empties and digitally transfer the deposit into your ECO-Wallet. That you can spend as you please",
+        "Then use ECOCAN Map to find the nearest ECO-Station, where Egents will verify your empties, and digitally transfer applicable deposit into your ECO-wallet",
     },
     {
       image: "/assets/images/consumer/recycle.svg",
       title: "Or recycle via ECOCANs",
       description:
-        "Scan your ECOCAN ID to the RVM, place your empties into the infeed, then complete the session. And you’ll immediately receive applicable deposits directly into your ECO-wallet",
+        "Scan your ECOCAN ID to the ECOcan, place your empties into the infeed, then complete the session. And you’ll immediately receive applicable deposits directly into your ECO-wallet",
     },
     {
       image: "/assets/images/consumer/how.svg",

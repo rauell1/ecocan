@@ -57,7 +57,7 @@ const Timeline: React.FC<TimelineProps> = ({
                       fill
                       className={clsx(
                         "object-cover object-bottom transition-all duration-300",
-                        activeIndex === index ? "" : "grayscale"
+                        activeIndex === index ? "" : "grayscale opacity-30"
                       )}
                     />
                   </div>
