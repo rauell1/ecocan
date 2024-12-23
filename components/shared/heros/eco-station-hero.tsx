@@ -53,7 +53,7 @@ export default function EcoStationHero() {
                 <div className="text-base xl:text-xl">
                   <p className="tracking-wide text-white text-start">
                     List your shop as an{" "}
-                    <HyperLink link="ECO-station" href="/" />
+                    <HyperLink link="ECO-station" href="#faq" />
                     , and increase your sales, earn extra income on the
                     side, and enjoy unmatched visibility
                   </p>
