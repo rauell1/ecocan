@@ -1,10 +1,8 @@
-import TextWithComponent from "@/components/contents/consumer/components/text-with-component";
-import ImageAndItem from "@/components/shared/image-and-item/image-and-item";
-import Image from "next/image";
 import React from "react";
 import Partners from "./partners";
 import PartnerUS from "./partner-us";
 import Community from "./community";
+import Footer from "@/components/shared/footer/footer";
 
 export default function CarouselPage5() {
   return (
@@ -16,6 +14,7 @@ export default function CarouselPage5() {
           <Partners/>
           <Community/>
       </div>
+      <Footer/>
     </>
   );
 }

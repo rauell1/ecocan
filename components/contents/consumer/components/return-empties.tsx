@@ -21,15 +21,15 @@ const timelineData = {
     },
     {
       image: "/assets/images/consumer/egents.svg",
-      title: "Return for Recycling",
+      title: "Return to Egents",
       description:
-        "Then use ECOCAN Map to find the nearest ECO-Station, where Egents will verify your empties, and digitally transfer applicable deposit into your ECO-wallet",
+        "Who will verify your ECOCAN ID before accepting the empties. Thereafter they’ll digitally transfer applicable deposit money into your ECO-wallet. Upon completion of the recycling process, the App will inform you of the total number of empties returned, CO2e emissions cut, and energy saved",
     },
     {
       image: "/assets/images/consumer/recycle.svg",
       title: "Or recycle via ECOCANs",
       description:
-        "Scan your ECOCAN ID to the ECOcan, place your empties into the infeed, then complete the session. And you’ll immediately receive applicable deposits directly into your ECO-wallet",
+        "Show your ECOCAN ID to the scanners located at the front of the devise, place your empties into the infeed, then complete the session; or wait for 15 seconds for the session to end automatically. And you’ll immediately receive applicable deposit money directly into your ECO-wallet",
     },
     {
       image: "/assets/images/consumer/how.svg",

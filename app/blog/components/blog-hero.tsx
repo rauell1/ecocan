@@ -8,7 +8,7 @@ import React from 'react'
 
 export default function BlogHero() {
   return (
-    <div className="flex rounded-2xl shadow-xl w-[70rem] h-[32.25rem] overflow-hidden items-center mx-auto">
+    <div className="flex rounded-2xl shadow-xl lg:h-[32.25rem] overflow-hidden items-center mx-auto">
         <div className='w-1/2'>
             <Image src={blogHero} alt='white man collecting plastic' width={1000} height={1000} className="w-full h-full object-cover"/>
         </div>
@@ -17,7 +17,7 @@ export default function BlogHero() {
                 <Badge className="bg-black">Tips and Tricks</Badge>
                 <h2 className="text-[2.5rem] font-semibold">Convergent and divergent plate margins</h2>
                 <p className='my-4'>Track your workouts, get better results, and be the best version of you. Less thinking</p>
-                <PrimaryButton buttonText="Read more" buttonIcon={<LucideArrowRight/>}/>
+                <PrimaryButton buttonText="Read more" className='hover:bg-primary' buttonIcon={<LucideArrowRight/>}/>
             </div>
         </div>
     </div>

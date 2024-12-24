@@ -105,7 +105,7 @@ export default function WhatIsEcocan() {
               {rvmContent.map((card, index) => (
                 <WhiteBgCard
                   iconPath={card.iconPath}
-                  className="border-none bg-white shadow-sm z-[9997]"
+                  className="border-none bg-white shadow-sm z-[997]"
                   key={index}
                   content={card.content}
                 />
@@ -139,7 +139,7 @@ export default function WhatIsEcocan() {
       <Image
         src="/assets/images/consumer/green-rectangles.svg"
         alt="green rectangles"
-        className="absolute bottom-0 -left-2 z-[9997] w-[20.25rem] hidden md:block"
+        className="absolute bottom-0 -left-2 z-[997] w-[20.25rem] hidden md:block"
         width={100}
         height={100}
       />
