@@ -8,25 +8,25 @@ const accordionItems = [
       id: "item-1",
       question: "ECOCAN security codes",
       answer:
-        "Unlock the digital power of your packaging, by transforming them from traditional physical assets, into digitally connected resources, for direct engagement with consumers.",
+        "After product authentication, leverage the Security codes to increase lead generation by sharing tailored product journeys, and for personalised re-marketing campaigns",
     },
     {
       id: "item-2",
       question: "ECOCAN TnT",
       answer:
-        "We’ll instantly alert you every time a customer engages with your products, detailing exactly when and where it happens. Plus, with advanced data analytics tools, the TnT will generate dynamic performance reports on all interactions. You can then use these insights to take your business to the next level.",
+        "Access detailed analytics of your campaigns to gauge performance & optimise strategies. And deploy generative AI tools to customise Security codes with your artistic brand designs to further drive engagement",
     },
     {
       id: "item-3",
       question: "ECOCAN DRS",
       answer:
-        "Cutting your negative environmental impact is just the beginning. Get the full picture—know who, when and where your empties are returned for recycling.",
+        "Promote sustainable consumption, by involving your customers in cutting your negative environmental impact through closed-loop recycling. And watch this sustainability engagement prosper with brand loyalty",
     },
     {
       id: "item-4",
       question: "ECOCAN Market",
       answer:
-        "We don’t just spark your customers’ interest and leave them hanging—we close the deal! Our Marketplace lets them buy their favourite drinks from you. While ECOuriers handle the deliveries and pick-ups, ensuring a seamless experience from start to finish",
+        "ECOnsumers may tell us what they like and why, what they want more of, where and when. This allows us to offer personalized marketing on the App, tailored to their specific preferences. Facilitating them to purchase exactly what they need",
     },
   ];
 
