@@ -8,6 +8,7 @@ import { notFound } from 'next/navigation';
 import { sectionComponents, SectionType } from '../sections';
 import { sectionConfigs } from '@/types/section';
 import { LucideArrowLeft } from 'lucide-react';
+import Footer from '@/components/shared/footer/footer';
 
 interface SectionPageProps {
   params: {
@@ -91,6 +92,7 @@ export default function SectionPage({ params }: SectionPageProps) {
       
       <div className={sectionConfig.hasHeroLayout ? "" : "mt-8"}>
         <SectionComponent />
+        <Footer />
       </div>
     </div>
   );
