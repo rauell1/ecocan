@@ -139,7 +139,7 @@ export default function HiwImage() {
         <div className="flex items-center gap-2 group">
           <p
             className={clsx(
-              "text-xs transition-opacity duration-200",
+              "text-xs transition-opacity duration-200 text-secondary",
               clickedIcons.depositTransfer1 ? "opacity-100" : "opacity-0"
             )}
           >
@@ -164,7 +164,7 @@ export default function HiwImage() {
         <div className="flex items-center gap-2">
           <p
             className={clsx(
-              "text-xs transition-opacity duration-200",
+              "text-xs transition-opacity duration-200 text-secondary",
               clickedIcons.depositPayment ? "opacity-100" : "opacity-0"
             )}
           >
@@ -189,12 +189,12 @@ export default function HiwImage() {
         <div className="flex items-center gap-2">
           <p
             className={clsx(
-              "text-xs transition-opacity duration-200",
+              "text-xs transition-opacity duration-200 text-secondary",
               clickedIcons.depositTransfer2 ? "opacity-100" : "opacity-0"
             )}
           >
             Deposit <br />
-            transfer
+            refund
           </p>
           <div
             onClick={() => toggleIcon("depositTransfer2")}
