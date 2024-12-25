@@ -16,8 +16,6 @@ export default function Blog() {
           isScrolled ? "bg-white" : "bg-transparent backdrop-blur-xl"
         }
         logoSrc="/assets/images/ecocan-logo.svg"
-        firstButtonClassName="rounded-full h-7 xl:h-8 bg-transparent text-primary hover:bg-transparent hover:text-primary"
-        secondButtonClassName={`rounded-full h-7 xl:h-8 bg-transparent hover:bg-transparent text-primary border border-primary hover:text-primary`}
       />
       <div className="space-y-24 py-8 max-w-[72rem] mx-auto px-4 xl:px-0 mt-[3.575rem]">
         <div className="text-center">

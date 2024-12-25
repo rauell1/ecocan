@@ -27,7 +27,7 @@ const Timeline: React.FC<TimelineProps> = ({
 
   return (
     <div className="max-w-[72rem] mx-auto px-4 xl:px-0">
-      <h2 className="text-3xl md:text-5xl font-bold mb-2">{title}</h2>
+      <h2 className="text-3xl md:text-5xl font-medium mb-2">{title}</h2>
       <div className="lg:text-lg text-[#C0C7CD] font-light my-6 lg:my-12">{subtitle}</div>
 
       <div className="relative hidden md:block">

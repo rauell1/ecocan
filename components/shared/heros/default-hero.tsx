@@ -1,13 +1,11 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
-import { LucideArrowRight, LucideDownload } from "lucide-react";
+import { LucideDownload } from "lucide-react";
 import Image from "next/image";
 import React from "react";
 import NavigationBar from "../navbar/navbar";
 import { useScroll } from "@/lib/useScroll";
 import JoinEcommunity from "@/components/shared/join-ecommunity";
-import PrimaryButton from "../primary-btn";
 import ScanqrPopup from "../scan-qr";
 
 export default function DefaultHero() {
@@ -105,7 +103,7 @@ export default function DefaultHero() {
           </svg>
         </div>
         <div className="z-[999] mb-5 lg:mb-0">
-          <h2 className="text-center text-3xl xl:text-5xl font-bold z-[999]">
+          <h2 className="text-center text-3xl xl:text-5xl font-medium z-[999]">
             The ECOmmunity
           </h2>
         </div>

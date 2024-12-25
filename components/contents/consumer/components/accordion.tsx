@@ -25,8 +25,8 @@ const accordionData: AccordionData[] = [
     description: (
       <div className="space-y-2 w-11/12">
         <div>
-          <ScanqrPopup join="Download EcocanApp" className="h-0 font-medium"/> here, sign up in under 2
-          minutes, and start earning today!
+          <ScanqrPopup join="Download EcocanApp" className="h-0 font-medium" />{" "}
+          here, sign up in under 2 minutes, and start earning today!
         </div>
         <div>
           {" "}
@@ -65,14 +65,14 @@ const accordionData: AccordionData[] = [
       <div className="space-y-2 w-11/12">
         <div>
           After enjoying your drink, navigate to the nearest or your favourite{" "}
-          <span className="font-semibold">ECO-Station,</span>{" "}
+          <HyperLink link="ECO-Station" href="#faq" /> on {" "}
           <HyperLink link="ECOCAN Map" href="#faq" />
         </div>
 
         <div>
           While there, either hand your empties to{" "}
           <HyperLink link="Egents" href="#faq" />, or drop them into{" "}
-          <HyperLink link="ECOcans" href="#faq" />
+          <HyperLink link="ECOcans" href="/#what_are_ecocans" />
         </div>
       </div>
     ),
@@ -105,7 +105,7 @@ const accordionData: AccordionData[] = [
           deposits to friends, donate to charity, or cash out.
         </div>
         <div>
-          Take a look at the EcocanApp <HyperLink link="tutorial" href="/" />{" "}
+          Take a look at the EcocanApp <ScanqrPopup join="tutorial" className="h-0"/>{" "}
           for more!
         </div>
       </div>

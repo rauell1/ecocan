@@ -36,7 +36,7 @@ export default function EcoStationHero() {
         }
         linkColor={isScrolled ? "text-black" : "text-white"}
       />
-      <div className="lg:h-[36rem] xl:h-[47.575rem]">
+      <section className="lg:h-[36rem] xl:h-[47.575rem]" id="eco_station">
         <div className="bg-[url('/assets/images/eco-station/eco-station-hero.svg')] bg-center bg-cover mb-6 lg:mb-0 min-h-[24.735rem] flex items-center md:block md:h-[32.5625rem] lg:h-[35.875rem] xl:h-[46.85rem] relative after:absolute after:inset-0 after:content-[''] after:bg-black/50 after:opacity-70 after:z-10">
           <div className="h-full flex items-center">
             <div className="w-full xl:max-w-[72rem] z-[9998] mx-auto lg:h-40 xl:h-[40rem] lg:flex lg:flex-row lg:gap-12 lg:items-center">
@@ -65,7 +65,7 @@ export default function EcoStationHero() {
             </div>
           </div>
         </div>
-      </div>
+      </section>
     </>
   );
 }

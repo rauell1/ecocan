@@ -36,7 +36,7 @@ export default function TapTap() {
       title="How EcocanApp works"
       subtitle="Tap Tap Tap, and, Wallah!"
       image={
-        <div className="relative w-full h-[24rem] lg:h-[31.25rem] rounded-2xl overflow-hidden hidden lg:block">
+        <div className="relative w-full h-[24rem] lg:h-[33.75rem] rounded-smooth-xl overflow-hidden hidden lg:block">
           {preloadedImages.map((src, index) => (
             <Image
               key={src}
@@ -45,8 +45,8 @@ export default function TapTap() {
               className={`absolute top-0 left-0 w-full h-full object-cover transition-opacity duration-300 ease-in-out ${
                 index === selectedImage ? "opacity-100" : "opacity-0"
               }`}
-              width={500}
-              height={500}
+              width={540}
+              height={540}
               priority={index === 0}
               loading="eager"
             />

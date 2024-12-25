@@ -6,10 +6,10 @@ const timelineData = {
   title: "How to return eligible empties",
   subtitle: (
     <div className="md:w-11/12">
-      Only return empties of <span className="font-semibold">Aluminium cans, PET plastics, Glass bottles and
+      Only return empties of <span className="font-medium">Aluminium cans, PET plastics, Glass bottles and
       beverage Cartons </span>, carrying ECOCAN Security codes. That are published on the
-      ECOCAN website, and ECO-products section of EcocanApp.{" "}
-      <HyperLink link="See list here" href="/ecocan-market" />
+      ECOCAN Market.{" "}
+      <HyperLink link="See full list here" href="/ecocan-market#product-list" />
     </div>
   ),
   items: [

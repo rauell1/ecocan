@@ -14,7 +14,7 @@ export default function CtaCardComponent() {
       item={
         <TextWithComponent
           title={
-            <h2 className="text-white text-4xl lg:text-[2.5rem] mb-3">
+            <h2 className="text-white text-4xl lg:text-[2.5rem] mb-8">
               Cheers to ECO-
               <br />
               friendly savings!
@@ -26,7 +26,7 @@ export default function CtaCardComponent() {
             </span>
           }
           component={
-            <div className="flex flex-col md:flex-row gap-4">
+            <div className="flex flex-col md:flex-row gap-4 mt-8">
               <ScanqrPopup join="Download App" className="bg-primary  hover:bg-primary px-8 font-medium text-white hover:text-white no-underline" showArrow={true} arrow={<LucideDownload className="ml-4"/>}/>
               <JoinEcommunity showArrow={false} className="text-base" join="Join the ECOmmunity"/>
             </div>
