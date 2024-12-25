@@ -52,7 +52,7 @@ const formSchema = z.object({
 });
 
 export default function EcostationForm({
-  title = "1, 2, 3. Go!!",
+  title = "Let's grow together",
   className,
 }: EcostationFormProps) {
   const form = useForm<z.infer<typeof formSchema>>({
@@ -73,7 +73,7 @@ export default function EcostationForm({
   }
 
   return (
-    <Card className={clsx("rounded-2xl w-5/6 ms-auto", className)}>
+    <Card className={clsx("rounded-2xl w-5/6 ms-auto border-none shadow-none", className)}>
       <CardHeader className="text-[#23262FCC]">
         <CardTitle className="text-3xl text-black">{title}</CardTitle>
         <CardDescription className="xl:text-sm font-light text-black">

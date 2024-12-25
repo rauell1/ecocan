@@ -8,7 +8,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { LucideArrowRight, LucideX } from "lucide-react";
 import clsx from "clsx";
-import EcommunityForm from "@/components/shared/ecommunity-form";
+import EcommunityForm from "@/components/shared/eco-producer-form";
 
 
 export default function RegisterPopup({

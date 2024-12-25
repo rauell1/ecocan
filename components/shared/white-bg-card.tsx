@@ -28,8 +28,8 @@ export default function WhiteBgCard({
           <Image
             src={iconPath}
             alt="green icon"
-            className="w-10 h-10"
-            width={40}
+            className="w-12 h-12"
+            width={50}
             height={40}
           />
           {title}

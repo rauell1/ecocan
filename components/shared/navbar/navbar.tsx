@@ -8,11 +8,11 @@ import Image from "next/image";
 import clsx from "clsx";
 import { useScroll } from "@/lib/useScroll";
 import RegisterPopup from "../register-popup";
+import { RegisterDropdown } from "./components/register-dropdown-menu";
+import { MarketDropdown } from "./components/market-dropdown";
 
 interface NavigationBarProps {
   logoSrc: string;
-  firstButtonClassName?: React.ReactNode;
-  secondButtonClassName?: React.ReactNode;
   className?: string;
   linkColor?: string;
 }
@@ -26,8 +26,6 @@ const navLinks = [
 
 const NavigationBar: React.FC<NavigationBarProps> = ({
   logoSrc,
-  firstButtonClassName,
-  secondButtonClassName,
   className,
   linkColor,
 }) => {
@@ -48,7 +46,7 @@ const NavigationBar: React.FC<NavigationBarProps> = ({
   }, [isOpen]);
 
   const isLinkActive = (href: string) => {
-    if (href === '/') {
+    if (href === "/") {
       return pathname === href;
     }
     return pathname.startsWith(href);
@@ -58,7 +56,7 @@ const NavigationBar: React.FC<NavigationBarProps> = ({
     <nav
       className={clsx(
         "fixed top-0 left-0 right-0 md:px-4 z-[9999] transition-all duration-300",
-        isOpen ? "bg-white": "",
+        isOpen ? "bg-white" : "",
         className
       )}
     >
@@ -118,28 +116,8 @@ const NavigationBar: React.FC<NavigationBarProps> = ({
             ))}
           </div>
           <div className="text-center ms-auto flex-col md:flex-row flex items-center justify-center gap-4 md:pt-0 pt-5">
-            <Button
-              variant="ghost"
-              className={clsx(
-                "hover:bg-transparent",
-                firstButtonClassName,
-                "text-primary hover:text-primary"
-              )}
-            >
-              Support
-            </Button>
-            <Button
-              asChild
-              className={clsx(
-                "rounded-full h-7 xl:h-8 text-black hover:text-primary bg-white hover:bg-white",
-                isScrolled
-                  ? "bg-primary text-white hover:bg-primary hover:text-white"
-                  : "bg-white",
-                secondButtonClassName
-              )}
-            >
-              <RegisterPopup join="Register" className="font-medium h-0 no-underline"/>
-            </Button>
+            <MarketDropdown/>
+            <RegisterDropdown isScrolled={isScrolled} />
           </div>
         </div>
       </div>

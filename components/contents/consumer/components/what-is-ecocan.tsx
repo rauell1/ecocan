@@ -36,8 +36,10 @@ const rvmContent = [
           the deposit owed, which is then digitally refunded into ECO-wallets.
           If the empties are ineligible, they&apos;ll be rejected, and no
           deposit money will be issued. <br />
-          Pure ECOcans are the first compacting, digital mini-RVMs in use
-          worldwide
+          Pure ECOcans are <span className="font-medium">
+            the first compacting, digital mini-RVMs in use
+            worldwide
+          </span>
         </p>
       </div>
     ),
@@ -63,7 +65,7 @@ const rvmContent = [
 
 export default function WhatIsEcocan() {
   return (
-    <div className="relative bg-[#F3F3F6]">
+    <section className="relative bg-[#F3F3F6]" id="what_are_ecocans">
       <div className="max-w-[72rem] mx-auto py-8 lg:pb-36 px-4 xl:px-0">
         <ImageAndItem
           className="lg:flex-row-reverse items-center gap-6 lg:gap-12"
@@ -73,8 +75,8 @@ export default function WhatIsEcocan() {
               alt="Ecocan rvm"
               className="object-cover ms-auto"
               priority
-              width={500}
-              height={100}
+              width={540}
+              height={540}
             />
           }
           item={
@@ -88,9 +90,9 @@ export default function WhatIsEcocan() {
                 </div>
               }
               description={
-                <p>
-                  The Pure <span className="font-medium">ECO</span>-friendly
-                  trash <span className="font-medium">can</span> is an
+                <p className="lg:w-10/12">
+                  The Pure <span className="font-medium bg-gradient-to-r from-[#228B22] to-[#4AC63FCF] text-transparent bg-clip-text">ECO</span>-friendly
+                  trash <span className="font-medium bg-gradient-to-r from-[#228B22] via-[#4AC63FCF] to-[#FFDD4C] text-transparent bg-clip-text">can</span> is an
                   intelligent waste collection bin, that automatically accepts
                   eligible empties returned for recycling, and digitally refunds
                   applicable deposit money into ECO-wallets
@@ -143,6 +145,6 @@ export default function WhatIsEcocan() {
         width={100}
         height={100}
       />
-    </div>
+    </section>
   );
 }

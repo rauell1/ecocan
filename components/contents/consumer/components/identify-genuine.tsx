@@ -11,7 +11,7 @@ export default function IdentifyGenuine() {
   return (
     <div className="mx-auto">
       <div className="text-center mb-8 lg:mb-24">
-        <h2 className="text-3xl lg:text-5xl font-semibold">
+        <h2 className="text-3xl lg:text-5xl font-medium">
           How to identify genuine products
         </h2>
       </div>

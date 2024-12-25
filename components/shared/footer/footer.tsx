@@ -143,7 +143,10 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-10 gap-8 mb-16">
           {/* Kenya Office */}
           <div className="col-span-10 md:col-span-3">
-            <h3 className="text-xl font-semibold mb-4">🇰🇪 Kenya Office</h3>
+            <div className="flex items-center gap-2 mb-4">
+              <Image src="/assets/images/kenya.png" alt="kenyan flag" width={24} height={24}/>
+              <h3 className="text-xl font-semibold">Kenya Office</h3>
+            </div>
             <div className="flex items-start gap-2">
               <Image
                 src="/assets/icons/location.svg"
@@ -179,7 +182,10 @@ const Footer = () => {
 
           {/* Finland Office */}
           <div className="col-span-10 md:col-span-3 space-y-4">
-            <h3 className="text-xl font-semibold mb-4">🇫🇮 Finland Office</h3>
+            <div className="flex items-center gap-2 mb-4">
+            <Image src="/assets/images/finland.png" alt="finnish flag" width={24} height={24}/>
+              <h3 className="text-xl font-semibold">Finland Office</h3>
+            </div>
             <div className="flex items-start gap-2">
               <Image
                 src="/assets/icons/location.svg"

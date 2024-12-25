@@ -1,0 +1,38 @@
+import React from "react";
+import Image from "next/image";
+
+interface RegistrationDropDownProps
+  extends React.HTMLAttributes<HTMLDivElement> {
+  label: string;
+  icon: string;
+  description?: string;
+}
+
+const RegistrationDropDownTrigger = React.forwardRef<
+  HTMLDivElement,
+  RegistrationDropDownProps
+>(({ label, icon, description, className, ...props }, ref) => {
+  return (
+    <div
+      ref={ref}
+      {...props}
+    >
+      <div className="flex items-center gap-2">
+        <Image
+          src={icon}
+          alt={`${label} icon`}
+          className="grayscale group-focus:grayscale-0"
+          width={16}
+          height={16}
+        />
+        <span className="group-focus:text-primary group-focus:font-medium text-secondary">
+          {label}
+        </span>
+      </div>
+      <p className="text-xs text-secondary ps-6">{description}</p>
+    </div>
+  );
+});
+
+RegistrationDropDownTrigger.displayName = "RegistrationDropDownTrigger";
+export default RegistrationDropDownTrigger;

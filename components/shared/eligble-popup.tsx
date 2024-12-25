@@ -3,15 +3,11 @@ import {
   AlertDialog,
   AlertDialogCancel,
   AlertDialogContent,
-  AlertDialogFooter,
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
 import { Button } from "@/components/ui/button";
-import { LucideArrowRight, LucideChevronRight, LucideX } from "lucide-react";
-import HowTo from "@/components/shared/HowTo";
+import { LucideArrowRight, LucideX } from "lucide-react";
 import ImageAndItem from "@/components/shared/image-and-item/image-and-item";
-import PrimaryButton from "@/components/shared/primary-btn";
-import { ItemList } from "../contents/courier/components/ItemList";
 import Image from "next/image";
 import HyperLink from "@/components/shared/hyperlink/hyperlink";
 import clsx from "clsx";
@@ -62,7 +58,7 @@ export default function EligblePopup({
         <Button
           variant="ghost"
           className={clsx(
-            `rounded-full bg-transparent text-primary hover:bg-transparent px-0 h-0 text-base font-light underline underline-offset-[6px] hover:text-primary`,
+            `rounded-full bg-transparent text-primary hover:bg-transparent px-0 h-0 text-base font-light underline underline-offset-4 hover:text-primary`,
             className
           )}
         >

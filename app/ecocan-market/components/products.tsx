@@ -74,7 +74,7 @@ const products = [
 
 export default function Products() {
   return (
-    <div className="space-y-24">
+    <section className="space-y-24" id="product-list">
       <div className="flex items-center justify-between">
         <form className="border border-[#E6E8EC] bg-white rounded-full flex items-center lg:w-2/5">
           <LucideSearch className="text-secondary ms-4" />
@@ -115,6 +115,6 @@ export default function Products() {
           </Card>
         ))}
       </div>
-    </div>
+    </section>
   );
 }

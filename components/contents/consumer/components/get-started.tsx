@@ -18,7 +18,7 @@ const consumerFeatures = [
     answer: (
       <div className="text-white space-y-4">
         <p>
-          EcocanApp helps you to relaibly identify genuine <EligblePopup />{" "}
+          EcocanApp helps you to relaibly identify genuine <EligblePopup/>{" "}
           beverages, before purchase. Thus safeguarding your health & fight
           counterfeits.
         </p>
@@ -30,7 +30,7 @@ const consumerFeatures = [
 
         <p>
           If it&apos;s genuine, an authentication page will pop up. But if
-          it&apos;s a fake, the App will instantly alert you, and block access
+          it&apos;s fake, the App will instantly alert you, and block access
           to the verification page.
         </p>
 
@@ -112,13 +112,13 @@ export default function GetStarted() {
         <div className="lg:w-4/5">
           Whether you want to keep your environment clean, earn extra cash, or
           to safeguard your health from fake drinks. With EcocanApp, it&apos;s
-          all just a <ScanqrPopup join="click away!" className="text-lg" />
+          all just a <ScanqrPopup join="click away!" className="text-lg h-0" />
         </div>
       }
       customCard={
         <FeaturesGrid
           features={consumerFeatures}
-          className="h-[28rem] lg:h-[33.25rem] xl:h-[41.25rem] bg-center p-4 flex flex-col justify-end after:absolute after:inset-0 after:content-[''] after:bg-black/60 after:opacity-70 after:z-10 overflow-hidden"
+          className="h-[28rem] lg:h-[33.25rem] xl:h-[41.25rem] bg-[position:590px_0px] bg-[length:260%_100%] p-4 flex flex-col justify-end after:absolute after:inset-0 after:content-[''] after:bg-black/60 after:opacity-70 after:z-10 overflow-hidden"
         />
       }
     />
