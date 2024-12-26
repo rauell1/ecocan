@@ -6,9 +6,9 @@ import React from 'react'
 const accordionItems = [
     {
       id: "item-1",
-      question: "ECOCAN security codes",
+      question: "ECOCAN Market",
       answer:
-        "After product authentication, leverage the Security codes to increase lead generation by sharing tailored product journeys, and for personalised re-marketing campaigns",
+        "Tap into the vast ECOmmunity base by listing your ECO-friendly products on ECOCAN Market. To drive lead generation, boost sales and amplify remarketing campaigns",
     },
     {
       id: "item-2",
@@ -24,7 +24,7 @@ const accordionItems = [
     },
     {
       id: "item-4",
-      question: "ECOCAN Market",
+      question: "ECOCANApp",
       answer:
         "ECOnsumers may tell us what they like and why, what they want more of, where and when. This allows us to offer personalized marketing on the App, tailored to their specific preferences. Facilitating them to purchase exactly what they need",
     },

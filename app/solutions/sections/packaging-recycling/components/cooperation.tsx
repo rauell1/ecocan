@@ -70,7 +70,7 @@ export default function Cooperation() {
         className="absolute bottom-0 z-50 hidden lg:block"
       >
         <path
-          fill="#F6F6F6"
+          fill="white"
           fill-opacity="1"
           d="M0,80L1440,0L1440,340L0,340Z"
         ></path>
@@ -81,7 +81,7 @@ export default function Cooperation() {
         className="absolute bottom-0 z-50 hidden md:block lg:hidden"
       >
         <path
-          fill="#F6F6F6"
+          fill="white"
           fill-opacity="1"
           d="M0,100L600,0L600,600L0,600Z"
         ></path>

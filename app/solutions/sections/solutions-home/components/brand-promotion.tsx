@@ -8,7 +8,7 @@ import Image from "next/image";
 
 export default function BrandPromotion() {
   return (
-    <div className="bg-white">
+    <div>
         <div className="max-w-[72rem] mx-auto px-4 xl:px-0 py-8 lg:py-24">
           <ImageAndItem
             className="items-center gap-6 lg:gap-12 lg:flex-row-reverse"
@@ -42,7 +42,7 @@ export default function BrandPromotion() {
                   <PrimaryButton
                     buttonIcon={<LucideArrowRight />}
                     buttonText="Learn more"
-                    className="hover:bg-primary"
+                    className="hover:bg-primary mt-8"
                     buttonLink="/solutions/brand-promotion"
                   />
                 }

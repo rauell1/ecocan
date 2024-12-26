@@ -17,7 +17,7 @@ const litterContent = [
   {
     title: "1. Traceability",
     description:
-      "To ensure each product is unique, is digitally connected, and can be traced. ECOnsumers scan these codes with their ECO-scanners to authenticate the products in under 3 seconds.",
+      "To ensure each product is unique, is digitally connected. ECOnsumers scan these codes with their ECO-scanners to authenticate the products in under 3 seconds",
     image: "/assets/images/solutions/security.svg",
   },
   {

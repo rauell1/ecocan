@@ -63,12 +63,12 @@ const CardComponent: React.FC<CardComponentProps> = ({ card, className }) => (
       </div>
     }
     title={
-      <div className="text-[1.125rem] font-medium leading-[1.625rem] text-left text-black">
+      <div className="text-2xl font-medium leading-[1.625rem] text-left text-black">
         {card.content}
       </div>
     }
     content={
-      <div className="text-accent/50 text-sm font-light">
+      <div className="text-accent/50 text-base">
         {card.description}
       </div>
     }

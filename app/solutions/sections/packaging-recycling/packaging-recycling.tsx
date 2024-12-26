@@ -10,7 +10,7 @@ import ClosedLoop from "./components/closed-loop";
 export default function PackagingRecycling() {
   return (
     <>
-      <div className="space-y-24 pb-8 lg:pb-24">
+      <div className="space-y-24">
         <Heading />
         <HowItWorks/>
         {/* <HowItWorks/> */}
@@ -19,7 +19,7 @@ export default function PackagingRecycling() {
       <Cooperation />
       <div>
         {/* small deeds */}
-        <div className="bg-[#F6F6F6] pt-12 pb-8 lg:pb-36 space-y-24 relative">
+        <div className="bg-white pt-12 pb-8 lg:pb-36 space-y-24 relative">
           <Process/>
           <ClosedLoop/>
           <SmallDeeds />
@@ -29,7 +29,7 @@ export default function PackagingRecycling() {
             className="absolute bottom-0 z-50 hidden lg:block"
           >
             <path
-              fill="white"
+              fill="#f6f6f6"
               fill-opacity="1"
               d="M0,80L1440,0L1440,340L0,340Z"
             ></path>
@@ -40,7 +40,7 @@ export default function PackagingRecycling() {
             className="absolute bottom-0 z-50 hidden md:block lg:hidden"
           >
             <path
-              fill="white"
+              fill="#f6f6f6"
               fill-opacity="1"
               d="M0,100L600,0L600,600L0,600Z"
             ></path>

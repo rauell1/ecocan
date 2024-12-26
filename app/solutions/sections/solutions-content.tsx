@@ -30,7 +30,7 @@ export default function SolutionsContent() {
                   Smart Sustainable Solutions
                 </h1>
               </div>
-              <div className="tracking-wide text-base xl:text-xl font-light text-white my-10 space-y-4">
+              <div className="tracking-wide text-base xl:text-xl text-white my-10 space-y-4">
                 <p className="text-center w-3/5 mx-auto">
                   We seamlessly connect the physical and digital worlds in a
                   manner that is most sustainable to our planet, and to the life

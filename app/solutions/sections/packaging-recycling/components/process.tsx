@@ -32,8 +32,6 @@ export default function Process() {
                   undergo rigorous quality inspection with top-of-the-line{" "}
                   <HyperLink link="Krones Linantronic" href="/" /> empty bottle
                   inspectors (I.B.I).
-                </p>
-                <p>
                   To ensure ECO-products are safely refilled in the most
                   hygienic, and highest quality, 100% re-used glass bottles.
                 </p>

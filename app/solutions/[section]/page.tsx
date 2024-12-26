@@ -1,19 +1,26 @@
-"use client"
+"use client";
 
-import { useRouter } from 'next/navigation';
-import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from '@/components/ui/breadcrumb';
-import NavigationBar from '@/components/shared/navbar/navbar';
-import { useScroll } from '@/lib/useScroll';
-import { notFound } from 'next/navigation';
-import { sectionComponents, SectionType } from '../sections';
-import { sectionConfigs } from '@/types/section';
-import { LucideArrowLeft } from 'lucide-react';
-import Footer from '@/components/shared/footer/footer';
+import { useRouter } from "next/navigation";
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from "@/components/ui/breadcrumb";
+import NavigationBar from "@/components/shared/navbar/navbar";
+import { useScroll } from "@/lib/useScroll";
+import { notFound } from "next/navigation";
+import { sectionComponents, SectionType } from "../sections";
+import { sectionConfigs } from "@/types/section";
+import { LucideArrowLeft } from "lucide-react";
+import Footer from "@/components/shared/footer/footer";
 
 interface SectionPageProps {
   params: {
     section: string;
-  }
+  };
 }
 
 export default function SectionPage({ params }: SectionPageProps) {
@@ -29,30 +36,34 @@ export default function SectionPage({ params }: SectionPageProps) {
   const sectionConfig = sectionConfigs[params.section] || {
     hasHeroLayout: false,
     breadcrumbStyle: {
-      textColor: 'text-gray-600',
-      separatorColor: 'text-gray-400'
-    }
+      textColor: "text-gray-600",
+      separatorColor: "text-gray-400",
+    },
   };
 
-
   const BreadcrumbNav = () => (
-    <Breadcrumb>
+    <Breadcrumb className="border hidden">
       <BreadcrumbList>
         <BreadcrumbItem>
-          <BreadcrumbLink 
-            onClick={() => router.push('/solutions')} 
+          <BreadcrumbLink
+            onClick={() => router.push("/solutions")}
             className={`cursor-pointer z-[999] flex items-center gap-2 bg-white rounded-full text-primary hover:text-primary p-2 px-4`}
           >
-            <LucideArrowLeft size={18}/>
+            <LucideArrowLeft size={18} />
             Back to Solutions
           </BreadcrumbLink>
         </BreadcrumbItem>
-        <BreadcrumbSeparator className={`z-[999] ${sectionConfig.breadcrumbStyle?.separatorColor}`} />
+        <BreadcrumbSeparator
+          className={`z-[999] ${sectionConfig.breadcrumbStyle?.separatorColor}`}
+        />
         <BreadcrumbItem>
-          <BreadcrumbPage className={`z-[999] ${sectionConfig.breadcrumbStyle?.textColor}`}>
-            {params.section.split('-').map(word =>
-              word.charAt(0).toUpperCase() + word.slice(1)
-            ).join(' ')}
+          <BreadcrumbPage
+            className={`z-[999] ${sectionConfig.breadcrumbStyle?.textColor}`}
+          >
+            {params.section
+              .split("-")
+              .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+              .join(" ")}
           </BreadcrumbPage>
         </BreadcrumbItem>
       </BreadcrumbList>
@@ -62,18 +73,26 @@ export default function SectionPage({ params }: SectionPageProps) {
   return (
     <div>
       {sectionConfig.hasHeroLayout ? (
-        <div 
+        <div
           className="min-h-[75vh] pb-8 lg:min-h-[90vh] bg-right lg:bg-center relative after:absolute after:inset-0 after:content-[''] after:bg-black/70 lg:after:bg-black/60 after:opacity-70 after:z-10"
           style={{
             backgroundImage: `url(${sectionConfig.backgroundImage})`,
-            backgroundSize: 'cover',
+            backgroundSize: "cover",
           }}
         >
           <NavigationBar
-            className={isScrolled ? "bg-white" : "bg-transparent text-white backdrop-blur-none"}
-            logoSrc={isScrolled ? "/assets/images/ecocan-logo.svg": "/assets/images/ecocan-logo-alt.svg"}
+            className={
+              isScrolled
+                ? "bg-white"
+                : "bg-transparent text-white backdrop-blur-none"
+            }
+            logoSrc={
+              isScrolled
+                ? "/assets/images/ecocan-logo.svg"
+                : "/assets/images/ecocan-logo-alt.svg"
+            }
           />
-          <div className="max-w-[72rem] mx-auto px-4 xl:px-0 pt-24">
+          <div className="max-w-[72rem] mx-auto px-4 xl:px-0">
             <BreadcrumbNav />
             {sectionConfig.heroContent}
           </div>
@@ -84,13 +103,13 @@ export default function SectionPage({ params }: SectionPageProps) {
             className={isScrolled ? "bg-white" : "bg-transparent"}
             logoSrc="/assets/images/ecocan-logo.svg"
           />
-          <div className="max-w-[72rem] mx-auto px-4 xl:px-0 pt-24">
+          <div className="max-w-[72rem] mx-auto px-4 xl:px-0 border">
             <BreadcrumbNav />
           </div>
         </div>
       )}
-      
-      <div className={sectionConfig.hasHeroLayout ? "" : "mt-8"}>
+
+      <div className={sectionConfig.hasHeroLayout ? "" : "mt-0"}>
         <SectionComponent />
         <Footer />
       </div>
