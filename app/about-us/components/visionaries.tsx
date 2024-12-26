@@ -19,14 +19,17 @@ export default function Visionaries() {
         }
         item={
           <TextWithComponent
+            title="Why We're Here"
             description={
+              <h2
+                className={`bg-gradient-to-r my-2 from-[#228B22] via-[#FFDD4C] to-[#FFDD4C] text-transparent bg-clip-text font-medium text-3xl`}
+              >
+                To build a COmmunity <br /> of visionaries{" "}
+              </h2>
+            }
+            component={
               <div>
-                <h2
-                  className={`bg-gradient-to-r my-2 from-[#228B22] via-[#FFDD4C] to-[#FFDD4C] text-transparent bg-clip-text font-medium text-[2rem]`}
-                >
-                  Building a COmmunity <br /> of visionaries{" "}
-                </h2>
-                <p>
+                <p className="lg:text-xl text-secondary">
                   Who envision and strive for a planet free from pollution, safe
                   for all the life it sustains, and brimming with limitless
                   opportunities to thrive. An achievable aspiration only when

@@ -7,7 +7,6 @@ import ImageAndItem from "@/components/shared/image-and-item/image-and-item";
 import Image from "next/image";
 import { FaqSection } from "../consumer/components/faq";
 import CtaCard from "@/components/shared/cta-card/cta-card";
-import JoinSystem from "./components/join-system";
 import DepositRefundSystem from "./components/drs";
 import Matters from "./components/matters";
 
@@ -28,7 +27,6 @@ export default function RecyclerContent() {
             </div>
           }
         />
-        <JoinSystem />
       </div>
       <DepositRefundSystem />
       {/* DRS takeover */}

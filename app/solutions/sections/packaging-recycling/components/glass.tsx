@@ -6,7 +6,7 @@ const factData = [
   {
     title: <h1 className="text-lg">Energy savings</h1>,
     description: (
-      <p className="text-sm">
+      <p className="text-sm lg:w-10/12">
         Recycling just <span className="font-bold">one glass bottle</span> saves
         enough energy to power your computer for over{" "}
         <span className="font-bold">30 minutes</span>
@@ -17,7 +17,7 @@ const factData = [
   {
     title: <h1 className="text-lg">Lowers Carbon Emissions</h1>,
     description: (
-      <p className="text-sm">
+      <p className="text-sm lg:w-10/12">
         Recycling a single glass bottle can reduce CO₂ emissions by around{" "}
         <span className="font-bold">0.5 kg</span>
       </p>
@@ -27,7 +27,7 @@ const factData = [
   {
     title: <h1 className="text-lg">Health</h1>,
     description: (
-      <p className="text-sm">
+      <p className="text-sm lg:w-10/12">
         Glass bottles are completely natural packaging which contain no harmful
         chemicals, additives, nor impurities. This ensures contents are
         perfectly preserved as intended, most sustainably.

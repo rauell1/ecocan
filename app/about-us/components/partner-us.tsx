@@ -24,20 +24,15 @@ export default function PartnerUS() {
               description={
                 <div className="space-y-4">
                   <h2
-                    className={`bg-gradient-to-r my-2 from-[#228B22] via-[#FFDD4C] to-[#FFDD4C] text-transparent bg-clip-text font-semibold text-3xl lg:text-5xl`}
+                    className={`bg-gradient-to-r my-2 from-[#228B22] via-[#FFDD4C] to-[#FFDD4C] text-transparent bg-clip-text font-medium text-3xl lg:text-5xl`}
                   >
                     COme partner <span className="text-[#FFDD4C]">with Us</span>
                   </h2>
-                  <p className="font-semibold text-lg text-[#888D92]">
+                  <p className="font-medium text-xl text-[#888D92]">
                     To COntribute in shaping the future;
                   </p>
-                  <p className="text-base">
-                    Environmental, health and economic sustainability are our
-                    north stars. And nurturing healthier and thriving
-                    communities remains our focus. We think we have a solid plan
-                    to archive this. To drive this purposeful movement. And
-                    bring about meaningful change. But we can&apos;t do this
-                    alone
+                  <p className="lg:text-xl">
+                  Environmental, health and economic sustainability are our north stars. And nurturing healthier and thriving communities remains our focus. We think we have a solid plan to archive this. To drive this purposeful movement. And bring about meaningful change. But we can&apos;t achieve all this alone
                   </p>
                 </div>
               }

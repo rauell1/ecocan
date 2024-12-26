@@ -1,5 +1,6 @@
 import TextWithComponent from "@/components/contents/consumer/components/text-with-component";
 import HyperLink from "@/components/shared/hyperlink/hyperlink";
+import RegisterPopup from "@/components/shared/register-popup";
 import React from "react";
 
 export default function Community() {
@@ -16,7 +17,17 @@ export default function Community() {
                 drive positive change. And the ability of technology to
                 transform lives. We thus invite you to contribute to this
                 once-in-a- generation revolution. As we say in Kenya;{" "}
-                <HyperLink link="Harambee!" href="/" />
+                <RegisterPopup
+                  join="Harambee!"
+                  className="h-0"
+                  form={
+                    <p>
+                      Harambee is a Kenyan rallying call for communities to
+                      unite and pull together their efforts, to create shared
+                      value for common good
+                    </p>
+                  }
+                />{" "}
               </p>
             }
           />
