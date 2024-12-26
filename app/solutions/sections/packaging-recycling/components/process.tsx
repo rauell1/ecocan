@@ -8,7 +8,7 @@ import ProcessPopup from "./process-popup";
 
 export default function Process() {
   return (
-    <div className="max-w-[72rem] mx-auto px-4 xl:px-0">
+    <section className="max-w-[72rem] mx-auto px-4 xl:px-0" id="recycling_process">
       <ImageAndItem
         className="items-center gap-12"
         image={
@@ -43,6 +43,6 @@ export default function Process() {
           />
         }
       />
-    </div>
+    </section>
   );
 }

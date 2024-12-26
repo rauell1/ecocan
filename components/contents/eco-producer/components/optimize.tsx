@@ -32,7 +32,7 @@ const FeatureCard = ({ title, description, imageSrc, href }: FeatureProps) => (
           className="hover:bg-transparent hover:text-white px-0 group underline underline-offset-4"
         >
           Learn More
-          <LucideArrowUpRight className="ml-2 group-hover:scale-125"/>
+          <LucideArrowUpRight className="ml-2 group-hover:scale-125" />
         </Button>
       </Link>
     </div>
@@ -50,26 +50,26 @@ export default function Optimize() {
               your packaging
             </span>
           </h2>
-          <p className="text-secondary lg:text-xl my-4">
+          <p className="text-secondary lg:text-xl my-8">
             With ECOCAN, a bottle is more than just a bottle
           </p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
           <FeatureCard
             title="Transform them into digitally connected assets"
-            description="We'll help unlock the digital power of your beverage containers, by enabling individual item-unit traceability across the entire market, in real-time! This prevents counterfeiting and diversion activities, as well as offer you unmatched market intelligence"
+            description="We’ll help unlock the digital power of your ordinary bottles, by enabling item-unit traceability across the entire market, in real-time! To prevent counterfeiting and diversion attempts, as well as to offer you unmatched market intelligence"
             imageSrc="/assets/images/producer/optimize-1.svg"
             href="/solutions/brand-protection"
           />
           <FeatureCard
             title="Convert them into low-cost marketing channels"
-            description="Your packaging is more than a one-time consumable; we'll convert it into a dynamic marketing platform, for directly engaging with your customers through personalized campaigns. In return, you'll gain actionable insights to enhance your operations"
+            description="Your packaging is more than a one-time consumable; we’ll transform them into expansive & disruptive marketing assets, for direct customer engagement through personalized campaigns. In return, you'll gain actionable insights, and promote brand loyalty"
             imageSrc="/assets/images/producer/optimize-2.svg"
             href="/solutions/brand-promotion"
           />
           <FeatureCard
             title="Minimise their environmental footprint"
-            description="Through reuse and recycling via the ECOCAN DRS, we'll tell you exactly what individual packaging has been collected and recycled, when and where. We'll also ensure regulators know about your ECO-friendly efforts"
+            description="Through reuse and recycling via the ECOCAN DRS, we’ll tell you exactly what packaging has been collected for recycling, when and where. We’ll also ensure regulators know about your ECO-friendly efforts"
             imageSrc="/assets/images/producer/optimize-3.svg"
             href="/solutions/packaging-recycling"
           />
@@ -77,15 +77,27 @@ export default function Optimize() {
             title="Increase their resource efficiency"
             description={
               <div>
-                We offer a direct service for automated glass bottle washing and quality inspection. Deploying top-of-the-line <HyperLink link="PAC Swiss" href="https://www.youtube.com/watch?v=0QxeZ-r7vSE&ab_channel=PACLOW-ENERGYBOTTLEWASHERS"/> washers, and <HyperLink link="Krones Linantronic" href="https://www.youtube.com/watch?v=0QxeZ-r7vSE&ab_channel=PACLOW-ENERGYBOTTLEWASHERS"/>  E.B.I. To deliver most hygienic washed bottles. Affordably
+                 We offer a direct service for automated glass bottle washing and quality inspection. Deploying top-of-the-line{" "}
+                <HyperLink
+                  link="PAC Swiss"
+                  href="https://www.youtube.com/watch?v=0QxeZ-r7vSE&ab_channel=PACLOW-ENERGYBOTTLEWASHERS"
+                />{" "}
+                washers, and{" "}
+                <HyperLink
+                  link="Krones Linantronic"
+                  href="https://www.youtube.com/watch?v=0QxeZ-r7vSE&ab_channel=PACLOW-ENERGYBOTTLEWASHERS"
+                />{" "}
+                E.B.I. To deliver most hygienic washed bottles. Affordably
               </div>
             }
             imageSrc="/assets/images/producer/optimize-4.svg"
-            href="/solutions/packaging-recycling"
+            href="/solutions/packaging-recycling#recycling_process"
           />
         </div>
-        <p className="text-[2rem] font-semibold lg:w-11/12 text-white">Only ECOCAN can offer you this level of insight, security, efficiency 
-        and sustainability. And we say this with Absolute Confidence!</p>
+        <p className="text-[2rem] font-semibold lg:w-11/12 text-white">
+          Only ECOCAN can offer you this level of insight, security, efficiency
+          and sustainability. And we say this with Absolute Confidence!
+        </p>
       </div>
     </div>
   );

@@ -6,7 +6,7 @@ import React from "react";
 const timelineData = {
   title: <span className="text-4xl text-white">3. ECOnomic efficiency and Social Benefits</span>,
   subtitle: (
-    <p className="font-light text-secondary">
+    <p className="text-secondary">
       Let recycling work for you by turning ECOcans into money-makers and brand ambassadors
     </p>
   ),
