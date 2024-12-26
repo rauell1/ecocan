@@ -1,5 +1,5 @@
 import React from "react";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, LucideArrowRight } from "lucide-react";
 import HyperLink from "@/components/shared/hyperlink/hyperlink";
 import { FaqSection } from "../consumer/components/faq";
 import CtaCard from "@/components/shared/cta-card/cta-card";
@@ -14,14 +14,19 @@ import BusinessInsights from "./components/business-insights";
 import SideHustle from "./components/side-hustle";
 import JoinEcommunity from "../../shared/join-ecommunity";
 import RegisterPopup from "@/components/shared/register-popup";
+import EcostationForm from "@/components/shared/hero-form/hero-form";
 
 const howToData = [
   {
     id: 1,
     title: (
       <div className="text-white">
-        <RegisterPopup join="Register here" className="text-lg font-semibold"/> to grow your
-        business
+        <RegisterPopup
+          join="Register here"
+          className="text-lg h-0 font-semibold"
+          form={<EcostationForm className="mx-auto lg:w-[33.125rem]" />}
+        />{" "}
+        to grow your business
       </div>
     ),
     description: (
@@ -56,13 +61,13 @@ const howToData = [
   {
     id: 4,
     title: (
-      <div className="text-white">
-        Go &ldquo;live&rdquo; and start earning
-      </div>
+      <div className="text-white">Go &ldquo;live&rdquo; and start earning</div>
     ),
     description: (
-      <p className="mt-2">We&apos;ll ensure you are prominently visible. So stock up nicely, 
-ready for increased sales & recycling action</p>
+      <p className="mt-2">
+        We&apos;ll ensure you are prominently visible. So stock up nicely, ready
+        for increased sales & recycling action
+      </p>
     ),
   },
 ];
@@ -87,11 +92,11 @@ export default function EcoStationContent() {
         <News />
         <FaqSection />
         <CtaCard
-          className="bg-[url('/assets/images/eco-station/join-ecommunity-bg.svg')] ps-4 lg:ps-[7.25rem] h-[30.125rem] bg-cover bg-center relative after:absolute after:inset-0 after:content-[''] after:bg-black/60 after:opacity-70 after:z-10 overflow-hidden"
+          className="bg-[url('/assets/images/eco-station/join-ecommunity-bg.svg')] ps-4 lg:ps-[5.25rem] h-[30.125rem] bg-cover bg-center relative after:absolute after:inset-0 after:content-[''] after:bg-black/60 after:opacity-70 after:z-10 overflow-hidden"
           item={
             <TextWithComponent
               title={
-                <p className="text-white text-5xl">Sustainable commerce;</p>
+                <p className="text-white text-5xl">Sustainable commerce</p>
               }
               description={
                 <span className="text-white">
@@ -99,10 +104,17 @@ export default function EcoStationContent() {
                 </span>
               }
               component={
-                <JoinEcommunity
-                  className="bg-[#FFDD4C] hover:bg-[#FFDD4C] rounded-full h-[3rem] lg:w-[24.3125rem] border-none px-8 text-base text-black"
-                  join="Join ECOmmunity"
-                />
+                <>
+                  <RegisterPopup
+                    join="Join ECOmmunity"
+                    className="bg-[#FFDD4C] hover:bg-[#FFDD4C] no-underline rounded-full h-[3rem] lg:w-[24.3125rem] border-none px-8 text-base text-black font-medium hover:text-black mt-8"
+                    arrow={<LucideArrowRight className="ml-4"/>}
+                    showArrow={true}
+                    form={
+                      <EcostationForm className="mx-auto lg:w-[33.125rem]" />
+                    }
+                  />
+                </>
               }
             />
           }

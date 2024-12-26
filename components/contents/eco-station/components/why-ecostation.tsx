@@ -13,19 +13,20 @@ const ecoStationFeatures = [
     question: (
       <p className="font-normal  text-secondary">
         <RegisterPopup
-          form={<EcostationForm title="Let's grow together"/>}
+          className="h-0"
+          form={<EcostationForm className="mx-auto lg:w-[33.125rem]" />}
         />{" "}
-        here, and we&apos;ll link you up with
+        here, and we&apos;ll link you with
         <br />
-        the ECOmmunity
+        the ECOmmunity!
       </p>
     ),
     answer: (
       <div className="space-y-4  text-secondary">
         <div>
           Where ECOnsumers can buy from you on{" "}
-          <HyperLink link="ECOCAN market" href={"#faq"} /> or navigate to you on{" "}
-          <HyperLink link="ECOCAN Map" href={"#faq"} />{" "}
+          <HyperLink link="ECOCAN market" href={"/ecocan-market"} /> or navigate
+          to you on <HyperLink link="ECOCAN Map" href={"#faq"} />{" "}
         </div>
       </div>
     ),
@@ -86,7 +87,7 @@ export default function WhyEcostation() {
           <FeaturesGrid
             features={ecoStationFeatures}
             gap="gap-4"
-            className="bg-[#F3F3F6]"
+            className="bg-[#F3F3F6] h-fit lg:!rounded-smooth-lg"
           />
         }
       />

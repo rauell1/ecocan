@@ -20,17 +20,17 @@ export default function SideHustle() {
           }
           item={
             <div className="space-y-6">
-              <h2 className="font-bold text-3xl lg:text-5xl">
+              <h2 className="font-medium text-3xl lg:text-5xl">
                 Side hustle, without
                 <br /> a hustle...
               </h2>
-              <p className="text-secondary lg:text-xl font-light">
+              <p className="text-secondary lg:text-xl">
                 While you record revenue growth for becoming an ECO-Station,
                 we&apos;ll efficiently take care of empties logistics. Simply
                 ping-us on your Egent App to request pick-up when you&apos;ve
                 collected sufficient empties.
               </p>
-              <div className="text-secondary lg:text-xl font-light">
+              <div className="text-secondary lg:text-xl">
                 And the TnT will dispatch <HyperLink href="#faq" link="ECOuries" />{" "}
                 on <HyperLink href="#faq" link="Electric mobility" /> just-in-time;
                 boosting productivity, while cutting CO2e & energy consumption.

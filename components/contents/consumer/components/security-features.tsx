@@ -83,14 +83,14 @@ export const AIFeatureCard = ({
           </div>
         </CardHeader>
         <CardContent className="space-y-4 pb-0">
-          <Button variant="link" className="text-sm p-0 text-white">{buttonText}</Button>
+          <Button variant="link" className="text-sm p-0 text-white group-hover:underline">{buttonText}</Button>
           {showImage && <div className="w-[14.375rem] relative">
             <Image
               src="/assets/images/consumer/ai-chip.svg"
               alt="AI Chip"
               width={100}
               height={200}
-              className="w-full object-cover"
+              className="w-full h-full object-cover group-hover:rotate-[-1.75deg] group-hover:scale-110 transition-all"
             />
           </div>}
         </CardContent>
@@ -142,7 +142,7 @@ export const SecurityFeatures = () => {
       ))}
       <AIFeatureCard
         title="AI-Enhanced protection"
-        className="bg-primary hover:bg-primary/90"
+        className="bg-primary"
       />
     </div>
   );

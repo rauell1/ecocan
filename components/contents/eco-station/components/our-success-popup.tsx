@@ -31,8 +31,8 @@ export default function OurSuccessPopup() {
             <Image
               src="/assets/images/eco-station/our-success-popup.svg"
               alt="buy online with ecocan"
-              width={480}
-              height={500}
+              width={540}
+              height={540}
               className="mx-auto relative z-[999] hidden lg:block"
             />
           }
@@ -50,9 +50,9 @@ export default function OurSuccessPopup() {
                     When you facilitate ECOnsumers to return eligible empties to
                     you, over 60% will most likely spend their deposit money
                     right back in your shop. They may proceed to spend their own
-                    money to buy other ECO-products in stock. And if you&apso;ll
+                    money to buy other ECO-products in stock. And if you&apos;ll
                     offer great service, for sure they will come back. Or buy
-                    more from you on ECOCAN Market. Most certainly, they&apso;ll
+                    more from you on ECOCAN Market. Most certainly, they&apos;ll
                     spread a good word about you.
                   </p>
                   <p>

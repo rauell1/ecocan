@@ -1,12 +1,12 @@
 import ImageAndItem from "@/components/shared/image-and-item/image-and-item";
 import TextWithCards from "@/components/shared/text-with-cards/text-with-cards";
-import WhiteBgCard from "@/components/shared/white-bg-card";
 import React from "react";
 import TextWithComponent from "./text-with-component";
 import { LucideAward, LucideGem, LucideRecycle } from "lucide-react";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import HyperLink from "@/components/shared/hyperlink/hyperlink";
+import { WhiteBgCard } from "@/components/shared/white-bg-card";
 
 const rvmContent = [
   {
@@ -110,6 +110,8 @@ export default function WhatIsEcocan() {
                   className="border-none bg-white shadow-sm z-[997]"
                   key={index}
                   content={card.content}
+                  expandable={true}
+                  hasGradientBorder={true}
                 />
               ))}
             </div>
