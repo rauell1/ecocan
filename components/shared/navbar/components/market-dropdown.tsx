@@ -20,7 +20,7 @@ export function MarketDropdown() {
       <DropdownMenuTrigger asChild>
         <Button variant="link">ECOCAN Market</Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent className="w-80 z-[9997] p-6 rounded-smooth-sm border-none">
+      <DropdownMenuContent className="w-80 z-[9999] p-6 rounded-smooth-sm border-none">
         <DropdownMenuGroup className="space-y-4">
           <DropdownMenuItem className="focus:bg-[#F3F3F6] cursor-pointer group px-2 py-2 rounded-smooth-sm">
             <Link href="/" className="flex gap-2 items-center">

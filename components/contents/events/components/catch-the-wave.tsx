@@ -18,7 +18,7 @@ export default function CatchTheWave() {
         customCard={
           <CustomCard
             features={featureData}
-            className="bg-[#F3F3F6]"
+            className="bg-[#F3F3F6] h-fit lg:!rounded-smooth-lg"
             gap="gap-4"
           />
         }

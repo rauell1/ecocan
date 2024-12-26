@@ -82,7 +82,7 @@ export function RegisterDropdown({ isScrolled }: { isScrolled: Boolean }) {
         asChild
         className="focus:bg-[#F3F3F6] cursor-pointer group px-2 py-2 rounded-smooth-sm"
       >
-        <div onClick={(e) => e.preventDefault()}>
+        <div onClick={(e) => e.preventDefault()} className="z-[9999]">
           <Component
             downloadTrigger={trigger}
             trigger={trigger}
@@ -107,7 +107,7 @@ export function RegisterDropdown({ isScrolled }: { isScrolled: Boolean }) {
           Register
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent className="w-80 z-[9997] p-6 rounded-smooth-sm border-none">
+      <DropdownMenuContent className="w-80 z-[9999] p-6 rounded-smooth-sm border-none">
         <DropdownMenuGroup className="space-y-4">
           {dropdownItems.map(renderDropdownItem)}
         </DropdownMenuGroup>

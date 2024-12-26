@@ -36,7 +36,7 @@ export default function EventsHero() {
       <div className="lg:h-[36rem] xl:h-[47.575rem]">
         <div className="bg-[url('/assets/images/events/events-hero-bg.jpeg')] bg-center bg-cover mb-6 lg:mb-0 min-h-[24.735rem] flex items-center md:block md:h-[32.5625rem] lg:h-[35.875rem] xl:h-[46.85rem] relative after:absolute after:inset-0 after:content-[''] after:bg-black/70 after:opacity-70 after:z-10">
           <div className="h-full flex items-center">
-            <div className="w-full xl:max-w-[72rem] z-[9998] flex flex-col md:flex md:flex-row mx-auto lg:my-0 lg:gap-12 lg:pt-[3.125rem] xl:pt-0">
+            <div className="w-full xl:max-w-[72rem] z-[99] flex flex-col md:flex md:flex-row mx-auto lg:my-0 lg:gap-12 lg:pt-[3.125rem] xl:pt-0">
               <div className="flex flex-col gap-4 lg:mt-28 xl:mt-96 md:w-1/2 px-4 xl:px-0 text-white z-50">
                 <div>
                   <h1 className="xl:text-[4rem] text-5xl text-start font-semibold">

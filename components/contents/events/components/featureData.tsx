@@ -1,5 +1,7 @@
 import React from "react";
 import JoinEcommunity from "@/components/shared/join-ecommunity";
+import RegisterPopup from "@/components/shared/register-popup";
+import EcoEventsForm from "@/components/shared/eco-events-form";
 
 const featureData = [
   {
@@ -7,7 +9,9 @@ const featureData = [
     name: "Collabo with us",
     question: (
       <p className="font-normal text-secondary">
-        <JoinEcommunity
+        <RegisterPopup
+          form={<EcoEventsForm />}
+          join="Join the ECOmmunity"
           className="border-none px-0 text-primary underline underline-offset-4 hover:text-primary text-base h-0"
           showArrow={false}
         />{" "}

@@ -20,12 +20,12 @@ export default function TnT() {
       transition={{ duration: 0.3 }}
       className="transition-all duration-300 ease-in-out"
     >
-      <p className="text-[#23262fcc] font-light w-11/12">
-        The <span className="font-semibold">ECOCAN Track and Trace</span> is a robust
+      <p className="text-[#23262fcc] font-normal w-11/12">
+        The <span className="font-medium">ECOCAN Track and Trace</span> is a robust
         cloud-based platform, that disrupts counterfeit trade by enabling
-        AI-intelligent authentication, and real-time end-to-end traceability of
+        AI authentication, and real-time traceability of
         genuine products. The TnT further deploys advanced data analytics tools
-        to process the extensive data it collects, offering deeper insights and
+        to offer deeper insights and
         control
       </p>
       <div className="flex items-center mt-2">
@@ -48,10 +48,9 @@ export default function TnT() {
     {
       id: 1,
       step: (
-        <div className="font-light">
+        <div className="font-normal text-base">
           ECO-producers are empowered with comprehensive product traceability
-          capabilities, enabling them to monitor their products&apos;
-          circulation across the entire market, in real-time. This aids in
+          capabilities. This aids in
           immediate detection of illegal counterfeit and product diversion
           activities, allowing swift remedial action.
         </div>
@@ -60,7 +59,7 @@ export default function TnT() {
     {
       id: 2,
       step: (
-        <div className="font-light">
+        <div className="font-normal text-base">
           ECO-recyclers and ECO-producers are further facilitated to monitor in
           real-time, the collection and recycling of their post-consumer
           packaging.
@@ -70,7 +69,7 @@ export default function TnT() {
     {
       id: 3,
       step: (
-        <div className="font-light">
+        <div className="font-normal text-base">
           ECOnsumers on their part gain free access to the most reliable and
           convenient product verification technology. Which empowers them to
           easily identify genuine products, thus safeguard their health.
@@ -100,7 +99,7 @@ export default function TnT() {
         </button>
       </div>
       <div className="text-[#23262fcc] font-light space-y-4">
-        <CheckList items={steps} />,
+        <CheckList items={steps} />
       </div>
     </motion.div>
   );
@@ -109,13 +108,15 @@ export default function TnT() {
       <ImageAndItem
         className="gap-12"
         image={
-          <Image
+          <div className="relative rounded-smooth-xl overflow-hidden">
+            <Image
             src="/assets/images/solutions/tnt.png"
             alt="beach bottle"
-            width={1000}
-            height={1000}
-            className="w-full h-full rounded-[2rem]"
+            width={540}
+            height={540}
+            className="w-full h-full"
           />
+          </div>
         }
         item={
           <TextWithCards

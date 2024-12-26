@@ -80,10 +80,10 @@ export default function Intervention() {
             className="lg:flex-row-reverse items-center"
             image={
               <Image
-                src="/assets/images/solutions/intervention.svg"
+                src="/assets/images/solutions/intervention.png"
                 alt="ecocan scan"
                 className="rounded-smooth-lg lg:rounded-smooth-xl ms-auto"
-                width={500}
+                width={540}
                 height={100}
               />
             }

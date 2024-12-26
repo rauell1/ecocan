@@ -8,7 +8,7 @@ import ProcessPopup from "./process-popup";
 
 export default function Process() {
   return (
-    <div className="max-w-[72rem] mx-auto px-4 xl:px-0">
+    <section className="max-w-[72rem] mx-auto px-4 xl:px-0" id="recycling_process">
       <ImageAndItem
         className="items-center gap-12"
         image={
@@ -32,8 +32,6 @@ export default function Process() {
                   undergo rigorous quality inspection with top-of-the-line{" "}
                   <HyperLink link="Krones Linantronic" href="/" /> empty bottle
                   inspectors (I.B.I).
-                </p>
-                <p>
                   To ensure ECO-products are safely refilled in the most
                   hygienic, and highest quality, 100% re-used glass bottles.
                 </p>
@@ -43,6 +41,6 @@ export default function Process() {
           />
         }
       />
-    </div>
+    </section>
   );
 }

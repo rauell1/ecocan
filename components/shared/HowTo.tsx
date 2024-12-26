@@ -28,7 +28,7 @@ const HowTo: React.FC<HowToProps> = ({
   const Item = () => (
     <div className="lg:w-[31.3rem] lg:h-[33.75rem] ms-auto flex flex-col justify-center">
       <div className="mt-1 mb-8">
-        <p className="text-3xl lg:text-[2rem] font-semibold pb-1">{itemsTitle}</p>
+        <p className="text-3xl lg:text-[2rem] font-medium pb-1">{itemsTitle}</p>
         <p className="lg:text-xl text-secondary font-light">{itemsSubtitle}</p>
       </div>
       {items.map((data) => (

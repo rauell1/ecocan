@@ -11,6 +11,8 @@ import HowToJoin from "./components/how-to-join";
 import Efficiency from "./components/efficiency";
 import DepositRefundSystem from "../recycler/components/drs";
 import DrsTakeover from "./components/drs-takeover";
+import RegisterPopup from "@/components/shared/register-popup";
+import EcoProducerForm from "@/components/shared/eco-producer-form";
 
 export default function ProducerContent() {
   return (
@@ -23,7 +25,7 @@ export default function ProducerContent() {
       <Optimize />
       <Efficiency />
       <DepositRefundSystem />
-      <DrsTakeover/>
+      <DrsTakeover />
       <div className="space-y-24 py-8 max-w-[72rem] mx-auto px-4 xl:px-0">
         {/* faq */}
         <FaqSection />
@@ -49,6 +51,7 @@ export default function ProducerContent() {
                   clean-loop recycled
                 </p>
               }
+              component={<RegisterPopup join="Join ECOmmunity" className="bg-[#FFDD4C] hover:bg-[#FFDD4C] w-3/5 text-black hover:text-black no-underline font-medium" form={<EcoProducerForm />}  showArrow={true}/>}
             />
           }
         />

@@ -73,10 +73,15 @@ export default function EcostationForm({
   }
 
   return (
-    <Card className={clsx("rounded-2xl w-5/6 ms-auto border-none shadow-none", className)}>
+    <Card
+      className={clsx(
+        "rounded-smooth lg:rounded-smooth-lg w-5/6 ms-auto border-none shadow-none",
+        className
+      )}
+    >
       <CardHeader className="text-[#23262FCC]">
         <CardTitle className="text-3xl text-black">{title}</CardTitle>
-        <CardDescription className="xl:text-sm font-light text-black">
+        <CardDescription className="text-black">
           Already in the ECOmmunity?{" "}
           <Link href="/" className="text-green-500 hover:underline">
             Log in
@@ -89,13 +94,30 @@ export default function EcostationForm({
             <div className="grid grid-cols-2 gap-4">
               <FormField
                 control={form.control}
-                name="businessName"
+                name="businessType"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Business Legal Name</FormLabel>
-                    <FormControl>
-                      <Input placeholder="Enter business name" {...field} />
-                    </FormControl>
+                    <FormLabel>Business Type</FormLabel>
+                    <Select
+                      onValueChange={field.onChange}
+                      defaultValue={field.value}
+                    >
+                      <FormControl>
+                        <SelectTrigger>
+                          <SelectValue
+                            placeholder="Type of business"
+                            className="placeholder:text-secondary"
+                          />
+                        </SelectTrigger>
+                      </FormControl>
+                      <SelectContent className="z-[9999]">
+                        <SelectItem value="shop">Shop</SelectItem>
+                        <SelectItem value="liquorStore">Liquor Store</SelectItem>
+                        <SelectItem value="supermarket">Supermarket</SelectItem>
+                        <SelectItem value="bar">Bar</SelectItem>
+                        <SelectItem value="restaurant">Restaurant</SelectItem>
+                      </SelectContent>
+                    </Select>
                     <FormMessage />
                   </FormItem>
                 )}
@@ -122,28 +144,13 @@ export default function EcostationForm({
             <div className="grid grid-cols-2 xl:grid-cols-1 gap-4">
               <FormField
                 control={form.control}
-                name="businessType"
+                name="businessName"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Business Type</FormLabel>
-                    <Select
-                      onValueChange={field.onChange}
-                      defaultValue={field.value}
-                    >
-                      <FormControl>
-                        <SelectTrigger>
-                          <SelectValue
-                            placeholder="Type of businesss"
-                            className=" placeholder:text-secondary"
-                          />
-                        </SelectTrigger>
-                      </FormControl>
-                      <SelectContent>
-                        <SelectItem value="type1">Type 1</SelectItem>
-                        <SelectItem value="type2">Type 2</SelectItem>
-                        <SelectItem value="type3">Type 3</SelectItem>
-                      </SelectContent>
-                    </Select>
+                    <FormLabel>Business Legal Name</FormLabel>
+                    <FormControl>
+                      <Input placeholder="Enter business name" {...field} />
+                    </FormControl>
                     <FormMessage />
                   </FormItem>
                 )}
@@ -172,10 +179,10 @@ export default function EcostationForm({
                     <div className="flex">
                       <Select>
                         <SelectTrigger className="w-[80px]">
-                          <SelectValue placeholder="+233" />
+                          <SelectValue placeholder="+254" />
                         </SelectTrigger>
-                        <SelectContent>
-                          <SelectItem value="+233">+233</SelectItem>
+                        <SelectContent className="z-[9999]">
+                          <SelectItem value="+233">+254</SelectItem>
                           <SelectItem value="+1">+1</SelectItem>
                           <SelectItem value="+44">+44</SelectItem>
                         </SelectContent>

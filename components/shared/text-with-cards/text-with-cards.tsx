@@ -22,7 +22,7 @@ export default function TextWithCards({
         <h2 className="font-medium text-3xl lg:text-5xl tracking-tight">{title}</h2>
         <div>
           <div>{subtitle}</div>
-          <div className="text-base lg:text-lg text-secondary font-light">{description}</div>
+          <div className="text-base lg:text-xl font-normal text-secondary">{description}</div>
         </div>
       </div>
       {customCard}

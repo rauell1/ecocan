@@ -34,7 +34,7 @@ export default function ProducerHero() {
         linkColor={isScrolled ? "text-black" : "text-white"}
       />
       <div className="lg:h-[36rem] xl:h-[47.575rem]">
-        <div className="bg-[url('/assets/images/producer/hero.svg')] mb-6 lg:mb-0 min-h-[24.735rem] flex items-center md:block md:h-[32.5625rem] lg:h-[35.875rem] xl:h-[46.85rem] bg-cover lg:bg-[position:350px_0px] relative after:absolute after:inset-0 after:content-[''] after:bg-black/50 after:opacity-70 after:z-10">
+        <div className="bg-[url('/assets/images/producer/hero.svg')] mb-6 lg:mb-0 min-h-[24.735rem] flex items-center md:block md:h-[32.5625rem] lg:h-[35.875rem] xl:h-[46.85rem] bg-[length:130%] lg:bg-[position:-100px_0px] relative after:absolute after:inset-0 after:content-[''] after:bg-black/10 after:z-10">
           <div className="h-full flex items-center">
             <div className="w-full xl:max-w-[72rem] z-[9998] flex flex-col md:flex md:flex-row mx-auto lg:my-0 lg:gap-12">
               <div className="px-4 xl:px-0 text-white z-50">
@@ -61,7 +61,7 @@ export default function ProducerHero() {
                   <span className="text-[2.1875rem] font-semibold">o</span>
                   <span className="text-[2.0625rem] font-semibold">n</span>
                 </h2>
-                <div className="tracking-wide text-base xl:text-lg font-light text-white">
+                <div className="tracking-wide text-base xl:text-lg text-white">
                   <p className="text-left">
                     With ECOCAN, it&apos;s not business as usual.
                   </p>

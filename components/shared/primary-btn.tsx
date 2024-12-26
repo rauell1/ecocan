@@ -25,8 +25,8 @@ export default function PrimaryButton({
           className
         )}
       >
-        {buttonIcon}
         <span className="relative z-10 text-base">{buttonText}</span>
+        {buttonIcon}
       </Button>
     </Link>
   );

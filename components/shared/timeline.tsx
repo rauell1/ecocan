@@ -33,7 +33,7 @@ const Timeline: React.FC<TimelineProps> = ({
       <div className="relative hidden md:block">
         <div
           className={clsx(
-            "absolute left-[45%] md:left-[40%] top-0 w-[1px] bg-white transform -translate-x-1/2",
+            "absolute left-[45%] md:left-[38%] top-0 w-[1px] bg-white transform -translate-x-1/2",
             className
           )}
           style={{ height: lineHeight }}
@@ -49,8 +49,8 @@ const Timeline: React.FC<TimelineProps> = ({
             <div className="flex items-stretch">
               {/* Left side with image */}
               <div className="w-2/5 md:pr-8">
-                <div className="relative md:w-11/12">
-                  <div className="w-full h-36 md:h-[12.5rem] rounded-smooth lg:rounded-smooth-lg overflow-hidden relative">
+                <div className="relative md:w-10/12">
+                  <div className="w-full h-36 md:h-[12.5rem] rounded-none overflow-hidden relative">
                     <Image
                       src={item.image}
                       alt={item.title}
@@ -65,7 +65,7 @@ const Timeline: React.FC<TimelineProps> = ({
               </div>
 
               {/* Connector dot */}
-              <div className="absolute left-[45%] md:left-[40%] top-0 -translate-x-1/2">
+              <div className="absolute left-[45%] md:left-[38%] top-0 -translate-x-1/2">
                 <div
                   className={clsx(
                     "w-3 h-3 bg-white transition-transform duration-300",

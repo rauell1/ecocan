@@ -45,7 +45,7 @@ export default function BusinessInsights() {
           </div>
         }
         subtitle={
-          <div className="lg:w-4/5 text-start font-light">
+          <div className="lg:w-4/5 text-start">
             Make data-driven decisions with insights from the <HyperLink link='ECOCAN TnT' href='/solutions/brand-protection#tnt'/>, giving
             you full visibility into your operations, allowing you to track Key
             Performance Indicators

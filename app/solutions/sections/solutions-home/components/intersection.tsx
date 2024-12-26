@@ -29,8 +29,8 @@ export default function Intersection() {
                 products, which they resell as authentic
               </li>
               <li>
-                And consumers will be unable to identify these illicits, as
-                they&apos;ll appear identical to genuine drinks
+                And consumers are not able to distinguish these harmful illicits
+                with the naked eye
               </li>
             </ol>
           </div>
@@ -48,7 +48,7 @@ export default function Intersection() {
             <p className="text-[#888D92] text-sm lg:text-base my-4 lg:my-0">
               Personalised promotion of genuine brands; Empowering consumers
               with reliable technology to verify genuine products before
-              purchase; And facilitating them to easily recycle empties after
+              purchase; And incentivising them to recycle empties after
               consumption, addresses both crises
             </p>
           </div>

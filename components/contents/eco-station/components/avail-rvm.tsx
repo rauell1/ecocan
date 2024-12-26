@@ -15,10 +15,10 @@ export default function AvailRvm() {
             <Image
               src="/assets/images/eco-station/avail-rvm.svg"
               alt="RVM"
-              className="object-cover rounded-3xl w-full h-full"
+              className="object-cover"
               priority
-              width={1000}
-              height={1000}
+              width={540}
+              height={540}
             />
           }
           item={
@@ -32,7 +32,7 @@ export default function AvailRvm() {
                 </div>
               }
               description={
-                <p className="pt-8 pb-12 font-light">
+                <p className="pt-8 pb-12">
                   If over 100 ECOnsumers return empties to you every day, we can
                   help set up an <span className="font-semibold">ECOcan.</span> To
                   boost your efficiency, and offer ECOnsumers unforgettable
@@ -43,7 +43,7 @@ export default function AvailRvm() {
               component={
                 <PrimaryButton
                   buttonText="Learn more"
-                  buttonLink="/drs-takeover"
+                  buttonLink="/eco-friendly-cans"
                   className="hover:bg-primary mt-auto"
                 />
               }

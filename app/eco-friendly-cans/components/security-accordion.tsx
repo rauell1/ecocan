@@ -1,0 +1,56 @@
+import ImageAndItem from "@/components/shared/image-and-item/image-and-item";
+import React, { useState, useEffect } from "react";
+import Image from "next/image";
+import { AccordionDemo } from "./accordion-demo";
+
+const images = [
+  "/assets/images/eco-station/qr.svg",
+  "/assets/images/eco-station/insurance.svg",
+  "/assets/images/eco-station/game.svg",
+  "/assets/images/eco-station/insights.svg",
+];
+
+export default function SecurityAccordion() {
+  const [selectedImage, setSelectedImage] = useState(0);
+  const [preloadedImages, setPreloadedImages] = useState<string[]>([]);
+
+  useEffect(() => {
+    const preloadImages = () => {
+      images.forEach((src) => {
+        const img = new window.Image();
+        img.src = src;
+      });
+      setPreloadedImages(images);
+    };
+    preloadImages();
+  }, []);
+
+  const handleAccordionSelect = (id: number) => {
+    setSelectedImage(id - 1);
+  };
+
+  return (
+    <ImageAndItem
+      className="gap-8 lg:gap-12 items-center pt-5"
+      image={
+        <div className="relative w-full h-[24rem] lg:h-[33.75rem] rounded-smooth-xl overflow-hidden hidden lg:block">
+          {preloadedImages.map((src, index) => (
+            <Image
+              key={src}
+              src={src}
+              alt={`EcocanApp step ${index + 1}`}
+              className={`absolute top-0 left-0 w-full h-full object-cover transition-opacity duration-300 ease-in-out ${
+                index === selectedImage ? "opacity-100" : "opacity-0"
+              }`}
+              width={500}
+              height={500}
+              priority={index === 0}
+              loading="eager"
+            />
+          ))}
+        </div>
+      }
+      item={<AccordionDemo onSelect={handleAccordionSelect} />}
+    />
+  );
+}

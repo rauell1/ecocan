@@ -4,35 +4,33 @@ import React from "react";
 
 const factData = [
   {
-    title: <h1 className="text-lg">Energy Saver</h1>,
+    title: <h1 className="text-lg">Energy savings</h1>,
     description: (
-      <p className="text-sm">
-        Recycling just one aluminum can saves up to 95% of the energy needed to
-        make a new one. In fact, the energy saved could power your TV for three
-        whole days!
+      <p className="text-sm lg:w-10/12">
+        Recycling just <span className="font-bold">one glass bottle</span> saves
+        enough energy to power your computer for over{" "}
+        <span className="font-bold">30 minutes</span>
       </p>
     ),
     imagePath: "bg-[url('/assets/images/solutions/energy-saving.svg')]",
   },
   {
-    title: <h1 className="text-lg">Zero Waste, Full Impact</h1>,
+    title: <h1 className="text-lg">Lowers Carbon Emissions</h1>,
     description: (
-      <p className="text-sm">
-        100% of collected aluminum cans can be used to make new ones, with zero
-        waste. Incredible, right? So, return your used cans to the nearest
-        ECO-station for recycling!
+      <p className="text-sm lg:w-10/12">
+        Recycling a single glass bottle can reduce CO₂ emissions by around{" "}
+        <span className="font-bold">0.5 kg</span>
       </p>
     ),
     imagePath: "bg-[url('/assets/images/solutions/zero-waste.svg')]",
   },
   {
-    title: <h1 className="text-lg">The Recycling Journey</h1>,
+    title: <h1 className="text-lg">Health</h1>,
     description: (
-      <p className="text-sm">
-        ECO-couriers pick up your cans and deliver them to ECO-recyclers, who
-        smelt them into ingots. These ingots are pressed into thin sheets to
-        make new cans, ensuring your next Eco-product arrives in a fully
-        recycled, eco-friendly container.
+      <p className="text-sm lg:w-10/12">
+        Glass bottles are completely natural packaging which contain no harmful
+        chemicals, additives, nor impurities. This ensures contents are
+        perfectly preserved as intended, most sustainably.
       </p>
     ),
     imagePath: "bg-[url('/assets/images/solutions/recycling.svg')]",
@@ -48,13 +46,12 @@ export default function Glass() {
           <div className="space-y-6 border lg:h-[34.375rem] xl:h-[40rem] p-4 rounded-3xl bg-[#D9D9D9] flex flex-col justify-end bg-[url('/assets/images/solutions/aluminium-cans-green.svg')] bg-cover relative after:absolute after:inset-0 after:content-[''] after:bg-black/30 after:opacity-70 after:z-10 overflow-hidden">
             <TextWithComponent
               className="bg-[#29292945] backdrop-blur-[2px] rounded-xl overflow-hidden p-3 relative z-[999] text-white"
-              title="Did You Know?"
+              title={<span className="text-3xl">Infinite Recycling</span>}
               description={
                 <p className="text-white">
-                  That used aluminium cans are some of the most valuable scrap
-                  materials in the whole world? And that they can be recycled
-                  indefinitely without losing material value—yes, recycled
-                  forever!
+                  Like aluminium cans and PET chemical recycling, glass bottles
+                  can be recycled indefinitely without degrading in quality.
+                  Forever!
                 </p>
               }
             />
