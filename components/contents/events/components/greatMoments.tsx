@@ -1,6 +1,8 @@
 import React from "react";
 import CtaCard from "@/components/shared/cta-card/cta-card";
 import TextWithComponent from "../../consumer/components/text-with-component";
+import EcoEventsForm from "@/components/shared/eco-events-form";
+import RegisterPopup from "@/components/shared/register-popup";
 
 const GreatMoments = () => {
   return (
@@ -12,9 +14,17 @@ const GreatMoments = () => {
             <h2 className="text-white text-[2.5rem] mb-3">Great moments</h2>
           }
           description={
-            <span className="text-white font-bold">
+            <span className="text-white">
               With the lightest footprint
             </span>
+          }
+          component={
+            <RegisterPopup
+              join="Join ECOmmunity"
+              className="bg-[#FFDD4C] hover:bg-[#FFDD4C] w-3/5 text-black hover:text-black no-underline font-medium"
+              form={<EcoEventsForm />}
+              showArrow={true}
+            />
           }
         />
       }

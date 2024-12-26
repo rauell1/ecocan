@@ -31,8 +31,6 @@ const accordionData: AccordionData[] = [
           Our systems are designed for maximum security with real time
           traceability. Leverage this to secure your ticket sales with
           serialised <HyperLink link="ECOCAN Security codes" href="/solutions/brand-protection#security-codes" />.
-        </p>
-        <p>
           The <HyperLink link="TnT" href="/solutions/brand-protection#tnt" /> will then monitor entry
           verification, and instantly alert of any irregularities
         </p>
@@ -56,8 +54,7 @@ const accordionData: AccordionData[] = [
     description: (
       <>
         Keep fans informed with proactive updates sent directly to their
-        EcocanApp inbox. Which also enables them request for flexible refunds
-        or communicate cancellations with ease.
+        EcocanApp inbox.
       </>
     ),
   },
@@ -120,7 +117,7 @@ export function AccordionDemo({
               </AccordionTrigger>
             </div>
           </div>
-          <AccordionContent className="text-secondary text-base">
+          <AccordionContent className="text-secondary text-base lg:w-10/12">
             {item.description}
           </AccordionContent>
         </AccordionItem>

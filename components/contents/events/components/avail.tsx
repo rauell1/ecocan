@@ -12,9 +12,9 @@ export default function Avail() {
         image={
           <Image
             src="/assets/images/events/rvm.svg"
-            alt="Online store"
+            alt="ECOCAN RVM"
             priority
-            width={500}
+            width={540}
             height={100}
             className="ms-auto"
           />
@@ -34,15 +34,16 @@ export default function Avail() {
                 <div>
                   By teaming up with us, the turnout will be massive for sure;
                   and you&apos;ll sell more drinks, meaning empties will be
-                  plenty to collect.
+                  plenty to collect. So, to boost collection efficiency and give
+                  your fans an unforgettable recycling experience, we&apos;ll
+                  bring over our intelligent RVMs.
                 </div>
                 <div>
-                  So, to boost collection efficiency and give your fans an
-                  unforgettable recycling experience, we&apos;ll bring over our
-                  intelligent RVMs.
-                </div>
-                <div>
-                  <PrimaryButton buttonText="Learn more" buttonLink="/drs-takeover" className="hover:bg-primary"/>
+                  <PrimaryButton
+                    buttonText="Learn more"
+                    buttonLink="/drs-takeover"
+                    className="hover:bg-primary"
+                  />
                 </div>
               </div>
             }
