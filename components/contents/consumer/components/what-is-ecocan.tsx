@@ -57,7 +57,7 @@ const rvmContent = [
           increasing refund efficiency, conserving our forests, and reducing
           receipt litter
         </p>
-       <HyperLink href="/drs-takeover" link="Learn more" className="text-secondary font-semibold"/>
+       <HyperLink href="/eco-friendly-cans" link="Learn more" className="text-secondary font-semibold"/>
       </div>
     ),
   },
