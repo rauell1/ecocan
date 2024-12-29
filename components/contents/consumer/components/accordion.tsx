@@ -26,7 +26,7 @@ const accordionData: AccordionData[] = [
       <div className="space-y-2 w-11/12">
         <div>
           <ScanqrPopup join="Download EcocanApp" className="h-0 font-normal" />{" "}
-          here, sign up in under 2 minutes, and start earning today!
+          here, sign up in under 2 minutes, and start your sustainability journey today!
         </div>
         <div>
           {" "}

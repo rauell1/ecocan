@@ -56,14 +56,15 @@ const ecoStationFeatures = [
     name: "Increase revenues",
     question: (
       <p className="font-normal  text-secondary">
-        ECOnsumers will keep coming your way. Ensure you have sufficient stock
+        ECO-Producers will offer better terms, while ECOnsumers will keep coming
+        your way.
       </p>
     ),
     answer: (
       <div className="space-y-4  text-secondary">
         <div>
-          And for those redeeming deposits, 60% will most likely spend it right
-          back in your store!
+          And for those redeeming deposits, over 60% will most likely spend it
+          right back to your store
         </div>
       </div>
     ),

@@ -55,7 +55,7 @@ const NavigationBar: React.FC<NavigationBarProps> = ({
   return (
     <nav
       className={clsx(
-        "fixed top-0 left-0 right-0 md:px-4 z-[999] transition-all duration-300",
+        "fixed top-0 left-0 right-0 md:px-4 z-[9995] transition-all duration-300",
         isOpen ? "bg-white" : "",
         className
       )}

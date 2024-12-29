@@ -35,7 +35,7 @@ const Partners = () => {
           Building on our collaborative spirit, you&apos;ll join these strategic
           partners, who are instrumental to bringing our aspirations to
           fruition. Cheers to them, or as we say in Finland;{" "}
-          <HyperLink link="hölökyn kölökyn!" href="/" />
+          <span className="text-primary">hölökyn kölökyn!</span>
         </p>
         <div className="grid grid-cols-3 gap-x-6 md:grid-cols-5">
           {logos.map((logo, index) => (

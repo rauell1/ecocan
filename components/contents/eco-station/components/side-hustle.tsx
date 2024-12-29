@@ -32,8 +32,7 @@ export default function SideHustle() {
               </p>
               <div className="text-secondary lg:text-xl">
                 And the TnT will dispatch <HyperLink href="#faq" link="ECOuries" />{" "}
-                on <HyperLink href="#faq" link="Electric mobility" /> just-in-time;
-                boosting productivity, while cutting CO2e & energy consumption.
+                on <HyperLink href="#faq" link="Electric mobility" /> just-in-time.
                 You may also request for ECO-products supplies via this Ping
                 function, with just a tap of a button.
               </div>

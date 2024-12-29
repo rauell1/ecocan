@@ -24,7 +24,7 @@ export default function DefaultHero() {
         }
         linkColor={isScrolled ? "text-black" : "text-white"}
       />
-      <div className="lg:h-[36rem] xl:h-[47.575rem]">
+      <div>
         <div className="bg-[url('/assets/images/consumer/hero-bg.jpeg')] bg-center lg:h-[35.875rem] xl:h-[46.85rem] pt-[3.575rem] relative after:absolute after:inset-0 after:content-[''] after:bg-black/90 after:opacity-70 after:z-10">
           <div className="xl:max-w-[72rem] flex flex-col lg:flex lg:flex-row mx-auto lg:gap-12 relative">
             <div className="flex flex-col gap-4 md:w-3/4 pt-12 lg:pt-0 lg:w-1/2 px-4 xl:px-0 text-white z-[99] lg:items-center justify-center lg:space-y-4">

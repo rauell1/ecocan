@@ -76,7 +76,6 @@ export default function Operational() {
         setImagesPreloaded(true);
       } catch (error) {
         console.error("Error preloading images:", error);
-        // Still set as preloaded to not block the UI
         setImagesPreloaded(true);
       }
     };
@@ -115,13 +114,14 @@ export default function Operational() {
         <ImageAndItem
           className="lg:gap-12 lg:flex-row-reverse"
           image={
-            <div className="xl:w-[31.25rem] hidden lg:block w-4/6 lg:w-full mx-auto lg:mx-0 lg:h-[31.25rem] overflow-hidden">
+            <div className="xl:w-[31.25rem] hidden lg:block w-4/6 lg:w-full mx-auto lg:mx-0 lg:h-[33.75rem] overflow-hidden">
               <Image
                 src={currentImage}
                 alt={`Slide ${currentIndex + 1} image`}
-                width={500}
-                height={500}
+                width={540}
+                height={540}
                 priority={true}
+                loading="eager"
                 className={`w-full h-full transition-opacity duration-300 ${
                   isTransitioning ? "opacity-0" : "opacity-100"
                 }`}

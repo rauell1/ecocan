@@ -31,7 +31,7 @@ const CustomSwitch: React.FC<CustomSwitchProps> = ({ isActive, onToggle }) => {
 };
 
 export default function Advantages() {
-  const [isActive, setIsActive] = useState(false);
+  const [isActive, setIsActive] = useState(true);
   return (
     <div>
       <TextWithCards

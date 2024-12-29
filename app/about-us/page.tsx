@@ -10,6 +10,7 @@ import CarouselPage3 from "./components/carousel-page-3";
 import CarouselPage4 from "./components/carousel-page-4";
 import CarouselPage5 from "./components/carousel-page-5";
 import Footer from "@/components/shared/footer/footer";
+import CarouselPage6 from "./components/carousel-page-6";
 
 interface NavbarConfig {
   variant: "transparent-white" | "transparent-dark" | "default";
@@ -21,10 +22,10 @@ export default function AboutPage() {
   const navbarConfigs: NavbarConfig[] = [
     { variant: "transparent-white" }, // For page 1
     { variant: "default" }, // For page 2
-    { variant: "transparent-white" }, // For page 3
+    { variant: "default" }, // For page 3
     { variant: "transparent-white" }, // For page 4
-    { variant: "default" }, // For page 5
-    // Add more configurations for additional pages
+    { variant: "transparent-white" }, // For page 5
+    { variant: "default" }, // For page 6
   ];
   const getNavbarProps = () => {
     const currentConfig = navbarConfigs[currentPage];
@@ -65,6 +66,7 @@ export default function AboutPage() {
         <CarouselPage3 />
         <CarouselPage4 />
         <CarouselPage5 />
+        <CarouselPage6 />
       </Carousel>
     </>
   );

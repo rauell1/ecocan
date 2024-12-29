@@ -62,7 +62,7 @@ const FeaturesGrid: React.FC<FeaturesGridProps> = ({
         onMouseEnter={() => handleMouseEnter(feature.id)}
         onMouseLeave={handleMouseLeave}
       >
-        <div className="w-[2.9375rem] h-[2.9375rem] overflow-hidden relative z-[999]">
+        <div className="w-[2.9375rem] h-[2.9375rem] overflow-hidden relative z-[95]">
           <Image
             src={feature.icon}
             alt={`${feature.name} icon`}
@@ -71,7 +71,7 @@ const FeaturesGrid: React.FC<FeaturesGridProps> = ({
             height={47}
           />
         </div>
-        <div className="text-xl my-4 font-semibold relative z-[999]">
+        <div className="text-xl my-4 font-medium relative z-[999]">
           {feature.name}
         </div>
         <div className="max-w-sm relative z-[999]">

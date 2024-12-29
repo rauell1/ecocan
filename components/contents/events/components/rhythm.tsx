@@ -25,7 +25,7 @@ export default function Rhythm() {
               <div className="space-y-6">
                 <div>
                   We&apos;ve rolled out the Red Carpet for ECOnsumers and
-                  availed the ECOCAN RVMs. You can as well sprinkle in a
+                  availed the ECOcans. You can as well sprinkle in a
                   surprise package.
                   That we create a truly immersive and unforgettable ECO-Event.
                   Exceeding your fans expectation.
