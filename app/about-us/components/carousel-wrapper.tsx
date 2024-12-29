@@ -34,7 +34,6 @@ const Carousel: React.FC<CarouselProps> = ({
       setCurrentPage(currentPage + 1);
       onPageChange?.(currentPage + 1);
       
-      // Reset transition lock after animation
       setTimeout(() => setIsTransitioning(false), 1000);
     }
   }, [currentPage, pages.length, setCurrentPage, onPageChange, isTransitioning]);

@@ -75,7 +75,7 @@ const products = [
 export default function Products() {
   return (
     <section className="space-y-24" id="product-list">
-      <div className="flex items-center justify-between">
+      <div className="flex items-center justify-between gap-4 md:gap-0">
         <form className="border border-[#E6E8EC] bg-white rounded-full flex items-center lg:w-2/5">
           <LucideSearch className="text-secondary ms-4" />
           <Input
@@ -96,7 +96,7 @@ export default function Products() {
           <p>Filter by</p>
         </div>
       </div>
-      <div className="grid grid-cols-5 gap-4">
+      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
         {products.map((product, index)=> (
             <Card key={index}>
             <CardHeader>

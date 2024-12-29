@@ -36,12 +36,12 @@ export default function Avail() {
                   and you&apos;ll sell more drinks, meaning empties will be
                   plenty to collect. So, to boost collection efficiency and give
                   your fans an unforgettable recycling experience, we&apos;ll
-                  bring over our intelligent RVMs.
+                  bring over our intelligent ECOcans.
                 </div>
                 <div>
                   <PrimaryButton
                     buttonText="Learn more"
-                    buttonLink="/drs-takeover"
+                    buttonLink="/eco-friendly-cans"
                     className="hover:bg-primary"
                   />
                 </div>

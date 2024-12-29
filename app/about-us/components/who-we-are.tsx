@@ -21,7 +21,7 @@ export default function WhoWeAre() {
             empowers and connects consumers, retailers, producers and recyclers,
             for sustainable commerce. This dynamic offering is powered by the{" "}
             <HyperLink link="ECOCAN TnT:" href="/solutions/brand-protection#tnt" /> a revolutionary technology
-            leveraging IoT, Blockchain, and AI. To enable reliable product
+            leveraging IoT and AI. To enable reliable product
             authentication before purchase, facilitate elaborate empties
             recycling after consumption, and offer comprehensive insights and
             deep market intelligence. Giving stakeholders greater and

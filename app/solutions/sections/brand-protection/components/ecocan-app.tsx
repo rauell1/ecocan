@@ -1,22 +1,14 @@
-import CheckList from "@/components/contents/consumer/components/checklist";
-import TextWithComponent from "@/components/contents/consumer/components/text-with-component";
-import ImageAndItem from "@/components/shared/image-and-item/image-and-item";
-import { ecocanMobile } from "@/lib/imageIndex";
 import Image from "next/image";
 import React from "react";
-import EcocanAppFeatures from "./ecocan-app-features";
-import { Nunito_Sans } from "next/font/google";
-import PrimaryButton from "@/components/shared/primary-btn";
 import ScanqrPopup from "@/components/shared/scan-qr";
 
-const nunitoSans = Nunito_Sans({ subsets: ["latin"] });
 
 export default function EcocanApp() {
   return (
-    <div className="space-y-12">
-      <div className={`text-center space-y-4 ${nunitoSans.className}`}>
+    <section id="ecocan-app" className="space-y-12 border py-24">
+      <div className="text-center space-y-4">
         <h2 className="text-3xl lg:text-5xl font-medium">EcocanApp</h2>
-        <p className="text-[#2F313F] lg:w-4/5 xl:w-1/2 mx-auto lg:text-xl">
+        <p className="text-secondary lg:w-4/5 xl:w-1/2 mx-auto lg:text-xl">
           EcocanApp is our proprietary,{" "}
           <span className="font-bold">free to use</span> mobile application,
           enabling ECOnsumers to easily and reliably verify genuine products. By
@@ -38,6 +30,6 @@ export default function EcocanApp() {
           join="Download App"
         />
       </div>
-    </div>
+    </section>
   );
 }

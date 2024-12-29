@@ -3,7 +3,7 @@ import Timeline from "@/components/shared/timeline";
 import React from "react";
 
 const timelineData = {
-  title: "How to return eligible empties",
+  title: "Returning eligible empties",
   subtitle: (
     <div className="md:w-11/12">
       Only return empties of <span className="font-medium">Aluminium cans, PET plastics, Glass bottles and
@@ -29,7 +29,7 @@ const timelineData = {
       image: "/assets/images/consumer/recycle.svg",
       title: "Or recycle via ECOCANs",
       description:
-        "Show your ECOCAN ID to the scanners located at the front of the devise, place your empties into the infeed, then complete the session; or wait for 15 seconds for the session to end automatically. And you’ll immediately receive applicable deposit money directly into your ECO-wallet",
+        "Show your ECOCAN ID to the scanners located at the front of the devise, place your empties into the infeed, then complete the session. And you’ll immediately receive applicable deposit money directly into your ECO-wallet",
     },
     {
       image: "/assets/images/consumer/how.svg",

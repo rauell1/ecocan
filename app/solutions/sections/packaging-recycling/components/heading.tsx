@@ -13,7 +13,7 @@ const consumerFeatures = [
       </>
     ),
     question: (
-      <p className="font-normal">
+      <p className="font-normal text-[#42526B]">
         are consumed <span className="font-medium">every second</span> globally, but <span className="font-medium">86%</span> of used bottles are{" "}
         <span className="lowercase">
           CARELESSLY LITTERED, DUMPED, OR BURNT IN OPEN AIR!
@@ -30,11 +30,8 @@ const consumerFeatures = [
       </>
     ),
     question: (
-      <p className="font-normal">
-        are used <span className="font-medium">every hour</span>, but 80% of empties are mismanaged; lack OF{" "}
-        <span className="lowercase">
-          WILL TO RECYCLE PLAYS A MAJOR ROLE TO THIS CRISIS
-        </span>
+      <p className="font-normal text-[#42526B] lowercase">
+        are used <span className="font-medium">every hour</span> worldwide, BUT <span className="font-semibold">80%</span> of empties are mismanaged; lack OF will TO RECYCLE Majorly contributes to this 
       </p>
     ),
     icon: "/assets/images/solutions/glass-bottle.svg",
@@ -47,8 +44,8 @@ const consumerFeatures = [
       </>
     ),
     question: (
-      <p className="font-normal w-11/12">
-        are consumed <span className="font-medium">everyday</span> but <span className="font-medium">30%</span> OF empties are mismanaged;{" "}
+      <p className="font-normal text-[#42526B]">
+        are consumed <span className="font-medium">everyday</span> but <span className="font-medium">30%</span> of empties are mismanaged;{" "}
         <span className="lowercase">INADEQUATE RECYCLING SYSTEMS</span> fuel
         this problem
       </p>

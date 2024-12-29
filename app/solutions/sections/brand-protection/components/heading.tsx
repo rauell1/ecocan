@@ -15,7 +15,7 @@ const steps = [
   {
     id: 1,
     step: (
-      <div className="font-normal">
+      <div className="font-normal text-base">
         The value of illicit trade is estimated at USD 8 Billion, with 60% of
         all alcoholic sales being illicit! (3 out of 5 sales){" "}
       </div>
@@ -24,7 +24,7 @@ const steps = [
   {
     id: 2,
     step: (
-      <div className="font-normal">
+      <div className="font-normal text-base">
         Genuine beverage producers lose on average 40% of their market shares,
         resulting in a total fiscal loss estimated at over USD $500 million.
       </div>
@@ -33,7 +33,7 @@ const steps = [
   {
     id: 3,
     step: (
-      <div className="font-normal">
+      <div className="font-normal text-base">
         And hundreds of lives are lost, millions of health harmed, and over
         50,000 legitimate jobs lost annually (2022)
       </div>
@@ -45,7 +45,7 @@ const steps2 = [
   {
     id: 1,
     step: (
-      <div className="font-normal">
+      <div className="font-normal text-base">
         In Ghana, Nigeria, Tanzania, Uganda, Zambia, Mozambique and South Africa, over 40% of total alcohol sales is illicit
       </div>
     ),
@@ -53,7 +53,7 @@ const steps2 = [
   {
     id: 2,
     step: (
-      <div className="font-normal">
+      <div className="font-normal text-base">
         With total illicit production exceeding five million HL LAE, valued at over US$5 billion in 2017
       </div>
     ),
@@ -61,7 +61,7 @@ const steps2 = [
   {
     id: 3,
     step: (
-      <div className="font-normal">
+      <div className="font-normal text-base">
         Mismanaged empties, inadequate anti-counterfeit capabilities, and weak regulatory enforcement fuels this illegal trade
       </div>
     ),
@@ -112,7 +112,7 @@ export default function Heading() {
                 <CarouselContent className="py-4 mt-12">
                   {litterContent.map((item, index) => (
                     <CarouselItem key={index} className="basis-full">
-                      <div className="lg:flex gap-8">
+                      <div className="lg:flex gap-6 items-center">
                         <div className="lg:w-1/2">
                           <Image
                             src={item.image}

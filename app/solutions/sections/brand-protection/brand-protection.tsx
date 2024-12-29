@@ -8,15 +8,19 @@ import Heading from "./components/heading";
 
 export default function BrandProtection() {
   return (
-    <div className="space-y-12 lg:space-y-24">
-      <Heading />
-      <div className="max-w-[72rem] mx-auto px-4 xl:px-0 lg:space-y-24">
-        <WasteLitter />
-        <Intervention />
-        <TnT />
+    <>
+      <div className="space-y-12 lg:space-y-24">
+        <Heading />
+        <div className="max-w-[72rem] mx-auto px-4 xl:px-0 lg:space-y-24">
+          <WasteLitter />
+          <Intervention />
+          <TnT />
+        </div>
       </div>
-      <SecurityCodes />
-      <EcocanApp />
-    </div>
+      <div className="pt-24">
+        <SecurityCodes />
+        <EcocanApp />
+      </div>
+    </>
   );
 }

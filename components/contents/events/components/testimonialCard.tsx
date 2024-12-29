@@ -7,7 +7,7 @@ interface TestimonialCardProps {
   name: string;
   surname: string;
   testimony: string;
-  title: string;
+  title?: string;
 }
 
 const TestimonialCard: React.FC<TestimonialCardProps> = ({ image, name, surname, testimony, title }) => {

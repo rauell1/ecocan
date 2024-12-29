@@ -1,95 +1,45 @@
-import TextWithComponent from "@/components/contents/consumer/components/text-with-component";
-import { ReusableAccordion } from "@/components/shared/accordion";
-import ImageAndItem from "@/components/shared/image-and-item/image-and-item";
-import Image from "next/image";
 import React from "react";
-
-const accordionItems = [
-  {
-    id: "item-1",
-    question: (
-      <div className="text-white">
-        To protect our planet
-      </div>
-    ),
-    answer: (
-      <div className="">
-        We only have one planet, and every action we take today affects our tomorrow
-      </div>
-    ),
-  },
-  {
-    id: "item-2",
-    question: (
-      <div className="text-white">
-        Preserve life
-      </div>
-    ),
-    answer: (
-      <div className="">
-        In every way, and all forms. Embracing inclusively, safeguarding broadly, while uplifting holistically 
-      </div>
-    ),
-  },
-  {
-    id: "item-3",
-    question: (
-      <div className="text-white">
-        Support communities
-      </div>
-    ),
-    answer: (
-      <div className="">
-        By empowering generations, building trust, igniting hope, and fostering possibilities
-      </div>
-    ),
-  },
-  {
-    id: "item-4",
-    question: (
-      <div className="text-white">
-        And promote sustainability
-      </div>
-    ),
-    answer: (
-      <div className="">
-        Optimising the value we derive from natural resources, enhancing operational productivity, while supporting sustainable commerce. 
-      </div>
-    ),
-  },
-];
+import WhoWeAre from "./who-we-are";
+import Visionaries from "./visionaries";
+import Image from "next/image";
 
 export default function CarouselPage3() {
   return (
-    <div className="min-h-screen bg-[#2F313F]">
-      <div className="max-w-[72rem] mx-auto min-h-screen flex items-center">
-        <div className="px-4 xl:px-0 py-24 space-y-12 z-[999]">
-          <ImageAndItem
-            title={
-              <h2
-                className={`bg-gradient-to-r my-2 from-[#228B22] via-[#FFDD4CCF] to-[#FFDD4C] text-transparent bg-clip-text font-semibold text-3xl`}
-              >
-                COmmitted to a  mission
-              </h2>
-            }
-            className="gap-12 items-center"
-            image={
-              <Image
-                src="/assets/images/about/board-char.svg"
-                alt="community of people on ground"
-                width={540}
-                height={540}
-                priority
-              />
-            }
-            item={
-              <TextWithComponent
-                description={<ReusableAccordion items={accordionItems} />}
-              />
-            }
-          />
+    <div className="min-h-screen bg-white relative overflow-hidden">
+      <div className="max-w-[72rem] min-h-screen  mx-auto flex items-center lg:my-0 lg:gap-12">
+        <div className="px-4 xl:px-0 space-y-12 z-[999]">
+          <Visionaries />
         </div>
       </div>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 1440 500"
+        className="absolute bottom-0 z-50 hidden lg:block"
+      >
+        <path
+          fill="#F6F6F6"
+          fill-opacity="1"
+          d="M0,450L1440,0L1440,500L0,500Z"
+        ></path>
+      </svg>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 600 530"
+        className="absolute bottom-0 z-50 hidden md:block lg:hidden"
+      >
+        <path
+          fill="#F6F6F6"
+          fill-opacity="1"
+          d="M0,300L600,0L600,600L0,600Z"
+        ></path>
+      </svg>
+      <Image
+        src="/assets/images/consumer/green-rectangles.svg"
+        alt="green rectangles"
+        className="absolute xl:bottom-[55%]  -right-4 z-[995] w-[20.25rem] hidden xl:block -rotate-12"
+        width={100}
+        height={100}
+      />
     </div>
   );
 }

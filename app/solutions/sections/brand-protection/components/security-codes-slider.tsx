@@ -17,7 +17,7 @@ const litterContent = [
   {
     title: "1. Traceability",
     description:
-      "To ensure each product is unique, is digitally connected. ECOnsumers scan these codes with their ECO-scanners to authenticate the products in under 3 seconds",
+      "To ensure each product is unique and digitally connected. ECOnsumers scan these codes with their ECO-scanners to authenticate the products in under 3 seconds",
     image: "/assets/images/solutions/security.svg",
   },
   {
@@ -127,7 +127,7 @@ export default function SecurityCodesSlider() {
             }
             description={
               <p className="text-[#888D92]">
-                <HyperLink href="/" link="ECOCAN Security Codes" /> are
+                <span className="text-primary">ECOCAN Security Codes</span> are
                 serialized, blockchain-compatible, anti-copy codes. Which are
                 only printed onto packaging of genuine eligible products.{" "}
               </p>

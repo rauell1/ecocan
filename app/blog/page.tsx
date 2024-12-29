@@ -6,6 +6,7 @@ import React from "react";
 import BlogHero from "./components/blog-hero";
 import Articles from "./components/articles";
 import Footer from "@/components/shared/footer/footer";
+import News from "./components/news";
 
 export default function Blog() {
   const isScrolled = useScroll();
@@ -22,10 +23,8 @@ export default function Blog() {
             <h1 className="bg-gradient-to-br from-[#228B22] via-[#4AC63F] to-[#FFDD4C] text-transparent bg-clip-text text-7xl font-semibold">
               Bl<span className="bg-gradient-to-br from-[#4AC63F] to-[#FFDD4C] text-transparent bg-clip-text">og</span>
             </h1>
-            <p className="text-accent/60 mt-4">Sustainability news</p>
+            <News/>
         </div>
-        <BlogHero/>
-        <Articles/>
       </div>
       <Footer/>
     </>

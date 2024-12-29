@@ -21,12 +21,11 @@ export default function TnT() {
       className="transition-all duration-300 ease-in-out"
     >
       <p className="text-[#23262fcc] font-normal w-11/12">
-        The <span className="font-medium">ECOCAN Track and Trace</span> is a robust
-        cloud-based platform, that disrupts counterfeit trade by enabling
-        AI authentication, and real-time traceability of
-        genuine products. The TnT further deploys advanced data analytics tools
-        to offer deeper insights and
-        control
+        The <span className="font-medium">ECOCAN Track and Trace</span> is a
+        robust cloud-based platform, that disrupts counterfeit trade by enabling
+        AI-enhanced authentication, and real-time traceability of genuine
+        products. The TnT further deploys advanced data analytics tools to offer
+        deeper insights and control
       </p>
       <div className="flex items-center mt-2">
         <Button
@@ -50,9 +49,8 @@ export default function TnT() {
       step: (
         <div className="font-normal text-base">
           ECO-producers are empowered with comprehensive product traceability
-          capabilities. This aids in
-          immediate detection of illegal counterfeit and product diversion
-          activities, allowing swift remedial action.
+          capabilities. This aids in immediate detection of illegal counterfeit
+          and product diversion activities, allowing swift remedial action.
         </div>
       ),
     },
@@ -110,12 +108,13 @@ export default function TnT() {
         image={
           <div className="relative rounded-smooth-xl overflow-hidden">
             <Image
-            src="/assets/images/solutions/tnt.png"
-            alt="beach bottle"
-            width={540}
-            height={540}
-            className="w-full h-full"
-          />
+              src="/assets/images/solutions/tnt.png"
+              alt="beach bottle"
+              width={540}
+              height={540}
+              className="w-full h-full"
+              priority
+            />
           </div>
         }
         item={

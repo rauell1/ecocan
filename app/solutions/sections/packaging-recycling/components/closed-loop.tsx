@@ -110,8 +110,8 @@ export default function ClosedLoop() {
             i.e. PET empties are recycled to manufacture new PET bottles. And
             not otherwise downcycled into lesser quality products like plastic
             basins, building blocks or cabro bricks. Which cause more
-            environmental harm like contributing to micro-plastic leakage &
-            CO2e. Closed-loop recycling is the true circular economy with many
+            environmental harm like contributing to micro-plastic leakage.
+            Closed-loop recycling is the true circular economy with many
             benefits including;
           </div>
         }
@@ -125,8 +125,8 @@ export default function ClosedLoop() {
                     <CheckList items={steps} className="items-start gap-2" />
                     <p className="text-secondary mt-8">
                       So next time you recycle, ensure it is closed loop
-                      recycling, that you don&apos;t end up doing more harm, when
-                      your intentions are noble
+                      recycling, that you don&apos;t end up doing more harm,
+                      when your intentions are noble
                     </p>
                   </>
                 }
