@@ -33,33 +33,33 @@ export default function ProducerHero() {
         }
         linkColor={isScrolled ? "text-black" : "text-white"}
       />
-      <div className="lg:h-[36rem] xl:h-[47.575rem]">
-        <div className="bg-[url('/assets/images/producer/hero.svg')] mb-6 lg:mb-0 min-h-[24.735rem] flex items-center md:block md:h-[32.5625rem] lg:h-[35.875rem] xl:h-[46.85rem] bg-[length:130%] lg:bg-[position:-100px_0px] relative after:absolute after:inset-0 after:content-[''] after:bg-black/10 after:z-10">
-          <div className="h-full flex items-center">
-            <div className="w-full xl:max-w-[72rem] z-[9998] flex flex-col md:flex md:flex-row mx-auto lg:my-0 lg:gap-12">
-              <div className="px-4 xl:px-0 text-white z-50">
-                <h1 className="lg:text-6xl text-2xl font-semibold text-white">
+      <div>
+        <div className="bg-[url('/assets/images/producer/hero.svg')] mb-6 lg:mb-0 min-h-[24.735rem] flex items-center md:block md:h-[32.5625rem] lg:h-[38.875rem] xl:h-[46.85rem] bg-[length:130%] lg:bg-[position:-100px_0px] relative after:absolute after:inset-0 after:content-[''] after:bg-black/10 after:z-10">
+          <div className="h-full flex items-center max-w-[72rem] md:mx-auto px-4 xl:px-0">
+            <div className="z-[990]">
+              <div className="text-white z-50">
+                <h1 className="md:text-6xl text-4xl font-semibold text-white">
                   Maximize Earnings,
                 </h1>
-                <h2 className="bg-gradient-to-r from-[#228B22] via-[#4AC63F] to-[#FFDD4C] text-transparent bg-clip-text text-[3rem]">
-                  <span className="text-[4.25rem] font-semibold">M</span>
-                  <span className="text-[4.0625rem] font-semibold">i</span>
-                  <span className="text-[3.9375rem] font-semibold">n</span>
-                  <span className="text-[3.8125rem] font-semibold">i</span>
-                  <span className="text-[3.6875rem] font-semibold">m</span>
-                  <span className="text-[3.5625rem] font-semibold">i</span>
-                  <span className="text-[3.4375rem] font-semibold">z</span>
-                  <span className="text-[3.3125rem] font-semibold">e</span>
-                  <span className="text-[3.1875rem] font-semibold"> </span>
-                  <span className="text-[3.0625rem] font-semibold">p</span>
-                  <span className="text-[2.9375rem] font-semibold">o</span>
-                  <span className="text-[2.8125rem] font-semibold">l</span>
-                  <span className="text-[2.6875rem] font-semibold">l</span>
-                  <span className="text-[2.5625rem] font-semibold">u</span>
-                  <span className="text-[2.4375rem] font-semibold">t</span>
-                  <span className="text-[2.3125rem] font-semibold">i</span>
-                  <span className="text-[2.1875rem] font-semibold">o</span>
-                  <span className="text-[2.0625rem] font-semibold">n</span>
+                <h2 className="bg-gradient-to-r from-[#228B22] via-[#4AC63F] to-[#FFDD4C] text-transparent bg-clip-text md:text-[3rem] text-4xl">
+                  <span className="lg:text-[4.25rem] font-semibold">M</span>
+                  <span className="lg:text-[4.0625rem] font-semibold">i</span>
+                  <span className="lg:text-[3.9375rem] font-semibold">n</span>
+                  <span className="lg:text-[3.8125rem] font-semibold">i</span>
+                  <span className="lg:text-[3.6875rem] font-semibold">m</span>
+                  <span className="lg:text-[3.5625rem] font-semibold">i</span>
+                  <span className="lg:text-[3.4375rem] font-semibold">z</span>
+                  <span className="lg:text-[3.3125rem] font-semibold">e</span>
+                  <span className="lg:text-[3.1875rem] font-semibold"> </span>
+                  <span className="lg:text-[3.0625rem] font-semibold">p</span>
+                  <span className="lg:text-[2.9375rem] font-semibold">o</span>
+                  <span className="lg:text-[2.8125rem] font-semibold">l</span>
+                  <span className="lg:text-[2.6875rem] font-semibold">l</span>
+                  <span className="lg:text-[2.5625rem] font-semibold">u</span>
+                  <span className="lg:text-[2.4375rem] font-semibold">t</span>
+                  <span className="lg:text-[2.3125rem] font-semibold">i</span>
+                  <span className="lg:text-[2.1875rem] font-semibold">o</span>
+                  <span className="lg:text-[2.0625rem] font-semibold">n</span>
                 </h2>
                 <div className="tracking-wide text-base xl:text-lg text-white">
                   <p className="text-left">

@@ -25,8 +25,8 @@ export default function DefaultHero() {
         linkColor={isScrolled ? "text-black" : "text-white"}
       />
       <div>
-        <div className="bg-[url('/assets/images/consumer/hero-bg.jpeg')] bg-center lg:h-[35.875rem] xl:h-[46.85rem] pt-[3.575rem] relative after:absolute after:inset-0 after:content-[''] after:bg-black/90 after:opacity-70 after:z-10">
-          <div className="xl:max-w-[72rem] flex flex-col lg:flex lg:flex-row mx-auto lg:gap-12 relative">
+        <div className="bg-[url('/assets/images/consumer/hero-bg.jpeg')] bg-center lg:h-[38.875rem] xl:h-[46.85rem] pt-[3.575rem] relative after:absolute after:inset-0 after:content-[''] after:bg-black/90 after:opacity-70 after:z-10">
+          <div className="max-w-[72rem] flex flex-col lg:flex lg:flex-row mx-auto lg:gap-12 relative">
             <div className="flex flex-col gap-4 md:w-3/4 pt-12 lg:pt-0 lg:w-1/2 px-4 xl:px-0 text-white z-[99] lg:items-center justify-center lg:space-y-4">
               <div>
                 <h1 className="text-5xl xl:text-[4rem] text-start font-semibold">
@@ -44,8 +44,13 @@ export default function DefaultHero() {
                   money while protecting the planet through recycling.
                 </p>
                 <div className="md:flex gap-4 mt-4 md:mt-0">
-                  <ScanqrPopup className="bg-white hover:bg-white text-primary mb-4 border px-8 no-underline font-medium" arrow={<LucideDownload className="ms-4"/>} join="Download App" showArrow={true}/>
-                  <JoinEcommunity className="text-base"/>
+                  <ScanqrPopup
+                    className="bg-white hover:bg-white text-primary mb-4 border px-8 no-underline font-medium"
+                    arrow={<LucideDownload className="ms-4" />}
+                    join="Download App"
+                    showArrow={true}
+                  />
+                  <JoinEcommunity className="text-base" />
                 </div>
               </div>
             </div>
@@ -58,10 +63,10 @@ export default function DefaultHero() {
                 height={500}
               />
             </div>
-            <div className="lg:h-[32rem] xl:h-[44rem] md:w-1/2 relative overflow-hidden lg:overflow-visible z-[99] hidden lg:flex">
+            <div className="lg:h-[38rem] xl:h-[44rem] md:w-1/2 relative overflow-hidden lg:overflow-visible z-[99] hidden lg:flex">
               <Image
                 src="/assets/images/consumer/consumer-hero-mobile.svg"
-                className="xl:max-w-[40rem] mt-12"
+                className="xl:max-w-[40rem]"
                 alt="ecocan mobile app"
                 width={900}
                 height={100}

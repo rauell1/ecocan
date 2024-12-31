@@ -22,7 +22,7 @@ export default function IdentifyGenuine() {
             alt="ECOCAN Authentication"
             width={300}
             height={600}
-            className="mx-auto lg:mx-0"
+            className="mx-auto lg:mx-0 w-full h-full"
           />
         </div>
         <div className="lg:w-3/4">

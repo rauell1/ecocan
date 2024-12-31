@@ -12,10 +12,10 @@ const factData = [
         <span className="font-bold">recycled forever!</span>
       </p>
     ),
-    imagePath: "bg-[url('/assets/images/solutions/zero-waste.png')]",
+    imagePath: "bg-[url('/assets/images/solutions/infinite.png')]",
   },
   {
-    title: <h1 className="text-lg">The Recycling Journey</h1>,
+    title: <h1 className="text-lg">Energy Savings</h1>,
     description: (
       <p className="text-sm lg:w-10/12">
         Recycling <span className="font-bold">1 ton</span> of PET bottles, saves
@@ -24,10 +24,10 @@ const factData = [
         <span className="font-bold">1 full year!</span>
       </p>
     ),
-    imagePath: "bg-[url('/assets/images/solutions/recycling.svg')]",
+    imagePath: "bg-[url('/assets/images/solutions/e-savings.svg')]",
   },
   {
-    title: <h1 className="text-lg">CO2e reduction</h1>,
+    title: <h1 className="text-lg">Space Savings</h1>,
     description: (
       <p className="text-sm lg:w-10/12">
         PET recycling diverts empties from landfills, thereby saving upto{" "}
@@ -36,7 +36,7 @@ const factData = [
         land to set up a small garden, or a playhouse for kids
       </p>
     ),
-    imagePath: "bg-[url('/assets/images/solutions/energy-saving.svg')]",
+    imagePath: "bg-[url('/assets/images/solutions/s-savings.svg')]",
   },
 ];
 
@@ -46,7 +46,7 @@ export default function Plastics() {
       <ImageAndItem
         className="lg:gap-4 xl:gap-12"
         image={
-          <div className="space-y-6 border lg:h-[34.375rem] xl:h-[40rem] p-4 rounded-3xl bg-[#D9D9D9] flex flex-col justify-end bg-[url('/assets/images/solutions/aluminium-cans-green.svg')] bg-cover relative after:absolute after:inset-0 after:content-[''] after:bg-black/30 after:opacity-70 after:z-10 overflow-hidden">
+          <div className="space-y-6 border lg:h-[34.375rem] xl:h-[40rem] p-4 rounded-3xl bg-[#D9D9D9] flex flex-col justify-end bg-[url('/assets/images/solutions/pet-bg.png')] bg-cover relative after:absolute after:inset-0 after:content-[''] after:bg-black/30 after:opacity-70 after:z-10 overflow-hidden">
             <TextWithComponent
               className="bg-[#29292945] backdrop-blur-[2px] rounded-smooth overflow-hidden p-3 relative z-[999] text-white"
               title={<span className="text-3xl">CO2e reduction</span>}
