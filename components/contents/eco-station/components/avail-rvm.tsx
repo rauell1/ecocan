@@ -24,12 +24,12 @@ export default function AvailRvm() {
           item={
             <TextWithComponent
               title={
-                <div>
-                  Re-imagined recycling; <br />
-                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#228B22] via-[#4AC63F] to-[#FFDD4C]">
+                <span>
+                  Re-imagined recycling;<br/>
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#228B22] via-[#4AC63F] to-[#FFDD4C] text-4xl">
                     From Ooh... to Wow!
                   </span>
-                </div>
+                </span>
               }
               description={
                 <p className="pt-8 pb-12">

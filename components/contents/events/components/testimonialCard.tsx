@@ -4,7 +4,7 @@ import React from 'react';
 
 interface TestimonialCardProps {
   image: string;
-  name: string;
+  name?: string;
   surname: string;
   testimony: string;
   title?: string;
@@ -30,7 +30,6 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({ image, name, surname,
         {testimony}
       </p>
       <div className="flex justify-between items-center">
-        <span className="text-gray-900 text-sm font-bold leading-5">{name}</span>
         <span className="text-white/60 text-sm font-normal leading-5">{title}</span>
       </div>
     </div>

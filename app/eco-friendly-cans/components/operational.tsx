@@ -134,7 +134,7 @@ export default function Operational() {
               title={
                 <span className="text-4xl">1. Operational efficiency</span>
               }
-              description="Unlock sustainability potential with small efficient steps, but with massive impact"
+              description="Unlocking sustainability potential with small efficient steps, but with massive impact"
               customCard={
                 <>
                   <Carousel

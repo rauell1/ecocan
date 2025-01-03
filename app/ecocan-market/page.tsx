@@ -6,6 +6,7 @@ import Carousel from "../about-us/components/carousel-wrapper";
 import Searchbar from "./components/searchbar";
 import { useImagePreloader } from "@/lib/useLoadImages";
 import Footer from "@/components/shared/footer/footer";
+import { LucideChevronsDown } from "lucide-react";
 
 const images = [
   "/assets/images/ecocan-market/carousel-1.svg",
@@ -32,7 +33,7 @@ export default function EcocanMarket() {
         )}
 
         {/* Carousel with preloaded images */}
-        <div className={!imagesLoaded ? "hidden" : ""}>
+        <div className={`relative ${!imagesLoaded} ? "hidden" : ""`}>
           <Carousel
             currentPage={currentPage}
             setCurrentPage={setCurrentPage}
@@ -63,8 +64,12 @@ export default function EcocanMarket() {
               </div>
             ))}
           </Carousel>
-          <Searchbar />
+          <div className="text-center w-fit mx-auto absolute bottom-14 right-1/2 translate-x-1/2 text-white">
+            <LucideChevronsDown size={60} className="mx-auto"/>
+            <p>Scroll down</p>
+          </div>
         </div>
+        <Searchbar />
       </div>
       <Footer />
     </>

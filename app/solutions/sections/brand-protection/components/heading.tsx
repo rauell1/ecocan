@@ -95,7 +95,7 @@ export default function Heading() {
           description={
             <p className="md:w-11/12 lg:w-4/6">
               The annual global value of counterfeit and pirated goods is
-              estimated at USD 2.8 trillion. Beyond the obvious health risks &
+              estimated at USD 2.8 trillion. Beyond the fatal health risks &
               commerce disruption, this leads to the loss of over USD 270 billion
               in tax revenue annually, and + 5.5 million legitimate jobs are lost
               each year

@@ -9,22 +9,22 @@ const testimonialsData = [
     testimony: "Our official 2023 international Safari Sevens sustainability partners, ECOCAN. Asante sana for keeping us green!",
   },
   {
-    image: "/assets/images/events/memoji.png",
+    image: "/assets/images/events/sportpesa.png",
     name: "Sportspesa",
     surname: "Legends",
     testimony: "Dear Ecocan... asanteni sana for supporting the #SportPesaLegendsCup we couldn't have done it without you. #KEvUGLegends #WazeeHukumbuka",
   },
   {
-    image: "/assets/images/events/memoji.png",
-    name: "Kenya",
-    surname: "Harlequins",
-    testimony: "Committed to a cleaner, greener future! Excited to introduce Christie 7s official waste management partner, ECOCAN, dedicated to sustainable solutions that keep our environment pristine.",
-  },
-  {
-    image: "/assets/images/events/memoji.png",
+    image: "/assets/images/events/kaberi.png",
     name: " Kabeberi",
     surname: "7s",
     testimony: "Exciting news! We are teaming up with ECOCAN to make #Kabeberi 7s an ECO-friendly event. Let’s tackle plastic pollution together. Say no to single use plastics and help keep our environment clean by disposing of litter in designated trash points around the venue",
+  },
+  {
+    image: "/assets/images/events/harlequins.png",
+    name: "Kenya",
+    surname: "Harlequins",
+    testimony: "Committed to a cleaner, greener future! Excited to introduce Christie 7s official waste management partner, ECOCAN, dedicated to sustainable solutions that keep our environment pristine.",
   },
 ];
 

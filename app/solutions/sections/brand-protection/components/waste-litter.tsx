@@ -34,7 +34,7 @@ const litterContent = [
   {
     title: "3. Loophole",
     description:
-      "And if you're a producer who doesn't safeguard the integrity of your products, nor facilitate elaborate recycling of post-consumer empties, you're inadvertently supporting counterfeit trade, thus endangering the life of your customers",
+      "And if you're a producer who doesn't safeguard the integrity of your products, nor facilitate elaborate recycling of post-consumer empties, you're inadvertently supporting counterfeit trade, thus endangering the lives of your customers",
     image: "/assets/images/consumer/loophole.svg",
   },
   {
@@ -126,7 +126,7 @@ export default function WasteLitter() {
           <TextWithCards
             className="w-full"
             subtitle={
-              <p className="text-3xl mb-8 font-medium">
+              <p className="text-3xl mb-8 lg:-mt-6 font-medium">
                 {`Waste litter =>`}{" "}
                 Counterfeit trade
               </p>
@@ -149,7 +149,7 @@ export default function WasteLitter() {
                             {item.title && (
                               <div className="font-semibold text-lg text-black">{item.title}</div>
                             )}
-                            <div className="text-[#238A23]">
+                            <div className="text-[#238A23] text-base">
                               {item.description}
                             </div>
                           </div>

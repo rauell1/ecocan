@@ -31,7 +31,7 @@ const producerFeatures = [
       </div>
     ),
     icon: "/assets/images/producer/reverse-logistics.svg",
-    bgImg: "bg-[url('/assets/images/producer/logistics-bg.svg')]",
+    bgImg: "bg-[url('/assets/images/producer/logistics-bg.png')]",
   },
   {
     id: 2,
@@ -59,7 +59,7 @@ const producerFeatures = [
       </div>
     ),
     icon: "/assets/images/producer/mobility.svg",
-    bgImg: "bg-[url('/assets/images/producer/mobility-bg.svg')]",
+    bgImg: "bg-[url('/assets/images/producer/mobility-bg.png')]",
   },
   {
     id: 3,
@@ -86,7 +86,7 @@ const producerFeatures = [
       </div>
     ),
     icon: "/assets/images/producer/online-purchases.svg",
-    bgImg: "bg-[url('/assets/images/producer/online-puchase-bg.svg')]",
+    bgImg: "bg-[url('/assets/images/producer/online-puchase-bg.png')]",
   },
 ];
 
@@ -105,7 +105,8 @@ export default function Efficiency() {
         customCard={
           <FeaturesGrid
             features={producerFeatures}
-            className="h-[28rem] lg:h-[33.25rem] xl:h-[41.25rem] bg-center p-4 flex flex-col justify-end after:absolute after:inset-0 after:content-[''] after:bg-black/40 after:opacity-70 after:z-10 overflow-hidden"
+            gap="gap-4"
+            className="h-[28rem] lg:h-[33.25rem] xl:h-[41.25rem] bg-cover p-4 flex flex-col justify-end after:absolute after:inset-0 after:content-[''] after:bg-black/40 after:opacity-70 after:z-10 overflow-hidden bg-[position:-150px_0px] hover:bg-[position:-400px_0px] transition-all duration-1000"
           />
         }
       />

@@ -68,14 +68,14 @@ export default function Exclusive() {
           description={
             <span>
               Enjoy unbelievably jaw dropping benefits by simply joining the{" "}
-              <JoinEcommunity showArrow={false} className="text-primary text-xl font-normal p-0 underline underline-offset-8" join="ECOmmunity"/>
+              <JoinEcommunity showArrow={false} className="text-primary text-xl font-normal border-none p-0 underline underline-offset-8" join="ECOmmunity"/>
             </span>
           }
           className="mx-auto text-center"
           customCard={
             <FeaturesGrid
               features={cardContent}
-              className="h-[22rem] w-full border lg:h-[28rem] xl:h-[31.25rem] bg-no-repeat rounded-3xl p-4 flex flex-col justify-end overflow-hidden lg:shadow-md"
+              className="h-[22rem] w-full lg:h-[28rem] xl:h-[31.25rem] hover:bg-[position:0px_-100px] transition-all bg-no-repeat rounded-3xl p-4 flex flex-col justify-end overflow-hidden lg:shadow-lg"
               gap="gap-4"
             />
           }
