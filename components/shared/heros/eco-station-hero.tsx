@@ -50,7 +50,7 @@ export default function EcoStationHero() {
                     </span>
                   </h1>
                 </div>
-                <div className="text-base xl:text-xl">
+                <div className="text-base lg:text-xl">
                   <div className="tracking-wide text-white text-start">
                     List your shop as an{" "}
                     <HyperLink link="ECO-Station" href="#faq" />

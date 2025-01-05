@@ -38,7 +38,7 @@ export default function ProducerHero() {
           <div className="h-full flex items-center max-w-[72rem] md:mx-auto px-4 xl:px-0">
             <div className="z-[990]">
               <div className="text-white z-50 space-y-1">
-                <h1 className="md:text-6xl text-4xl font-semibold text-white">
+                <h1 className="xl:text-[4rem] text-5xl font-semibold text-white">
                   Maximize Earnings,
                 </h1>
                 <div className="bg-gradient-to-r from-[#228B22] via-[#4AC63F] to-[#FFDD4C] text-transparent bg-clip-text md:text-[3rem] text-4xl py-2">
@@ -61,7 +61,7 @@ export default function ProducerHero() {
                   <span className="lg:text-[2.1875rem] font-semibold">o</span>
                   <span className="lg:text-[2.0625rem] font-semibold">n</span>
                 </div>
-                <div className="tracking-wide text-base xl:text-lg text-white">
+                <div className="tracking-wide text-base lg:text-xl text-white">
                   <p className="text-left">
                     With ECOCAN, it&apos;s not business as usual.
                   </p>

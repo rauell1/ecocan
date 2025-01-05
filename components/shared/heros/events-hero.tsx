@@ -46,7 +46,7 @@ export default function EventsHero() {
                   </h1>
                 </div>
                 <div>
-                  <p className="tracking-wide text-base xl:text-xl text-white  text-start my-5 xl:my-10 lg:w-3/4">
+                  <p className="tracking-wide text-base lg:text-xl text-white  text-start my-5 xl:my-10 lg:w-3/4">
                     Make it memorable by leaving a lasting ECO-green footprint.
                   </p>
                 </div>
