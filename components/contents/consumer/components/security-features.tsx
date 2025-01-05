@@ -40,10 +40,10 @@ export const SecurityFeatureCard = ({
         </div>
       </CardHeader>
       <CardContent>
-        <p className="text-secondary">
+        <span className="text-secondary">
           {description}
           {highlight && <span className="text-red-500"> {highlight}</span>}
-        </p>
+        </span>
       </CardContent>
     </Card>
   );

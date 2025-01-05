@@ -56,7 +56,7 @@ const FeaturesGrid: React.FC<FeaturesGridProps> = ({
       <div
         className={clsx(
           `text-left p-4 rounded-smooth-lg lg:rounded-smooth-xl ${feature.bgImg} relative`,
-          'transition-all duration-300 ease-in-out',
+          'transition-all duration-700 ease-in-out',
           className
         )}
         onMouseEnter={() => handleMouseEnter(feature.id)}

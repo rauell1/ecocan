@@ -11,12 +11,12 @@ interface ItemListProps {
     <div className="flex flex-row mb-4 gap-3">
       <div>
         <div className="flex items-center justify-center w-8 h-8 bg-gradient-to-r from-[#228B22] via-[#4ac63fcf] to-[#FFDD4C] rounded-full">
-          <p className="text-xs text-white leading-none">{id}</p>
+          <span className="text-xs text-white leading-none">{id}</span>
         </div>
       </div>
       <div className="pt-0">
-        <p className="lg:text-lg text-secondary font-medium">{title}</p>
-        <div className="text-secondary">{description}</div>
+        <span className="lg:text-lg text-secondary font-medium">{title}</span>
+        <span className="text-secondary">{description}</span>
       </div>
     </div>
   );

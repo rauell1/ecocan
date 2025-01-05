@@ -4,11 +4,11 @@ import { AccordionDemo } from "./accordion";
 import Image from "next/image";
 
 const images = [
-  "/assets/images/consumer/get-app.svg",
-  "/assets/images/consumer/scan-image.svg",
-  "/assets/images/consumer/map-image.svg",
-  "/assets/images/consumer/pay-image.svg",
-  "/assets/images/consumer/earn-image.svg",
+  "/assets/images/consumer/get-app.png",
+  "/assets/images/consumer/scan-image.png",
+  "/assets/images/consumer/map-image.png",
+  "/assets/images/consumer/pay-image.png",
+  "/assets/images/consumer/earn-image.png",
 ];
 
 export default function TapTap() {

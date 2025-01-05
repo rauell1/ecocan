@@ -65,11 +65,13 @@ export default function DefaultHero() {
             </div>
             <div className="lg:h-[38rem] xl:h-[44rem] md:w-1/2 relative overflow-hidden lg:overflow-visible z-[99] hidden lg:flex">
               <Image
-                src="/assets/images/consumer/consumer-hero-mobile.svg"
+                src="/assets/images/consumer/consumer-hero-mobile.png"
                 className="xl:max-w-[40rem]"
                 alt="ecocan mobile app"
                 width={900}
                 height={100}
+                priority
+                loading="eager"
               />
             </div>
           </div>

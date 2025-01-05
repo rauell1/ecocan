@@ -1,9 +1,9 @@
 import React from "react";
-import { ArrowRightCircle, LucideArrowUpRight } from "lucide-react";
+import { LucideArrowUpRight } from "lucide-react";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
-import HyperLink from "@/components/shared/hyperlink/hyperlink";
 import Link from "next/link";
+import MediaViewer from "@/components/media-viewer";
 
 interface FeatureProps {
   title: string;
@@ -25,7 +25,7 @@ const FeatureCard = ({ title, description, imageSrc, href }: FeatureProps) => (
     </div>
     <div className="p-4">
       <h3 className="font-bold text-lg mb-2">{title}</h3>
-      <p className="text-[#B3B3B3] font-light">{description}</p>
+      <div className="text-[#B3B3B3] font-light">{description}</div>
       <Link href={href}>
         <Button
           variant="ghost"
@@ -77,15 +77,18 @@ export default function Optimize() {
             title="Increase their resource efficiency"
             description={
               <div>
-                 We offer a direct service for automated glass bottle washing and quality inspection. Deploying top-of-the-line{" "}
-                <HyperLink
-                  link="PAC Swiss"
-                  href="https://www.youtube.com/watch?v=0QxeZ-r7vSE&ab_channel=PACLOW-ENERGYBOTTLEWASHERS"
+                We offer a direct service for automated glass bottle washing and quality inspection. Deploying top-of-the-line{" "}
+                <MediaViewer
+                  type="video"
+                  title="PAC Swiss"
+                  start={12}
+                  source="https://www.youtube.com/embed/0QxeZ-r7vSE"
                 />{" "}
                 washers, and{" "}
-                <HyperLink
-                  link="Krones Linantronic"
-                  href="https://www.youtube.com/watch?v=0QxeZ-r7vSE&ab_channel=PACLOW-ENERGYBOTTLEWASHERS"
+                <MediaViewer
+                  type="pdf"
+                  title="Krones Linatronic"
+                  source="/documents/krones.pdf"
                 />{" "}
                 E.B.I. To deliver most hygienic washed bottles. Affordably
               </div>

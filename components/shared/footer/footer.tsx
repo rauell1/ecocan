@@ -144,7 +144,12 @@ const Footer = () => {
           {/* Kenya Office */}
           <div className="col-span-10 md:col-span-3">
             <div className="flex items-center gap-2 mb-4">
-              <Image src="/assets/images/kenya.png" alt="kenyan flag" width={24} height={24}/>
+              <Image
+                src="/assets/images/kenya.png"
+                alt="kenyan flag"
+                width={24}
+                height={24}
+              />
               <h3 className="text-xl font-semibold">Kenya Office</h3>
             </div>
             <div className="flex items-start gap-2">
@@ -183,7 +188,12 @@ const Footer = () => {
           {/* Finland Office */}
           <div className="col-span-10 md:col-span-3 space-y-4">
             <div className="flex items-center gap-2 mb-4">
-            <Image src="/assets/images/finland.png" alt="finnish flag" width={24} height={24}/>
+              <Image
+                src="/assets/images/finland.png"
+                alt="finnish flag"
+                width={24}
+                height={24}
+              />
               <h3 className="text-xl font-semibold">Finland Office</h3>
             </div>
             <div className="flex items-start gap-2">
@@ -235,7 +245,7 @@ const Footer = () => {
 
         {/* Copyright */}
         <div className="border-t border-gray-700 pt-8 flex flex-col md:flex-row justify-between items-center text-gray-400">
-          <p>© 2024 Ecocan. All Rights Reserved.</p>
+          <p>© {new Date().getFullYear()} ECOCAN. All Rights Reserved.</p>
           <div className="flex gap-8 mt-4 md:mt-0">
             <Link href="/privacy" className="hover:text-white">
               Privacy

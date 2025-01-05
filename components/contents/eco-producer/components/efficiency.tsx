@@ -1,4 +1,3 @@
-import HyperLink from "@/components/shared/hyperlink/hyperlink";
 import FeaturesGrid from "@/components/shared/text-with-cards/custom-card";
 import TextWithCards from "@/components/shared/text-with-cards/text-with-cards";
 import React from "react";
@@ -106,7 +105,7 @@ export default function Efficiency() {
           <FeaturesGrid
             features={producerFeatures}
             gap="gap-4"
-            className="h-[28rem] lg:h-[33.25rem] xl:h-[41.25rem] bg-cover p-4 flex flex-col justify-end after:absolute after:inset-0 after:content-[''] after:bg-black/40 after:opacity-70 after:z-10 overflow-hidden bg-[position:-150px_0px] hover:bg-[position:-400px_0px] transition-all duration-1000"
+            className="h-[28rem] lg:h-[33.25rem] xl:h-[41.25rem] bg-cover p-4 flex flex-col justify-end after:absolute after:inset-0 after:content-[''] after:bg-black/40 after:opacity-70 after:z-10 overflow-hidden bg-[position:-150px_0px] hover:bg-[position:-400px_0px]"
           />
         }
       />

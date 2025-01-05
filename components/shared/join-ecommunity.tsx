@@ -3,19 +3,14 @@ import {
   AlertDialog,
   AlertDialogCancel,
   AlertDialogContent,
-  AlertDialogFooter,
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
 import { Button } from "@/components/ui/button";
 import {
   LucideArrowRight,
-  LucideChevronRight,
-  LucideDownload,
   LucideX,
 } from "lucide-react";
-import HowTo from "@/components/shared/HowTo";
 import ImageAndItem from "@/components/shared/image-and-item/image-and-item";
-import PrimaryButton from "@/components/shared/primary-btn";
 import { ItemList } from "../contents/courier/components/ItemList";
 import Image from "next/image";
 import HyperLink from "@/components/shared/hyperlink/hyperlink";

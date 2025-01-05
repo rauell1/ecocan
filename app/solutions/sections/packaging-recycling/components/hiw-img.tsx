@@ -211,15 +211,31 @@ export default function HiwImage() {
 
       <div className="absolute top-1/2 -translate-y-1/2 left-[52%] -translate-x-1/2 p-4 rounded-full bg-white shadow-lg hover:shadow-xl group cursor-pointer">
         <div className="p-4 rounded-full bg-white shadow-lg">
-          <div className="p-2 rounded-full bg-white shadow-lg group-hover:bg-primary/20">
-            <Image
-              src="/assets/images/solutions/ecocan-logo.svg"
-              alt="how it works"
-              className="px-1 py-3"
-              width={85}
-              height={85}
-            />
-          </div>
+          <TooltipProvider delayDuration={0}>
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <div className="p-2 rounded-full bg-white shadow-lg group-hover:bg-primary/20">
+                  <Image
+                    src="/assets/images/solutions/ecocan-logo.svg"
+                    alt="how it works"
+                    className="px-1 py-3"
+                    width={85}
+                    height={85}
+                  />
+                </div>
+              </TooltipTrigger>
+              <TooltipContent
+                side="bottom"
+                sideOffset={10}
+                className="w-[220px] text-xs"
+              >
+                <p>
+                  ECOCAN develops requisite technology to administer the entire
+                  ECO-system
+                </p>
+              </TooltipContent>
+            </Tooltip>
+          </TooltipProvider>
         </div>
       </div>
       <Image
