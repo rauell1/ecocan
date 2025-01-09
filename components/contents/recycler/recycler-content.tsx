@@ -5,7 +5,6 @@ import TextWithComponent from "../consumer/components/text-with-component";
 import HyperLink from "@/components/shared/hyperlink/hyperlink";
 import ImageAndItem from "@/components/shared/image-and-item/image-and-item";
 import Image from "next/image";
-import { FaqSection } from "../consumer/components/faq";
 import CtaCard from "@/components/shared/cta-card/cta-card";
 import DepositRefundSystem from "./components/drs";
 import Matters from "./components/matters";
@@ -96,7 +95,6 @@ export default function RecyclerContent() {
       {/* that which matters */}
       <Matters />
       {/* faq */}
-      <FaqSection />
       {/* call to action */}
 
       <CtaCard

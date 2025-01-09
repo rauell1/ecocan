@@ -5,14 +5,6 @@ import CustomCard from "../../shared/text-with-cards/custom-card";
 import ImageAndItem from "../../shared/image-and-item/image-and-item";
 import Image from "next/image";
 import { AccordionDemo } from "./components/accordion";
-import {
-  Sparkles,
-  LucideTriangleAlert,
-  LucideRecycle,
-  LucideCreditCard,
-} from "lucide-react";
-import Link from "next/link";
-import HowTo from "../../shared/HowTo";
 import { FaqSection } from "./components/faq";
 import CtaCardComponent from "./components/sustainableHustle";
 import ImageTextOverlay from "./components/imageText";
