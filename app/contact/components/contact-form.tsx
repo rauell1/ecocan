@@ -29,9 +29,11 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
+import clsx from "clsx";
 
 interface ContactFormProps {
   title?: string;
+  className?: string;
 }
 
 const formSchema = z.object({
@@ -46,6 +48,7 @@ const formSchema = z.object({
 
 export default function ContactForm({
   title = "1, 2, 3. Go!!",
+  className,
 }: ContactFormProps) {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -62,7 +65,7 @@ export default function ContactForm({
   }
 
   return (
-    <Card className="lg:mt-[28rem] xl:mt-60 rounded-2xl w-full lg:me-4 xl:me-0">
+    <Card className={clsx("lg:mt-[28rem] xl:mt-60 rounded-2xl w-full lg:me-4 xl:me-0", className)}>
       <CardHeader className="text-[#23262FCC]">
         <CardTitle className="text-3xl">{title}</CardTitle>
         <CardDescription className="xl:text-xl font-light"></CardDescription>
@@ -122,10 +125,10 @@ export default function ContactForm({
                     <div className="flex">
                       <Select>
                         <SelectTrigger className="w-[80px]">
-                          <SelectValue placeholder="+233" />
+                          <SelectValue placeholder="+254" />
                         </SelectTrigger>
-                        <SelectContent>
-                          <SelectItem value="+233">+233</SelectItem>
+                        <SelectContent className="z-[9999]">
+                          <SelectItem value="+254">+254</SelectItem>
                           <SelectItem value="+1">+1</SelectItem>
                           <SelectItem value="+44">+44</SelectItem>
                         </SelectContent>

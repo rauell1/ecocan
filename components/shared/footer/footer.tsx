@@ -40,8 +40,8 @@ const Footer = () => {
                 </Link>
               </li>
               <li>
-                <Link href="" className="hover:text-white">
-                  Support
+                <Link href="/contact" className="hover:text-white">
+                  Contact
                 </Link>
               </li>
             </ul>
@@ -57,7 +57,7 @@ const Footer = () => {
                 </Link>
               </li>
               <li>
-                <Link href="/" className="hover:text-white">
+                <Link href="/contact" className="hover:text-white">
                   Customer support
                 </Link>
               </li>

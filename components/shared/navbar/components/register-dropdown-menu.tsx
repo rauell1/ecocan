@@ -13,6 +13,7 @@ import RegisterPopup from "../../register-popup";
 import EcostationForm from "../../hero-form/hero-form";
 import EcoProducerForm from "../../eco-producer-form";
 import EcoEventsForm from "../../eco-events-form";
+import ContactForm from "@/app/contact/components/contact-form";
 
 type DropdownItem = {
   id: string;
@@ -61,7 +62,7 @@ const dropdownItems: DropdownItem[] = [
     icon: '/assets/icons/events.svg',
     description: 'Contact support',
     component: RegisterPopup,
-    form: <EcoEventsForm />
+    form: <ContactForm title="Leave us a message" className="mx-auto lg:w-[33.125rem] lg:!mt-0 border-none shadow-none"/>
   }
 ];
 
