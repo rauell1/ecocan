@@ -56,7 +56,7 @@ const FeaturesGrid: React.FC<FeaturesGridProps> = ({
       <div
         className={clsx(
           `text-left p-4 rounded-smooth-lg lg:rounded-smooth-xl ${feature.bgImg} relative`,
-          'transition-all duration-700 ease-in-out',
+          'transition-all duration-1000 ease-in-out',
           className
         )}
         onMouseEnter={() => handleMouseEnter(feature.id)}
@@ -83,7 +83,7 @@ const FeaturesGrid: React.FC<FeaturesGridProps> = ({
               initial={{ height: 0, opacity: 0 }}
               animate={{ height: "auto", opacity: 1 }}
               exit={{ height: 0, opacity: 0 }}
-              transition={{ duration: 0.3, ease: "easeInOut" }}
+              transition={{ duration: 1, ease: "easeInOut" }}
               className="mt-2 relative z-[999] font-light overflow-hidden hidden lg:block"
             >
               {feature.answer}

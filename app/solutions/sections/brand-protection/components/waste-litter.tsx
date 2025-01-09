@@ -51,7 +51,6 @@ export default function WasteLitter() {
   const [preloadedImages, setPreloadedImages] = useState<string[]>([]);
 
   useEffect(() => {
-    // Simple preloading like in TapTap
     const preloadImages = () => {
       litterContent.forEach(({ image }) => {
         const img = new window.Image();

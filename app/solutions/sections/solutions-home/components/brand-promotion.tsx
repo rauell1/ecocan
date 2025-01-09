@@ -26,7 +26,7 @@ export default function BrandPromotion() {
               <TextWithComponent
                 title={
                   <div className="space-y-4">
-                    <h2>Brand Promotion</h2>
+                    <h2 className='font-semibold'>Brand Promotion</h2>
                   </div>
                 }
                 description={

@@ -1,74 +1,100 @@
-"use client";
-
-import React, { useState } from "react";
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
-import ImageAndItem from "@/components/shared/image-and-item/image-and-item";
+import EligblePopup from "@/components/shared/eligble-popup";
+import { FaqSection } from "@/components/shared/faq";
+import JoinEcommunity from "@/components/shared/join-ecommunity";
+import ScanqrPopup from "@/components/shared/scan-qr";
 
 const faqData = [
   {
-    question: "What is Ecocan and how do I recycle?",
-    answer:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+    question: "Who are ECOnsumers?",
+    answer: (
+      <>
+        ECO-friendly COnsumers are individuals committed to conserving the
+        environment by recycling their used beverage bottles (empties) through
+        the ECOCAN DRS. They also actively combat beverage counterfeiting by
+        authenticating genuine drinks with the EcocanApp before purchase.
+        Additionally, they support sustainable commerce by prioritizing purchase
+        of ECO-friendly products available on the ECOCAN Market. Join the{" "}
+        <JoinEcommunity
+          className="text-primary h-0 px-0 text-lg underline underline-offset-4"
+          showArrow={false}
+          join="ECommunity"
+        />{" "}
+        today and become an ECOnsumer!
+      </>
+    ),
   },
   {
-    question: "How often do I do returns?",
-    answer:
-      "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    question: "What are empties?",
+    answer: (
+      <>
+        Empties are used beverage bottles from{" "}
+        <EligblePopup className="font-normal text-lg" /> products, that are
+        recyclable, carry refundable deposit money, and feature ECOCAN Security
+        codes printed on their labels. You can easily verify eligible empties by
+        scanning their codes with the EcocanApp
+      </>
+    ),
   },
   {
-    question: "How much can I earn with Ecocan?",
-    answer:
-      "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.",
+    question: "How can I get EcocanApp?",
+    answer: (
+      <>
+        Downloading the EcocanApp is simple and free! Click{" "}
+        <ScanqrPopup join="here" className="text-lg font-normal" /> to get
+        started. There are no download nor subscription fees
+      </>
+    ),
   },
   {
-    question: "Why should I recycle?",
-    answer:
-      "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit.",
+    question: "What can I do with EcocanApp?",
+    answer: (
+      <ol className="space-y-2">
+        <li>
+          <span className="font-medium">Verify Product Authenticity</span>:
+          Before buying a product, use the EcocanApp to confirm its genuineness
+          and ensure it&apos;s safe for consumption
+        </li>
+        <li>
+          <span className="font-medium">Check Recyclability and Deposits</span>:
+          After consuming genuine products, use the app to determine if the
+          empties are recyclable and carry refundable deposit money.
+        </li>
+        <li>
+          <span className="font-medium">Redeem Deposit Money</span>: Return
+          eligible empties to ECO-Stations for recycling and have the applicable
+          deposit money digitally refunded into your ECO-wallet
+        </li>
+        <li>
+          <span className="font-medium">
+            Utilize Refunded Deposits as you please
+          </span>
+          : Use the redeemed deposit money to make purchases, send it to
+          friends, donate to charity, or cash out
+        </li>
+      </ol>
+    ),
+  },
+  {
+    question: "How much deposit money does each eligible empty carry?",
+    answer: (
+      <>
+        The deposit amount varies based on the product&apos;s manufacturer or
+        importer, product type, container material, and size to reflect the
+        material&apos;s value. Scan the ECOCAN Security codes on eligible
+        products to verify their deposit amounts
+      </>
+    ),
+  },
+  {
+    question: "Have a different question?",
+    answer: (
+      <>
+        Contact us at <span className="text-primary">support@ECOnsumer.com</span>
+      </>
+    ),
   },
 ];
 
-export function FaqSection() {
-  const [selectedItem, setSelectedItem] = useState("item-1");
-
-  return (
-    <section className="max-w-4xl mx-auto" id="faq">
-      <ImageAndItem title="Frequently Asked Questions (FAQs)"/>
-      <Accordion
-        type="single"
-        collapsible
-        className="w-full space-y-4"
-        value={selectedItem}
-        onValueChange={setSelectedItem}
-      >
-        {faqData.map((faq, index) => {
-          const itemValue = `item-${index + 1}`;
-          const isSelected = selectedItem === itemValue;
-
-          return (
-            <AccordionItem
-              key={index}
-              value={itemValue}
-              className={`rounded-xl overflow-hidden shadow-lg border-2 border-transparent ${
-                isSelected ? "border-primary border-2" : ""
-              }`}
-            >
-              <AccordionTrigger className="flex justify-between items-center p-8 hover:bg-gray-50 w-full">
-                <span className="text-lg font-medium text-left ">
-                  {faq.question}
-                </span>
-              </AccordionTrigger>
-              <AccordionContent className="p-8 bg-white">
-                <p className="text-gray-600 w-4/5">{faq.answer}</p>
-              </AccordionContent>
-            </AccordionItem>
-          );
-        })}
-      </Accordion>
-    </section>
-  );
+export default function Faq() {
+  return <FaqSection faqs={faqData} />;
 }

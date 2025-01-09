@@ -48,7 +48,7 @@ export default function TnT() {
       id: 1,
       step: (
         <div className="font-normal text-base">
-          ECO-producers are empowered with comprehensive product traceability
+          ECO-Producers are empowered with comprehensive product traceability
           capabilities. This aids in immediate detection of illegal counterfeit
           and product diversion activities, allowing swift remedial action.
         </div>
@@ -58,14 +58,23 @@ export default function TnT() {
       id: 2,
       step: (
         <div className="font-normal text-base">
-          ECO-recyclers and ECO-producers are further facilitated to monitor in
+          ECO-Stations are offered full visibility of authentic products sales,
+          and enabled to track Key Performance Indicators.
+        </div>
+      ),
+    },
+    {
+      id: 3,
+      step: (
+        <div className="font-normal text-base">
+          ECO-Recyclers and ECO-producers are further facilitated to monitor in
           real-time, the collection and recycling of their post-consumer
           packaging.
         </div>
       ),
     },
     {
-      id: 3,
+      id: 4,
       step: (
         <div className="font-normal text-base">
           ECOnsumers on their part gain free access to the most reliable and

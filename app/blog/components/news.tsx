@@ -1,6 +1,8 @@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import BlogHero from "./blog-hero";
 import Articles from "./articles";
+import PartnershipBlogHero from "./partnership-blog-hero";
+import PartnershipArticles from "./partnership-articles";
 
 export default function News() {
   return (
@@ -24,7 +26,10 @@ export default function News() {
           <BlogHero />
           <Articles />
         </TabsContent>
-        <TabsContent value="partnership">{/* content here */}</TabsContent>
+        <TabsContent value="partnership" className="space-y-12">
+          <PartnershipBlogHero />
+          <PartnershipArticles />
+        </TabsContent>
       </Tabs>
     </section>
   );

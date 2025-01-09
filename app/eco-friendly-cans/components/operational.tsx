@@ -55,58 +55,25 @@ const litterContent = [
 export default function Operational() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [api, setApi] = useState<CarouselApi>();
-  const [currentImage, setCurrentImage] = useState(litterContent[0].image);
-  const [isTransitioning, setIsTransitioning] = useState(false);
-  const [imagesPreloaded, setImagesPreloaded] = useState(false);
+  const [preloadedImages, setPreloadedImages] = useState<string[]>([]);
 
-  // Preload all images when component mounts
   useEffect(() => {
-    const preloadImages = async () => {
-      try {
-        const imagePromises = litterContent.map((item) => {
-          return new Promise((resolve, reject) => {
-            const img = new window.Image();
-            img.src = item.image;
-            img.onload = resolve;
-            img.onerror = reject;
-          });
-        });
-
-        await Promise.all(imagePromises);
-        setImagesPreloaded(true);
-      } catch (error) {
-        console.error("Error preloading images:", error);
-        setImagesPreloaded(true);
-      }
+    const preloadImages = () => {
+      litterContent.forEach(({ image }) => {
+        const img = new window.Image();
+        img.src = image;
+      });
+      setPreloadedImages(litterContent.map((item) => item.image));
     };
-
     preloadImages();
   }, []);
 
   useEffect(() => {
-    if (!api) {
-      return;
-    }
-
+    if (!api) return;
     api.on("select", () => {
-      const newIndex = api.selectedScrollSnap();
-      setCurrentIndex(newIndex);
-
-      setIsTransitioning(true);
-      setTimeout(() => {
-        setCurrentImage(litterContent[newIndex].image);
-        setIsTransitioning(false);
-      }, 300);
+      setCurrentIndex(api.selectedScrollSnap());
     });
   }, [api]);
-
-  if (!imagesPreloaded) {
-    return (
-      <div className="w-full h-[31.25rem] flex items-center justify-center">
-        <div className="animate-pulse bg-gray-200 rounded-lg w-4/6 h-4/6" />
-      </div>
-    );
-  }
 
   return (
     <div className="bg-[#F6F6F6] relative lg:pb-36">
@@ -115,17 +82,20 @@ export default function Operational() {
           className="lg:gap-12 lg:flex-row-reverse"
           image={
             <div className="xl:w-[31.25rem] hidden lg:block w-4/6 lg:w-full mx-auto lg:mx-0 lg:h-[33.75rem] overflow-hidden">
-              <Image
-                src={currentImage}
-                alt={`Slide ${currentIndex + 1} image`}
-                width={540}
-                height={540}
-                priority={true}
-                loading="eager"
-                className={`w-full h-full transition-opacity duration-300 ${
-                  isTransitioning ? "opacity-0" : "opacity-100"
-                }`}
-              />
+              {preloadedImages.map((src, index) => (
+                <Image
+                  key={src}
+                  src={src}
+                  alt={`Slide ${index + 1} image`}
+                  width={540}
+                  height={540}
+                  priority={index === 0}
+                  loading="eager"
+                  className={`w-full h-full absolute top-0 left-0 transition-opacity duration-300 ${
+                    index === currentIndex ? "opacity-100" : "opacity-0"
+                  }`}
+                />
+              ))}
             </div>
           }
           item={

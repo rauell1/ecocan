@@ -28,7 +28,7 @@ export default function Rhythm() {
                   availed the ECOcans. You can as well sprinkle in a
                   surprise package.
                   That we create a truly immersive and unforgettable ECO-Event.
-                  Exceeding your fans expectation.
+                  Exceeding your fans expectation while keeping our environment prestine.
                 </div>
               </div>
             }

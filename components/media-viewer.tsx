@@ -48,7 +48,7 @@ const MediaViewer: React.FC<MediaViewerProps> = ({
           </span>
         )}
       </AlertDialogTrigger>
-      <AlertDialogContent className="z-[9999]">
+      <AlertDialogContent className="z-[9999] lg:!max-w-[72rem] xl:!max-w-[85rem]">
         <div className="flex items-center">
           <AlertDialogHeader>
             <AlertDialogTitle className="text-white">{title}</AlertDialogTitle>

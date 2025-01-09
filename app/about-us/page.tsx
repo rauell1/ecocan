@@ -9,7 +9,6 @@ import Carousel from "./components/carousel-wrapper";
 import CarouselPage3 from "./components/carousel-page-3";
 import CarouselPage4 from "./components/carousel-page-4";
 import CarouselPage5 from "./components/carousel-page-5";
-import Footer from "@/components/shared/footer/footer";
 import CarouselPage6 from "./components/carousel-page-6";
 
 interface NavbarConfig {

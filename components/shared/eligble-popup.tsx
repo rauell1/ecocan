@@ -85,7 +85,7 @@ export default function EligblePopup({
             <div className="h-full rounded-smooth-xl p-5">
               <div className="flex">
                 <h2 className="text-[2rem] text-[#23262Fcc] font-bold">
-                  These are beverages manufactured by legitimate producers,
+                  These are beverages manufactured by legitimate producers..
                 </h2>
               </div>
               <h2 className="font-light">

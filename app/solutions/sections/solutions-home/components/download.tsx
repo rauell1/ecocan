@@ -17,7 +17,6 @@ export default function Download() {
           <Image
             src="/assets/images/solutions/sdgs.svg"
             alt="sdg goals"
-            className="cursor-pointer"
             priority
             width={459}
             height={100}

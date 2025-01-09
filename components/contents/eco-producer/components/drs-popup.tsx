@@ -13,6 +13,7 @@ import Image from "next/image";
 import HyperLink from "@/components/shared/hyperlink/hyperlink";
 import TextWithComponent from "../../consumer/components/text-with-component";
 import JoinEcommunity from "../../../shared/join-ecommunity";
+import RegisterPopup from "@/components/shared/register-popup";
 
 export default function DrsPopup() {
   return (
@@ -67,7 +68,7 @@ export default function DrsPopup() {
                   </p>
                   <p>
                     Curious how we&apos;ve archived this? Join{" "}
-                    <JoinEcommunity
+                    <RegisterPopup
                       showArrow={false}
                       join="the ECOmmunity"
                       className="text-primary px-0 text-xl"

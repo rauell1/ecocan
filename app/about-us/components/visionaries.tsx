@@ -24,7 +24,7 @@ export default function Visionaries() {
               <h2
                 className={`bg-gradient-to-r my-2 from-[#228B22] via-[#FFDD4C] to-[#FFDD4C] text-transparent bg-clip-text font-medium text-3xl`}
               >
-                To build a COmmunity <br /> of visionaries{" "}
+                To support a COmmunity <br /> of visionaries{" "}
               </h2>
             }
             component={

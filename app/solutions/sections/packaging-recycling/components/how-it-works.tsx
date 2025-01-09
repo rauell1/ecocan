@@ -58,7 +58,7 @@ const rightFeatures: FeatureItem[] = [
 
 export default function HowItWorks() {
   return (
-    <div className="max-w-[72rem] mx-auto px-4 xl:px-0 hidden lg:block pb-24">
+    <section className="max-w-[72rem] mx-auto px-4 xl:px-0 hidden lg:block pb-24" id="how-it-works">
       <TextWithComponent
         className="text-center"
         title="So how does it really work?"
@@ -67,6 +67,6 @@ export default function HowItWorks() {
           <HiwImage/>
         }
       />
-    </div>
+    </section>
   );
 }

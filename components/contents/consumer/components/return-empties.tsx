@@ -22,8 +22,9 @@ const timelineData = {
     {
       image: "/assets/images/consumer/egents.svg",
       title: "Return to Egents",
-      description:
-        "Who will verify your ECOCAN ID before accepting the empties. Thereafter they’ll digitally transfer applicable deposit money into your ECO-wallet. Upon completion of the recycling process, the App will inform you of the total number of empties returned, CO2e emissions cut, and energy saved",
+      description:(
+        <>Who will verify your ECOCAN ID before accepting the empties. Find your nearest or favourite <HyperLink href="" link="ECO-station here"/>. Upon completion of the recycling process, the App will inform you of the total number of empties returned, CO2e emissions cut, and energy saved</>
+      ),
     },
     {
       image: "/assets/images/consumer/recycle.svg",

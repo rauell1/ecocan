@@ -123,7 +123,7 @@ export default function ClosedLoop() {
                 component={
                   <>
                     <CheckList items={steps} className="items-start gap-2" />
-                    <p className="text-secondary mt-8">
+                    <p className="text-secondary mt-8 text-lg">
                       So next time you recycle, ensure it is closed loop
                       recycling, that you don&apos;t end up doing more harm,
                       when your intentions are noble

@@ -83,11 +83,11 @@ export default function Products() {
             className="text-[#777E90] border-none rounded-full focus:outline-none focus:border-none focus:ring-0"
           />
         </form>
-        <PrimaryButton
+        {/* <PrimaryButton
           className="h-11 hover:bg-primary"
           buttonText="add product"
           buttonIcon={<LucidePlus />}
-        />
+        /> */}
       </div>
       <div className="flex items-center justify-between">
         <p>All products</p>

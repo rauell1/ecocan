@@ -14,13 +14,13 @@ const CustomSwitch: React.FC<CustomSwitchProps> = ({ isActive, onToggle }) => {
     <div className="relative">
       <Switch
         id="Ecocan Security Codes"
-        className="w-[19rem] h-8 bg-gray-200 data-[state=checked]:bg-primary"
+        className="w-[19rem] h-8 bg-gray-200 data-[state=checked]:bg-primary duration-1000"
         checked={isActive}
         onCheckedChange={onToggle}
       />
       <div className="absolute inset-0 pointer-events-none flex items-center">
         <span
-          className={`transition-all duration-200 text-sm font-medium w-full text-center
+          className={`transition-all duration-1000 text-sm font-medium w-full text-center
             ${isActive ? "text-white" : "translate-x-0 text-gray-600"}`}
         >
           {isActive ? "ECOCAN Security Codes" : "Normal QR Codes"}
@@ -47,14 +47,14 @@ export default function Advantages() {
             </div>
             <div className="md:flex mt-6">
               <div
-                className={`md:w-1/2 transition-all duration-300 ${
+                className={`md:w-1/2 transition-all duration-1000 ${
                   !isActive ? "" : "grayscale opacity-50"
                 }`}
               >
                 <NormalQR />
               </div>
               <div
-                className={`md:w-1/2 transition-all duration-300 ${
+                className={`md:w-1/2 transition-all duration-1000 ${
                   isActive ? "" : "grayscale opacity-50"
                 }`}
               >

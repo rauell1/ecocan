@@ -33,45 +33,47 @@ export default function EcocanMarket() {
         )}
 
         {/* Carousel with preloaded images */}
-        <div className={`relative ${!imagesLoaded} ? "hidden" : ""`}>
-          <Carousel
-            currentPage={currentPage}
-            setCurrentPage={setCurrentPage}
-            showArrow={false}
-            enableScrollTracking={false}
-          >
-            {images.map((image, index) => (
-              <div
-                key={index}
-                style={{
-                  backgroundImage: `url(${image})`,
-                  opacity: preloadedImages[index] ? 1 : 0,
-                  transition: "opacity 0.3s ease-in-out",
-                }}
-                className="min-h-screen bg-[-100px] lg:bg-center bg-cover"
-              >
-                {/* Add next/image component for better image optimization */}
-                <Image
-                  src={image}
-                  alt={`Carousel image ${index + 1}`}
-                  priority={index === 0} // Priority load first image
-                  fill
-                  loading="eager"
-                  className="hidden" // Hide but still preload
-                  sizes="100vw"
-                  quality={90}
-                />
-              </div>
-            ))}
-          </Carousel>
-          <div className="text-center w-fit mx-auto absolute bottom-14 right-1/2 translate-x-1/2 text-white">
-            <LucideChevronsDown size={60} className="mx-auto"/>
-            <p>Scroll down</p>
+        <div className={`${!imagesLoaded} ? "hidden" : ""`}>
+          <div className="relative">
+            <Carousel
+              currentPage={currentPage}
+              setCurrentPage={setCurrentPage}
+              showArrow={false}
+              enableScrollTracking={false}
+            >
+              {images.map((image, index) => (
+                <div
+                  key={index}
+                  style={{
+                    backgroundImage: `url(${image})`,
+                    opacity: preloadedImages[index] ? 1 : 0,
+                    transition: "opacity 0.3s ease-in-out",
+                  }}
+                  className="min-h-screen bg-[-100px] lg:bg-center bg-cover"
+                >
+                  {/* Add next/image component for better image optimization */}
+                  <Image
+                    src={image}
+                    alt={`Carousel image ${index + 1}`}
+                    priority={index === 0} // Priority load first image
+                    fill
+                    loading="eager"
+                    className="hidden" // Hide but still preload
+                    sizes="100vw"
+                    quality={90}
+                  />
+                </div>
+              ))}
+            </Carousel>
+            <div className="text-center w-fit mx-auto absolute bottom-14 right-1/2 translate-x-1/2 text-white">
+              <LucideChevronsDown size={60} className="mx-auto" />
+              <p>Scroll down</p>
+            </div>
           </div>
+          <Searchbar />
+          <Footer />
         </div>
-        <Searchbar />
       </div>
-      <Footer />
     </>
   );
 }

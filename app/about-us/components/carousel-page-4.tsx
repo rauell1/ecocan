@@ -69,7 +69,7 @@ export default function CarouselPage4() {
               <h2
                 className={`bg-gradient-to-r my-2 from-[#228B22] via-[#FFDD4CCF] to-[#FFDD4C] text-transparent bg-clip-text font-semibold text-3xl xl:text-5xl`}
               >
-                COmmitted to a  mission
+                We&apos;re on a mission
               </h2>
             }
             className="gap-12 items-center"

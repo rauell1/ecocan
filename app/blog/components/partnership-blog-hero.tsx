@@ -1,0 +1,38 @@
+import PrimaryButton from "@/components/shared/primary-btn";
+import { Badge } from "@/components/ui/badge";
+import { blogHero } from "@/lib/imageIndex";
+import { LucideArrowRight } from "lucide-react";
+import Image from "next/image";
+import React from "react";
+
+export default function PartnershipBlogHero() {
+  return (
+    <div className="flex rounded-2xl shadow-xl lg:h-[32.25rem] overflow-hidden items-center mx-auto">
+      <div className="w-1/2">
+        <Image
+          src="/assets/images/blog/partnership.jpg"
+          alt="white man collecting plastic"
+          width={1000}
+          height={1000}
+          className="w-full h-full object-cover"
+        />
+      </div>
+      <div className="p-8 w-1/2">
+        <div className="w-4/5 mx-auto">
+          <h2 className="text-[2.5rem] font-semibold">
+            Finnpartnership invests in ECOCAN
+          </h2>
+          <p className="my-4">
+            ECOCAN Secures grant funding to pilot it&apos;s traceability and
+            recycling technologies in Kenya{" "}
+          </p>
+          <PrimaryButton
+            buttonText="Read more"
+            className="hover:bg-primary"
+            buttonIcon={<LucideArrowRight />}
+          />
+        </div>
+      </div>
+    </div>
+  );
+}

@@ -6,7 +6,7 @@ export default function PromoHero() {
   return (
     <div className="z-[95] relative pt-36">
       <TextWithComponent
-        title={<div className="text-white">Brand Promotion</div>}
+        title={<div className="text-white font-semibold">Brand Promotion</div>}
         description={
           <div className="space-y-4 text-white md:w-4/6 lg:w-1/2">
             <p>

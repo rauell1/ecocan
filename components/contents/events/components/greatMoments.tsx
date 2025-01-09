@@ -15,7 +15,7 @@ const GreatMoments = () => {
           }
           description={
             <span className="text-white">
-              With the lightest footprint
+              With the lightest environmental footprint
             </span>
           }
           component={

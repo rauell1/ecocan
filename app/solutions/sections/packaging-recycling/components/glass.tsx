@@ -25,12 +25,11 @@ const factData = [
     imagePath: "bg-[url('/assets/images/solutions/zero-waste.svg')]",
   },
   {
-    title: <h1 className="text-lg">Health</h1>,
+    title: <h1 className="text-lg">Infinite Recycling</h1>,
     description: (
       <p className="text-sm lg:w-10/12">
-        Glass bottles are completely natural packaging which contain no harmful
-        chemicals, additives, nor impurities. This ensures contents are
-        perfectly preserved as intended, most sustainably.
+        Like aluminium cans and PET chemical recycling, glass bottles can be
+        recycled indefinitely without degrading in quality. Forever!
       </p>
     ),
     imagePath: "bg-[url('/assets/images/solutions/recycling.svg')]",
@@ -43,15 +42,16 @@ export default function Glass() {
       <ImageAndItem
         className="gap-12"
         image={
-          <div className="space-y-6 border lg:h-[34.375rem] xl:h-[40rem] p-4 rounded-3xl bg-[#D9D9D9] flex flex-col justify-end bg-[url('/assets/images/solutions/aluminium-cans-green.svg')] bg-cover relative after:absolute after:inset-0 after:content-[''] after:bg-black/30 after:opacity-70 after:z-10 overflow-hidden">
+          <div className="space-y-6 border lg:h-[34.375rem] xl:h-[40rem] p-4 rounded-3xl bg-[#D9D9D9] flex flex-col justify-end bg-[url('/assets/images/solutions/glass-bg.svg')] bg-cover relative after:absolute after:inset-0 after:content-[''] after:bg-black/30 after:opacity-70 after:z-10 overflow-hidden">
             <TextWithComponent
               className="bg-[#29292945] backdrop-blur-[2px] rounded-xl overflow-hidden p-3 relative z-[999] text-white"
-              title={<span className="text-3xl">Infinite Recycling</span>}
+              title={<span className="text-3xl">Health</span>}
               description={
                 <p className="text-white">
-                  Like aluminium cans and PET chemical recycling, glass bottles
-                  can be recycled indefinitely without degrading in quality.
-                  Forever!
+                  Glass bottles are completely natural packaging which contain
+                  no harmful chemicals, additives, nor impurities. This ensures
+                  contents are perfectly preserved as intended, most
+                  sustainably.
                 </p>
               }
             />

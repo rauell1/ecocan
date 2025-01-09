@@ -19,13 +19,12 @@ export default function WhoWeAre() {
             Re-imagining sustainability for the better. Through our green-tech
             platform for comprehensive management of beverage products. That
             empowers and connects consumers, retailers, producers and recyclers,
-            for sustainable commerce. This dynamic offering is powered by the{" "}
+            for sustainable commerce. This dynamic offering is powered by the  block-chain compatible{" "}
             <HyperLink link="ECOCAN TnT:" href="/solutions/brand-protection#tnt" /> a revolutionary technology
             leveraging IoT and AI. To enable reliable product
             authentication before purchase, facilitate elaborate empties
             recycling after consumption, and offer comprehensive insights and
-            deep market intelligence. Giving stakeholders greater and
-            unparalleled control.
+            deep market intelligence.
           </p>
           <p>
             At the core of the TnT is our smart{" "}

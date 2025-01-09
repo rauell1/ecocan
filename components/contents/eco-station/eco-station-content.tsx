@@ -1,9 +1,6 @@
 import React from "react";
-import { ArrowRight, LucideArrowRight } from "lucide-react";
-import HyperLink from "@/components/shared/hyperlink/hyperlink";
-import { FaqSection } from "../consumer/components/faq";
+import { LucideArrowRight } from "lucide-react";
 import CtaCard from "@/components/shared/cta-card/cta-card";
-import { Button } from "@/components/ui/button";
 import HowTo from "../../shared/HowTo";
 import TextWithComponent from "../consumer/components/text-with-component";
 import SellMore from "./components/our-success";
@@ -12,9 +9,10 @@ import WhyEcostation from "./components/why-ecostation";
 import AvailRvm from "./components/avail-rvm";
 import BusinessInsights from "./components/business-insights";
 import SideHustle from "./components/side-hustle";
-import JoinEcommunity from "../../shared/join-ecommunity";
 import RegisterPopup from "@/components/shared/register-popup";
 import EcostationForm from "@/components/shared/hero-form/hero-form";
+import Faq from "./components/faq";
+import HyperLink from "@/components/shared/hyperlink/hyperlink";
 
 const howToData = [
   {
@@ -65,8 +63,12 @@ const howToData = [
     ),
     description: (
       <p className="mt-2">
-        We&apos;ll ensure you are prominently visible. So stock up nicely, ready
-        for increased sales & recycling action
+        ECOnsumers will come to you recycle, and to buy more from you. See{" "}
+        <HyperLink
+          href="/solutions/packaging-recycling#how-it-works"
+          link="here"
+        />{" "}
+        how this ECO-system works
       </p>
     ),
   },
@@ -90,7 +92,7 @@ export default function EcoStationContent() {
         <AvailRvm />
         <BusinessInsights />
         <News />
-        <FaqSection />
+        <Faq />
         <CtaCard
           className="bg-[url('/assets/images/eco-station/join-ecommunity-bg.svg')] ps-4 lg:ps-[5.25rem] h-[30.125rem] bg-cover bg-center relative after:absolute after:inset-0 after:content-[''] after:bg-black/60 after:opacity-70 after:z-10 overflow-hidden"
           item={
@@ -108,7 +110,7 @@ export default function EcoStationContent() {
                   <RegisterPopup
                     join="Join ECOmmunity"
                     className="bg-[#FFDD4C] hover:bg-[#FFDD4C] no-underline rounded-full h-[3rem] lg:w-[24.3125rem] border-none px-8 text-base text-black font-medium hover:text-black mt-8"
-                    arrow={<LucideArrowRight className="ml-4"/>}
+                    arrow={<LucideArrowRight className="ml-4" />}
                     showArrow={true}
                     form={
                       <EcostationForm className="mx-auto lg:w-[33.125rem]" />

@@ -13,8 +13,8 @@ const articles: Article[] = [
   {
     id: 1,
     title: "Kenya: New Law On Sustainable Waste Management Enacted.",
-    description: "After months of controversy surrounding Kenya's Green Economy Implementation Plan (GEIP), the East African government has embarked on drafti...",
-    date: "25 May, 2021",
+    description: "This legislation lays the foundation for establishment of the first nationwide Deposit Refund Scheme (DRS) in Africa, supporting comprehensive recycling....",
+    date: "2 Mar, 2023",
     imageUrl: "/assets/images/blog/wind-turbine-sunset.svg"
   },
   {
@@ -27,29 +27,29 @@ const articles: Article[] = [
   {
     id: 3,
     title: "How Ecocan Africa Is Helping Combat Counterfeits.",
-    description: "We enable over 14% of a Craft brewery's glass market circulation to be reused and helps reduce the PET recyclers processing loss rate from +20%...",
-    date: "25 May, 2021",
+    description: "ECOCAN is an early stage start-up offering Supply-chain Traceability And Recycling as a Service...",
+    date: "15 Feb, 2022",
     imageUrl: "/assets/images/blog/glass-recycling.svg"
   },
   {
     id: 4,
     title: "Governments Climate Action Initiatives",
     description: "Governments worldwide are enacting laws to combat climate change. Recent legislation mandates eco-friendly practices in industries lik...",
-    date: "25 May, 2021",
+    date: "17 Nov, 2021",
     imageUrl: "/assets/images/blog/wind-turbine-sky.svg"
   },
   {
     id: 5,
     title: "Green Economy Fostering Preservation",
     description: "This proactive approach aims to preserve the environment for future generations while fostering a green economy. Stay tuned for updates on the...",
-    date: "25 May, 2021",
+    date: "2 June, 2024",
     imageUrl: "/assets/images/blog/green-agriculture.svg"
   },
   {
     id: 6,
     title: "Community Led Eco-Friendly Campaigns",
     description: "Communities worldwide are banding together to fight climate change through eco-friendly initiatives. From tree-planting campaigns to plas...",
-    date: "25 May, 2021",
+    date: "30 May, 2021",
     imageUrl: "/assets/images/blog/plastic-caps.svg"
   }
 ];

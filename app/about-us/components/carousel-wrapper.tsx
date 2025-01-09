@@ -45,7 +45,7 @@ const Carousel: React.FC<CarouselProps> = ({
       onPageChange?.(currentPage - 1);
       
       // Reset transition lock after animation
-      setTimeout(() => setIsTransitioning(false), 1000);
+      setTimeout(() => setIsTransitioning(false), 500);
     }
   }, [currentPage, setCurrentPage, onPageChange, isTransitioning]);
 
@@ -61,7 +61,7 @@ const Carousel: React.FC<CarouselProps> = ({
       }
 
       // Throttle scroll events
-      if (now - lastScrollTime.current < 1000) {
+      if (now - lastScrollTime.current < 500) {
         event.preventDefault();
         return;
       }
@@ -123,7 +123,7 @@ const Carousel: React.FC<CarouselProps> = ({
         initial={{ opacity: 0, x: 100 }}
         animate={{ opacity: 1, x: 0 }}
         exit={{ opacity: 0, x: -100 }}
-        transition={{ duration: 0.8 }}
+        transition={{ duration: 0.2 }}
         key={currentPage}
       >
         {pages[currentPage]}

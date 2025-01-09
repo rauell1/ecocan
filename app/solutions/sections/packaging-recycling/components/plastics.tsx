@@ -46,7 +46,7 @@ export default function Plastics() {
       <ImageAndItem
         className="lg:gap-4 xl:gap-12"
         image={
-          <div className="space-y-6 border lg:h-[34.375rem] xl:h-[40rem] p-4 rounded-3xl bg-[#D9D9D9] flex flex-col justify-end bg-[url('/assets/images/solutions/pet-bg.png')] bg-cover relative after:absolute after:inset-0 after:content-[''] after:bg-black/30 after:opacity-70 after:z-10 overflow-hidden">
+          <div className="space-y-6 border lg:h-[34.375rem] xl:h-[40rem] p-4 rounded-smooth-xl bg-[#D9D9D9] flex flex-col justify-end bg-[url('/assets/images/solutions/pet-bg.png')] bg-cover relative after:absolute after:inset-0 after:content-[''] after:bg-black/30 after:opacity-70 after:z-10 overflow-hidden">
             <TextWithComponent
               className="bg-[#29292945] backdrop-blur-[2px] rounded-smooth overflow-hidden p-3 relative z-[999] text-white"
               title={<span className="text-3xl">CO2e reduction</span>}
@@ -68,7 +68,7 @@ export default function Plastics() {
                 return (
                   <div
                     key={index}
-                    className={`rounded-2xl flex flex-col justify-end p-3 ${fact.imagePath} bg-cover bg-center`}
+                    className={`rounded-smooth-lg flex flex-col justify-end p-3 ${fact.imagePath} bg-cover bg-center`}
                   >
                     <TextWithComponent
                       className="p-3 text-white bg-[#29292945] backdrop-blur-[2px] rounded-2xl"

@@ -26,7 +26,7 @@ export default function BrandProtection() {
           <TextWithComponent
             title={
               <div className="space-y-4">
-                <h2>Brand Protection</h2>
+                <h2 className='font-semibold'>Brand Protection</h2>
                 <p className="text-base font-medium text-[#2F313F]">
                   ECOCAN TnT / ECOCAN DRS / ECOCAN Security codes / EcocanApp
                 </p>

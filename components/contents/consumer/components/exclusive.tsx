@@ -10,8 +10,8 @@ const cardContent = [
     answer: (
       <div className="space-y-4">
         Whenever you return 10 eligible empties for recycling, you&apos;ll get
-        back the deposit money, + we&apos;ll reward you with up to 30% discount on
-        your next ECO-purchase. Just activate your coupon while at the
+        back the deposit money, + we&apos;ll reward you with up to 30% discount
+        on your next ECO-purchase. Just activate your coupon while at the
         ECO-station, show the one-time coupon QR code to the Egent, and pay
         less!
       </div>
@@ -41,11 +41,10 @@ const cardContent = [
     answer: (
       <div className="space-y-4">
         <p>
-          Whenever you return 10 eligible empties for recycling, you&apos;ll get
-          back the deposit money, + we&apos;ll reward you with up to 30% discount on
-          your next ECO-purchase. Just activate your coupon while at the
-          ECO-station, show the one-time coupon QR code to the Egent, and pay
-          less!
+          We&apos;ll roll out the Red Carpet just for YOU! That you enjoy
+          priority access to exclusive events + Valet parking. Skip the long
+          queues by pre-ordering your drinks. Get exclusive behind-the-scenes
+          content. And we might just spoil you by popping a complimentary drink!
         </p>
       </div>
     ),
@@ -68,7 +67,11 @@ export default function Exclusive() {
           description={
             <span>
               Enjoy unbelievably jaw dropping benefits by simply joining the{" "}
-              <JoinEcommunity showArrow={false} className="text-primary text-xl font-normal border-none p-0 underline underline-offset-8" join="ECOmmunity"/>
+              <JoinEcommunity
+                showArrow={false}
+                className="text-primary text-xl font-normal border-none p-0 underline underline-offset-8"
+                join="ECOmmunity"
+              />
             </span>
           }
           className="mx-auto text-center"
