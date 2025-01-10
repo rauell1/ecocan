@@ -37,7 +37,7 @@ const factData = [
         <span className="text-primary">ECOCAN</span>.
       </p>
     ),
-    imagePath: "bg-[url('/assets/images/solutions/recycling.svg')]",
+    imagePath: "bg-[url('/assets/images/solutions/recycling-journey.svg')]",
   },
 ];
 
@@ -69,10 +69,10 @@ export default function Aluminium() {
                 return (
                   <div
                     key={index}
-                    className={`rounded-2xl flex flex-col justify-end p-3 ${fact.imagePath} bg-cover bg-center`}
+                    className={`rounded-smooth-lg flex flex-col justify-end p-3 ${fact.imagePath} bg-cover bg-center`}
                   >
                     <TextWithComponent
-                      className="p-3 text-white bg-[#29292945] backdrop-blur-[2px] rounded-2xl"
+                      className="p-3 text-white bg-[#29292945] backdrop-blur-[1px] rounded-2xl"
                       title={fact.title}
                       description={
                         <span className="text-white">{fact.description}</span>

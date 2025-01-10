@@ -49,7 +49,7 @@ const articles: Article[] = [
     description:
       "Savannah Brands Limited, the maker of the renowned cider brand Kenyan Originals, has officially joined the ECO-system to enable the recycling of its cider bottles in Kenya",
     date: "July  2023",
-    imageUrl: "/assets/images/blog/ko.webp",
+    imageUrl: "/assets/images/blog/ko.png",
   },
   {
     id: 6,

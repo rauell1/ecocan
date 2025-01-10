@@ -63,7 +63,7 @@ const howToData = [
     ),
     description: (
       <p className="mt-2">
-        ECOnsumers will come to you recycle, and to buy more from you. See{" "}
+        ECOnsumers will come to you to recycle, and to buy more from you. See{" "}
         <HyperLink
           href="/solutions/packaging-recycling#how-it-works"
           link="here"

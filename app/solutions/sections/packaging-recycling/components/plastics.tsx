@@ -4,7 +4,18 @@ import React from "react";
 
 const factData = [
   {
-    title: <h1 className="text-lg">Infinite recycling</h1>,
+    title: <h1 className="text-lg">CO2e reduction</h1>,
+    description: (
+      <p className="text-sm lg:w-10/12">
+        Recycling 1 Kg of PET plastics reduces over{" "}
+        <span className="font-bold">80%</span> of Carbon emissions, compared to
+        producing the same PET bottles from virgin raw materials
+      </p>
+    ),
+    imagePath: "bg-[url('/assets/images/solutions/infinite.png')]",
+  },
+  {
+    title: <h1 className="text-lg">Infinite recycling </h1>,
     description: (
       <p className="text-sm lg:w-10/12">
         1 PET bottle can be recycled upto 10 times using typical recycling
@@ -12,28 +23,16 @@ const factData = [
         <span className="font-bold">recycled forever!</span>
       </p>
     ),
-    imagePath: "bg-[url('/assets/images/solutions/infinite.png')]",
+    imagePath: "bg-[url('/assets/images/solutions/e-savings.svg')]",
   },
   {
-    title: <h1 className="text-lg">Energy Savings</h1>,
+    title: <h1 className="text-lg">Energy Savings </h1>,
     description: (
       <p className="text-sm lg:w-10/12">
         Recycling <span className="font-bold">1 ton</span> of PET bottles, saves
         approximately <span className="font-bold">14,000 kWh</span> of energy.
         This is enough energy to power your household for{" "}
         <span className="font-bold">1 full year!</span>
-      </p>
-    ),
-    imagePath: "bg-[url('/assets/images/solutions/e-savings.svg')]",
-  },
-  {
-    title: <h1 className="text-lg">Space Savings</h1>,
-    description: (
-      <p className="text-sm lg:w-10/12">
-        PET recycling diverts empties from landfills, thereby saving upto{" "}
-        <span className="font-bold">5.7 cubic yards</span> of landfill space for
-        every <span className="font-bold">1 ton recycled</span>. This is enough
-        land to set up a small garden, or a playhouse for kids
       </p>
     ),
     imagePath: "bg-[url('/assets/images/solutions/s-savings.svg')]",
@@ -49,13 +48,14 @@ export default function Plastics() {
           <div className="space-y-6 border lg:h-[34.375rem] xl:h-[40rem] p-4 rounded-smooth-xl bg-[#D9D9D9] flex flex-col justify-end bg-[url('/assets/images/solutions/pet-bg.png')] bg-cover relative after:absolute after:inset-0 after:content-[''] after:bg-black/30 after:opacity-70 after:z-10 overflow-hidden">
             <TextWithComponent
               className="bg-[#29292945] backdrop-blur-[2px] rounded-smooth overflow-hidden p-3 relative z-[999] text-white"
-              title={<span className="text-3xl">CO2e reduction</span>}
+              title={<span className="text-3xl">Space Savings</span>}
               description={
                 <p className="text-white text-base">
-                  Recycling 1 Kg of PET plastics reduces over{" "}
-                  <span className="font-bold">80%</span> of Carbon emissions,
-                  compared to producing the same PET bottles from virgin raw
-                  materials
+                  PET recycling diverts empties from landfills, thereby saving
+                  upto <span className="font-bold">5.7 cubic yards</span> of
+                  landfill space for every{" "}
+                  <span className="font-bold">1 ton recycled</span>. This is
+                  enough land to set up a small garden, or a playhouse for kids
                 </p>
               }
             />

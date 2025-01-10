@@ -19,7 +19,7 @@ export default function Process() {
           <MediaViewer
             type="video"
             title="Recycling Process Video"
-            source="https://www.youtube.com/embed/9_7KM-2AhMs"
+            source="https://www.youtube.com/embed/PhmYFcz-98A"
             start={48}
             end={98}
             trigger={

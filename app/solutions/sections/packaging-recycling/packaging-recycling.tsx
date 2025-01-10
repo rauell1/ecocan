@@ -22,7 +22,6 @@ export default function PackagingRecycling() {
         <div className="bg-white pt-12 pb-8 lg:pb-36 space-y-24 relative">
           <Process/>
           <ClosedLoop/>
-          <SmallDeeds />
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 1440 100"

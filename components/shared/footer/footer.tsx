@@ -68,7 +68,7 @@ const Footer = () => {
           <div className="col-span-10 md:col-span-2">
             <h3 className="text-xl font-semibold mb-4">Our Socials</h3>
             <div className="grid grid-cols-3 gap-2 w-fit">
-              <Link href="https://facebook.com" className="w-fit">
+              <Link href="https://facebook.com/EcocanAfrica" className="w-fit">
                 <Image
                   src="/assets/icons/facebook.svg"
                   alt="Facebook"
@@ -76,7 +76,7 @@ const Footer = () => {
                   height={40}
                 />
               </Link>
-              <Link href="https://twitter.com" className="w-fit">
+              <Link href="https://twitter.com/EcocanAfrica" className="w-fit">
                 <Image
                   src="/assets/icons/X.svg"
                   alt="Twitter"
@@ -84,7 +84,7 @@ const Footer = () => {
                   height={40}
                 />
               </Link>
-              <Link href="https://instagram.com" className="w-fit">
+              <Link href="https://www.instagram.com/ecocanafrica?igsh=eHEycmVwYnV3OGR2" className="w-fit">
                 <Image
                   src="/assets/icons/Instagram.svg"
                   alt="Instagram"
@@ -108,7 +108,7 @@ const Footer = () => {
                   height={40}
                 />
               </Link>
-              <Link href="https://youtube.com" className="w-fit">
+              <Link href="https://www.youtube.com/@EcocanAfrica" className="w-fit">
                 <Image
                   src="/assets/icons/youtube.svg"
                   alt="YouTube"
