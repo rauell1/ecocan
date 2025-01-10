@@ -8,7 +8,7 @@ const cardContent = [
     id: 1,
     name: "Recycling Coupons",
     answer: (
-      <div className="space-y-4">
+      <div className="font-normal">
         Whenever you return 10 eligible empties for recycling, you&apos;ll get
         back the deposit money, + we&apos;ll reward you with up to 30% discount
         on your next ECO-purchase. Just activate your coupon while at the
@@ -23,7 +23,7 @@ const cardContent = [
     id: 2,
     name: "Sustainability discounts",
     answer: (
-      <div className="space-y-4">
+      <div className="font-normal ">
         <p>
           Before you buy an ECO-product, authenticate it using your ECO-scanner.
           And after enjoying the drink, return to ECO-stations the exact same
@@ -39,7 +39,7 @@ const cardContent = [
     id: 3,
     name: "VIP treatment",
     answer: (
-      <div className="space-y-4">
+      <div className="font-normal">
         <p>
           We&apos;ll roll out the Red Carpet just for YOU! That you enjoy
           priority access to exclusive events + Valet parking. Skip the long
