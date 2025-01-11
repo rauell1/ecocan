@@ -44,7 +44,7 @@ interface CardComponentProps {
 
 const CardComponent: React.FC<CardComponentProps> = ({ card, className }) => (
   <SimpleCard
-    className={`border-none p-0 w-full ${className ?? ""}`}
+    className={`border border-secondary/30 lg:border-none p-0 w-full ${className ?? ""}`}
     image={
       <div className="h-52 overflow-hidden relative">
         <Image
@@ -83,7 +83,7 @@ const DoMore: React.FC = () => {
           <>
             {/* Mobile Carousel */}
             <div className="lg:hidden mt-6">
-              <Carousel className="w-full max-w-xs mx-auto">
+              <Carousel className="w-full mx-auto">
                 <CarouselContent>
                   {cardContent.map((card, index) => (
                     <CarouselItem key={index}>

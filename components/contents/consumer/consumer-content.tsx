@@ -13,7 +13,6 @@ import CtaCardComponent from "./components/cta-card";
 import TapTap from "./components/tap-tap";
 import GetStarted from "./components/get-started";
 import WhatIsEcocan from "./components/what-is-ecocan";
-import EnergyEfficiency from "./components/energy-efficiency";
 import Faq from "./components/faq";
 import SmallDeeds from "@/app/solutions/sections/packaging-recycling/components/small-deeds";
 
@@ -43,7 +42,7 @@ export default function ConsumerContent() {
 
       <div className="max-w-[72rem] mx-auto space-y-8 lg:space-y-24 px-4 xl:px-0">
         <WasteLitter />
-        <div className="pb-24"><SmallDeeds/></div>
+        <div className="pb-12 g:pb-24"><SmallDeeds/></div>
       </div>
       <div className="w-screen lg:pb-24 my-8 md:hidden">
         <Image

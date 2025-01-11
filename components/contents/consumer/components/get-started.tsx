@@ -119,7 +119,7 @@ export default function GetStarted() {
         <FeaturesGrid
           features={consumerFeatures}
           gap="gap-4"
-          className="h-[28rem] lg:h-[33.25rem] xl:h-[41.25rem] bg-[position:590px_0px] bg-[length:260%_100%] p-4 flex flex-col justify-end after:absolute after:inset-0 after:content-[''] after:bg-black/60 after:opacity-70 after:z-10 overflow-hidden"
+          className="h-[33.25rem] xl:h-[41.25rem] bg-[position:590px_0px] bg-[length:260%_100%] p-4 flex flex-col justify-end after:absolute after:inset-0 after:content-[''] after:bg-black/60 after:opacity-70 after:z-10 overflow-hidden"
         />
       }
     />

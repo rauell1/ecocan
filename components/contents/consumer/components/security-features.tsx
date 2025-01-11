@@ -90,7 +90,7 @@ export const AIFeatureCard = ({
               alt="AI Chip"
               width={100}
               height={200}
-              className="w-full h-full object-cover group-hover:rotate-[-1.75deg] group-hover:scale-110 transition-all"
+              className="w-full h-full object-cover group-hover:rotate-[-1.75deg] group-hover:scale-110 transition-all duration-500"
             />
           </div>}
         </CardContent>

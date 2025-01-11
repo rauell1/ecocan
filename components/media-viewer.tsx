@@ -57,7 +57,7 @@ const MediaViewer: React.FC<MediaViewerProps> = ({
             <LucideX />
           </AlertDialogCancel>
         </div>
-        <div className="relative flex-1 w-full h-full min-h-[60vh] z-[99999]">
+        <div className="relative flex-1 w-full h-full min-h-[80vh] z-[99999]">
           {isLoading && (
             <div className="absolute inset-0 flex items-center justify-center bg-secondary/20">
               <Loader2 className="w-8 h-8 animate-spin" />

@@ -1,5 +1,6 @@
 import TextWithComponent from "@/components/contents/consumer/components/text-with-component";
 import { ItemList } from "@/components/contents/courier/components/ItemList";
+import HyperLink from "@/components/shared/hyperlink/hyperlink";
 import ImageAndItem from "@/components/shared/image-and-item/image-and-item";
 import Image from "next/image";
 import React from "react";
@@ -22,7 +23,11 @@ const howToData = [
   {
     id: 4,
     title:
-      "And ECOCAN will ensure that your recycling experience is most rewarding, convenient, and pleasantly unforgettable",
+      (
+        <>
+        You&apos;re helping conserve energy i.e., recycling 1 aluminium can saves upto 95% energy used to make new cans. <HyperLink href="/solutions/packaging-recycling#fun-facts" link="Learn more here"/>
+        </>
+      ),
   },
 ];
 

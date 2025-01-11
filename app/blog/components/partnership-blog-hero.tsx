@@ -7,8 +7,8 @@ import React from "react";
 
 export default function PartnershipBlogHero() {
   return (
-    <div className="flex rounded-2xl shadow-xl lg:h-[32.25rem] overflow-hidden items-center mx-auto">
-      <div className="w-1/2">
+    <div className="lg:flex rounded-2xl shadow-xl lg:h-[32.25rem] overflow-hidden items-center mx-auto">
+      <div className="lg:w-1/2 h-[20rem] lg:h-full">
         <Image
           src="/assets/images/blog/partnership.jpg"
           alt="white man collecting plastic"
@@ -17,8 +17,8 @@ export default function PartnershipBlogHero() {
           className="w-full h-full object-cover"
         />
       </div>
-      <div className="p-8 w-1/2">
-        <div className="w-4/5 mx-auto">
+      <div className="p-4 lg:p-8 lg:w-1/2">
+        <div className="lg:w-4/5 mx-auto">
           <h2 className="text-[2.5rem] font-semibold">
             Finnpartnership invests in ECOCAN
           </h2>

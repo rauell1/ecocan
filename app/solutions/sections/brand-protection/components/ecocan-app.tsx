@@ -20,10 +20,10 @@ export default function EcocanApp() {
       <div className="text-center relative">
         <Image
           src="/assets/images/solutions/mobile-block.svg"
-          alt=""
+          alt="ecocan mobile app on ios"
           width={1110}
           height={100}
-          className="mx-auto w-[69.375rem] h-full"
+          className="mx-auto w-[69.375rem] h-full hidden md:block"
         />
         <ScanqrPopup
           className="md:absolute bottom-4 lg:bottom-8 lg:left-1/2 md:-translate-x-[5.125rem] hover:bg-primary bg-primary text-sm lg:text-base text-white hover:text-white no-underline px-8"

@@ -6,9 +6,11 @@ const timelineData = {
   title: "Returning eligible empties",
   subtitle: (
     <div className="md:w-11/12">
-      Only return empties of <span className="font-medium">Aluminium cans, PET plastics, Glass bottles and
-      beverage Cartons </span>, carrying ECOCAN Security codes. That are published on the
-      ECOCAN Market.{" "}
+      Only return empties of{" "}
+      <span className="font-medium">
+        Aluminium cans, PET plastics, Glass bottles and beverage Cartons{" "}
+      </span>
+      , carrying ECOCAN Security codes. That are published on the ECOCAN Market.{" "}
       <HyperLink link="See full list here" href="/ecocan-market#product-list" />
     </div>
   ),
@@ -22,8 +24,13 @@ const timelineData = {
     {
       image: "/assets/images/consumer/egents.svg",
       title: "Return to Egents",
-      description:(
-        <>Who will verify your ECOCAN ID before accepting the empties. Find your nearest or favourite <HyperLink href="" link="ECO-station here"/>. Upon completion of the recycling process, the App will inform you of the total number of empties returned, CO2e emissions cut, and energy saved</>
+      description: (
+        <>
+          Who will verify your ECOCAN ID before accepting the empties.
+          Thereafter, they&apos;ll digitally transfer applicable deposit money into
+          your ECO-wallet. Find your nearest or favourite{" "}
+          <HyperLink href="" link="ECO-station here" />.
+        </>
       ),
     },
     {

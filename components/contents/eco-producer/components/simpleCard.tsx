@@ -18,7 +18,7 @@ export default function SimpleCard({
   return (
     <Card
       className={clsx(
-        "border-2 border-primary rounded-3xl overflow-hidden shadow-lg",
+        "border-2 border-primary rounded-3xl overflow-hidden lg:hadow-lg",
         className
       )}
     >

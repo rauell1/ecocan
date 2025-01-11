@@ -134,7 +134,7 @@ export default function EcoProducerForm({
                 name="tradingName"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Registered Number</FormLabel>
+                    <FormLabel>Registration Number</FormLabel>
                     <FormControl>
                       <Input placeholder="PVT-" {...field} />
                     </FormControl>

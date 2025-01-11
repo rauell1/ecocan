@@ -39,7 +39,7 @@ export default function EcoStationHero() {
       <section id="eco_station">
         <div className="bg-[url('/assets/images/eco-station/eco-station-hero.svg')] bg-center bg-cover mb-6 lg:mb-0 min-h-[24.735rem] flex items-center md:block md:h-[32.5625rem] lg:h-[38.875rem] xl:h-[46.85rem] relative after:absolute after:inset-0 after:content-[''] after:bg-black/50 after:opacity-70 after:z-10">
           <div className="h-full flex items-center max-w-[72rem] mx-auto px-4 xl:px-0">
-            <div className="z-[990] h-[40rem] lg:flex lg:flex-row lg:gap-12 lg:items-center">
+            <div className="z-[990] h-[28rem] lg:h-[40rem] flex flex-row lg:gap-12 items-center">
               <div className="flex flex-col gap-4 lg:pt-0 lg:w-1/2 text-white lg:space-y-4">
                 <div>
                   <h1 className="xl:text-[4rem] text-5xl text-start font-semibold">

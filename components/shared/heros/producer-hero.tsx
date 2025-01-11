@@ -34,7 +34,7 @@ export default function ProducerHero() {
         linkColor={isScrolled ? "text-black" : "text-white"}
       />
       <div>
-        <div className="bg-[url('/assets/images/producer/hero.svg')] mb-6 lg:mb-0 min-h-[24.735rem] flex items-center md:block md:h-[32.5625rem] lg:h-[38.875rem] xl:h-[46.85rem] bg-[length:130%] lg:bg-[position:-100px_0px] relative after:absolute after:inset-0 after:content-[''] after:bg-black/10 after:z-10">
+        <div className="bg-[url('/assets/images/producer/hero.svg')] mb-6 lg:mb-0 min-h-[28rem] flex items-center md:block md:h-[32.5625rem] lg:h-[38.875rem] xl:h-[46.85rem] lg:bg-[length:130%] bg-[position:-400px_0px] lg:bg-[position:-100px_0px] relative after:absolute after:inset-0 after:content-[''] after:bg-black/10 after:z-10">
           <div className="h-full flex items-center max-w-[72rem] md:mx-auto px-4 xl:px-0">
             <div className="z-[990]">
               <div className="text-white z-50 space-y-1">
