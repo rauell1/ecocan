@@ -20,7 +20,7 @@ export default function Process() {
             type="video"
             title="Recycling Process Video"
             source="https://www.youtube.com/embed/PhmYFcz-98A"
-            start={48}
+            start={0}
             end={98}
             trigger={
               <div className="relative">
@@ -54,8 +54,8 @@ export default function Process() {
                   <MediaViewer
                     type="video"
                     title="PAC Swiss bottle washers"
-                    start={12}
-                    source="https://www.youtube.com/embed/0QxeZ-r7vSE"
+                    start={0}
+                    source="https://www.youtube.com/embed/PhmYFcz-98A"
                   />
                   . And undergo rigorous quality inspection with top-of-the-line{" "}
                   <MediaViewer
