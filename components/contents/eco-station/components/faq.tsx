@@ -6,13 +6,10 @@ const faqData = [
     question: "What is an ECO-Station?",
     answer: (
       <>
-        ECO-Stations are designated recycling points where you can purchase
-        ECO-friendly products, and return eligible empties for recycling to
-        redeem applicable deposit money. Empties can be returned either Over the
-        counter to <span className="text-primary">Egents</span>, or
-        Automatically through <span className="text-primary">ECOcans</span>. Use
-        the <span className="text-primary">ECOCAN Map</span> to locate your
-        nearest or preferred ECO-station
+        ECO-Stations are designated recycling points where ECOnsumers can
+        purchase ECO-products, and return eligible empties for recycling. At
+        ECO-Stations, empties can be returned either Over the counter to Egents,
+        or Automatically into ECOcans
       </>
     ),
   },
@@ -111,7 +108,8 @@ const faqData = [
     question: "Have a different question?",
     answer: (
       <>
-        Contact us at <span className="text-primary">support@ECO-Station.com</span>
+        Contact us at{" "}
+        <span className="text-primary">support@ECO-Station.com</span>
       </>
     ),
   },
