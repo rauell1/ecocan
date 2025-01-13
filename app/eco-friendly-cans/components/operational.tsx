@@ -150,7 +150,7 @@ export default function Operational() {
       >
         <path
           fill="#F6F6F6"
-          fill-opacity="1"
+          fillOpacity="1"
           d="M0,100L1440,0L1440,400L0,400Z"
         ></path>
       </svg>
@@ -161,7 +161,7 @@ export default function Operational() {
       >
         <path
           fill="white"
-          fill-opacity="1"
+          fillOpacity="1"
           d="M0,100L1440,0L1440,100L0,100Z"
         ></path>
       </svg>

@@ -24,7 +24,7 @@ export default function Heading() {
       >
         <path
           fill="#F6F6F6"
-          fill-opacity="1"
+          fillOpacity="1"
           d="M0,0L1440,0L1440,00L0,100Z"
         ></path>
       </svg>

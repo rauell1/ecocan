@@ -46,9 +46,9 @@ export default function ScanqrPopup({
           alt="scan to download ecocan"
           width={400}
           height={400}
-          className="mx-auto z-[9999] w-72 h-72 xl:w-[25rem]"
+          className="mx-auto z-[9999] w-72 h-72 xl:w-[20rem]"
         />
-        <p className="font-semibold text-[#23262Fcc] text-center text-3xl xl:text-5xl mt-5">
+        <p className="font-semibold text-[#23262Fcc] text-center text-3xl mt-5">
           Scan to download <br />
           EcocanApp
         </p>

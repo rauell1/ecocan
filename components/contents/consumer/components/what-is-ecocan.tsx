@@ -125,7 +125,7 @@ export default function WhatIsEcocan() {
       >
         <path
           fill="#FAFAFA"
-          fill-opacity="1"
+          fillOpacity="1"
           d="M0,80L1440,0L1440,280L0,280Z"
         ></path>
       </svg>
@@ -136,7 +136,7 @@ export default function WhatIsEcocan() {
       >
         <path
           fill="#FAFAFA"
-          fill-opacity="1"
+          fillOpacity="1"
           d="M0,100L600,0L600,600L0,600Z"
         ></path>
       </svg>

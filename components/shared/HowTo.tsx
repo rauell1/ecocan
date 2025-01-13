@@ -67,7 +67,7 @@ const HowTo: React.FC<HowToProps> = ({
           >
             <path
               fill="white"
-              fill-opacity="1"
+              fillOpacity="1"
               d="M0,80L1440,0L1440,340L0,340Z"
             ></path>
           </svg>
@@ -78,7 +78,7 @@ const HowTo: React.FC<HowToProps> = ({
           >
             <path
               fill="white"
-              fill-opacity="1"
+              fillOpacity="1"
               d="M0,100L600,0L600,600L0,600Z"
             ></path>
           </svg>

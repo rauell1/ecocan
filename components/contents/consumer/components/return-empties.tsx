@@ -64,7 +64,7 @@ export default function ReturnEmpties() {
       >
         <path
           fill="#F3F3F6"
-          fill-opacity="1"
+          fillOpacity="1"
           d="M0,80L1440,0L1440,340L0,340Z"
         ></path>
       </svg>
@@ -75,7 +75,7 @@ export default function ReturnEmpties() {
       >
         <path
           fill="#F3F3F6"
-          fill-opacity="1"
+          fillOpacity="1"
           d="M0,100L600,0L600,600L0,600Z"
         ></path>
       </svg>

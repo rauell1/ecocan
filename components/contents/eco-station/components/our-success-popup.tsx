@@ -83,7 +83,7 @@ export default function OurSuccessPopup() {
           >
             <path
               fill="#F6F6F6"
-              fill-opacity="1"
+              fillOpacity="1"
               d="M0,0L1440,0L1440,300L0,600Z"
             ></path>
           </svg>

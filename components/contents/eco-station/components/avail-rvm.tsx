@@ -13,7 +13,7 @@ export default function AvailRvm() {
           className="lg:flex-row-reverse gap-6 lg:gap-12 items-center"
           image={
             <Image
-              src="/assets/images/eco-station/avail-rvm.svg"
+              src="/assets/images/eco-station/lady-rvm.svg"
               alt="RVM"
               className="object-cover"
               priority

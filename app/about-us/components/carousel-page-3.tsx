@@ -18,7 +18,7 @@ export default function CarouselPage3() {
       >
         <path
           fill="#F6F6F6"
-          fill-opacity="1"
+          fillOpacity="1"
           d="M0,450L1440,0L1440,500L0,500Z"
         ></path>
       </svg>
@@ -29,7 +29,7 @@ export default function CarouselPage3() {
       >
         <path
           fill="#F6F6F6"
-          fill-opacity="1"
+          fillOpacity="1"
           d="M0,300L600,0L600,600L0,600Z"
         ></path>
       </svg>

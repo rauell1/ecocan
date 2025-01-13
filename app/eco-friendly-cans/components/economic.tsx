@@ -71,7 +71,7 @@ export default function Economic() {
       >
         <path
           fill="#2F313F"
-          fill-opacity="1"
+          fillOpacity="1"
           d="M0,80L1440,0L1440,180L0,180Z"
         ></path>
       </svg>
