@@ -1,5 +1,4 @@
 import React from "react";
-import WhoWeAre from "./who-we-are";
 import Visionaries from "./visionaries";
 import Image from "next/image";
 

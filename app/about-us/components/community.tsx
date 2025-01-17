@@ -1,5 +1,4 @@
 import TextWithComponent from "@/components/contents/consumer/components/text-with-component";
-import HyperLink from "@/components/shared/hyperlink/hyperlink";
 import RegisterPopup from "@/components/shared/register-popup";
 import React from "react";
 
