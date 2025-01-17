@@ -4,7 +4,7 @@ import React from "react";
 
 export default function PromoHero() {
   return (
-    <div className="z-[95] relative pt-36">
+    <div className="z-[95] relative pt-24 lg:pt-36">
       <TextWithComponent
         title={<div className="text-white font-semibold">Brand Promotion</div>}
         description={

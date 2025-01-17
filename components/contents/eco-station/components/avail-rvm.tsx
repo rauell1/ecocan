@@ -1,4 +1,3 @@
-import HyperLink from "@/components/shared/hyperlink/hyperlink";
 import ImageAndItem from "@/components/shared/image-and-item/image-and-item";
 import PrimaryButton from "@/components/shared/primary-btn";
 import React from "react";

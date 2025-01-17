@@ -11,7 +11,6 @@ import { LucideChevronsDown } from "lucide-react";
 const images = [
   "/assets/images/ecocan-market/carousel-1.svg",
   "/assets/images/ecocan-market/carousel-2.svg",
-  "/assets/images/ecocan-market/carousel-3.svg",
   "/assets/images/ecocan-market/carousel-4.svg",
   "/assets/images/ecocan-market/carousel-5.svg",
 ];
@@ -65,7 +64,7 @@ export default function EcocanMarket() {
                 </div>
               ))}
             </Carousel>
-            <div className="text-center w-fit mx-auto absolute bottom-14 right-1/2 translate-x-1/2 text-white">
+            <div className="text-center w-fit mx-auto absolute bottom-1 lg:bottom-14 right-1/2 translate-x-1/2 text-white">
               <LucideChevronsDown size={60} className="mx-auto" />
               <p>Scroll down</p>
             </div>

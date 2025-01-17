@@ -19,7 +19,7 @@ import SmallDeeds from "@/app/solutions/sections/packaging-recycling/components/
 export default function ConsumerContent() {
   return (
     <>
-      <div className="">
+      <div>
         <div className="max-w-[72rem] mx-auto lg:pb-24 py-8 px-4 xl:px-0">
           <GetStarted />
         </div>

@@ -60,7 +60,7 @@ const consumerFeatures = [
 
 export default function Heading() {
   return (
-    <div className="bg-[#F6F6F6] pb-8 lg:py-24">
+    <div className="bg-[#F6F6F6] pb-8 lg:py-24 pt-24">
       <div className="max-w-[72rem] mx-auto px-4 xl:px-0">
         <TextWithComponent
           title={<span className="font-semibold">Re-imagined Recycling</span>}

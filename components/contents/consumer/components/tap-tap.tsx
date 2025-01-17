@@ -34,7 +34,7 @@ export default function TapTap() {
     <ImageAndItem
       className="gap-8 lg:gap-12 items-center"
       title="How EcocanApp works"
-      subtitle="Tap Tap Tap, and, Wallah!"
+      subtitle="Tap Tap Tap, and, Voila!"
       image={
         <div className="relative w-full h-[24rem] lg:h-[33.75rem] rounded-smooth-xl overflow-hidden hidden lg:block">
           {preloadedImages.map((src, index) => (
