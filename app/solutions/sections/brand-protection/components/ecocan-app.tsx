@@ -1,7 +1,7 @@
 import Image from "next/image";
 import React from "react";
 import ScanqrPopup from "@/components/shared/scan-qr";
-
+import AppStoreButton from "@/components/shared/download-app";
 
 export default function EcocanApp() {
   return (
@@ -25,9 +25,10 @@ export default function EcocanApp() {
           height={100}
           className="mx-auto w-[69.375rem] h-full hidden md:block"
         />
-        <ScanqrPopup
+        <AppStoreButton
           className="md:absolute bottom-4 lg:bottom-8 lg:left-1/2 md:-translate-x-[5.125rem] hover:bg-primary bg-primary text-sm lg:text-base text-white hover:text-white no-underline px-8"
-          join="Download App"
+          playStoreUrl="https://play.google.com/store/apps/details?id=com.superapp.ecocanapp"
+          appStoreUrl="https://apps.apple.com/app/6502695438"
         />
       </div>
     </section>

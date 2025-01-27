@@ -1,12 +1,11 @@
 "use client";
 
-import { LucideDownload } from "lucide-react";
 import Image from "next/image";
 import React from "react";
 import NavigationBar from "../navbar/navbar";
 import { useScroll } from "@/lib/useScroll";
 import JoinEcommunity from "@/components/shared/join-ecommunity";
-import ScanqrPopup from "../scan-qr";
+import AppStoreButton from "../download-app";
 
 export default function DefaultHero() {
   const isScrolled = useScroll();
@@ -44,10 +43,10 @@ export default function DefaultHero() {
                   money while protecting the planet through recycling.
                 </p>
                 <div className="md:flex gap-4 mt-4 md:mt-0">
-                  <ScanqrPopup
+                  <AppStoreButton
                     className="bg-white hover:bg-white text-primary mb-4 border px-8 no-underline font-medium"
-                    arrow={<LucideDownload className="ms-4" />}
-                    join="Download App"
+                    playStoreUrl="https://play.google.com/store/apps/details?id=com.superapp.ecocanapp"
+                    appStoreUrl="https://apps.apple.com/app/6502695438"
                     showArrow={true}
                   />
                   <JoinEcommunity className="text-base" />

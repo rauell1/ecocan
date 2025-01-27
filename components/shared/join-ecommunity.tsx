@@ -13,6 +13,7 @@ import Image from "next/image";
 import HyperLink from "@/components/shared/hyperlink/hyperlink";
 import clsx from "clsx";
 import ScanqrPopup from "./scan-qr";
+import AppStoreButton from "./download-app";
 
 const howToData = [
   {
@@ -128,9 +129,11 @@ export default function JoinEcommunity({
                 </p>
               </div>
               <div>
-                <ScanqrPopup
-                  join="Get Started"
+                <AppStoreButton
                   className="bg-primary w-full hover:bg-primary font-medium text-white hover:text-white no-underline h-12"
+                  playStoreUrl="https://play.google.com/store/apps/details?id=com.superapp.ecocanapp"
+                  appStoreUrl="https://apps.apple.com/app/6502695438"
+                  buttonText="Get Started"
                 />
               </div>
             </div>

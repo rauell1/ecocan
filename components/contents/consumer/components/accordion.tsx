@@ -11,6 +11,7 @@ import HyperLink from "@/components/shared/hyperlink/hyperlink";
 import Image from "next/image";
 import JoinEcommunity from "../../../shared/join-ecommunity";
 import ScanqrPopup from "@/components/shared/scan-qr";
+import AppStoreButton from "@/components/shared/download-app";
 
 interface AccordionData {
   id: number;
@@ -25,8 +26,15 @@ const accordionData: AccordionData[] = [
     description: (
       <div className="space-y-2 w-11/12">
         <div>
-          <ScanqrPopup join="Download EcocanApp" className="h-0 font-normal" />{" "}
-          here, sign up in under 2 minutes, and start your sustainability journey today!
+          <AppStoreButton
+            className="h-0 font-normal"
+            playStoreUrl="https://play.google.com/store/apps/details?id=com.superapp.ecocanapp"
+            appStoreUrl="https://apps.apple.com/app/6502695438"
+            buttonText="Download EcocanApp"
+          />
+          {" "}
+          here, sign up in under 2 minutes, and start your sustainability
+          journey today!
         </div>
         <div>
           {" "}
@@ -65,7 +73,7 @@ const accordionData: AccordionData[] = [
       <div className="space-y-2 w-11/12">
         <div>
           After enjoying your drink, navigate to the nearest or your favourite{" "}
-          <HyperLink link="ECO-Station" href="#faq" /> on {" "}
+          <HyperLink link="ECO-Station" href="#faq" /> on{" "}
           <HyperLink link="ECOCAN Map" href="#faq" />
         </div>
 
@@ -105,8 +113,8 @@ const accordionData: AccordionData[] = [
           deposits to friends, donate to charity, or cash out.
         </div>
         <div>
-          Take a look at the EcocanApp <ScanqrPopup join="tutorial" className="h-0"/>{" "}
-          for more!
+          Take a look at the EcocanApp{" "}
+          <ScanqrPopup join="tutorial" className="h-0" /> for more!
         </div>
       </div>
     ),

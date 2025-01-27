@@ -1,3 +1,4 @@
+import AppStoreButton from "@/components/shared/download-app";
 import PrimaryButton from "@/components/shared/primary-btn";
 import ScanqrPopup from "@/components/shared/scan-qr";
 import { LucideArrowRight } from "lucide-react";
@@ -12,7 +13,12 @@ export default function Download() {
           ECOCAN, your unfair <br />
           advantage
         </h1>
-        <ScanqrPopup join="Download App" showArrow={true} className="bg-white mt-5 text-primary hover:text-primary no-underline px-8 font-medium hover:bg-white"/>
+        <AppStoreButton
+          className="bg-white hover:bg-white text-primary mt-8 border px-8 no-underline font-medium"
+          playStoreUrl="https://play.google.com/store/apps/details?id=com.superapp.ecocanapp"
+          appStoreUrl="https://apps.apple.com/app/6502695438"
+          showArrow={true}
+        />
         <div className="mt-20">
           <Image
             src="/assets/images/solutions/sdgs.svg"

@@ -6,6 +6,7 @@ import TextWithComponent from "./text-with-component";
 import CtaCard from "@/components/shared/cta-card/cta-card";
 import JoinEcommunity from "../../../shared/join-ecommunity";
 import ScanqrPopup from "@/components/shared/scan-qr";
+import AppStoreButton from "@/components/shared/download-app";
 
 export default function CtaCardComponent() {
   return (
@@ -20,15 +21,20 @@ export default function CtaCardComponent() {
               friendly savings!
             </h2>
           }
-          description={
-            <span className="text-white">
-              Only with EcocanApp.
-            </span>
-          }
+          description={<span className="text-white">Only with EcocanApp.</span>}
           component={
             <div className="flex flex-col md:flex-row gap-4 mt-8">
-              <ScanqrPopup join="Download App" className="bg-primary  hover:bg-primary px-8 font-medium text-white hover:text-white no-underline" showArrow={true} arrow={<LucideDownload className="ml-4"/>}/>
-              <JoinEcommunity showArrow={false} className="text-base" join="Join the ECOmmunity"/>
+              <AppStoreButton
+                className="bg-primary  hover:bg-primary px-8 font-medium text-white hover:text-white no-underline"
+                playStoreUrl="https://play.google.com/store/apps/details?id=com.superapp.ecocanapp"
+                appStoreUrl="https://apps.apple.com/app/6502695438"
+                showArrow={true}
+              />
+              <JoinEcommunity
+                showArrow={false}
+                className="text-base"
+                join="Join the ECOmmunity"
+              />
             </div>
           }
         />
