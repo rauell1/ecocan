@@ -25,10 +25,16 @@ export default function CtaCardComponent() {
           component={
             <div className="flex flex-col md:flex-row gap-4 mt-8">
               <AppStoreButton
-                className="bg-primary  hover:bg-primary px-8 font-medium text-white hover:text-white no-underline"
+                className="bg-primary  hover:bg-primary px-8 font-medium text-white hover:text-white no-underline lg:hidden"
                 playStoreUrl="https://play.google.com/store/apps/details?id=com.superapp.ecocanapp"
                 appStoreUrl="https://apps.apple.com/app/6502695438"
                 showArrow={true}
+              />
+              <ScanqrPopup
+                join="Download App"
+                showArrow={true}
+                arrow={<LucideDownload className="ml-4" />}
+                className="bg-white hover:bg-white text-primary mb-4 border px-8 no-underline font-medium hidden lg:flex"
               />
               <JoinEcommunity
                 showArrow={false}

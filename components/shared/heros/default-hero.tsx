@@ -6,6 +6,8 @@ import NavigationBar from "../navbar/navbar";
 import { useScroll } from "@/lib/useScroll";
 import JoinEcommunity from "@/components/shared/join-ecommunity";
 import AppStoreButton from "../download-app";
+import ScanqrPopup from "../scan-qr";
+import { LucideDownload } from "lucide-react";
 
 export default function DefaultHero() {
   const isScrolled = useScroll();
@@ -44,10 +46,16 @@ export default function DefaultHero() {
                 </p>
                 <div className="md:flex gap-4 mt-4 md:mt-0">
                   <AppStoreButton
-                    className="bg-white hover:bg-white text-primary mb-4 border px-8 no-underline font-medium"
+                    className="bg-white hover:bg-white text-primary mb-4 border px-8 no-underline font-medium lg:hidden"
                     playStoreUrl="https://play.google.com/store/apps/details?id=com.superapp.ecocanapp"
                     appStoreUrl="https://apps.apple.com/app/6502695438"
                     showArrow={true}
+                  />
+                  <ScanqrPopup
+                    join="Download App"
+                    showArrow={true}
+                    arrow = {<LucideDownload className="ml-4"/>}
+                    className="bg-white hover:bg-white text-primary mb-4 border px-8 no-underline font-medium hidden lg:flex"
                   />
                   <JoinEcommunity className="text-base" />
                 </div>

@@ -13,8 +13,8 @@ import clsx from "clsx";
 export default function ScanqrPopup({
   className,
   join,
-  showArrow = false,
   arrow = <LucideArrowRight className="ml-4" />,
+  showArrow = false,
   downloadTrigger = (
     <Button
       variant="ghost"

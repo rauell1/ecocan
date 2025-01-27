@@ -27,12 +27,15 @@ const accordionData: AccordionData[] = [
       <div className="space-y-2 w-11/12">
         <div>
           <AppStoreButton
-            className="h-0 font-normal"
+            className="h-0 font-normal lg:hidden"
             playStoreUrl="https://play.google.com/store/apps/details?id=com.superapp.ecocanapp"
             appStoreUrl="https://apps.apple.com/app/6502695438"
             buttonText="Download EcocanApp"
           />
-          {" "}
+          <ScanqrPopup
+            join="Download EcocanApp"
+            className="h-0 font-normal hidden lg:inline-flex"
+          />{" "}
           here, sign up in under 2 minutes, and start your sustainability
           journey today!
         </div>
