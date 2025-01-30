@@ -99,7 +99,14 @@ export default function WasteLitter() {
                 {`Waste litter =>`} Counterfeit trade
               </p>
             }
-            description="Counterfeit criminals often lack capacity to legitimately acquire new bottles for their illegal fake drinks. Instead, they rely on genuine used empties carelessly thrown in the environment, as their primary source of packaging."
+            description={
+              <>
+                Counterfeit criminals often lack capacity to legitimately
+                acquire new bottles for their illegal fake drinks. Instead, they
+                rely on genuine used empties carelessly thrown in the
+                environment, as their primary source of packaging. <HyperLink href="/solutions/packaging-recycling#fun-facts" link="Learn more here"/>
+              </>
+            }
             customCard={
               <Carousel
                 opts={{
