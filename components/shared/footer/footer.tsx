@@ -236,7 +236,7 @@ const Footer = () => {
             />
             <Image
               src="/assets/images/odpc-badge.svg"
-              alt="ODPC Compliant"
+              alt="ODPC Compliance Bagde"
               width={160}
               height={190}
             />
