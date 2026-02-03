@@ -14,13 +14,16 @@ export const metadata: Metadata = {
     siteName: "ECOCAN",
     images: [
       {
-        url: "/assets/images/logo-curved.svg",
+        url: "/ecocan-curve.png",
         width: 1200,
         height: 630,
         alt: "ECOCAN",
       },
     ],
     type: "website",
+  },
+  other: {
+    "author": "ECOCAN",
   },
 };
 
