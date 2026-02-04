@@ -16,7 +16,7 @@ export const metadata: Metadata = {
       {
         url: "/ecocan-curve.png",
         width: 900,
-        height: 630,
+        height: 400,
         alt: "ECOCAN",
       },
     ],
