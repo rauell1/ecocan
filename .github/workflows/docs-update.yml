@@ -1,76 +1,52 @@
-# .github/workflows/docs-update.yml
-#
-# Auto-updates SITEMAP.md and CODEBASE-MAP.md on every push to main,
-# and appends a row to ROLLBACK.md on every push.
-# VERCEL.md is updated only when VERCEL_URL is available (Vercel deploys).
-#
-# Guard against infinite loops: commits made by this workflow include
-# [docs-update] in the message and are skipped automatically.
-
 name: Auto-update docs
 
 on:
   push:
-    branches:
-      - main
+    branches: [main]
     paths-ignore:
       - 'SITEMAP.md'
       - 'CODEBASE-MAP.md'
       - 'ROLLBACK.md'
       - 'VERCEL.md'
-      - 'scripts/update-docs.log'
+
+permissions:
+  contents: write
 
 jobs:
   update-docs:
-    name: Regenerate documentation
     runs-on: ubuntu-latest
-
-    permissions:
-      contents: write   # needed to push the updated markdown files back
-
     steps:
-      # 1. Checkout the full repo (not a shallow clone – we need the full tree)
-      - name: Checkout
+      - name: Checkout (full history)
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
           token: ${{ secrets.GITHUB_TOKEN }}
 
-      # 2. Set up Node 20
-      - name: Set up Node.js
+      - name: Setup Node 20
         uses: actions/setup-node@v4
         with:
           node-version: '20'
-          cache: 'npm'
 
-      # 3. Install dependencies (including ts-node)
       - name: Install dependencies
-        run: npm ci
+        run: npm ci --ignore-scripts
+        env:
+          # Skip optional native binaries; we only need the installed packages
+          # for the docs script (which uses only Node built-ins)
+          NPM_CONFIG_OPTIONAL: 'false'
 
-      # 4. Run the doc-update script
-      - name: Run update-docs
+      - name: Run docs update
+        run: npm run docs:update
         env:
           GITHUB_SHA: ${{ github.sha }}
           GITHUB_REF_NAME: ${{ github.ref_name }}
           GITHUB_ACTOR: ${{ github.actor }}
-          # VERCEL_URL and VERCEL_ENV are only set if you trigger this from
-          # a Vercel deploy hook; leave them unset here so VERCEL.md is
-          # not touched on plain code pushes.
-        run: npm run docs:update
 
-      # 5. Commit any changed docs back to main
-      - name: Commit updated docs
+      - name: Commit updated docs (if any changed)
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-
-          # Stage only the docs we might have changed
-          git add SITEMAP.md CODEBASE-MAP.md ROLLBACK.md VERCEL.md scripts/update-docs.log || true
-
-          # Only commit if something actually changed
-          if git diff --cached --quiet; then
-            echo "No docs changed – nothing to commit."
-          else
-            git commit -m "chore: auto-update docs [docs-update] [skip ci]"
+          git add SITEMAP.md CODEBASE-MAP.md ROLLBACK.md VERCEL.md
+          # Only commit if there are staged changes
+          git diff --cached --quiet || \
+            git commit -m "docs: auto-update [docs-update] [skip ci]" && \
             git push
-          fi
