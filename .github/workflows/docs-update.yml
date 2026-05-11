@@ -1,0 +1,60 @@
+name: Auto-update Docs
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+# Only one run at a time on main, cancel in-progress if a new push comes in
+concurrency:
+  group: docs-update-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: write
+
+jobs:
+  update-docs:
+    runs-on: ubuntu-latest
+
+    steps:
+      # ── 1. Checkout full history so we can read commit metadata ──────────────
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      # ── 2. Set up Node ────────────────────────────────────────────────────────
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      # ── 3. Install ts-node + typescript so the script can run ─────────────────
+      - name: Install script dependencies
+        run: npm install --no-save ts-node typescript @types/node
+
+      # ── 4. Run the doc-update script ──────────────────────────────────────────
+      - name: Regenerate markdown docs
+        run: npx ts-node scripts/update-docs.ts
+        env:
+          GITHUB_SHA: ${{ github.sha }}
+          GITHUB_ACTOR: ${{ github.actor }}
+          GITHUB_REF_NAME: ${{ github.ref_name }}
+          VERCEL_URL: ${{ secrets.VERCEL_URL }}        # optional – set in repo secrets
+          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}  # optional
+
+      # ── 5. Commit the regenerated docs back to main ───────────────────────────
+      - name: Commit updated docs
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          # Stage only the docs we manage (never touch other files)
+          git add ROLLBACK.md SITEMAP.md CODEBASE-MAP.md VERCEL.md CLAUDE.md
+          # Only commit if something actually changed
+          if git diff --cached --quiet; then
+            echo "No doc changes to commit."
+          else
+            git commit -m "docs: auto-update [docs-update]"
+            git push origin main
+          fi
