@@ -1,0 +1,69 @@
+# .github/workflows/update-docs.yml
+#
+# Regenerates SITEMAP.md and CODEBASE-MAP.md on every push to main.
+# Appends a rollback entry to ROLLBACK.md on every push to main.
+# Skip loop-protection: commits from this workflow are tagged [docs-update] and
+# the job is skipped when the triggering commit message starts with that tag.
+
+name: Update docs
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: write
+
+jobs:
+  update-docs:
+    runs-on: ubuntu-latest
+
+    # Skip re-runs triggered by this workflow's own commits
+    if: "!startsWith(github.event.head_commit.message, '[docs-update]')"
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Install ts-node (if not in devDeps)
+        run: npm list ts-node || npm install --no-save ts-node
+
+      - name: Regenerate SITEMAP.md and CODEBASE-MAP.md
+        env:
+          DOCS_MODE: sitemap-codebase
+          GITHUB_SHA: ${{ github.sha }}
+          GITHUB_ACTOR: ${{ github.actor }}
+          GITHUB_REF_NAME: ${{ github.ref_name }}
+          GITHUB_RUN_NUMBER: ${{ github.run_number }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+        run: npx ts-node --project tsconfig.json --skip-project scripts/update-docs.ts
+
+      - name: Append rollback entry
+        env:
+          DOCS_MODE: deployment
+          GITHUB_SHA: ${{ github.sha }}
+          GITHUB_ACTOR: ${{ github.actor }}
+          GITHUB_REF_NAME: ${{ github.ref_name }}
+          GITHUB_RUN_NUMBER: ${{ github.run_number }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+        run: npx ts-node --project tsconfig.json --skip-project scripts/update-docs.ts
+
+      - name: Commit updated docs back to main
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add SITEMAP.md CODEBASE-MAP.md ROLLBACK.md
+          git diff --cached --quiet || git commit -m "[docs-update] auto-regenerate docs after ${GITHUB_SHA::7}"
+          git push
