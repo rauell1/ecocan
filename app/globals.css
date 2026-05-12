@@ -78,9 +78,8 @@
       @apply border-border;
     }
     body {
-      @apply bg-background text-foreground;
+      @apply bg-background text-foreground font-sans;
       min-height: 100vh;
-      font-family: 'Inter', 'Euclid Circular B', system-ui, sans-serif;
       text-rendering: optimizeLegibility;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
@@ -128,7 +127,7 @@
 
     .pill-btn-filled {
       background: hsl(var(--primary));
-      color: #fff;
+      color: hsl(var(--primary-foreground));
     }
 
     .pill-btn-filled:hover {
@@ -145,7 +144,7 @@
 
     .pill-btn-outline:hover {
       background: hsl(var(--primary));
-      color: #fff;
+      color: hsl(var(--primary-foreground));
     }
 
     .section-overline {
