@@ -69,7 +69,7 @@ const Footer = () => {
           <div className="col-span-10 md:col-span-2">
             <h3 className="text-xl font-semibold mb-4">Our Socials</h3>
             <div className="grid grid-cols-3 gap-2 w-fit">
-              <Link href="https://facebook.com/EcocanAfrica" target="_blank" rel="noopener noreferrer" aria-label="Visit our Facebook page (opens in new tab)" className="w-fit transition-opacity hover:opacity-80">
+              <Link href="https://facebook.com/EcocanAfrica" target="_blank" rel="noopener noreferrer" aria-label="Open Ecocan Facebook profile in a new tab" className="w-fit transition-opacity hover:opacity-80">
                 <Image
                   src="/assets/icons/facebook.svg"
                   alt="Facebook"
@@ -77,7 +77,7 @@ const Footer = () => {
                   height={40}
                 />
               </Link>
-              <Link href="https://twitter.com/EcocanAfrica" target="_blank" rel="noopener noreferrer" aria-label="Visit our X page (opens in new tab)" className="w-fit transition-opacity hover:opacity-80">
+              <Link href="https://twitter.com/EcocanAfrica" target="_blank" rel="noopener noreferrer" aria-label="Open Ecocan X profile in a new tab" className="w-fit transition-opacity hover:opacity-80">
                 <Image
                   src="/assets/icons/X.svg"
                   alt="Twitter"
@@ -85,7 +85,7 @@ const Footer = () => {
                   height={40}
                 />
               </Link>
-              <Link href="https://www.instagram.com/ecocanafrica?igsh=eHEycmVwYnV3OGR2" target="_blank" rel="noopener noreferrer" aria-label="Visit our Instagram page (opens in new tab)" className="w-fit transition-opacity hover:opacity-80">
+              <Link href="https://www.instagram.com/ecocanafrica?igsh=eHEycmVwYnV3OGR2" target="_blank" rel="noopener noreferrer" aria-label="Open Ecocan Instagram profile in a new tab" className="w-fit transition-opacity hover:opacity-80">
                 <Image
                   src="/assets/icons/Instagram.svg"
                   alt="Instagram"
@@ -93,7 +93,7 @@ const Footer = () => {
                   height={40}
                 />
               </Link>
-              <Link href="https://tiktok.com/@ecocanafrica" target="_blank" rel="noopener noreferrer" aria-label="Visit our TikTok page (opens in new tab)" className="w-fit transition-opacity hover:opacity-80">
+              <Link href="https://tiktok.com/@ecocanafrica" target="_blank" rel="noopener noreferrer" aria-label="Open Ecocan TikTok profile in a new tab" className="w-fit transition-opacity hover:opacity-80">
                 <Image
                   src="/assets/icons/tiktok.svg"
                   alt="TikTok"
@@ -101,7 +101,7 @@ const Footer = () => {
                   height={40}
                 />
               </Link>
-              <Link href="https://linkedin.com/company/ecocan" target="_blank" rel="noopener noreferrer" aria-label="Visit our LinkedIn page (opens in new tab)" className="w-fit transition-opacity hover:opacity-80">
+              <Link href="https://linkedin.com/company/ecocan" target="_blank" rel="noopener noreferrer" aria-label="Open Ecocan LinkedIn profile in a new tab" className="w-fit transition-opacity hover:opacity-80">
                 <Image
                   src="/assets/icons/linkedin.svg"
                   alt="LinkedIn"
@@ -109,7 +109,7 @@ const Footer = () => {
                   height={40}
                 />
               </Link>
-              <Link href="https://www.youtube.com/@EcocanAfrica" target="_blank" rel="noopener noreferrer" aria-label="Visit our YouTube channel (opens in new tab)" className="w-fit transition-opacity hover:opacity-80">
+              <Link href="https://www.youtube.com/@EcocanAfrica" target="_blank" rel="noopener noreferrer" aria-label="Open Ecocan YouTube channel in a new tab" className="w-fit transition-opacity hover:opacity-80">
                 <Image
                   src="/assets/icons/youtube.svg"
                   alt="YouTube"
