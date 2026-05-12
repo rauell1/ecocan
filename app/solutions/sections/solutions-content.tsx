@@ -16,13 +16,13 @@ export default function SolutionsContent() {
             : "/assets/images/ecocan-logo-alt.svg"
         }
         className={
-          isScrolled ? "bg-white" : "bg-transparent text-white border-b-0 "
+          isScrolled ? "bg-card" : "bg-transparent text-white border-b-0 "
         }
         linkColor={isScrolled ? "text-black" : "text-white"}
       />
       {/* our offering */}
       <div className="lg:h-[36rem] xl:h-[40rem]">
-        <div className="bg-[url('/assets/images/solutions/solution-hero.svg')] min-h-[28rem] flex flex-col items-center justify-center lg:h-[32rem] xl:h-[44rem] bg-cover bg-[-5px] relative after:absolute after:inset-0 after:content-[''] after:bg-black/90 after:opacity-50 after:z-10">
+        <div className="bg-[url('/assets/images/solutions/solution-hero.svg')] min-h-[28rem] flex flex-col items-center justify-center lg:h-[32rem] xl:h-[44rem] bg-cover bg-[-5px] relative after:absolute after:inset-0 after:content-[''] after:bg-foreground/75 after:opacity-70 after:z-10">
           <div className="xl:max-w-[72rem] flex flex-col md:flex md:flex-row mx-auto lg:my-0 lg:gap-12">
             <div className="px-4 xl:px-0 text-white z-50 mx-auto">
               <div>
@@ -41,7 +41,7 @@ export default function SolutionsContent() {
           </div>
         </div>
       </div>
-      <div className="bg-[#FAFAFA]">
+      <div className="bg-background">
         <div className="">
           <SolutionsHome />
         </div>

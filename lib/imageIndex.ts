@@ -15,29 +15,35 @@ export const redBall            = '/assets/images/all/red-ball.svg';
 // Usage: import { brandBottleJourney } from '@/lib/imageIndex';
 //        <Image src={brandBottleJourney} alt="..." width={1320} height={743} />
 
-/** Top-down DRS cycle diagram — store → scan → recycle → courier → store */
-export const brandBottleJourney   = '/assets/images/brand/bottle-journey.jpg';
+export const brandImageIndex = {
+  /** Top-down DRS cycle diagram — store → scan → recycle → courier → store */
+  brandBottleJourney: '/assets/images/brand/bottle-journey.jpg',
+  /** Eco-Station attendant scanning an empty bottle for a smiling consumer */
+  brandReturnCounter: '/assets/images/brand/return-counter.jpg',
+  /** Consumer holding green bottle + phone showing QR VERIFIED screen in-store */
+  brandScanVerify: '/assets/images/brand/scan-verify.jpg',
+  /** Retail partnership handshake outside Fresh Picks Collection Point */
+  brandPartnerRetail: '/assets/images/brand/partner-retail.jpg',
+  /** Kenya Fresh supermarket interior — beverage aisle with shoppers */
+  brandSupermarketInt: '/assets/images/brand/supermarket-interior.jpg',
+  /** Industrial recycling hub — sorted PET bales on conveyor belt */
+  brandRecyclingHub: '/assets/images/brand/recycling-hub.jpg',
+  /** Aerial sunset cityscape with glowing Ecocan green network overlay */
+  brandInvestorAerial: '/assets/images/brand/investor-aerial.jpg',
+  /** Courier loading electric cargo bike with empty bottles outside FreshMarket */
+  brandEbikeCollection: '/assets/images/brand/ebike-collection.jpg',
+  /** Brand protection split: FAKE bottle (dark) vs VERIFIED bottle (light) */
+  brandCounterfeitAlert: '/assets/images/brand/counterfeit-alert.jpg',
+} as const;
 
-/** Eco-Station attendant scanning an empty bottle for a smiling consumer */
-export const brandReturnCounter   = '/assets/images/brand/return-counter.jpg';
+export type BrandImageKey = keyof typeof brandImageIndex;
 
-/** Consumer holding green bottle + phone showing QR VERIFIED screen in-store */
-export const brandScanVerify      = '/assets/images/brand/scan-verify.jpg';
-
-/** Retail partnership handshake outside Fresh Picks Collection Point */
-export const brandPartnerRetail   = '/assets/images/brand/partner-retail.jpg';
-
-/** Kenya Fresh supermarket interior — beverage aisle with shoppers */
-export const brandSupermarketInt  = '/assets/images/brand/supermarket-interior.jpg';
-
-/** Industrial recycling hub — sorted PET bales on conveyor belt */
-export const brandRecyclingHub    = '/assets/images/brand/recycling-hub.jpg';
-
-/** Aerial sunset cityscape with glowing Ecocan green network overlay */
-export const brandInvestorAerial  = '/assets/images/brand/investor-aerial.jpg';
-
-/** Courier loading electric cargo bike with empty bottles outside FreshMarket */
-export const brandEbikeCollection = '/assets/images/brand/ebike-collection.jpg';
-
-/** Brand protection split: FAKE bottle (dark) vs VERIFIED bottle (light) */
-export const brandCounterfeitAlert = '/assets/images/brand/counterfeit-alert.jpg';
+export const brandBottleJourney = brandImageIndex.brandBottleJourney;
+export const brandReturnCounter = brandImageIndex.brandReturnCounter;
+export const brandScanVerify = brandImageIndex.brandScanVerify;
+export const brandPartnerRetail = brandImageIndex.brandPartnerRetail;
+export const brandSupermarketInt = brandImageIndex.brandSupermarketInt;
+export const brandRecyclingHub = brandImageIndex.brandRecyclingHub;
+export const brandInvestorAerial = brandImageIndex.brandInvestorAerial;
+export const brandEbikeCollection = brandImageIndex.brandEbikeCollection;
+export const brandCounterfeitAlert = brandImageIndex.brandCounterfeitAlert;

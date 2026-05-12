@@ -36,18 +36,18 @@ export default function AboutPage() {
             ? "/assets/images/ecocan-logo.svg"
             : "/assets/images/ecocan-logo-alt.svg",
           className: isScrolled
-            ? "bg-white"
+            ? "bg-card"
             : "bg-transparent text-white border-b-0",
           linkColor: isScrolled ? "text-black" : "text-white",
         };
       case "transparent-dark":
         return {
-          className: isScrolled ? "bg-white" : "bg-transparent",
+          className: isScrolled ? "bg-card" : "bg-transparent",
           logoSrc: "/assets/images/ecocan-logo.svg",
         };
       default:
         return {
-          className: "bg-white",
+          className: "bg-card",
           logoSrc: "/assets/images/ecocan-logo.svg",
         };
     }

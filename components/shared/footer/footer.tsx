@@ -6,7 +6,7 @@ import { CORE_ROUTES } from "@/lib/site-contract";
 
 const Footer = () => {
   return (
-    <footer className="bg-[#20222C] px-4 py-16 text-white">
+    <footer className="bg-foreground px-4 py-16 text-white">
       <div className="max-w-[72rem] mx-auto px-4 xl:px-0">
         {/* Logo */}
         <div className="mb-14">
@@ -24,7 +24,7 @@ const Footer = () => {
           {/* Home Links */}
           <div className="col-span-10 md:col-span-2">
             <h3 className="text-xl font-semibold mb-4">Home</h3>
-            <ul className="space-y-3 text-gray-300/90">
+            <ul className="space-y-3 text-white/75">
               <li>
                 <Link href={CORE_ROUTES.home} className="transition-colors hover:text-white">
                   Home
@@ -51,7 +51,7 @@ const Footer = () => {
           {/* Data and Privacy */}
           <div className="col-span-10 md:col-span-2">
             <h3 className="text-xl font-semibold mb-4">Data and Privacy</h3>
-            <ul className="space-y-3 text-gray-300/90">
+            <ul className="space-y-3 text-white/75">
               <li>
                 <Link href={CORE_ROUTES.home} className="transition-colors hover:text-white">
                   Privacy Policy
@@ -123,7 +123,7 @@ const Footer = () => {
           {/* Newsletter */}
           <div className="col-span-10 md:col-span-4">
             <h3 className="text-xl font-semibold mb-4">Join Our Newsletter</h3>
-            <p className="text-gray-300/90 mb-4">
+            <p className="text-white/75 mb-4">
               Subscribe to stay green and join our ECOcommunity to stay up to
               date.
             </p>
@@ -131,7 +131,7 @@ const Footer = () => {
               <Input
                 type="email"
                 placeholder="Enter your email address"
-                className="bg-white/10 border-white/10 text-white placeholder:text-gray-300 rounded-l-full focus-visible:ring-1 focus-visible:ring-primary"
+                className="bg-white/10 border-white/10 text-white placeholder:text-white/60 rounded-l-full focus-visible:ring-1 focus-visible:ring-primary"
               />
               <button className="bg-primary text-white px-6 rounded-r-full transition-colors hover:bg-primary/90">
                 Subscribe
@@ -161,9 +161,9 @@ const Footer = () => {
                 height={16}
               />
               <div>
-                <p className="text-gray-300/90">Plessey House, Boricho rd,</p>
-                <p className="text-gray-300/90">P.O.BOX 5686-00100</p>
-                <p className="text-gray-300/90 mb-2">Nairobi, Kenya</p>
+                 <p className="text-white/75">Plessey House, Boricho rd,</p>
+                 <p className="text-white/75">P.O.BOX 5686-00100</p>
+                 <p className="text-white/75 mb-2">Nairobi, Kenya</p>
               </div>
             </div>
             <div className="flex items-start gap-2">
@@ -173,7 +173,7 @@ const Footer = () => {
                 width={16}
                 height={16}
               />
-              <p className="text-gray-300/90">info@ecocanafrica.com</p>
+               <p className="text-white/75">info@ecocanafrica.com</p>
             </div>
             <div className="flex items-start gap-2">
               <Image
@@ -182,7 +182,7 @@ const Footer = () => {
                 width={16}
                 height={16}
               />
-              <p className="text-gray-300/90">+254738203770 / +254740376074</p>
+               <p className="text-white/75">+254738203770 / +254740376074</p>
             </div>
           </div>
 
@@ -205,8 +205,8 @@ const Footer = () => {
                 height={16}
               />
               <div className="self-start">
-                <p className="text-gray-300/90">Korkeavuorenkatu 7c 49</p>
-                <p className="text-gray-300/90">00140 Helsinki, Finland</p>
+                 <p className="text-white/75">Korkeavuorenkatu 7c 49</p>
+                 <p className="text-white/75">00140 Helsinki, Finland</p>
               </div>
             </div>
             <div className="flex items-start gap-2">
@@ -216,7 +216,7 @@ const Footer = () => {
                 width={16}
                 height={16}
               />
-              <p className="text-gray-300/90">info@ecocanafrica.com</p>
+               <p className="text-white/75">info@ecocanafrica.com</p>
             </div>
             <div className="flex items-start gap-2">
               <Image
@@ -225,7 +225,7 @@ const Footer = () => {
                 width={16}
                 height={16}
               />
-              <p className="text-gray-300/90">+358440816059 / +358408470927</p>
+               <p className="text-white/75">+358440816059 / +358408470927</p>
             </div>
           </div>
           <div className="col-span-10 md:col-span-4 gap-4 lg:gap-0 grid grid-cols-2">
@@ -245,7 +245,7 @@ const Footer = () => {
         </div>
 
         {/* Copyright */}
-        <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center text-gray-300/90">
+        <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center text-white/75">
           <p>© {new Date().getFullYear()} ECOCAN. All Rights Reserved.</p>
           <div className="flex gap-8 mt-4 md:mt-0">
             <Link href="/privacy" className="transition-colors hover:text-white">

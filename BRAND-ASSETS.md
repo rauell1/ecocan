@@ -8,17 +8,17 @@
 
 All brand images live in `public/assets/images/brand/` and are exported from `lib/imageIndex.ts` for use with the Next.js `<Image />` component.
 
-| Export Name | File | Scene | Used In |
-|---|---|---|---|
-| `brandBottleJourney` | `bottle-journey.jpg` | Top-down DRS loop diagram (store → scan → recycle → courier) | Hero, About, Solutions Home |
-| `brandReturnCounter` | `return-counter.jpg` | Eco-Station attendant scanning empty bottle for consumer | Eco-Station, Consumer pages |
-| `brandScanVerify` | `scan-verify.jpg` | Consumer scanning QR on green bottle — VERIFIED screen | Brand Protection, Consumer |
-| `brandPartnerRetail` | `partner-retail.jpg` | Retail partnership handshake outside Fresh Picks Collection Point | About, Partners section |
-| `brandSupermarketInt` | `supermarket-interior.jpg` | Kenya Fresh supermarket interior — beverage aisle with shoppers | Ecocan Market, Brand Promo |
-| `brandRecyclingHub` | `recycling-hub.jpg` | Industrial recycling facility with sorted PET bales on conveyor | Packaging Recycling, Solutions |
-| `brandInvestorAerial` | `investor-aerial.jpg` | Aerial sunset cityscape with Ecocan green network overlay | Investor/About hero, News |
-| `brandEbikeCollection` | `ebike-collection.jpg` | Courier on electric cargo bike collecting empties outside FreshMarket | Courier, Solutions |
-| `brandCounterfeitAlert` | `counterfeit-alert.jpg` | FAKE vs VERIFIED bottle split — brand protection visual | Brand Protection |
+| Export Name | File | Scene | Used In | Revamp v2 Decision |
+|---|---|---|---|---|
+| `brandBottleJourney` | `bottle-journey.jpg` | Top-down DRS loop diagram (store → scan → recycle → courier) | Hero, About, Solutions Home | Keep (Phase 1) |
+| `brandReturnCounter` | `return-counter.jpg` | Eco-Station attendant scanning empty bottle for consumer | Eco-Station, Consumer pages | Keep (Phase 1) |
+| `brandScanVerify` | `scan-verify.jpg` | Consumer scanning QR on green bottle — VERIFIED screen | Brand Protection, Consumer | Keep (Phase 1) |
+| `brandPartnerRetail` | `partner-retail.jpg` | Retail partnership handshake outside Fresh Picks Collection Point | About, Partners section | Keep (Phase 1) |
+| `brandSupermarketInt` | `supermarket-interior.jpg` | Kenya Fresh supermarket interior — beverage aisle with shoppers | Ecocan Market, Brand Promo | Keep (Phase 1) |
+| `brandRecyclingHub` | `recycling-hub.jpg` | Industrial recycling facility with sorted PET bales on conveyor | Packaging Recycling, Solutions | Keep (Phase 1) |
+| `brandInvestorAerial` | `investor-aerial.jpg` | Aerial sunset cityscape with Ecocan green network overlay | Investor/About hero, News | Keep (Phase 1) |
+| `brandEbikeCollection` | `ebike-collection.jpg` | Courier on electric cargo bike collecting empties outside FreshMarket | Courier, Solutions | Keep (Phase 1) |
+| `brandCounterfeitAlert` | `counterfeit-alert.jpg` | FAKE vs VERIFIED bottle split — brand protection visual | Brand Protection | Keep (Phase 1) |
 
 ---
 
@@ -67,6 +67,14 @@ export default function HeroSection() {
 2. Add a named export to `lib/imageIndex.ts` following the `brand*` naming convention.
 3. Add a row to the **Brand Photography** table above.
 4. Run `npm run docs:update` — or push to `main` and let the CI workflow commit the update.
+
+---
+
+## Revamp v2 Migration Status
+
+- Source links were provided for Kimi clone code and assets, but both are inaccessible from this execution environment.
+- Phase 1 decision: retain current brand exports and route all lookups through `brandImageIndex` in `lib/imageIndex.ts`.
+- Once Kimi source files and asset pack are shared in directly accessible format (repo/zip), replace values in `brandImageIndex` without touching consuming components.
 
 ---
 

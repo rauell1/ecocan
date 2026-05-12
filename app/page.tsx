@@ -14,7 +14,7 @@ function LoadingHero() {
 export default function Home() {
   return (
     <>
-      <main className="bg-[#FAFAFA]">
+      <main className="bg-background">
         <Suspense fallback={<LoadingHero />}>
           <HeroContainer />
         </Suspense>
