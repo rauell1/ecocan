@@ -4,11 +4,12 @@ import React from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { tabContent } from "@/lib/tabContent";
+import { DEFAULT_HOME_TAB, isValidHomeTab } from "@/lib/site-contract";
 
 export default function HeroContainer() {
   const router = useRouter();
   const searchParams = useSearchParams();
-  const currentTab = searchParams.get("tab") || "ECOnsumer";
+  const currentTab = searchParams.get("tab") || DEFAULT_HOME_TAB;
 
   const handleTabChange = (value: string) => {
     const newParams = new URLSearchParams(searchParams.toString());
@@ -17,11 +18,7 @@ export default function HeroContainer() {
     router.push(`?${newParams.toString()}`, { scroll: false });
   };
 
-  const isValidTab = (tab: string): boolean => {
-    return Object.keys(tabContent).includes(tab);
-  };
-
-  const activeTab = isValidTab(currentTab) ? currentTab : "ECOnsumer";
+  const activeTab = isValidHomeTab(currentTab) ? currentTab : DEFAULT_HOME_TAB;
 
   return (
     <>

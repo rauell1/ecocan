@@ -16,6 +16,7 @@ import { sectionComponents, SectionType } from "../sections";
 import { sectionConfigs } from "@/types/section";
 import { LucideArrowLeft } from "lucide-react";
 import Footer from "@/components/shared/footer/footer";
+import { CORE_ROUTES, isValidSolutionSection } from "@/lib/site-contract";
 
 interface SectionPageProps {
   params: {
@@ -28,7 +29,7 @@ export default function SectionPage({ params }: SectionPageProps) {
   const isScrolled = useScroll();
 
   // Validate that the section exists
-  if (!Object.keys(sectionComponents).includes(params.section)) {
+  if (!isValidSolutionSection(params.section)) {
     notFound();
   }
 
@@ -46,7 +47,7 @@ export default function SectionPage({ params }: SectionPageProps) {
       <BreadcrumbList>
         <BreadcrumbItem>
           <BreadcrumbLink
-            onClick={() => router.push("/solutions")}
+            onClick={() => router.push(CORE_ROUTES.solutions)}
             className={`cursor-pointer z-[999] flex items-center gap-2 bg-white rounded-full text-primary hover:text-primary p-2 px-4`}
           >
             <LucideArrowLeft size={18} />

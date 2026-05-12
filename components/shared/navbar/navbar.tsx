@@ -3,26 +3,18 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import clsx from "clsx";
 import { useScroll } from "@/lib/useScroll";
-import RegisterPopup from "../register-popup";
 import { RegisterDropdown } from "./components/register-dropdown-menu";
 import { MarketDropdown } from "./components/market-dropdown";
+import { NAV_ROUTES } from "@/lib/site-contract";
 
 interface NavigationBarProps {
   logoSrc: string;
   className?: string;
   linkColor?: string;
 }
-
-const navLinks = [
-  { href: "/", label: "Home" },
-  { href: "/solutions", label: "Solutions" },
-  { href: "/about-us", label: "About us" },
-  { href: "/news", label: "News" },
-];
 
 const NavigationBar: React.FC<NavigationBarProps> = ({
   logoSrc,
@@ -52,11 +44,20 @@ const NavigationBar: React.FC<NavigationBarProps> = ({
     return pathname.startsWith(href);
   };
 
+  const navSurfaceBaseClass = "border-b border-black/5 shadow-sm";
+  let navSurfaceClass = "";
+
+  if (isOpen) {
+    navSurfaceClass = `bg-white ${navSurfaceBaseClass}`;
+  } else if (isScrolled) {
+    navSurfaceClass = `bg-white/95 backdrop-blur-md ${navSurfaceBaseClass}`;
+  }
+
   return (
     <nav
       className={clsx(
         "fixed top-0 left-0 right-0 md:px-4 z-[9995] transition-all duration-300",
-        isOpen ? "bg-white" : "",
+        navSurfaceClass,
         className
       )}
     >
@@ -73,6 +74,8 @@ const NavigationBar: React.FC<NavigationBarProps> = ({
         <div className="block md:hidden">
           <button
             onClick={() => setIsOpen(!isOpen)}
+            aria-label={isOpen ? "Close menu" : "Open menu"}
+            aria-expanded={isOpen}
             className="flex items-center px-3 py-2 rounded text-black-500 hover:text-black-400"
           >
             <svg
@@ -101,7 +104,7 @@ const NavigationBar: React.FC<NavigationBarProps> = ({
           }`}
         >
           <div className="text-sm flex md:flex-row flex-col items-center justify-center gap-4 ms-4">
-            {navLinks.map((link) => (
+            {NAV_ROUTES.map((link) => (
               <Link
                 href={link.href}
                 key={link.label}
@@ -116,7 +119,7 @@ const NavigationBar: React.FC<NavigationBarProps> = ({
             ))}
           </div>
           <div className="text-center ms-auto flex-col md:flex-row flex items-center justify-center gap-4 md:pt-0 pt-5">
-            <MarketDropdown/>
+            <MarketDropdown />
             <RegisterDropdown isScrolled={isScrolled} />
           </div>
         </div>
