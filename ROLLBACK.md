@@ -32,7 +32,7 @@ The **Deployment Log** section is updated automatically by `scripts/update-docs.
 **To run locally (simulating a deployment entry):**
 
 ```bash
-GITHUB_SHA=abc1234def GITHUB_REF_NAME=main GITHUB_ACTOR=yourname node scripts/update-docs.mjs
+GITHUB_SHA=abc1234def GITHUB_REF_NAME=main GITHUB_ACTOR=yourname GITHUB_COMMIT_MESSAGE="your message" node scripts/update-docs.mjs
 ```
 
 ---
@@ -43,23 +43,26 @@ GITHUB_SHA=abc1234def GITHUB_REF_NAME=main GITHUB_ACTOR=yourname node scripts/up
 
 | # | Commit | Message | Author | Date (UTC) | Branch |
 |---|--------|---------|--------|------------|--------|
-| 17 | [`68612b9`](https://github.com/rauell1/ecocan/commit/68612b965bb53e177be5328e8decfba125dc6be0) | docs: proper README with full project documentation | rauell1 | 2026-05-11 19:05 | main |
-| 16 | [`d73e3cf`](https://github.com/rauell1/ecocan/commit/d73e3cf3310d02ffbc5e95c481b429b6c9934a5b) | fix: remove ts-node, use plain ESM script – fixes Vercel pnpm frozen-lockfile error | rauell1 | 2026-05-11 13:51 | main |
-| 15 | [`6e74442`](https://github.com/rauell1/ecocan/commit/6e74442a2083eead0b02130f873aa57638e27ee8) | feat: full auto-updating docs – script, CI workflow, ts-node dep | rauell1 | 2026-05-11 13:46 | main |
-| 14 | [`ce05475`](https://github.com/rauell1/ecocan/commit/ce054757e606e36c02906dd849a31c2c202f5d19) | chore(docs): add repo maps and auto-update stubs | rauell1 | 2026-05-11 13:21 | main |
-| 13 | [`a3829e9`](https://github.com/rauell1/ecocan/commit/a3829e9402345f7477c1b9577ec6c9ab2ae3f5d5) | Merge PR #1: Install Vercel Web Analytics | rauell1 | 2026-05-11 13:01 | main |
-| 12 | [`3946b1b`](https://github.com/rauell1/ecocan/commit/3946b1bd9883761affd888bd7ec8654ab7a68acd) | Install Vercel Web Analytics (`@vercel/analytics@2.0.1`) | vercel[bot] | 2026-05-11 12:58 | main |
-| 11 | [`280a878`](https://github.com/rauell1/ecocan/commit/280a8785c3e5ed75d05f23786488088846105055) | Merge PR #81: Fix React Server Components CVE vulnerabilities | boypaida12 | 2026-02-18 21:21 | main |
-| 10 | [`e3cc28c`](https://github.com/rauell1/ecocan/commit/e3cc28c35b9d916fcd64846f541321bb423ad4da) | Fix React Server Components CVE – patched next, react-server-dom-* | vercel[bot] | 2026-02-17 15:01 | main |
-| 9 | [`bec72a4`](https://github.com/rauell1/ecocan/commit/bec72a450213b83fd1546e64ecdb7d769e42c09d) | minor fix | benten95-web | 2026-02-04 09:21 | main |
-| 8 | [`5c07e3a`](https://github.com/rauell1/ecocan/commit/5c07e3aa0b57e476ee68b7ddfadbb6ef5635ac5a) | minor fix | benten95-web | 2026-02-04 09:15 | main |
-| 7 | [`99cc318`](https://github.com/rauell1/ecocan/commit/99cc3188db23d99383a03db76d6fcab5d0743847) | minor fix | benten95-web | 2026-02-04 09:08 | main |
-| 6 | [`39ed1cf`](https://github.com/rauell1/ecocan/commit/39ed1cffeed9511d491ca13a31b43e8fe7aa2c36) | minor fix | benten95-web | 2026-02-04 09:05 | main |
-| 5 | [`fe11932`](https://github.com/rauell1/ecocan/commit/fe11932fd4a746396bdc34f14d07a12aee8ef790) | modified open graph metadata | benten95-web | 2026-02-03 23:45 | main |
-| 4 | [`bcc1c46`](https://github.com/rauell1/ecocan/commit/bcc1c469369737830073a1794e03e1e28e32d656) | added open graph metadata | benten95-web | 2026-02-03 23:10 | main |
-| 3 | [`5d57fda`](https://github.com/rauell1/ecocan/commit/5d57fda58ea2426b3a11d494c0e1918921e3ef3e) | ui fixes | benten95-web | 2026-01-02 12:34 | main |
-| 2 | [`d386df7`](https://github.com/rauell1/ecocan/commit/d386df7849fa98e29b5c348d292be107778a1606) | wip: ui fixes | benten95-web | 2025-01-30 10:35 | main |
 | 1 | [`a6ae370`](https://github.com/rauell1/ecocan/commit/a6ae37020178d40cd4e5c0ef4cecae5bfbe13639) | wip: ui fixes – initial scaffold | benten95-web | 2025-01-27 11:15 | main |
+| 2 | [`d386df7`](https://github.com/rauell1/ecocan/commit/d386df7849fa98e29b5c348d292be107778a1606) | wip: ui fixes | benten95-web | 2025-01-30 10:35 | main |
+| 3 | [`5d57fda`](https://github.com/rauell1/ecocan/commit/5d57fda58ea2426b3a11d494c0e1918921e3ef3e) | ui fixes | benten95-web | 2026-01-02 12:34 | main |
+| 4 | [`bcc1c46`](https://github.com/rauell1/ecocan/commit/bcc1c469369737830073a1794e03e1e28e32d656) | added open graph metadata | benten95-web | 2026-02-03 23:10 | main |
+| 5 | [`fe11932`](https://github.com/rauell1/ecocan/commit/fe11932fd4a746396bdc34f14d07a12aee8ef790) | modified open graph metadata | benten95-web | 2026-02-03 23:45 | main |
+| 6 | [`39ed1cf`](https://github.com/rauell1/ecocan/commit/39ed1cffeed9511d491ca13a31b43e8fe7aa2c36) | minor fix | benten95-web | 2026-02-04 09:05 | main |
+| 7 | [`99cc318`](https://github.com/rauell1/ecocan/commit/99cc3188db23d99383a03db76d6fcab5d0743847) | minor fix | benten95-web | 2026-02-04 09:08 | main |
+| 8 | [`5c07e3a`](https://github.com/rauell1/ecocan/commit/5c07e3aa0b57e476ee68b7ddfadbb6ef5635ac5a) | minor fix | benten95-web | 2026-02-04 09:15 | main |
+| 9 | [`bec72a4`](https://github.com/rauell1/ecocan/commit/bec72a450213b83fd1546e64ecdb7d769e42c09d) | minor fix | benten95-web | 2026-02-04 09:21 | main |
+| 10 | [`e3cc28c`](https://github.com/rauell1/ecocan/commit/e3cc28c35b9d916fcd64846f541321bb423ad4da) | Fix React Server Components CVE – patched next, react-server-dom-* | vercel[bot] | 2026-02-17 15:01 | main |
+| 11 | [`280a878`](https://github.com/rauell1/ecocan/commit/280a8785c3e5ed75d05f23786488088846105055) | Merge PR #81: Fix React Server Components CVE vulnerabilities | boypaida12 | 2026-02-18 21:21 | main |
+| 12 | [`3946b1b`](https://github.com/rauell1/ecocan/commit/3946b1bd9883761affd888bd7ec8654ab7a68acd) | Install Vercel Web Analytics (`@vercel/analytics@2.0.1`) | vercel[bot] | 2026-05-11 12:58 | main |
+| 13 | [`a3829e9`](https://github.com/rauell1/ecocan/commit/a3829e9402345f7477c1b9577ec6c9ab2ae3f5d5) | Merge PR #1: Install Vercel Web Analytics | rauell1 | 2026-05-11 13:01 | main |
+| 14 | [`ce05475`](https://github.com/rauell1/ecocan/commit/ce054757e606e36c02906dd849a31c2c202f5d19) | chore(docs): add repo maps and auto-update stubs | rauell1 | 2026-05-11 13:21 | main |
+| 15 | [`6e74442`](https://github.com/rauell1/ecocan/commit/6e74442a2083eead0b02130f873aa57638e27ee8) | feat: full auto-updating docs – script, CI workflow, ts-node dep | rauell1 | 2026-05-11 13:46 | main |
+| 16 | [`d73e3cf`](https://github.com/rauell1/ecocan/commit/d73e3cf3310d02ffbc5e95c481b429b6c9934a5b) | fix: remove ts-node, use plain ESM script – fixes Vercel pnpm frozen-lockfile error | rauell1 | 2026-05-11 13:51 | main |
+| 17 | [`68612b9`](https://github.com/rauell1/ecocan/commit/68612b965bb53e177be5328e8decfba125dc6be0) | docs: proper README with full project documentation | rauell1 | 2026-05-11 19:05 | main |
+| 18 | [`8a5a8ac`](https://github.com/rauell1/ecocan/commit/8a5a8ac) | Revamp v2 foundation: port Kimi design tokens into Ecocan's existing theme system | copilot-swe-agent[bot] | 2026-05-12 12:49 | copilot/revamp-v2 |
+| 19 | [`2008b3b`](https://github.com/rauell1/ecocan/commit/2008b3b672fa3cf725b99be5b421abbd7002cc76) | Merge pull request #7: Revamp v2 foundation | rauell1 | 2026-05-12 16:11 | main |
+| 20 | [`964d20d`](https://github.com/rauell1/ecocan/commit/964d20d8c7f9b8a95ea19fb77ea72471fd0a7e29) | perf: performance revamp v3 — fix globals.css + layout.tsx (#8) | rauell1 | 2026-05-12 16:20 | main |
 
 ---
 
@@ -224,7 +227,4 @@ For urgent production incidents, open a [GitHub Issue](https://github.com/rauell
 
 ---
 
-*Last manually updated: 2026-05-11 | Auto-updated by CI on every push to `main`*
-| `8a5a8ac` | 2026-05-12T12:49:51.570Z | copilot/revamp-v2 | copilot-swe-agent[bot] |
-| `2008b3b` | 2026-05-12T16:11:20.800Z | main | rauell1 |
-| `964d20d` | 2026-05-12T16:20:55.095Z | main | rauell1 |
+*Last manually updated: 2026-05-12 | Auto-updated by CI on every push to `main`*
