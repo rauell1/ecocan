@@ -44,12 +44,17 @@ const NavigationBar: React.FC<NavigationBarProps> = ({
     return pathname.startsWith(href);
   };
 
+  const navSurfaceClass = isOpen
+    ? "bg-white border-b border-black/5 shadow-sm"
+    : isScrolled
+      ? "bg-white/95 backdrop-blur-md shadow-sm border-b border-black/5"
+      : "";
+
   return (
     <nav
       className={clsx(
         "fixed top-0 left-0 right-0 md:px-4 z-[9995] transition-all duration-300",
-        isOpen ? "bg-white" : "",
-        isScrolled ? "bg-white/95 backdrop-blur-md shadow-sm border-b border-black/5" : "",
+        navSurfaceClass,
         className
       )}
     >
