@@ -15,6 +15,8 @@
 
       --primary: 120 61% 34%;
       --primary-foreground: 0 0% 100%;
+      --primary-dark: 156 79% 17%;
+      --primary-accent: 158 100% 33%;
 
       --secondary: 0 0% 97%;
       --secondary-foreground: 0 0% 6%;
@@ -33,6 +35,11 @@
       --ring: 120 61% 34%;
 
       --radius: 0.625rem;
+      --eco-dark: 0 0% 6%;
+      --eco-light: 0 0% 97%;
+      --eco-grey: 0 0% 90%;
+      --eco-white: 0 0% 100%;
+      --eco-footer: 210 40% 17%;
     }
 
     .dark {
@@ -120,24 +127,24 @@
     }
 
     .pill-btn-filled {
-      background: #228B22;
+      background: hsl(var(--primary));
       color: #fff;
     }
 
     .pill-btn-filled:hover {
-      background: #094C31;
+      background: hsl(var(--primary-dark));
       transform: scale(1.03);
       box-shadow: 0 4px 20px rgba(34, 139, 34, 0.3);
     }
 
     .pill-btn-outline {
       background: transparent;
-      border: 1.5px solid #228B22;
-      color: #228B22;
+      border: 1.5px solid hsl(var(--primary));
+      color: hsl(var(--primary));
     }
 
     .pill-btn-outline:hover {
-      background: #228B22;
+      background: hsl(var(--primary));
       color: #fff;
     }
 
@@ -146,7 +153,7 @@
       font-weight: 600;
       letter-spacing: 0.1em;
       text-transform: uppercase;
-      color: #228B22;
+      color: hsl(var(--primary));
     }
 
     .section-headline {

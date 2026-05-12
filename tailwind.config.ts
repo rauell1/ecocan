@@ -27,8 +27,8 @@ const config = {
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",
-          dark: "#094C31",
-          accent: "#00A86B",
+          dark: "hsl(var(--primary-dark))",
+          accent: "hsl(var(--primary-accent))",
         },
         secondary: {
           DEFAULT: "hsl(var(--secondary))",
@@ -55,11 +55,11 @@ const config = {
           foreground: "hsl(var(--card-foreground))",
         },
         eco: {
-          dark: "#101010",
-          light: "#F7F7F7",
-          grey: "#E6E6E6",
-          white: "#FFFFFF",
-          footer: "#1A2B3C",
+          dark: "hsl(var(--eco-dark))",
+          light: "hsl(var(--eco-light))",
+          grey: "hsl(var(--eco-grey))",
+          white: "hsl(var(--eco-white))",
+          footer: "hsl(var(--eco-footer))",
         },
       },
       borderRadius: {
