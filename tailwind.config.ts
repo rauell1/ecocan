@@ -27,6 +27,8 @@ const config = {
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",
+          dark: "#094C31",
+          accent: "#00A86B",
         },
         secondary: {
           DEFAULT: "hsl(var(--secondary))",
@@ -52,12 +54,20 @@ const config = {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+        eco: {
+          dark: "#101010",
+          light: "#F7F7F7",
+          grey: "#E6E6E6",
+          white: "#FFFFFF",
+          footer: "#1A2B3C",
+        },
       },
       borderRadius: {
         'smooth-sm': '0.5rem 0.5rem 0.5rem 0.5rem / 0.5rem 0.5rem 0.5rem 0.5rem',
         'smooth': '1rem 1rem 1rem 1rem / 1rem 1rem 1rem 1rem',
         'smooth-lg': '1.5rem 1.5rem 1.5rem 1.5rem / 1.5rem 1.5rem 1.5rem 1.5rem',
         'smooth-xl': '2rem 2rem 2rem 2rem / 2rem 2rem 2rem 2rem',
+        '4xl': '24px',
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
@@ -77,13 +87,30 @@ const config = {
           from: { height: "var(--radix-accordion-content-height)" },
           to: { height: "0" },
         },
+        "caret-blink": {
+          "0%,70%,100%": { opacity: "1" },
+          "20%,50%": { opacity: "0" },
+        },
+        "pulse-dot": {
+          "0%": { boxShadow: "0 0 0 0 rgba(34,139,34,0.7)" },
+          "70%": { boxShadow: "0 0 0 10px rgba(34,139,34,0)" },
+          "100%": { boxShadow: "0 0 0 0 rgba(34,139,34,0)" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        "caret-blink": "caret-blink 1.25s ease-out infinite",
+        "pulse-dot": "pulse-dot 2s infinite",
+      },
+      boxShadow: {
+        xs: "0 1px 2px 0 rgb(0 0 0 / 0.05)",
+        card: "0 4px 24px rgba(0,0,0,0.06)",
+        elevated: "0 12px 48px rgba(0,0,0,0.12)",
+        glow: "0 0 30px rgba(34,139,34,0.3)",
       },
       fontFamily: {
-        sans: ['Euclid Circular B', 'system-ui', 'sans-serif'],
+        sans: ['Inter', 'Euclid Circular B', 'system-ui', 'sans-serif'],
       },
     },
   },
