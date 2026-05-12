@@ -8,19 +8,13 @@ import clsx from "clsx";
 import { useScroll } from "@/lib/useScroll";
 import { RegisterDropdown } from "./components/register-dropdown-menu";
 import { MarketDropdown } from "./components/market-dropdown";
+import { NAV_ROUTES } from "@/lib/site-contract";
 
 interface NavigationBarProps {
   logoSrc: string;
   className?: string;
   linkColor?: string;
 }
-
-const navLinks = [
-  { href: "/", label: "Home" },
-  { href: "/solutions", label: "Solutions" },
-  { href: "/about-us", label: "About us" },
-  { href: "/news", label: "News" },
-];
 
 const NavigationBar: React.FC<NavigationBarProps> = ({
   logoSrc,
@@ -102,7 +96,7 @@ const NavigationBar: React.FC<NavigationBarProps> = ({
           }`}
         >
           <div className="text-sm flex md:flex-row flex-col items-center justify-center gap-4 ms-4">
-            {navLinks.map((link) => (
+            {NAV_ROUTES.map((link) => (
               <Link
                 href={link.href}
                 key={link.label}

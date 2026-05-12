@@ -2,6 +2,7 @@ import React from "react";
 import { Input } from "@/components/ui/input";
 import Image from "next/image";
 import Link from "next/link";
+import { CORE_ROUTES } from "@/lib/site-contract";
 
 const Footer = () => {
   return (
@@ -25,22 +26,22 @@ const Footer = () => {
             <h3 className="text-xl font-semibold mb-4">Home</h3>
             <ul className="space-y-3 text-gray-300/90">
               <li>
-                <Link href="/" className="transition-colors hover:text-white">
+                <Link href={CORE_ROUTES.home} className="transition-colors hover:text-white">
                   Home
                 </Link>
               </li>
               <li>
-                <Link href="/solutions" className="transition-colors hover:text-white">
+                <Link href={CORE_ROUTES.solutions} className="transition-colors hover:text-white">
                   Solutions
                 </Link>
               </li>
               <li>
-                <Link href="/about-us" className="transition-colors hover:text-white">
+                <Link href={CORE_ROUTES.about} className="transition-colors hover:text-white">
                   About us
                 </Link>
               </li>
               <li>
-                <Link href="/contact" className="transition-colors hover:text-white">
+                <Link href={CORE_ROUTES.contact} className="transition-colors hover:text-white">
                   Contact
                 </Link>
               </li>
@@ -52,12 +53,12 @@ const Footer = () => {
             <h3 className="text-xl font-semibold mb-4">Data and Privacy</h3>
             <ul className="space-y-3 text-gray-300/90">
               <li>
-                <Link href="/" className="transition-colors hover:text-white">
+                <Link href={CORE_ROUTES.home} className="transition-colors hover:text-white">
                   Privacy Policy
                 </Link>
               </li>
               <li>
-                <Link href="/contact" className="transition-colors hover:text-white">
+                <Link href={CORE_ROUTES.contact} className="transition-colors hover:text-white">
                   Customer support
                 </Link>
               </li>
