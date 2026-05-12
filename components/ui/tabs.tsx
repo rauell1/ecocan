@@ -2,9 +2,21 @@
 
 import * as React from "react"
 import * as TabsPrimitive from "@radix-ui/react-tabs"
-
 import { cn } from "@/lib/utils"
 
+/**
+ * Tabs — Ecocan design system
+ *
+ * Visual pattern: underline-indicator tabs (not pill/background tabs).
+ * This is cleaner for content-heavy pages (solutions, about-us).
+ *
+ * - TabsList: borderless row, no background pill container
+ * - TabsTrigger: transparent bg, active state = primary green underline
+ * - TabsContent: standard fade-in via Radix data-state animation
+ *
+ * The active indicator is a 2px bottom border on the trigger itself,
+ * using the primary color. Inactive triggers use muted-foreground.
+ */
 const Tabs = TabsPrimitive.Root
 
 const TabsList = React.forwardRef<
@@ -14,7 +26,7 @@ const TabsList = React.forwardRef<
   <TabsPrimitive.List
     ref={ref}
     className={cn(
-      "inline-flex lg:h-12 items-center justify-center border rounded-[var(--radius)] bg-card p-1 text-muted-foreground",
+      "inline-flex items-end gap-0 border-b border-border w-full",
       className
     )}
     {...props}
@@ -29,7 +41,21 @@ const TabsTrigger = React.forwardRef<
   <TabsPrimitive.Trigger
     ref={ref}
     className={cn(
-      "inline-flex items-center justify-center whitespace-nowrap rounded-[calc(var(--radius)-2px)] px-3 py-1.5 text-sm font-medium ring-offset-background transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 data-[state=active]:bg-accent data-[state=active]:text-foreground data-[state=active]:font-semibold data-[state=active]:shadow-none",
+      // Layout
+      "inline-flex items-center justify-center px-4 py-3",
+      // Typography
+      "text-sm font-semibold whitespace-nowrap",
+      // Default colour
+      "text-muted-foreground",
+      // Active state — underline via border-bottom
+      "border-b-2 border-transparent -mb-px",
+      "data-[state=active]:border-primary data-[state=active]:text-primary",
+      // Interaction
+      "hover:text-foreground",
+      "transition-[color,border-color] duration-[180ms] ease-[cubic-bezier(0.16,1,0.3,1)]",
+      // Focus
+      "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-1",
+      "disabled:pointer-events-none disabled:opacity-40",
       className
     )}
     {...props}
@@ -44,7 +70,8 @@ const TabsContent = React.forwardRef<
   <TabsPrimitive.Content
     ref={ref}
     className={cn(
-      "ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2",
+      "mt-6",
+      "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-1",
       className
     )}
     {...props}
