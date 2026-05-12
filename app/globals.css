@@ -5,34 +5,41 @@
   @layer base {
     :root {
       --background: 0 0% 100%;
-      --foreground: 222.2 84% 4.9%;
+      --foreground: 0 0% 6%;
 
       --card: 0 0% 100%;
-      --card-foreground: 222.2 84% 4.9%;
+      --card-foreground: 0 0% 6%;
 
       --popover: 0 0% 100%;
-      --popover-foreground: 222.2 84% 4.9%;
+      --popover-foreground: 0 0% 6%;
 
-      --primary: 222.2 47.4% 11.2%;
-      --primary-foreground: 210 40% 98%;
+      --primary: 120 61% 34%;
+      --primary-foreground: 0 0% 100%;
+      --primary-dark: 156 79% 17%;
+      --primary-accent: 158 100% 33%;
 
-      --secondary: 210 40% 96.1%;
-      --secondary-foreground: 222.2 47.4% 11.2%;
+      --secondary: 0 0% 97%;
+      --secondary-foreground: 0 0% 6%;
 
-      --muted: 210 40% 96.1%;
-      --muted-foreground: 215.4 16.3% 46.9%;
+      --muted: 0 0% 97%;
+      --muted-foreground: 0 0% 45%;
 
-      --accent: 210 40% 96.1%;
-      --accent-foreground: 222.2 47.4% 11.2%;
+      --accent: 0 0% 97%;
+      --accent-foreground: 0 0% 6%;
 
       --destructive: 0 84.2% 60.2%;
-      --destructive-foreground: 210 40% 98%;
+      --destructive-foreground: 0 0% 98%;
 
-      --border: 214.3 31.8% 91.4%;
-      --input: 214.3 31.8% 91.4%;
-      --ring: 222.2 84% 4.9%;
+      --border: 0 0% 90%;
+      --input: 0 0% 90%;
+      --ring: 120 61% 34%;
 
-      --radius: 0.5rem;
+      --radius: 0.625rem;
+      --eco-dark: 0 0% 6%;
+      --eco-light: 0 0% 97%;
+      --eco-grey: 0 0% 90%;
+      --eco-white: 0 0% 100%;
+      --eco-footer: 210 40% 17%;
     }
 
     .dark {
@@ -71,12 +78,101 @@
       @apply border-border;
     }
     body {
-      @apply bg-background text-foreground;
+      @apply bg-background text-foreground font-sans min-h-screen;
       text-rendering: optimizeLegibility;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
+      overflow-x: hidden;
     }
 
+  }
+
+  @layer components {
+    .glass-card {
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 24px;
+    }
+
+    .glass-card-light {
+      background: rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(0, 0, 0, 0.08);
+      border-radius: 24px;
+    }
+
+    .glass-pill {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 9999px;
+    }
+
+    .pill-btn {
+      border-radius: 9999px;
+      padding: 14px 32px;
+      font-size: 16px;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: all 0.3s ease;
+    }
+
+    .pill-btn-filled {
+      background: hsl(var(--primary));
+      color: hsl(var(--primary-foreground));
+    }
+
+    .pill-btn-filled:hover {
+      background: hsl(var(--primary-dark));
+      transform: scale(1.03);
+      box-shadow: 0 4px 20px rgba(34, 139, 34, 0.3);
+    }
+
+    .pill-btn-outline {
+      background: transparent;
+      border: 1.5px solid hsl(var(--primary));
+      color: hsl(var(--primary));
+    }
+
+    .pill-btn-outline:hover {
+      background: hsl(var(--primary));
+      color: hsl(var(--primary-foreground));
+    }
+
+    .section-overline {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: hsl(var(--primary));
+    }
+
+    .section-headline {
+      font-size: clamp(32px, 4vw, 48px);
+      font-weight: 600;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+    }
+
+    .section-body {
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 1.6;
+      opacity: 0.7;
+    }
+  }
+
+  @layer utilities {
+    .will-change-transform {
+      will-change: transform;
+    }
   }
 
   @media (prefers-reduced-motion: no-preference) {

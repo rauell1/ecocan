@@ -7,7 +7,7 @@ import Footer from "@/components/shared/footer/footer";
 export default function SolutionsPage() {
   return (
     <>
-      <main>
+      <main className="bg-background">
         <SolutionsContent />
       </main>
       <Footer />

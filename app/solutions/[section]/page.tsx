@@ -84,7 +84,7 @@ export default function SectionPage({ params }: SectionPageProps) {
           <NavigationBar
             className={
               isScrolled
-                ? "bg-white"
+                ? "bg-card"
                 : "bg-transparent text-white backdrop-blur-none"
             }
             logoSrc={
@@ -101,7 +101,7 @@ export default function SectionPage({ params }: SectionPageProps) {
       ) : (
         <div>
           <NavigationBar
-            className={isScrolled ? "bg-white" : "bg-transparent"}
+            className={isScrolled ? "bg-card" : "bg-transparent"}
             logoSrc="/assets/images/ecocan-logo.svg"
           />
           <div className="max-w-[72rem] mx-auto px-4 xl:px-0 border">

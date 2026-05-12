@@ -44,13 +44,13 @@ const NavigationBar: React.FC<NavigationBarProps> = ({
     return pathname.startsWith(href);
   };
 
-  const navSurfaceBaseClass = "border-b border-black/5 shadow-sm";
+  const navSurfaceBaseClass = "border-b border-border/80 shadow-sm";
   let navSurfaceClass = "";
 
   if (isOpen) {
-    navSurfaceClass = `bg-white ${navSurfaceBaseClass}`;
+    navSurfaceClass = `bg-card ${navSurfaceBaseClass}`;
   } else if (isScrolled) {
-    navSurfaceClass = `bg-white/95 backdrop-blur-md ${navSurfaceBaseClass}`;
+    navSurfaceClass = `bg-card/95 backdrop-blur-md ${navSurfaceBaseClass}`;
   }
 
   return (
@@ -76,7 +76,7 @@ const NavigationBar: React.FC<NavigationBarProps> = ({
             onClick={() => setIsOpen(!isOpen)}
             aria-label={isOpen ? "Close menu" : "Open menu"}
             aria-expanded={isOpen}
-            className="flex items-center px-3 py-2 rounded text-black-500 hover:text-black-400"
+             className="flex items-center px-3 py-2 rounded text-foreground hover:text-primary"
           >
             <svg
               className={`fill-current h-6 w-6 ${

@@ -3,7 +3,7 @@
  * Plain ESM JavaScript – no TypeScript runtime needed.
  *
  * Behavior:
- *   - SITEMAP.md       → always regenerated (scans app/**/page.tsx|js)
+ *   - SITEMAP.md       → always regenerated (scans page.tsx|ts|jsx|js under app/)
  *   - CODEBASE-MAP.md  → always regenerated (walks full directory tree)
  *   - ROLLBACK.md      → appends entry only when GITHUB_SHA env var is set
  *   - VERCEL.md        → appends entry only when VERCEL_URL env var is set
