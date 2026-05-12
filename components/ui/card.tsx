@@ -1,60 +1,50 @@
 import * as React from "react"
-import { cva, type VariantProps } from "class-variance-authority"
 import { cn } from "@/lib/utils"
 
 /**
- * Card — Ecocan design system
- *
- * Variants:
- *   default      → white surface, subtle border, soft shadow (light sections)
- *   glass        → semi-transparent white bg, white border (dark / hero sections)
- *   glass-light  → high-opacity white bg, translucent border (light overlay sections)
- *   elevated     → white surface, stronger shadow, no border
- *   flat         → surface bg, no shadow, hairline border (dense lists / data)
- *
- * Border-radius tokens:
- *   The outer card always uses rounded-3xl (24px).
- *   Inner padded content naturally creates the correct nested-radius relationship.
- *
- * NO colored side-borders — status is communicated via badges/text, not painted edges.
+ * Card — token-hardened surface component.
+ * Variants: default surface, elevated, glass (Kimi-spec glassmorphism).
  */
-const cardVariants = cva(
-  "flex flex-col rounded-3xl overflow-hidden",
-  {
-    variants: {
-      variant: {
-        default:
-          "bg-card border border-border shadow-card text-card-foreground",
-        glass:
-          "glass-card text-white",
-        "glass-light":
-          "glass-card-light text-eco-dark",
-        elevated:
-          "bg-card shadow-elevated text-card-foreground",
-        flat:
-          "bg-secondary border border-border text-secondary-foreground",
-      },
-    },
-    defaultVariants: {
-      variant: "default",
-    },
+
+// ─── Base Card ───────────────────────────────────────────────────────────────
+
+const Card = React.forwardRef<
+  HTMLDivElement,
+  React.HTMLAttributes<HTMLDivElement> & {
+    variant?: "default" | "elevated" | "glass" | "outline"
   }
-)
+>(({ className, variant = "default", ...props }, ref) => {
+  const variantClasses = {
+    default:
+      "bg-card text-card-foreground shadow-card border border-border/40 rounded-smooth",
+    elevated:
+      "bg-card text-card-foreground shadow-elevated border border-border/20 rounded-smooth-lg",
+    /**
+     * Glass — Kimi spec GlassCard.
+     * Semi-transparent white background, backdrop blur, white border.
+     * Designed for use over dark / image / gradient backgrounds.
+     */
+    glass:
+      "bg-white/10 backdrop-blur-md border border-white/20 text-white rounded-smooth-lg shadow-lg",
+    outline:
+      "bg-transparent border border-border rounded-smooth text-card-foreground",
+  }[variant]
 
-export interface CardProps
-  extends React.HTMLAttributes<HTMLDivElement>,
-    VariantProps<typeof cardVariants> {}
-
-const Card = React.forwardRef<HTMLDivElement, CardProps>(
-  ({ className, variant, ...props }, ref) => (
+  return (
     <div
       ref={ref}
-      className={cn(cardVariants({ variant }), className)}
+      className={cn(
+        "transition-all duration-200",
+        variantClasses,
+        className
+      )}
       {...props}
     />
   )
-)
+})
 Card.displayName = "Card"
+
+// ─── Card Header ─────────────────────────────────────────────────────────────
 
 const CardHeader = React.forwardRef<
   HTMLDivElement,
@@ -62,11 +52,13 @@ const CardHeader = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <div
     ref={ref}
-    className={cn("flex flex-col gap-1.5 p-6", className)}
+    className={cn("flex flex-col space-y-1.5 p-6", className)}
     {...props}
   />
 ))
 CardHeader.displayName = "CardHeader"
+
+// ─── Card Title ──────────────────────────────────────────────────────────────
 
 const CardTitle = React.forwardRef<
   HTMLParagraphElement,
@@ -83,17 +75,21 @@ const CardTitle = React.forwardRef<
 ))
 CardTitle.displayName = "CardTitle"
 
+// ─── Card Description ────────────────────────────────────────────────────────
+
 const CardDescription = React.forwardRef<
   HTMLParagraphElement,
   React.HTMLAttributes<HTMLParagraphElement>
 >(({ className, ...props }, ref) => (
   <p
     ref={ref}
-    className={cn("text-[15px] leading-relaxed text-muted-foreground", className)}
+    className={cn("text-sm text-muted-foreground leading-relaxed", className)}
     {...props}
   />
 ))
 CardDescription.displayName = "CardDescription"
+
+// ─── Card Content ────────────────────────────────────────────────────────────
 
 const CardContent = React.forwardRef<
   HTMLDivElement,
@@ -103,24 +99,18 @@ const CardContent = React.forwardRef<
 ))
 CardContent.displayName = "CardContent"
 
+// ─── Card Footer ─────────────────────────────────────────────────────────────
+
 const CardFooter = React.forwardRef<
   HTMLDivElement,
   React.HTMLAttributes<HTMLDivElement>
 >(({ className, ...props }, ref) => (
   <div
     ref={ref}
-    className={cn("flex items-center gap-3 p-6 pt-0", className)}
+    className={cn("flex items-center p-6 pt-0", className)}
     {...props}
   />
 ))
 CardFooter.displayName = "CardFooter"
 
-export {
-  Card,
-  CardHeader,
-  CardFooter,
-  CardTitle,
-  CardDescription,
-  CardContent,
-  cardVariants,
-}
+export { Card, CardHeader, CardFooter, CardTitle, CardDescription, CardContent }

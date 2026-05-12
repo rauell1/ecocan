@@ -6,24 +6,26 @@ import { ChevronDown } from "lucide-react"
 import { cn } from "@/lib/utils"
 
 /**
- * Accordion — Ecocan design system
- *
- * Styled to match the FAQ section from the Kimi spec:
- *   - Trigger text uses section-body sizing (18px, 0.7 opacity)
- *   - Chevron is primary green, rotates 180° on open
- *   - Content panel has a smooth height transition via Radix CSS variables
- *   - Focus ring uses primary green ring (matches globals.css --ring)
- *   - No background on trigger — separator lines provide structure
+ * Accordion — token-hardened, Kimi FAQ style supported.
+ * 'faq' variant: larger padding, slightly elevated card per item.
  */
+
 const Accordion = AccordionPrimitive.Root
 
 const AccordionItem = React.forwardRef<
   React.ElementRef<typeof AccordionPrimitive.Item>,
-  React.ComponentPropsWithoutRef<typeof AccordionPrimitive.Item>
->(({ className, ...props }, ref) => (
+  React.ComponentPropsWithoutRef<typeof AccordionPrimitive.Item> & {
+    variant?: "default" | "faq"
+  }
+>(({ className, variant = "default", ...props }, ref) => (
   <AccordionPrimitive.Item
     ref={ref}
-    className={cn("border-b border-border last:border-0", className)}
+    className={cn(
+      variant === "faq"
+        ? "rounded-smooth border border-border/50 bg-card shadow-card mb-3 overflow-hidden"
+        : "border-b border-border",
+      className
+    )}
     {...props}
   />
 ))
@@ -37,26 +39,15 @@ const AccordionTrigger = React.forwardRef<
     <AccordionPrimitive.Trigger
       ref={ref}
       className={cn(
-        // Layout
-        "flex flex-1 items-center justify-between",
-        "py-5 pr-1 text-left",
-        // Typography — matches .section-body
-        "text-[18px] font-medium leading-snug text-foreground",
-        // Interaction
-        "transition-[color] duration-[180ms] ease-[cubic-bezier(0.16,1,0.3,1)]",
-        "hover:text-primary",
-        "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2",
-        // Chevron rotate
+        "flex flex-1 items-center justify-between py-4 px-5 font-medium text-left",
+        "transition-all duration-200 hover:text-primary",
         "[&[data-state=open]>svg]:rotate-180",
         className
       )}
       {...props}
     >
       {children}
-      <ChevronDown
-        className="h-5 w-5 flex-shrink-0 text-primary transition-transform duration-300 ease-[cubic-bezier(0.16,1,0.3,1)]"
-        aria-hidden="true"
-      />
+      <ChevronDown className="h-4 w-4 shrink-0 text-muted-foreground transition-transform duration-200" />
     </AccordionPrimitive.Trigger>
   </AccordionPrimitive.Header>
 ))
@@ -68,15 +59,10 @@ const AccordionContent = React.forwardRef<
 >(({ className, children, ...props }, ref) => (
   <AccordionPrimitive.Content
     ref={ref}
-    className="overflow-hidden data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down"
+    className="overflow-hidden text-sm transition-all data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down"
     {...props}
   >
-    <div
-      className={cn(
-        "pb-5 pt-1 text-[16px] leading-relaxed text-muted-foreground",
-        className
-      )}
-    >
+    <div className={cn("pb-4 pt-0 px-5 text-muted-foreground leading-relaxed", className)}>
       {children}
     </div>
   </AccordionPrimitive.Content>

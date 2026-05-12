@@ -2,12 +2,7 @@ import * as React from "react"
 import { cn } from "@/lib/utils"
 
 /**
- * Textarea — Ecocan design system
- *
- * Matches Input visual spec with two adjustments:
- *   - rounded-2xl instead of rounded-full (pill textarea looks odd with tall height)
- *   - resize: vertical only (resize-y) — horizontal resize breaks layout grids
- *   - min-height: 120px (3 visible lines)
+ * Textarea — token-hardened, consistent with Input styles.
  */
 export interface TextareaProps
   extends React.TextareaHTMLAttributes<HTMLTextAreaElement> {}
@@ -17,24 +12,11 @@ const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
     return (
       <textarea
         className={cn(
-          // Shape — rounded-2xl, not pill (tall textarea with pill looks broken)
-          "min-h-[120px] w-full rounded-2xl",
-          // Spacing
-          "px-5 py-4",
-          // Typography
-          "text-sm font-normal text-foreground leading-relaxed",
-          "placeholder:text-muted-foreground",
-          // Surface + border
-          "bg-background border border-input",
-          // Focus
-          "focus-visible:outline-none",
-          "focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-1",
-          // Transition
-          "transition-[border-color,box-shadow] duration-[180ms] ease-[cubic-bezier(0.16,1,0.3,1)]",
-          // States
-          "disabled:cursor-not-allowed disabled:opacity-40",
-          // Resize
-          "resize-y",
+          "flex min-h-[80px] w-full rounded-[var(--radius)] border border-input bg-background px-3 py-2",
+          "text-base md:text-sm text-foreground placeholder:text-muted-foreground",
+          "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:border-primary",
+          "disabled:cursor-not-allowed disabled:opacity-50",
+          "resize-y transition-colors duration-150",
           className
         )}
         ref={ref}

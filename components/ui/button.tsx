@@ -1,69 +1,69 @@
+"use client"
+
 import * as React from "react"
 import { Slot } from "@radix-ui/react-slot"
 import { cva, type VariantProps } from "class-variance-authority"
 import { cn } from "@/lib/utils"
 
 /**
- * Button — Ecocan design system
- *
- * Variants mirror the Kimi spec's .pill-btn-* classes from globals.css:
- *   filled   → green filled pill (primary CTA)
- *   outline  → green border pill (secondary CTA)
- *   ghost    → no background, green text (tertiary)
- *   white    → white bg, dark text (on dark/hero sections)
- *   destructive → red pill
- *
- * Sizes:
- *   default → 14px / 48px tall (standard CTA)
- *   sm      → 13px / 36px (compact UI)
- *   lg      → 16px / 56px (hero CTA)
- *   icon    → 44×44px square (touch-safe icon-only)
- *
- * Transitions: only bg-color, color, box-shadow, border-color animated.
- * NO transition:all — animating layout properties causes main-thread jank.
+ * Button — token-hardened, animation-ready.
+ * Variants align with Ecocan design tokens + Kimi spec PillButton shape.
+ * 'pill' size variant = Kimi PillButton (rounded-full, px-6).
  */
 const buttonVariants = cva(
-  // Base — always applied
   [
-    "inline-flex items-center justify-center gap-2",
-    "rounded-full font-semibold",
-    "transition-[background-color,color,box-shadow,border-color]",
-    "duration-[180ms] ease-[cubic-bezier(0.16,1,0.3,1)]",
+    "inline-flex items-center justify-center whitespace-nowrap font-medium",
+    "transition-all duration-200 ease-out",
     "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2",
-    "disabled:pointer-events-none disabled:opacity-40",
-    "whitespace-nowrap select-none",
+    "disabled:pointer-events-none disabled:opacity-50",
+    "active:scale-[0.97]",
   ].join(" "),
   {
     variants: {
       variant: {
-        /** Green filled — primary CTA */
-        filled:
-          "bg-primary text-primary-foreground hover:bg-primary-dark hover:shadow-glow",
-        /** Green outline — secondary CTA */
-        outline:
-          "border border-primary text-primary bg-transparent hover:bg-primary hover:text-primary-foreground",
-        /** Ghost — tertiary / nav links */
-        ghost:
-          "bg-transparent text-primary hover:bg-primary/10",
-        /** White — for hero / dark-background sections */
-        white:
-          "bg-white text-eco-dark hover:shadow-glow",
-        /** Destructive — delete / irreversible actions */
+        /** Primary CTA — solid eco-green */
+        default:
+          "bg-primary text-primary-foreground hover:bg-primary-dark shadow-sm hover:shadow-md",
+        /** Destructive / danger */
         destructive:
           "bg-destructive text-destructive-foreground hover:bg-destructive/90",
-        /** Link — looks like a hyperlink */
-        link:
-          "bg-transparent text-primary underline-offset-4 hover:underline px-0",
+        /** Outlined — border uses input token so it adapts to dark mode */
+        outline:
+          "border border-input bg-background hover:bg-accent hover:text-accent-foreground",
+        /** Secondary surface */
+        secondary:
+          "bg-secondary text-secondary-foreground hover:bg-secondary/80",
+        /** Ghost — no background until hover */
+        ghost: "hover:bg-accent hover:text-accent-foreground",
+        /** Inline text link */
+        link: "text-primary underline-offset-4 hover:underline p-0 h-auto",
+        /**
+         * Glass — Kimi-spec glassmorphism CTA variant.
+         * backdrop-blur + semi-transparent white border.
+         * Works on dark/coloured backgrounds.
+         */
+        glass:
+          "bg-white/10 border border-white/20 text-white backdrop-blur-md hover:bg-white/20 hover:border-white/30 shadow-lg",
+        /**
+         * Eco-outline — white outlined pill on dark/image backgrounds.
+         * Used in hero sections.
+         */
+        "eco-outline":
+          "border-2 border-white/80 text-white bg-transparent hover:bg-white hover:text-eco-dark backdrop-blur-sm",
       },
       size: {
-        default: "h-12 px-8 text-sm",
-        sm: "h-9 px-5 text-[13px]",
-        lg: "h-14 px-10 text-base",
-        icon: "h-11 w-11 p-0 flex-shrink-0",
+        default: "h-10 rounded-[var(--radius)] px-4 py-2 text-sm",
+        sm: "h-9 rounded-md px-3 text-xs",
+        lg: "h-11 rounded-md px-8 text-base",
+        /** Kimi PillButton — full pill shape, prominent padding */
+        pill: "h-12 rounded-full px-6 py-3 text-sm font-semibold tracking-wide",
+        "pill-lg": "h-14 rounded-full px-8 py-4 text-base font-semibold tracking-wide",
+        icon: "h-10 w-10 rounded-[var(--radius)]",
+        "icon-sm": "h-8 w-8 rounded-md",
       },
     },
     defaultVariants: {
-      variant: "filled",
+      variant: "default",
       size: "default",
     },
   }
@@ -72,7 +72,6 @@ const buttonVariants = cva(
 export interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement>,
     VariantProps<typeof buttonVariants> {
-  /** Render as child element (e.g. wrap a Next.js <Link>) */
   asChild?: boolean
 }
 
