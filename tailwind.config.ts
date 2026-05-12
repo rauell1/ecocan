@@ -7,7 +7,7 @@ const config = {
     './components/**/*.{ts,tsx}',
     './app/**/*.{ts,tsx}',
     './src/**/*.{ts,tsx}',
-	],
+  ],
   prefix: "",
   theme: {
     container: {
@@ -63,10 +63,10 @@ const config = {
         },
       },
       borderRadius: {
-        'smooth-sm': '0.5rem 0.5rem 0.5rem 0.5rem / 0.5rem 0.5rem 0.5rem 0.5rem',
-        'smooth': '1rem 1rem 1rem 1rem / 1rem 1rem 1rem 1rem',
-        'smooth-lg': '1.5rem 1.5rem 1.5rem 1.5rem / 1.5rem 1.5rem 1.5rem 1.5rem',
-        'smooth-xl': '2rem 2rem 2rem 2rem / 2rem 2rem 2rem 2rem',
+        'smooth-sm': '0.5rem',
+        'smooth': '1rem',
+        'smooth-lg': '1.5rem',
+        'smooth-xl': '2rem',
         '4xl': '24px',
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
@@ -109,7 +109,15 @@ const config = {
         glow: "0 0 30px rgba(34,139,34,0.3)",
       },
       fontFamily: {
-        sans: ['Inter', 'Euclid Circular B', 'system-ui', 'sans-serif'],
+        /*
+         * --font-sans CSS variable is injected by next/font in layout.tsx.
+         * Fallback chain: Inter (loaded) → system-ui → sans-serif.
+         * Euclid Circular B removed from here — it was referenced but
+         * never loaded correctly (TTF @font-face had no guaranteed files
+         * in public/fonts/). To restore Euclid Circular B, use
+         * next/font/local with WOFF2 files and add its variable here.
+         */
+        sans: ['var(--font-sans)', 'system-ui', 'sans-serif'],
       },
     },
   },
