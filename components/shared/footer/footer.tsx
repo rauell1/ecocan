@@ -93,7 +93,7 @@ const Footer = () => {
                   height={40}
                 />
               </Link>
-              <Link href="https://tiktok.com" target="_blank" rel="noreferrer" className="w-fit transition-opacity hover:opacity-80">
+              <Link href="https://tiktok.com/@ecocanafrica" target="_blank" rel="noreferrer" className="w-fit transition-opacity hover:opacity-80">
                 <Image
                   src="/assets/icons/tiktok.svg"
                   alt="TikTok"
@@ -101,7 +101,7 @@ const Footer = () => {
                   height={40}
                 />
               </Link>
-              <Link href="https://linkedin.com" target="_blank" rel="noreferrer" className="w-fit transition-opacity hover:opacity-80">
+              <Link href="https://linkedin.com/company/ecocan" target="_blank" rel="noreferrer" className="w-fit transition-opacity hover:opacity-80">
                 <Image
                   src="/assets/icons/linkedin.svg"
                   alt="LinkedIn"

@@ -112,7 +112,7 @@ const NavigationBar: React.FC<NavigationBarProps> = ({
           </div>
           <div className="text-center ms-auto flex-col md:flex-row flex items-center justify-center gap-4 md:pt-0 pt-5">
             <MarketDropdown />
-             <RegisterDropdown isScrolled={isScrolled} />
+            <RegisterDropdown isScrolled={isScrolled} />
           </div>
         </div>
       </div>
