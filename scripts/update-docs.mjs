@@ -195,16 +195,25 @@ async function updateRollback() {
   let content = await readOrEmpty(filePath);
 
   const shortSha = sha.slice(0, 7);
+  const shaUrl = `https://github.com/rauell1/ecocan/commit/${sha}`;
   const branch = process.env.GITHUB_REF_NAME || 'unknown';
   const actor = process.env.GITHUB_ACTOR || 'unknown';
-  const now = new Date().toISOString();
-  const entry = `| \`${shortSha}\` | ${now} | ${branch} | ${actor} |`;
+  const commitMsg = (process.env.GITHUB_COMMIT_MESSAGE || '').split('\n')[0].slice(0, 72) || '—';
+  const now = new Date().toISOString().slice(0, 16).replace('T', ' ');
 
-  if (!content.includes('## Deployment Log')) {
-    content += `\n\n## Deployment Log\n\n> Entries appended automatically on each push to \`main\` via GitHub Actions.\n> To roll back: \`git revert <SHA>\` or open a PR reverting the commit.\n\n| Commit | Deployed At | Branch | Actor |\n|--------|-------------|--------|-------|\n`;
+  // Derive the next row number from how many data rows already exist in the table
+  const tableHeaderMarker = '| # | Commit | Message | Author | Date (UTC) | Branch |';
+  const existingRows = (content.match(/^\| \d+/gm) || []);
+  const nextNum = existingRows.length + 1;
+
+  const newRow = `| ${nextNum} | [\`${shortSha}\`](${shaUrl}) | ${commitMsg} | ${actor} | ${now} | ${branch} |`;
+
+  // If the table header doesn't exist yet, bootstrap the Deployment Log section
+  if (!content.includes(tableHeaderMarker)) {
+    content += `\n\n## Deployment Log\n\n> ⚙️ **CI-managed section.** One row is appended per merge to \`main\`. Do not edit rows manually.\n\n${tableHeaderMarker}\n|---|--------|---------|--------|------------|--------|"`;
   }
 
-  content += entry + '\n';
+  content += '\n' + newRow;
   await write(filePath, content);
 }
 
