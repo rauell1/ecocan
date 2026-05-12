@@ -4,9 +4,6 @@ export const CORE_ROUTES = {
   about: "/about-us",
   news: "/news",
   contact: "/contact",
-  market: "/ecocan-market",
-  ecoFriendlyCans: "/eco-friendly-cans",
-  download: "/download",
 } as const;
 
 export const NAV_ROUTES = [

@@ -161,9 +161,9 @@ const Footer = () => {
                 height={16}
               />
               <div>
-                 <p className="text-gray-300/90">Plessey House, Boricho rd,</p>
-                 <p className="text-gray-300/90">P.O.BOX 5686-00100</p>
-                 <p className="text-gray-300/90 mb-2">Nairobi, Kenya</p>
+                <p className="text-gray-300/90">Plessey House, Boricho rd,</p>
+                <p className="text-gray-300/90">P.O.BOX 5686-00100</p>
+                <p className="text-gray-300/90 mb-2">Nairobi, Kenya</p>
               </div>
             </div>
             <div className="flex items-start gap-2">
@@ -173,7 +173,7 @@ const Footer = () => {
                 width={16}
                 height={16}
               />
-               <p className="text-gray-300/90">info@ecocanafrica.com</p>
+              <p className="text-gray-300/90">info@ecocanafrica.com</p>
             </div>
             <div className="flex items-start gap-2">
               <Image
@@ -182,7 +182,7 @@ const Footer = () => {
                 width={16}
                 height={16}
               />
-               <p className="text-gray-300/90">+254738203770 / +254740376074</p>
+              <p className="text-gray-300/90">+254738203770 / +254740376074</p>
             </div>
           </div>
 
@@ -205,8 +205,8 @@ const Footer = () => {
                 height={16}
               />
               <div className="self-start">
-                 <p className="text-gray-300/90">Korkeavuorenkatu 7c 49</p>
-                 <p className="text-gray-300/90">00140 Helsinki, Finland</p>
+                <p className="text-gray-300/90">Korkeavuorenkatu 7c 49</p>
+                <p className="text-gray-300/90">00140 Helsinki, Finland</p>
               </div>
             </div>
             <div className="flex items-start gap-2">
@@ -216,7 +216,7 @@ const Footer = () => {
                 width={16}
                 height={16}
               />
-               <p className="text-gray-300/90">info@ecocanafrica.com</p>
+              <p className="text-gray-300/90">info@ecocanafrica.com</p>
             </div>
             <div className="flex items-start gap-2">
               <Image
@@ -225,7 +225,7 @@ const Footer = () => {
                 width={16}
                 height={16}
               />
-               <p className="text-gray-300/90">+358440816059 / +358408470927</p>
+              <p className="text-gray-300/90">+358440816059 / +358408470927</p>
             </div>
           </div>
           <div className="col-span-10 md:col-span-4 gap-4 lg:gap-0 grid grid-cols-2">

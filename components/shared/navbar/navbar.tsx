@@ -49,7 +49,7 @@ const NavigationBar: React.FC<NavigationBarProps> = ({
       className={clsx(
         "fixed top-0 left-0 right-0 md:px-4 z-[9995] transition-all duration-300",
         isOpen ? "bg-white" : "",
-        isScrolled && !className?.includes("bg-") ? "bg-white/95 backdrop-blur-md shadow-sm border-b border-black/5" : "",
+        isScrolled ? "bg-white/95 backdrop-blur-md shadow-sm border-b border-black/5" : "",
         className
       )}
     >
@@ -110,10 +110,10 @@ const NavigationBar: React.FC<NavigationBarProps> = ({
               </Link>
             ))}
           </div>
-           <div className="text-center ms-auto flex-col md:flex-row flex items-center justify-center gap-4 md:pt-0 pt-5">
-             <MarketDropdown />
+          <div className="text-center ms-auto flex-col md:flex-row flex items-center justify-center gap-4 md:pt-0 pt-5">
+            <MarketDropdown />
              <RegisterDropdown isScrolled={isScrolled} />
-           </div>
+          </div>
         </div>
       </div>
     </nav>
