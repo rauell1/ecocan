@@ -3,11 +3,9 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import clsx from "clsx";
 import { useScroll } from "@/lib/useScroll";
-import RegisterPopup from "../register-popup";
 import { RegisterDropdown } from "./components/register-dropdown-menu";
 import { MarketDropdown } from "./components/market-dropdown";
 
@@ -57,6 +55,7 @@ const NavigationBar: React.FC<NavigationBarProps> = ({
       className={clsx(
         "fixed top-0 left-0 right-0 md:px-4 z-[9995] transition-all duration-300",
         isOpen ? "bg-white" : "",
+        isScrolled && !className?.includes("bg-") ? "bg-white/95 backdrop-blur-md shadow-sm border-b border-black/5" : "",
         className
       )}
     >
@@ -73,6 +72,8 @@ const NavigationBar: React.FC<NavigationBarProps> = ({
         <div className="block md:hidden">
           <button
             onClick={() => setIsOpen(!isOpen)}
+            aria-label={isOpen ? "Close menu" : "Open menu"}
+            aria-expanded={isOpen}
             className="flex items-center px-3 py-2 rounded text-black-500 hover:text-black-400"
           >
             <svg
@@ -115,10 +116,10 @@ const NavigationBar: React.FC<NavigationBarProps> = ({
               </Link>
             ))}
           </div>
-          <div className="text-center ms-auto flex-col md:flex-row flex items-center justify-center gap-4 md:pt-0 pt-5">
-            <MarketDropdown/>
-            <RegisterDropdown isScrolled={isScrolled} />
-          </div>
+           <div className="text-center ms-auto flex-col md:flex-row flex items-center justify-center gap-4 md:pt-0 pt-5">
+             <MarketDropdown />
+             <RegisterDropdown isScrolled={isScrolled} />
+           </div>
         </div>
       </div>
     </nav>
