@@ -78,8 +78,7 @@
       @apply border-border;
     }
     body {
-      @apply bg-background text-foreground font-sans;
-      min-height: 100vh;
+      @apply bg-background text-foreground font-sans min-h-screen;
       text-rendering: optimizeLegibility;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
