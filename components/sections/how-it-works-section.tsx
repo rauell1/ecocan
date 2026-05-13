@@ -3,16 +3,37 @@
 import { useRef, useEffect } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import Image from "next/image";
-import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import { ScanLine, MapPin, Coins, Recycle } from "lucide-react";
 
 const steps = [
-  { num: "01", title: "Buy", desc: "Any drink with ECOCAN security code" },
-  { num: "02", title: "Scan", desc: "Verify authenticity in 3 seconds" },
-  { num: "03", title: "Return", desc: "Empty, intact, to any ECO-Station counter" },
-  { num: "04", title: "Collect", desc: "We pick up by electric bike. You've done your part." },
-  { num: "05", title: "Get Rewarded", desc: "Instant deposit money to M-PESA or bank" },
+  {
+    number: "01",
+    icon: <ScanLine className="w-6 h-6" />,
+    title: "Buy & Scan",
+    description:
+      "Purchase any participating beverage. Open the ECOCAN app and scan the unique QR code on the bottle to confirm authenticity.",
+  },
+  {
+    number: "02",
+    icon: <MapPin className="w-6 h-6" />,
+    title: "Return at an ECO-Station",
+    description:
+      "Find your nearest ECO-Station on the map. Drop off empty bottles — via a reverse-vending machine or a staffed counter.",
+  },
+  {
+    number: "03",
+    icon: <Coins className="w-6 h-6" />,
+    title: "Earn Your Deposit",
+    description:
+      "Your deposit is automatically credited to your ECOCAN wallet. Redeem it as airtime, mobile money, or in-app rewards.",
+  },
+  {
+    number: "04",
+    icon: <Recycle className="w-6 h-6" />,
+    title: "Bottles Enter the Loop",
+    description:
+      "Returned containers are collected by certified couriers and delivered to licensed recyclers — completing the circular economy.",
+  },
 ];
 
 interface HowItWorksSectionProps {
@@ -20,98 +41,61 @@ interface HowItWorksSectionProps {
 }
 
 export default function HowItWorksSection({ scrollEnabled }: HowItWorksSectionProps) {
-  const sectionRef = useRef<HTMLDivElement>(null);
-  const cardsRef = useRef<HTMLDivElement>(null);
+  const sectionRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
     if (!scrollEnabled) return;
     gsap.registerPlugin(ScrollTrigger);
-
-    const ctx = gsap.context(() => {
-      const headingEls = sectionRef.current?.querySelectorAll(".heading-animate");
-      if (headingEls && headingEls.length > 0) {
-        gsap.fromTo(headingEls, { opacity: 0, y: 40 }, {
-          opacity: 1, y: 0, duration: 0.8, stagger: 0.1, ease: "power2.out",
-          scrollTrigger: { trigger: sectionRef.current, start: "top 80%", once: true },
-        });
+    const cards = sectionRef.current?.querySelectorAll(".step-card");
+    if (!cards) return;
+    gsap.fromTo(
+      cards,
+      { opacity: 0, y: 40 },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 0.7,
+        stagger: 0.12,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: "top 75%",
+        },
       }
-      if (!cardsRef.current) return;
-      const cards = cardsRef.current.querySelectorAll(".step-card");
-      if (cards.length > 0) {
-        gsap.fromTo(cards, { opacity: 0, y: 60, x: 30 }, {
-          opacity: 1, y: 0, x: 0, duration: 0.6, stagger: 0.12, ease: "power2.out",
-          scrollTrigger: { trigger: cardsRef.current, start: "top 80%", once: true },
-        });
-      }
-      const imgEl = sectionRef.current?.querySelector(".counter-img");
-      if (imgEl) {
-        gsap.fromTo(imgEl, { opacity: 0, scale: 1.05 }, {
-          opacity: 1, scale: 1, duration: 1, ease: "power3.out",
-          scrollTrigger: { trigger: imgEl, start: "top 85%", once: true },
-        });
-      }
-    }, sectionRef);
-
-    return () => ctx.revert();
+    );
   }, [scrollEnabled]);
 
   return (
-    <section
-      ref={sectionRef}
-      className="relative w-full py-[120px] md:py-[160px] overflow-hidden"
-      style={{ background: "#101010" }}
-    >
-      <div
-        className="absolute inset-0 opacity-15"
-        style={{ backgroundImage: "url(/images/bottle-journey.jpg)", backgroundSize: "cover", backgroundPosition: "center" }}
-      />
-      <div className="absolute inset-0 bg-gradient-to-b from-[#101010] via-transparent to-[#101010]" />
-
-      <div className="relative z-10 max-w-[1280px] mx-auto px-6">
-        <p className="section-overline heading-animate mb-6">How It Works</p>
-        <h2 className="section-headline text-white heading-animate mb-2 max-w-[700px]">
-          From your hand back to the shelf.
-        </h2>
-        <p className="section-body text-white/50 heading-animate mb-12">Clean. Traceable. Rewarded.</p>
-
-        <div ref={cardsRef} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 mb-12">
-          {steps.map((step) => (
-            <div
-              key={step.num}
-              className="step-card glass-card p-6 md:p-8 hover:-translate-y-2 hover:border-white/30 transition-all duration-300"
-            >
-              <span className="text-4xl md:text-5xl font-bold text-primary block mb-4 leading-none">{step.num}</span>
-              <h3 className="text-xl font-semibold text-white mb-2">{step.title}</h3>
-              <p className="text-white/50 text-sm leading-relaxed">{step.desc}</p>
-            </div>
-          ))}
+    <section ref={sectionRef} id="how-it-works" className="py-24 px-6 bg-neutral-50">
+      <div className="max-w-[1100px] mx-auto">
+        <div className="mb-14 max-w-[580px]">
+          <p className="text-xs font-semibold uppercase tracking-[0.18em] text-primary mb-3">
+            How It Works
+          </p>
+          <h2 className="text-4xl md:text-5xl font-bold text-eco-dark leading-tight mb-5">
+            Four steps to a cleaner Africa.
+          </h2>
+          <p className="text-eco-dark/70 text-lg leading-relaxed">
+            ECOCAN makes recycling rewarding, simple, and verifiable — from the first scan to the final loop.
+          </p>
         </div>
 
-        <p className="text-white/40 text-sm italic heading-animate mb-3">
-          No machine? No problem. Our partner counters scan and pay you instantly — right now, today.
-        </p>
-        <Link
-          href="/solutions"
-          className="inline-flex items-center gap-2 text-white font-medium hover:underline heading-animate mb-16"
-        >
-          See full journey <ArrowRight size={16} />
-        </Link>
-
-        {/* Return counter photo from original site */}
-        <div className="counter-img relative rounded-3xl overflow-hidden heading-animate" style={{ height: "clamp(200px, 32vw, 400px)" }}>
-          <Image
-            src="/images/return-counter.jpg"
-            alt="ECOCAN return counter at a supermarket"
-            fill
-            className="object-cover"
-            loading="lazy"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#101010]/70 via-[#101010]/20 to-transparent flex items-center p-8 md:p-12">
-            <div>
-              <p className="text-white font-bold text-2xl md:text-3xl mb-2">Return it right here.</p>
-              <p className="text-white/70 text-base">Any ECO-Station counter. No machine required.</p>
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {steps.map((step) => (
+            <div
+              key={step.number}
+              className="step-card rounded-2xl bg-white border border-eco-dark/8 p-7 flex flex-col gap-4"
+            >
+              <div className="flex items-center justify-between">
+                <div className="w-11 h-11 rounded-xl bg-primary/10 flex items-center justify-center text-primary">
+                  {step.icon}
+                </div>
+                <span className="text-4xl font-black text-eco-dark/8 leading-none">{step.number}</span>
+              </div>
+              <h3 className="text-[17px] font-semibold text-eco-dark">{step.title}</h3>
+              <p className="text-eco-dark/65 text-[14px] leading-relaxed">{step.description}</p>
             </div>
-          </div>
+          ))}
         </div>
       </div>
     </section>

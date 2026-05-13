@@ -1,100 +1,82 @@
 "use client";
 
-import { useRef, useEffect } from "react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import Image from "next/image";
+import { Recycle, ShieldCheck, Zap } from "lucide-react";
 
-const stats = [
-  { value: "30%", label: "of drinks in Africa are counterfeit" },
-  { value: "80%", label: "of plastic bottles are never recovered" },
-  { value: "$1B+", label: "lost annually to packaging waste" },
+const problems = [
+  {
+    icon: <Recycle className="w-7 h-7 text-primary" />,
+    title: "Bottles end up in landfills",
+    body:
+      "Millions of glass, plastic, and aluminium containers are discarded daily across Africa — contaminating soil, waterways, and communities.",
+  },
+  {
+    icon: <ShieldCheck className="w-7 h-7 text-primary" />,
+    title: "Counterfeit drinks harm consumers",
+    body:
+      "Without verification, fake and adulterated beverages reach shelves unchecked — putting people's health at serious risk.",
+  },
+  {
+    icon: <Zap className="w-7 h-7 text-primary" />,
+    title: "Recyclers lack fair incentives",
+    body:
+      "Informal recyclers do critical environmental work yet receive little recognition, data, or financial reward for their efforts.",
+  },
 ];
 
 export default function ProblemSolutionSection() {
-  const sectionRef = useRef<HTMLDivElement>(null);
-  const headingRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    gsap.registerPlugin(ScrollTrigger);
-
-    const ctx = gsap.context(() => {
-      const elements = headingRef.current?.querySelectorAll(".animate-in");
-      if (!elements || elements.length === 0) return;
-
-      gsap.fromTo(
-        elements,
-        { opacity: 0, y: 40 },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 0.8,
-          stagger: 0.1,
-          ease: "power2.out",
-          scrollTrigger: { trigger: sectionRef.current, start: "top 80%", once: true },
-        }
-      );
-
-      const statCards = sectionRef.current?.querySelectorAll(".stat-item");
-      if (statCards && statCards.length > 0) {
-        gsap.fromTo(statCards, { opacity: 0, y: 30 }, {
-          opacity: 1, y: 0, duration: 0.6, stagger: 0.12, ease: "power2.out",
-          scrollTrigger: { trigger: sectionRef.current?.querySelector(".stats-row"), start: "top 85%", once: true },
-        });
-      }
-    }, sectionRef);
-
-    return () => ctx.revert();
-  }, []);
-
   return (
-    <section ref={sectionRef} className="w-full py-[120px] md:py-[160px]" style={{ background: "#101010" }}>
-      <div ref={headingRef} className="max-w-[1280px] mx-auto px-6">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-          {/* Left: text */}
-          <div>
-            <p className="section-overline animate-in mb-6">The Problem</p>
-            <h2 className="section-headline text-white mb-8 animate-in">
-              30% of drinks are fake.<br />Billions of bottles wasted.<br />
-              <span className="text-primary">You can fix both.</span>
-            </h2>
-            <p className="section-body text-white/60 animate-in mb-10">
-              Every bottle you return is one less fake drink, one less piece of plastic in our oceans,
-              and one more step toward a cleaner Africa. ECOCAN creates a closed loop: collect → recycle → reuse.
-            </p>
+    <section className="py-24 px-6 bg-white">
+      <div className="max-w-[1100px] mx-auto">
+        {/* Header */}
+        <div className="mb-14 max-w-[680px]">
+          <p className="text-xs font-semibold uppercase tracking-[0.18em] text-primary mb-3">
+            The Problem
+          </p>
+          <h2 className="text-4xl md:text-5xl font-bold text-eco-dark leading-tight mb-5">
+            Africa&apos;s packaging crisis
+            <br />
+            needs a system-level fix.
+          </h2>
+          <p className="text-eco-dark/70 text-lg leading-relaxed">
+            Packaging waste, counterfeit beverages, and broken recycling incentives are connected problems. ECOCAN solves all three through a single circular ecosystem.
+          </p>
+        </div>
 
-            {/* Stats */}
-            <div className="stats-row grid grid-cols-1 gap-4">
-              {stats.map((stat) => (
-                <div key={stat.label} className="stat-item flex items-center gap-4 border-l-2 border-primary pl-5">
-                  <span className="text-3xl font-bold text-primary shrink-0">{stat.value}</span>
-                  <span className="text-white/60 text-base">{stat.label}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Right: image collage */}
-          <div className="animate-in relative hidden lg:block">
-            <div className="relative rounded-3xl overflow-hidden shadow-elevated" style={{ height: 480 }}>
-              <Image
-                src="/assets/images/consumer/fight-back.svg"
-                alt="Fight back against counterfeits"
-                fill
-                className="object-cover"
-                loading="lazy"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#101010]/60 to-transparent" />
-            </div>
-            {/* Floating stat pill */}
+        {/* Problem cards */}
+        <div className="grid md:grid-cols-3 gap-6 mb-16">
+          {problems.map((p) => (
             <div
-              className="absolute -bottom-6 -left-6 glass-card p-5 rounded-2xl"
-              style={{ background: "rgba(255,255,255,0.08)", backdropFilter: "blur(12px)", border: "1px solid rgba(255,255,255,0.12)" }}
+              key={p.title}
+              className="rounded-2xl border border-eco-dark/8 bg-neutral-50 p-7 flex flex-col gap-4"
             >
-              <p className="text-4xl font-bold text-primary mb-1">1M+</p>
-              <p className="text-white/60 text-sm">Bottles in our system</p>
+              <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center">
+                {p.icon}
+              </div>
+              <h3 className="text-[17px] font-semibold text-eco-dark leading-snug">{p.title}</h3>
+              <p className="text-eco-dark/65 text-[15px] leading-relaxed">{p.body}</p>
             </div>
+          ))}
+        </div>
+
+        {/* Solution statement */}
+        <div className="rounded-3xl bg-eco-dark text-white p-10 md:p-14 flex flex-col md:flex-row items-start md:items-center gap-8">
+          <div className="flex-1">
+            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-primary/80 mb-3">
+              Our Solution
+            </p>
+            <h3 className="text-2xl md:text-3xl font-bold leading-snug mb-4">
+              One app. Every bottle. Closed loop.
+            </h3>
+            <p className="text-white/75 text-[15px] leading-relaxed max-w-[520px]">
+              ECOCAN connects consumers, brands, eco-stations, couriers, and recyclers through a verified Deposit Return System — rewarding every participant at every step.
+            </p>
           </div>
+          <a
+            href="/solutions"
+            className="pill-btn pill-btn-filled shrink-0 text-sm !py-3 !px-7"
+          >
+            See How It Works
+          </a>
         </div>
       </div>
     </section>

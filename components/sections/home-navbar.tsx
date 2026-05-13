@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { Menu, X } from "lucide-react";
+import { Menu } from "lucide-react";
 
 interface HomeNavbarProps {
   scrollEnabled: boolean;
@@ -33,7 +33,6 @@ export default function HomeNavbar({ scrollEnabled, onMenuToggle }: HomeNavbarPr
 
   const handleSectionClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault();
-    // If scroll is still locked (hero animation not done), unlock first then scroll
     if (!scrollEnabled) {
       document.body.style.overflow = "";
     }
@@ -51,11 +50,11 @@ export default function HomeNavbar({ scrollEnabled, onMenuToggle }: HomeNavbarPr
       style={{ height: 72 }}
     >
       <div className="max-w-[1280px] mx-auto px-6 h-full flex items-center justify-between">
-        {/* Logo */}
-        <a
-          href="#hero"
-          onClick={(e) => handleSectionClick(e, "#hero")}
-          className="shrink-0 flex items-center gap-2"
+        {/* Logo — always navigates to homepage */}
+        <Link
+          href="/"
+          className="shrink-0 flex items-center gap-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded"
+          aria-label="Go to ECOCAN homepage"
         >
           <Image
             src="/images/ecocan-logo.png"
@@ -72,7 +71,7 @@ export default function HomeNavbar({ scrollEnabled, onMenuToggle }: HomeNavbarPr
           >
             Circular Bottle Ecosystem
           </span>
-        </a>
+        </Link>
 
         {/* Desktop nav */}
         <div className="hidden lg:flex items-center gap-7">

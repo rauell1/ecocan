@@ -31,16 +31,13 @@ const NavigationBar: React.FC<NavigationBarProps> = ({
     } else {
       document.body.classList.remove("overflow-hidden");
     }
-
     return () => {
       document.body.classList.remove("overflow-hidden");
     };
   }, [isOpen]);
 
   const isLinkActive = (href: string) => {
-    if (href === "/") {
-      return pathname === href;
-    }
+    if (href === "/") return pathname === href;
     return pathname.startsWith(href);
   };
 
@@ -62,21 +59,28 @@ const NavigationBar: React.FC<NavigationBarProps> = ({
       )}
     >
       <div className="flex items-center justify-between flex-wrap max-w-[1280px] mx-auto px-6" style={{ height: 72 }}>
-        <div className="flex items-center flex-shrink-0 text-white py-4">
+        {/* Logo — always links to homepage */}
+        <Link
+          href="/"
+          className="flex items-center flex-shrink-0 py-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded"
+          aria-label="Go to ECOCAN homepage"
+        >
           <Image
             src={logoSrc}
-            alt="ecocan logo"
+            alt="ECOCAN logo"
             width={46}
             height={46}
-            className="w-full h-full"
+            className="w-auto h-full"
           />
-        </div>
+        </Link>
+
+        {/* Mobile hamburger */}
         <div className="block md:hidden">
           <button
             onClick={() => setIsOpen(!isOpen)}
             aria-label={isOpen ? "Close menu" : "Open menu"}
             aria-expanded={isOpen}
-             className="flex items-center px-3 py-2 rounded text-foreground hover:text-primary"
+            className="flex items-center px-3 py-2 rounded text-foreground hover:text-primary"
           >
             <svg
               className={`fill-current h-6 w-6 ${
@@ -89,7 +93,7 @@ const NavigationBar: React.FC<NavigationBarProps> = ({
             </svg>
             <svg
               className={`fill-current h-6 w-6 ${
-                isScrolled ? "text-primary" : "text-white"
+                isScrolled ? "text-primary" : "text-foreground"
               } ${isOpen ? "block" : "hidden"}`}
               viewBox="0 0 20 20"
               xmlns="http://www.w3.org/2000/svg"
@@ -98,6 +102,8 @@ const NavigationBar: React.FC<NavigationBarProps> = ({
             </svg>
           </button>
         </div>
+
+        {/* Nav links */}
         <div
           className={`w-full block flex-grow md:flex md:items-center md:w-auto ${
             isOpen ? "block min-h-screen md:min-h-0" : "hidden max-h-none"

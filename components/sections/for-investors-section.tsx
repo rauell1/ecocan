@@ -1,78 +1,71 @@
 "use client";
 
 import Link from "next/link";
-import { TrendingUp, Globe, ShieldCheck, ArrowRight } from "lucide-react";
+import { TrendingUp, Globe, ShieldCheck } from "lucide-react";
 
-const highlights = [
+const pillars = [
   {
-    icon: TrendingUp,
-    label: "Market Opportunity",
-    value: "$4.5B+",
-    note: "African beverage recycling market by 2030",
+    icon: <TrendingUp className="w-6 h-6 text-primary" />,
+    title: "Recurring revenue model",
+    body: "Transaction fees, brand licensing, and data insights create multiple compounding income streams.",
   },
   {
-    icon: Globe,
-    label: "Countries Targeted",
-    value: "12",
-    note: "East & West African markets in 5-year roadmap",
+    icon: <Globe className="w-6 h-6 text-primary" />,
+    title: "Pan-African scalability",
+    body: "Our Deposit Return System model is jurisdiction-ready and designed to replicate across Sub-Saharan Africa.",
   },
   {
-    icon: ShieldCheck,
-    label: "Anti-Counterfeit TAM",
-    value: "$820M",
-    note: "Annual losses to fake beverages across SSA",
+    icon: <ShieldCheck className="w-6 h-6 text-primary" />,
+    title: "Regulatory tailwinds",
+    body: "Extended Producer Responsibility legislation is being enacted across East Africa — creating a mandated market for ECOCAN.",
   },
 ];
 
 export default function ForInvestorsSection() {
   return (
-    <section id="investors" className="py-24 px-6 bg-[#101010] text-white">
-      <div className="max-w-[1180px] mx-auto">
-        {/* Header */}
-        <div className="max-w-[600px] mb-14">
-          <p className="section-overline mb-3" style={{ color: "#4ade80" }}>For Investors</p>
-          <h2 className="section-headline text-white mb-4">
-            Back the infrastructure<br />Africa&apos;s circular economy needs
+    <section id="investors" className="py-24 px-6 bg-eco-dark text-white">
+      <div className="max-w-[1100px] mx-auto">
+        <div className="mb-14 max-w-[600px]">
+          <p className="text-xs font-semibold uppercase tracking-[0.18em] text-primary mb-3">
+            For Investors
+          </p>
+          <h2 className="text-4xl md:text-5xl font-bold text-white leading-tight mb-5">
+            Investing in Africa&apos;s
+            <br />
+            circular economy.
           </h2>
-          <p className="section-body text-white/60">
-            ECOCAN is building the deposit-return backbone that makes recycling profitable for
-            everyone — from individual consumers to multinational brands.
+          <p className="text-white/70 text-lg leading-relaxed">
+            ECOCAN sits at the intersection of sustainability mandates, consumer technology, and brand protection — a market with structural growth drivers.
           </p>
         </div>
 
-        {/* Stats */}
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-14">
-          {highlights.map((h) => {
-            const Icon = h.icon;
-            return (
-              <div
-                key={h.label}
-                className="rounded-2xl p-7"
-                style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.08)" }}
-              >
-                <Icon size={24} className="text-primary mb-4" />
-                <p className="text-[13px] text-white/50 uppercase tracking-widest mb-1">{h.label}</p>
-                <p className="text-[40px] font-bold text-white leading-none mb-2">{h.value}</p>
-                <p className="text-[14px] text-white/50 leading-snug">{h.note}</p>
+        <div className="grid md:grid-cols-3 gap-6 mb-12">
+          {pillars.map((p) => (
+            <div
+              key={p.title}
+              className="rounded-2xl border border-white/10 bg-white/5 p-8 flex flex-col gap-4"
+            >
+              <div className="w-11 h-11 rounded-xl bg-primary/15 flex items-center justify-center">
+                {p.icon}
               </div>
-            );
-          })}
+              <h3 className="text-[17px] font-semibold text-white leading-snug">{p.title}</h3>
+              <p className="text-white/60 text-[14px] leading-relaxed">{p.body}</p>
+            </div>
+          ))}
         </div>
 
-        {/* CTA row */}
-        <div className="flex flex-col sm:flex-row items-start sm:items-center gap-5">
+        <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
           <Link
             href="/contact"
-            className="pill-btn pill-btn-filled !py-4 !px-9 text-base active:scale-95 transition-transform"
+            className="pill-btn pill-btn-filled text-sm !py-3 !px-7"
           >
             Request Investor Deck
-            <ArrowRight size={18} />
           </Link>
           <Link
             href="/about-us"
-            className="text-white/70 hover:text-white font-medium flex items-center gap-2 transition-colors text-[15px]"
+            className="text-white/70 hover:text-white text-[15px] font-medium transition-colors underline underline-offset-4"
           >
-            Meet the Team <ArrowRight size={15} />
+            Learn more about our team
           </Link>
         </div>
       </div>

@@ -1,111 +1,84 @@
 "use client";
 
 import { useState } from "react";
-import { Plus, Minus } from "lucide-react";
+import { ChevronDown } from "lucide-react";
+import Link from "next/link";
 
 const faqs = [
   {
     q: "What is ECOCAN?",
-    a: "ECOCAN is Africa's Circular Bottle Ecosystem — a Deposit Return System (DRS) that lets consumers return empty bottles and cans at ECO-Stations to receive monetary rewards, while helping brands fight counterfeiting and drive recycling.",
+    a: "ECOCAN is Africa's first Deposit Return System (DRS) platform. It enables consumers to earn deposits back when they return empty bottles, while helping brands fight counterfeits and giving recyclers access to verified, pre-sorted materials.",
   },
   {
-    q: "How do I return a bottle and get paid?",
-    a: "Download the ECOCAN app, locate your nearest ECO-Station, scan the QR code on your bottle, and deposit it. Your account is credited instantly. Cash out via M-Pesa or your linked mobile wallet.",
+    q: "Which bottle types does ECOCAN accept?",
+    a: "We currently support glass, plastic (PET), and aluminium cans from registered brand partners. The list of participating products grows as more brands join the ECOmmunity.",
   },
   {
-    q: "Is ECOCAN available outside Kenya?",
-    a: "ECOCAN is currently operational in Kenya and expanding across East Africa. Partner with us if you'd like to bring ECOCAN to your market.",
+    q: "How do I earn my deposit back?",
+    a: "Download the ECOCAN app, scan the QR code on your bottle at purchase, and return it to any ECO-Station. Your deposit is instantly credited to your ECOCAN wallet — redeemable as mobile money, airtime, or in-store credit.",
   },
   {
-    q: "How does ECOCAN stop counterfeit drinks?",
-    a: "Every genuine bottle carries a unique, tamper-evident QR code. Consumers scan it with the ECOCAN app to instantly verify authenticity before drinking. Counterfeit bottles fail verification and are flagged in real time.",
+    q: "Where are ECO-Stations located?",
+    a: "ECO-Stations are currently active across Nairobi, with rollout planned for Mombasa and other major Kenyan cities. Use the app map to find the nearest drop-off point in real time.",
   },
   {
-    q: "I'm a brand — how do I join the ECOCAN network?",
-    a: "Fill in the partner form on our Solutions page or email us directly. Our team will walk you through onboarding, labelling requirements, ECO-Station coverage, and the DRS deposit structure.",
+    q: "How does ECOCAN prevent counterfeit beverages?",
+    a: "Every participating bottle is assigned a unique, one-time QR code at the point of production. Consumers can scan the code before drinking to instantly verify authenticity. Duplicate or unknown codes are flagged immediately.",
   },
   {
-    q: "What bottles and cans does ECOCAN accept?",
-    a: "ECOCAN currently accepts aluminium cans, PET plastic bottles, and glass bottles from registered brand partners. More material types are being added as the network grows.",
-  },
-  {
-    q: "Is there a minimum amount before I can cash out?",
-    a: "Yes, the current minimum cashout threshold is KES 50. There is no upper limit on withdrawals.",
-  },
-  {
-    q: "How does ECOCAN's electric mobility component work?",
-    a: "ECOCAN integrates with electric two-wheelers used by ECO-Couriers for last-mile collection. Part of the deposit pool funds the courier network, making the entire loop emission-free at the collection stage.",
+    q: "How can my business join ECOCAN?",
+    a: "Brands, distributors, ECO-Station operators, and fleet couriers can all register through our platform. Visit the Solutions page or contact us directly to discuss the right partnership model for your business.",
   },
 ];
 
 export default function FAQSection() {
-  const [openIndex, setOpenIndex] = useState<number | null>(0);
-
-  const toggle = (i: number) => setOpenIndex(openIndex === i ? null : i);
+  const [open, setOpen] = useState<number | null>(null);
 
   return (
-    <section
-      id="faq"
-      className="py-24 px-6 bg-white"
-    >
-      <div className="max-w-[720px] mx-auto">
-        {/* Header */}
-        <p className="section-overline mb-3 text-center">Got questions?</p>
-        <h2 className="section-headline text-center mb-4">Frequently Asked Questions</h2>
-        <p className="section-body text-center mb-12 max-w-[520px] mx-auto">
-          Everything you need to know about returning bottles, fighting counterfeits, and joining the ECOCAN network.
-        </p>
-
-        {/* Accordion */}
-        <div className="divide-y divide-black/8">
-          {faqs.map((faq, i) => {
-            const isOpen = openIndex === i;
-            return (
-              <div key={i}>
-                <button
-                  onClick={() => toggle(i)}
-                  className="w-full flex items-center justify-between gap-4 py-5 text-left group cursor-pointer"
-                  aria-expanded={isOpen}
-                >
-                  <span
-                    className={`text-[17px] font-semibold leading-snug transition-colors ${
-                      isOpen ? "text-primary" : "text-eco-dark group-hover:text-primary"
-                    }`}
-                  >
-                    {faq.q}
-                  </span>
-                  <span
-                    className={`shrink-0 w-7 h-7 rounded-full flex items-center justify-center transition-all ${
-                      isOpen
-                        ? "bg-primary text-white"
-                        : "bg-black/6 text-eco-dark group-hover:bg-primary group-hover:text-white"
-                    }`}
-                  >
-                    {isOpen ? <Minus size={14} /> : <Plus size={14} />}
-                  </span>
-                </button>
-                <div
-                  className="overflow-hidden transition-all duration-300"
-                  style={{ maxHeight: isOpen ? "400px" : "0px", opacity: isOpen ? 1 : 0 }}
-                >
-                  <p className="text-[16px] leading-relaxed text-eco-dark/70 pb-5 max-w-[620px]">
-                    {faq.a}
-                  </p>
-                </div>
-              </div>
-            );
-          })}  
+    <section className="py-24 px-6 bg-white">
+      <div className="max-w-[760px] mx-auto">
+        <div className="mb-14 text-center">
+          <p className="text-xs font-semibold uppercase tracking-[0.18em] text-primary mb-3">
+            FAQs
+          </p>
+          <h2 className="text-4xl md:text-5xl font-bold text-eco-dark leading-tight mb-5">
+            Common questions,
+            <br />
+            clear answers.
+          </h2>
+          <p className="text-eco-dark/65 text-lg">
+            Can&apos;t find what you&apos;re looking for?{" "}
+            <Link href="/contact" className="text-primary hover:underline font-medium">
+              Contact our team.
+            </Link>
+          </p>
         </div>
 
-        {/* Bottom CTA */}
-        <div className="mt-12 text-center">
-          <p className="text-eco-dark/60 mb-4 text-[15px]">Still have questions?</p>
-          <a
-            href="/contact"
-            className="pill-btn pill-btn-filled text-sm !py-3 !px-8 inline-flex"
-          >
-            Contact Us
-          </a>
+        <div className="flex flex-col divide-y divide-eco-dark/8">
+          {faqs.map((faq, i) => (
+            <div key={i}>
+              <button
+                className="w-full flex items-center justify-between gap-4 py-5 text-left group"
+                onClick={() => setOpen(open === i ? null : i)}
+                aria-expanded={open === i}
+              >
+                <span className="text-[16px] font-semibold text-eco-dark group-hover:text-primary transition-colors">
+                  {faq.q}
+                </span>
+                <ChevronDown
+                  size={18}
+                  className={`text-eco-dark/40 shrink-0 transition-transform duration-300 ${
+                    open === i ? "rotate-180 text-primary" : ""
+                  }`}
+                />
+              </button>
+              {open === i && (
+                <p className="pb-6 text-eco-dark/65 text-[15px] leading-relaxed pr-8">
+                  {faq.a}
+                </p>
+              )}
+            </div>
+          ))}
         </div>
       </div>
     </section>

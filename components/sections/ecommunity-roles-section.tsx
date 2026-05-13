@@ -1,118 +1,87 @@
 "use client";
 
 import Link from "next/link";
-import { Recycle, Store, Truck, Factory, Music, ArrowRight } from "lucide-react";
+import { Store, Truck, Package, Recycle, Users, CalendarDays } from "lucide-react";
 
 const roles = [
   {
-    icon: Recycle,
-    title: "Consumer",
-    subtitle: "Return & Earn",
-    description:
-      "Scan, return your empty bottles at any ECO-Station, and earn real money straight to your M-Pesa wallet.",
-    color: "#16a34a",
+    icon: <Users className="w-6 h-6" />,
+    label: "Consumer",
     href: "/solutions",
-    cta: "How to earn",
+    description: "Scan, return bottles, and earn deposit bonuses through the app.",
+    color: "bg-emerald-50 text-emerald-700",
   },
   {
-    icon: Store,
-    title: "ECO-Station",
-    subtitle: "Host a Drop-off Point",
-    description:
-      "Become a collection hub, earn per-unit fees, and grow your business as part of Africa's DRS network.",
-    color: "#0891b2",
+    icon: <Package className="w-6 h-6" />,
+    label: "Eco-Producer",
     href: "/solutions",
-    cta: "Become a station",
+    description: "Register your brand, track authentic containers, and fight counterfeits.",
+    color: "bg-blue-50 text-blue-700",
   },
   {
-    icon: Truck,
-    title: "ECO-Courier",
-    subtitle: "Ride & Collect",
-    description:
-      "Use electric two-wheelers to collect from stations and earn per pickup on a flexible schedule.",
-    color: "#7c3aed",
+    icon: <Store className="w-6 h-6" />,
+    label: "ECO-Station",
     href: "/solutions",
-    cta: "Start delivering",
+    description: "Host a collection point, earn handling fees, and grow foot traffic.",
+    color: "bg-amber-50 text-amber-700",
   },
   {
-    icon: Factory,
-    title: "Eco-Producer",
-    subtitle: "Brand Protection + DRS",
-    description:
-      "Protect your brand from counterfeits with QR authentication and join the official deposit return loop.",
-    color: "#d97706",
+    icon: <Truck className="w-6 h-6" />,
+    label: "Courier",
     href: "/solutions",
-    cta: "Protect your brand",
+    description: "Pick up from stations, deliver to recyclers, and earn per collection.",
+    color: "bg-orange-50 text-orange-700",
   },
   {
-    icon: Recycle,
-    title: "Recycler",
-    subtitle: "Close the Loop",
-    description:
-      "Receive sorted, clean material from ECO-Stations and turn it into raw input for manufacturing.",
-    color: "#059669",
+    icon: <Recycle className="w-6 h-6" />,
+    label: "Recycler",
     href: "/solutions",
-    cta: "Join as recycler",
+    description: "Receive pre-sorted containers and access verified recycling data.",
+    color: "bg-teal-50 text-teal-700",
   },
   {
-    icon: Music,
-    title: "Events",
-    subtitle: "Zero-Waste Activations",
-    description:
-      "Deploy portable ECO-Stations at festivals and events to hit your sustainability goals.",
-    color: "#e11d48",
+    icon: <CalendarDays className="w-6 h-6" />,
+    label: "Events",
     href: "/solutions",
-    cta: "Event solutions",
+    description: "Activate ECOCAN at festivals, concerts, and community gatherings.",
+    color: "bg-purple-50 text-purple-700",
   },
 ];
 
 export default function EcommunityRolesSection() {
   return (
-    <section id="ecommunity" className="py-24 px-6 bg-[#f8f8f6]">
-      <div className="max-w-[1180px] mx-auto">
-        {/* Header */}
-        <div className="max-w-[600px] mb-14">
-          <p className="section-overline mb-3">Who is ECOCAN for?</p>
-          <h2 className="section-headline mb-4">Every role in the ECOmmunity</h2>
-          <p className="section-body">
-            ECOCAN connects six types of participants into one circular economy.
-            Find your role and tap in.
+    <section className="py-24 px-6 bg-white">
+      <div className="max-w-[1100px] mx-auto">
+        <div className="mb-14 max-w-[620px]">
+          <p className="text-xs font-semibold uppercase tracking-[0.18em] text-primary mb-3">
+            The ECOmmunity
+          </p>
+          <h2 className="text-4xl md:text-5xl font-bold text-eco-dark leading-tight mb-5">
+            Everyone has a role
+            <br />
+            in the loop.
+          </h2>
+          <p className="text-eco-dark/70 text-lg leading-relaxed">
+            ECOCAN is not a single product — it is a shared platform. Six distinct roles, each rewarded, each essential.
           </p>
         </div>
 
-        {/* Role cards grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-          {roles.map((role) => {
-            const Icon = role.icon;
-            return (
-              <Link
-                key={role.title}
-                href={role.href}
-                className="group relative flex flex-col bg-white rounded-2xl p-7 border border-black/5 hover:border-black/10 hover:shadow-lg transition-all duration-200 cursor-pointer"
-              >
-                {/* Icon */}
-                <div
-                  className="w-11 h-11 rounded-xl flex items-center justify-center mb-5"
-                  style={{ background: role.color + "15" }}
-                >
-                  <Icon size={22} style={{ color: role.color }} />
-                </div>
-
-                {/* Content */}
-                <p className="text-[11px] font-semibold uppercase tracking-widest mb-1" style={{ color: role.color }}>
-                  {role.subtitle}
-                </p>
-                <h3 className="text-[20px] font-bold text-eco-dark mb-2 leading-tight">{role.title}</h3>
-                <p className="text-[15px] text-eco-dark/60 leading-relaxed flex-1">{role.description}</p>
-
-                {/* CTA */}
-                <div className="mt-5 flex items-center gap-1.5 text-[14px] font-semibold" style={{ color: role.color }}>
-                  {role.cta}
-                  <ArrowRight size={14} className="transition-transform group-hover:translate-x-1" />
-                </div>
-              </Link>
-            );
-          })}
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          {roles.map((role) => (
+            <Link
+              key={role.label}
+              href={role.href}
+              className="group rounded-2xl border border-eco-dark/8 bg-neutral-50 hover:bg-white hover:shadow-md p-7 flex flex-col gap-3 transition-all duration-200"
+            >
+              <div className={`w-11 h-11 rounded-xl flex items-center justify-center ${role.color}`}>
+                {role.icon}
+              </div>
+              <h3 className="text-[16px] font-semibold text-eco-dark group-hover:text-primary transition-colors">
+                {role.label}
+              </h3>
+              <p className="text-eco-dark/60 text-[14px] leading-relaxed">{role.description}</p>
+            </Link>
+          ))}
         </div>
       </div>
     </section>

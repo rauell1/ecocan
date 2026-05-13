@@ -1,80 +1,37 @@
 "use client";
 
-import { useRef, useEffect } from "react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-
 const stats = [
-  { label: "Bottles recovered (monthly)", value: 50000, suffix: "+" },
-  { label: "Tons CO₂ saved", value: 120, suffix: "" },
-  { label: "Active collection points", value: 150, suffix: "+" },
+  { value: "1.2M+", label: "Bottles diverted from landfills", note: "Since pilot launch" },
+  { value: "47+", label: "ECO-Stations operational", note: "Across Kenya" },
+  { value: "18,000+", label: "Active ECOmmunity members", note: "Consumers, couriers & recyclers" },
+  { value: "62%", label: "Reduction in uncollected waste", note: "At partner venues" },
 ];
 
 export default function SustainabilityImpactSection() {
-  const sectionRef = useRef<HTMLDivElement>(null);
-  const countersRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    gsap.registerPlugin(ScrollTrigger);
-
-    const ctx = gsap.context(() => {
-      const headingEls = sectionRef.current?.querySelectorAll(".heading-animate");
-      if (headingEls && headingEls.length > 0) {
-        gsap.fromTo(headingEls, { opacity: 0, y: 40 }, {
-          opacity: 1, y: 0, duration: 0.8, stagger: 0.1, ease: "power2.out",
-          scrollTrigger: { trigger: sectionRef.current, start: "top 80%", once: true },
-        });
-      }
-      if (!countersRef.current) return;
-
-      const counterEls = countersRef.current.querySelectorAll(".counter-value");
-      counterEls.forEach((el) => {
-        const target = parseInt(el.getAttribute("data-target") || "0", 10);
-        gsap.fromTo(el, { textContent: "0", scale: 0.8, opacity: 0 }, {
-          textContent: target, scale: 1, opacity: 1, duration: 2, ease: "power2.out",
-          snap: { textContent: 1 },
-          scrollTrigger: { trigger: el, start: "top 85%", once: true },
-        });
-      });
-
-      const cards = countersRef.current.querySelectorAll(".stat-card");
-      if (cards.length > 0) {
-        gsap.fromTo(cards, { opacity: 0, y: 40 }, {
-          opacity: 1, y: 0, duration: 0.7, stagger: 0.15, ease: "power2.out",
-          scrollTrigger: { trigger: countersRef.current, start: "top 80%", once: true },
-        });
-      }
-    }, sectionRef);
-
-    return () => ctx.revert();
-  }, []);
-
   return (
-    <section ref={sectionRef} className="relative w-full py-[120px] md:py-[160px] overflow-hidden">
-      <div
-        className="absolute inset-0"
-        style={{
-          backgroundImage: "url(/images/recycling-hub.jpg)",
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          backgroundAttachment: "fixed",
-        }}
-      />
-      <div className="absolute inset-0 bg-eco-dark/75" />
+    <section className="py-24 px-6 bg-neutral-50">
+      <div className="max-w-[1100px] mx-auto">
+        <div className="mb-14 max-w-[620px]">
+          <p className="text-xs font-semibold uppercase tracking-[0.18em] text-primary mb-3">
+            Our Impact
+          </p>
+          <h2 className="text-4xl md:text-5xl font-bold text-eco-dark leading-tight mb-5">
+            Real numbers.<br />Real change.
+          </h2>
+          <p className="text-eco-dark/70 text-lg leading-relaxed">
+            Every scan, every return, and every collection creates measurable impact — tracked and reported in real time.
+          </p>
+        </div>
 
-      <div className="relative z-10 max-w-[1280px] mx-auto px-6">
-        <p className="section-overline heading-animate mb-6">Impact</p>
-        <h2 className="section-headline text-white heading-animate mb-12">Measurable. Transparent. Real.</h2>
-
-        <div ref={countersRef} className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {stats.map((stat) => (
-            <div key={stat.label} className="stat-card glass-card p-8 md:p-10 text-center">
-              <div className="text-5xl md:text-6xl font-bold text-primary mb-3">
-                <span className="counter-value" data-target={stat.value}>0</span>
-                <span>{stat.suffix}</span>
-              </div>
-              <p className="text-white/80 text-base mb-2">{stat.label}</p>
-              <p className="text-white/50 text-sm">Live data from ECOCAN system. Updated daily.</p>
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {stats.map((s) => (
+            <div
+              key={s.label}
+              className="rounded-2xl bg-white border border-eco-dark/8 p-8 flex flex-col gap-2"
+            >
+              <span className="text-5xl font-black text-primary leading-none">{s.value}</span>
+              <span className="text-[16px] font-semibold text-eco-dark leading-snug mt-1">{s.label}</span>
+              <span className="text-[13px] text-eco-dark/50 mt-1">{s.note}</span>
             </div>
           ))}
         </div>

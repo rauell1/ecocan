@@ -58,7 +58,6 @@ export default function HeroSection({ scrollEnabled, onTransitionComplete }: Her
     tl.to(ctaBtnRef.current, { autoAlpha: 0, duration: 0.4 }, 0.8);
   };
 
-  // Allow scroll wheel / touch to also trigger the transition
   useEffect(() => {
     if (scrollEnabled || transitionDone) return;
     const onWheel = (e: WheelEvent) => { if (e.deltaY > 0) triggerTransition(); };
@@ -105,15 +104,15 @@ export default function HeroSection({ scrollEnabled, onTransitionComplete }: Her
           className="absolute inset-0"
           style={{
             background:
-              "linear-gradient(to bottom, rgba(16,16,16,0.3) 0%, rgba(16,16,16,0.1) 40%, rgba(16,16,16,0.6) 100%)",
+              "linear-gradient(to bottom, rgba(16,16,16,0.35) 0%, rgba(16,16,16,0.15) 40%, rgba(16,16,16,0.7) 100%)",
           }}
         />
       </div>
 
-      {/* Brand name */}
+      {/* Large brand watermark */}
       <h1
         ref={brandRef}
-        className="absolute left-1/2 -translate-x-1/2 font-extrabold text-white text-center"
+        className="absolute left-1/2 -translate-x-1/2 font-extrabold text-white text-center select-none pointer-events-none"
         style={{
           bottom: "10vh",
           fontSize: "clamp(60px, 14vw, 180px)",
@@ -133,46 +132,44 @@ export default function HeroSection({ scrollEnabled, onTransitionComplete }: Her
         className="absolute inset-0 flex flex-col items-center justify-center text-center px-6"
         style={{ zIndex: 3 }}
       >
-        <p className="text-xs font-semibold uppercase tracking-[0.15em] text-white/70 mb-4">
+        <p className="text-xs font-semibold uppercase tracking-[0.18em] text-white/80 mb-4 drop-shadow-sm">
           Africa&apos;s Circular Bottle Ecosystem
         </p>
         <h2
-          className="text-white font-bold mb-4"
-          style={{ fontSize: "clamp(32px, 5vw, 56px)", lineHeight: 1.1 }}
+          className="text-white font-bold mb-5 drop-shadow-md"
+          style={{ fontSize: "clamp(32px, 5vw, 60px)", lineHeight: 1.1 }}
         >
-          Return. Recycle.<br />Make a difference.
+          Return. Recycle.<br />Earn Rewards.
         </h2>
-        <p className="text-white/80 text-lg md:text-xl max-w-[640px] mb-8 font-normal">
-          Recycle at any ECO-Station. Save the planet. Stop fake drinks. Get a bonus.
+        <p className="text-white/90 text-lg md:text-xl max-w-[600px] mb-8 font-normal leading-relaxed drop-shadow-sm">
+          Scan, return empty bottles at any ECO-Station, earn bonuses, and help protect Africa&apos;s environment — all in one app.
         </p>
 
         <div className="flex flex-col sm:flex-row items-center gap-4 mb-8">
-          {/* Download App — always works, goes to /download page */}
           <a
             href="/download"
             className="pill-btn pill-btn-white"
           >
             <Download size={18} />
-            Download App
+            Download the App
           </a>
-          {/* Partner — unlocks scroll & jumps to model section */}
           <button
             onClick={() => { triggerTransition(); setTimeout(() => scrollToSection("model"), 1400); }}
-            className="text-white font-medium hover:underline flex items-center gap-2 cursor-pointer bg-transparent border-none"
+            className="text-white font-medium hover:underline flex items-center gap-2 cursor-pointer bg-transparent border-none drop-shadow-sm"
           >
             Partner with ECOCAN <ArrowRight size={16} />
           </button>
         </div>
 
         <div className="flex flex-wrap justify-center gap-3 mb-4">
-          {["Early-stage funded", "Operational in Kenya", "GDPR Compliant"].map((badge) => (
-            <span key={badge} className="glass-pill text-white text-[13px] px-4 py-1.5">
+          {["Early-stage funded", "Live in Kenya", "GDPR Compliant"].map((badge) => (
+            <span key={badge} className="glass-pill text-white text-[13px] px-4 py-1.5 font-medium">
               {badge}
             </span>
           ))}
         </div>
-        <span className="glass-pill text-white/80 text-[13px] px-4 py-1.5 italic">
-          No machine? No problem. Our counters work today.
+        <span className="glass-pill text-white/90 text-[13px] px-4 py-1.5 italic">
+          No machine? Our staff counters are open today.
         </span>
       </div>
 
@@ -183,10 +180,10 @@ export default function HeroSection({ scrollEnabled, onTransitionComplete }: Her
           onClick={triggerTransition}
           className="absolute left-1/2 -translate-x-1/2 glass-pill text-white px-6 py-3 flex items-center gap-3 hover:bg-white/20 active:scale-95 transition-all cursor-pointer"
           style={{ bottom: "5vh", zIndex: 4 }}
-          aria-label="Explore the Journey"
+          aria-label="Explore ECOCAN"
         >
           <span className="w-2 h-2 rounded-full bg-primary animate-pulse-dot" />
-          Explore the Journey
+          Explore ECOCAN
           <ChevronDown size={16} className="animate-bounce" />
         </button>
       )}

@@ -1,75 +1,63 @@
 "use client";
 
-import { useRef, useEffect } from "react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import Image from "next/image";
-import { ArrowRight } from "lucide-react";
+import { Zap, Leaf, BatteryCharging } from "lucide-react";
+
+const points = [
+  {
+    icon: <Zap className="w-5 h-5 text-primary" />,
+    title: "EV-powered collection routes",
+    body: "Couriers who collect bottles for ECOCAN can access subsidised electric vehicles, reducing logistics emissions at scale.",
+  },
+  {
+    icon: <Leaf className="w-5 h-5 text-primary" />,
+    title: "Carbon-offset credits",
+    body: "Each completed collection loop is logged and contributes to verifiable carbon-offset certificates for brand partners.",
+  },
+  {
+    icon: <BatteryCharging className="w-5 h-5 text-primary" />,
+    title: "Charging at ECO-Stations",
+    body: "Select ECO-Stations double as EV charging points, creating multi-purpose sustainability hubs in urban neighbourhoods.",
+  },
+];
 
 export default function ElectricMobilitySection() {
-  const sectionRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    gsap.registerPlugin(ScrollTrigger);
-
-    const ctx = gsap.context(() => {
-      const textCol = sectionRef.current?.querySelector(".text-col");
-      if (textCol) {
-        gsap.fromTo(textCol, { opacity: 0, y: 40 }, {
-          opacity: 1, y: 0, duration: 0.8, ease: "power2.out",
-          scrollTrigger: { trigger: sectionRef.current, start: "top 80%", once: true },
-        });
-      }
-      const imgCol = sectionRef.current?.querySelector(".img-col");
-      if (imgCol) {
-        gsap.fromTo(imgCol, { opacity: 0, x: 40 }, {
-          opacity: 1, x: 0, duration: 0.8, delay: 0.2, ease: "power2.out",
-          scrollTrigger: { trigger: sectionRef.current, start: "top 80%", once: true },
-        });
-      }
-    }, sectionRef);
-
-    return () => ctx.revert();
-  }, []);
-
   return (
-    <section ref={sectionRef} className="w-full py-[120px] md:py-[160px] bg-white">
-      <div className="max-w-[1280px] mx-auto px-6">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-          <div className="text-col">
-            <p className="section-overline mb-6">Sustainability</p>
-            <h2 className="section-headline text-eco-dark mb-6">One step in the loop: electric bikes.</h2>
-            <p className="section-body text-eco-dark mb-8 max-w-[500px]">
-              We use electric bikes for last-mile collection. Lower cost. Zero emissions. But the real story is the
-              bottle — not the bike.
-            </p>
-            <div className="flex flex-wrap gap-3 mb-8">
-              <span className="glass-card-light px-5 py-2.5 text-sm font-medium text-eco-dark">
-                60% lower cost vs diesel
-              </span>
-              <span className="glass-card-light px-5 py-2.5 text-sm font-medium text-eco-dark">
-                Zero emissions
-              </span>
+    <section className="py-24 px-6 bg-neutral-50">
+      <div className="max-w-[1100px] mx-auto">
+        <div className="grid lg:grid-cols-2 gap-14 items-center">
+          {/* Visual */}
+          <div className="rounded-3xl bg-eco-dark border border-white/5 aspect-video flex items-center justify-center order-2 lg:order-1">
+            <div className="text-center p-10">
+              <Zap className="w-16 h-16 text-primary/60 mx-auto mb-4" />
+              <p className="text-white/40 text-sm">Electric mobility integration</p>
             </div>
-            <a
-              href="#"
-              className="inline-flex items-center gap-2 text-primary font-semibold hover:underline"
-              onClick={(e) => e.preventDefault()}
-            >
-              Our sustainability impact <ArrowRight size={16} />
-            </a>
           </div>
 
-          <div className="img-col">
-            <div className="rounded-3xl overflow-hidden shadow-elevated">
-              <Image
-                src="/images/ebike-collection.jpg"
-                alt="ECOCAN electric cargo bike collecting bottles"
-                width={800}
-                height={600}
-                className="w-full h-auto object-cover"
-                loading="lazy"
-              />
+          {/* Text */}
+          <div className="order-1 lg:order-2">
+            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-primary mb-3">
+              Electric Mobility
+            </p>
+            <h2 className="text-4xl md:text-5xl font-bold text-eco-dark leading-tight mb-5">
+              Cleaner logistics.
+              <br />
+              Greener last mile.
+            </h2>
+            <p className="text-eco-dark/70 text-lg leading-relaxed mb-10">
+              ECOCAN integrates electric vehicles into its collection network — reducing the carbon footprint of the entire reverse logistics chain.
+            </p>
+            <div className="flex flex-col gap-6">
+              {points.map((p) => (
+                <div key={p.title} className="flex gap-4 items-start">
+                  <div className="w-9 h-9 rounded-lg bg-primary/10 flex items-center justify-center shrink-0 mt-0.5">
+                    {p.icon}
+                  </div>
+                  <div>
+                    <h3 className="text-[16px] font-semibold text-eco-dark mb-1">{p.title}</h3>
+                    <p className="text-eco-dark/60 text-[14px] leading-relaxed">{p.body}</p>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
         </div>
