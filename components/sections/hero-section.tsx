@@ -18,6 +18,8 @@ export default function HeroSection({
 }: HeroSectionProps) {
   const heroRef = useRef<HTMLDivElement>(null)
   const videoRef = useRef<HTMLDivElement>(null)
+  // Separate ref for the actual <video> element so we can call .load()/.play()
+  const videoElRef = useRef<HTMLVideoElement>(null)
   const brandRef = useRef<HTMLHeadingElement>(null)
   const contentRef = useRef<HTMLDivElement>(null)
   const ctaBtnRef = useRef<HTMLButtonElement>(null)
@@ -68,6 +70,8 @@ export default function HeroSection({
   }
 
   // Reverse the hero transition when resetSignal fires (user scrolled back to top)
+  // FIX: after the reverse completes, call video.load() + video.play() so the
+  // clip restarts cleanly even on browsers that suspend autoplay after a pause.
   useEffect(() => {
     if (resetSignal === 0) return
 
@@ -80,6 +84,21 @@ export default function HeroSection({
     tl.eventCallback("onReverseComplete", () => {
       setTransitionDone(false)
       tl.eventCallback("onReverseComplete", null)
+
+      // ---- VIDEO FIX ----
+      // After the GSAP reverse completes the video wrapper is back to its
+      // original scale/brightness, but some browsers (Safari, Firefox) leave
+      // the <video> in a suspended state. Calling .load() resets the element
+      // and .play() restarts autoplay reliably.
+      const vid = videoElRef.current
+      if (vid) {
+        vid.load()
+        vid.play().catch(() => {
+          // Autoplay blocked by browser policy — silently ignore.
+          // The poster image will show as fallback.
+        })
+      }
+      // -------------------
     })
     tl.reverse()
   }, [resetSignal])
@@ -123,6 +142,7 @@ export default function HeroSection({
       {/* Video background */}
       <div ref={videoRef} className="absolute inset-0" style={{ zIndex: 1 }}>
         <video
+          ref={videoElRef}
           autoPlay
           loop
           muted
