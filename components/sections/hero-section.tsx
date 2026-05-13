@@ -58,7 +58,6 @@ export default function HeroSection({ scrollEnabled, onTransitionComplete }: Her
     tl.to(ctaBtnRef.current, { autoAlpha: 0, duration: 0.4 }, 0.8);
   };
 
-  // Allow scroll wheel / touch to also trigger the transition
   useEffect(() => {
     if (scrollEnabled || transitionDone) return;
     const onWheel = (e: WheelEvent) => { if (e.deltaY > 0) triggerTransition(); };
@@ -88,6 +87,7 @@ export default function HeroSection({ scrollEnabled, onTransitionComplete }: Her
 
   return (
     <div ref={heroRef} id="hero" className="relative w-full" style={{ height: "100vh" }}>
+
       {/* Video background */}
       <div ref={videoRef} className="absolute inset-0" style={{ zIndex: 1 }}>
         <video
@@ -105,18 +105,18 @@ export default function HeroSection({ scrollEnabled, onTransitionComplete }: Her
           className="absolute inset-0"
           style={{
             background:
-              "linear-gradient(to bottom, rgba(16,16,16,0.3) 0%, rgba(16,16,16,0.1) 40%, rgba(16,16,16,0.6) 100%)",
+              "linear-gradient(to bottom, rgba(16,16,16,0.35) 0%, rgba(16,16,16,0.15) 40%, rgba(16,16,16,0.72) 100%)",
           }}
         />
       </div>
 
-      {/* Brand name */}
+      {/* Brand name — overlay treatment */}
       <h1
         ref={brandRef}
-        className="absolute left-1/2 -translate-x-1/2 font-extrabold text-white text-center"
+        className="absolute left-1/2 -translate-x-1/2 font-extrabold text-white text-center pointer-events-none"
         style={{
           bottom: "10vh",
-          fontSize: "clamp(60px, 14vw, 180px)",
+          fontSize: "clamp(64px, 14vw, 180px)",
           textShadow: "0 4px 40px rgba(0,0,0,0.5)",
           mixBlendMode: "overlay",
           zIndex: 2,
@@ -133,65 +133,70 @@ export default function HeroSection({ scrollEnabled, onTransitionComplete }: Her
         className="absolute inset-0 flex flex-col items-center justify-center text-center px-6"
         style={{ zIndex: 3 }}
       >
-        <p className="text-xs font-semibold uppercase tracking-[0.15em] text-white/70 mb-4">
+        <p className="text-xs font-semibold uppercase tracking-[0.18em] text-white/75 mb-4">
           Africa&apos;s Circular Bottle Ecosystem
         </p>
+
         <h2
-          className="text-white font-bold mb-4"
-          style={{ fontSize: "clamp(32px, 5vw, 56px)", lineHeight: 1.1 }}
+          className="text-white font-bold mb-5"
+          style={{ fontSize: "clamp(32px, 5vw, 60px)", lineHeight: 1.08 }}
         >
-          Return. Recycle.<br />Make a difference.
+          Return. Recycle.<br />Earn. Repeat.
         </h2>
-        <p className="text-white/80 text-lg md:text-xl max-w-[640px] mb-8 font-normal">
-          Recycle at any ECO-Station. Save the planet. Stop fake drinks. Get a bonus.
+
+        <p className="text-white/85 text-lg md:text-xl max-w-[600px] mb-8 font-normal leading-relaxed">
+          Drop off empty bottles at any ECO-Station — earn rewards, stop fake drinks, and help clean up Africa.
         </p>
 
         <div className="flex flex-col sm:flex-row items-center gap-4 mb-8">
-          {/* Download App — always works, goes to /download page */}
           <a
             href="/download"
             className="pill-btn pill-btn-white"
           >
             <Download size={18} />
-            Download App
+            Download the App
           </a>
-          {/* Partner — unlocks scroll & jumps to model section */}
           <button
             onClick={() => { triggerTransition(); setTimeout(() => scrollToSection("model"), 1400); }}
             className="text-white font-medium hover:underline flex items-center gap-2 cursor-pointer bg-transparent border-none"
           >
-            Partner with ECOCAN <ArrowRight size={16} />
+            Become a Partner <ArrowRight size={16} />
           </button>
         </div>
 
         <div className="flex flex-wrap justify-center gap-3 mb-4">
-          {["Early-stage funded", "Operational in Kenya", "GDPR Compliant"].map((badge) => (
+          {[
+            "Early-stage funded",
+            "Live in Kenya",
+            "GDPR Compliant",
+          ].map((badge) => (
             <span key={badge} className="glass-pill text-white text-[13px] px-4 py-1.5">
               {badge}
             </span>
           ))}
         </div>
-        <span className="glass-pill text-white/80 text-[13px] px-4 py-1.5 italic">
-          No machine? No problem. Our counters work today.
+
+        <span className="glass-pill text-white/80 text-[13px] px-4 py-1.5">
+          No machine needed — our manual counters are open now.
         </span>
       </div>
 
-      {/* Explore CTA — shown until transition fires */}
+      {/* Scroll CTA — visible until user scrolls */}
       {!scrollEnabled && (
         <button
           ref={ctaBtnRef}
           onClick={triggerTransition}
           className="absolute left-1/2 -translate-x-1/2 glass-pill text-white px-6 py-3 flex items-center gap-3 hover:bg-white/20 active:scale-95 transition-all cursor-pointer"
           style={{ bottom: "5vh", zIndex: 4 }}
-          aria-label="Explore the Journey"
+          aria-label="Scroll to explore"
         >
           <span className="w-2 h-2 rounded-full bg-primary animate-pulse-dot" />
-          Explore the Journey
+          Explore ECOCAN
           <ChevronDown size={16} className="animate-bounce" />
         </button>
       )}
 
-      {/* Floating reveal cards */}
+      {/* Reveal cards */}
       <div
         ref={cardsContainerRef}
         className="absolute inset-x-0 pointer-events-none"

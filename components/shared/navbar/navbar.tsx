@@ -31,22 +31,18 @@ const NavigationBar: React.FC<NavigationBarProps> = ({
     } else {
       document.body.classList.remove("overflow-hidden");
     }
-
     return () => {
       document.body.classList.remove("overflow-hidden");
     };
   }, [isOpen]);
 
   const isLinkActive = (href: string) => {
-    if (href === "/") {
-      return pathname === href;
-    }
+    if (href === "/") return pathname === href;
     return pathname.startsWith(href);
   };
 
   const navSurfaceBaseClass = "border-b border-border/80 shadow-sm";
   let navSurfaceClass = "";
-
   if (isOpen) {
     navSurfaceClass = `bg-card ${navSurfaceBaseClass}`;
   } else if (isScrolled) {
@@ -61,22 +57,33 @@ const NavigationBar: React.FC<NavigationBarProps> = ({
         className
       )}
     >
-      <div className="flex items-center justify-between flex-wrap max-w-[1280px] mx-auto px-6" style={{ height: 72 }}>
-        <div className="flex items-center flex-shrink-0 text-white py-4">
+      <div
+        className="flex items-center justify-between flex-wrap max-w-[1280px] mx-auto px-6"
+        style={{ height: 72 }}
+      >
+        {/* Logo — always navigates to homepage */}
+        <Link
+          href="/"
+          className="flex items-center flex-shrink-0 py-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-sm"
+          aria-label="ECOCAN — go to homepage"
+        >
           <Image
             src={logoSrc}
-            alt="ecocan logo"
+            alt="ECOCAN logo"
             width={46}
             height={46}
-            className="w-full h-full"
+            className="w-auto h-[46px]"
+            priority
           />
-        </div>
+        </Link>
+
+        {/* Mobile hamburger */}
         <div className="block md:hidden">
           <button
             onClick={() => setIsOpen(!isOpen)}
             aria-label={isOpen ? "Close menu" : "Open menu"}
             aria-expanded={isOpen}
-             className="flex items-center px-3 py-2 rounded text-foreground hover:text-primary"
+            className="flex items-center px-3 py-2 rounded text-foreground hover:text-primary"
           >
             <svg
               className={`fill-current h-6 w-6 ${
@@ -98,6 +105,8 @@ const NavigationBar: React.FC<NavigationBarProps> = ({
             </svg>
           </button>
         </div>
+
+        {/* Nav links */}
         <div
           className={`w-full block flex-grow md:flex md:items-center md:w-auto ${
             isOpen ? "block min-h-screen md:min-h-0" : "hidden max-h-none"
