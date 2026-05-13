@@ -254,25 +254,18 @@ export default function HeroSection({
           </span>
         </div>
 
-        {/* ── Brand zone ────────────────────────────────────────────────────── */}
+        {/* ── Brand zone: ECOCAN sits between tagline above and Explore below ── */}
         <div
           ref={brandRef}
-          className="flex flex-col items-center justify-end pb-[3vh]"
-          style={{ minHeight: "80px", height: "18vh" }}
+          className="flex flex-col items-center justify-center gap-2 pb-[2vh] pt-1"
+          style={{ minHeight: "100px", height: "22vh" }}
         >
           <h1
-            className="pointer-events-none w-full max-w-[96vw] select-none overflow-hidden text-center font-extrabold"
+            className="pointer-events-none w-full max-w-[96vw] select-none text-center font-extrabold text-white"
             style={{
-              fontSize: "clamp(48px, 10vw, 160px)",
+              fontSize: "clamp(52px, 12vw, 160px)",
               lineHeight: 1,
               letterSpacing: "-0.03em",
-              color: "transparent",
-              WebkitTextStroke: "2px rgba(255,255,255,0.85)",
-              textShadow: [
-                "0 0 60px rgba(0,0,0,0.6)",
-                "0 0 120px rgba(0,0,0,0.4)",
-                "0 4px 24px rgba(0,0,0,0.7)",
-              ].join(", "),
             }}
             aria-label="ECOCAN"
           >
@@ -283,7 +276,7 @@ export default function HeroSection({
             <button
               ref={ctaBtnRef}
               onClick={triggerTransition}
-              className="glass-pill mt-2 flex cursor-pointer items-center gap-3 px-6 py-2.5 text-white transition-all hover:bg-white/20 active:scale-95"
+              className="glass-pill flex cursor-pointer items-center gap-3 px-6 py-2.5 text-white transition-all hover:bg-white/20 active:scale-95"
               aria-label="Explore the Journey"
             >
               <span className="h-2 w-2 animate-pulse-dot rounded-full bg-primary" />
