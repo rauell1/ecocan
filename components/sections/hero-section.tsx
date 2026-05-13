@@ -147,7 +147,7 @@ export default function HeroSection({ scrollEnabled, onTransitionComplete }: Her
         </p>
 
         <div className="flex flex-col sm:flex-row items-center gap-4 mb-8">
-          {/* Download App — always works, goes to /download page */}
+          {/* Download App - always works, goes to /download page */}
           <a
             href="/download"
             className="pill-btn pill-btn-white"
@@ -155,7 +155,7 @@ export default function HeroSection({ scrollEnabled, onTransitionComplete }: Her
             <Download size={18} />
             Download App
           </a>
-          {/* Partner — unlocks scroll & jumps to model section */}
+          {/* Partner - unlocks scroll & jumps to model section */}
           <button
             onClick={() => { triggerTransition(); setTimeout(() => scrollToSection("model"), 1400); }}
             className="text-white font-medium hover:underline flex items-center gap-2 cursor-pointer bg-transparent border-none"
@@ -176,7 +176,7 @@ export default function HeroSection({ scrollEnabled, onTransitionComplete }: Her
         </span>
       </div>
 
-      {/* Explore CTA — shown until transition fires */}
+      {/* Explore CTA - shown until transition fires */}
       {!scrollEnabled && (
         <button
           ref={ctaBtnRef}
@@ -198,17 +198,73 @@ export default function HeroSection({ scrollEnabled, onTransitionComplete }: Her
         style={{ top: "100vh", zIndex: 5 }}
       >
         <div
-          className="hero-card absolute rounded-3xl overflow-hidden shadow-elevated"
+          className="hero-card absolute rounded-3xl overflow-hidden shadow-elevated flex items-center justify-center px-6 py-12"
           style={{ left: "5vw", width: "90vw", height: "80vh", top: "10vh", background: "#F7F7F7" }}
-        />
+        >
+          <div className="w-full max-w-4xl text-center">
+            <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-3 mb-8">
+              {["30% counterfeit drinks", "80% bottles unrecovered", "$1B+ annual waste loss"].map((stat) => (
+                <span
+                  key={stat}
+                  className="inline-flex items-center justify-center rounded-full bg-[#101010] text-white px-5 py-2.5 text-sm md:text-base font-bold"
+                >
+                  {stat}
+                </span>
+              ))}
+            </div>
+            <p className="text-[#101010] text-xl md:text-3xl font-semibold leading-tight">
+              Africa&apos;s packaging crisis is solvable. Here&apos;s how.
+            </p>
+          </div>
+        </div>
         <div
-          className="hero-card absolute rounded-3xl overflow-hidden shadow-elevated"
+          className="hero-card absolute rounded-3xl overflow-hidden shadow-elevated flex items-center justify-center px-6 py-12"
           style={{ left: "10vw", width: "80vw", height: "85vh", top: "5vh", background: "#101010" }}
-        />
+        >
+          <div className="w-full max-w-5xl text-center text-white">
+            <p className="text-primary font-semibold uppercase tracking-[0.12em] mb-8 text-xs md:text-sm">How ECOCAN Works</p>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+              {[
+                { step: "1", label: "Buy, scan QR", desc: "Buy any genuine drink and scan the code instantly." },
+                { step: "2", label: "Return at ECO-Station", desc: "Drop empties at your nearest partner counter." },
+                { step: "3", label: "Earn rewards", desc: "Get your deposit back and keep returning." },
+              ].map((item) => (
+                <div key={item.step} className="rounded-2xl border border-white/10 bg-white/[0.03] p-5 md:p-6">
+                  <p className="text-primary text-4xl md:text-5xl font-bold leading-none mb-3">{item.step}</p>
+                  <p className="text-white text-lg font-semibold mb-2">{item.label}</p>
+                  <p className="text-white/65 text-sm leading-relaxed">{item.desc}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
         <div
-          className="hero-card absolute rounded-3xl overflow-hidden shadow-elevated"
+          className="hero-card absolute rounded-3xl overflow-hidden shadow-elevated pointer-events-auto flex items-center justify-center px-6 py-12"
           style={{ left: "5vw", width: "90vw", height: "80vh", top: "10vh", background: "#FFFFFF" }}
-        />
+        >
+          <div className="w-full max-w-5xl text-center">
+            <p className="text-primary font-semibold uppercase tracking-[0.12em] mb-6 text-xs md:text-sm">Your Impact at a Glance</p>
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5 mb-8">
+              {[
+                { value: "1M+", label: "bottles tracked" },
+                { value: "5K+", label: "ECO-Stations" },
+                { value: "KES", label: "earned back to consumers" },
+                { value: "Zero", label: "counterfeits in network" },
+              ].map((metric) => (
+                <div key={metric.label} className="rounded-2xl border border-[#101010]/10 bg-[#F7F7F7] p-4 md:p-5">
+                  <p className="text-[#101010] text-2xl md:text-3xl font-bold mb-1">{metric.value}</p>
+                  <p className="text-[#101010]/70 text-sm md:text-[15px]">{metric.label}</p>
+                </div>
+              ))}
+            </div>
+            <p className="text-[#101010] text-base md:text-xl font-medium mb-6">
+              Join the circular economy. Download the app.
+            </p>
+            <a href="/download" className="pill-btn pill-btn-filled !inline-flex !px-8 !py-3">
+              Download App
+            </a>
+          </div>
+        </div>
       </div>
     </div>
   );

@@ -60,7 +60,7 @@ export default function ProblemSolutionSection() {
             </h2>
             <p className="section-body text-white/60 animate-in mb-10">
               Every bottle you return is one less fake drink, one less piece of plastic in our oceans,
-              and one more step toward a cleaner Africa. ECOCAN creates a closed loop: collect â†’ recycle â†’ reuse.
+              and one more step toward a cleaner Africa. ECOCAN creates a closed loop: collect -†’ recycle -†’ reuse.
             </p>
 
             {/* Stats */}

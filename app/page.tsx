@@ -84,7 +84,7 @@ export default function Home() {
         <HowItWorksSection scrollEnabled={scrollEnabled} />
       </div>
 
-      {/* ECOmmunity roles — who is this for? (key content from original site) */}
+      {/* ECOmmunity roles - who is this for? (key content from original site) */}
       <div id="ecommunity">
         <EcommunityRolesSection />
       </div>
@@ -101,7 +101,7 @@ export default function Home() {
         <AntiCounterfeitSection />
       </div>
 
-      {/* App showcase — drive downloads with real screenshots */}
+      {/* App showcase - drive downloads with real screenshots */}
       <div id="app">
         <AppShowcaseSection />
       </div>

@@ -4,7 +4,7 @@ import * as React from "react"
 import { cn } from "@/lib/utils"
 
 /**
- * SectionHeading — Kimi-spec overline + headline pair.
+ * SectionHeading - Kimi-spec overline + headline pair.
  *
  * Renders an optional overline (small caps, tracked) above the main heading.
  * Entrance animation is CSS-based (opacity + translateY via Tailwind animate
@@ -16,8 +16,8 @@ import { cn } from "@/lib/utils"
  *   - heading: main headline text (supports ReactNode for <br /> splits)
  *   - subheading: optional paragraph below the heading
  *   - align: 'left' | 'center' | 'right'
- *   - theme: 'light' | 'dark' — adapts text colours for bg context
- *   - size: 'sm' | 'md' | 'lg' — heading size scale
+ *   - theme: 'light' | 'dark' - adapts text colours for bg context
+ *   - size: 'sm' | 'md' | 'lg' - heading size scale
  */
 
 interface SectionHeadingProps extends React.HTMLAttributes<HTMLDivElement> {
@@ -64,7 +64,7 @@ const SectionHeading = React.forwardRef<HTMLDivElement, SectionHeadingProps>(
         )}
         {...props}
       >
-        {/* Overline — typewriter target for GSAP */}
+        {/* Overline - typewriter target for GSAP */}
         {overline && (
           <span
             className={cn(

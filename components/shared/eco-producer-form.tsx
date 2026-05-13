@@ -52,7 +52,7 @@ const formSchema = z.object({
 });
 
 export default function EcoProducerForm({
-  title = "Letâ€™s do Business the Right way",
+  title = "Let--™s do Business the Right way",
 }: HeroFormProps) {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),

@@ -46,7 +46,7 @@ export default function DrsPopup() {
                 <TextWithComponent
                   title="DRS takeover"
                   description="The Nordic-design DRS is rapidly becoming a near universal feature of the 
-            Developed Marketsâ€™ recycling landscape; with 18 countries across Europe, Americaâ€™s and Oceania having already established nationwide collection systems (2023). And many others have passed legislation, or are in advanced talks to set up one before 2030."
+            Developed Markets--™ recycling landscape; with 18 countries across Europe, America--™s and Oceania having already established nationwide collection systems (2023). And many others have passed legislation, or are in advanced talks to set up one before 2030."
                 />
               }
             />

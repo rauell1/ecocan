@@ -22,12 +22,12 @@ const faqData = [
     ),
   },
   {
-    question: "Can I still join the ECO-System if I donâ€™t produce beverage products?",
+    question: "Can I still join the ECO-System if I don--™t produce beverage products?",
     answer: "Not yet, but soon! Currently, only beverage products packaged in aluminium cans, PET plastics, returnable and one-way glass, and beverage cartons are eligible. We plan to expand eligibility to include other products and packaging types in the near future."
   },
   {
     question: "How do I receive updates of my collected and recycled packaging?",
-    answer: "Youâ€™ll receive real-time updates through your secure ECOCAN TnT profile. This platform provides information on collected and recycled packaging, as well as alerts on any suspicious market activity.",
+    answer: "You--™ll receive real-time updates through your secure ECOCAN TnT profile. This platform provides information on collected and recycled packaging, as well as alerts on any suspicious market activity.",
   },
   {
     question: "What if I stop producing the product, or change my product line after joining the ECO-system?",
@@ -37,7 +37,7 @@ const faqData = [
   {
     question:
       "Do I need to change my labelling before joining the ECO-System?",
-    answer: "No you do not; you can retain your existing labels. The only requirement is to add ECOCAN Security codes measuring as small as 9 mm x 9 mm, to your labels using your current printing technology. Thereâ€™s no need to modify or purchase new equipment for this."
+    answer: "No you do not; you can retain your existing labels. The only requirement is to add ECOCAN Security codes measuring as small as 9 mm x 9 mm, to your labels using your current printing technology. There--™s no need to modify or purchase new equipment for this."
   },
   {
     question: "Have a different question?",

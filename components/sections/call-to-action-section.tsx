@@ -57,10 +57,10 @@ export default function CallToActionSection() {
         {/* Trust badges */}
         <div className="flex flex-wrap items-center justify-center gap-3">
           {[
-            "âœ“  Free to download",
-            "âœ“  M-Pesa cashout",
-            "âœ“  500+ ECO-Stations",
-            "âœ“  No sign-up fee",
+            "-œ-  Free to download",
+            "-œ-  M-Pesa cashout",
+            "-œ-  500+ ECO-Stations",
+            "-œ-  No sign-up fee",
           ].map((item) => (
             <span
               key={item}

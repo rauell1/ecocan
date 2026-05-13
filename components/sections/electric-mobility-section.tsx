@@ -41,7 +41,7 @@ export default function ElectricMobilitySection() {
             <h2 className="section-headline text-eco-dark mb-6">One step in the loop: electric bikes.</h2>
             <p className="section-body text-eco-dark mb-8 max-w-[500px]">
               We use electric bikes for last-mile collection. Lower cost. Zero emissions. But the real story is the
-              bottle — not the bike.
+              bottle, not the bike.
             </p>
             <div className="flex flex-wrap gap-3 mb-8">
               <span className="glass-card-light px-5 py-2.5 text-sm font-medium text-eco-dark">

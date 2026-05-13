@@ -2,11 +2,11 @@ import * as React from "react"
 import { cn } from "@/lib/utils"
 
 /**
- * Card — token-hardened surface component.
+ * Card - token-hardened surface component.
  * Variants: default surface, elevated, glass (Kimi-spec glassmorphism).
  */
 
-// ─── Base Card ───────────────────────────────────────────────────────────────
+// --- Base Card ---------------------------------------------------------------
 
 const Card = React.forwardRef<
   HTMLDivElement,
@@ -20,7 +20,7 @@ const Card = React.forwardRef<
     elevated:
       "bg-card text-card-foreground shadow-elevated border border-border/20 rounded-smooth-lg",
     /**
-     * Glass — Kimi spec GlassCard.
+     * Glass - Kimi spec GlassCard.
      * Semi-transparent white background, backdrop blur, white border.
      * Designed for use over dark / image / gradient backgrounds.
      */
@@ -44,7 +44,7 @@ const Card = React.forwardRef<
 })
 Card.displayName = "Card"
 
-// ─── Card Header ─────────────────────────────────────────────────────────────
+// --- Card Header -------------------------------------------------------------
 
 const CardHeader = React.forwardRef<
   HTMLDivElement,
@@ -58,7 +58,7 @@ const CardHeader = React.forwardRef<
 ))
 CardHeader.displayName = "CardHeader"
 
-// ─── Card Title ──────────────────────────────────────────────────────────────
+// --- Card Title --------------------------------------------------------------
 
 const CardTitle = React.forwardRef<
   HTMLParagraphElement,
@@ -75,7 +75,7 @@ const CardTitle = React.forwardRef<
 ))
 CardTitle.displayName = "CardTitle"
 
-// ─── Card Description ────────────────────────────────────────────────────────
+// --- Card Description --------------------------------------------------------
 
 const CardDescription = React.forwardRef<
   HTMLParagraphElement,
@@ -89,7 +89,7 @@ const CardDescription = React.forwardRef<
 ))
 CardDescription.displayName = "CardDescription"
 
-// ─── Card Content ────────────────────────────────────────────────────────────
+// --- Card Content ------------------------------------------------------------
 
 const CardContent = React.forwardRef<
   HTMLDivElement,
@@ -99,7 +99,7 @@ const CardContent = React.forwardRef<
 ))
 CardContent.displayName = "CardContent"
 
-// ─── Card Footer ─────────────────────────────────────────────────────────────
+// --- Card Footer -------------------------------------------------------------
 
 const CardFooter = React.forwardRef<
   HTMLDivElement,

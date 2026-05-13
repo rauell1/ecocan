@@ -18,7 +18,7 @@ export default function PromoHero() {
             <div>
               But with ECOCAN&apos;s tailored promotions, you&apos;re assured of
               standing out by directly engaging with customers through
-              personalized, incentivized, and gamified campaigns— most
+              personalized, incentivized, and gamified campaigns, most
               affordably. Then sit back and conveniently track increased
               conversion rates, sales growth, and customer loyalty
             </div>

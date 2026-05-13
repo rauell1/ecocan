@@ -45,7 +45,7 @@ const howToData = [
     title: (
       <p className="text-[#404040] font-normal text-base">
         Increase your sustainability by collecting your empties, for closed loop
-        recycling. And weâ€™ll inform ECOmmunity about this, that they will
+        recycling. And we--™ll inform ECOmmunity about this, that they will
         support you with more purchases
       </p>
     ),

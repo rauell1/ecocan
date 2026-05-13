@@ -6,7 +6,7 @@ import { Plus, Minus } from "lucide-react";
 const faqs = [
   {
     q: "What is ECOCAN?",
-    a: "ECOCAN is Africa's Circular Bottle Ecosystem — a Deposit Return System (DRS) that lets consumers return empty bottles and cans at ECO-Stations to receive monetary rewards, while helping brands fight counterfeiting and drive recycling.",
+    a: "ECOCAN is Africa's Circular Bottle Ecosystem, a Deposit Return System (DRS) that lets consumers return empty bottles and cans at ECO-Stations to receive monetary rewards, while helping brands fight counterfeiting and drive recycling.",
   },
   {
     q: "How do I return a bottle and get paid?",
@@ -21,7 +21,7 @@ const faqs = [
     a: "Every genuine bottle carries a unique, tamper-evident QR code. Consumers scan it with the ECOCAN app to instantly verify authenticity before drinking. Counterfeit bottles fail verification and are flagged in real time.",
   },
   {
-    q: "I'm a brand — how do I join the ECOCAN network?",
+    q: "I'm a brand. How do I join the ECOCAN network?",
     a: "Fill in the partner form on our Solutions page or email us directly. Our team will walk you through onboarding, labelling requirements, ECO-Station coverage, and the DRS deposit structure.",
   },
   {

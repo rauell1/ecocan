@@ -3,7 +3,7 @@ import { cva, type VariantProps } from "class-variance-authority"
 import { cn } from "@/lib/utils"
 
 /**
- * Badge — token-hardened, Kimi stat-badge variant added.
+ * Badge - token-hardened, Kimi stat-badge variant added.
  * 'stat' variant = large, prominent badge used in stat/counter sections.
  * 'trust' variant = small pill used as hero trust indicators.
  */
@@ -23,19 +23,19 @@ const badgeVariants = cva(
         eco:
           "border border-transparent bg-eco-dark/10 text-eco-dark px-2.5 py-0.5 text-xs font-semibold",
         /**
-         * Stat badge — Kimi spec. Large, glass-style, used over dark sections.
+         * Stat badge - Kimi spec. Large, glass-style, used over dark sections.
          * Displays a number + label pair.
          */
         stat:
           "bg-white/15 border border-white/25 text-white backdrop-blur-sm px-4 py-2 text-sm font-semibold gap-1.5",
         /**
-         * Trust badge — small pill in hero for credibility signals.
+         * Trust badge - small pill in hero for credibility signals.
          * e.g. "DRS Certified", "ISO 9001"
          */
         trust:
           "bg-primary/10 border border-primary/20 text-primary px-3 py-1 text-xs font-medium gap-1",
         /**
-         * Pulsing dot — animated status indicator.
+         * Pulsing dot - animated status indicator.
          * Wrap the dot span and label inside this badge.
          */
         live:

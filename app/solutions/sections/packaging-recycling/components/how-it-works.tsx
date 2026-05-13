@@ -48,7 +48,7 @@ const rightFeatures: FeatureItem[] = [
   },
   {
     title:
-      "The journey of the empties doesnâ€™t end there. ECOuriers pick-up the empties from ECO-Stations, and drop them off to ECO-Recyclers for closed-loop recycling",
+      "The journey of the empties doesn--™t end there. ECOuriers pick-up the empties from ECO-Stations, and drop them off to ECO-Recyclers for closed-loop recycling",
   },
   {
     title:

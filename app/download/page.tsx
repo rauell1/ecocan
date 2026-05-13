@@ -49,7 +49,7 @@ export default function DownloadRedirect() {
       </h1>
       <p className="text-white/70 text-lg max-w-[520px] mb-12">
         Download the ECOCAN app to verify drinks, find collection points, and
-        collect your deposit reward — instantly.
+        collect your deposit reward, instantly.
       </p>
 
       {/* CTA buttons */}
@@ -85,7 +85,7 @@ export default function DownloadRedirect() {
 
       {/* Back link */}
       <Link href="/" className="mt-10 text-white/40 text-sm hover:text-white/80 transition-colors">
-        ← Back to home
+        -�� Back to home
       </Link>
     </div>
   );

@@ -45,7 +45,7 @@ export default function EconsumersCare() {
         <InfoCard
           icon="/assets/images/solutions/econsumers-care-1.svg"
           title="Who you are"
-          description="You wouldn't trust someone you don't know, right? Build ECOnsumer loyalty by sharing your story—what you make and why—through the ECOCAN traceability passport."
+          description="You wouldn't trust someone you don't know, right? Build ECOnsumer loyalty by sharing your story, what you make, and why through the ECOCAN traceability passport."
         />
         <InfoCard
           icon="/assets/images/solutions/econsumers-care-2.svg"

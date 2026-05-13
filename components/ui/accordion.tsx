@@ -6,7 +6,7 @@ import { ChevronDown } from "lucide-react"
 import { cn } from "@/lib/utils"
 
 /**
- * Accordion — token-hardened, Kimi FAQ style supported.
+ * Accordion - token-hardened, Kimi FAQ style supported.
  * 'faq' variant: larger padding, slightly elevated card per item.
  */
 

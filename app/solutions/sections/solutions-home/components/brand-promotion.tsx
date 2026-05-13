@@ -33,7 +33,7 @@ export default function BrandPromotion() {
                   <p className="md:w-11/12">
                     ECOCAN&apos;s robust and intelligent solutions enable direct
                     engagement with customers through personalized, incentivized,
-                    and gamified campaigns— most affordably. That you can sit back
+                    and gamified campaigns, most affordably. Then you can sit back
                     and watch this targeted marketing boost purchase of your genuine
                     drinks, promote your brand image, and increase customer loyalty
                   </p>

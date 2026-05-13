@@ -32,7 +32,7 @@ const featureData = [
     id: 2,
     name: "You are the boss!",
     question:
-      "Hustle whenever you want, and earn as much as you need. Itâ€™s up to you",
+      "Hustle whenever you want, and earn as much as you need. It--™s up to you",
     icon: "/assets/images/courier/boss.svg",
   },
   {
@@ -90,7 +90,7 @@ const howToData = [
 const accordionItems = [
   {
     id: "item-1",
-    question: "Be live during â€˜our rush hoursâ€™",
+    question: "Be live during --˜our rush hours--™",
     answer: (
       <p className="text-white font-light">
         We are unique and you can be too; we&apos;re busiest with pick-ups
@@ -104,7 +104,7 @@ const accordionItems = [
     question: "Earn more with tips",
     answer: (
       <p className="text-white font-light">
-        Be professional and nice, it doesnâ€™t cost a thing. But if you are not it
+        Be professional and nice, it doesn--™t cost a thing. But if you are not it
         might cost you everything! ECOnsumers who appreciate your service can
         tip you
       </p>
@@ -117,7 +117,7 @@ const accordionItems = [
       <p className="text-white font-light">
         Bicycles are great for longer distances, while walking is perfect for
         short trips; but both are ECO-friendly and double as workouts. For
-        Crawling... wellâ€¦, if you want to stand out, why not?
+        Crawling... well--¦, if you want to stand out, why not?
       </p>
     ),
   },
@@ -143,7 +143,7 @@ export default function CourierContent() {
   return (
     <div className="space-y-24 py-8 max-w-[72rem] mx-auto px-4 xl:px-0">
       <TextWithCards
-        title="Letâ€™s drive your hustle forward"
+        title="Let--™s drive your hustle forward"
         customCard={<CustomCard features={featureData} />}
       />
 

@@ -48,7 +48,7 @@ export default function RecyclerContent() {
               <p className="lg:w-5/6">
                 Due to its efficacy, the{" "}
                 <HyperLink link="Nordic-design DRS" href="/" /> is rapidly
-                becoming a near universal feature of the Developed Marketsâ€™
+                becoming a near universal feature of the Developed Markets--™
                 recycling landscape; with 18 countries having already
                 established nationwide Nordic DRSs. And many others have passed
                 legislation to establish the one.

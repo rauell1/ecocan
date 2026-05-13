@@ -18,7 +18,7 @@ const factData = [
     title: <h1 className="text-lg">Lowers Carbon Emissions</h1>,
     description: (
       <p className="text-sm lg:w-10/12">
-        Recycling a single glass bottle can reduce COâ‚‚ emissions by around{" "}
+        Recycling a single glass bottle can reduce CO-‚‚ emissions by around{" "}
         <span className="font-bold">0.5 kg</span>
       </p>
     ),

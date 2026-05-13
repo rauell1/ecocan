@@ -8,17 +8,17 @@ import React from "react";
 const howToData = [
   {
     id: 1,
-    title: "Youâ€™re also contributing to the fight against diseases, health hazards and safety risks associated with mismanaged post-consumer waste",
+    title: "You--™re also contributing to the fight against diseases, health hazards and safety risks associated with mismanaged post-consumer waste",
   },
   {
     id: 2,
     title:
-      "Youâ€™re helping combat illicit trade by depriving counterfeit criminals of genuine used packaging",
+      "You--™re helping combat illicit trade by depriving counterfeit criminals of genuine used packaging",
   },
   {
     id: 3,
     title:
-      "Youâ€™re optimising the usefulness of empties which are recycled into new bottles, hence reducing CO2e, and reliance on virgin materials",
+      "You--™re optimising the usefulness of empties which are recycled into new bottles, hence reducing CO2e, and reliance on virgin materials",
   },
   {
     id: 4,

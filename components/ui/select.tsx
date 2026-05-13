@@ -6,7 +6,7 @@ import { Check, ChevronDown, ChevronUp } from "lucide-react"
 import { cn } from "@/lib/utils"
 
 /**
- * Select — Ecocan design system
+ * Select - Ecocan design system
  *
  * Trigger: matches Input pill shape (rounded-full, h-12, px-5)
  * Focus ring: primary green ring (consistent with Input)

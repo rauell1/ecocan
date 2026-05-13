@@ -25,7 +25,7 @@ const howToData = [
     id: 1,
     title: (
       <p className="text-[#404040] font-normal text-base">
-        Leverage ECOCANâ€™s flexibility to promote brand loyalty, by treating your
+        Leverage ECOCAN--™s flexibility to promote brand loyalty, by treating your
         customers to convenient online purchases. Plus, delight them with most
         affordable and fast deliveries, right to their doorsteps.
       </p>

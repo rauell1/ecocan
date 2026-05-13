@@ -39,7 +39,7 @@ const rightFeatures: FeatureItem[] = [
     title: "After product authentication, the verification process can be leveraged to engage ECOnsumers with personalized marketing campaigns.",
   },
   {
-    title: "Through EcocanAppâ€™s customizable product carousel, and traceability passports, ECOnsumers enjoy a unique and interactive brand.",
+    title: "Through EcocanApp--™s customizable product carousel, and traceability passports, ECOnsumers enjoy a unique and interactive brand.",
   },
 ];
 
