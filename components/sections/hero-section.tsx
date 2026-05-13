@@ -63,8 +63,14 @@ export default function HeroSection({
     const cards = cardsContainerRef.current?.querySelectorAll(".hero-card")
     if (cards) {
       tl.fromTo(cards, { yPercent: 100 }, { yPercent: 0, duration: 1.2, stagger: 0.05 }, 0)
+      // Pull cards up into the visible viewport. Card 1 (front/dark) rises the
+      // most so it fully fills the hero. Cards 0 and 2 (back) peek from below.
+      const card0 = cards[0]
       const card1 = cards[1]
-      if (card1) tl.to(card1, { y: "-15vh", duration: 1.2 }, 0)
+      const card2 = cards[2]
+      if (card0) tl.to(card0, { y: "-18vh", duration: 1.2 }, 0)
+      if (card1) tl.to(card1, { y: "-62vh", duration: 1.2 }, 0)
+      if (card2) tl.to(card2, { y: "-18vh", duration: 1.2 }, 0)
     }
 
     tl.to(ctaBtnRef.current, { autoAlpha: 0, duration: 0.4 }, 0.8)
@@ -74,9 +80,11 @@ export default function HeroSection({
   useEffect(() => {
     if (resetSignal === 0) return
 
+    // Do NOT call vid.load() — it forces a full network reload and flashes
+    // the poster image. The browser keeps the decoded video in memory; if it
+    // was auto-paused while off-screen, play() resumes from the current frame.
     const vid = videoElRef.current
-    if (vid) {
-      vid.load()
+    if (vid && vid.paused) {
       vid.play().catch(() => {})
     }
 
@@ -97,6 +105,9 @@ export default function HeroSection({
       }
     })
 
+    // 2× speed on reverse so the user spends less time looking at the
+    // darkened/scaled-down video state while returning to the hero.
+    tl.timeScale(2)
     tl.reverse()
   }, [resetSignal])
 
@@ -138,8 +149,8 @@ export default function HeroSection({
     <div
       ref={heroRef}
       id="hero"
-      className="relative w-full overflow-hidden"
-      style={{ height: "100dvh" }}
+      className="relative w-full"
+      style={{ height: "100dvh", overflowX: "clip" }}
     >
       {/* ── Video background ──────────────────────────────────────────────────── */}
       <div ref={videoRef} className="absolute inset-0" style={{ zIndex: 1 }}>
@@ -155,7 +166,7 @@ export default function HeroSection({
           loop
           muted
           playsInline
-          preload="metadata"
+          preload="auto"
           poster="/images/scan-verify.jpg"
           className="h-full w-full object-cover brightness-[0.85]"
         >
@@ -293,7 +304,7 @@ export default function HeroSection({
       <div
         ref={cardsContainerRef}
         className="pointer-events-none absolute inset-x-0"
-        style={{ top: "100vh", zIndex: 5 }}
+        style={{ top: "100%", zIndex: 5 }}
       >
         {/* Card 0 – light stat row */}
         <div
