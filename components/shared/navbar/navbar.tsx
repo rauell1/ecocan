@@ -19,7 +19,7 @@ interface NavigationBarProps {
 const NavigationBar: React.FC<NavigationBarProps> = ({
   logoSrc,
   className,
-  linkColor,
+  linkColor = "text-foreground",
 }) => {
   const [isOpen, setIsOpen] = useState(false);
   const isScrolled = useScroll();
@@ -62,7 +62,11 @@ const NavigationBar: React.FC<NavigationBarProps> = ({
       )}
     >
       <div className="flex items-center justify-between flex-wrap max-w-[1280px] mx-auto px-6" style={{ height: 72 }}>
-        <div className="flex items-center flex-shrink-0 text-white py-4">
+        <Link
+          href="/"
+          aria-label="Go to homepage"
+          className="flex items-center flex-shrink-0 text-white py-4"
+        >
           <Image
             src={logoSrc}
             alt="ecocan logo"
@@ -70,7 +74,7 @@ const NavigationBar: React.FC<NavigationBarProps> = ({
             height={46}
             className="w-full h-full"
           />
-        </div>
+        </Link>
         <div className="block md:hidden">
           <button
             onClick={() => setIsOpen(!isOpen)}
@@ -80,7 +84,7 @@ const NavigationBar: React.FC<NavigationBarProps> = ({
           >
             <svg
               className={`fill-current h-6 w-6 ${
-                isScrolled ? "text-primary" : "hidden"
+                isScrolled ? "text-primary" : "text-white"
               } ${isOpen ? "hidden" : "block"}`}
               viewBox="0 0 20 20"
               xmlns="http://www.w3.org/2000/svg"
@@ -100,7 +104,7 @@ const NavigationBar: React.FC<NavigationBarProps> = ({
         </div>
         <div
           className={`w-full block flex-grow md:flex md:items-center md:w-auto ${
-            isOpen ? "block min-h-screen md:min-h-0" : "hidden max-h-none"
+            isOpen ? "block pb-8 md:min-h-0" : "hidden max-h-none"
           }`}
         >
           <div className="text-sm flex md:flex-row flex-col items-center justify-center gap-6 ms-4">

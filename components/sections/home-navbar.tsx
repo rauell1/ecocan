@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
 
 interface HomeNavbarProps {
@@ -24,6 +25,8 @@ const pageLinks = [
 
 export default function HomeNavbar({ scrollEnabled, onMenuToggle }: HomeNavbarProps) {
   const [scrolled, setScrolled] = useState(false);
+  const pathname = usePathname();
+  const logoHref = pathname === "/" ? "#hero" : "/";
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 60);
@@ -52,9 +55,13 @@ export default function HomeNavbar({ scrollEnabled, onMenuToggle }: HomeNavbarPr
     >
       <div className="max-w-[1280px] mx-auto px-6 h-full flex items-center justify-between">
         {/* Logo */}
-        <a
-          href="#hero"
-          onClick={(e) => handleSectionClick(e, "#hero")}
+        <Link
+          href={logoHref}
+          onClick={(e) => {
+            if (pathname === "/") {
+              handleSectionClick(e, "#hero");
+            }
+          }}
           className="shrink-0 flex items-center gap-2"
         >
           <Image
@@ -72,7 +79,7 @@ export default function HomeNavbar({ scrollEnabled, onMenuToggle }: HomeNavbarPr
           >
             Circular Bottle Ecosystem
           </span>
-        </a>
+        </Link>
 
         {/* Desktop nav */}
         <div className="hidden lg:flex items-center gap-7">
