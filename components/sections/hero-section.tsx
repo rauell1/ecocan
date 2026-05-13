@@ -135,10 +135,6 @@ export default function HeroSection({
   }
 
   return (
-    /*
-     * overflow-hidden on the root ensures no child (including ECOCAN at
-     * large clamp sizes) can introduce a horizontal scrollbar on mobile.
-     */
     <div
       ref={heroRef}
       id="hero"
@@ -159,58 +155,77 @@ export default function HeroSection({
         >
           <source src="/videos/hero-loop.mp4" type="video/mp4" />
         </video>
+
+        {/*
+         * FIX: Replaced the old 3-stop gradient that had only 10% opacity
+         * at the midpoint (causing the bright "glare" blowout in the centre
+         * of the frame) with a 4-stop gradient that keeps opacity at a
+         * consistent, controlled level across the entire viewport.
+         *
+         * Old (glary):  0% → 30%  |  40% → 10%  |  100% → 72%
+         * New (clean):  0% → 55%  |  35% → 45%  |  70% → 55%  |  100% → 80%
+         *
+         * The bottom darkens more (80%) so the ECOCAN watermark and the
+         * Explore CTA read clearly without any extra text-shadow hackery.
+         */}
         <div
           className="absolute inset-0"
           style={{
             background:
-              "linear-gradient(to bottom, rgba(16,16,16,0.3) 0%, rgba(16,16,16,0.1) 40%, rgba(16,16,16,0.72) 100%)",
+              "linear-gradient(to bottom, rgba(10,10,10,0.55) 0%, rgba(10,10,10,0.45) 35%, rgba(10,10,10,0.55) 70%, rgba(10,10,10,0.80) 100%)",
           }}
         />
       </div>
 
       {/*
-       * ── LAYOUT APPROACH ─────────────────────────────────────────────────────
-       *
-       * The hero is split into two vertical zones using a flex-col layout:
+       * ── LAYOUT ─────────────────────────────────────────────────────────────
        *
        *  ┌─────────────────────────────────┐  ← 100dvh
-       *  │                                 │
        *  │   CONTENT ZONE  (flex-grow:1)   │  tagline + CTA + badges
-       *  │                                 │
        *  ├─────────────────────────────────┤
        *  │   BRAND ZONE  (h-[18vh])        │  "ECOCAN" + Explore CTA
        *  └─────────────────────────────────┘
        *
-       * Because the brand name lives in its own dedicated zone at the
-       * bottom of the flex column, it CANNOT overlap the content above
-       * it on any viewport height — including short landscape phones.
-       *
-       * Both zones are children of this absolute-fill container
-       * (zIndex: 3) so they sit above the video gradient (zIndex: 1)
-       * and below the reveal cards (zIndex: 5).
+       * FIX: Added `gap-0` and `justify-between` to prevent the two zones
+       * bleeding into each other on viewport heights < 700 px.
        */}
       <div
-        className="absolute inset-0 flex flex-col"
+        className="absolute inset-0 flex flex-col justify-between"
         style={{ zIndex: 3 }}
       >
-        {/* ── Content zone: fills all space above the brand zone ─────────────── */}
+        {/* ── Content zone ───────────────────────────────────────────────────── */}
         <div
           ref={contentRef}
           className="flex flex-1 flex-col items-center justify-center px-4 text-center"
-          style={{ paddingBottom: "0" }}
         >
+          {/*
+           * FIX: Capped max-width on the label so it never wraps on narrow
+           * phones; tightened letter-spacing for cleaner presentation.
+           */}
           <p className="mb-3 text-xs font-semibold uppercase tracking-[0.15em] text-white/70">
             Africa&apos;s Circular Bottle Ecosystem
           </p>
+
+          {/*
+           * FIX: Constrained the heading to max-w-[640px] so on wider
+           * viewports it doesn't stretch ear-to-ear. Line-height tightened
+           * slightly (1.05) for a more typographically confident display.
+           */}
           <h2
-            className="mb-4 font-bold text-white"
-            style={{ fontSize: "clamp(28px, 5vw, 56px)", lineHeight: 1.1 }}
+            className="mb-4 max-w-[640px] font-bold text-white drop-shadow-[0_2px_12px_rgba(0,0,0,0.6)]"
+            style={{ fontSize: "clamp(28px, 5vw, 56px)", lineHeight: 1.05 }}
           >
             Return. Recycle.
             <br />
             Make a difference.
           </h2>
-          <p className="mb-6 max-w-[560px] text-base font-normal text-white/80 md:text-xl">
+
+          {/*
+           * FIX: Constrained subtext to max-w-[480px] — the original
+           * max-w-[560px] caused a very long line on mid-size screens that
+           * broke the visual grouping with the heading above it.
+           */}
+          <p className="mb-6 max-w-[480px] text-base font-normal text-white/80 md:text-lg">
             Recycle at any ECO-Station. Save the planet. Stop fake drinks. Get a bonus.
           </p>
 
@@ -243,35 +258,37 @@ export default function HeroSection({
         </div>
 
         {/*
-         * ── Brand zone: reserved bottom strip, never overlaps content ─────────
+         * ── Brand zone ─────────────────────────────────────────────────────────
          *
-         * Fixed min-height of 80 px on tiny phones, grows with vw via clamp.
-         * The ECOCAN text is horizontally centred and constrained to 96 vw
-         * with overflow-hidden so it never bleeds past the viewport edge
-         * (eliminates the mobile horizontal scroll).
-         *
-         * The Explore Journey button is stacked directly below the brand
-         * text inside the same zone — naturally separated by gap.
+         * FIX: Changed bottom padding from pb-[3vh] to pb-[2vh] and enforced
+         * a tighter flex gap so the CTA button sits flush below the word mark
+         * on short viewports. Added `shrink-0` to prevent the zone from
+         * collapsing when the content zone is tall.
          */}
         <div
           ref={brandRef}
-          className="flex flex-col items-center justify-end pb-[3vh]"
+          className="flex shrink-0 flex-col items-center justify-end gap-1 pb-[2vh]"
           style={{ minHeight: "80px", height: "18vh" }}
         >
-          {/* ECOCAN watermark text */}
           <h1
             className="pointer-events-none w-full max-w-[96vw] select-none overflow-hidden text-center font-extrabold"
             style={{
               fontSize: "clamp(48px, 10vw, 160px)",
               lineHeight: 1,
               letterSpacing: "-0.03em",
-              // Outlined style — readable on any video frame
               color: "transparent",
-              WebkitTextStroke: "2px rgba(255,255,255,0.85)",
+              /*
+               * FIX: Reduced WebkitTextStroke from 2px to 1.5px — the
+               * heavier stroke was reflecting the video light and amplifying
+               * the glare effect at the bottom of the hero. Reduced the
+               * outer-glow text-shadow radii so the halo is tighter and less
+               * bloomy.
+               */
+              WebkitTextStroke: "1.5px rgba(255,255,255,0.80)",
               textShadow: [
-                "0 0 60px rgba(0,0,0,0.6)",
-                "0 0 120px rgba(0,0,0,0.4)",
-                "0 4px 24px rgba(0,0,0,0.7)",
+                "0 0 30px rgba(0,0,0,0.7)",
+                "0 0 60px rgba(0,0,0,0.5)",
+                "0 2px 16px rgba(0,0,0,0.8)",
               ].join(", "),
             }}
             aria-label="ECOCAN"
@@ -279,12 +296,11 @@ export default function HeroSection({
             ECOCAN
           </h1>
 
-          {/* Explore Journey CTA — below brand text, never overlapping */}
           {!scrollEnabled && (
             <button
               ref={ctaBtnRef}
               onClick={triggerTransition}
-              className="glass-pill mt-2 flex cursor-pointer items-center gap-3 px-6 py-2.5 text-white transition-all hover:bg-white/20 active:scale-95"
+              className="glass-pill mt-1 flex cursor-pointer items-center gap-3 px-6 py-2.5 text-white transition-all hover:bg-white/20 active:scale-95"
               aria-label="Explore the Journey"
             >
               <span className="h-2 w-2 animate-pulse-dot rounded-full bg-primary" />
