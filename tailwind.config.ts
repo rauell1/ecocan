@@ -68,9 +68,11 @@ const config = {
         'smooth-lg': '1.5rem',
         'smooth-xl': '2rem',
         '4xl': '24px',
+        xl: "calc(var(--radius) + 4px)",
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
+        xs: "calc(var(--radius) - 6px)",
       },
       spacing: {
         "18": "4.5rem",
@@ -104,6 +106,7 @@ const config = {
         "pulse-dot": "pulse-dot 2s infinite",
       },
       boxShadow: {
+        xs: "0 1px 2px 0 rgb(0 0 0 / 0.05)",
         card: "0 4px 24px rgba(0,0,0,0.06)",
         elevated: "0 12px 48px rgba(0,0,0,0.12)",
         glow: "0 0 30px rgba(34,139,34,0.3)",

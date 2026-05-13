@@ -13,8 +13,9 @@ export default function DrsTakeOver() {
   return (
     <>
       <NavigationBar
-        className={isScrolled ? "bg-white" : "bg-[#F6F6F6]"}
+        className={isScrolled ? "bg-white shadow-sm" : "bg-[#F6F6F6]"}
         logoSrc="/assets/images/ecocan-logo.svg"
+        linkColor="text-eco-dark"
       />
       <div className="space-y-24 pt-[3.275rem]">
         <Heading />

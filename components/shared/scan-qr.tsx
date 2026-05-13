@@ -37,8 +37,8 @@ export default function ScanqrPopup({
   return (
     <AlertDialog>
       <AlertDialogTrigger asChild>{downloadTrigger}</AlertDialogTrigger>
-      <AlertDialogContent className="z-[9999] bg-white !w-fit !rounded-smooth-xl">
-        <AlertDialogCancel className="hover:bg-transparent bg-transparent text-black/60 hover:text-black w-fit border-none ms-auto mb-5">
+      <AlertDialogContent className="z-[9999] bg-white !w-fit !rounded-[24px]">
+        <AlertDialogCancel className="hover:bg-transparent bg-transparent text-eco-dark/50 hover:text-eco-dark w-fit border-none ms-auto mb-5">
           <LucideX />
         </AlertDialogCancel>
         <Image
@@ -48,7 +48,7 @@ export default function ScanqrPopup({
           height={400}
           className="mx-auto z-[9999] w-72 h-72 xl:w-[20rem]"
         />
-        <p className="font-semibold text-[#23262Fcc] text-center text-3xl mt-5">
+        <p className="font-semibold text-eco-dark text-center text-3xl mt-5">
           Scan to download <br />
           EcocanApp
         </p>

@@ -94,23 +94,23 @@ export default function JoinEcommunity({
             </div>
           }
           item={
-            <div className="space-y-6 bg-white h-full grid lg:rounded-smooth-xl p-5">
+            <div className="space-y-6 bg-white h-full grid lg:rounded-[24px] p-6">
               <div className="flex justify-between">
-                <h2 className="text-[2rem] text-[#23262Fcc] font-bold">
+                <h2 className="text-[2rem] text-eco-dark font-bold">
                   Who Are We
                 </h2>
-                <AlertDialogCancel className="hover:bg-transparent text-black/60 hover:text-black w-fit border-none ms-auto">
+                <AlertDialogCancel className="hover:bg-transparent text-eco-dark/50 hover:text-eco-dark w-fit border-none ms-auto">
                   <LucideX />
                 </AlertDialogCancel>
               </div>
-              <h2 className="text-secondary">
+              <h2 className="text-eco-dark/70">
                 We are an ECO-friendly COmmunity, united by a shared vision of a
                 healthy planet, free from pollution & counterfeits, and brimming
                 with limitless opportunities to thrive. Our sustainability bond
                 is anchored on meaningful cooperation, connection, and
                 belonging.
               </h2>
-              <div className="space-y-2 text-[#23262fcc] font-semibold">
+              <div className="space-y-2 text-eco-dark font-semibold">
                 <p>
                   Join us by closing the{" "}
                   <span className="text-primary">ECO-loop</span> with 3 easy

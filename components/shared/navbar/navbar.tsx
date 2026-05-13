@@ -56,12 +56,12 @@ const NavigationBar: React.FC<NavigationBarProps> = ({
   return (
     <nav
       className={clsx(
-        "fixed top-0 left-0 right-0 md:px-4 z-[9995] transition-all duration-300",
+        "fixed top-0 left-0 right-0 z-[9995] transition-all duration-500",
         navSurfaceClass,
         className
       )}
     >
-      <div className="flex items-center justify-between flex-wrap max-w-[72rem] mx-auto px-4 md:px-0">
+      <div className="flex items-center justify-between flex-wrap max-w-[1280px] mx-auto px-6" style={{ height: 72 }}>
         <div className="flex items-center flex-shrink-0 text-white py-4">
           <Image
             src={logoSrc}
@@ -103,13 +103,13 @@ const NavigationBar: React.FC<NavigationBarProps> = ({
             isOpen ? "block min-h-screen md:min-h-0" : "hidden max-h-none"
           }`}
         >
-          <div className="text-sm flex md:flex-row flex-col items-center justify-center gap-4 ms-4">
+          <div className="text-sm flex md:flex-row flex-col items-center justify-center gap-6 ms-4">
             {NAV_ROUTES.map((link) => (
               <Link
                 href={link.href}
                 key={link.label}
                 className={clsx(
-                  "block md:inline-block text-center text-sm font-medium transition-colors duration-200",
+                  "block md:inline-block text-center text-[15px] font-medium transition-colors duration-200",
                   isLinkActive(link.href) ? "text-primary" : linkColor,
                   "hover:text-primary"
                 )}

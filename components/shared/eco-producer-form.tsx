@@ -75,11 +75,11 @@ export default function EcoProducerForm({
 
   return (
     <Card className="rounded-none lg:w-[33.125rem] border-none shadow-none">
-      <CardHeader className="text-[#23262FCC]">
-        <CardTitle className="text-3xl text-black w-3/5">{title}</CardTitle>
-        <CardDescription className="font-light text-black">
+      <CardHeader>
+        <CardTitle className="text-3xl text-eco-dark w-3/5">{title}</CardTitle>
+        <CardDescription className="font-light text-eco-dark/60">
           Already in the ECOmmunity?{" "}
-          <Link href="/" className="text-green-500 hover:underline">
+          <Link href="/" className="text-primary hover:underline">
             Log in
           </Link>
         </CardDescription>
@@ -226,9 +226,9 @@ export default function EcoProducerForm({
               <HyperLink link="ECO-Producer terms & conditions," href="/" /> and{" "}
               <HyperLink link="privacy policy" href="/" />.
             </p>
-            <Button type="submit" className="w-full rounded-full">
+            <button type="submit" className="pill-btn pill-btn-filled w-full justify-center">
               Get Started
-            </Button>
+            </button>
           </form>
         </Form>
       </CardContent>

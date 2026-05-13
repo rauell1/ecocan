@@ -39,8 +39,8 @@ export default function RegisterPopup({
   return (
     <AlertDialog>
       <AlertDialogTrigger asChild>{trigger}</AlertDialogTrigger>
-      <AlertDialogContent className="z-[9999] !w-fit bg-white !rounded-smooth-lg xl:max-h-[90vh]">
-        <AlertDialogCancel className="hover:bg-transparent bg-transparent text-black/60 hover:text-black w-fit border-none ms-auto">
+      <AlertDialogContent className="z-[9999] !w-fit bg-white !rounded-[24px] xl:max-h-[90vh] overflow-y-auto">
+        <AlertDialogCancel className="hover:bg-transparent bg-transparent text-eco-dark/50 hover:text-eco-dark w-fit border-none ms-auto">
           <LucideX />
         </AlertDialogCancel>
         {form}

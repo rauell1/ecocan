@@ -20,10 +20,10 @@ export function MarketDropdown() {
       <DropdownMenuTrigger asChild>
         <Button variant="link">ECOCAN Market</Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent className="w-80 z-[9999] p-6 rounded-smooth-sm border-none">
-        <DropdownMenuGroup className="space-y-4">
-          <DropdownMenuItem className="focus:bg-[#F3F3F6] cursor-pointer group px-2 py-2 rounded-smooth-sm">
-            <Link href="/" className="flex gap-2 items-center">
+      <DropdownMenuContent className="w-64 z-[9999] p-4 rounded-[20px] border border-border shadow-elevated">
+        <DropdownMenuGroup className="space-y-1">
+          <DropdownMenuItem className="focus:bg-eco-light hover:bg-eco-light cursor-pointer group px-3 py-2.5 rounded-xl">
+            <Link href="/" className="flex gap-3 items-center w-full">
               <Image
                 src="/assets/icons/map.svg"
                 alt="mapicon"
@@ -31,13 +31,13 @@ export function MarketDropdown() {
                 width={16}
                 height={16}
               />
-              <p className="no-underline text-secondary group-focus:text-primary group-focus:font-medium">
+              <p className="no-underline text-eco-dark/70 group-focus:text-primary group-focus:font-medium text-[15px]">
                 ECOCAN Map
               </p>
             </Link>
           </DropdownMenuItem>
-          <DropdownMenuItem className="focus:bg-[#F3F3F6] cursor-pointer group px-2 py-2 rounded-smooth-sm">
-            <Link href="/ecocan-market" className="flex gap-2 items-center">
+          <DropdownMenuItem className="focus:bg-eco-light hover:bg-eco-light cursor-pointer group px-3 py-2.5 rounded-xl">
+            <Link href="/ecocan-market" className="flex gap-3 items-center w-full">
               <Image
                 src="/assets/icons/products.svg"
                 alt="mapicon"
@@ -45,7 +45,7 @@ export function MarketDropdown() {
                 width={16}
                 height={16}
               />
-              <p className="no-underline text-secondary group-focus:text-primary group-focus:font-medium">
+              <p className="no-underline text-eco-dark/70 group-focus:text-primary group-focus:font-medium text-[15px]">
                 ECO-Products
               </p>
             </Link>

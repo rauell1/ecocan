@@ -6,8 +6,8 @@ import { CORE_ROUTES } from "@/lib/site-contract";
 
 const Footer = () => {
   return (
-    <footer className="bg-foreground px-4 py-16 text-white">
-      <div className="max-w-[72rem] mx-auto px-4 xl:px-0">
+    <footer className="px-4 py-16 text-white" style={{ background: "#1A2B3C" }}>
+      <div className="max-w-[1280px] mx-auto px-6 xl:px-6">
         {/* Logo */}
         <div className="mb-14">
           <Image
@@ -26,22 +26,22 @@ const Footer = () => {
             <h3 className="text-xl font-semibold mb-4">Home</h3>
             <ul className="space-y-3 text-white/75">
               <li>
-                <Link href={CORE_ROUTES.home} className="transition-colors hover:text-white">
+                <Link href={CORE_ROUTES.home} className="transition-colors hover:text-primary">
                   Home
                 </Link>
               </li>
               <li>
-                <Link href={CORE_ROUTES.solutions} className="transition-colors hover:text-white">
+                <Link href={CORE_ROUTES.solutions} className="transition-colors hover:text-primary">
                   Solutions
                 </Link>
               </li>
               <li>
-                <Link href={CORE_ROUTES.about} className="transition-colors hover:text-white">
+                <Link href={CORE_ROUTES.about} className="transition-colors hover:text-primary">
                   About us
                 </Link>
               </li>
               <li>
-                <Link href={CORE_ROUTES.contact} className="transition-colors hover:text-white">
+                <Link href={CORE_ROUTES.contact} className="transition-colors hover:text-primary">
                   Contact
                 </Link>
               </li>
@@ -53,12 +53,12 @@ const Footer = () => {
             <h3 className="text-xl font-semibold mb-4">Data and Privacy</h3>
             <ul className="space-y-3 text-white/75">
               <li>
-                <Link href={CORE_ROUTES.home} className="transition-colors hover:text-white">
+                <Link href={CORE_ROUTES.home} className="transition-colors hover:text-primary">
                   Privacy Policy
                 </Link>
               </li>
               <li>
-                <Link href={CORE_ROUTES.contact} className="transition-colors hover:text-white">
+                <Link href={CORE_ROUTES.contact} className="transition-colors hover:text-primary">
                   Customer support
                 </Link>
               </li>
@@ -248,10 +248,10 @@ const Footer = () => {
         <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center text-white/75">
           <p>© {new Date().getFullYear()} ECOCAN. All Rights Reserved.</p>
           <div className="flex gap-8 mt-4 md:mt-0">
-            <Link href="/privacy" className="transition-colors hover:text-white">
+            <Link href="/privacy" className="transition-colors hover:text-primary">
               Privacy
             </Link>
-            <Link href="/terms" className="transition-colors hover:text-white">
+            <Link href="/terms" className="transition-colors hover:text-primary">
               Terms & Conditions
             </Link>
           </div>

@@ -170,6 +170,15 @@
     color: hsl(var(--primary-foreground));
   }
 
+  .pill-btn-white {
+    background: white;
+    color: #101010;
+  }
+
+  .pill-btn-white:hover {
+    box-shadow: 0 0 30px rgba(34, 139, 34, 0.3);
+  }
+
   .section-overline {
     font-size: 12px;
     font-weight: 600;

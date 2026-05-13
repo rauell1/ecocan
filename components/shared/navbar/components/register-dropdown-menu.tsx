@@ -81,7 +81,7 @@ export function RegisterDropdown({ isScrolled }: { isScrolled: Boolean }) {
       <DropdownMenuItem
         key={item.id}
         asChild
-        className="focus:bg-[#F3F3F6] cursor-pointer group px-2 py-2 rounded-smooth-sm"
+        className="focus:bg-eco-light hover:bg-eco-light cursor-pointer group px-3 py-2.5 rounded-xl"
       >
         <div onClick={(e) => e.preventDefault()} className="z-[9999]">
           <Component
@@ -99,17 +99,17 @@ export function RegisterDropdown({ isScrolled }: { isScrolled: Boolean }) {
       <DropdownMenuTrigger asChild>
         <Button
           className={clsx(
-            "rounded-full h-7 xl:h-8 text-black hover:text-primary bg-white hover:bg-white",
+            "rounded-full text-sm px-5 py-2 h-auto font-semibold transition-colors",
             isScrolled
-              ? "bg-primary text-white hover:bg-primary hover:text-white"
-              : "bg-white"
+              ? "bg-primary text-white hover:bg-primary-dark"
+              : "bg-white text-eco-dark hover:bg-white/90"
           )}
         >
           Register
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent className="w-80 z-[9999] p-6 rounded-smooth-sm border-none">
-        <DropdownMenuGroup className="space-y-4">
+      <DropdownMenuContent className="w-80 z-[9999] p-4 rounded-[20px] border border-border shadow-elevated">
+        <DropdownMenuGroup className="space-y-1">
           {dropdownItems.map(renderDropdownItem)}
         </DropdownMenuGroup>
       </DropdownMenuContent>

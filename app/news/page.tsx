@@ -1,32 +1,56 @@
 "use client";
 
+import { useRef, useEffect } from "react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import NavigationBar from "@/components/shared/navbar/navbar";
 import { useScroll } from "@/lib/useScroll";
-import React from "react";
-import BlogHero from "./components/blog-hero";
-import Articles from "./components/articles";
 import Footer from "@/components/shared/footer/footer";
 import News from "./components/news";
 
 export default function Blog() {
   const isScrolled = useScroll();
+  const headingRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
+    const ctx = gsap.context(() => {
+      gsap.fromTo(
+        headingRef.current,
+        { opacity: 0, y: 30 },
+        { opacity: 1, y: 0, duration: 0.9, ease: "power2.out", delay: 0.1 }
+      );
+    });
+    return () => ctx.revert();
+  }, []);
+
   return (
     <>
       <NavigationBar
-        className={
-          isScrolled ? "bg-white" : "bg-transparent backdrop-blur-xl"
-        }
+        className={isScrolled ? "bg-white shadow-sm" : "bg-white/95 backdrop-blur-md"}
         logoSrc="/assets/images/ecocan-logo.svg"
+        linkColor="text-eco-dark"
       />
-      <div className="space-y-24 py-8 max-w-[72rem] mx-auto px-4 xl:px-0 mt-[3.575rem]">
-        <div className="text-center">
-            <h1 className="bg-gradient-to-br from-[#228B22] via-[#4AC63F] to-[#FFDD4C] text-transparent bg-clip-text text-7xl font-semibold">
-              Bl<span className="bg-gradient-to-br from-[#4AC63F] to-[#FFDD4C] text-transparent bg-clip-text">og</span>
-            </h1>
-            <News/>
+
+      {/* Page hero */}
+      <div className="w-full pt-[72px]" style={{ background: "#F7F7F7" }}>
+        <div className="max-w-[1280px] mx-auto px-6 py-20 md:py-28" ref={headingRef}>
+          <p className="section-overline mb-4">Latest from ECOCAN</p>
+          <h1 className="section-headline text-eco-dark max-w-[640px]">
+            News &amp; Stories
+          </h1>
+          <p className="section-body text-eco-dark mt-4 max-w-[560px]">
+            Updates on sustainability, partnerships, and impact across Africa&apos;s circular economy.
+          </p>
         </div>
       </div>
-      <Footer/>
+
+      {/* News tabs + articles — unchanged */}
+      <div className="max-w-[1280px] mx-auto px-6 py-12">
+        <News />
+      </div>
+
+      <Footer />
     </>
   );
 }
