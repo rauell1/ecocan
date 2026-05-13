@@ -258,3 +258,12 @@ _Last manually updated: 2026-05-12 | Auto-updated by CI on every push to `main`_
 | 43 | [`2bd89c7`](https://github.com/rauell1/ecocan/commit/2bd89c7b3109e91bcf9e4d5c616ef91b6a665b02) | — | rauell1 | 2026-05-13 15:43 | main |
 | 44 | [`b81ba3e`](https://github.com/rauell1/ecocan/commit/b81ba3eec1730cd3f3a4baa35fc3ff25c72df293) | — | rauell1 | 2026-05-13 15:52 | main |
 | 45 | [`90876dc`](https://github.com/rauell1/ecocan/commit/90876dcc483cedb64da0fd6c41b574e7a956e611) | — | rauell1 | 2026-05-13 16:04 | main |
+
+
+## Deployment Log
+
+> ⚙️ **CI-managed section.** One row is appended per merge to `main`. Do not edit rows manually.
+
+| # | Commit | Message | Author | Date (UTC) | Branch |
+|---|--------|---------|--------|------------|--------|"
+| 46 | [`0ec9aa1`](https://github.com/rauell1/ecocan/commit/0ec9aa12d75a42a249359a40278137b4847fd588) | — | rauell1 | 2026-05-13 16:15 | main |
