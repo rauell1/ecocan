@@ -1,51 +1,51 @@
-import React from 'react';
-import Image from 'next/image';
+import React from "react"
+import Image from "next/image"
 
 interface InfoCardProps {
-  icon: string;
-  title: string;
-  description: string;
+  icon: string
+  title: string
+  description: string
 }
 
 const InfoCard: React.FC<InfoCardProps> = ({ icon, title, description }) => (
-  <div className="flex flex-col items-center text-center max-w-sm">
+  <div className="flex max-w-sm flex-col items-center text-center">
     <Image src={icon} alt="" width={60} height={60} className="mb-4" />
-    <h3 className="text-xl font-semibold mb-2">{title}</h3>
+    <h3 className="mb-2 text-xl font-semibold">{title}</h3>
     <p className="text-gray-600">{description}</p>
   </div>
-);
+)
 
 interface WideInfoCardProps {
-  icon: string;
-  title: string;
-  description: string;
+  icon: string
+  title: string
+  description: string
 }
 
 const WideInfoCard: React.FC<WideInfoCardProps> = ({ icon, title, description }) => (
-  <div className="flex flex-col items-center space-y-4 max-w-2xl">
+  <div className="flex max-w-2xl flex-col items-center space-y-4">
     <Image src={icon} alt="" width={60} height={60} />
-    <div className='text-center'>
-      <h3 className="text-xl font-semibold mb-2">{title}</h3>
+    <div className="text-center">
+      <h3 className="mb-2 text-xl font-semibold">{title}</h3>
       <p className="text-gray-600">{description}</p>
     </div>
   </div>
-);
+)
 
 export default function EconsumersCare() {
   return (
     <div className="container mx-auto px-4 py-16">
-      <h2 className="text-3xl font-bold text-center mb-4">
+      <h2 className="mb-4 text-center text-3xl font-bold">
         Econsumers care more than just the price
       </h2>
-      <p className="text-xl text-center text-gray-600 mb-12">
+      <p className="mb-12 text-center text-xl text-gray-600">
         We&apos;ll work together to let them know:
       </p>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-16">
+      <div className="mb-16 grid grid-cols-1 gap-12 md:grid-cols-3">
         <InfoCard
           icon="/assets/images/solutions/econsumers-care-1.svg"
           title="Who you are"
-          description="You wouldn't trust someone you don't know, right? Build ECOnsumer loyalty by sharing your story—what you make and why—through the ECOCAN traceability passport."
+          description="You wouldn't trust someone you don't know, right? Build ECOnsumer loyalty by sharing your story - what you make and why - through the ECOCAN traceability passport."
         />
         <InfoCard
           icon="/assets/images/solutions/econsumers-care-2.svg"
@@ -59,7 +59,7 @@ export default function EconsumersCare() {
         />
       </div>
 
-      <div className="flex flex-col md:flex-row justify-between items-start space-y-8 md:space-y-0 md:space-x-8">
+      <div className="flex flex-col items-start justify-between space-y-8 md:flex-row md:space-x-8 md:space-y-0">
         <WideInfoCard
           icon="/assets/images/solutions/econsumers-care-4.svg"
           title="Why they are important"
@@ -72,5 +72,5 @@ export default function EconsumersCare() {
         />
       </div>
     </div>
-  );
+  )
 }

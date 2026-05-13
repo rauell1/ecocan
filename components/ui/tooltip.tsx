@@ -5,7 +5,7 @@ import * as TooltipPrimitive from "@radix-ui/react-tooltip"
 import { cn } from "@/lib/utils"
 
 /**
- * Tooltip — Ecocan design system
+ * Tooltip  -  Ecocan design system
  *
  * Styled to match eco.dark surface (#101010) with white text,
  * consistent with the dark sections in the Kimi spec.
@@ -26,7 +26,7 @@ const TooltipContent = React.forwardRef<
     ref={ref}
     sideOffset={sideOffset}
     className={cn(
-      // Surface — eco.dark bg matches dark sections
+      // Surface  -  eco.dark bg matches dark sections
       "z-50 overflow-hidden rounded-xl",
       "bg-eco-dark text-white",
       // Spacing + typography

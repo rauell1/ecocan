@@ -156,12 +156,12 @@ export default function HeroSection({ scrollEnabled, onTransitionComplete }: Her
         </p>
 
         <div className="mb-8 flex flex-col items-center gap-4 sm:flex-row">
-          {/* Download App — always works, goes to /download page */}
+          {/* Download App  -  always works, goes to /download page */}
           <a href="/download" className="pill-btn pill-btn-white">
             <Download size={18} />
             Download App
           </a>
-          {/* Partner — unlocks scroll & jumps to model section */}
+          {/* Partner  -  unlocks scroll & jumps to model section */}
           <button
             onClick={() => {
               triggerTransition()
@@ -185,7 +185,7 @@ export default function HeroSection({ scrollEnabled, onTransitionComplete }: Her
         </span>
       </div>
 
-      {/* Explore CTA — shown until transition fires */}
+      {/* Explore CTA  -  shown until transition fires */}
       {!scrollEnabled && (
         <button
           ref={ctaBtnRef}
@@ -206,18 +206,115 @@ export default function HeroSection({ scrollEnabled, onTransitionComplete }: Her
         className="pointer-events-none absolute inset-x-0"
         style={{ top: "100vh", zIndex: 5 }}
       >
+        {/* Card 0  -  light stat row */}
         <div
           className="hero-card absolute overflow-hidden rounded-3xl shadow-elevated"
           style={{ left: "5vw", width: "90vw", height: "80vh", top: "10vh", background: "#F7F7F7" }}
-        />
+        >
+          <div className="flex h-full flex-col items-center justify-center gap-8 px-8 text-center">
+            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-primary">
+              The numbers that matter
+            </p>
+            <h2
+              className="font-bold text-eco-dark"
+              style={{ fontSize: "clamp(28px, 4vw, 52px)", lineHeight: 1.15 }}
+            >
+              A circular economy
+              <br />
+              built for Africa
+            </h2>
+            <div className="grid grid-cols-3 gap-6 md:gap-16">
+              {[
+                { value: "1M+", label: "Bottles in system" },
+                { value: "30%", label: "Drinks are counterfeit" },
+                { value: "KES 50", label: "Minimum cash-out" },
+              ].map((s) => (
+                <div key={s.label} className="flex flex-col items-center gap-1">
+                  <span className="text-3xl font-extrabold text-primary md:text-5xl">
+                    {s.value}
+                  </span>
+                  <span className="text-xs text-eco-dark/60 md:text-sm">{s.label}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* Card 1  -  dark how-it-works strip */}
         <div
           className="hero-card absolute overflow-hidden rounded-3xl shadow-elevated"
           style={{ left: "10vw", width: "80vw", height: "85vh", top: "5vh", background: "#101010" }}
-        />
+        >
+          <div className="flex h-full flex-col items-center justify-center gap-8 px-8 text-center">
+            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-primary">
+              How it works
+            </p>
+            <h2
+              className="font-bold text-white"
+              style={{ fontSize: "clamp(24px, 3.5vw, 48px)", lineHeight: 1.2 }}
+            >
+              From your hand back to the shelf
+            </h2>
+            <div className="flex flex-col items-center gap-3 sm:flex-row sm:gap-0">
+              {[
+                { num: "01", title: "Buy", desc: "Drink with QR code" },
+                { num: "02", title: "Scan", desc: "Verify in 3 seconds" },
+                { num: "03", title: "Return", desc: "To any ECO-Station" },
+                { num: "04", title: "Collect", desc: "Electric bike pickup" },
+                { num: "05", title: "Earn", desc: "Instant M-Pesa credit" },
+              ].map((step, i, arr) => (
+                <div key={step.num} className="flex items-center">
+                  <div className="flex flex-col items-center gap-1 px-3 md:px-5">
+                    <span className="text-xl font-bold text-primary md:text-2xl">{step.num}</span>
+                    <span className="text-sm font-semibold text-white">{step.title}</span>
+                    <span className="text-xs text-white/50">{step.desc}</span>
+                  </div>
+                  {i < arr.length - 1 && (
+                    <span className="hidden text-primary/40 sm:block">&#8250;</span>
+                  )}
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* Card 2  -  white impact metrics */}
         <div
           className="hero-card absolute overflow-hidden rounded-3xl shadow-elevated"
           style={{ left: "5vw", width: "90vw", height: "80vh", top: "10vh", background: "#FFFFFF" }}
-        />
+        >
+          <div className="flex h-full flex-col items-center justify-center gap-8 px-8 text-center">
+            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-primary">
+              Real impact
+            </p>
+            <h2
+              className="font-bold text-eco-dark"
+              style={{ fontSize: "clamp(26px, 3.5vw, 48px)", lineHeight: 1.2 }}
+            >
+              Every bottle returned
+              <br />
+              changes Africa
+            </h2>
+            <div className="grid grid-cols-2 gap-6 md:grid-cols-4 md:gap-10">
+              {[
+                { value: "80%", label: "Bottles never recovered" },
+                { value: "$1B+", label: "Lost to packaging waste" },
+                { value: "Zero", label: "Emission collection" },
+                { value: "GDPR", label: "Data compliant" },
+              ].map((m) => (
+                <div
+                  key={m.label}
+                  className="flex flex-col items-center gap-2 rounded-2xl bg-eco-light p-4 md:p-6"
+                >
+                  <span className="text-2xl font-extrabold text-primary md:text-4xl">
+                    {m.value}
+                  </span>
+                  <span className="text-xs text-eco-dark/70 md:text-sm">{m.label}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   )

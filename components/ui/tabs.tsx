@@ -5,7 +5,7 @@ import * as TabsPrimitive from "@radix-ui/react-tabs"
 import { cn } from "@/lib/utils"
 
 /**
- * Tabs — token-hardened.
+ * Tabs  -  token-hardened.
  * Active indicator uses primary color token.
  */
 

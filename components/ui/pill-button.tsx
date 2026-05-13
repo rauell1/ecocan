@@ -5,7 +5,7 @@ import { Slot } from "@radix-ui/react-slot"
 import { cn } from "@/lib/utils"
 
 /**
- * PillButton — Kimi-spec pill-shaped CTA button.
+ * PillButton  -  Kimi-spec pill-shaped CTA button.
  *
  * This is a standalone component (not a variant of Button) to keep it
  * self-contained for hero and CTA sections that need precise control.
@@ -27,14 +27,10 @@ interface PillButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> 
 }
 
 const variantMap = {
-  primary:
-    "bg-primary text-white hover:bg-primary-dark shadow-md hover:shadow-glow",
-  white:
-    "bg-white text-eco-dark hover:bg-white/90 shadow-md",
-  outline:
-    "border-2 border-white/80 text-white bg-transparent hover:bg-white hover:text-eco-dark",
-  glass:
-    "bg-white/10 border border-white/20 text-white backdrop-blur-md hover:bg-white/20",
+  primary: "bg-primary text-white hover:bg-primary-dark shadow-md hover:shadow-glow",
+  white: "bg-white text-eco-dark hover:bg-white/90 shadow-md",
+  outline: "border-2 border-white/80 text-white bg-transparent hover:bg-white hover:text-eco-dark",
+  glass: "bg-white/10 border border-white/20 text-white backdrop-blur-md hover:bg-white/20",
 }
 
 const sizeMap = {
@@ -74,7 +70,7 @@ const PillButton = React.forwardRef<HTMLButtonElement, PillButtonProps>(
         {withDot && (
           <span
             className={cn(
-              "h-2 w-2 rounded-full bg-current animate-pulse-dot shrink-0",
+              "h-2 w-2 shrink-0 animate-pulse-dot rounded-full bg-current",
               variant === "primary" ? "bg-white" : "bg-current"
             )}
             aria-hidden="true"

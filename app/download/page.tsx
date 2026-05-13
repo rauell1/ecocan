@@ -1,34 +1,34 @@
-'use client';
+"use client"
 
-import { useEffect } from 'react';
-import Image from 'next/image';
-import Link from 'next/link';
-import { Download } from 'lucide-react';
+import { useEffect } from "react"
+import Image from "next/image"
+import Link from "next/link"
+import { Download } from "lucide-react"
 
 const STORE_URLS = {
   playStore: "https://play.google.com/store/apps/details?id=com.superapp.ecocanapp",
   appStore: "https://apps.apple.com/app/6502695438",
-  fallback: "https://ecocan.africa/download"
-};
+  fallback: "https://ecocan.africa/download",
+}
 
 export default function DownloadRedirect() {
   useEffect(() => {
-    const ua = window.navigator.userAgent.toLowerCase();
+    const ua = window.navigator.userAgent.toLowerCase()
     if (/iphone|ipad|ipod/.test(ua)) {
-      window.location.href = STORE_URLS.appStore;
-      return;
+      window.location.href = STORE_URLS.appStore
+      return
     }
     if (/android/.test(ua)) {
-      window.location.href = STORE_URLS.playStore;
-      return;
+      window.location.href = STORE_URLS.playStore
+      return
     }
     // Desktop: stay on page and show QR / links
-  }, []);
+  }, [])
 
   return (
     <div
-      className="min-h-screen flex flex-col items-center justify-center px-6 text-center"
-      style={{ background: 'linear-gradient(135deg, #094C31 0%, #101010 100%)' }}
+      className="flex min-h-screen flex-col items-center justify-center px-6 text-center"
+      style={{ background: "linear-gradient(135deg, #094C31 0%, #101010 100%)" }}
     >
       {/* Logo */}
       <Image
@@ -40,20 +40,20 @@ export default function DownloadRedirect() {
       />
 
       {/* Headline */}
-      <p className="section-overline text-white/60 mb-4">Get the app</p>
+      <p className="section-overline mb-4 text-white/60">Get the app</p>
       <h1
-        className="text-white font-bold mb-4"
-        style={{ fontSize: 'clamp(32px, 5vw, 56px)', lineHeight: 1.1 }}
+        className="mb-4 font-bold text-white"
+        style={{ fontSize: "clamp(32px, 5vw, 56px)", lineHeight: 1.1 }}
       >
         Scan. Return. Get paid.
       </h1>
-      <p className="text-white/70 text-lg max-w-[520px] mb-12">
-        Download the ECOCAN app to verify drinks, find collection points, and
-        collect your deposit reward — instantly.
+      <p className="mb-12 max-w-[520px] text-lg text-white/70">
+        Download the ECOCAN app to verify drinks, find collection points, and collect your deposit
+        reward - instantly.
       </p>
 
       {/* CTA buttons */}
-      <div className="flex flex-col sm:flex-row items-center gap-4 mb-14">
+      <div className="mb-14 flex flex-col items-center gap-4 sm:flex-row">
         <Link
           href={STORE_URLS.appStore}
           target="_blank"
@@ -76,17 +76,17 @@ export default function DownloadRedirect() {
 
       {/* Trust badges */}
       <div className="flex flex-wrap justify-center gap-3">
-        {['Early-stage funded', 'Operational in Kenya', 'GDPR Compliant'].map((badge) => (
-          <span key={badge} className="glass-pill text-white/80 text-[13px] px-4 py-1.5">
+        {["Early-stage funded", "Operational in Kenya", "GDPR Compliant"].map((badge) => (
+          <span key={badge} className="glass-pill px-4 py-1.5 text-[13px] text-white/80">
             {badge}
           </span>
         ))}
       </div>
 
       {/* Back link */}
-      <Link href="/" className="mt-10 text-white/40 text-sm hover:text-white/80 transition-colors">
+      <Link href="/" className="mt-10 text-sm text-white/40 transition-colors hover:text-white/80">
         ← Back to home
       </Link>
     </div>
-  );
+  )
 }

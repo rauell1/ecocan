@@ -6,7 +6,7 @@ import { Check, ChevronDown, ChevronUp } from "lucide-react"
 import { cn } from "@/lib/utils"
 
 /**
- * Select — Ecocan design system
+ * Select  -  Ecocan design system
  *
  * Trigger: matches Input pill shape (rounded-full, h-12, px-5)
  * Focus ring: primary green ring (consistent with Input)
@@ -29,7 +29,7 @@ const SelectTrigger = React.forwardRef<
       "px-5 py-3 text-sm",
       "placeholder:text-muted-foreground",
       "focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-1",
-      "transition-[border-color,box-shadow] duration-[180ms]",
+      "duration-[180ms] transition-[border-color,box-shadow]",
       "disabled:cursor-not-allowed disabled:opacity-40",
       "[&>span]:line-clamp-1",
       className
@@ -38,7 +38,7 @@ const SelectTrigger = React.forwardRef<
   >
     {children}
     <SelectPrimitive.Icon asChild>
-      <ChevronDown className="h-4 w-4 text-muted-foreground flex-shrink-0" />
+      <ChevronDown className="h-4 w-4 flex-shrink-0 text-muted-foreground" />
     </SelectPrimitive.Icon>
   </SelectPrimitive.Trigger>
 ))
@@ -81,13 +81,12 @@ const SelectContent = React.forwardRef<
       ref={ref}
       className={cn(
         "relative z-50 min-w-[8rem] overflow-hidden",
-        "rounded-2xl border border-border bg-card shadow-elevated text-card-foreground",
+        "rounded-2xl border border-border bg-card text-card-foreground shadow-elevated",
         "data-[state=open]:animate-in data-[state=closed]:animate-out",
         "data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0",
         "data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95",
         "data-[side=bottom]:slide-in-from-top-2 data-[side=top]:slide-in-from-bottom-2",
-        position === "popper" &&
-          "data-[side=bottom]:translate-y-1 data-[side=top]:-translate-y-1",
+        position === "popper" && "data-[side=bottom]:translate-y-1 data-[side=top]:-translate-y-1",
         className
       )}
       position={position}

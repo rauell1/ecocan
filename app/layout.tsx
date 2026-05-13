@@ -9,10 +9,10 @@ import "@/lib/env" // Validate environment variables at startup
  *
  * Why this matters for performance:
  * - next/font automatically serves WOFF2 (2-3x smaller than TTF)
- * - Fonts are preloaded at build time — no late discovery after CSS parse
+ * - Fonts are preloaded at build time  -  no late discovery after CSS parse
  * - Zero FOUT: next/font inlines the font-display strategy and size-adjust
  *   to prevent layout shift during font swap
- * - Self-hosted from Vercel edge — no third-party DNS lookup to Google Fonts
+ * - Self-hosted from Vercel edge  -  no third-party DNS lookup to Google Fonts
  * - Only the weights actually used are requested (300, 400, 500, 600, 700)
  *
  * Euclid Circular B is a commercial font not available on Google Fonts.

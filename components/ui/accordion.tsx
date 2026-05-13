@@ -6,7 +6,7 @@ import { ChevronDown } from "lucide-react"
 import { cn } from "@/lib/utils"
 
 /**
- * Accordion — token-hardened, Kimi FAQ style supported.
+ * Accordion  -  token-hardened, Kimi FAQ style supported.
  * 'faq' variant: larger padding, slightly elevated card per item.
  */
 
@@ -22,7 +22,7 @@ const AccordionItem = React.forwardRef<
     ref={ref}
     className={cn(
       variant === "faq"
-        ? "rounded-smooth border border-border/50 bg-card shadow-card mb-3 overflow-hidden"
+        ? "mb-3 overflow-hidden rounded-smooth border border-border/50 bg-card shadow-card"
         : "border-b border-border",
       className
     )}
@@ -39,7 +39,7 @@ const AccordionTrigger = React.forwardRef<
     <AccordionPrimitive.Trigger
       ref={ref}
       className={cn(
-        "flex flex-1 items-center justify-between py-4 px-5 font-medium text-left",
+        "flex flex-1 items-center justify-between px-5 py-4 text-left font-medium",
         "transition-all duration-200 hover:text-primary",
         "[&[data-state=open]>svg]:rotate-180",
         className
@@ -62,7 +62,7 @@ const AccordionContent = React.forwardRef<
     className="overflow-hidden text-sm transition-all data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down"
     {...props}
   >
-    <div className={cn("pb-4 pt-0 px-5 text-muted-foreground leading-relaxed", className)}>
+    <div className={cn("px-5 pb-4 pt-0 leading-relaxed text-muted-foreground", className)}>
       {children}
     </div>
   </AccordionPrimitive.Content>
