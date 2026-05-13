@@ -18,7 +18,6 @@ export default function HeroSection({
 }: HeroSectionProps) {
   const heroRef = useRef<HTMLDivElement>(null)
   const videoRef = useRef<HTMLDivElement>(null)
-  // Separate ref for the actual <video> element so we can call .load()/.play()
   const videoElRef = useRef<HTMLVideoElement>(null)
   const brandRef = useRef<HTMLHeadingElement>(null)
   const contentRef = useRef<HTMLDivElement>(null)
@@ -27,6 +26,7 @@ export default function HeroSection({
   const transitionTlRef = useRef<gsap.core.Timeline | null>(null)
   const [transitionDone, setTransitionDone] = useState(false)
 
+  // ─── INTRO ANIMATIONS ────────────────────────────────────────────────────────
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger)
     const ctx = gsap.context(() => {
@@ -44,6 +44,7 @@ export default function HeroSection({
     return () => ctx.revert()
   }, [])
 
+  // ─── TRANSITION TRIGGER ───────────────────────────────────────────────────────
   const triggerTransition = () => {
     if (transitionDone) return
     setTransitionDone(true)
@@ -69,11 +70,39 @@ export default function HeroSection({
     tl.to(ctaBtnRef.current, { autoAlpha: 0, duration: 0.4 }, 0.8)
   }
 
-  // Reverse the hero transition when resetSignal fires (user scrolled back to top)
-  // FIX: after the reverse completes, call video.load() + video.play() so the
-  // clip restarts cleanly even on browsers that suspend autoplay after a pause.
+  // ─── RESET: reverse timeline + restart video ──────────────────────────────────
+  //
+  // FIX 1 – VIDEO: We unconditionally restart the <video> element as soon as
+  //   resetSignal fires (i.e. the user scrolled back to the top).  Previously
+  //   the restart was buried inside a GSAP eventCallback, which could be missed
+  //   when the timeline was not yet fully reversed or when GSAP was re-imported
+  //   dynamically in the parent.  Now we use a dedicated effect that runs right
+  //   away, independently of the timeline state.
+  //
+  // FIX 2 – CARD BLEED: The three floating hero-cards live at `top: 100vh`
+  //   inside the hero div which has `height: 100vh`.  After the timeline
+  //   reverses they should be back at yPercent: 100 (fully below the viewport),
+  //   but any in-progress GSAP tweens can leave them at an intermediate
+  //   transform, causing them to bleed over the sections beneath the hero.
+  //   We solve this by:
+  //     a) Forcing `overflow: hidden` on the hero wrapper so cards that are
+  //        positioned below 100 vh are clipped.
+  //     b) After the reverse completes we hard-reset the cards' transforms via
+  //        gsap.set() so the next forward transition always starts from a clean
+  //        state.
   useEffect(() => {
     if (resetSignal === 0) return
+
+    // --- FIX 1: Restart video immediately ---
+    const vid = videoElRef.current
+    if (vid) {
+      vid.load()
+      vid
+        .play()
+        .catch(() => {
+          // Autoplay blocked — poster image acts as fallback; ignore silently.
+        })
+    }
 
     const tl = transitionTlRef.current
     if (!tl) {
@@ -85,25 +114,20 @@ export default function HeroSection({
       setTransitionDone(false)
       tl.eventCallback("onReverseComplete", null)
 
-      // ---- VIDEO FIX ----
-      // After the GSAP reverse completes the video wrapper is back to its
-      // original scale/brightness, but some browsers (Safari, Firefox) leave
-      // the <video> in a suspended state. Calling .load() resets the element
-      // and .play() restarts autoplay reliably.
-      const vid = videoElRef.current
-      if (vid) {
-        vid.load()
-        vid.play().catch(() => {
-          // Autoplay blocked by browser policy — silently ignore.
-          // The poster image will show as fallback.
-        })
+      // --- FIX 2: Hard-reset card positions so they can never bleed over page ---
+      const cards = cardsContainerRef.current?.querySelectorAll(".hero-card")
+      if (cards && cards.length > 0) {
+        gsap.set(cards, { clearProps: "all" })
+        // cards start fully below the viewport (yPercent 100) until the next
+        // forward transition, so they won't be visible in the page sections.
+        gsap.set(cards, { yPercent: 100 })
       }
-      // -------------------
     })
+
     tl.reverse()
   }, [resetSignal])
 
-  // Allow scroll wheel / touch to also trigger the transition
+  // ─── WHEEL / TOUCH TRIGGER ────────────────────────────────────────────────────
   useEffect(() => {
     if (scrollEnabled || transitionDone) return
     const onWheel = (e: WheelEvent) => {
@@ -138,7 +162,12 @@ export default function HeroSection({
   }
 
   return (
-    <div ref={heroRef} id="hero" className="relative w-full" style={{ height: "100vh" }}>
+    // FIX 2 (cont.): overflow-hidden clips the floating cards that are
+    // positioned at top: 100vh when they are not in the middle of a forward
+    // transition.  Without this the cards (which contain "How It Works",
+    // "From your hand back to the shelf.", "01 Buy …" etc.) were visible
+    // *beneath* the hero section, producing the garbled text the user reported.
+    <div ref={heroRef} id="hero" className="relative w-full overflow-hidden" style={{ height: "100vh" }}>
       {/* Video background */}
       <div ref={videoRef} className="absolute inset-0" style={{ zIndex: 1 }}>
         <video
@@ -201,12 +230,10 @@ export default function HeroSection({
         </p>
 
         <div className="mb-8 flex flex-col items-center gap-4 sm:flex-row">
-          {/* Download App  -  always works, goes to /download page */}
           <a href="/download" className="pill-btn pill-btn-white">
             <Download size={18} />
             Download App
           </a>
-          {/* Partner  -  unlocks scroll & jumps to model section */}
           <button
             onClick={() => {
               triggerTransition()
@@ -230,7 +257,7 @@ export default function HeroSection({
         </span>
       </div>
 
-      {/* Explore CTA  -  shown until transition fires */}
+      {/* Explore CTA */}
       {!scrollEnabled && (
         <button
           ref={ctaBtnRef}
@@ -245,13 +272,16 @@ export default function HeroSection({
         </button>
       )}
 
-      {/* Floating reveal cards */}
+      {/* Floating reveal cards
+          These start at top: 100vh (below the viewport).  overflow-hidden on the
+          parent hero div ensures they are invisible until a forward transition
+          animates them upward into view. */}
       <div
         ref={cardsContainerRef}
         className="pointer-events-none absolute inset-x-0"
         style={{ top: "100vh", zIndex: 5 }}
       >
-        {/* Card 0  -  light stat row */}
+        {/* Card 0 – light stat row */}
         <div
           className="hero-card absolute overflow-hidden rounded-3xl shadow-elevated"
           style={{ left: "5vw", width: "90vw", height: "80vh", top: "10vh", background: "#F7F7F7" }}
@@ -285,7 +315,7 @@ export default function HeroSection({
           </div>
         </div>
 
-        {/* Card 1  -  dark how-it-works strip */}
+        {/* Card 1 – dark how-it-works strip */}
         <div
           className="hero-card absolute overflow-hidden rounded-3xl shadow-elevated"
           style={{ left: "10vw", width: "80vw", height: "85vh", top: "5vh", background: "#101010" }}
@@ -323,7 +353,7 @@ export default function HeroSection({
           </div>
         </div>
 
-        {/* Card 2  -  white impact metrics */}
+        {/* Card 2 – white impact metrics */}
         <div
           className="hero-card absolute overflow-hidden rounded-3xl shadow-elevated"
           style={{ left: "5vw", width: "90vw", height: "80vh", top: "10vh", background: "#FFFFFF" }}
