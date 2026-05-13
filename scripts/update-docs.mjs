@@ -236,9 +236,10 @@ async function updateVercel() {
   const sha = (shaRaw || 'unknown').slice(0, 7);
   const branch = process.env.GITHUB_REF_NAME || 'unknown';
   const env = process.env.VERCEL_ENV || 'unknown';
-  const deploymentUrl = url
-    ? (url.startsWith('http://') || url.startsWith('https://') ? url : `https://${url}`)
-    : 'N/A';
+  let deploymentUrl = 'N/A';
+  if (url) {
+    deploymentUrl = url.startsWith('http://') || url.startsWith('https://') ? url : `https://${url}`;
+  }
   const now = new Date().toISOString();
   const entry = `| ${now} | \`${sha}\` | ${branch} | ${env} | ${deploymentUrl} |`;
 
