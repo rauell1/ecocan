@@ -1,0 +1,30 @@
+{
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Write|Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "shell": "powershell",
+            "command": "$j = [Console]::In.ReadToEnd() | ConvertFrom-Json; if ($j.tool_input.file_path -match 'package\\.json$') { Write-Host 'package.json changed — running pnpm install to sync lockfile...'; Set-Location 'C:\\Users\\royok\\Documents\\ecocan'; pnpm install 2>&1 | Select-Object -Last 5 }",
+            "timeout": 120,
+            "statusMessage": "Syncing pnpm-lock.yaml..."
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "agent",
+            "prompt": "You are a documentation maintenance agent. Your job is to keep CLAUDE.md and any GitHub Actions workflow YAMLs in sync with the current state of the ecocan Next.js codebase at C:\\Users\\royok\\Documents\\ecocan.\n\n1. Read the current CLAUDE.md at C:\\Users\\royok\\Documents\\ecocan\\CLAUDE.md\n2. Run `git diff --name-only HEAD~1 HEAD` to see which files changed in the last commit\n3. If any new components, pages, dependencies, config files, or architectural patterns were added or changed, update CLAUDE.md to accurately reflect them — keep the existing structure and tone, just update the facts\n4. If .github/workflows/ YAML files exist, check whether they still match the project's current package manager (pnpm), build command (pnpm run build), and Node version used by Next.js 14\n5. Only write files if something actually needs updating — do not make superficial edits",
+            "timeout": 180,
+            "statusMessage": "Updating project docs..."
+          }
+        ]
+      }
+    ]
+  }
+}
