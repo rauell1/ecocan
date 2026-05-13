@@ -285,7 +285,7 @@ async function updateVercel(): Promise<void> {
   const filePath = path.join(ROOT, 'VERCEL.md');
   let existing = await readOrEmpty(filePath);
 
-  const sha = shaRaw?.slice(0, 7) || 'unknown';
+  const sha = shaRaw.slice(0, 7);
   const branch = process.env.GITHUB_REF_NAME || 'unknown';
   const env = process.env.VERCEL_ENV || 'unknown';
   let deploymentUrl = 'N/A';
