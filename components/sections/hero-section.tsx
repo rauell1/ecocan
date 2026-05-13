@@ -8,15 +8,21 @@ import { Download, ArrowRight, ChevronDown } from "lucide-react"
 interface HeroSectionProps {
   scrollEnabled: boolean
   onTransitionComplete: () => void
+  resetSignal: number
 }
 
-export default function HeroSection({ scrollEnabled, onTransitionComplete }: HeroSectionProps) {
+export default function HeroSection({
+  scrollEnabled,
+  onTransitionComplete,
+  resetSignal,
+}: HeroSectionProps) {
   const heroRef = useRef<HTMLDivElement>(null)
   const videoRef = useRef<HTMLDivElement>(null)
   const brandRef = useRef<HTMLHeadingElement>(null)
   const contentRef = useRef<HTMLDivElement>(null)
   const ctaBtnRef = useRef<HTMLButtonElement>(null)
   const cardsContainerRef = useRef<HTMLDivElement>(null)
+  const transitionTlRef = useRef<gsap.core.Timeline | null>(null)
   const [transitionDone, setTransitionDone] = useState(false)
 
   useEffect(() => {
@@ -45,6 +51,8 @@ export default function HeroSection({ scrollEnabled, onTransitionComplete }: Her
       onComplete: () => onTransitionComplete(),
     })
 
+    transitionTlRef.current = tl
+
     tl.to(videoRef.current, { scale: 0.5, filter: "brightness(0.6)", duration: 1.2 }, 0)
     tl.to(brandRef.current, { autoAlpha: 0, duration: 0.5 }, 0.3)
     tl.to(contentRef.current, { autoAlpha: 0, duration: 0.4 }, 0.2)
@@ -58,6 +66,23 @@ export default function HeroSection({ scrollEnabled, onTransitionComplete }: Her
 
     tl.to(ctaBtnRef.current, { autoAlpha: 0, duration: 0.4 }, 0.8)
   }
+
+  // Reverse the hero transition when resetSignal fires (user scrolled back to top)
+  useEffect(() => {
+    if (resetSignal === 0) return
+
+    const tl = transitionTlRef.current
+    if (!tl) {
+      setTransitionDone(false)
+      return
+    }
+
+    tl.eventCallback("onReverseComplete", () => {
+      setTransitionDone(false)
+      tl.eventCallback("onReverseComplete", null)
+    })
+    tl.reverse()
+  }, [resetSignal])
 
   // Allow scroll wheel / touch to also trigger the transition
   useEffect(() => {

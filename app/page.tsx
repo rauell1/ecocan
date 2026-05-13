@@ -22,10 +22,28 @@ import CallToActionSection from "@/components/sections/call-to-action-section"
 import FAQSection from "@/components/sections/faq-section"
 import HomeFooter from "@/components/sections/home-footer"
 
+const SCROLL_AWAY_THRESHOLD_PX = 120
+const HERO_RESET_THRESHOLD_PX = 50
+
 export default function Home() {
   const [scrollEnabled, setScrollEnabled] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
+  const [heroResetSignal, setHeroResetSignal] = useState(0)
   const lenisRef = useRef<Lenis | null>(null)
+  const lenisRafRef = useRef<((time: number) => void) | null>(null)
+  const hasScrolledAwayFromTopRef = useRef(false)
+  const isResettingToHeroRef = useRef(false)
+
+  const destroyLenis = useCallback(() => {
+    if (lenisRafRef.current) {
+      gsap.ticker.remove(lenisRafRef.current)
+      lenisRafRef.current = null
+    }
+    if (lenisRef.current) {
+      lenisRef.current.destroy()
+      lenisRef.current = null
+    }
+  }, [])
 
   // Lock scroll until the hero transition completes
   useEffect(() => {
@@ -40,10 +58,13 @@ export default function Home() {
   const handleTransitionComplete = useCallback(() => {
     document.body.style.overflow = ""
     setScrollEnabled(true)
+    hasScrolledAwayFromTopRef.current = false
+    isResettingToHeroRef.current = false
 
     requestAnimationFrame(() => {
       requestAnimationFrame(() => {
         gsap.registerPlugin(ScrollTrigger)
+        destroyLenis()
 
         const lenis = new Lenis({ lerp: 0.1, smoothWheel: true })
 
@@ -51,9 +72,10 @@ export default function Home() {
           ScrollTrigger.update()
         })
 
-        gsap.ticker.add((time) => {
+        lenisRafRef.current = (time) => {
           lenis.raf(time * 1000)
-        })
+        }
+        gsap.ticker.add(lenisRafRef.current)
 
         gsap.ticker.lagSmoothing(0)
         lenisRef.current = lenis
@@ -63,7 +85,42 @@ export default function Home() {
         }, 200)
       })
     })
-  }, [])
+  }, [destroyLenis])
+
+  const resetToHero = useCallback(() => {
+    if (!scrollEnabled || isResettingToHeroRef.current) return
+    isResettingToHeroRef.current = true
+
+    destroyLenis()
+    window.scrollTo({ top: 0, behavior: "auto" })
+    setHeroResetSignal((prev) => prev + 1)
+    setScrollEnabled(false)
+  }, [destroyLenis, scrollEnabled])
+
+  // Reset to hero when user scrolls back to the very top
+  useEffect(() => {
+    if (!scrollEnabled) {
+      isResettingToHeroRef.current = false
+      return
+    }
+
+    const handleScroll = () => {
+      if (isResettingToHeroRef.current) return
+      const y = window.scrollY
+      if (y > SCROLL_AWAY_THRESHOLD_PX) {
+        hasScrolledAwayFromTopRef.current = true
+        return
+      }
+      if (hasScrolledAwayFromTopRef.current && y <= HERO_RESET_THRESHOLD_PX) {
+        resetToHero()
+      }
+    }
+
+    window.addEventListener("scroll", handleScroll, { passive: true })
+    return () => window.removeEventListener("scroll", handleScroll)
+  }, [resetToHero, scrollEnabled])
+
+  useEffect(() => () => destroyLenis(), [destroyLenis])
 
   return (
     <div className="relative">
@@ -74,7 +131,11 @@ export default function Home() {
         scrollEnabled={scrollEnabled}
       />
 
-      <HeroSection scrollEnabled={scrollEnabled} onTransitionComplete={handleTransitionComplete} />
+      <HeroSection
+        scrollEnabled={scrollEnabled}
+        onTransitionComplete={handleTransitionComplete}
+        resetSignal={heroResetSignal}
+      />
 
       <div id="problem">
         <ProblemSolutionSection />

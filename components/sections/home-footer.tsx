@@ -107,14 +107,23 @@ export default function HomeFooter() {
               Stay updated on ECOCAN&apos;s impact and initiatives.
             </p>
             <div className="flex gap-2">
+              <label htmlFor="footer-email" className="sr-only">
+                Email address
+              </label>
               <input
+                id="footer-email"
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="Enter your email"
-                className="flex-1 rounded-xl border border-white/10 bg-white/10 px-4 py-3 text-sm text-white outline-none placeholder:text-white/40 focus:ring-2 focus:ring-primary"
+                aria-label="Email address for newsletter"
+                className="flex-1 rounded-xl border border-white/10 bg-white/10 px-4 py-3 text-sm text-white placeholder:text-white/40 focus:ring-2 focus:ring-primary focus-visible:ring-2 focus-visible:ring-primary"
               />
-              <button className="whitespace-nowrap rounded-xl bg-primary px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-primary-dark">
+              <button
+                type="submit"
+                aria-label="Subscribe to ECOCAN newsletter"
+                className="whitespace-nowrap rounded-xl bg-primary px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-primary-dark"
+              >
                 Subscribe
               </button>
             </div>
