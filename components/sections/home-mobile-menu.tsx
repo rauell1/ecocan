@@ -1,9 +1,7 @@
 "use client";
 
-import { useEffect } from "react";
-import Image from "next/image";
 import Link from "next/link";
-import { X } from "lucide-react";
+import { X, Download } from "lucide-react";
 
 interface HomeMobileMenuProps {
   isOpen: boolean;
@@ -13,105 +11,101 @@ interface HomeMobileMenuProps {
 
 const sectionLinks = [
   { label: "How It Works", href: "#how-it-works" },
-  { label: "The Model", href: "#model" },
-  { label: "For Investors", href: "#investors" },
-  { label: "Sustainability", href: "#impact" },
+  { label: "ECOmmunity", href: "#ecommunity" },
+  { label: "Investors", href: "#investors" },
+  { label: "Impact", href: "#impact" },
+  { label: "FAQ", href: "#faq" },
 ];
 
 const pageLinks = [
-  { label: "About Us", href: "/about-us" },
   { label: "Solutions", href: "/solutions" },
-  { label: "News", href: "/news" },
+  { label: "About Us", href: "/about-us" },
   { label: "Contact", href: "/contact" },
+  { label: "News", href: "/news" },
 ];
 
-export default function HomeMobileMenu({ isOpen, onClose, scrollEnabled }: HomeMobileMenuProps) {
-  useEffect(() => {
-    // Only lock scroll if not already locked by hero transition
-    if (isOpen && scrollEnabled) {
-      document.body.style.overflow = "hidden";
-    } else if (!isOpen && scrollEnabled) {
-      document.body.style.overflow = "";
-    }
-    return () => {
-      if (scrollEnabled) document.body.style.overflow = "";
-    };
-  }, [isOpen, scrollEnabled]);
-
+export default function HomeMobileMenu({
+  isOpen,
+  onClose,
+  scrollEnabled,
+}: HomeMobileMenuProps) {
   const handleSectionClick = (href: string) => {
     onClose();
-    if (!scrollEnabled) return;
+    // Unlock body scroll regardless of scrollEnabled state
+    document.body.style.overflow = "";
     setTimeout(() => {
       const el = document.querySelector(href);
       if (el) el.scrollIntoView({ behavior: "smooth" });
-    }, 300);
+    }, 200);
   };
 
   return (
     <>
+      {/* Backdrop */}
       <div
-        className={`fixed inset-0 z-[60] bg-black/50 backdrop-blur-sm transition-opacity duration-300 lg:hidden ${
+        onClick={onClose}
+        className={`fixed inset-0 z-40 bg-black/60 transition-opacity duration-300 ${
           isOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
         }`}
-        onClick={onClose}
       />
+
+      {/* Drawer */}
       <div
-        className={`fixed top-0 right-0 bottom-0 z-[70] w-[320px] max-w-[85vw] bg-white shadow-elevated transform transition-transform duration-300 ease-out lg:hidden ${
+        className={`fixed top-0 right-0 h-full z-50 w-[300px] max-w-[90vw] bg-white shadow-2xl transition-transform duration-300 ${
           isOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
-        <div className="flex items-center justify-between p-6 border-b border-gray-100">
-          <Image src="/images/ecocan-logo.png" alt="ECOCAN" width={70} height={28} className="h-7 w-auto" />
-          <button onClick={onClose} className="p-2 text-eco-dark" aria-label="Close menu">
-            <X size={24} />
+        <div className="flex items-center justify-between px-6 py-5 border-b border-black/8">
+          <span className="font-bold text-eco-dark text-[17px]">Menu</span>
+          <button
+            onClick={onClose}
+            className="p-2 rounded-lg hover:bg-black/5 transition-colors"
+            aria-label="Close menu"
+          >
+            <X size={22} className="text-eco-dark" />
           </button>
         </div>
 
-        <div className="p-6 flex flex-col gap-0 overflow-y-auto max-h-[calc(100vh-80px)]">
-          {/* Section anchors */}
-          <p className="text-xs font-semibold uppercase tracking-widest text-eco-dark/40 px-4 py-2">On this page</p>
+        <nav className="px-6 pt-6 flex flex-col gap-1">
+          <p className="text-[11px] uppercase tracking-widest text-eco-dark/40 font-semibold mb-2">
+            On this page
+          </p>
           {sectionLinks.map((link) => (
-            <a
+            <button
               key={link.href}
-              href={link.href}
-              onClick={(e) => { e.preventDefault(); handleSectionClick(link.href); }}
-              className="py-3 px-4 text-base font-medium text-eco-dark hover:bg-eco-light rounded-xl transition-colors"
+              onClick={() => handleSectionClick(link.href)}
+              className="w-full text-left py-3 px-3 rounded-lg text-[16px] font-medium text-eco-dark hover:bg-primary/8 hover:text-primary transition-colors cursor-pointer"
             >
               {link.label}
-            </a>
+            </button>
           ))}
 
-          <div className="my-4 border-t border-gray-100" />
+          <div className="my-4 border-t border-black/8" />
 
-          {/* Page links */}
-          <p className="text-xs font-semibold uppercase tracking-widest text-eco-dark/40 px-4 py-2">Explore</p>
+          <p className="text-[11px] uppercase tracking-widest text-eco-dark/40 font-semibold mb-2">
+            Pages
+          </p>
           {pageLinks.map((link) => (
             <Link
               key={link.href}
               href={link.href}
               onClick={onClose}
-              className="py-3 px-4 text-base font-medium text-eco-dark hover:bg-eco-light rounded-xl transition-colors"
+              className="py-3 px-3 rounded-lg text-[16px] font-medium text-eco-dark hover:bg-primary/8 hover:text-primary transition-colors"
             >
               {link.label}
             </Link>
           ))}
+        </nav>
 
-          <div className="mt-6 pt-6 border-t border-gray-100 flex flex-col gap-3">
-            <Link
-              href="/download"
-              onClick={onClose}
-              className="pill-btn pill-btn-filled w-full justify-center"
-            >
-              Download App
-            </Link>
-            <Link
-              href="/contact"
-              onClick={onClose}
-              className="pill-btn pill-btn-outline w-full justify-center"
-            >
-              Contact Us
-            </Link>
-          </div>
+        <div className="absolute bottom-0 left-0 right-0 p-6 border-t border-black/8">
+          <Link
+            href="/download"
+            onClick={onClose}
+            className="pill-btn pill-btn-filled w-full justify-center text-base active:scale-95 transition-transform"
+          >
+            <Download size={18} />
+            Download ECOCAN App
+          </Link>
         </div>
       </div>
     </>
