@@ -6,11 +6,11 @@ import { cva, type VariantProps } from "class-variance-authority"
 import { cn } from "@/lib/utils"
 
 /**
- * Label â€” Ecocan design system
+ * Label - Ecocan design system
  *
  * Two visual modes:
- *   default  â†’ 14px semi-bold, dark text (standard form label)
- *   overline â†’ 12px, uppercase, tracked, primary green (section-overline pattern)
+ *   default  -†’ 14px semi-bold, dark text (standard form label)
+ *   overline -†’ 12px, uppercase, tracked, primary green (section-overline pattern)
  *
  * The "overline" variant matches .section-overline from globals.css and
  * is used as decorative section headers throughout the site.

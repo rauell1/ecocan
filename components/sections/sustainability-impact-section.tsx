@@ -6,7 +6,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 const stats = [
   { label: "Bottles recovered (monthly)", value: 50000, suffix: "+" },
-  { label: "Tons COâ‚‚ saved", value: 120, suffix: "" },
+  { label: "Tons CO-‚‚ saved", value: 120, suffix: "" },
   { label: "Active collection points", value: 150, suffix: "+" },
 ];
 

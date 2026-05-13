@@ -45,7 +45,7 @@ export default function Blog() {
         </div>
       </div>
 
-      {/* News tabs + articles — unchanged */}
+      {/* News tabs + articles - unchanged */}
       <div className="max-w-[1280px] mx-auto px-6 py-12">
         <News />
       </div>

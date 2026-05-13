@@ -55,7 +55,7 @@ export default function Aluminium() {
                 <p className="text-white text-base">
                   That used aluminium cans are some of the most valuable scrap
                   materials in the whole world? And that they can be recycled
-                  indefinitely without losing material value—yes, recycled
+                  indefinitely without losing material value. Yes, recycled
                   forever!
                 </p>
               }

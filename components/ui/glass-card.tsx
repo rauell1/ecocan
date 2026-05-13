@@ -4,7 +4,7 @@ import * as React from "react"
 import { cn } from "@/lib/utils"
 
 /**
- * GlassCard — Kimi-spec glassmorphism card component.
+ * GlassCard - Kimi-spec glassmorphism card component.
  *
  * Designed for use over dark, video, image, or gradient backgrounds.
  * Implements: bg-white/10, backdrop-blur-md, border border-white/20,
@@ -12,7 +12,7 @@ import { cn } from "@/lib/utils"
  *
  * Props:
  *   - hover: enable hover lift animation (default: true)
- *   - intensity: 'sm' | 'md' | 'lg' — controls blur + opacity strength
+ *   - intensity: 'sm' | 'md' | 'lg' - controls blur + opacity strength
  */
 
 interface GlassCardProps extends React.HTMLAttributes<HTMLDivElement> {
@@ -52,7 +52,7 @@ const GlassCard = React.forwardRef<HTMLDivElement, GlassCardProps>(
 )
 GlassCard.displayName = "GlassCard"
 
-// ─── GlassCard subcomponents ─────────────────────────────────────────────────
+// --- GlassCard subcomponents -------------------------------------------------
 
 const GlassCardHeader = React.forwardRef<
   HTMLDivElement,

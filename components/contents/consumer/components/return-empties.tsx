@@ -37,7 +37,7 @@ const timelineData = {
       image: "/assets/images/consumer/recycle.svg",
       title: "Or recycle via ECOCANs",
       description:
-        "Show your ECOCAN ID to the scanners located at the front of the devise, place your empties into the infeed, then complete the session. And youâ€™ll immediately receive applicable deposit money directly into your ECO-wallet",
+        "Show your ECOCAN ID to the scanners located at the front of the devise, place your empties into the infeed, then complete the session. And you--™ll immediately receive applicable deposit money directly into your ECO-wallet",
     },
     {
       image: "/assets/images/consumer/how.svg",

@@ -34,7 +34,7 @@ export default function Matters() {
             <div className="space-y-8">
               <p>
                 You already know what they mean, but they mean most to us. So
-                weâ€™ve developed technology to facilitate their implementation.
+                we--™ve developed technology to facilitate their implementation.
               </p>
               <p>
                 And we expect you to also uphold them, if you want a gig with

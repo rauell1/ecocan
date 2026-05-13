@@ -88,7 +88,7 @@ export default function HowItWorksSection({ scrollEnabled }: HowItWorksSectionPr
         </div>
 
         <p className="text-white/40 text-sm italic heading-animate mb-3">
-          No machine? No problem. Our partner counters scan and pay you instantly — right now, today.
+          No machine? No problem. Our partner counters scan and pay you instantly. Right now, today.
         </p>
         <Link
           href="/solutions"

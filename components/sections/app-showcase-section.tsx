@@ -11,7 +11,7 @@ const features = [
   { icon: ScanLine, title: "Scan & Verify in 3 seconds", desc: "Point your phone at any bottle. Know if it's real before you drink." },
   { icon: Wallet, title: "Instant earnings to your wallet", desc: "Return empties, get deposit money sent straight to M-PESA or bank." },
   { icon: MapPin, title: "Find the nearest ECO-Station", desc: "Our map shows every collection point in your area, updated in real time." },
-  { icon: ShieldCheck, title: "Your bottle, fully traced", desc: "From producer to return — every step visible, every counterfeit caught." },
+  { icon: ShieldCheck, title: "Your bottle, fully traced", desc: "From producer to return, every step visible, every counterfeit caught." },
 ];
 
 export default function AppShowcaseSection() {
@@ -66,7 +66,7 @@ export default function AppShowcaseSection() {
               Everything you need.<br />One app.
             </h2>
             <p className="text-white/60 text-lg leading-relaxed app-text-animate mb-10 max-w-[500px]">
-              Scan, earn, find, and report — the ECOCAN app puts the entire circular bottle economy in your pocket.
+              Scan, earn, find, and report. The ECOCAN app puts the entire circular bottle economy in your pocket.
             </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 mb-10">

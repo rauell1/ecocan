@@ -63,7 +63,7 @@ export default function HomeFooter() {
               className="h-12 w-auto mb-4"
             />
             <p className="text-white/50 text-base max-w-sm leading-relaxed">
-              Africa&apos;s circular bottle ecosystem — closing the loop on waste, one bottle at a time.
+              Africa&apos;s circular bottle ecosystem, closing the loop on waste, one bottle at a time.
             </p>
             <div className="flex items-center gap-3 mt-6">
               {socials.map((s) => (

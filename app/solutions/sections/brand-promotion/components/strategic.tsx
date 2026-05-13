@@ -20,7 +20,7 @@ export default function Strategic() {
           <div className="w-11/12">
             <TextWithComponent
               title="Strategic Approach"
-              description="One size might fit all in fashion, but rarely in marketing! Luckily, ECOCANâ€™s dynamic approach enables you to tailor your outreach 
+              description="One size might fit all in fashion, but rarely in marketing! Luckily, ECOCAN--™s dynamic approach enables you to tailor your outreach 
 to specific audiences based on Demographic, Geography, Psychographics, and Context. Empowering you to adapt to their preferences, evolve with their needs, and change with the market"
             />
           </div>

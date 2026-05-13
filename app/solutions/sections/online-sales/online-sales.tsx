@@ -68,7 +68,7 @@ const stepsTwo = [
     id: 2,
     step: (
       <div className="font-light">
-        After onboarding, we‚Äôll tailor our systems just for you
+        After onboarding, we--ôll tailor our systems just for you
       </div>
     ),
   },
@@ -82,14 +82,14 @@ const stepsTwo = [
   },
   {
     id: 4,
-    step: <div className="font-light">That‚Äôs all. You are good to go </div>,
+    step: <div className="font-light">That--ôs all. You are good to go </div>,
   },
 ];
 
 const howToData = [
   {
     id: 1,
-    title: "You‚Äôll be helping reduce packaging litter in the environment",
+    title: "You--ôll be helping reduce packaging litter in the environment",
   },
   {
     id: 2,
@@ -168,7 +168,7 @@ export default function OnlineSales() {
                 <StyledText>Sign the ECO-partnership agreement</StyledText>
                 <StyledText>Update your profile on ECOCAN Market</StyledText>
                 <StyledText>
-                  Set your status ‚Äúlive‚Äù, and start selling
+                  Set your status --úlive--ù, and start selling
                 </StyledText>
                 <StyledText>While accepting empties</StyledText>
               </div>
@@ -202,12 +202,12 @@ export default function OnlineSales() {
                     ECO-Producer
                   </StyledText>
                   <StyledText>
-                    After onboarding, we‚Äôll tailor our systems just for you
+                    After onboarding, we--ôll tailor our systems just for you
                   </StyledText>
                   <StyledText>
                     Then update your product profiles on ECOCAN Market
                   </StyledText>
-                  <StyledText>That‚Äôs all. You are good to go ¬†</StyledText>
+                  <StyledText>That--ôs all. You are good to go ¬†</StyledText>
                 </div>
               }
             />
@@ -231,7 +231,7 @@ export default function OnlineSales() {
             className="w-full"
             title="We live in a world of Super Convenience"
             subtitle={
-              <p className="text-xl">And we‚Äôll help you make the most of it</p>
+              <p className="text-xl">And we--ôll help you make the most of it</p>
             }
             description={
               <div>

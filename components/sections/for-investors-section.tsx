@@ -36,7 +36,7 @@ export default function ForInvestorsSection() {
           </h2>
           <p className="section-body text-white/60">
             ECOCAN is building the deposit-return backbone that makes recycling profitable for
-            everyone — from individual consumers to multinational brands.
+            everyone, from individual consumers to multinational brands.
           </p>
         </div>
 

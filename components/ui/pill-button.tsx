@@ -5,7 +5,7 @@ import { Slot } from "@radix-ui/react-slot"
 import { cn } from "@/lib/utils"
 
 /**
- * PillButton — Kimi-spec pill-shaped CTA button.
+ * PillButton - Kimi-spec pill-shaped CTA button.
  *
  * This is a standalone component (not a variant of Button) to keep it
  * self-contained for hero and CTA sections that need precise control.

@@ -18,7 +18,7 @@ const testimonialsData = [
     image: "/assets/images/events/kaberi.png",
     name: " Kabeberi",
     surname: "7s",
-    testimony: "Exciting news! We are teaming up with ECOCAN to make #Kabeberi 7s an ECO-friendly event. Letâ€™s tackle plastic pollution together. Say no to single use plastics and help keep our environment clean by disposing of litter in designated trash points around the venue",
+    testimony: "Exciting news! We are teaming up with ECOCAN to make #Kabeberi 7s an ECO-friendly event. Let--™s tackle plastic pollution together. Say no to single use plastics and help keep our environment clean by disposing of litter in designated trash points around the venue",
   },
   {
     image: "/assets/images/events/harlequins.png",

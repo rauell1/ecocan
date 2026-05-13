@@ -2,7 +2,7 @@ import * as React from "react"
 import { cn } from "@/lib/utils"
 
 /**
- * Input — token-hardened.
+ * Input - token-hardened.
  * Focus ring uses primary token. Border adapts to dark mode via --input CSS var.
  * 16px font-size prevents iOS auto-zoom on focus.
  */
@@ -17,12 +17,12 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
         className={cn(
           // Layout
           "flex h-10 w-full rounded-[var(--radius)] px-3 py-2",
-          // Typography — 16px minimum prevents iOS zoom
+          // Typography - 16px minimum prevents iOS zoom
           "text-base md:text-sm",
           // Colours
           "border border-input bg-background text-foreground",
           "placeholder:text-muted-foreground",
-          // Focus — primary ring
+          // Focus - primary ring
           "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:border-primary",
           // States
           "disabled:cursor-not-allowed disabled:opacity-50",

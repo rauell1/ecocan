@@ -91,7 +91,7 @@ const steps = [
     ),
     step: <p className="mb-3">Increased recycling rates</p>,
     description:
-      " Youâ€™re familiar with how difficult it is to capture offtrade empties. But are also aware of the spellbinding magic of a worthwhile deposit! Weâ€™ve further sweetened this with coupons & discounts",
+      " You--™re familiar with how difficult it is to capture offtrade empties. But are also aware of the spellbinding magic of a worthwhile deposit! We--™ve further sweetened this with coupons & discounts",
   },
   
 ];

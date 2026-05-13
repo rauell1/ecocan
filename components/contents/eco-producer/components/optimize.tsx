@@ -57,19 +57,19 @@ export default function Optimize() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
           <FeatureCard
             title="Transform them into digitally connected assets"
-            description="Weâ€™ll help unlock the digital power of your ordinary bottles, by enabling item-unit traceability across the entire market, in real-time! To prevent counterfeiting and diversion attempts, as well as to offer you unmatched market intelligence"
+            description="We--™ll help unlock the digital power of your ordinary bottles, by enabling item-unit traceability across the entire market, in real-time! To prevent counterfeiting and diversion attempts, as well as to offer you unmatched market intelligence"
             imageSrc="/assets/images/producer/optimize-1.svg"
             href="/solutions/brand-protection"
           />
           <FeatureCard
             title="Convert them into low-cost marketing channels"
-            description="Your packaging is more than a one-time consumable; weâ€™ll transform them into expansive & disruptive marketing assets, for direct customer engagement through personalized campaigns. In return, you'll gain actionable insights, and promote brand loyalty"
+            description="Your packaging is more than a one-time consumable; we--™ll transform them into expansive & disruptive marketing assets, for direct customer engagement through personalized campaigns. In return, you'll gain actionable insights, and promote brand loyalty"
             imageSrc="/assets/images/producer/optimize-2.svg"
             href="/solutions/brand-promotion"
           />
           <FeatureCard
             title="Minimise their environmental footprint"
-            description="Through reuse and recycling via the ECOCAN DRS, weâ€™ll tell you exactly what packaging has been collected for recycling, when and where. Weâ€™ll also ensure regulators know about your ECO-friendly efforts"
+            description="Through reuse and recycling via the ECOCAN DRS, we--™ll tell you exactly what packaging has been collected for recycling, when and where. We--™ll also ensure regulators know about your ECO-friendly efforts"
             imageSrc="/assets/images/producer/optimize-3.svg"
             href="/solutions/packaging-recycling"
           />

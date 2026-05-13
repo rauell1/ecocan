@@ -20,7 +20,7 @@ const faqData = [
   {
     question: "How can I get ECOCAN Security codes for my ticketing?",
     answer:
-      "Once onboarded, weâ€™ll create a TnT profile for your event and help customize ECOCAN Security codes, which will be digitally delivered to you.",
+      "Once onboarded, we--™ll create a TnT profile for your event and help customize ECOCAN Security codes, which will be digitally delivered to you.",
   },
   {
     question:

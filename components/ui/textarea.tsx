@@ -2,7 +2,7 @@ import * as React from "react"
 import { cn } from "@/lib/utils"
 
 /**
- * Textarea — token-hardened, consistent with Input styles.
+ * Textarea - token-hardened, consistent with Input styles.
  */
 export interface TextareaProps
   extends React.TextareaHTMLAttributes<HTMLTextAreaElement> {}

@@ -34,7 +34,7 @@ const howToData = [
     id: 2,
     title: (
       <p className="text-[#404040] font-normal text-base">
-        And youâ€™ll always be alerted in real-time whenever criminals attempt to
+        And you--™ll always be alerted in real-time whenever criminals attempt to
         copy, counterfeit or divert your products
       </p>
     ),
