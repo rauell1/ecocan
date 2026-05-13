@@ -12,8 +12,9 @@ interface HomeNavbarProps {
 
 const sectionLinks = [
   { label: "How It Works", href: "#how-it-works" },
-  { label: "ECOmmunity", href: "#model" },
+  { label: "ECOmmunity", href: "#ecommunity" },
   { label: "Investors", href: "#investors" },
+  { label: "Impact", href: "#impact" },
 ];
 
 const pageLinks = [
@@ -50,7 +51,7 @@ export default function HomeNavbar({ scrollEnabled, onMenuToggle }: HomeNavbarPr
         <a
           href="#hero"
           onClick={(e) => handleSectionClick(e, "#hero")}
-          className="shrink-0"
+          className="shrink-0 flex items-center gap-2"
         >
           <Image
             src="/images/ecocan-logo.png"
@@ -60,6 +61,13 @@ export default function HomeNavbar({ scrollEnabled, onMenuToggle }: HomeNavbarPr
             className="h-8 w-auto"
             priority
           />
+          <span
+            className={`hidden md:inline text-xs font-semibold tracking-[0.18em] uppercase ${
+              scrolled ? "text-eco-dark/80" : "text-white/80"
+            }`}
+          >
+            Circular Bottle Ecosystem
+          </span>
         </a>
 
         {/* Desktop nav */}
