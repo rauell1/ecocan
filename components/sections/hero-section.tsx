@@ -18,6 +18,8 @@ export default function HeroSection({
 }: HeroSectionProps) {
   const heroRef = useRef<HTMLDivElement>(null)
   const videoRef = useRef<HTMLDivElement>(null)
+  // Separate ref for the <video> element itself so we can call .load() / .play()
+  const videoElRef = useRef<HTMLVideoElement>(null)
   const brandRef = useRef<HTMLHeadingElement>(null)
   const contentRef = useRef<HTMLDivElement>(null)
   const ctaBtnRef = useRef<HTMLButtonElement>(null)
@@ -25,6 +27,7 @@ export default function HeroSection({
   const transitionTlRef = useRef<gsap.core.Timeline | null>(null)
   const [transitionDone, setTransitionDone] = useState(false)
 
+  // ─── Entrance animation (runs once on mount) ────────────────────────────────
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger)
     const ctx = gsap.context(() => {
@@ -42,6 +45,39 @@ export default function HeroSection({
     return () => ctx.revert()
   }, [])
 
+  // ─── Scroll-to-top hero reset ────────────────────────────────────────────────
+  // FIX: When resetSignal fires the GSAP timeline is reversed.
+  // After the reverse completes we must reload + replay the video because the
+  // browser's media pipeline is left in a paused/ended state after GSAP
+  // animated `filter: brightness(0.6)` on its parent wrapper and then reversed
+  // it — some Chromium versions mark the video as "ended" or leave it on the
+  // last decoded frame (black), so we have to explicitly re-initialise it.
+  useEffect(() => {
+    if (resetSignal === 0) return
+
+    const tl = transitionTlRef.current
+    if (!tl) {
+      setTransitionDone(false)
+      return
+    }
+
+    tl.eventCallback("onReverseComplete", () => {
+      setTransitionDone(false)
+      tl.eventCallback("onReverseComplete", null)
+
+      // Re-initialise the video element after the GSAP reverse completes.
+      const vid = videoElRef.current
+      if (vid) {
+        vid.load()          // resets the media pipeline & rebuffers from src
+        vid.play().catch(() => {
+          // Autoplay policy may block silent resume; safe to ignore
+        })
+      }
+    })
+    tl.reverse()
+  }, [resetSignal])
+
+  // ─── Hero transition (scroll-down) ──────────────────────────────────────────
   const triggerTransition = () => {
     if (transitionDone) return
     setTransitionDone(true)
@@ -67,24 +103,7 @@ export default function HeroSection({
     tl.to(ctaBtnRef.current, { autoAlpha: 0, duration: 0.4 }, 0.8)
   }
 
-  // Reverse the hero transition when resetSignal fires (user scrolled back to top)
-  useEffect(() => {
-    if (resetSignal === 0) return
-
-    const tl = transitionTlRef.current
-    if (!tl) {
-      setTransitionDone(false)
-      return
-    }
-
-    tl.eventCallback("onReverseComplete", () => {
-      setTransitionDone(false)
-      tl.eventCallback("onReverseComplete", null)
-    })
-    tl.reverse()
-  }, [resetSignal])
-
-  // Allow scroll wheel / touch to also trigger the transition
+  // ─── Wheel / touch listeners to trigger the hero transition ─────────────────
   useEffect(() => {
     if (scrollEnabled || transitionDone) return
     const onWheel = (e: WheelEvent) => {
@@ -120,14 +139,20 @@ export default function HeroSection({
 
   return (
     <div ref={heroRef} id="hero" className="relative w-full" style={{ height: "100vh" }}>
-      {/* Video background */}
+      {/* Video background
+          NOTE: `key={resetSignal}` remounts the <video> element on every hero
+          reset so the browser gets a completely fresh decode context.
+          This is the belt-and-suspenders guarantee that no stale frame or
+          ended-media state survives the GSAP reverse. */}
       <div ref={videoRef} className="absolute inset-0" style={{ zIndex: 1 }}>
         <video
+          key={resetSignal}
+          ref={videoElRef}
           autoPlay
           loop
           muted
           playsInline
-          preload="metadata"
+          preload="auto"
           poster="/images/scan-verify.jpg"
           className="h-full w-full object-cover"
         >
@@ -181,12 +206,10 @@ export default function HeroSection({
         </p>
 
         <div className="mb-8 flex flex-col items-center gap-4 sm:flex-row">
-          {/* Download App  -  always works, goes to /download page */}
           <a href="/download" className="pill-btn pill-btn-white">
             <Download size={18} />
             Download App
           </a>
-          {/* Partner  -  unlocks scroll & jumps to model section */}
           <button
             onClick={() => {
               triggerTransition()
@@ -210,7 +233,7 @@ export default function HeroSection({
         </span>
       </div>
 
-      {/* Explore CTA  -  shown until transition fires */}
+      {/* Explore CTA */}
       {!scrollEnabled && (
         <button
           ref={ctaBtnRef}
@@ -231,7 +254,7 @@ export default function HeroSection({
         className="pointer-events-none absolute inset-x-0"
         style={{ top: "100vh", zIndex: 5 }}
       >
-        {/* Card 0  -  light stat row */}
+        {/* Card 0 — light stat row */}
         <div
           className="hero-card absolute overflow-hidden rounded-3xl shadow-elevated"
           style={{ left: "5vw", width: "90vw", height: "80vh", top: "10vh", background: "#F7F7F7" }}
@@ -265,7 +288,7 @@ export default function HeroSection({
           </div>
         </div>
 
-        {/* Card 1  -  dark how-it-works strip */}
+        {/* Card 1 — dark how-it-works strip */}
         <div
           className="hero-card absolute overflow-hidden rounded-3xl shadow-elevated"
           style={{ left: "10vw", width: "80vw", height: "85vh", top: "5vh", background: "#101010" }}
@@ -303,7 +326,7 @@ export default function HeroSection({
           </div>
         </div>
 
-        {/* Card 2  -  white impact metrics */}
+        {/* Card 2 — white impact metrics */}
         <div
           className="hero-card absolute overflow-hidden rounded-3xl shadow-elevated"
           style={{ left: "5vw", width: "90vw", height: "80vh", top: "10vh", background: "#FFFFFF" }}
