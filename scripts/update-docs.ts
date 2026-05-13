@@ -290,7 +290,12 @@ async function updateVercel(): Promise<void> {
   const env = process.env.VERCEL_ENV || 'unknown';
   let deploymentUrl = 'N/A';
   if (url) {
-    deploymentUrl = url.startsWith('http://') || url.startsWith('https://') ? url : `https://${url}`;
+    const candidate = url.startsWith('http://') || url.startsWith('https://') ? url : `https://${url}`;
+    try {
+      deploymentUrl = new URL(candidate).toString();
+    } catch {
+      deploymentUrl = 'invalid-url';
+    }
   }
   const now = new Date().toISOString();
   const entry = `| ${now} | \`${sha}\` | ${branch} | ${env} | ${deploymentUrl} |`;
