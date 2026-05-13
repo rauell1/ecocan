@@ -30,12 +30,13 @@ export default function HeroSection({
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger)
 
-    // Push cards below the hero boundary immediately so they are invisible
-    // before the transition fires. overflow:clip on the hero section clips
-    // them; yPercent:120 adds a comfortable buffer beyond the clip edge.
+    // Hide cards before the transition fires using GSAP autoAlpha (opacity 0
+    // + visibility hidden) so they are invisible regardless of overflow
+    // behaviour. yPercent:120 also pushes them below the overflow:hidden
+    // clip edge for a belt-and-suspenders approach.
     const initialCards = cardsContainerRef.current?.querySelectorAll(".hero-card")
     if (initialCards && initialCards.length > 0) {
-      gsap.set(initialCards, { yPercent: 120 })
+      gsap.set(initialCards, { yPercent: 120, autoAlpha: 0 })
     }
 
     const ctx = gsap.context(() => {
@@ -71,9 +72,14 @@ export default function HeroSection({
 
     const cards = cardsContainerRef.current?.querySelectorAll(".hero-card")
     if (cards) {
-      // Cards start at yPercent:120 (set on mount, safely below the overflow:clip
-      // boundary). Animate them into the hero viewport from below.
-      tl.fromTo(cards, { yPercent: 120 }, { yPercent: 0, duration: 1.2, stagger: 0.05 }, 0)
+      // Cards start invisible (autoAlpha:0 + yPercent:120 set on mount).
+      // Slide them into the hero viewport while fading in.
+      tl.fromTo(
+        cards,
+        { yPercent: 120, autoAlpha: 0 },
+        { yPercent: 0, autoAlpha: 1, duration: 1.2, stagger: 0.05 },
+        0
+      )
     }
 
     tl.to(ctaBtnRef.current, { autoAlpha: 0, duration: 0.4 }, 0.8)
@@ -104,7 +110,7 @@ export default function HeroSection({
       const cards = cardsContainerRef.current?.querySelectorAll(".hero-card")
       if (cards && cards.length > 0) {
         gsap.set(cards, { clearProps: "all" })
-        gsap.set(cards, { yPercent: 120 })
+        gsap.set(cards, { yPercent: 120, autoAlpha: 0 })
       }
     })
 
@@ -152,7 +158,7 @@ export default function HeroSection({
     <div
       ref={heroRef}
       id="hero"
-      className="relative w-full overflow-clip"
+      className="relative w-full overflow-hidden"
       style={{ height: "100dvh" }}
     >
       {/* ── Video background ──────────────────────────────────────────────────── */}
