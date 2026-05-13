@@ -275,8 +275,8 @@ async function updateRollback(): Promise<void> {
 async function updateVercel(): Promise<void> {
   const url = process.env.VERCEL_URL;
   const shaRaw = process.env.GITHUB_SHA;
-  if (!shaRaw && !url) {
-    console.log('\n⏭️   VERCEL.md – skipped (GITHUB_SHA and VERCEL_URL not set)');
+  if (!shaRaw) {
+    console.log('\n⏭️   VERCEL.md – skipped (GITHUB_SHA not set)');
     return;
   }
 
