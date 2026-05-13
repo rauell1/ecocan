@@ -142,28 +142,11 @@ export default function HeroSection({
         />
       </div>
 
-      {/* Brand name */}
-      <h1
-        ref={brandRef}
-        className="absolute left-1/2 -translate-x-1/2 text-center font-extrabold text-white"
-        style={{
-          bottom: "10vh",
-          fontSize: "clamp(60px, 14vw, 180px)",
-          textShadow: "0 4px 40px rgba(0,0,0,0.5)",
-          mixBlendMode: "overlay",
-          zIndex: 2,
-          lineHeight: 1,
-          letterSpacing: "-0.03em",
-        }}
-      >
-        ECOCAN
-      </h1>
-
       {/* Hero content */}
       <div
         ref={contentRef}
         className="absolute inset-0 flex flex-col items-center justify-center px-6 text-center"
-        style={{ zIndex: 3 }}
+        style={{ zIndex: 3, paddingBottom: "14vh" }}
       >
         <p className="mb-4 text-xs font-semibold uppercase tracking-[0.15em] text-white/70">
           Africa&apos;s Circular Bottle Ecosystem
@@ -208,6 +191,19 @@ export default function HeroSection({
         <span className="glass-pill px-4 py-1.5 text-[13px] italic text-white/80">
           No machine? No problem. Our counters work today.
         </span>
+
+        {/* Brand name — sits between the tagline above and the Explore button below */}
+        <h1
+          ref={brandRef}
+          className="mt-2 text-center font-extrabold text-white"
+          style={{
+            fontSize: "clamp(56px, 13vw, 160px)",
+            lineHeight: 0.9,
+            letterSpacing: "-0.03em",
+          }}
+        >
+          ECOCAN
+        </h1>
       </div>
 
       {/* Explore CTA  -  shown until transition fires */}
