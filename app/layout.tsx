@@ -1,7 +1,8 @@
-import type { Metadata } from "next";
-import { Inter } from "next/font/google";
-import { Analytics } from "@vercel/analytics/next";
-import "./globals.css";
+import type { Metadata } from "next"
+import { Inter } from "next/font/google"
+import { Analytics } from "@vercel/analytics/next"
+import "./globals.css"
+import "@/lib/env" // Validate environment variables at startup
 
 /*
  * Font loading migrated from manual @font-face TTF declarations to next/font.
@@ -37,7 +38,7 @@ const inter = Inter({
   display: "swap",
   variable: "--font-sans",
   preload: true,
-});
+})
 
 export const metadata: Metadata = {
   title: "ECOCAN",
@@ -61,14 +62,14 @@ export const metadata: Metadata = {
     type: "website",
   },
   other: {
-    "author": "ECOCAN",
+    author: "ECOCAN",
   },
-};
+}
 
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode;
+  children: React.ReactNode
 }>) {
   return (
     <html lang="en" className={inter.variable}>
@@ -77,5 +78,5 @@ export default function RootLayout({
         <Analytics />
       </body>
     </html>
-  );
+  )
 }

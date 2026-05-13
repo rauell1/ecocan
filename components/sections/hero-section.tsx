@@ -1,90 +1,97 @@
-"use client";
+"use client"
 
-import { useRef, useEffect, useState } from "react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { Download, ArrowRight, ChevronDown } from "lucide-react";
+import { useRef, useEffect, useState } from "react"
+import { gsap } from "gsap"
+import { ScrollTrigger } from "gsap/ScrollTrigger"
+import { Download, ArrowRight, ChevronDown } from "lucide-react"
 
 interface HeroSectionProps {
-  scrollEnabled: boolean;
-  onTransitionComplete: () => void;
+  scrollEnabled: boolean
+  onTransitionComplete: () => void
 }
 
 export default function HeroSection({ scrollEnabled, onTransitionComplete }: HeroSectionProps) {
-  const heroRef = useRef<HTMLDivElement>(null);
-  const videoRef = useRef<HTMLDivElement>(null);
-  const brandRef = useRef<HTMLHeadingElement>(null);
-  const contentRef = useRef<HTMLDivElement>(null);
-  const ctaBtnRef = useRef<HTMLButtonElement>(null);
-  const cardsContainerRef = useRef<HTMLDivElement>(null);
-  const [transitionDone, setTransitionDone] = useState(false);
+  const heroRef = useRef<HTMLDivElement>(null)
+  const videoRef = useRef<HTMLDivElement>(null)
+  const brandRef = useRef<HTMLHeadingElement>(null)
+  const contentRef = useRef<HTMLDivElement>(null)
+  const ctaBtnRef = useRef<HTMLButtonElement>(null)
+  const cardsContainerRef = useRef<HTMLDivElement>(null)
+  const [transitionDone, setTransitionDone] = useState(false)
 
   useEffect(() => {
-    gsap.registerPlugin(ScrollTrigger);
+    gsap.registerPlugin(ScrollTrigger)
     const ctx = gsap.context(() => {
       gsap.fromTo(
         contentRef.current,
         { opacity: 0, y: 30 },
         { opacity: 1, y: 0, duration: 1, delay: 0.3, ease: "power2.out" }
-      );
+      )
       gsap.fromTo(
         ctaBtnRef.current,
         { opacity: 0, y: 20 },
         { opacity: 1, y: 0, duration: 0.8, delay: 0.8, ease: "power2.out" }
-      );
-    }, heroRef);
-    return () => ctx.revert();
-  }, []);
+      )
+    }, heroRef)
+    return () => ctx.revert()
+  }, [])
 
   const triggerTransition = () => {
-    if (transitionDone) return;
-    setTransitionDone(true);
+    if (transitionDone) return
+    setTransitionDone(true)
 
     const tl = gsap.timeline({
       defaults: { ease: "expo.inOut" },
       onComplete: () => onTransitionComplete(),
-    });
+    })
 
-    tl.to(videoRef.current, { scale: 0.5, filter: "brightness(0.6)", duration: 1.2 }, 0);
-    tl.to(brandRef.current, { autoAlpha: 0, duration: 0.5 }, 0.3);
-    tl.to(contentRef.current, { autoAlpha: 0, duration: 0.4 }, 0.2);
+    tl.to(videoRef.current, { scale: 0.5, filter: "brightness(0.6)", duration: 1.2 }, 0)
+    tl.to(brandRef.current, { autoAlpha: 0, duration: 0.5 }, 0.3)
+    tl.to(contentRef.current, { autoAlpha: 0, duration: 0.4 }, 0.2)
 
-    const cards = cardsContainerRef.current?.querySelectorAll(".hero-card");
+    const cards = cardsContainerRef.current?.querySelectorAll(".hero-card")
     if (cards) {
-      tl.fromTo(cards, { yPercent: 100 }, { yPercent: 0, duration: 1.2, stagger: 0.05 }, 0);
-      tl.to(cards[1], { y: "-15vh", duration: 1.2 }, 0);
+      tl.fromTo(cards, { yPercent: 100 }, { yPercent: 0, duration: 1.2, stagger: 0.05 }, 0)
+      const card1 = cards[1]
+      if (card1) tl.to(card1, { y: "-15vh", duration: 1.2 }, 0)
     }
 
-    tl.to(ctaBtnRef.current, { autoAlpha: 0, duration: 0.4 }, 0.8);
-  };
+    tl.to(ctaBtnRef.current, { autoAlpha: 0, duration: 0.4 }, 0.8)
+  }
 
   // Allow scroll wheel / touch to also trigger the transition
   useEffect(() => {
-    if (scrollEnabled || transitionDone) return;
-    const onWheel = (e: WheelEvent) => { if (e.deltaY > 0) triggerTransition(); };
+    if (scrollEnabled || transitionDone) return
+    const onWheel = (e: WheelEvent) => {
+      if (e.deltaY > 0) triggerTransition()
+    }
     const onTouch = (() => {
-      let startY = 0;
+      let startY = 0
       return {
-        start: (e: TouchEvent) => { startY = e.touches[0].clientY; },
-        end: (e: TouchEvent) => { if (startY - e.changedTouches[0].clientY > 40) triggerTransition(); },
-      };
-    })();
-    window.addEventListener("wheel", onWheel, { passive: true });
-    window.addEventListener("touchstart", onTouch.start, { passive: true });
-    window.addEventListener("touchend", onTouch.end, { passive: true });
+        start: (e: TouchEvent) => {
+          startY = e.touches[0]?.clientY ?? 0
+        },
+        end: (e: TouchEvent) => {
+          if (startY - (e.changedTouches[0]?.clientY ?? 0) > 40) triggerTransition()
+        },
+      }
+    })()
+    window.addEventListener("wheel", onWheel, { passive: true })
+    window.addEventListener("touchstart", onTouch.start, { passive: true })
+    window.addEventListener("touchend", onTouch.end, { passive: true })
     return () => {
-      window.removeEventListener("wheel", onWheel);
-      window.removeEventListener("touchstart", onTouch.start);
-      window.removeEventListener("touchend", onTouch.end);
-    };
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [scrollEnabled, transitionDone]);
+      window.removeEventListener("wheel", onWheel)
+      window.removeEventListener("touchstart", onTouch.start)
+      window.removeEventListener("touchend", onTouch.end)
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [scrollEnabled, transitionDone])
 
   const scrollToSection = (id: string) => {
-    document.body.style.overflow = "";
-    const el = document.getElementById(id);
-    if (el) setTimeout(() => el.scrollIntoView({ behavior: "smooth" }), 80);
-  };
+    document.body.style.overflow = ""
+    const el = document.getElementById(id)
+    if (el) setTimeout(() => el.scrollIntoView({ behavior: "smooth" }), 80)
+  }
 
   return (
     <div ref={heroRef} id="hero" className="relative w-full" style={{ height: "100vh" }}>
@@ -97,7 +104,7 @@ export default function HeroSection({ scrollEnabled, onTransitionComplete }: Her
           playsInline
           preload="metadata"
           poster="/images/scan-verify.jpg"
-          className="w-full h-full object-cover"
+          className="h-full w-full object-cover"
         >
           <source src="/videos/hero-loop.mp4" type="video/mp4" />
         </video>
@@ -113,7 +120,7 @@ export default function HeroSection({ scrollEnabled, onTransitionComplete }: Her
       {/* Brand name */}
       <h1
         ref={brandRef}
-        className="absolute left-1/2 -translate-x-1/2 font-extrabold text-white text-center"
+        className="absolute left-1/2 -translate-x-1/2 text-center font-extrabold text-white"
         style={{
           bottom: "10vh",
           fontSize: "clamp(60px, 14vw, 180px)",
@@ -130,48 +137,50 @@ export default function HeroSection({ scrollEnabled, onTransitionComplete }: Her
       {/* Hero content */}
       <div
         ref={contentRef}
-        className="absolute inset-0 flex flex-col items-center justify-center text-center px-6"
+        className="absolute inset-0 flex flex-col items-center justify-center px-6 text-center"
         style={{ zIndex: 3 }}
       >
-        <p className="text-xs font-semibold uppercase tracking-[0.15em] text-white/70 mb-4">
+        <p className="mb-4 text-xs font-semibold uppercase tracking-[0.15em] text-white/70">
           Africa&apos;s Circular Bottle Ecosystem
         </p>
         <h2
-          className="text-white font-bold mb-4"
+          className="mb-4 font-bold text-white"
           style={{ fontSize: "clamp(32px, 5vw, 56px)", lineHeight: 1.1 }}
         >
-          Return. Recycle.<br />Make a difference.
+          Return. Recycle.
+          <br />
+          Make a difference.
         </h2>
-        <p className="text-white/80 text-lg md:text-xl max-w-[640px] mb-8 font-normal">
+        <p className="mb-8 max-w-[640px] text-lg font-normal text-white/80 md:text-xl">
           Recycle at any ECO-Station. Save the planet. Stop fake drinks. Get a bonus.
         </p>
 
-        <div className="flex flex-col sm:flex-row items-center gap-4 mb-8">
+        <div className="mb-8 flex flex-col items-center gap-4 sm:flex-row">
           {/* Download App — always works, goes to /download page */}
-          <a
-            href="/download"
-            className="pill-btn pill-btn-white"
-          >
+          <a href="/download" className="pill-btn pill-btn-white">
             <Download size={18} />
             Download App
           </a>
           {/* Partner — unlocks scroll & jumps to model section */}
           <button
-            onClick={() => { triggerTransition(); setTimeout(() => scrollToSection("model"), 1400); }}
-            className="text-white font-medium hover:underline flex items-center gap-2 cursor-pointer bg-transparent border-none"
+            onClick={() => {
+              triggerTransition()
+              setTimeout(() => scrollToSection("model"), 1400)
+            }}
+            className="flex cursor-pointer items-center gap-2 border-none bg-transparent font-medium text-white hover:underline"
           >
             Partner with ECOCAN <ArrowRight size={16} />
           </button>
         </div>
 
-        <div className="flex flex-wrap justify-center gap-3 mb-4">
+        <div className="mb-4 flex flex-wrap justify-center gap-3">
           {["Early-stage funded", "Operational in Kenya", "GDPR Compliant"].map((badge) => (
-            <span key={badge} className="glass-pill text-white text-[13px] px-4 py-1.5">
+            <span key={badge} className="glass-pill px-4 py-1.5 text-[13px] text-white">
               {badge}
             </span>
           ))}
         </div>
-        <span className="glass-pill text-white/80 text-[13px] px-4 py-1.5 italic">
+        <span className="glass-pill px-4 py-1.5 text-[13px] italic text-white/80">
           No machine? No problem. Our counters work today.
         </span>
       </div>
@@ -181,11 +190,11 @@ export default function HeroSection({ scrollEnabled, onTransitionComplete }: Her
         <button
           ref={ctaBtnRef}
           onClick={triggerTransition}
-          className="absolute left-1/2 -translate-x-1/2 glass-pill text-white px-6 py-3 flex items-center gap-3 hover:bg-white/20 active:scale-95 transition-all cursor-pointer"
+          className="glass-pill absolute left-1/2 flex -translate-x-1/2 cursor-pointer items-center gap-3 px-6 py-3 text-white transition-all hover:bg-white/20 active:scale-95"
           style={{ bottom: "5vh", zIndex: 4 }}
           aria-label="Explore the Journey"
         >
-          <span className="w-2 h-2 rounded-full bg-primary animate-pulse-dot" />
+          <span className="h-2 w-2 animate-pulse-dot rounded-full bg-primary" />
           Explore the Journey
           <ChevronDown size={16} className="animate-bounce" />
         </button>
@@ -194,22 +203,22 @@ export default function HeroSection({ scrollEnabled, onTransitionComplete }: Her
       {/* Floating reveal cards */}
       <div
         ref={cardsContainerRef}
-        className="absolute inset-x-0 pointer-events-none"
+        className="pointer-events-none absolute inset-x-0"
         style={{ top: "100vh", zIndex: 5 }}
       >
         <div
-          className="hero-card absolute rounded-3xl overflow-hidden shadow-elevated"
+          className="hero-card absolute overflow-hidden rounded-3xl shadow-elevated"
           style={{ left: "5vw", width: "90vw", height: "80vh", top: "10vh", background: "#F7F7F7" }}
         />
         <div
-          className="hero-card absolute rounded-3xl overflow-hidden shadow-elevated"
+          className="hero-card absolute overflow-hidden rounded-3xl shadow-elevated"
           style={{ left: "10vw", width: "80vw", height: "85vh", top: "5vh", background: "#101010" }}
         />
         <div
-          className="hero-card absolute rounded-3xl overflow-hidden shadow-elevated"
+          className="hero-card absolute overflow-hidden rounded-3xl shadow-elevated"
           style={{ left: "5vw", width: "90vw", height: "80vh", top: "10vh", background: "#FFFFFF" }}
         />
       </div>
     </div>
-  );
+  )
 }
