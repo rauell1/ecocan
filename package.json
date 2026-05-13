@@ -12,6 +12,9 @@
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage",
     "prepare": "husky"
   },
   "dependencies": {
@@ -42,19 +45,25 @@
     "zod": "^3.23.8"
   },
   "devDependencies": {
+    "@testing-library/jest-dom": "^6.9.1",
+    "@testing-library/react": "^16.3.2",
+    "@testing-library/user-event": "^14.6.1",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
+    "@vitejs/plugin-react": "^6.0.1",
     "eslint": "^8",
     "eslint-config-next": "14.2.4",
     "eslint-config-prettier": "^9.1.0",
     "husky": "^9.1.7",
+    "jsdom": "^29.1.1",
     "lint-staged": "^15.2.11",
     "postcss": "^8",
     "prettier": "^3.3.3",
     "prettier-plugin-tailwindcss": "^0.6.9",
     "tailwindcss": "^3.4.1",
-    "typescript": "^5"
+    "typescript": "^5",
+    "vitest": "^4.1.6"
   },
   "lint-staged": {
     "*.{ts,tsx}": [

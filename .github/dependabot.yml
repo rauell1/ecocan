@@ -1,0 +1,31 @@
+version: 2
+updates:
+  - package-ecosystem: npm
+    directory: /
+    schedule:
+      interval: weekly
+      day: monday
+      time: "09:00"
+      timezone: Africa/Nairobi
+    open-pull-requests-limit: 5
+    groups:
+      dev-tooling:
+        patterns:
+          - "@types/*"
+          - "eslint*"
+          - "prettier*"
+          - "vitest"
+          - "@testing-library/*"
+          - "husky"
+          - "lint-staged"
+          - "typescript"
+    ignore:
+      # Pin Next.js major versions manually
+      - dependency-name: next
+        update-types: ["version-update:semver-major"]
+
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: monthly
+    open-pull-requests-limit: 3
