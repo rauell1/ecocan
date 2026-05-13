@@ -19,7 +19,7 @@ export default function HeroSection({
   const heroRef = useRef<HTMLDivElement>(null)
   const videoRef = useRef<HTMLDivElement>(null)
   const videoElRef = useRef<HTMLVideoElement>(null)
-  const brandRef = useRef<HTMLHeadingElement>(null)
+  const brandRef = useRef<HTMLDivElement>(null)
   const contentRef = useRef<HTMLDivElement>(null)
   const ctaBtnRef = useRef<HTMLButtonElement>(null)
   const cardsContainerRef = useRef<HTMLDivElement>(null)
@@ -135,8 +135,17 @@ export default function HeroSection({
   }
 
   return (
-    <div ref={heroRef} id="hero" className="relative w-full overflow-hidden" style={{ height: "100vh" }}>
-      {/* Video background */}
+    /*
+     * overflow-hidden on the root ensures no child (including ECOCAN at
+     * large clamp sizes) can introduce a horizontal scrollbar on mobile.
+     */
+    <div
+      ref={heroRef}
+      id="hero"
+      className="relative w-full overflow-hidden"
+      style={{ height: "100dvh" }}
+    >
+      {/* ── Video background ──────────────────────────────────────────────────── */}
       <div ref={videoRef} className="absolute inset-0" style={{ zIndex: 1 }}>
         <video
           ref={videoElRef}
@@ -154,113 +163,139 @@ export default function HeroSection({
           className="absolute inset-0"
           style={{
             background:
-              "linear-gradient(to bottom, rgba(16,16,16,0.3) 0%, rgba(16,16,16,0.1) 40%, rgba(16,16,16,0.6) 100%)",
+              "linear-gradient(to bottom, rgba(16,16,16,0.3) 0%, rgba(16,16,16,0.1) 40%, rgba(16,16,16,0.72) 100%)",
           }}
         />
       </div>
 
       {/*
-        ECOCAN brand name — bottom watermark
-
-        FIX: Removed `mixBlendMode: "overlay"` which caused the text to become
-        invisible or partially transparent depending on the video frame beneath
-        it.  The text is now rendered with:
-          • A solid white fill (opacity 0.12) as a subtle background anchor
-          • -webkit-text-stroke for a crisp white outline that is always visible
-          • A transparent fill so the outline style is the dominant visual
-          • A strong multi-layer text-shadow for depth and contrast on any frame
-          • zIndex: 2 — sits above the video gradient but below the main content
-            overlay (zIndex: 3), so it never blocks CTA buttons or body copy
-      */}
-      <h1
-        ref={brandRef}
-        className="pointer-events-none absolute left-1/2 -translate-x-1/2 select-none whitespace-nowrap text-center font-extrabold"
-        style={{
-          bottom: "8vh",
-          fontSize: "clamp(60px, 14vw, 180px)",
-          lineHeight: 1,
-          letterSpacing: "-0.03em",
-          zIndex: 2,
-          // Outlined text — visible on any video frame, light or dark
-          color: "transparent",
-          WebkitTextStroke: "2px rgba(255,255,255,0.85)",
-          // Soft glow behind the stroke so it pops on bright frames
-          textShadow: [
-            "0 0 60px rgba(0,0,0,0.6)",
-            "0 0 120px rgba(0,0,0,0.4)",
-            "0 4px 24px rgba(0,0,0,0.7)",
-          ].join(", "),
-        }}
-        aria-label="ECOCAN"
-      >
-        ECOCAN
-      </h1>
-
-      {/* Hero content — sits above the brand watermark (zIndex: 3) */}
+       * ── LAYOUT APPROACH ─────────────────────────────────────────────────────
+       *
+       * The hero is split into two vertical zones using a flex-col layout:
+       *
+       *  ┌─────────────────────────────────┐  ← 100dvh
+       *  │                                 │
+       *  │   CONTENT ZONE  (flex-grow:1)   │  tagline + CTA + badges
+       *  │                                 │
+       *  ├─────────────────────────────────┤
+       *  │   BRAND ZONE  (h-[18vh])        │  "ECOCAN" + Explore CTA
+       *  └─────────────────────────────────┘
+       *
+       * Because the brand name lives in its own dedicated zone at the
+       * bottom of the flex column, it CANNOT overlap the content above
+       * it on any viewport height — including short landscape phones.
+       *
+       * Both zones are children of this absolute-fill container
+       * (zIndex: 3) so they sit above the video gradient (zIndex: 1)
+       * and below the reveal cards (zIndex: 5).
+       */}
       <div
-        ref={contentRef}
-        className="absolute inset-0 flex flex-col items-center justify-center px-6 text-center"
+        className="absolute inset-0 flex flex-col"
         style={{ zIndex: 3 }}
       >
-        <p className="mb-4 text-xs font-semibold uppercase tracking-[0.15em] text-white/70">
-          Africa&apos;s Circular Bottle Ecosystem
-        </p>
-        <h2
-          className="mb-4 font-bold text-white"
-          style={{ fontSize: "clamp(32px, 5vw, 56px)", lineHeight: 1.1 }}
+        {/* ── Content zone: fills all space above the brand zone ─────────────── */}
+        <div
+          ref={contentRef}
+          className="flex flex-1 flex-col items-center justify-center px-4 text-center"
+          style={{ paddingBottom: "0" }}
         >
-          Return. Recycle.
-          <br />
-          Make a difference.
-        </h2>
-        <p className="mb-8 max-w-[640px] text-lg font-normal text-white/80 md:text-xl">
-          Recycle at any ECO-Station. Save the planet. Stop fake drinks. Get a bonus.
-        </p>
-
-        <div className="mb-8 flex flex-col items-center gap-4 sm:flex-row">
-          <a href="/download" className="pill-btn pill-btn-white">
-            <Download size={18} />
-            Download App
-          </a>
-          <button
-            onClick={() => {
-              triggerTransition()
-              setTimeout(() => scrollToSection("model"), 1400)
-            }}
-            className="flex cursor-pointer items-center gap-2 border-none bg-transparent font-medium text-white hover:underline"
+          <p className="mb-3 text-xs font-semibold uppercase tracking-[0.15em] text-white/70">
+            Africa&apos;s Circular Bottle Ecosystem
+          </p>
+          <h2
+            className="mb-4 font-bold text-white"
+            style={{ fontSize: "clamp(28px, 5vw, 56px)", lineHeight: 1.1 }}
           >
-            Partner with ECOCAN <ArrowRight size={16} />
-          </button>
+            Return. Recycle.
+            <br />
+            Make a difference.
+          </h2>
+          <p className="mb-6 max-w-[560px] text-base font-normal text-white/80 md:text-xl">
+            Recycle at any ECO-Station. Save the planet. Stop fake drinks. Get a bonus.
+          </p>
+
+          <div className="mb-6 flex flex-col items-center gap-4 sm:flex-row">
+            <a href="/download" className="pill-btn pill-btn-white">
+              <Download size={18} />
+              Download App
+            </a>
+            <button
+              onClick={() => {
+                triggerTransition()
+                setTimeout(() => scrollToSection("model"), 1400)
+              }}
+              className="flex cursor-pointer items-center gap-2 border-none bg-transparent font-medium text-white hover:underline"
+            >
+              Partner with ECOCAN <ArrowRight size={16} />
+            </button>
+          </div>
+
+          <div className="mb-3 flex flex-wrap justify-center gap-2">
+            {["Early-stage funded", "Operational in Kenya", "GDPR Compliant"].map((badge) => (
+              <span key={badge} className="glass-pill px-4 py-1.5 text-[13px] text-white">
+                {badge}
+              </span>
+            ))}
+          </div>
+          <span className="glass-pill px-4 py-1.5 text-[13px] italic text-white/80">
+            No machine? No problem. Our counters work today.
+          </span>
         </div>
 
-        <div className="mb-4 flex flex-wrap justify-center gap-3">
-          {["Early-stage funded", "Operational in Kenya", "GDPR Compliant"].map((badge) => (
-            <span key={badge} className="glass-pill px-4 py-1.5 text-[13px] text-white">
-              {badge}
-            </span>
-          ))}
+        {/*
+         * ── Brand zone: reserved bottom strip, never overlaps content ─────────
+         *
+         * Fixed min-height of 80 px on tiny phones, grows with vw via clamp.
+         * The ECOCAN text is horizontally centred and constrained to 96 vw
+         * with overflow-hidden so it never bleeds past the viewport edge
+         * (eliminates the mobile horizontal scroll).
+         *
+         * The Explore Journey button is stacked directly below the brand
+         * text inside the same zone — naturally separated by gap.
+         */}
+        <div
+          ref={brandRef}
+          className="flex flex-col items-center justify-end pb-[3vh]"
+          style={{ minHeight: "80px", height: "18vh" }}
+        >
+          {/* ECOCAN watermark text */}
+          <h1
+            className="pointer-events-none w-full max-w-[96vw] select-none overflow-hidden text-center font-extrabold"
+            style={{
+              fontSize: "clamp(48px, 10vw, 160px)",
+              lineHeight: 1,
+              letterSpacing: "-0.03em",
+              // Outlined style — readable on any video frame
+              color: "transparent",
+              WebkitTextStroke: "2px rgba(255,255,255,0.85)",
+              textShadow: [
+                "0 0 60px rgba(0,0,0,0.6)",
+                "0 0 120px rgba(0,0,0,0.4)",
+                "0 4px 24px rgba(0,0,0,0.7)",
+              ].join(", "),
+            }}
+            aria-label="ECOCAN"
+          >
+            ECOCAN
+          </h1>
+
+          {/* Explore Journey CTA — below brand text, never overlapping */}
+          {!scrollEnabled && (
+            <button
+              ref={ctaBtnRef}
+              onClick={triggerTransition}
+              className="glass-pill mt-2 flex cursor-pointer items-center gap-3 px-6 py-2.5 text-white transition-all hover:bg-white/20 active:scale-95"
+              aria-label="Explore the Journey"
+            >
+              <span className="h-2 w-2 animate-pulse-dot rounded-full bg-primary" />
+              Explore the Journey
+              <ChevronDown size={16} className="animate-bounce" />
+            </button>
+          )}
         </div>
-        <span className="glass-pill px-4 py-1.5 text-[13px] italic text-white/80">
-          No machine? No problem. Our counters work today.
-        </span>
       </div>
 
-      {/* Explore CTA */}
-      {!scrollEnabled && (
-        <button
-          ref={ctaBtnRef}
-          onClick={triggerTransition}
-          className="glass-pill absolute left-1/2 flex -translate-x-1/2 cursor-pointer items-center gap-3 px-6 py-3 text-white transition-all hover:bg-white/20 active:scale-95"
-          style={{ bottom: "5vh", zIndex: 4 }}
-          aria-label="Explore the Journey"
-        >
-          <span className="h-2 w-2 animate-pulse-dot rounded-full bg-primary" />
-          Explore the Journey
-          <ChevronDown size={16} className="animate-bounce" />
-        </button>
-      )}
-
-      {/* Floating reveal cards */}
+      {/* ── Floating reveal cards ──────────────────────────────────────────────── */}
       <div
         ref={cardsContainerRef}
         className="pointer-events-none absolute inset-x-0"
