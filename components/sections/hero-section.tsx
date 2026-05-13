@@ -17,7 +17,9 @@ export default function HeroSection({
   resetSignal,
 }: HeroSectionProps) {
   const heroRef = useRef<HTMLDivElement>(null)
-  const videoRef = useRef<HTMLDivElement>(null)
+  const videoWrapRef = useRef<HTMLDivElement>(null)
+  // ✅ Fix: typed as HTMLVideoElement so .load() / .play() are available
+  const videoRef = useRef<HTMLVideoElement>(null)
   const brandRef = useRef<HTMLHeadingElement>(null)
   const contentRef = useRef<HTMLDivElement>(null)
   const ctaBtnRef = useRef<HTMLButtonElement>(null)
@@ -42,6 +44,26 @@ export default function HeroSection({
     return () => ctx.revert()
   }, [])
 
+  // ✅ Fix: when the hero is reset (user scrolled back to top), force the
+  // video element to reload from source and resume playback. Without this
+  // the browser leaves the video on the last decoded frame → black screen.
+  useEffect(() => {
+    if (resetSignal === 0) return
+    const video = videoRef.current
+    if (!video) return
+
+    video.pause()
+    video.currentTime = 0
+    video.load() // forces full re-decode from <source>
+    const playPromise = video.play()
+    if (playPromise !== undefined) {
+      playPromise.catch(() => {
+        // Autoplay blocked by browser policy — poster frame stays visible,
+        // no crash. User can interact to trigger play if needed.
+      })
+    }
+  }, [resetSignal])
+
   const triggerTransition = () => {
     if (transitionDone) return
     setTransitionDone(true)
@@ -53,7 +75,7 @@ export default function HeroSection({
 
     transitionTlRef.current = tl
 
-    tl.to(videoRef.current, { scale: 0.5, filter: "brightness(0.6)", duration: 1.2 }, 0)
+    tl.to(videoWrapRef.current, { scale: 0.5, filter: "brightness(0.6)", duration: 1.2 }, 0)
     tl.to(brandRef.current, { autoAlpha: 0, duration: 0.5 }, 0.3)
     tl.to(contentRef.current, { autoAlpha: 0, duration: 0.4 }, 0.2)
 
@@ -121,13 +143,19 @@ export default function HeroSection({
   return (
     <div ref={heroRef} id="hero" className="relative w-full" style={{ height: "100vh" }}>
       {/* Video background */}
-      <div ref={videoRef} className="absolute inset-0" style={{ zIndex: 1 }}>
+      <div ref={videoWrapRef} className="absolute inset-0" style={{ zIndex: 1 }}>
+        {/*
+          ✅ Fix: ref now points directly at the <video> element (HTMLVideoElement),
+          and a poster is added so there is never a black flash if play() is
+          momentarily delayed after a reset.
+        */}
         <video
+          ref={videoRef}
           autoPlay
           loop
           muted
           playsInline
-          preload="metadata"
+          preload="auto"
           poster="/images/scan-verify.jpg"
           className="h-full w-full object-cover"
         >

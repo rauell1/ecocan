@@ -25,6 +25,12 @@ import HomeFooter from "@/components/sections/home-footer"
 const SCROLL_AWAY_THRESHOLD_PX = 120
 const HERO_RESET_THRESHOLD_PX = 50
 
+// ✅ Fix: delay (ms) between Lenis teardown and window.scrollTo() to ensure
+// the smooth-scroll instance is fully destroyed before we snap to top and
+// trigger the video reload — eliminates the race condition that caused
+// the black screen on scroll-back-to-top.
+const RESET_DELAY_MS = 50
+
 export default function Home() {
   const [scrollEnabled, setScrollEnabled] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
@@ -91,10 +97,16 @@ export default function Home() {
     if (!scrollEnabled || isResettingToHeroRef.current) return
     isResettingToHeroRef.current = true
 
+    // ✅ Fix: destroy Lenis first, then wait RESET_DELAY_MS before snapping
+    // to top and triggering the hero re-mount. Without the delay, window.scrollTo
+    // races with Lenis teardown and leaves the video element in an indeterminate
+    // state, causing the browser to render a black frame.
     destroyLenis()
-    window.scrollTo({ top: 0, behavior: "auto" })
-    setHeroResetSignal((prev) => prev + 1)
-    setScrollEnabled(false)
+    setTimeout(() => {
+      window.scrollTo({ top: 0, behavior: "auto" })
+      setHeroResetSignal((prev) => prev + 1)
+      setScrollEnabled(false)
+    }, RESET_DELAY_MS)
   }, [destroyLenis, scrollEnabled])
 
   // Reset to hero when user scrolls back to the very top
