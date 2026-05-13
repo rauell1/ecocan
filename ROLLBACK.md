@@ -249,3 +249,4 @@ For urgent production incidents, open a [GitHub Issue](https://github.com/rauell
 | 38 | [`79bb6aa`](https://github.com/rauell1/ecocan/commit/79bb6aa81c1a6d2549c207deab56f6b7bbec95cc) | — | rauell1 | 2026-05-13 11:39 | main |
 | 39 | [`2855994`](https://github.com/rauell1/ecocan/commit/2855994083fb281bb62e4a866a178fc0ee576e2e) | — | rauell1 | 2026-05-13 15:21 | main |
 | 40 | [`2cda781`](https://github.com/rauell1/ecocan/commit/2cda781fe57901e3af0ea894ffef6e5e6d6a2738) | — | rauell1 | 2026-05-13 15:27 | main |
+| 41 | [`bf7facf`](https://github.com/rauell1/ecocan/commit/bf7facfd6deb17c6cc7d76100232aa62ba5180ce) | — | rauell1 | 2026-05-13 15:34 | main |
