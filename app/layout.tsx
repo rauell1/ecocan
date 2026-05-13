@@ -40,29 +40,61 @@ const inter = Inter({
   preload: true,
 })
 
+const APP_URL = "https://ecocan.africa"
+
 export const metadata: Metadata = {
-  title: "ECOCAN",
+  metadataBase: new URL(APP_URL),
+  title: {
+    default: "ECOCAN - Africa's Circular Bottle Ecosystem",
+    template: "%s | ECOCAN",
+  },
   description:
-    "We seamlessly connect the physical and digital worlds in a manner that is most sustainable to our planet, and to the life it nurtures",
-  authors: [{ name: "ECOCAN" }],
+    "Return empty bottles, fight counterfeits, and earn rewards. ECOCAN is Africa's Deposit Return System connecting consumers, brands, and ECO-Stations across East Africa.",
+  keywords: [
+    "ECOCAN",
+    "deposit return system",
+    "DRS",
+    "recycling Kenya",
+    "bottle recycling",
+    "circular economy Africa",
+    "anti-counterfeit",
+    "M-Pesa rewards",
+    "ECO-Station",
+  ],
+  authors: [{ name: "ECOCAN", url: APP_URL }],
+  creator: "ECOCAN",
+  publisher: "ECOCAN",
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: { index: true, follow: true, "max-image-preview": "large" },
+  },
   openGraph: {
-    title: "ECOCAN",
+    title: "ECOCAN - Africa's Circular Bottle Ecosystem",
     description:
-      "We seamlessly connect the physical and digital worlds in a manner that is most sustainable to our planet, and to the life it nurtures",
-    url: "https://ecocan.africa",
+      "Return empty bottles at any ECO-Station. Earn M-Pesa rewards. Fight fake drinks. Join Africa's circular economy.",
+    url: APP_URL,
     siteName: "ECOCAN",
     images: [
       {
-        url: "/ecocan-curve.png",
+        url: "/images/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "ECOCAN",
+        alt: "ECOCAN - Return. Recycle. Earn.",
       },
     ],
     type: "website",
+    locale: "en_KE",
   },
-  other: {
-    author: "ECOCAN",
+  twitter: {
+    card: "summary_large_image",
+    title: "ECOCAN - Africa's Circular Bottle Ecosystem",
+    description: "Return bottles. Earn rewards. Stop counterfeits. Join ECOCAN.",
+    images: ["/images/og-image.jpg"],
+    site: "@ecocanapp",
+  },
+  alternates: {
+    canonical: APP_URL,
   },
 }
 
