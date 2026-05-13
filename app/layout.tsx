@@ -73,7 +73,13 @@ export default function RootLayout({
   return (
     <html lang="en" className={inter.variable}>
       <body className="font-sans">
-        {children}
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 z-50 bg-background px-4 py-2 rounded"
+        >
+          Skip to main content
+        </a>
+        <main id="main-content">{children}</main>
         <Analytics />
       </body>
     </html>
