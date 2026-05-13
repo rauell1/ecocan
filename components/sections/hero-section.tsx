@@ -135,10 +135,6 @@ export default function HeroSection({
   }
 
   return (
-    /*
-     * overflow-hidden on the root ensures no child (including ECOCAN at
-     * large clamp sizes) can introduce a horizontal scrollbar on mobile.
-     */
     <div
       ref={heroRef}
       id="hero"
@@ -147,6 +143,12 @@ export default function HeroSection({
     >
       {/* ── Video background ──────────────────────────────────────────────────── */}
       <div ref={videoRef} className="absolute inset-0" style={{ zIndex: 1 }}>
+        {/*
+         * brightness-[0.85]: pulls the raw video exposure down ~15% globally.
+         * This is the primary fix for the overexposed top-right area — it
+         * reduces the source luminance before any overlay is applied so no
+         * overlay thickness alone needs to compensate.
+         */}
         <video
           ref={videoElRef}
           autoPlay
@@ -155,45 +157,59 @@ export default function HeroSection({
           playsInline
           preload="metadata"
           poster="/images/scan-verify.jpg"
-          className="h-full w-full object-cover"
+          className="h-full w-full object-cover brightness-[0.85]"
         >
           <source src="/videos/hero-loop.mp4" type="video/mp4" />
         </video>
+
+        {/*
+         * Layer 1 — directional glare killer.
+         * A radial gradient centred on the top-right (where the bright spill
+         * lives in the source footage) applies up to 0.65 opacity there and
+         * fades to 0 at the centre/bottom so it doesn't muddy the subject.
+         */}
         <div
           className="absolute inset-0"
           style={{
             background:
-              "linear-gradient(to bottom, rgba(16,16,16,0.3) 0%, rgba(16,16,16,0.1) 40%, rgba(16,16,16,0.72) 100%)",
+              "radial-gradient(ellipse 80% 60% at 85% 10%, rgba(10,10,10,0.65) 0%, rgba(10,10,10,0.0) 70%)",
+          }}
+        />
+
+        {/*
+         * Layer 2 — base scene depth gradient.
+         * Keeps the original top-to-bottom drama without letting the sky
+         * blow out: top starts at 0.45 (was 0.3 → too light), mid stays
+         * light, bottom holds the heavy vignette for text legibility.
+         */}
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              "linear-gradient(to bottom, rgba(16,16,16,0.45) 0%, rgba(16,16,16,0.08) 45%, rgba(16,16,16,0.75) 100%)",
+          }}
+        />
+
+        {/*
+         * Layer 3 — left-edge safety vignette.
+         * Ensures the white headline text on the left always has enough
+         * contrast regardless of the video frame.
+         */}
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              "linear-gradient(to right, rgba(10,10,10,0.40) 0%, rgba(10,10,10,0.0) 55%)",
           }}
         />
       </div>
 
-      {/*
-       * ── LAYOUT APPROACH ─────────────────────────────────────────────────────
-       *
-       * The hero is split into two vertical zones using a flex-col layout:
-       *
-       *  ┌─────────────────────────────────┐  ← 100dvh
-       *  │                                 │
-       *  │   CONTENT ZONE  (flex-grow:1)   │  tagline + CTA + badges
-       *  │                                 │
-       *  ├─────────────────────────────────┤
-       *  │   BRAND ZONE  (h-[18vh])        │  "ECOCAN" + Explore CTA
-       *  └─────────────────────────────────┘
-       *
-       * Because the brand name lives in its own dedicated zone at the
-       * bottom of the flex column, it CANNOT overlap the content above
-       * it on any viewport height — including short landscape phones.
-       *
-       * Both zones are children of this absolute-fill container
-       * (zIndex: 3) so they sit above the video gradient (zIndex: 1)
-       * and below the reveal cards (zIndex: 5).
-       */}
+      {/* ── Content & brand layout (unchanged) ───────────────────────────────── */}
       <div
         className="absolute inset-0 flex flex-col"
         style={{ zIndex: 3 }}
       >
-        {/* ── Content zone: fills all space above the brand zone ─────────────── */}
+        {/* ── Content zone ──────────────────────────────────────────────────── */}
         <div
           ref={contentRef}
           className="flex flex-1 flex-col items-center justify-center px-4 text-center"
@@ -242,30 +258,18 @@ export default function HeroSection({
           </span>
         </div>
 
-        {/*
-         * ── Brand zone: reserved bottom strip, never overlaps content ─────────
-         *
-         * Fixed min-height of 80 px on tiny phones, grows with vw via clamp.
-         * The ECOCAN text is horizontally centred and constrained to 96 vw
-         * with overflow-hidden so it never bleeds past the viewport edge
-         * (eliminates the mobile horizontal scroll).
-         *
-         * The Explore Journey button is stacked directly below the brand
-         * text inside the same zone — naturally separated by gap.
-         */}
+        {/* ── Brand zone ────────────────────────────────────────────────────── */}
         <div
           ref={brandRef}
           className="flex flex-col items-center justify-end pb-[3vh]"
           style={{ minHeight: "80px", height: "18vh" }}
         >
-          {/* ECOCAN watermark text */}
           <h1
             className="pointer-events-none w-full max-w-[96vw] select-none overflow-hidden text-center font-extrabold"
             style={{
               fontSize: "clamp(48px, 10vw, 160px)",
               lineHeight: 1,
               letterSpacing: "-0.03em",
-              // Outlined style — readable on any video frame
               color: "transparent",
               WebkitTextStroke: "2px rgba(255,255,255,0.85)",
               textShadow: [
@@ -279,7 +283,6 @@ export default function HeroSection({
             ECOCAN
           </h1>
 
-          {/* Explore Journey CTA — below brand text, never overlapping */}
           {!scrollEnabled && (
             <button
               ref={ctaBtnRef}
@@ -295,7 +298,7 @@ export default function HeroSection({
         </div>
       </div>
 
-      {/* ── Floating reveal cards ──────────────────────────────────────────────── */}
+      {/* ── Floating reveal cards (unchanged) ────────────────────────────────── */}
       <div
         ref={cardsContainerRef}
         className="pointer-events-none absolute inset-x-0"
