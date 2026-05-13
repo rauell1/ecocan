@@ -68,11 +68,11 @@ const roles = [
 
 export default function EcommunityRolesSection() {
   return (
-    <section id="ecommunity" className="py-24 px-6 bg-[#f8f8f6]">
-      <div className="max-w-[1180px] mx-auto">
+    <section id="ecommunity" className="py-20 md:py-28 lg:py-36 bg-[#f8f8f6]">
+      <div className="max-w-[1280px] mx-auto px-6">
         {/* Header */}
         <div className="max-w-[600px] mb-14">
-          <p className="section-overline mb-3">Who is ECOCAN for?</p>
+          <p className="text-xs font-semibold uppercase tracking-[0.15em] text-primary mb-4">Who is ECOCAN for?</p>
           <h2 className="section-headline mb-4">Every role in the ECOmmunity</h2>
           <p className="section-body">
             ECOCAN connects six types of participants into one circular economy.
@@ -88,7 +88,7 @@ export default function EcommunityRolesSection() {
               <Link
                 key={role.title}
                 href={role.href}
-                className="group relative flex flex-col bg-white rounded-2xl p-7 border border-black/5 hover:border-black/10 hover:shadow-lg transition-all duration-200 cursor-pointer"
+                className="group relative flex flex-col bg-[#101010] rounded-2xl p-7 border border-white/10 hover:border-white/20 hover:shadow-lg transition-all duration-200 cursor-pointer"
               >
                 {/* Icon */}
                 <div
@@ -102,8 +102,8 @@ export default function EcommunityRolesSection() {
                 <p className="text-[11px] font-semibold uppercase tracking-widest mb-1" style={{ color: role.color }}>
                   {role.subtitle}
                 </p>
-                <h3 className="text-[20px] font-bold text-eco-dark mb-2 leading-tight">{role.title}</h3>
-                <p className="text-[15px] text-eco-dark/60 leading-relaxed flex-1">{role.description}</p>
+                <h3 className="text-[20px] font-semibold text-white mb-2 leading-tight">{role.title}</h3>
+                <p className="text-[15px] text-white/75 leading-relaxed flex-1">{role.description}</p>
 
                 {/* CTA */}
                 <div className="mt-5 flex items-center gap-1.5 text-[14px] font-semibold" style={{ color: role.color }}>

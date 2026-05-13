@@ -46,66 +46,64 @@ export default function FAQSection() {
   return (
     <section
       id="faq"
-      className="py-24 px-6 bg-white"
+      className="py-20 md:py-28 lg:py-36 bg-[#101010]"
     >
-      <div className="max-w-[720px] mx-auto">
+      <div className="max-w-[1280px] mx-auto px-6">
+        <div className="max-w-[720px] mx-auto">
         {/* Header */}
-        <p className="section-overline mb-3 text-center">Got questions?</p>
-        <h2 className="section-headline text-center mb-4">Frequently Asked Questions</h2>
-        <p className="section-body text-center mb-12 max-w-[520px] mx-auto">
-          Everything you need to know about returning bottles, fighting counterfeits, and joining the ECOCAN network.
-        </p>
+          <p className="text-xs font-semibold uppercase tracking-[0.15em] text-primary mb-4 text-center">Got questions?</p>
+          <h2 className="section-headline text-center mb-4 text-white">Frequently Asked Questions</h2>
+          <p className="section-body text-center mb-12 max-w-[520px] mx-auto text-white/80">
+            Everything you need to know about returning bottles, fighting counterfeits, and joining the ECOCAN network.
+          </p>
 
-        {/* Accordion */}
-        <div className="divide-y divide-black/8">
-          {faqs.map((faq, i) => {
-            const isOpen = openIndex === i;
-            return (
-              <div key={i}>
-                <button
-                  onClick={() => toggle(i)}
-                  className="w-full flex items-center justify-between gap-4 py-5 text-left group cursor-pointer"
-                  aria-expanded={isOpen}
-                >
-                  <span
-                    className={`text-[17px] font-semibold leading-snug transition-colors ${
-                      isOpen ? "text-primary" : "text-eco-dark group-hover:text-primary"
-                    }`}
+          {/* Accordion */}
+          <div className="divide-y divide-white/10">
+            {faqs.map((faq, i) => {
+              const isOpen = openIndex === i;
+              return (
+                <div key={i}>
+                  <button
+                    onClick={() => toggle(i)}
+                    className="w-full flex items-center justify-between gap-4 py-5 text-left group cursor-pointer"
+                    aria-expanded={isOpen}
                   >
-                    {faq.q}
-                  </span>
-                  <span
-                    className={`shrink-0 w-7 h-7 rounded-full flex items-center justify-center transition-all ${
-                      isOpen
-                        ? "bg-primary text-white"
-                        : "bg-black/6 text-eco-dark group-hover:bg-primary group-hover:text-white"
-                    }`}
+                    <span className="text-[17px] font-medium leading-snug transition-colors text-white group-hover:text-primary">
+                      {faq.q}
+                    </span>
+                    <span
+                      className={`shrink-0 w-7 h-7 rounded-full flex items-center justify-center transition-all ${
+                        isOpen
+                          ? "bg-primary text-white"
+                          : "bg-white/10 text-white group-hover:bg-primary group-hover:text-white"
+                      }`}
+                    >
+                      {isOpen ? <Minus size={14} /> : <Plus size={14} />}
+                    </span>
+                  </button>
+                  <div
+                    className="overflow-hidden transition-all duration-300"
+                    style={{ maxHeight: isOpen ? "400px" : "0px", opacity: isOpen ? 1 : 0 }}
                   >
-                    {isOpen ? <Minus size={14} /> : <Plus size={14} />}
-                  </span>
-                </button>
-                <div
-                  className="overflow-hidden transition-all duration-300"
-                  style={{ maxHeight: isOpen ? "400px" : "0px", opacity: isOpen ? 1 : 0 }}
-                >
-                  <p className="text-[16px] leading-relaxed text-eco-dark/70 pb-5 max-w-[620px]">
-                    {faq.a}
-                  </p>
+                    <p className="text-[16px] leading-relaxed text-white/75 pb-5 max-w-[620px]">
+                      {faq.a}
+                    </p>
+                  </div>
                 </div>
-              </div>
-            );
-          })}  
-        </div>
+              );
+            })}
+          </div>
 
-        {/* Bottom CTA */}
-        <div className="mt-12 text-center">
-          <p className="text-eco-dark/60 mb-4 text-[15px]">Still have questions?</p>
-          <a
-            href="/contact"
-            className="pill-btn pill-btn-filled text-sm !py-3 !px-8 inline-flex"
-          >
-            Contact Us
-          </a>
+          {/* Bottom CTA */}
+          <div className="mt-12 text-center">
+            <p className="text-white/75 mb-4 text-[15px]">Still have questions?</p>
+            <a
+              href="/contact"
+              className="pill-btn pill-btn-filled text-sm !py-3 !px-8 inline-flex"
+            >
+              Contact Us
+            </a>
+          </div>
         </div>
       </div>
     </section>

@@ -58,7 +58,7 @@ export default function HowItWorksSection({ scrollEnabled }: HowItWorksSectionPr
   return (
     <section
       ref={sectionRef}
-      className="relative w-full py-[120px] md:py-[160px] overflow-hidden"
+      className="relative w-full py-20 md:py-28 lg:py-36 overflow-hidden border-t border-white/8"
       style={{ background: "#101010" }}
     >
       <div
@@ -68,11 +68,11 @@ export default function HowItWorksSection({ scrollEnabled }: HowItWorksSectionPr
       <div className="absolute inset-0 bg-gradient-to-b from-[#101010] via-transparent to-[#101010]" />
 
       <div className="relative z-10 max-w-[1280px] mx-auto px-6">
-        <p className="section-overline heading-animate mb-6">How It Works</p>
+        <p className="text-xs font-semibold uppercase tracking-[0.15em] text-primary mb-4 heading-animate">How It Works</p>
         <h2 className="section-headline text-white heading-animate mb-2 max-w-[700px]">
           From your hand back to the shelf.
         </h2>
-        <p className="section-body text-white/50 heading-animate mb-12">Clean. Traceable. Rewarded.</p>
+        <p className="section-body text-white heading-animate mb-12">Clean. Traceable. Rewarded.</p>
 
         <div ref={cardsRef} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 mb-12">
           {steps.map((step) => (
@@ -82,7 +82,7 @@ export default function HowItWorksSection({ scrollEnabled }: HowItWorksSectionPr
             >
               <span className="text-4xl md:text-5xl font-bold text-primary block mb-4 leading-none">{step.num}</span>
               <h3 className="text-xl font-semibold text-white mb-2">{step.title}</h3>
-              <p className="text-white/50 text-sm leading-relaxed">{step.desc}</p>
+              <p className="text-white text-sm leading-relaxed">{step.desc}</p>
             </div>
           ))}
         </div>

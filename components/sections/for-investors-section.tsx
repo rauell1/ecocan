@@ -26,15 +26,15 @@ const highlights = [
 
 export default function ForInvestorsSection() {
   return (
-    <section id="investors" className="py-24 px-6 bg-[#101010] text-white">
-      <div className="max-w-[1180px] mx-auto">
+    <section id="investors" className="py-20 md:py-28 lg:py-36 bg-[#101010] text-white border-t border-white/8">
+      <div className="max-w-[1280px] mx-auto px-6">
         {/* Header */}
         <div className="max-w-[600px] mb-14">
-          <p className="section-overline mb-3" style={{ color: "#4ade80" }}>For Investors</p>
+          <p className="text-xs font-semibold uppercase tracking-[0.15em] text-primary mb-4">For Investors</p>
           <h2 className="section-headline text-white mb-4">
             Back the infrastructure<br />Africa&apos;s circular economy needs
           </h2>
-          <p className="section-body text-white/60">
+          <p className="section-body text-white/80">
             ECOCAN is building the deposit-return backbone that makes recycling profitable for
             everyone — from individual consumers to multinational brands.
           </p>

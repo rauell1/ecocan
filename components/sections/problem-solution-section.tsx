@@ -48,19 +48,19 @@ export default function ProblemSolutionSection() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="w-full py-[120px] md:py-[160px]" style={{ background: "#101010" }}>
+    <section ref={sectionRef} className="w-full py-20 md:py-28 lg:py-36" style={{ background: "#101010" }}>
       <div ref={headingRef} className="max-w-[1280px] mx-auto px-6">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           {/* Left: text */}
           <div>
-            <p className="section-overline animate-in mb-6">The Problem</p>
+            <p className="text-xs font-semibold uppercase tracking-[0.15em] text-primary mb-4 animate-in">The Problem</p>
             <h2 className="section-headline text-white mb-8 animate-in">
               30% of drinks are fake.<br />Billions of bottles wasted.<br />
               <span className="text-primary">You can fix both.</span>
             </h2>
-            <p className="section-body text-white/60 animate-in mb-10">
-              Every bottle you return is one less fake drink, one less piece of plastic in our oceans,
-              and one more step toward a cleaner Africa. ECOCAN creates a closed loop: collect → recycle → reuse.
+            <p className="section-body text-white/80 animate-in mb-10">
+              Fake drinks and plastic waste hurt families and cities every day. ECOCAN turns each return into safer
+              bottles, cleaner streets, and real value.
             </p>
 
             {/* Stats */}

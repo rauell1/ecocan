@@ -81,7 +81,7 @@ export default function PartnersTestimonialsSection() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="w-full py-[120px] md:py-[160px] bg-white">
+    <section ref={sectionRef} className="w-full py-20 md:py-28 lg:py-36 bg-white">
       <div className="max-w-[1280px] mx-auto px-6">
 
         {/* Retail partner image banner */}
@@ -95,7 +95,7 @@ export default function PartnersTestimonialsSection() {
           />
           <div className="absolute inset-0 bg-gradient-to-t from-eco-dark/70 via-eco-dark/20 to-transparent" />
           <div className="absolute bottom-0 left-0 p-8 md:p-12">
-            <p className="section-overline !text-primary mb-2">Our Partners</p>
+            <p className="text-xs font-semibold uppercase tracking-[0.15em] text-primary mb-4">Our Partners</p>
             <h2 className="section-headline text-white">Trusted by leaders across the value chain</h2>
           </div>
         </div>
@@ -164,7 +164,7 @@ export default function PartnersTestimonialsSection() {
 
         {/* News */}
         <div className="mt-20">
-          <p className="section-overline heading-animate mb-2">As seen in</p>
+          <p className="text-xs font-semibold uppercase tracking-[0.15em] text-primary mb-4 heading-animate">As seen in</p>
           <div className="flex flex-wrap gap-6 mb-10 heading-animate">
             {["BBC", "CNN", "Business Daily", "The Standard", "TechCrunch"].map((name) => (
               <span key={name} className="text-eco-dark/30 font-bold text-xl tracking-tight">{name}</span>
