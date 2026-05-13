@@ -26,6 +26,7 @@ const pageLinks = [
 export default function HomeNavbar({ scrollEnabled, onMenuToggle }: HomeNavbarProps) {
   const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
+  const logoHref = pathname === "/" ? "#hero" : "/";
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 60);
@@ -55,7 +56,7 @@ export default function HomeNavbar({ scrollEnabled, onMenuToggle }: HomeNavbarPr
       <div className="max-w-[1280px] mx-auto px-6 h-full flex items-center justify-between">
         {/* Logo */}
         <Link
-          href="/"
+          href={logoHref}
           onClick={(e) => {
             if (pathname === "/") {
               handleSectionClick(e, "#hero");
