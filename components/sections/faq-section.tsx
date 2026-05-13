@@ -1,129 +1,112 @@
 "use client";
 
-import { useRef, useEffect, useState } from "react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { ChevronDown, ArrowRight } from "lucide-react";
-import Link from "next/link";
+import { useState } from "react";
+import { Plus, Minus } from "lucide-react";
 
 const faqs = [
   {
-    q: "Do I need a machine to return bottles?",
-    a: "No. You can return bottles today at any ECO-Station counter. Our partner scans your bottle with a phone, verifies it, and sends money instantly to your ECO-wallet. ECOcan machines are coming soon — but the system works right now.",
+    q: "What is ECOCAN?",
+    a: "ECOCAN is Africa's Circular Bottle Ecosystem — a Deposit Return System (DRS) that lets consumers return empty bottles and cans at ECO-Stations to receive monetary rewards, while helping brands fight counterfeiting and drive recycling.",
   },
   {
-    q: "What bottles can I return?",
-    a: "Aluminum cans, PET plastics, glass bottles, and beverage cartons with ECOCAN security codes.",
+    q: "How do I return a bottle and get paid?",
+    a: "Download the ECOCAN app, locate your nearest ECO-Station, scan the QR code on your bottle, and deposit it. Your account is credited instantly. Cash out via M-Pesa or your linked mobile wallet.",
   },
   {
-    q: "How do I get paid?",
-    a: "Instant to your ECO-wallet. Withdraw to bank or M-PESA anytime.",
+    q: "Is ECOCAN available outside Kenya?",
+    a: "ECOCAN is currently operational in Kenya and expanding across East Africa. Partner with us if you'd like to bring ECOCAN to your market.",
   },
   {
-    q: "Where are collection points?",
-    a: "Supermarket counters and ECO-Stations — see the map in your app.",
+    q: "How does ECOCAN stop counterfeit drinks?",
+    a: "Every genuine bottle carries a unique, tamper-evident QR code. Consumers scan it with the ECOCAN app to instantly verify authenticity before drinking. Counterfeit bottles fail verification and are flagged in real time.",
   },
   {
-    q: "Who pays for this?",
-    a: "Producers + deposit system + impact investors.",
+    q: "I'm a brand — how do I join the ECOCAN network?",
+    a: "Fill in the partner form on our Solutions page or email us directly. Our team will walk you through onboarding, labelling requirements, ECO-Station coverage, and the DRS deposit structure.",
   },
   {
-    q: "Is this really zero emissions?",
-    a: "Electric bikes + efficient routing = near zero emissions.",
+    q: "What bottles and cans does ECOCAN accept?",
+    a: "ECOCAN currently accepts aluminium cans, PET plastic bottles, and glass bottles from registered brand partners. More material types are being added as the network grows.",
+  },
+  {
+    q: "Is there a minimum amount before I can cash out?",
+    a: "Yes, the current minimum cashout threshold is KES 50. There is no upper limit on withdrawals.",
+  },
+  {
+    q: "How does ECOCAN's electric mobility component work?",
+    a: "ECOCAN integrates with electric two-wheelers used by ECO-Couriers for last-mile collection. Part of the deposit pool funds the courier network, making the entire loop emission-free at the collection stage.",
   },
 ];
 
-function FAQItem({
-  item,
-  isOpen,
-  onClick,
-}: {
-  item: (typeof faqs)[0];
-  isOpen: boolean;
-  onClick: () => void;
-}) {
-  const contentRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    if (!contentRef.current) return;
-    if (isOpen) {
-      gsap.to(contentRef.current, { height: "auto", opacity: 1, duration: 0.3, ease: "power2.out" });
-    } else {
-      gsap.to(contentRef.current, { height: 0, opacity: 0, duration: 0.3, ease: "power2.in" });
-    }
-  }, [isOpen]);
-
-  return (
-    <div className="border-b border-gray-200">
-      <button onClick={onClick} className="w-full flex items-center justify-between py-6 text-left group">
-        <span className="text-eco-dark font-semibold text-lg pr-4 group-hover:text-primary transition-colors">
-          {item.q}
-        </span>
-        <ChevronDown
-          size={24}
-          className={`text-eco-dark/50 flex-shrink-0 transition-transform duration-300 ${isOpen ? "rotate-180" : ""}`}
-        />
-      </button>
-      <div ref={contentRef} className="overflow-hidden" style={{ height: 0, opacity: 0 }}>
-        <p className="text-eco-dark/70 text-base pb-6 leading-relaxed">{item.a}</p>
-      </div>
-    </div>
-  );
-}
-
 export default function FAQSection() {
-  const sectionRef = useRef<HTMLDivElement>(null);
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
-  useEffect(() => {
-    gsap.registerPlugin(ScrollTrigger);
-
-    const ctx = gsap.context(() => {
-      const headingEls = sectionRef.current?.querySelectorAll(".heading-animate");
-      if (headingEls && headingEls.length > 0) {
-        gsap.fromTo(headingEls, { opacity: 0, y: 40 }, {
-          opacity: 1, y: 0, duration: 0.8, stagger: 0.1, ease: "power2.out",
-          scrollTrigger: { trigger: sectionRef.current, start: "top 80%", once: true },
-        });
-      }
-      const faqList = sectionRef.current?.querySelector(".faq-list");
-      if (faqList) {
-        const faqItems = faqList.querySelectorAll(".faq-item");
-        if (faqItems.length > 0) {
-          gsap.fromTo(faqItems, { opacity: 0, y: 30 }, {
-            opacity: 1, y: 0, duration: 0.5, stagger: 0.08, ease: "power2.out",
-            scrollTrigger: { trigger: faqList, start: "top 85%", once: true },
-          });
-        }
-      }
-    }, sectionRef);
-
-    return () => ctx.revert();
-  }, []);
+  const toggle = (i: number) => setOpenIndex(openIndex === i ? null : i);
 
   return (
-    <section ref={sectionRef} className="w-full py-[120px] md:py-[160px]" style={{ background: "#F7F7F7" }}>
-      <div className="max-w-[800px] mx-auto px-6">
-        <h2 className="section-headline text-eco-dark heading-animate mb-12">Frequently Asked Questions</h2>
+    <section
+      id="faq"
+      className="py-24 px-6 bg-white"
+    >
+      <div className="max-w-[720px] mx-auto">
+        {/* Header */}
+        <p className="section-overline mb-3 text-center">Got questions?</p>
+        <h2 className="section-headline text-center mb-4">Frequently Asked Questions</h2>
+        <p className="section-body text-center mb-12 max-w-[520px] mx-auto">
+          Everything you need to know about returning bottles, fighting counterfeits, and joining the ECOCAN network.
+        </p>
 
-        <div className="faq-list">
-          {faqs.map((item, index) => (
-            <div key={index} className="faq-item">
-              <FAQItem
-                item={item}
-                isOpen={openIndex === index}
-                onClick={() => setOpenIndex(openIndex === index ? null : index)}
-              />
-            </div>
-          ))}
+        {/* Accordion */}
+        <div className="divide-y divide-black/8">
+          {faqs.map((faq, i) => {
+            const isOpen = openIndex === i;
+            return (
+              <div key={i}>
+                <button
+                  onClick={() => toggle(i)}
+                  className="w-full flex items-center justify-between gap-4 py-5 text-left group cursor-pointer"
+                  aria-expanded={isOpen}
+                >
+                  <span
+                    className={`text-[17px] font-semibold leading-snug transition-colors ${
+                      isOpen ? "text-primary" : "text-eco-dark group-hover:text-primary"
+                    }`}
+                  >
+                    {faq.q}
+                  </span>
+                  <span
+                    className={`shrink-0 w-7 h-7 rounded-full flex items-center justify-center transition-all ${
+                      isOpen
+                        ? "bg-primary text-white"
+                        : "bg-black/6 text-eco-dark group-hover:bg-primary group-hover:text-white"
+                    }`}
+                  >
+                    {isOpen ? <Minus size={14} /> : <Plus size={14} />}
+                  </span>
+                </button>
+                <div
+                  className="overflow-hidden transition-all duration-300"
+                  style={{ maxHeight: isOpen ? "400px" : "0px", opacity: isOpen ? 1 : 0 }}
+                >
+                  <p className="text-[16px] leading-relaxed text-eco-dark/70 pb-5 max-w-[620px]">
+                    {faq.a}
+                  </p>
+                </div>
+              </div>
+            );
+          })}  
         </div>
 
-        <Link
-          href="/contact"
-          className="inline-flex items-center gap-2 text-primary font-semibold mt-8 hover:underline heading-animate"
-        >
-          Have more questions? Contact us <ArrowRight size={16} />
-        </Link>
+        {/* Bottom CTA */}
+        <div className="mt-12 text-center">
+          <p className="text-eco-dark/60 mb-4 text-[15px]">Still have questions?</p>
+          <a
+            href="/contact"
+            className="pill-btn pill-btn-filled text-sm !py-3 !px-8 inline-flex"
+          >
+            Contact Us
+          </a>
+        </div>
       </div>
     </section>
   );

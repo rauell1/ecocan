@@ -1,169 +1,118 @@
 "use client";
 
-import { useRef, useEffect } from "react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import { Recycle, Store, Truck, Factory, Music, ArrowRight } from "lucide-react";
 
 const roles = [
   {
-    id: "consumer",
-    label: "ECOnsumer",
-    tagline: "Return. Earn. Repeat.",
-    desc: "Download the app, scan your bottles to verify authenticity, return empties at any ECO-Station, and get rewarded instantly.",
-    image: "/assets/images/consumer/hero-img.png",
-    cta: "Download the App",
-    href: "/download",
-    accent: "from-primary/30 to-primary/5",
-    pillBg: "bg-primary/10 text-primary",
-  },
-  {
-    id: "eco-station",
-    label: "ECO-Station",
-    tagline: "Make money while facilitating recycling.",
-    desc: "Host a collection counter at your shop, supermarket, or kiosk. We handle the logistics — you earn commission on every bottle returned.",
-    image: "/images/return-counter.jpg",
-    cta: "Register Your Station",
-    href: "/contact",
-    accent: "from-blue-900/30 to-blue-900/5",
-    pillBg: "bg-blue-500/10 text-blue-300",
-  },
-  {
-    id: "eco-producer",
-    label: "ECO-Producer",
-    tagline: "Protect your brand. Recover your packaging.",
-    desc: "Tag every bottle with ECOCAN security codes. Stop counterfeits. Recover packaging for recycling. Meet your sustainability targets.",
-    image: "/assets/images/consumer/avoid-fakes.svg",
-    cta: "Join as a Producer",
+    icon: Recycle,
+    title: "Consumer",
+    subtitle: "Return & Earn",
+    description:
+      "Scan, return your empty bottles at any ECO-Station, and earn real money straight to your M-Pesa wallet.",
+    color: "#16a34a",
     href: "/solutions",
-    accent: "from-amber-900/20 to-amber-900/5",
-    pillBg: "bg-amber-500/10 text-amber-300",
+    cta: "How to earn",
   },
   {
-    id: "eco-events",
-    label: "ECO-Events",
-    tagline: "Elevate your event. Leave no trace.",
-    desc: "Run zero-waste events with ECOCAN's collection infrastructure. Real-time reporting, deposit refunds for attendees, and sustainability certification.",
-    image: "/assets/images/consumer/four-pics.svg",
-    cta: "Plan an ECO-Event",
-    href: "/contact",
-    accent: "from-purple-900/20 to-purple-900/5",
-    pillBg: "bg-purple-500/10 text-purple-300",
+    icon: Store,
+    title: "ECO-Station",
+    subtitle: "Host a Drop-off Point",
+    description:
+      "Become a collection hub, earn per-unit fees, and grow your business as part of Africa's DRS network.",
+    color: "#0891b2",
+    href: "/solutions",
+    cta: "Become a station",
+  },
+  {
+    icon: Truck,
+    title: "ECO-Courier",
+    subtitle: "Ride & Collect",
+    description:
+      "Use electric two-wheelers to collect from stations and earn per pickup on a flexible schedule.",
+    color: "#7c3aed",
+    href: "/solutions",
+    cta: "Start delivering",
+  },
+  {
+    icon: Factory,
+    title: "Eco-Producer",
+    subtitle: "Brand Protection + DRS",
+    description:
+      "Protect your brand from counterfeits with QR authentication and join the official deposit return loop.",
+    color: "#d97706",
+    href: "/solutions",
+    cta: "Protect your brand",
+  },
+  {
+    icon: Recycle,
+    title: "Recycler",
+    subtitle: "Close the Loop",
+    description:
+      "Receive sorted, clean material from ECO-Stations and turn it into raw input for manufacturing.",
+    color: "#059669",
+    href: "/solutions",
+    cta: "Join as recycler",
+  },
+  {
+    icon: Music,
+    title: "Events",
+    subtitle: "Zero-Waste Activations",
+    description:
+      "Deploy portable ECO-Stations at festivals and events to hit your sustainability goals.",
+    color: "#e11d48",
+    href: "/solutions",
+    cta: "Event solutions",
   },
 ];
 
 export default function EcommunityRolesSection() {
-  const sectionRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    gsap.registerPlugin(ScrollTrigger);
-
-    const ctx = gsap.context(() => {
-      const headingEls = sectionRef.current?.querySelectorAll(".heading-animate");
-      if (headingEls && headingEls.length > 0) {
-        gsap.fromTo(headingEls, { opacity: 0, y: 40 }, {
-          opacity: 1, y: 0, duration: 0.8, stagger: 0.1, ease: "power2.out",
-          scrollTrigger: { trigger: sectionRef.current, start: "top 80%", once: true },
-        });
-      }
-      const roleCards = sectionRef.current?.querySelectorAll(".role-card");
-      if (roleCards && roleCards.length > 0) {
-        gsap.fromTo(roleCards, { opacity: 0, y: 60 }, {
-          opacity: 1, y: 0, duration: 0.7, stagger: 0.12, ease: "power2.out",
-          scrollTrigger: { trigger: sectionRef.current?.querySelector(".roles-grid"), start: "top 80%", once: true },
-        });
-      }
-    }, sectionRef);
-
-    return () => ctx.revert();
-  }, []);
-
   return (
-    <section ref={sectionRef} className="w-full py-[120px] md:py-[160px] bg-white">
-      <div className="max-w-[1280px] mx-auto px-6">
+    <section id="ecommunity" className="py-24 px-6 bg-[#f8f8f6]">
+      <div className="max-w-[1180px] mx-auto">
         {/* Header */}
-        <div className="max-w-[720px] mb-16">
-          <p className="section-overline heading-animate mb-6">The ECOmmunity</p>
-          <h2 className="section-headline text-eco-dark heading-animate mb-6">
-            Everyone has a role in the ECO-loop.
-          </h2>
-          <p className="section-body text-eco-dark heading-animate max-w-[560px]">
-            From the consumer who returns a bottle to the producer who recovers it — every member of the ECOmmunity closes the loop a little more.
+        <div className="max-w-[600px] mb-14">
+          <p className="section-overline mb-3">Who is ECOCAN for?</p>
+          <h2 className="section-headline mb-4">Every role in the ECOmmunity</h2>
+          <p className="section-body">
+            ECOCAN connects six types of participants into one circular economy.
+            Find your role and tap in.
           </p>
         </div>
 
-        {/* Roles grid */}
-        <div className="roles-grid grid grid-cols-1 md:grid-cols-2 gap-6">
-          {roles.map((role) => (
-            <div
-              key={role.id}
-              className={`role-card relative rounded-3xl overflow-hidden bg-gradient-to-br ${role.accent} border border-gray-100 p-8 md:p-10 flex flex-col min-h-[380px] group hover:shadow-elevated transition-all duration-500`}
-              style={{ background: role.id === "consumer" ? "#F7F7F7" : undefined }}
-            >
-              {/* Pill label */}
-              <span className={`inline-flex w-fit px-3 py-1 rounded-full text-xs font-semibold mb-5 ${role.pillBg}`}>
-                {role.label}
-              </span>
-
-              {/* Text */}
-              <h3 className="text-2xl md:text-3xl font-bold text-eco-dark mb-3 leading-tight">{role.tagline}</h3>
-              <p className="text-eco-dark/60 text-base leading-relaxed mb-8 flex-1">{role.desc}</p>
-
-              {/* CTA */}
+        {/* Role cards grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          {roles.map((role) => {
+            const Icon = role.icon;
+            return (
               <Link
+                key={role.title}
                 href={role.href}
-                className="inline-flex items-center gap-2 text-primary font-semibold group-hover:gap-3 transition-all"
+                className="group relative flex flex-col bg-white rounded-2xl p-7 border border-black/5 hover:border-black/10 hover:shadow-lg transition-all duration-200 cursor-pointer"
               >
-                {role.cta} <ArrowRight size={18} />
-              </Link>
-
-              {/* Image (decorative, right side) */}
-              <div className="absolute bottom-0 right-0 w-2/5 h-full overflow-hidden pointer-events-none opacity-25 group-hover:opacity-40 transition-opacity duration-500">
-                <div className="relative w-full h-full">
-                  <Image
-                    src={role.image}
-                    alt={role.label}
-                    fill
-                    className="object-cover object-left-top"
-                    sizes="(max-width: 768px) 40vw, 20vw"
-                    loading="lazy"
-                  />
+                {/* Icon */}
+                <div
+                  className="w-11 h-11 rounded-xl flex items-center justify-center mb-5"
+                  style={{ background: role.color + "15" }}
+                >
+                  <Icon size={22} style={{ color: role.color }} />
                 </div>
-              </div>
-            </div>
-          ))}
-        </div>
 
-        {/* Bottom row: African family image + join CTA */}
-        <div className="mt-10 relative rounded-3xl overflow-hidden" style={{ minHeight: 260 }}>
-          <Image
-            src="/images/african-family.jpg"
-            alt="African family joining the ECOmmunity"
-            fill
-            className="object-cover"
-            loading="lazy"
-          />
-          <div
-            className="absolute inset-0 flex flex-col items-center justify-center text-center p-8"
-            style={{ background: "rgba(9, 76, 49, 0.72)" }}
-          >
-            <h3 className="text-white font-bold mb-4" style={{ fontSize: "clamp(24px, 3.5vw, 40px)" }}>
-              Join the ECOmmunity today
-            </h3>
-            <p className="text-white/80 text-lg mb-8 max-w-xl">
-              250,000+ members across Kenya. Growing every day.
-            </p>
-            <div className="flex flex-wrap gap-4 justify-center">
-              <Link href="/download" className="pill-btn pill-btn-white !py-3 !px-8">
-                Download the App
+                {/* Content */}
+                <p className="text-[11px] font-semibold uppercase tracking-widest mb-1" style={{ color: role.color }}>
+                  {role.subtitle}
+                </p>
+                <h3 className="text-[20px] font-bold text-eco-dark mb-2 leading-tight">{role.title}</h3>
+                <p className="text-[15px] text-eco-dark/60 leading-relaxed flex-1">{role.description}</p>
+
+                {/* CTA */}
+                <div className="mt-5 flex items-center gap-1.5 text-[14px] font-semibold" style={{ color: role.color }}>
+                  {role.cta}
+                  <ArrowRight size={14} className="transition-transform group-hover:translate-x-1" />
+                </div>
               </Link>
-              <Link href="/contact" className="pill-btn border border-white/50 text-white hover:bg-white/10 !py-3 !px-8">
-                Register Your Business
-              </Link>
-            </div>
-          </div>
+            );
+          })}
         </div>
       </div>
     </section>

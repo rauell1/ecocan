@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { Menu } from "lucide-react";
+import { Menu, X } from "lucide-react";
 
 interface HomeNavbarProps {
   scrollEnabled: boolean;
@@ -26,15 +26,17 @@ export default function HomeNavbar({ scrollEnabled, onMenuToggle }: HomeNavbarPr
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
-    if (!scrollEnabled) return;
-    const handleScroll = () => setScrolled(window.scrollY > 100);
+    const handleScroll = () => setScrolled(window.scrollY > 60);
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [scrollEnabled]);
+  }, []);
 
   const handleSectionClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault();
-    if (!scrollEnabled) return;
+    // If scroll is still locked (hero animation not done), unlock first then scroll
+    if (!scrollEnabled) {
+      document.body.style.overflow = "";
+    }
     const el = document.querySelector(href);
     if (el) el.scrollIntoView({ behavior: "smooth" });
   };
@@ -42,7 +44,9 @@ export default function HomeNavbar({ scrollEnabled, onMenuToggle }: HomeNavbarPr
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        scrolled ? "bg-white/95 backdrop-blur-md shadow-sm" : "bg-transparent"
+        scrolled
+          ? "bg-white/95 backdrop-blur-md shadow-sm"
+          : "bg-transparent"
       }`}
       style={{ height: 72 }}
     >
@@ -62,7 +66,7 @@ export default function HomeNavbar({ scrollEnabled, onMenuToggle }: HomeNavbarPr
             priority
           />
           <span
-            className={`hidden md:inline text-xs font-semibold tracking-[0.18em] uppercase ${
+            className={`hidden md:inline text-xs font-semibold tracking-[0.18em] uppercase transition-colors ${
               scrolled ? "text-eco-dark/80" : "text-white/80"
             }`}
           >
@@ -77,14 +81,13 @@ export default function HomeNavbar({ scrollEnabled, onMenuToggle }: HomeNavbarPr
               key={link.href}
               href={link.href}
               onClick={(e) => handleSectionClick(e, link.href)}
-              className={`text-[15px] font-medium transition-colors hover:text-primary ${
+              className={`text-[15px] font-medium transition-colors hover:text-primary cursor-pointer ${
                 scrolled ? "text-eco-dark" : "text-white"
               }`}
             >
               {link.label}
             </a>
           ))}
-          {/* Divider */}
           <span className={`h-4 w-px ${scrolled ? "bg-eco-dark/20" : "bg-white/30"}`} />
           {pageLinks.map((link) => (
             <Link
@@ -103,7 +106,7 @@ export default function HomeNavbar({ scrollEnabled, onMenuToggle }: HomeNavbarPr
         <div className="flex items-center gap-3">
           <Link
             href="/download"
-            className={`hidden md:inline-flex pill-btn text-sm !py-2.5 !px-6 ${
+            className={`hidden md:inline-flex pill-btn text-sm !py-2.5 !px-6 transition-all ${
               scrolled
                 ? "pill-btn-filled"
                 : "border border-white/60 text-white hover:bg-white hover:text-eco-dark"
