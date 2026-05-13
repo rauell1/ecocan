@@ -29,6 +29,15 @@ export default function HeroSection({
   // ─── INTRO ANIMATIONS ────────────────────────────────────────────────────────
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger)
+
+    // Push cards below the hero boundary immediately so they are invisible
+    // before the transition fires. overflow:clip on the hero section clips
+    // them; yPercent:120 adds a comfortable buffer beyond the clip edge.
+    const initialCards = cardsContainerRef.current?.querySelectorAll(".hero-card")
+    if (initialCards && initialCards.length > 0) {
+      gsap.set(initialCards, { yPercent: 120 })
+    }
+
     const ctx = gsap.context(() => {
       gsap.fromTo(
         contentRef.current,
@@ -62,15 +71,9 @@ export default function HeroSection({
 
     const cards = cardsContainerRef.current?.querySelectorAll(".hero-card")
     if (cards) {
-      tl.fromTo(cards, { yPercent: 100 }, { yPercent: 0, duration: 1.2, stagger: 0.05 }, 0)
-      // Pull cards up into the visible viewport. Card 1 (front/dark) rises the
-      // most so it fully fills the hero. Cards 0 and 2 (back) peek from below.
-      const card0 = cards[0]
-      const card1 = cards[1]
-      const card2 = cards[2]
-      if (card0) tl.to(card0, { y: "-18vh", duration: 1.2 }, 0)
-      if (card1) tl.to(card1, { y: "-62vh", duration: 1.2 }, 0)
-      if (card2) tl.to(card2, { y: "-18vh", duration: 1.2 }, 0)
+      // Cards start at yPercent:120 (set on mount, safely below the overflow:clip
+      // boundary). Animate them into the hero viewport from below.
+      tl.fromTo(cards, { yPercent: 120 }, { yPercent: 0, duration: 1.2, stagger: 0.05 }, 0)
     }
 
     tl.to(ctaBtnRef.current, { autoAlpha: 0, duration: 0.4 }, 0.8)
@@ -101,7 +104,7 @@ export default function HeroSection({
       const cards = cardsContainerRef.current?.querySelectorAll(".hero-card")
       if (cards && cards.length > 0) {
         gsap.set(cards, { clearProps: "all" })
-        gsap.set(cards, { yPercent: 100 })
+        gsap.set(cards, { yPercent: 120 })
       }
     })
 
@@ -149,8 +152,8 @@ export default function HeroSection({
     <div
       ref={heroRef}
       id="hero"
-      className="relative w-full"
-      style={{ height: "100dvh", overflowX: "clip" }}
+      className="relative w-full overflow-clip"
+      style={{ height: "100dvh" }}
     >
       {/* ── Video background ──────────────────────────────────────────────────── */}
       <div ref={videoRef} className="absolute inset-0" style={{ zIndex: 1 }}>
@@ -300,16 +303,23 @@ export default function HeroSection({
         </div>
       </div>
 
-      {/* ── Floating reveal cards (unchanged) ────────────────────────────────── */}
+      {/* ── Floating reveal cards ─────────────────────────────────────────────── */}
+      {/*
+       * Container fills the full hero (inset-0). Cards are positioned within
+       * the 0–100dvh hero viewport and start at yPercent:120 (pushed below
+       * the overflow:clip boundary, invisible). The transition animates them
+       * to yPercent:0 so they slide in from below — all self-contained inside
+       * the hero. Nothing bleeds into the page sections below.
+       */}
       <div
         ref={cardsContainerRef}
-        className="pointer-events-none absolute inset-x-0"
-        style={{ top: "100%", zIndex: 5 }}
+        className="pointer-events-none absolute inset-0"
+        style={{ zIndex: 5 }}
       >
-        {/* Card 0 – light stat row */}
+        {/* Card 0 – light stat row (back-left) */}
         <div
           className="hero-card absolute overflow-hidden rounded-3xl shadow-elevated"
-          style={{ left: "5vw", width: "90vw", height: "80vh", top: "10vh", background: "#F7F7F7" }}
+          style={{ left: "5vw", width: "90vw", height: "80vh", top: "8vh", background: "#F7F7F7" }}
         >
           <div className="flex h-full flex-col items-center justify-center gap-8 px-8 text-center">
             <p className="text-xs font-semibold uppercase tracking-[0.18em] text-primary">
@@ -340,10 +350,10 @@ export default function HeroSection({
           </div>
         </div>
 
-        {/* Card 1 – dark ECOmmunity roles strip */}
+        {/* Card 1 – dark ECOmmunity roles strip (front / center) */}
         <div
           className="hero-card absolute overflow-hidden rounded-3xl shadow-elevated"
-          style={{ left: "10vw", width: "80vw", height: "85vh", top: "5vh", background: "#101010" }}
+          style={{ left: "10vw", width: "80vw", height: "84vh", top: "7vh", background: "#101010" }}
         >
           <div className="flex h-full flex-col items-center justify-center gap-8 px-8 text-center">
             <p className="text-xs font-semibold uppercase tracking-[0.18em] text-primary">
@@ -397,10 +407,10 @@ export default function HeroSection({
           </div>
         </div>
 
-        {/* Card 2 – white impact metrics */}
+        {/* Card 2 – white impact metrics (back-right) */}
         <div
           className="hero-card absolute overflow-hidden rounded-3xl shadow-elevated"
-          style={{ left: "5vw", width: "90vw", height: "80vh", top: "10vh", background: "#FFFFFF" }}
+          style={{ left: "5vw", width: "90vw", height: "80vh", top: "8vh", background: "#FFFFFF" }}
         >
           <div className="flex h-full flex-col items-center justify-center gap-8 px-8 text-center">
             <p className="text-xs font-semibold uppercase tracking-[0.18em] text-primary">

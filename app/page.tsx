@@ -145,7 +145,7 @@ export default function Home() {
   useEffect(() => () => destroyLenis(), [destroyLenis])
 
   return (
-    <div className="relative overflow-x-hidden">
+    <div className="relative overflow-x-clip">
       <HomeNavbar scrollEnabled={scrollEnabled} onMenuToggle={() => setMenuOpen(!menuOpen)} />
       <HomeMobileMenu
         isOpen={menuOpen}
