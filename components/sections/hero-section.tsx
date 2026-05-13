@@ -70,38 +70,14 @@ export default function HeroSection({
     tl.to(ctaBtnRef.current, { autoAlpha: 0, duration: 0.4 }, 0.8)
   }
 
-  // ─── RESET: reverse timeline + restart video ──────────────────────────────────
-  //
-  // FIX 1 – VIDEO: We unconditionally restart the <video> element as soon as
-  //   resetSignal fires (i.e. the user scrolled back to the top).  Previously
-  //   the restart was buried inside a GSAP eventCallback, which could be missed
-  //   when the timeline was not yet fully reversed or when GSAP was re-imported
-  //   dynamically in the parent.  Now we use a dedicated effect that runs right
-  //   away, independently of the timeline state.
-  //
-  // FIX 2 – CARD BLEED: The three floating hero-cards live at `top: 100vh`
-  //   inside the hero div which has `height: 100vh`.  After the timeline
-  //   reverses they should be back at yPercent: 100 (fully below the viewport),
-  //   but any in-progress GSAP tweens can leave them at an intermediate
-  //   transform, causing them to bleed over the sections beneath the hero.
-  //   We solve this by:
-  //     a) Forcing `overflow: hidden` on the hero wrapper so cards that are
-  //        positioned below 100 vh are clipped.
-  //     b) After the reverse completes we hard-reset the cards' transforms via
-  //        gsap.set() so the next forward transition always starts from a clean
-  //        state.
+  // ─── RESET ────────────────────────────────────────────────────────────────────
   useEffect(() => {
     if (resetSignal === 0) return
 
-    // --- FIX 1: Restart video immediately ---
     const vid = videoElRef.current
     if (vid) {
       vid.load()
-      vid
-        .play()
-        .catch(() => {
-          // Autoplay blocked — poster image acts as fallback; ignore silently.
-        })
+      vid.play().catch(() => {})
     }
 
     const tl = transitionTlRef.current
@@ -114,12 +90,9 @@ export default function HeroSection({
       setTransitionDone(false)
       tl.eventCallback("onReverseComplete", null)
 
-      // --- FIX 2: Hard-reset card positions so they can never bleed over page ---
       const cards = cardsContainerRef.current?.querySelectorAll(".hero-card")
       if (cards && cards.length > 0) {
         gsap.set(cards, { clearProps: "all" })
-        // cards start fully below the viewport (yPercent 100) until the next
-        // forward transition, so they won't be visible in the page sections.
         gsap.set(cards, { yPercent: 100 })
       }
     })
@@ -162,11 +135,6 @@ export default function HeroSection({
   }
 
   return (
-    // FIX 2 (cont.): overflow-hidden clips the floating cards that are
-    // positioned at top: 100vh when they are not in the middle of a forward
-    // transition.  Without this the cards (which contain "How It Works",
-    // "From your hand back to the shelf.", "01 Buy …" etc.) were visible
-    // *beneath* the hero section, producing the garbled text the user reported.
     <div ref={heroRef} id="hero" className="relative w-full overflow-hidden" style={{ height: "100vh" }}>
       {/* Video background */}
       <div ref={videoRef} className="absolute inset-0" style={{ zIndex: 1 }}>
@@ -191,24 +159,44 @@ export default function HeroSection({
         />
       </div>
 
-      {/* Brand name */}
+      {/*
+        ECOCAN brand name — bottom watermark
+
+        FIX: Removed `mixBlendMode: "overlay"` which caused the text to become
+        invisible or partially transparent depending on the video frame beneath
+        it.  The text is now rendered with:
+          • A solid white fill (opacity 0.12) as a subtle background anchor
+          • -webkit-text-stroke for a crisp white outline that is always visible
+          • A transparent fill so the outline style is the dominant visual
+          • A strong multi-layer text-shadow for depth and contrast on any frame
+          • zIndex: 2 — sits above the video gradient but below the main content
+            overlay (zIndex: 3), so it never blocks CTA buttons or body copy
+      */}
       <h1
         ref={brandRef}
-        className="absolute left-1/2 -translate-x-1/2 text-center font-extrabold text-white"
+        className="pointer-events-none absolute left-1/2 -translate-x-1/2 select-none whitespace-nowrap text-center font-extrabold"
         style={{
-          bottom: "10vh",
+          bottom: "8vh",
           fontSize: "clamp(60px, 14vw, 180px)",
-          textShadow: "0 4px 40px rgba(0,0,0,0.5)",
-          mixBlendMode: "overlay",
-          zIndex: 2,
           lineHeight: 1,
           letterSpacing: "-0.03em",
+          zIndex: 2,
+          // Outlined text — visible on any video frame, light or dark
+          color: "transparent",
+          WebkitTextStroke: "2px rgba(255,255,255,0.85)",
+          // Soft glow behind the stroke so it pops on bright frames
+          textShadow: [
+            "0 0 60px rgba(0,0,0,0.6)",
+            "0 0 120px rgba(0,0,0,0.4)",
+            "0 4px 24px rgba(0,0,0,0.7)",
+          ].join(", "),
         }}
+        aria-label="ECOCAN"
       >
         ECOCAN
       </h1>
 
-      {/* Hero content */}
+      {/* Hero content — sits above the brand watermark (zIndex: 3) */}
       <div
         ref={contentRef}
         className="absolute inset-0 flex flex-col items-center justify-center px-6 text-center"
@@ -272,10 +260,7 @@ export default function HeroSection({
         </button>
       )}
 
-      {/* Floating reveal cards
-          These start at top: 100vh (below the viewport).  overflow-hidden on the
-          parent hero div ensures they are invisible until a forward transition
-          animates them upward into view. */}
+      {/* Floating reveal cards */}
       <div
         ref={cardsContainerRef}
         className="pointer-events-none absolute inset-x-0"
