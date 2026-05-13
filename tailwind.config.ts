@@ -63,16 +63,16 @@ const config = {
         },
       },
       borderRadius: {
-        'smooth-sm': '0.5rem',
-        'smooth': '1rem',
-        'smooth-lg': '1.5rem',
-        'smooth-xl': '2rem',
-        '4xl': '24px',
-        xl: "calc(var(--radius) + 4px)",
-        lg: "var(--radius)",
-        md: "calc(var(--radius) - 2px)",
-        sm: "calc(var(--radius) - 4px)",
-        xs: "calc(var(--radius) - 6px)",
+        'smooth-sm': 'var(--radius-sm)',
+        'smooth': 'var(--radius-md)',
+        'smooth-lg': 'var(--radius-lg)',
+        'smooth-xl': 'var(--radius-xl)',
+        '4xl': 'var(--radius-2xl)',
+        xl: "calc(var(--radius-md) + 4px)",
+        lg: "var(--radius-md)",
+        md: "var(--radius-sm)",
+        sm: "calc(var(--radius-sm) - 2px)",
+        xs: "calc(var(--radius-sm) - 4px)",
       },
       spacing: {
         "18": "4.5rem",
@@ -100,27 +100,19 @@ const config = {
         },
       },
       animation: {
-        "accordion-down": "accordion-down 0.2s ease-out",
-        "accordion-up": "accordion-up 0.2s ease-out",
+        "accordion-down": "accordion-down 0.24s cubic-bezier(0.16, 1, 0.3, 1)",
+        "accordion-up": "accordion-up 0.2s cubic-bezier(0.16, 1, 0.3, 1)",
         "caret-blink": "caret-blink 1.25s ease-out infinite",
         "pulse-dot": "pulse-dot 2s infinite",
       },
       boxShadow: {
         xs: "0 1px 2px 0 rgb(0 0 0 / 0.05)",
-        card: "0 4px 24px rgba(0,0,0,0.06)",
-        elevated: "0 12px 48px rgba(0,0,0,0.12)",
-        glow: "0 0 30px rgba(34,139,34,0.3)",
+        card: "0 6px 24px rgba(10, 20, 16, 0.08)",
+        elevated: "0 16px 48px rgba(10, 20, 16, 0.14)",
+        glow: "0 0 30px rgba(27, 110, 72, 0.24)",
       },
       fontFamily: {
-        /*
-         * --font-sans CSS variable is injected by next/font in layout.tsx.
-         * Fallback chain: Inter (loaded) → system-ui → sans-serif.
-         * Euclid Circular B removed from here — it was referenced but
-         * never loaded correctly (TTF @font-face had no guaranteed files
-         * in public/fonts/). To restore Euclid Circular B, use
-         * next/font/local with WOFF2 files and add its variable here.
-         */
-        sans: ['var(--font-sans)', 'system-ui', 'sans-serif'],
+        sans: ['var(--font-sans)', 'Inter', 'system-ui', 'sans-serif'],
       },
     },
   },
