@@ -3,14 +3,16 @@
 import { useRef, useEffect } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import Image from "next/image";
+import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
 const steps = [
-  { num: "01", title: "Buy", desc: "Any drink with ECOCAN code" },
-  { num: "02", title: "Scan", desc: "Verify it's real (3 seconds)" },
-  { num: "03", title: "Return", desc: "Empty, intact, to any ECO-Station counter or machine" },
-  { num: "04", title: "Collect", desc: "We pick up. You've done your part." },
-  { num: "05", title: "Get Rewarded", desc: "Instant cash to your wallet — a bonus for doing good" },
+  { num: "01", title: "Buy", desc: "Any drink with ECOCAN security code" },
+  { num: "02", title: "Scan", desc: "Verify authenticity in 3 seconds" },
+  { num: "03", title: "Return", desc: "Empty, intact, to any ECO-Station counter" },
+  { num: "04", title: "Collect", desc: "We pick up by electric bike. You've done your part." },
+  { num: "05", title: "Get Rewarded", desc: "Instant deposit money to M-PESA or bank" },
 ];
 
 interface HowItWorksSectionProps {
@@ -37,8 +39,15 @@ export default function HowItWorksSection({ scrollEnabled }: HowItWorksSectionPr
       const cards = cardsRef.current.querySelectorAll(".step-card");
       if (cards.length > 0) {
         gsap.fromTo(cards, { opacity: 0, y: 60, x: 30 }, {
-          opacity: 1, y: 0, x: 0, duration: 0.6, stagger: 0.15, ease: "power2.out",
+          opacity: 1, y: 0, x: 0, duration: 0.6, stagger: 0.12, ease: "power2.out",
           scrollTrigger: { trigger: cardsRef.current, start: "top 80%", once: true },
+        });
+      }
+      const imgEl = sectionRef.current?.querySelector(".counter-img");
+      if (imgEl) {
+        gsap.fromTo(imgEl, { opacity: 0, scale: 1.05 }, {
+          opacity: 1, scale: 1, duration: 1, ease: "power3.out",
+          scrollTrigger: { trigger: imgEl, start: "top 85%", once: true },
         });
       }
     }, sectionRef);
@@ -53,40 +62,57 @@ export default function HowItWorksSection({ scrollEnabled }: HowItWorksSectionPr
       style={{ background: "#101010" }}
     >
       <div
-        className="absolute inset-0 opacity-20"
+        className="absolute inset-0 opacity-15"
         style={{ backgroundImage: "url(/images/bottle-journey.jpg)", backgroundSize: "cover", backgroundPosition: "center" }}
       />
       <div className="absolute inset-0 bg-gradient-to-b from-[#101010] via-transparent to-[#101010]" />
 
       <div className="relative z-10 max-w-[1280px] mx-auto px-6">
         <p className="section-overline heading-animate mb-6">How It Works</p>
-        <h2 className="section-headline text-white heading-animate mb-4 max-w-[700px]">
-          From your hand back to the shelf. Clean. Traceable.
+        <h2 className="section-headline text-white heading-animate mb-2 max-w-[700px]">
+          From your hand back to the shelf.
         </h2>
+        <p className="section-body text-white/50 heading-animate mb-12">Clean. Traceable. Rewarded.</p>
 
-        <div ref={cardsRef} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 mt-12">
+        <div ref={cardsRef} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 mb-12">
           {steps.map((step) => (
             <div
               key={step.num}
-              className="step-card glass-card p-6 md:p-8 hover:-translate-y-1 hover:border-white/30 transition-all duration-300"
+              className="step-card glass-card p-6 md:p-8 hover:-translate-y-2 hover:border-white/30 transition-all duration-300"
             >
-              <span className="text-4xl md:text-5xl font-bold text-primary block mb-4">{step.num}</span>
+              <span className="text-4xl md:text-5xl font-bold text-primary block mb-4 leading-none">{step.num}</span>
               <h3 className="text-xl font-semibold text-white mb-2">{step.title}</h3>
-              <p className="text-white/60 text-sm">{step.desc}</p>
+              <p className="text-white/50 text-sm leading-relaxed">{step.desc}</p>
             </div>
           ))}
         </div>
 
-        <p className="mt-6 text-white/50 text-sm italic heading-animate">
-          No machine? No problem. Our partners at supermarket counters scan and pay you instantly.
+        <p className="text-white/40 text-sm italic heading-animate mb-3">
+          No machine? No problem. Our partner counters scan and pay you instantly — right now, today.
         </p>
-        <a
-          href="#"
-          className="inline-flex items-center gap-2 text-white font-medium mt-8 hover:underline heading-animate"
-          onClick={(e) => e.preventDefault()}
+        <Link
+          href="/solutions"
+          className="inline-flex items-center gap-2 text-white font-medium hover:underline heading-animate mb-16"
         >
-          See full journey video <ArrowRight size={16} />
-        </a>
+          See full journey <ArrowRight size={16} />
+        </Link>
+
+        {/* Return counter photo from original site */}
+        <div className="counter-img relative rounded-3xl overflow-hidden heading-animate" style={{ height: "clamp(200px, 32vw, 400px)" }}>
+          <Image
+            src="/images/return-counter.jpg"
+            alt="ECOCAN return counter at a supermarket"
+            fill
+            className="object-cover"
+            loading="lazy"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#101010]/70 via-[#101010]/20 to-transparent flex items-center p-8 md:p-12">
+            <div>
+              <p className="text-white font-bold text-2xl md:text-3xl mb-2">Return it right here.</p>
+              <p className="text-white/70 text-base">Any ECO-Station counter. No machine required.</p>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   );

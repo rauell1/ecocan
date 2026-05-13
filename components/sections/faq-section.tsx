@@ -4,6 +4,7 @@ import { useRef, useEffect, useState } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ChevronDown, ArrowRight } from "lucide-react";
+import Link from "next/link";
 
 const faqs = [
   {
@@ -117,13 +118,12 @@ export default function FAQSection() {
           ))}
         </div>
 
-        <a
-          href="#"
+        <Link
+          href="/contact"
           className="inline-flex items-center gap-2 text-primary font-semibold mt-8 hover:underline heading-animate"
-          onClick={(e) => e.preventDefault()}
         >
-          Full FAQ <ArrowRight size={16} />
-        </a>
+          Have more questions? Contact us <ArrowRight size={16} />
+        </Link>
       </div>
     </section>
   );

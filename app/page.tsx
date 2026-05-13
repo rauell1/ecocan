@@ -10,9 +10,11 @@ import HomeMobileMenu from "@/components/sections/home-mobile-menu";
 import HeroSection from "@/components/sections/hero-section";
 import ProblemSolutionSection from "@/components/sections/problem-solution-section";
 import HowItWorksSection from "@/components/sections/how-it-works-section";
+import EcommunityRolesSection from "@/components/sections/ecommunity-roles-section";
 import EcocanModelSection from "@/components/sections/ecocan-model-section";
 import ElectricMobilitySection from "@/components/sections/electric-mobility-section";
 import AntiCounterfeitSection from "@/components/sections/anti-counterfeit-section";
+import AppShowcaseSection from "@/components/sections/app-showcase-section";
 import ForInvestorsSection from "@/components/sections/for-investors-section";
 import SustainabilityImpactSection from "@/components/sections/sustainability-impact-section";
 import PartnersTestimonialsSection from "@/components/sections/partners-testimonials-section";
@@ -66,37 +68,60 @@ export default function Home() {
   return (
     <div className="relative">
       <HomeNavbar scrollEnabled={scrollEnabled} onMenuToggle={() => setMenuOpen(!menuOpen)} />
-      <HomeMobileMenu isOpen={menuOpen} onClose={() => setMenuOpen(false)} />
+      <HomeMobileMenu
+        isOpen={menuOpen}
+        onClose={() => setMenuOpen(false)}
+        scrollEnabled={scrollEnabled}
+      />
 
       <HeroSection scrollEnabled={scrollEnabled} onTransitionComplete={handleTransitionComplete} />
 
       <div id="problem">
         <ProblemSolutionSection />
       </div>
+
       <div id="how-it-works">
         <HowItWorksSection scrollEnabled={scrollEnabled} />
       </div>
+
+      {/* ECOmmunity roles — who is this for? (key content from original site) */}
+      <div id="ecommunity">
+        <EcommunityRolesSection />
+      </div>
+
       <div id="model">
         <EcocanModelSection scrollEnabled={scrollEnabled} />
       </div>
+
       <div id="mobility">
         <ElectricMobilitySection />
       </div>
+
       <div id="counterfeit">
         <AntiCounterfeitSection />
       </div>
+
+      {/* App showcase — drive downloads with real screenshots */}
+      <div id="app">
+        <AppShowcaseSection />
+      </div>
+
       <div id="investors">
         <ForInvestorsSection />
       </div>
+
       <div id="impact">
         <SustainabilityImpactSection />
       </div>
+
       <div id="partners">
         <PartnersTestimonialsSection />
       </div>
+
       <div id="cta">
         <CallToActionSection />
       </div>
+
       <div id="faq">
         <FAQSection />
       </div>

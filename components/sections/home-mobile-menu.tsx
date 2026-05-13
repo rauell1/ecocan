@@ -2,34 +2,45 @@
 
 import { useEffect } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { X } from "lucide-react";
 
 interface HomeMobileMenuProps {
   isOpen: boolean;
   onClose: () => void;
+  scrollEnabled: boolean;
 }
 
-const navLinks = [
-  { label: "Home", href: "#hero" },
+const sectionLinks = [
   { label: "How It Works", href: "#how-it-works" },
-  { label: "ECOmmunity", href: "#model" },
-  { label: "For Producers", href: "#counterfeit" },
-  { label: "Investors", href: "#investors" },
-  { label: "About", href: "#impact" },
+  { label: "The Model", href: "#model" },
+  { label: "For Investors", href: "#investors" },
+  { label: "Sustainability", href: "#impact" },
 ];
 
-export default function HomeMobileMenu({ isOpen, onClose }: HomeMobileMenuProps) {
+const pageLinks = [
+  { label: "About Us", href: "/about-us" },
+  { label: "Solutions", href: "/solutions" },
+  { label: "News", href: "/news" },
+  { label: "Contact", href: "/contact" },
+];
+
+export default function HomeMobileMenu({ isOpen, onClose, scrollEnabled }: HomeMobileMenuProps) {
   useEffect(() => {
-    if (isOpen) {
+    // Only lock scroll if not already locked by hero transition
+    if (isOpen && scrollEnabled) {
       document.body.style.overflow = "hidden";
-    } else {
+    } else if (!isOpen && scrollEnabled) {
       document.body.style.overflow = "";
     }
-    return () => { document.body.style.overflow = ""; };
-  }, [isOpen]);
+    return () => {
+      if (scrollEnabled) document.body.style.overflow = "";
+    };
+  }, [isOpen, scrollEnabled]);
 
-  const handleLinkClick = (href: string) => {
+  const handleSectionClick = (href: string) => {
     onClose();
+    if (!scrollEnabled) return;
     setTimeout(() => {
       const el = document.querySelector(href);
       if (el) el.scrollIntoView({ behavior: "smooth" });
@@ -45,7 +56,7 @@ export default function HomeMobileMenu({ isOpen, onClose }: HomeMobileMenuProps)
         onClick={onClose}
       />
       <div
-        className={`fixed top-0 right-0 bottom-0 z-[70] w-[300px] max-w-[80vw] bg-white shadow-elevated transform transition-transform duration-300 ease-out lg:hidden ${
+        className={`fixed top-0 right-0 bottom-0 z-[70] w-[320px] max-w-[85vw] bg-white shadow-elevated transform transition-transform duration-300 ease-out lg:hidden ${
           isOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
@@ -56,25 +67,50 @@ export default function HomeMobileMenu({ isOpen, onClose }: HomeMobileMenuProps)
           </button>
         </div>
 
-        <div className="p-6 flex flex-col gap-1">
-          {navLinks.map((link) => (
+        <div className="p-6 flex flex-col gap-0 overflow-y-auto max-h-[calc(100vh-80px)]">
+          {/* Section anchors */}
+          <p className="text-xs font-semibold uppercase tracking-widest text-eco-dark/40 px-4 py-2">On this page</p>
+          {sectionLinks.map((link) => (
             <a
               key={link.href}
               href={link.href}
-              onClick={(e) => { e.preventDefault(); handleLinkClick(link.href); }}
-              className="py-3 px-4 text-lg font-medium text-eco-dark hover:bg-eco-light rounded-xl transition-colors"
+              onClick={(e) => { e.preventDefault(); handleSectionClick(link.href); }}
+              className="py-3 px-4 text-base font-medium text-eco-dark hover:bg-eco-light rounded-xl transition-colors"
             >
               {link.label}
             </a>
           ))}
-          <div className="mt-6 pt-6 border-t border-gray-100">
-            <a
-              href="#cta"
-              onClick={(e) => { e.preventDefault(); handleLinkClick("#cta"); }}
+
+          <div className="my-4 border-t border-gray-100" />
+
+          {/* Page links */}
+          <p className="text-xs font-semibold uppercase tracking-widest text-eco-dark/40 px-4 py-2">Explore</p>
+          {pageLinks.map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              onClick={onClose}
+              className="py-3 px-4 text-base font-medium text-eco-dark hover:bg-eco-light rounded-xl transition-colors"
+            >
+              {link.label}
+            </Link>
+          ))}
+
+          <div className="mt-6 pt-6 border-t border-gray-100 flex flex-col gap-3">
+            <Link
+              href="/download"
+              onClick={onClose}
               className="pill-btn pill-btn-filled w-full justify-center"
             >
               Download App
-            </a>
+            </Link>
+            <Link
+              href="/contact"
+              onClick={onClose}
+              className="pill-btn pill-btn-outline w-full justify-center"
+            >
+              Contact Us
+            </Link>
           </div>
         </div>
       </div>

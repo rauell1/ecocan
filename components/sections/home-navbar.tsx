@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { Menu } from "lucide-react";
 
 interface HomeNavbarProps {
@@ -9,13 +10,15 @@ interface HomeNavbarProps {
   onMenuToggle: () => void;
 }
 
-const navLinks = [
-  { label: "Home", href: "#hero" },
+const sectionLinks = [
   { label: "How It Works", href: "#how-it-works" },
   { label: "ECOmmunity", href: "#model" },
-  { label: "For Producers", href: "#counterfeit" },
   { label: "Investors", href: "#investors" },
-  { label: "About", href: "#impact" },
+];
+
+const pageLinks = [
+  { label: "Solutions", href: "/solutions" },
+  { label: "About", href: "/about-us" },
 ];
 
 export default function HomeNavbar({ scrollEnabled, onMenuToggle }: HomeNavbarProps) {
@@ -28,7 +31,7 @@ export default function HomeNavbar({ scrollEnabled, onMenuToggle }: HomeNavbarPr
     return () => window.removeEventListener("scroll", handleScroll);
   }, [scrollEnabled]);
 
-  const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+  const handleSectionClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault();
     if (!scrollEnabled) return;
     const el = document.querySelector(href);
@@ -43,7 +46,12 @@ export default function HomeNavbar({ scrollEnabled, onMenuToggle }: HomeNavbarPr
       style={{ height: 72 }}
     >
       <div className="max-w-[1280px] mx-auto px-6 h-full flex items-center justify-between">
-        <a href="#hero" onClick={(e) => handleLinkClick(e, "#hero")}>
+        {/* Logo */}
+        <a
+          href="#hero"
+          onClick={(e) => handleSectionClick(e, "#hero")}
+          className="shrink-0"
+        >
           <Image
             src="/images/ecocan-logo.png"
             alt="ECOCAN"
@@ -54,12 +62,13 @@ export default function HomeNavbar({ scrollEnabled, onMenuToggle }: HomeNavbarPr
           />
         </a>
 
-        <div className="hidden lg:flex items-center gap-8">
-          {navLinks.map((link) => (
+        {/* Desktop nav */}
+        <div className="hidden lg:flex items-center gap-7">
+          {sectionLinks.map((link) => (
             <a
               key={link.href}
               href={link.href}
-              onClick={(e) => handleLinkClick(e, link.href)}
+              onClick={(e) => handleSectionClick(e, link.href)}
               className={`text-[15px] font-medium transition-colors hover:text-primary ${
                 scrolled ? "text-eco-dark" : "text-white"
               }`}
@@ -67,16 +76,33 @@ export default function HomeNavbar({ scrollEnabled, onMenuToggle }: HomeNavbarPr
               {link.label}
             </a>
           ))}
+          {/* Divider */}
+          <span className={`h-4 w-px ${scrolled ? "bg-eco-dark/20" : "bg-white/30"}`} />
+          {pageLinks.map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              className={`text-[15px] font-medium transition-colors hover:text-primary ${
+                scrolled ? "text-eco-dark" : "text-white/90"
+              }`}
+            >
+              {link.label}
+            </Link>
+          ))}
         </div>
 
-        <div className="flex items-center gap-4">
-          <a
-            href="#cta"
-            onClick={(e) => handleLinkClick(e, "#cta")}
-            className="hidden md:inline-flex pill-btn pill-btn-filled text-sm !py-2.5 !px-6"
+        {/* Actions */}
+        <div className="flex items-center gap-3">
+          <Link
+            href="/download"
+            className={`hidden md:inline-flex pill-btn text-sm !py-2.5 !px-6 ${
+              scrolled
+                ? "pill-btn-filled"
+                : "border border-white/60 text-white hover:bg-white hover:text-eco-dark"
+            }`}
           >
             Download App
-          </a>
+          </Link>
           <button
             onClick={onMenuToggle}
             className={`lg:hidden p-2 rounded-lg transition-colors ${
