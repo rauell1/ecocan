@@ -23,6 +23,7 @@ The **Deployment Log** section is updated automatically by `scripts/update-docs.
 **Trigger:** Every push to `main` (excluding pushes that only modify this file itself, to prevent infinite loops).
 
 **What gets appended:** A new row in the Deployment Log table containing:
+
 - Short commit SHA (linked to GitHub)
 - Commit message summary
 - Author
@@ -41,28 +42,28 @@ GITHUB_SHA=abc1234def GITHUB_REF_NAME=main GITHUB_ACTOR=yourname GITHUB_COMMIT_M
 
 > ⚙️ **CI-managed section.** One row is appended per merge to `main`. Do not edit rows manually — add incident notes in the [Incident Response](#incident-response) section instead and cross-reference by commit SHA.
 
-| # | Commit | Message | Author | Date (UTC) | Branch |
-|---|--------|---------|--------|------------|--------|
-| 1 | [`a6ae370`](https://github.com/rauell1/ecocan/commit/a6ae37020178d40cd4e5c0ef4cecae5bfbe13639) | wip: ui fixes – initial scaffold | benten95-web | 2025-01-27 11:15 | main |
-| 2 | [`d386df7`](https://github.com/rauell1/ecocan/commit/d386df7849fa98e29b5c348d292be107778a1606) | wip: ui fixes | benten95-web | 2025-01-30 10:35 | main |
-| 3 | [`5d57fda`](https://github.com/rauell1/ecocan/commit/5d57fda58ea2426b3a11d494c0e1918921e3ef3e) | ui fixes | benten95-web | 2026-01-02 12:34 | main |
-| 4 | [`bcc1c46`](https://github.com/rauell1/ecocan/commit/bcc1c469369737830073a1794e03e1e28e32d656) | added open graph metadata | benten95-web | 2026-02-03 23:10 | main |
-| 5 | [`fe11932`](https://github.com/rauell1/ecocan/commit/fe11932fd4a746396bdc34f14d07a12aee8ef790) | modified open graph metadata | benten95-web | 2026-02-03 23:45 | main |
-| 6 | [`39ed1cf`](https://github.com/rauell1/ecocan/commit/39ed1cffeed9511d491ca13a31b43e8fe7aa2c36) | minor fix | benten95-web | 2026-02-04 09:05 | main |
-| 7 | [`99cc318`](https://github.com/rauell1/ecocan/commit/99cc3188db23d99383a03db76d6fcab5d0743847) | minor fix | benten95-web | 2026-02-04 09:08 | main |
-| 8 | [`5c07e3a`](https://github.com/rauell1/ecocan/commit/5c07e3aa0b57e476ee68b7ddfadbb6ef5635ac5a) | minor fix | benten95-web | 2026-02-04 09:15 | main |
-| 9 | [`bec72a4`](https://github.com/rauell1/ecocan/commit/bec72a450213b83fd1546e64ecdb7d769e42c09d) | minor fix | benten95-web | 2026-02-04 09:21 | main |
-| 10 | [`e3cc28c`](https://github.com/rauell1/ecocan/commit/e3cc28c35b9d916fcd64846f541321bb423ad4da) | Fix React Server Components CVE – patched next, react-server-dom-* | vercel[bot] | 2026-02-17 15:01 | main |
-| 11 | [`280a878`](https://github.com/rauell1/ecocan/commit/280a8785c3e5ed75d05f23786488088846105055) | Merge PR #81: Fix React Server Components CVE vulnerabilities | boypaida12 | 2026-02-18 21:21 | main |
-| 12 | [`3946b1b`](https://github.com/rauell1/ecocan/commit/3946b1bd9883761affd888bd7ec8654ab7a68acd) | Install Vercel Web Analytics (`@vercel/analytics@2.0.1`) | vercel[bot] | 2026-05-11 12:58 | main |
-| 13 | [`a3829e9`](https://github.com/rauell1/ecocan/commit/a3829e9402345f7477c1b9577ec6c9ab2ae3f5d5) | Merge PR #1: Install Vercel Web Analytics | rauell1 | 2026-05-11 13:01 | main |
-| 14 | [`ce05475`](https://github.com/rauell1/ecocan/commit/ce054757e606e36c02906dd849a31c2c202f5d19) | chore(docs): add repo maps and auto-update stubs | rauell1 | 2026-05-11 13:21 | main |
-| 15 | [`6e74442`](https://github.com/rauell1/ecocan/commit/6e74442a2083eead0b02130f873aa57638e27ee8) | feat: full auto-updating docs – script, CI workflow, ts-node dep | rauell1 | 2026-05-11 13:46 | main |
-| 16 | [`d73e3cf`](https://github.com/rauell1/ecocan/commit/d73e3cf3310d02ffbc5e95c481b429b6c9934a5b) | fix: remove ts-node, use plain ESM script – fixes Vercel pnpm frozen-lockfile error | rauell1 | 2026-05-11 13:51 | main |
-| 17 | [`68612b9`](https://github.com/rauell1/ecocan/commit/68612b965bb53e177be5328e8decfba125dc6be0) | docs: proper README with full project documentation | rauell1 | 2026-05-11 19:05 | main |
-| 18 | [`8a5a8ac`](https://github.com/rauell1/ecocan/commit/8a5a8ac) | Revamp v2 foundation: port Kimi design tokens into Ecocan's existing theme system | copilot-swe-agent[bot] | 2026-05-12 12:49 | copilot/revamp-v2 |
-| 19 | [`2008b3b`](https://github.com/rauell1/ecocan/commit/2008b3b672fa3cf725b99be5b421abbd7002cc76) | Merge pull request #7: Revamp v2 foundation | rauell1 | 2026-05-12 16:11 | main |
-| 20 | [`964d20d`](https://github.com/rauell1/ecocan/commit/964d20d8c7f9b8a95ea19fb77ea72471fd0a7e29) | perf: performance revamp v3 — fix globals.css + layout.tsx (#8) | rauell1 | 2026-05-12 16:20 | main |
+| #   | Commit                                                                                         | Message                                                                             | Author                 | Date (UTC)       | Branch            |
+| --- | ---------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- | ---------------------- | ---------------- | ----------------- |
+| 1   | [`a6ae370`](https://github.com/rauell1/ecocan/commit/a6ae37020178d40cd4e5c0ef4cecae5bfbe13639) | wip: ui fixes – initial scaffold                                                    | benten95-web           | 2025-01-27 11:15 | main              |
+| 2   | [`d386df7`](https://github.com/rauell1/ecocan/commit/d386df7849fa98e29b5c348d292be107778a1606) | wip: ui fixes                                                                       | benten95-web           | 2025-01-30 10:35 | main              |
+| 3   | [`5d57fda`](https://github.com/rauell1/ecocan/commit/5d57fda58ea2426b3a11d494c0e1918921e3ef3e) | ui fixes                                                                            | benten95-web           | 2026-01-02 12:34 | main              |
+| 4   | [`bcc1c46`](https://github.com/rauell1/ecocan/commit/bcc1c469369737830073a1794e03e1e28e32d656) | added open graph metadata                                                           | benten95-web           | 2026-02-03 23:10 | main              |
+| 5   | [`fe11932`](https://github.com/rauell1/ecocan/commit/fe11932fd4a746396bdc34f14d07a12aee8ef790) | modified open graph metadata                                                        | benten95-web           | 2026-02-03 23:45 | main              |
+| 6   | [`39ed1cf`](https://github.com/rauell1/ecocan/commit/39ed1cffeed9511d491ca13a31b43e8fe7aa2c36) | minor fix                                                                           | benten95-web           | 2026-02-04 09:05 | main              |
+| 7   | [`99cc318`](https://github.com/rauell1/ecocan/commit/99cc3188db23d99383a03db76d6fcab5d0743847) | minor fix                                                                           | benten95-web           | 2026-02-04 09:08 | main              |
+| 8   | [`5c07e3a`](https://github.com/rauell1/ecocan/commit/5c07e3aa0b57e476ee68b7ddfadbb6ef5635ac5a) | minor fix                                                                           | benten95-web           | 2026-02-04 09:15 | main              |
+| 9   | [`bec72a4`](https://github.com/rauell1/ecocan/commit/bec72a450213b83fd1546e64ecdb7d769e42c09d) | minor fix                                                                           | benten95-web           | 2026-02-04 09:21 | main              |
+| 10  | [`e3cc28c`](https://github.com/rauell1/ecocan/commit/e3cc28c35b9d916fcd64846f541321bb423ad4da) | Fix React Server Components CVE – patched next, react-server-dom-\*                 | vercel[bot]            | 2026-02-17 15:01 | main              |
+| 11  | [`280a878`](https://github.com/rauell1/ecocan/commit/280a8785c3e5ed75d05f23786488088846105055) | Merge PR #81: Fix React Server Components CVE vulnerabilities                       | boypaida12             | 2026-02-18 21:21 | main              |
+| 12  | [`3946b1b`](https://github.com/rauell1/ecocan/commit/3946b1bd9883761affd888bd7ec8654ab7a68acd) | Install Vercel Web Analytics (`@vercel/analytics@2.0.1`)                            | vercel[bot]            | 2026-05-11 12:58 | main              |
+| 13  | [`a3829e9`](https://github.com/rauell1/ecocan/commit/a3829e9402345f7477c1b9577ec6c9ab2ae3f5d5) | Merge PR #1: Install Vercel Web Analytics                                           | rauell1                | 2026-05-11 13:01 | main              |
+| 14  | [`ce05475`](https://github.com/rauell1/ecocan/commit/ce054757e606e36c02906dd849a31c2c202f5d19) | chore(docs): add repo maps and auto-update stubs                                    | rauell1                | 2026-05-11 13:21 | main              |
+| 15  | [`6e74442`](https://github.com/rauell1/ecocan/commit/6e74442a2083eead0b02130f873aa57638e27ee8) | feat: full auto-updating docs – script, CI workflow, ts-node dep                    | rauell1                | 2026-05-11 13:46 | main              |
+| 16  | [`d73e3cf`](https://github.com/rauell1/ecocan/commit/d73e3cf3310d02ffbc5e95c481b429b6c9934a5b) | fix: remove ts-node, use plain ESM script – fixes Vercel pnpm frozen-lockfile error | rauell1                | 2026-05-11 13:51 | main              |
+| 17  | [`68612b9`](https://github.com/rauell1/ecocan/commit/68612b965bb53e177be5328e8decfba125dc6be0) | docs: proper README with full project documentation                                 | rauell1                | 2026-05-11 19:05 | main              |
+| 18  | [`8a5a8ac`](https://github.com/rauell1/ecocan/commit/8a5a8ac)                                  | Revamp v2 foundation: port Kimi design tokens into Ecocan's existing theme system   | copilot-swe-agent[bot] | 2026-05-12 12:49 | copilot/revamp-v2 |
+| 19  | [`2008b3b`](https://github.com/rauell1/ecocan/commit/2008b3b672fa3cf725b99be5b421abbd7002cc76) | Merge pull request #7: Revamp v2 foundation                                         | rauell1                | 2026-05-12 16:11 | main              |
+| 20  | [`964d20d`](https://github.com/rauell1/ecocan/commit/964d20d8c7f9b8a95ea19fb77ea72471fd0a7e29) | perf: performance revamp v3 — fix globals.css + layout.tsx (#8)                     | rauell1                | 2026-05-12 16:20 | main              |
 
 ---
 
@@ -144,13 +145,13 @@ git push origin hotfix/description
 
 Use this table to decide which action to take:
 
-| Scenario | Recommended Action | Time to Resolution |
-|----------|-------------------|--------------------|
-| Build passed but production is broken | Option A (Vercel promote) | ~2 min |
-| One bad commit introduced a regression | Option B (git revert) | ~15 min |
-| Multiple bad commits, messy history | Option C (hard reset) | ~30 min |
-| Need a quick targeted patch | Option D (hotfix branch) | ~20 min |
-| Build is failing on Vercel | Fix forward or Option B | ~30 min |
+| Scenario                               | Recommended Action        | Time to Resolution |
+| -------------------------------------- | ------------------------- | ------------------ |
+| Build passed but production is broken  | Option A (Vercel promote) | ~2 min             |
+| One bad commit introduced a regression | Option B (git revert)     | ~15 min            |
+| Multiple bad commits, messy history    | Option C (hard reset)     | ~30 min            |
+| Need a quick targeted patch            | Option D (hotfix branch)  | ~20 min            |
+| Build is failing on Vercel             | Fix forward or Option B   | ~30 min            |
 
 ---
 
@@ -159,6 +160,7 @@ Use this table to decide which action to take:
 After any rollback, verify the following pages are rendering correctly before closing the incident:
 
 ### Core Pages
+
 - [ ] `/` — Homepage loads, hero visible, CTAs functional
 - [ ] `/about-us` — Carousels render, partner logos visible
 - [ ] `/contact` — Contact form submits without errors
@@ -169,12 +171,14 @@ After any rollback, verify the following pages are rendering correctly before cl
 - [ ] `/solutions` — Solution cards visible, links work
 
 ### Dynamic Routes
+
 - [ ] `/solutions/brand-promotion` — Full page renders
 - [ ] `/solutions/brand-protection` — Full page renders
 - [ ] `/solutions/packaging-recycling` — Full page renders
 - [ ] `/solutions/online-sales` — Full page renders
 
 ### Global
+
 - [ ] Navbar links all resolve correctly
 - [ ] Footer renders without errors
 - [ ] Mobile layout (375px) — no horizontal overflow
@@ -217,17 +221,17 @@ Record post-mortems and rollback incidents here. Reference commit SHAs from the 
 
 ## Contacts
 
-| Role | Name | GitHub |
-|------|------|--------|
-| Repo Owner | Roy Otieno | [@rauell1](https://github.com/rauell1) |
-| Previous Maintainer | Bernard Addy-Sackey | [@boypaida12](https://github.com/boypaida12) |
-| Previous Contributor | Bernard | [@benten95-web](https://github.com/benten95-web) |
+| Role                 | Name                | GitHub                                           |
+| -------------------- | ------------------- | ------------------------------------------------ |
+| Repo Owner           | Roy Otieno          | [@rauell1](https://github.com/rauell1)           |
+| Previous Maintainer  | Bernard Addy-Sackey | [@boypaida12](https://github.com/boypaida12)     |
+| Previous Contributor | Bernard             | [@benten95-web](https://github.com/benten95-web) |
 
 For urgent production incidents, open a [GitHub Issue](https://github.com/rauell1/ecocan/issues/new) with the label `incident` and tag `@rauell1`.
 
 ---
 
-*Last manually updated: 2026-05-12 | Auto-updated by CI on every push to `main`*
+_Last manually updated: 2026-05-12 | Auto-updated by CI on every push to `main`_
 
 | 21 | [`708e449`](https://github.com/rauell1/ecocan/commit/708e4496160b1545346915867dd92410bdb5cf74) | — | rauell1 | 2026-05-12 16:28 | main |
 | 22 | [`01d350f`](https://github.com/rauell1/ecocan/commit/01d350ff760d38208b45683df909af97027d2461) | — | rauell1 | 2026-05-12 16:41 | main |
@@ -244,3 +248,13 @@ For urgent production incidents, open a [GitHub Issue](https://github.com/rauell
 | 33 | [`888045e`](https://github.com/rauell1/ecocan/commit/888045e53885f97b23cb9ff1df1e52e20b2eb7c2) | — | rauell1 | 2026-05-13 09:42 | main |
 | 34 | [`04dcc09`](https://github.com/rauell1/ecocan/commit/04dcc09ef85082239bf38cffb94762653d50e9ba) | — | rauell1 | 2026-05-13 09:47 | main |
 | 35 | [`64de346`](https://github.com/rauell1/ecocan/commit/64de3464537a69821b5e8ef978ff4909e94bfd52) | — | rauell1 | 2026-05-13 09:52 | main |
+| 36 | [`866f671`](https://github.com/rauell1/ecocan/commit/866f671027fdbe8d6ec87aa48f36e549879033bd) | — | rauell1 | 2026-05-13 09:59 | main |
+| 37 | [`5661190`](https://github.com/rauell1/ecocan/commit/5661190b157d18752d425eb188b8a91684de2102) | — | rauell1 | 2026-05-13 11:29 | main |
+| 38 | [`79bb6aa`](https://github.com/rauell1/ecocan/commit/79bb6aa81c1a6d2549c207deab56f6b7bbec95cc) | — | rauell1 | 2026-05-13 11:39 | main |
+| 39 | [`2855994`](https://github.com/rauell1/ecocan/commit/2855994083fb281bb62e4a866a178fc0ee576e2e) | — | rauell1 | 2026-05-13 15:21 | main |
+| 40 | [`2cda781`](https://github.com/rauell1/ecocan/commit/2cda781fe57901e3af0ea894ffef6e5e6d6a2738) | — | rauell1 | 2026-05-13 15:27 | main |
+| 41 | [`bf7facf`](https://github.com/rauell1/ecocan/commit/bf7facfd6deb17c6cc7d76100232aa62ba5180ce) | — | rauell1 | 2026-05-13 15:34 | main |
+| 42 | [`09c5d1e`](https://github.com/rauell1/ecocan/commit/09c5d1e5261d0a189bfde7f70feaee35c00b3524) | — | rauell1 | 2026-05-13 15:37 | main |
+| 43 | [`2bd89c7`](https://github.com/rauell1/ecocan/commit/2bd89c7b3109e91bcf9e4d5c616ef91b6a665b02) | — | rauell1 | 2026-05-13 15:43 | main |
+| 44 | [`b81ba3e`](https://github.com/rauell1/ecocan/commit/b81ba3eec1730cd3f3a4baa35fc3ff25c72df293) | — | rauell1 | 2026-05-13 15:52 | main |
+| 45 | [`90876dc`](https://github.com/rauell1/ecocan/commit/90876dcc483cedb64da0fd6c41b574e7a956e611) | — | rauell1 | 2026-05-13 16:04 | main |

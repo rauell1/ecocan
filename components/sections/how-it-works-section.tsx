@@ -85,6 +85,7 @@ export default function HowItWorksSection({ scrollEnabled }: HowItWorksSectionPr
       className="relative w-full overflow-hidden py-[120px] md:py-[160px]"
       style={{ background: "#101010" }}
     >
+      {/* subtle background texture */}
       <div
         className="absolute inset-0 opacity-15"
         style={{
@@ -96,14 +97,18 @@ export default function HowItWorksSection({ scrollEnabled }: HowItWorksSectionPr
       <div className="absolute inset-0 bg-gradient-to-b from-[#101010] via-transparent to-[#101010]" />
 
       <div className="relative z-10 mx-auto max-w-[1280px] px-6">
-        <p className="section-overline heading-animate mb-6">How It Works</p>
-        <h2 className="section-headline heading-animate mb-2 max-w-[700px] text-white">
-          From your hand back to the shelf.
-        </h2>
-        <p className="section-body heading-animate mb-12 text-white/50">
-          Clean. Traceable. Rewarded.
-        </p>
+        {/* ── Centered heading block ── */}
+        <div className="mb-14 flex flex-col items-center text-center">
+          <p className="section-overline heading-animate mb-4">How It Works</p>
+          <h2 className="section-headline heading-animate mb-4 max-w-[700px] text-white">
+            From your hand back to the shelf.
+          </h2>
+          <p className="heading-animate text-lg font-normal leading-relaxed text-white/60">
+            Clean. Traceable. Rewarded.
+          </p>
+        </div>
 
+        {/* ── Step cards ── */}
         <div ref={cardsRef} className="mb-12 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-5">
           {steps.map((step) => (
             <div
@@ -114,11 +119,12 @@ export default function HowItWorksSection({ scrollEnabled }: HowItWorksSectionPr
                 {step.num}
               </span>
               <h3 className="mb-2 text-xl font-semibold text-white">{step.title}</h3>
-              <p className="text-sm leading-relaxed text-white/50">{step.desc}</p>
+              <p className="text-sm leading-relaxed text-white/60">{step.desc}</p>
             </div>
           ))}
         </div>
 
+        {/* ── Sub-copy + CTA ── */}
         <p className="heading-animate mb-3 text-sm italic text-white/40">
           No machine? No problem. Our partner counters scan and pay you instantly - right now,
           today.
@@ -130,7 +136,7 @@ export default function HowItWorksSection({ scrollEnabled }: HowItWorksSectionPr
           See full journey <ArrowRight size={16} />
         </Link>
 
-        {/* Return counter photo from original site */}
+        {/* ── Return counter photo ── */}
         <div
           className="counter-img heading-animate relative overflow-hidden rounded-3xl"
           style={{ height: "clamp(200px, 32vw, 400px)" }}

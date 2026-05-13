@@ -18,13 +18,15 @@ export default function HeroSection({
 }: HeroSectionProps) {
   const heroRef = useRef<HTMLDivElement>(null)
   const videoRef = useRef<HTMLDivElement>(null)
-  const brandRef = useRef<HTMLHeadingElement>(null)
+  const videoElRef = useRef<HTMLVideoElement>(null)
+  const brandRef = useRef<HTMLDivElement>(null)
   const contentRef = useRef<HTMLDivElement>(null)
   const ctaBtnRef = useRef<HTMLButtonElement>(null)
   const cardsContainerRef = useRef<HTMLDivElement>(null)
   const transitionTlRef = useRef<gsap.core.Timeline | null>(null)
   const [transitionDone, setTransitionDone] = useState(false)
 
+  // ─── INTRO ANIMATIONS ────────────────────────────────────────────────────────
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger)
     const ctx = gsap.context(() => {
@@ -42,6 +44,7 @@ export default function HeroSection({
     return () => ctx.revert()
   }, [])
 
+  // ─── TRANSITION TRIGGER ───────────────────────────────────────────────────────
   const triggerTransition = () => {
     if (transitionDone) return
     setTransitionDone(true)
@@ -67,9 +70,15 @@ export default function HeroSection({
     tl.to(ctaBtnRef.current, { autoAlpha: 0, duration: 0.4 }, 0.8)
   }
 
-  // Reverse the hero transition when resetSignal fires (user scrolled back to top)
+  // ─── RESET ────────────────────────────────────────────────────────────────────
   useEffect(() => {
     if (resetSignal === 0) return
+
+    const vid = videoElRef.current
+    if (vid) {
+      vid.load()
+      vid.play().catch(() => {})
+    }
 
     const tl = transitionTlRef.current
     if (!tl) {
@@ -80,11 +89,18 @@ export default function HeroSection({
     tl.eventCallback("onReverseComplete", () => {
       setTransitionDone(false)
       tl.eventCallback("onReverseComplete", null)
+
+      const cards = cardsContainerRef.current?.querySelectorAll(".hero-card")
+      if (cards && cards.length > 0) {
+        gsap.set(cards, { clearProps: "all" })
+        gsap.set(cards, { yPercent: 100 })
+      }
     })
+
     tl.reverse()
   }, [resetSignal])
 
-  // Allow scroll wheel / touch to also trigger the transition
+  // ─── WHEEL / TOUCH TRIGGER ────────────────────────────────────────────────────
   useEffect(() => {
     if (scrollEnabled || transitionDone) return
     const onWheel = (e: WheelEvent) => {
@@ -119,115 +135,172 @@ export default function HeroSection({
   }
 
   return (
-    <div ref={heroRef} id="hero" className="relative w-full" style={{ height: "100vh" }}>
-      {/* Video background */}
+    <div
+      ref={heroRef}
+      id="hero"
+      className="relative w-full overflow-hidden"
+      style={{ height: "100dvh" }}
+    >
+      {/* ── Video background ──────────────────────────────────────────────────── */}
       <div ref={videoRef} className="absolute inset-0" style={{ zIndex: 1 }}>
+        {/*
+         * brightness-[0.85]: pulls the raw video exposure down ~15% globally.
+         * This is the primary fix for the overexposed top-right area — it
+         * reduces the source luminance before any overlay is applied so no
+         * overlay thickness alone needs to compensate.
+         */}
         <video
+          ref={videoElRef}
           autoPlay
           loop
           muted
           playsInline
           preload="metadata"
           poster="/images/scan-verify.jpg"
-          className="h-full w-full object-cover"
+          className="h-full w-full object-cover brightness-[0.85]"
         >
           <source src="/videos/hero-loop.mp4" type="video/mp4" />
         </video>
+
+        {/*
+         * Layer 1 — directional glare killer.
+         * A radial gradient centred on the top-right (where the bright spill
+         * lives in the source footage) applies up to 0.65 opacity there and
+         * fades to 0 at the centre/bottom so it doesn't muddy the subject.
+         */}
         <div
           className="absolute inset-0"
           style={{
             background:
-              "linear-gradient(to bottom, rgba(16,16,16,0.3) 0%, rgba(16,16,16,0.1) 40%, rgba(16,16,16,0.6) 100%)",
+              "radial-gradient(ellipse 80% 60% at 85% 10%, rgba(10,10,10,0.65) 0%, rgba(10,10,10,0.0) 70%)",
+          }}
+        />
+
+        {/*
+         * Layer 2 — base scene depth gradient.
+         * Keeps the original top-to-bottom drama without letting the sky
+         * blow out: top starts at 0.45 (was 0.3 → too light), mid stays
+         * light, bottom holds the heavy vignette for text legibility.
+         */}
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              "linear-gradient(to bottom, rgba(16,16,16,0.45) 0%, rgba(16,16,16,0.08) 45%, rgba(16,16,16,0.75) 100%)",
+          }}
+        />
+
+        {/*
+         * Layer 3 — left-edge safety vignette.
+         * Ensures the white headline text on the left always has enough
+         * contrast regardless of the video frame.
+         */}
+        <div
+          className="absolute inset-0"
+          style={{
+            background: "linear-gradient(to right, rgba(10,10,10,0.40) 0%, rgba(10,10,10,0.0) 55%)",
           }}
         />
       </div>
 
-      {/* Hero content */}
-      <div
-        ref={contentRef}
-        className="absolute inset-0 flex flex-col items-center justify-center px-6 text-center"
-        style={{ zIndex: 3, paddingBottom: "14vh" }}
-      >
-        <p className="mb-4 text-xs font-semibold uppercase tracking-[0.15em] text-white/70">
-          Africa&apos;s Circular Bottle Ecosystem
-        </p>
-        <h2
-          className="mb-4 font-bold text-white"
-          style={{ fontSize: "clamp(32px, 5vw, 56px)", lineHeight: 1.1 }}
+      {/* ── Content & brand layout (unchanged) ───────────────────────────────── */}
+      <div className="absolute inset-0 flex flex-col" style={{ zIndex: 3 }}>
+        {/* ── Content zone ──────────────────────────────────────────────────── */}
+        <div
+          ref={contentRef}
+          className="flex flex-1 flex-col items-center justify-center px-4 text-center"
+          style={{ paddingBottom: "0" }}
         >
-          Return. Recycle.
-          <br />
-          Make a difference.
-        </h2>
-        <p className="mb-8 max-w-[640px] text-lg font-normal text-white/80 md:text-xl">
-          Recycle at any ECO-Station. Save the planet. Stop fake drinks. Get a bonus.
-        </p>
-
-        <div className="mb-8 flex flex-col items-center gap-4 sm:flex-row">
-          {/* Download App  -  always works, goes to /download page */}
-          <a href="/download" className="pill-btn pill-btn-white">
-            <Download size={18} />
-            Download App
-          </a>
-          {/* Partner  -  unlocks scroll & jumps to model section */}
-          <button
-            onClick={() => {
-              triggerTransition()
-              setTimeout(() => scrollToSection("model"), 1400)
-            }}
-            className="flex cursor-pointer items-center gap-2 border-none bg-transparent font-medium text-white hover:underline"
+          <p className="mb-3 text-xs font-semibold uppercase tracking-[0.15em] text-white/70">
+            Africa&apos;s Circular Bottle Ecosystem
+          </p>
+          <h2
+            className="mb-4 font-bold text-white"
+            style={{ fontSize: "clamp(28px, 5vw, 56px)", lineHeight: 1.1 }}
           >
-            Partner with ECOCAN <ArrowRight size={16} />
-          </button>
+            Return. Recycle.
+            <br />
+            Make a difference.
+          </h2>
+          <p className="mb-6 max-w-[560px] text-base font-normal text-white/80 md:text-xl">
+            Recycle at any ECO-Station. Save the planet. Stop fake drinks. Get a bonus.
+          </p>
+
+          <div className="mb-6 flex flex-col items-center gap-4 sm:flex-row">
+            <a href="/download" className="pill-btn pill-btn-white">
+              <Download size={18} />
+              Download App
+            </a>
+            <button
+              onClick={() => {
+                triggerTransition()
+                setTimeout(() => scrollToSection("model"), 1400)
+              }}
+              className="flex cursor-pointer items-center gap-2 border-none bg-transparent font-medium text-white hover:underline"
+            >
+              Partner with ECOCAN <ArrowRight size={16} />
+            </button>
+          </div>
+
+          <div className="mb-3 flex flex-wrap justify-center gap-2">
+            {["Early-stage funded", "Operational in Kenya", "GDPR Compliant"].map((badge) => (
+              <span key={badge} className="glass-pill px-4 py-1.5 text-[13px] text-white">
+                {badge}
+              </span>
+            ))}
+          </div>
+          <span className="glass-pill px-4 py-1.5 text-[13px] italic text-white/80">
+            No machine? No problem. Our counters work today.
+          </span>
         </div>
 
-        <div className="mb-4 flex flex-wrap justify-center gap-3">
-          {["Early-stage funded", "Operational in Kenya", "GDPR Compliant"].map((badge) => (
-            <span key={badge} className="glass-pill px-4 py-1.5 text-[13px] text-white">
-              {badge}
-            </span>
-          ))}
-        </div>
-        <span className="glass-pill px-4 py-1.5 text-[13px] italic text-white/80">
-          No machine? No problem. Our counters work today.
-        </span>
-
-        {/* Brand name — sits between the tagline above and the Explore button below */}
-        <h1
+        {/* ── Brand zone ────────────────────────────────────────────────────── */}
+        <div
           ref={brandRef}
-          className="mt-2 text-center font-extrabold text-white"
-          style={{
-            fontSize: "clamp(56px, 13vw, 160px)",
-            lineHeight: 0.9,
-            letterSpacing: "-0.03em",
-          }}
+          className="flex flex-col items-center justify-end pb-[3vh]"
+          style={{ minHeight: "80px", height: "18vh" }}
         >
-          ECOCAN
-        </h1>
+          <h1
+            className="pointer-events-none w-full max-w-[96vw] select-none overflow-hidden text-center font-extrabold"
+            style={{
+              fontSize: "clamp(48px, 10vw, 160px)",
+              lineHeight: 1,
+              letterSpacing: "-0.03em",
+              color: "transparent",
+              WebkitTextStroke: "2px rgba(255,255,255,0.85)",
+              textShadow: [
+                "0 0 60px rgba(0,0,0,0.6)",
+                "0 0 120px rgba(0,0,0,0.4)",
+                "0 4px 24px rgba(0,0,0,0.7)",
+              ].join(", "),
+            }}
+            aria-label="ECOCAN"
+          >
+            ECOCAN
+          </h1>
+
+          {!scrollEnabled && (
+            <button
+              ref={ctaBtnRef}
+              onClick={triggerTransition}
+              className="glass-pill mt-2 flex cursor-pointer items-center gap-3 px-6 py-2.5 text-white transition-all hover:bg-white/20 active:scale-95"
+              aria-label="Explore the Journey"
+            >
+              <span className="h-2 w-2 animate-pulse-dot rounded-full bg-primary" />
+              Explore the Journey
+              <ChevronDown size={16} className="animate-bounce" />
+            </button>
+          )}
+        </div>
       </div>
 
-      {/* Explore CTA  -  shown until transition fires */}
-      {!scrollEnabled && (
-        <button
-          ref={ctaBtnRef}
-          onClick={triggerTransition}
-          className="glass-pill absolute left-1/2 flex -translate-x-1/2 cursor-pointer items-center gap-3 px-6 py-3 text-white transition-all hover:bg-white/20 active:scale-95"
-          style={{ bottom: "5vh", zIndex: 4 }}
-          aria-label="Explore the Journey"
-        >
-          <span className="h-2 w-2 animate-pulse-dot rounded-full bg-primary" />
-          Explore the Journey
-          <ChevronDown size={16} className="animate-bounce" />
-        </button>
-      )}
-
-      {/* Floating reveal cards */}
+      {/* ── Floating reveal cards (unchanged) ────────────────────────────────── */}
       <div
         ref={cardsContainerRef}
         className="pointer-events-none absolute inset-x-0"
         style={{ top: "100vh", zIndex: 5 }}
       >
-        {/* Card 0  -  light stat row */}
+        {/* Card 0 – light stat row */}
         <div
           className="hero-card absolute overflow-hidden rounded-3xl shadow-elevated"
           style={{ left: "5vw", width: "90vw", height: "80vh", top: "10vh", background: "#F7F7F7" }}
@@ -261,7 +334,7 @@ export default function HeroSection({
           </div>
         </div>
 
-        {/* Card 1  -  dark how-it-works strip */}
+        {/* Card 1 – dark how-it-works strip */}
         <div
           className="hero-card absolute overflow-hidden rounded-3xl shadow-elevated"
           style={{ left: "10vw", width: "80vw", height: "85vh", top: "5vh", background: "#101010" }}
@@ -299,7 +372,7 @@ export default function HeroSection({
           </div>
         </div>
 
-        {/* Card 2  -  white impact metrics */}
+        {/* Card 2 – white impact metrics */}
         <div
           className="hero-card absolute overflow-hidden rounded-3xl shadow-elevated"
           style={{ left: "5vw", width: "90vw", height: "80vh", top: "10vh", background: "#FFFFFF" }}

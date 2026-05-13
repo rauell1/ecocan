@@ -45,6 +45,9 @@
     --eco-grey: 42 14% 84%;
     --eco-white: 0 0% 100%;
     --eco-footer: 210 40% 17%;
+    --eco-grad-start: 120 61% 27%;
+    --eco-grad-mid: 122 58% 51%;
+    --eco-grad-end: 48 100% 65%;
   }
 
   .dark {
@@ -77,6 +80,9 @@
     --border: 156 10% 18%;
     --input: 156 10% 18%;
     --ring: 156 42% 68%;
+    --eco-grad-start: 120 50% 38%;
+    --eco-grad-mid: 122 50% 60%;
+    --eco-grad-end: 48 95% 72%;
   }
 }
 
@@ -170,7 +176,7 @@
   }
 
   .section-headline {
-    font-size: clamp(32px, 4vw, 48px);
+    font-size: clamp(2rem, 4vw, 3rem);
     font-weight: 600;
     line-height: 1.1;
     letter-spacing: -0.02em;
@@ -180,7 +186,24 @@
     font-size: 18px;
     font-weight: 400;
     line-height: 1.6;
-    opacity: 0.7;
+    color: hsl(var(--muted-foreground));
+  }
+
+  .skip-link {
+    position: absolute;
+    top: -40px;
+    left: var(--space-4, 1rem);
+    background: hsl(var(--primary));
+    color: hsl(var(--primary-foreground));
+    padding: 8px 16px;
+    border-radius: 0 0 var(--radius-sm) var(--radius-sm);
+    font-weight: 600;
+    z-index: 9999;
+    transition: top 180ms cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .skip-link:focus {
+    top: 0;
   }
 }
 
