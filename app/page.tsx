@@ -22,6 +22,9 @@ import CallToActionSection from "@/components/sections/call-to-action-section";
 import FAQSection from "@/components/sections/faq-section";
 import HomeFooter from "@/components/sections/home-footer";
 
+const SCROLL_AWAY_THRESHOLD_PX = 120;
+const HERO_RESET_THRESHOLD_PX = 50;
+
 export default function Home() {
   const [scrollEnabled, setScrollEnabled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
@@ -101,12 +104,13 @@ export default function Home() {
     }
 
     const handleScroll = () => {
+      if (isResettingToHeroRef.current) return;
       const y = window.scrollY;
-      if (y > 120) {
+      if (y > SCROLL_AWAY_THRESHOLD_PX) {
         hasScrolledAwayFromTopRef.current = true;
         return;
       }
-      if (hasScrolledAwayFromTopRef.current && y <= 50) {
+      if (hasScrolledAwayFromTopRef.current && y <= HERO_RESET_THRESHOLD_PX) {
         resetToHero();
       }
     };

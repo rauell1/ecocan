@@ -65,6 +65,7 @@ export default function HeroSection({ scrollEnabled, onTransitionComplete, reset
     if (resetSignal === 0) return;
 
     const tl = transitionTlRef.current;
+    // Skip on initial render and only reverse after the forward transition timeline exists.
     if (!tl) {
       setTransitionDone(false);
       return;
