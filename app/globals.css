@@ -115,10 +115,20 @@
     border-radius: var(--radius-xl);
   }
 
+  /*
+   * FIX: .glass-pill now includes backdrop-filter: blur(12px).
+   * Previously the pill badges had a semi-transparent white background but
+   * no blur, making them look flat and washed-out over the video.
+   * The blur creates the correct frosted-glass depth so the pills read
+   * clearly against any frame of the background video.
+   * -webkit-backdrop-filter is included for Safari / iOS WebKit support.
+   */
   .glass-pill {
     background: rgba(255, 255, 255, 0.14);
     border: 1px solid rgba(255, 255, 255, 0.22);
     border-radius: 9999px;
+    -webkit-backdrop-filter: blur(12px) saturate(1.4);
+    backdrop-filter: blur(12px) saturate(1.4);
   }
 
   .pill-btn {
@@ -204,6 +214,20 @@
 
   .skip-link:focus {
     top: 0;
+  }
+
+  /*
+   * FIX: .shadow-elevated was used by .hero-card elements in hero-section.tsx
+   * but was never defined in globals.css, so all reveal cards had no shadow.
+   * This multi-layer shadow creates a natural floating / elevated feel:
+   * - Layer 1: tight contact shadow (depth close to the surface)
+   * - Layer 2: wide ambient shadow (overall lift effect)
+   */
+  .shadow-elevated {
+    box-shadow:
+      0 2px 8px rgba(0, 0, 0, 0.10),
+      0 16px 48px rgba(0, 0, 0, 0.18),
+      0 32px 80px rgba(0, 0, 0, 0.12);
   }
 }
 

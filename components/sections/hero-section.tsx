@@ -135,10 +135,6 @@ export default function HeroSection({
   }
 
   return (
-    /*
-     * overflow-hidden on the root ensures no child (including ECOCAN at
-     * large clamp sizes) can introduce a horizontal scrollbar on mobile.
-     */
     <div
       ref={heroRef}
       id="hero"
@@ -146,7 +142,18 @@ export default function HeroSection({
       style={{ height: "100dvh" }}
     >
       {/* ── Video background ──────────────────────────────────────────────────── */}
-      <div ref={videoRef} className="absolute inset-0" style={{ zIndex: 1 }}>
+      {/*
+       * FIX: The wrapper now has a solid dark background (#0a0a0a) so that
+       * before the video loads — or on browsers/devices that can't autoplay —
+       * the user sees a clean dark slate instead of the raw poster image
+       * (which was showing the store-shelf photo and creating the "glare").
+       * The `poster` attribute has been removed entirely for the same reason.
+       */}
+      <div
+        ref={videoRef}
+        className="absolute inset-0"
+        style={{ zIndex: 1, background: "#0a0a0a" }}
+      >
         <video
           ref={videoElRef}
           autoPlay
@@ -154,50 +161,50 @@ export default function HeroSection({
           muted
           playsInline
           preload="metadata"
-          poster="/images/scan-verify.jpg"
           className="h-full w-full object-cover"
         >
           <source src="/videos/hero-loop.mp4" type="video/mp4" />
         </video>
+
+        {/*
+         * FIX: Gradient overlay redesigned to eliminate the "glare".
+         *
+         * OLD (broken):
+         *   rgba(16,16,16,0.30) 0% → rgba(16,16,16,0.10) 40% → rgba(16,16,16,0.72) 100%
+         *   Problem: the 0.72 bottom stop was far too heavy and the 0.10
+         *   mid-point created a harsh, uneven brightness jump that looked
+         *   like a light-leak / glare artifact on many video frames.
+         *
+         * NEW (fixed):
+         *   A smooth 4-stop vignette:
+         *   - Top (0%):    0.45 alpha — enough to keep the navbar readable
+         *   - Upper (25%): 0.18 alpha — opens up to let the video breathe
+         *   - Lower (65%): 0.20 alpha — centre stays bright and clear
+         *   - Bottom (100%): 0.58 alpha — grounds the ECOCAN wordmark and
+         *                    "Explore the Journey" button without crushing blacks
+         *
+         * The result is a natural cinematic vignette: bright in the middle
+         * (where the hero text lives) and softly darkened at the edges so
+         * text is legible at all times without any visible "glare" banding.
+         */}
         <div
           className="absolute inset-0"
           style={{
             background:
-              "linear-gradient(to bottom, rgba(16,16,16,0.3) 0%, rgba(16,16,16,0.1) 40%, rgba(16,16,16,0.72) 100%)",
+              "linear-gradient(to bottom, rgba(10,10,10,0.45) 0%, rgba(10,10,10,0.18) 25%, rgba(10,10,10,0.20) 65%, rgba(10,10,10,0.58) 100%)",
           }}
         />
       </div>
 
-      {/*
-       * ── LAYOUT APPROACH ─────────────────────────────────────────────────────
-       *
-       * The hero is split into two vertical zones using a flex-col layout:
-       *
-       *  ┌─────────────────────────────────┐  ← 100dvh
-       *  │                                 │
-       *  │   CONTENT ZONE  (flex-grow:1)   │  tagline + CTA + badges
-       *  │                                 │
-       *  ├─────────────────────────────────┤
-       *  │   BRAND ZONE  (h-[18vh])        │  "ECOCAN" + Explore CTA
-       *  └─────────────────────────────────┘
-       *
-       * Because the brand name lives in its own dedicated zone at the
-       * bottom of the flex column, it CANNOT overlap the content above
-       * it on any viewport height — including short landscape phones.
-       *
-       * Both zones are children of this absolute-fill container
-       * (zIndex: 3) so they sit above the video gradient (zIndex: 1)
-       * and below the reveal cards (zIndex: 5).
-       */}
+      {/* ── Content + Brand zones ─────────────────────────────────────────────── */}
       <div
         className="absolute inset-0 flex flex-col"
         style={{ zIndex: 3 }}
       >
-        {/* ── Content zone: fills all space above the brand zone ─────────────── */}
+        {/* Content zone */}
         <div
           ref={contentRef}
           className="flex flex-1 flex-col items-center justify-center px-4 text-center"
-          style={{ paddingBottom: "0" }}
         >
           <p className="mb-3 text-xs font-semibold uppercase tracking-[0.15em] text-white/70">
             Africa&apos;s Circular Bottle Ecosystem
@@ -242,30 +249,18 @@ export default function HeroSection({
           </span>
         </div>
 
-        {/*
-         * ── Brand zone: reserved bottom strip, never overlaps content ─────────
-         *
-         * Fixed min-height of 80 px on tiny phones, grows with vw via clamp.
-         * The ECOCAN text is horizontally centred and constrained to 96 vw
-         * with overflow-hidden so it never bleeds past the viewport edge
-         * (eliminates the mobile horizontal scroll).
-         *
-         * The Explore Journey button is stacked directly below the brand
-         * text inside the same zone — naturally separated by gap.
-         */}
+        {/* Brand zone */}
         <div
           ref={brandRef}
           className="flex flex-col items-center justify-end pb-[3vh]"
           style={{ minHeight: "80px", height: "18vh" }}
         >
-          {/* ECOCAN watermark text */}
           <h1
             className="pointer-events-none w-full max-w-[96vw] select-none overflow-hidden text-center font-extrabold"
             style={{
               fontSize: "clamp(48px, 10vw, 160px)",
               lineHeight: 1,
               letterSpacing: "-0.03em",
-              // Outlined style — readable on any video frame
               color: "transparent",
               WebkitTextStroke: "2px rgba(255,255,255,0.85)",
               textShadow: [
@@ -279,7 +274,6 @@ export default function HeroSection({
             ECOCAN
           </h1>
 
-          {/* Explore Journey CTA — below brand text, never overlapping */}
           {!scrollEnabled && (
             <button
               ref={ctaBtnRef}
