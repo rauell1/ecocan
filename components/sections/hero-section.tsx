@@ -8,15 +8,17 @@ import { Download, ArrowRight, ChevronDown } from "lucide-react";
 interface HeroSectionProps {
   scrollEnabled: boolean;
   onTransitionComplete: () => void;
+  resetSignal: number;
 }
 
-export default function HeroSection({ scrollEnabled, onTransitionComplete }: HeroSectionProps) {
+export default function HeroSection({ scrollEnabled, onTransitionComplete, resetSignal }: HeroSectionProps) {
   const heroRef = useRef<HTMLDivElement>(null);
   const videoRef = useRef<HTMLDivElement>(null);
   const brandRef = useRef<HTMLHeadingElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
   const ctaBtnRef = useRef<HTMLButtonElement>(null);
   const cardsContainerRef = useRef<HTMLDivElement>(null);
+  const transitionTlRef = useRef<gsap.core.Timeline | null>(null);
   const [transitionDone, setTransitionDone] = useState(false);
 
   useEffect(() => {
@@ -44,6 +46,7 @@ export default function HeroSection({ scrollEnabled, onTransitionComplete }: Her
       defaults: { ease: "expo.inOut" },
       onComplete: () => onTransitionComplete(),
     });
+    transitionTlRef.current = tl;
 
     tl.to(videoRef.current, { scale: 0.5, filter: "brightness(0.6)", duration: 1.2 }, 0);
     tl.to(brandRef.current, { autoAlpha: 0, duration: 0.5 }, 0.3);
@@ -57,6 +60,23 @@ export default function HeroSection({ scrollEnabled, onTransitionComplete }: Her
 
     tl.to(ctaBtnRef.current, { autoAlpha: 0, duration: 0.4 }, 0.8);
   };
+
+  useEffect(() => {
+    if (resetSignal === 0) return;
+
+    const tl = transitionTlRef.current;
+    // Skip on initial render and only reverse after the forward transition timeline exists.
+    if (!tl) {
+      setTransitionDone(false);
+      return;
+    }
+
+    tl.eventCallback("onReverseComplete", () => {
+      setTransitionDone(false);
+      tl.eventCallback("onReverseComplete", null);
+    });
+    tl.reverse();
+  }, [resetSignal]);
 
   // Allow scroll wheel / touch to also trigger the transition
   useEffect(() => {
@@ -133,7 +153,7 @@ export default function HeroSection({ scrollEnabled, onTransitionComplete }: Her
         className="absolute inset-0 flex flex-col items-center justify-center text-center px-6"
         style={{ zIndex: 3 }}
       >
-        <p className="text-xs font-semibold uppercase tracking-[0.15em] text-white/70 mb-4">
+        <p className="text-xs font-semibold uppercase tracking-[0.15em] text-primary mb-4">
           Africa&apos;s Circular Bottle Ecosystem
         </p>
         <h2

@@ -50,7 +50,7 @@ export default function AppShowcaseSection() {
   return (
     <section
       ref={sectionRef}
-      className="w-full py-[120px] md:py-[160px] overflow-hidden"
+      className="w-full py-20 md:py-28 lg:py-36 overflow-hidden border-t border-white/8"
       style={{ background: "#101010" }}
     >
       <div className="max-w-[1280px] mx-auto px-6">
@@ -58,7 +58,7 @@ export default function AppShowcaseSection() {
 
           {/* Left: text + features */}
           <div>
-            <p className="section-overline app-text-animate mb-6">The ECOCAN App</p>
+            <p className="text-xs font-semibold uppercase tracking-[0.15em] text-primary mb-4 app-text-animate">The ECOCAN App</p>
             <h2
               className="font-bold text-white app-text-animate mb-6"
               style={{ fontSize: "clamp(32px, 4.5vw, 52px)", lineHeight: 1.1 }}

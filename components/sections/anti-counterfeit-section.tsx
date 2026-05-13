@@ -35,13 +35,13 @@ export default function AntiCounterfeitSection() {
   return (
     <section
       ref={sectionRef}
-      className="w-full py-[120px] md:py-[160px] overflow-hidden"
+      className="w-full py-20 md:py-28 lg:py-36 overflow-hidden"
       style={{ background: "#101010" }}
     >
       <div className="max-w-[1280px] mx-auto px-6">
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 lg:gap-16 items-center">
           <div className="lg:col-span-3">
-            <p className="section-overline text-animate mb-6">Anti-Counterfeit</p>
+            <p className="text-xs font-semibold uppercase tracking-[0.15em] text-primary mb-4 text-animate">Anti-Counterfeit</p>
             <h2 className="section-headline text-white text-animate mb-6">Fake alcohol kills. We stop it.</h2>
             <p className="section-body text-white/70 text-animate mb-8 max-w-[560px]">
               Every bottle in our system is traceable from producer to return. Criminals can&apos;t refill what they

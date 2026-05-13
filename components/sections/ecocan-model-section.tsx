@@ -45,10 +45,10 @@ export default function EcocanModelSection({ scrollEnabled }: EcocanModelSection
   }, [scrollEnabled]);
 
   return (
-    <section ref={sectionRef} className="w-full py-[120px] md:py-[160px]" style={{ background: "#F7F7F7" }}>
+    <section ref={sectionRef} className="w-full py-20 md:py-28 lg:py-36" style={{ background: "#101010" }}>
       <div className="max-w-[1280px] mx-auto px-6">
-        <p className="section-overline heading-animate mb-6">The ECOCAN Model</p>
-        <h2 className="section-headline text-eco-dark heading-animate mb-12 max-w-[700px]">
+        <p className="text-xs font-semibold uppercase tracking-[0.15em] text-primary mb-4 heading-animate">The ECOCAN Model</p>
+        <h2 className="section-headline text-white heading-animate mb-12 max-w-[700px]">
           We don&apos;t do this alone. That&apos;s the point.
         </h2>
 
@@ -56,16 +56,16 @@ export default function EcocanModelSection({ scrollEnabled }: EcocanModelSection
           {columns.map((col) => (
             <div
               key={col.title}
-              className="model-card bg-white rounded-[24px] p-10 md:p-12 shadow-card hover:-translate-y-2 hover:shadow-elevated transition-all duration-300"
+              className="model-card bg-white/5 border border-white/10 rounded-[24px] p-10 md:p-12 shadow-card hover:-translate-y-2 hover:shadow-elevated transition-all duration-300"
             >
               <col.icon size={40} className="text-primary mb-6" strokeWidth={1.5} />
-              <h3 className="text-2xl font-semibold text-eco-dark mb-4">{col.title}</h3>
-              <p className="text-eco-dark/60 text-base leading-relaxed">{col.desc}</p>
+              <h3 className="text-2xl font-semibold text-white mb-4">{col.title}</h3>
+              <p className="text-white/75 text-base leading-relaxed">{col.desc}</p>
             </div>
           ))}
         </div>
 
-        <p className="mt-10 text-eco-dark/60 text-base max-w-[800px] heading-animate">
+        <p className="mt-10 text-white/75 text-base max-w-[800px] heading-animate">
           ECOCAN integrates into existing supply chains. Supermarket counters, not just machines. Electric bikes, not
           just trucks. Circularity, not waste.
         </p>

@@ -107,7 +107,7 @@ export default function HomeFooter() {
               <ul className="space-y-3">
                 {col.links.map((link) => (
                   <li key={link.label}>
-                    <Link href={link.href} className="text-white/60 text-sm hover:text-primary transition-colors">
+                    <Link href={link.href} className="text-white/70 text-sm hover:text-white transition-colors">
                       {link.label}
                     </Link>
                   </li>
@@ -156,8 +156,8 @@ export default function HomeFooter() {
         <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-white/40 text-sm">© {new Date().getFullYear()} ECOCAN. All Rights Reserved.</p>
           <div className="flex items-center gap-6">
-            <Link href="/" className="text-white/40 text-sm hover:text-primary transition-colors">Privacy</Link>
-            <Link href="/" className="text-white/40 text-sm hover:text-primary transition-colors">Terms</Link>
+            <Link href="/" className="text-white/70 text-sm hover:text-white transition-colors">Privacy</Link>
+            <Link href="/" className="text-white/70 text-sm hover:text-white transition-colors">Terms</Link>
           </div>
         </div>
       </div>

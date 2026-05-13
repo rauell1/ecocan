@@ -50,7 +50,7 @@ export default function SustainabilityImpactSection() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="relative w-full py-[120px] md:py-[160px] overflow-hidden">
+    <section ref={sectionRef} className="relative w-full py-20 md:py-28 lg:py-36 overflow-hidden">
       <div
         className="absolute inset-0"
         style={{
@@ -63,18 +63,18 @@ export default function SustainabilityImpactSection() {
       <div className="absolute inset-0 bg-eco-dark/75" />
 
       <div className="relative z-10 max-w-[1280px] mx-auto px-6">
-        <p className="section-overline heading-animate mb-6">Impact</p>
+        <p className="text-xs font-semibold uppercase tracking-[0.15em] text-primary mb-4 heading-animate">Impact</p>
         <h2 className="section-headline text-white heading-animate mb-12">Measurable. Transparent. Real.</h2>
 
         <div ref={countersRef} className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {stats.map((stat) => (
             <div key={stat.label} className="stat-card glass-card p-8 md:p-10 text-center">
-              <div className="text-5xl md:text-6xl font-bold text-primary mb-3">
+              <div className="text-primary font-bold text-4xl md:text-5xl mb-3">
                 <span className="counter-value" data-target={stat.value}>0</span>
                 <span>{stat.suffix}</span>
               </div>
               <p className="text-white/80 text-base mb-2">{stat.label}</p>
-              <p className="text-white/50 text-sm">Live data from ECOCAN system. Updated daily.</p>
+              <p className="text-white/80 text-sm">Live data from ECOCAN system. Updated daily.</p>
             </div>
           ))}
         </div>

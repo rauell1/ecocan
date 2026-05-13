@@ -33,11 +33,11 @@ export default function ElectricMobilitySection() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="w-full py-[120px] md:py-[160px] bg-white">
+    <section ref={sectionRef} className="w-full py-20 md:py-28 lg:py-36 bg-white">
       <div className="max-w-[1280px] mx-auto px-6">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           <div className="text-col">
-            <p className="section-overline mb-6">Sustainability</p>
+            <p className="text-xs font-semibold uppercase tracking-[0.15em] text-primary mb-4">Sustainability</p>
             <h2 className="section-headline text-eco-dark mb-6">One step in the loop: electric bikes.</h2>
             <p className="section-body text-eco-dark mb-8 max-w-[500px]">
               We use electric bikes for last-mile collection. Lower cost. Zero emissions. But the real story is the
