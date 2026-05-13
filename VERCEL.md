@@ -21,13 +21,14 @@ This repository is built for deployment on Vercel using Next.js 14.
 
 ## Automatic updates
 
-To keep this file auto-updated:
+This file is updated automatically by `scripts/update-docs.mjs` in `.github/workflows/docs-update.yml` on every push to `main`.
 
-- Store deployment-related metadata (project ID, domains, last deployment URL) in a script that reads from the Vercel API.
-- Run the script in CI on each deployment to append a line under **Deployment History**.
+- A new row is appended under **Deployment History** whenever `GITHUB_SHA` is available.
+- If `VERCEL_URL` is not available in the workflow environment, the URL column is recorded as `N/A`.
+- If `VERCEL_URL` is available, the deployment URL is recorded.
 
 ## Deployment History
 
-> CI or a Vercel webhook handler can write here automatically.
+> Entries appended automatically on each push to `main`. If `VERCEL_URL` is unavailable, URL is recorded as `N/A`.
 
 - Initial setup: Project created and connected to `main`.

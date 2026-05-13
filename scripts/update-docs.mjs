@@ -6,7 +6,7 @@
  *   - SITEMAP.md       → always regenerated (scans page.tsx|ts|jsx|js under app/)
  *   - CODEBASE-MAP.md  → always regenerated (walks full directory tree)
  *   - ROLLBACK.md      → appends entry only when GITHUB_SHA env var is set
- *   - VERCEL.md        → appends entry only when VERCEL_URL env var is set
+ *   - VERCEL.md        → appends entry when GITHUB_SHA is present, using VERCEL_URL when available
  *
  * Usage:
  *   npm run docs:update
@@ -218,13 +218,14 @@ async function updateRollback() {
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
-// VERCEL.md  –  append only when VERCEL_URL is present
+// VERCEL.md  –  append on pushes (GITHUB_SHA) and include URL when available
 // ─────────────────────────────────────────────────────────────────────────────
 
 async function updateVercel() {
   const url = process.env.VERCEL_URL;
-  if (!url) {
-    console.log('\n⏭️   VERCEL.md – skipped (VERCEL_URL not set)');
+  const shaRaw = process.env.GITHUB_SHA;
+  if (!shaRaw && !url) {
+    console.log('\n⏭️   VERCEL.md – skipped (GITHUB_SHA and VERCEL_URL not set)');
     return;
   }
   console.log('\n☁️   Updating VERCEL.md …');
@@ -232,13 +233,17 @@ async function updateVercel() {
   const filePath = path.join(ROOT, 'VERCEL.md');
   let content = await readOrEmpty(filePath);
 
-  const sha = (process.env.GITHUB_SHA || 'unknown').slice(0, 7);
+  const sha = (shaRaw || 'unknown').slice(0, 7);
+  const branch = process.env.GITHUB_REF_NAME || 'unknown';
   const env = process.env.VERCEL_ENV || 'unknown';
+  const deploymentUrl = url
+    ? (url.startsWith('http://') || url.startsWith('https://') ? url : `https://${url}`)
+    : 'N/A';
   const now = new Date().toISOString();
-  const entry = `| ${now} | \`${sha}\` | ${env} | https://${url} |`;
+  const entry = `| ${now} | \`${sha}\` | ${branch} | ${env} | ${deploymentUrl} |`;
 
   if (!content.includes('## Deployment History')) {
-    content += `\n\n## Deployment History\n\n> Entries appended automatically when a Vercel deployment sets VERCEL_URL.\n\n| Deployed At | Commit | Environment | URL |\n|-------------|--------|-------------|-----|\n`;
+    content += `\n\n## Deployment History\n\n> Entries appended automatically on each push to \`main\`. If \`VERCEL_URL\` is unavailable, URL is recorded as \`N/A\`.\n\n| Deployed At | Commit | Branch | Environment | URL |\n|-------------|--------|--------|-------------|-----|\n`;
   }
 
   content += entry + '\n';
