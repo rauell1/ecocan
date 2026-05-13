@@ -1,12 +1,12 @@
-import Timeline from "@/components/shared/timeline";
-import { Card } from "@/components/ui/card";
-import Image from "next/image";
-import React from "react";
+import Timeline from "@/components/shared/timeline"
+import { Card } from "@/components/ui/card"
+import Image from "next/image"
+import React from "react"
 
 const timelineData = {
   title: <span className="text-4xl text-white">3. ECOnomic efficiency and Social Benefits</span>,
   subtitle: (
-    <p className="text-secondary">
+    <p className="text-muted-foreground">
       Let recycling work for you by turning ECOcans into money-makers and brand ambassadors
     </p>
   ),
@@ -36,11 +36,11 @@ const timelineData = {
         "At ECOCAN, we embrace inclusivity, providing equal opportunities for everyone to contribute to sustainability. With a height of just 110 cm, ECOcans are designed for easy access by children and people with disabilities, allowing everyone to play a part in protecting the environment",
     },
   ],
-};
+}
 
 export default function Economic() {
   return (
-    <div className="bg-[#2F313F] py-8 md:py-24 relative">
+    <div className="relative bg-[#2F313F] py-8 md:py-24">
       <Timeline
         className="bottom-[22.5%]"
         title={timelineData.title}
@@ -53,14 +53,14 @@ export default function Economic() {
             <Image
               src={item.image}
               alt={item.title}
-              className="w-full lg:h-72 object-cover"
+              className="w-full object-cover lg:h-72"
               width={100}
               height={100}
             />
           </div>
           <div className="py-4">
-            <h3 className="font-bold text-xl mb-2 text-white">{item.title}</h3>
-            <p className="text-secondary font-light">{item.description}</p>
+            <h3 className="mb-2 text-xl font-bold text-white">{item.title}</h3>
+            <p className="font-light text-muted-foreground">{item.description}</p>
           </div>
         </div>
       ))}
@@ -69,12 +69,8 @@ export default function Economic() {
         viewBox="0 0 1440 150"
         className="absolute -top-24 z-50 hidden lg:block"
       >
-        <path
-          fill="#2F313F"
-          fillOpacity="1"
-          d="M0,80L1440,0L1440,180L0,180Z"
-        ></path>
+        <path fill="#2F313F" fillOpacity="1" d="M0,80L1440,0L1440,180L0,180Z"></path>
       </svg>
     </div>
-  );
+  )
 }

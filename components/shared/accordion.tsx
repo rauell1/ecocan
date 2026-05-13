@@ -28,7 +28,9 @@ export function ReusableAccordion({ items, className, defaultOpenItems }: Reusab
       {items.map((item) => (
         <AccordionItem key={item.id} value={item.id} className="w-full">
           <AccordionTrigger className="text-start text-xl">{item.question}</AccordionTrigger>
-          <AccordionContent className="text-base text-secondary">{item.answer}</AccordionContent>
+          <AccordionContent className="text-base text-muted-foreground">
+            {item.answer}
+          </AccordionContent>
         </AccordionItem>
       ))}
     </Accordion>

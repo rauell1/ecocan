@@ -1,13 +1,8 @@
-import clsx from "clsx";
-import Image from "next/image";
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipProvider,
-  TooltipTrigger,
-} from "@/components/ui/tooltip";
-import React, { useState } from "react";
-import { LucidePlus, LucidePlusCircle, LucideX } from "lucide-react";
+import clsx from "clsx"
+import Image from "next/image"
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip"
+import React, { useState } from "react"
+import { LucidePlus, LucidePlusCircle, LucideX } from "lucide-react"
 
 const tooltipContent = [
   {
@@ -42,8 +37,7 @@ const tooltipContent = [
   },
   {
     id: 6,
-    content:
-      "ECOuriers pick up retuned empties and drop them off to ECO-Recyclers",
+    content: "ECOuriers pick up retuned empties and drop them off to ECO-Recyclers",
     path: "/assets/images/solutions/cycle-icon.svg",
   },
   {
@@ -52,12 +46,12 @@ const tooltipContent = [
       "ECO-Recyclers process the empties into new bottles ready for filling fresh drinks. Hence reducing reliance on virgin material, cutting CO2 emissions & energy consumption",
     path: "/assets/images/solutions/warehouse-icon.svg",
   },
-];
+]
 
 interface IconWrapperProps {
-  className?: string;
-  content: string;
-  imagePath: string;
+  className?: string
+  content: string
+  imagePath: string
 }
 
 const IconWrapper = ({ className, content, imagePath }: IconWrapperProps) => {
@@ -68,31 +62,21 @@ const IconWrapper = ({ className, content, imagePath }: IconWrapperProps) => {
           <div
             className={clsx(
               className,
-              "p-1 absolute rounded-full shadow-md hover:shadow-xl cursor-pointer group bg-white"
+              "group absolute cursor-pointer rounded-full bg-white p-1 shadow-md hover:shadow-xl"
             )}
           >
-            <div className="p-1 shadow-md rounded-full group-hover:bg-primary/20">
-              <Image
-                src={imagePath}
-                alt="icon"
-                className="p-1"
-                width={32}
-                height={32}
-              />
+            <div className="rounded-full p-1 shadow-md group-hover:bg-primary/20">
+              <Image src={imagePath} alt="icon" className="p-1" width={32} height={32} />
             </div>
           </div>
         </TooltipTrigger>
-        <TooltipContent
-          side="bottom"
-          sideOffset={10}
-          className="w-[220px] text-xs text-start"
-        >
+        <TooltipContent side="bottom" sideOffset={10} className="w-[220px] text-start text-xs">
           <p>{content}</p>
         </TooltipContent>
       </Tooltip>
     </TooltipProvider>
-  );
-};
+  )
+}
 
 export default function HiwImage() {
   const positions = [
@@ -103,23 +87,23 @@ export default function HiwImage() {
     "bottom-[5.5rem] right-8 -translate-x-1/2",
     "-bottom-4 left-[52%] -translate-x-1/2",
     "bottom-[5.75rem] left-[4.5rem]",
-  ];
+  ]
 
   const [clickedIcons, setClickedIcons] = useState({
     depositTransfer1: false,
     depositPayment: false,
     depositTransfer2: false,
-  });
+  })
 
   const toggleIcon = (key: keyof typeof clickedIcons) => {
     setClickedIcons((prev) => ({
       ...prev,
       [key]: !prev[key],
-    }));
-  };
+    }))
+  }
 
   return (
-    <div className="w-fit mx-auto relative">
+    <div className="relative mx-auto w-fit">
       <Image
         src="/assets/images/solutions/works-circle.svg"
         alt="how it works"
@@ -135,86 +119,77 @@ export default function HiwImage() {
           imagePath={item.path}
         />
       ))}
-      <div className="absolute top-12 right-[30%] cursor-pointer">
-        <div className="flex items-center gap-2 group">
+      <div className="absolute right-[30%] top-12 cursor-pointer">
+        <div className="group flex items-center gap-2">
           <p
             className={clsx(
-              "text-xs transition-opacity duration-200 text-secondary",
+              "text-xs text-muted-foreground transition-opacity duration-200",
               clickedIcons.depositTransfer1 ? "opacity-100" : "opacity-0"
             )}
           >
             Deposit <br />
             transfer
           </p>
-          <div
-            onClick={() => toggleIcon("depositTransfer1")}
-            className="rounded-full bg-[#B2B2B2]"
-          >
+          <div onClick={() => toggleIcon("depositTransfer1")} className="rounded-full bg-[#B2B2B2]">
             {clickedIcons.depositTransfer1 ? (
-              <LucideX className="w-5 h-5 text-[#757575]" />
+              <LucideX className="h-5 w-5 text-[#757575]" />
             ) : (
-              <LucidePlus className="w-5 h-5 text-[#757575] rotate-180" />
+              <LucidePlus className="h-5 w-5 rotate-180 text-[#757575]" />
             )}
           </div>
         </div>
       </div>
 
       {/* Second plus icon */}
-      <div className="absolute top-1/3 right-[7%] cursor-pointer">
+      <div className="absolute right-[7%] top-1/3 cursor-pointer">
         <div className="flex items-center gap-2">
           <p
             className={clsx(
-              "text-xs transition-opacity duration-200 text-secondary",
+              "text-xs text-muted-foreground transition-opacity duration-200",
               clickedIcons.depositPayment ? "opacity-100" : "opacity-0"
             )}
           >
             Deposit <br />
             payment
           </p>
-          <div
-            onClick={() => toggleIcon("depositPayment")}
-            className="rounded-full bg-[#B2B2B2]"
-          >
+          <div onClick={() => toggleIcon("depositPayment")} className="rounded-full bg-[#B2B2B2]">
             {clickedIcons.depositPayment ? (
-              <LucideX className="w-5 h-5 text-[#757575]" />
+              <LucideX className="h-5 w-5 text-[#757575]" />
             ) : (
-              <LucidePlus className="w-5 h-5 text-[#757575]" />
+              <LucidePlus className="h-5 w-5 text-[#757575]" />
             )}
           </div>
         </div>
       </div>
 
       {/* Third plus icon */}
-      <div className="absolute top-[63%] right-[8%] cursor-pointer">
+      <div className="absolute right-[8%] top-[63%] cursor-pointer">
         <div className="flex items-center gap-2">
           <p
             className={clsx(
-              "text-xs transition-opacity duration-200 text-secondary",
+              "text-xs text-muted-foreground transition-opacity duration-200",
               clickedIcons.depositTransfer2 ? "opacity-100" : "opacity-0"
             )}
           >
             Deposit <br />
             refund
           </p>
-          <div
-            onClick={() => toggleIcon("depositTransfer2")}
-            className="rounded-full bg-[#B2B2B2]"
-          >
+          <div onClick={() => toggleIcon("depositTransfer2")} className="rounded-full bg-[#B2B2B2]">
             {clickedIcons.depositTransfer2 ? (
-              <LucideX className="w-5 h-5 text-[#757575]" />
+              <LucideX className="h-5 w-5 text-[#757575]" />
             ) : (
-              <LucidePlus className="w-5 h-5 text-[#757575]" />
+              <LucidePlus className="h-5 w-5 text-[#757575]" />
             )}
           </div>
         </div>
       </div>
 
-      <div className="absolute top-1/2 -translate-y-1/2 left-[52%] -translate-x-1/2 p-4 rounded-full bg-white shadow-lg hover:shadow-xl group cursor-pointer">
-        <div className="p-4 rounded-full bg-white shadow-lg">
+      <div className="group absolute left-[52%] top-1/2 -translate-x-1/2 -translate-y-1/2 cursor-pointer rounded-full bg-white p-4 shadow-lg hover:shadow-xl">
+        <div className="rounded-full bg-white p-4 shadow-lg">
           <TooltipProvider delayDuration={0}>
             <Tooltip>
               <TooltipTrigger asChild>
-                <div className="p-2 rounded-full bg-white shadow-lg group-hover:bg-primary/20">
+                <div className="rounded-full bg-white p-2 shadow-lg group-hover:bg-primary/20">
                   <Image
                     src="/assets/images/solutions/ecocan-logo.svg"
                     alt="how it works"
@@ -224,15 +199,8 @@ export default function HiwImage() {
                   />
                 </div>
               </TooltipTrigger>
-              <TooltipContent
-                side="bottom"
-                sideOffset={10}
-                className="w-[220px] text-xs"
-              >
-                <p>
-                  ECOCAN develops requisite technology to administer the entire
-                  ECO-system
-                </p>
+              <TooltipContent side="bottom" sideOffset={10} className="w-[220px] text-xs">
+                <p>ECOCAN develops requisite technology to administer the entire ECO-system</p>
               </TooltipContent>
             </Tooltip>
           </TooltipProvider>
@@ -241,10 +209,10 @@ export default function HiwImage() {
       <Image
         src="/assets/images/solutions/legend.svg"
         alt="how it works"
-        className="absolute bottom-0 -right-36"
+        className="absolute -right-36 bottom-0"
         width={123}
         height={144}
       />
     </div>
-  );
+  )
 }

@@ -1,12 +1,12 @@
-import React from "react";
-import clsx from "clsx";
+import React from "react"
+import clsx from "clsx"
 
 interface TextWithCardsProps {
-  title?: React.ReactNode;
-  description?: React.ReactNode;
-  customCard?: React.ReactNode;
-  subtitle?: React.ReactNode;
-  className?: string;
+  title?: React.ReactNode
+  description?: React.ReactNode
+  customCard?: React.ReactNode
+  subtitle?: React.ReactNode
+  className?: string
 }
 
 export default function TextWithCards({
@@ -14,18 +14,20 @@ export default function TextWithCards({
   description,
   subtitle,
   customCard,
-  className
+  className,
 }: TextWithCardsProps) {
   return (
     <div className="">
       <div className={clsx("space-y-6", className)}>
-        <h2 className="font-medium text-3xl lg:text-5xl tracking-tight">{title}</h2>
+        <h2 className="text-3xl font-medium tracking-tight lg:text-5xl">{title}</h2>
         <div>
           <div>{subtitle}</div>
-          <div className="text-base lg:text-xl font-normal text-secondary">{description}</div>
+          <div className="text-base font-normal text-muted-foreground lg:text-xl">
+            {description}
+          </div>
         </div>
       </div>
       {customCard}
     </div>
-  );
+  )
 }

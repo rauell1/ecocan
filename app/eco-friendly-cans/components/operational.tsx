@@ -1,16 +1,16 @@
-import React, { useState, useEffect } from "react";
-import Image from "next/image";
-import ImageAndItem from "@/components/shared/image-and-item/image-and-item";
-import TextWithCards from "@/components/shared/text-with-cards/text-with-cards";
-import { Card } from "@/components/ui/card";
+import React, { useState, useEffect } from "react"
+import Image from "next/image"
+import ImageAndItem from "@/components/shared/image-and-item/image-and-item"
+import TextWithCards from "@/components/shared/text-with-cards/text-with-cards"
+import { Card } from "@/components/ui/card"
 import {
   Carousel,
   CarouselContent,
   CarouselItem,
   CarouselNext,
   CarouselPrevious,
-} from "@/components/ui/carousel";
-import { type CarouselApi } from "@/components/ui/carousel";
+} from "@/components/ui/carousel"
+import { type CarouselApi } from "@/components/ui/carousel"
 
 const litterContent = [
   {
@@ -23,11 +23,10 @@ const litterContent = [
     title: "B. Turn-key solution",
     description: (
       <>
-        No back-room customisation nor lengthy pre-starts required! ECOcans are
-        intelligently engineered for plug-and-play installation; Simply connect
-        the devise to a standard single-phase household socket, and you&apos;re
-        all set. Plus, these mobile devises come with industrial wheels for easy
-        mobility, to wherever they&apos;re needed.
+        No back-room customisation nor lengthy pre-starts required! ECOcans are intelligently
+        engineered for plug-and-play installation; Simply connect the devise to a standard
+        single-phase household socket, and you&apos;re all set. Plus, these mobile devises come with
+        industrial wheels for easy mobility, to wherever they&apos;re needed.
       </>
     ),
     image: "/assets/images/eco-station/turn-key.svg",
@@ -50,38 +49,38 @@ const litterContent = [
       "Accepted empties are compacted at a 1:10 ratio for aluminium cans and 1:5 ratio for PET bottles, greatly reducing both storage space and transportation needs. This means that one (1) transportation vessel can carry equal amount of compacted aluminium cans, that what ten (10) vessels would carry if uncompacted. This not only lowers logistics costs but also significantly reduces CO₂ emission",
     image: "/assets/images/eco-station/logistics.svg",
   },
-];
+]
 
 export default function Operational() {
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [api, setApi] = useState<CarouselApi>();
-  const [preloadedImages, setPreloadedImages] = useState<string[]>([]);
+  const [currentIndex, setCurrentIndex] = useState(0)
+  const [api, setApi] = useState<CarouselApi>()
+  const [preloadedImages, setPreloadedImages] = useState<string[]>([])
 
   useEffect(() => {
     const preloadImages = () => {
       litterContent.forEach(({ image }) => {
-        const img = new window.Image();
-        img.src = image;
-      });
-      setPreloadedImages(litterContent.map((item) => item.image));
-    };
-    preloadImages();
-  }, []);
+        const img = new window.Image()
+        img.src = image
+      })
+      setPreloadedImages(litterContent.map((item) => item.image))
+    }
+    preloadImages()
+  }, [])
 
   useEffect(() => {
-    if (!api) return;
+    if (!api) return
     api.on("select", () => {
-      setCurrentIndex(api.selectedScrollSnap());
-    });
-  }, [api]);
+      setCurrentIndex(api.selectedScrollSnap())
+    })
+  }, [api])
 
   return (
-    <div className="bg-[#F6F6F6] relative lg:pb-36">
-      <div className="max-w-[72rem] mx-auto px-4 xl:px-0 relative z-[999] py-8 lg:py-0">
+    <div className="relative bg-[#F6F6F6] lg:pb-36">
+      <div className="relative z-[999] mx-auto max-w-[72rem] px-4 py-8 lg:py-0 xl:px-0">
         <ImageAndItem
-          className="lg:gap-12 lg:flex-row-reverse"
+          className="lg:flex-row-reverse lg:gap-12"
           image={
-            <div className="xl:w-[31.25rem] hidden lg:block w-4/6 lg:w-full mx-auto lg:mx-0 lg:h-[33.75rem] overflow-hidden">
+            <div className="mx-auto hidden w-4/6 overflow-hidden lg:mx-0 lg:block lg:h-[33.75rem] lg:w-full xl:w-[31.25rem]">
               {preloadedImages.map((src, index) => (
                 <Image
                   key={src}
@@ -91,7 +90,7 @@ export default function Operational() {
                   height={540}
                   priority={index === 0}
                   loading="eager"
-                  className={`w-full h-full absolute top-0 left-0 transition-opacity duration-300 ${
+                  className={`absolute left-0 top-0 h-full w-full transition-opacity duration-300 ${
                     index === currentIndex ? "opacity-100" : "opacity-0"
                   }`}
                 />
@@ -101,9 +100,7 @@ export default function Operational() {
           item={
             <TextWithCards
               className="w-full"
-              title={
-                <span className="text-4xl">1. Operational efficiency</span>
-              }
+              title={<span className="text-4xl">1. Operational efficiency</span>}
               description="Unlocking sustainability potential with small efficient steps, but with massive impact"
               customCard={
                 <>
@@ -114,25 +111,21 @@ export default function Operational() {
                     className="w-full"
                     setApi={setApi}
                   >
-                    <CarouselContent className="px-2 py-4 mt-20 xl:mt-24">
+                    <CarouselContent className="mt-20 px-2 py-4 xl:mt-24">
                       {litterContent.map((item, index) => (
                         <CarouselItem key={index} className="md:basis-full">
-                          <Card className="border-none p-4 h-full shadow-none">
-                            <div className="text-secondary">
+                          <Card className="h-full border-none p-4 shadow-none">
+                            <div className="text-muted-foreground">
                               {item.title && (
-                                <div className="font-semibold text-xl text-black">
-                                  {item.title}
-                                </div>
+                                <div className="text-xl font-semibold text-black">{item.title}</div>
                               )}
-                              <div className="text-[#238A23] text-base">
-                                {item.description}
-                              </div>
+                              <div className="text-base text-[#238A23]">{item.description}</div>
                             </div>
                           </Card>
                         </CarouselItem>
                       ))}
                     </CarouselContent>
-                    <div className="absolute top-8 right-14">
+                    <div className="absolute right-14 top-8">
                       <CarouselPrevious />
                       <CarouselNext />
                     </div>
@@ -146,25 +139,17 @@ export default function Operational() {
       <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 1440 400"
-        className="absolute -top-36 xl:-top-52 z-50 hidden lg:block"
+        className="absolute -top-36 z-50 hidden lg:block xl:-top-52"
       >
-        <path
-          fill="#F6F6F6"
-          fillOpacity="1"
-          d="M0,100L1440,0L1440,400L0,400Z"
-        ></path>
+        <path fill="#F6F6F6" fillOpacity="1" d="M0,100L1440,0L1440,400L0,400Z"></path>
       </svg>
       <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 1440 100"
         className="absolute bottom-0 z-50 hidden lg:block"
       >
-        <path
-          fill="white"
-          fillOpacity="1"
-          d="M0,100L1440,0L1440,100L0,100Z"
-        ></path>
+        <path fill="white" fillOpacity="1" d="M0,100L1440,0L1440,100L0,100Z"></path>
       </svg>
     </div>
-  );
+  )
 }

@@ -261,11 +261,13 @@ export default function HeroSection({
           style={{ minHeight: "100px", height: "22vh" }}
         >
           <h1
-            className="pointer-events-none w-full max-w-[96vw] select-none text-center font-extrabold text-white"
+            className="pointer-events-none w-full max-w-[96vw] select-none text-center font-extrabold"
             style={{
               fontSize: "clamp(52px, 12vw, 160px)",
               lineHeight: 1,
               letterSpacing: "-0.03em",
+              color: "transparent",
+              WebkitTextStroke: "2px rgba(255,255,255,0.9)",
             }}
             aria-label="ECOCAN"
           >
@@ -327,38 +329,57 @@ export default function HeroSection({
           </div>
         </div>
 
-        {/* Card 1 – dark how-it-works strip */}
+        {/* Card 1 – dark ECOmmunity roles strip */}
         <div
           className="hero-card absolute overflow-hidden rounded-3xl shadow-elevated"
           style={{ left: "10vw", width: "80vw", height: "85vh", top: "5vh", background: "#101010" }}
         >
           <div className="flex h-full flex-col items-center justify-center gap-8 px-8 text-center">
             <p className="text-xs font-semibold uppercase tracking-[0.18em] text-primary">
-              How it works
+              Who it&apos;s for
             </p>
             <h2
               className="font-bold text-white"
               style={{ fontSize: "clamp(24px, 3.5vw, 48px)", lineHeight: 1.2 }}
             >
-              From your hand back to the shelf
+              One ecosystem.
+              <br />
+              Everyone wins.
             </h2>
-            <div className="flex flex-col items-center gap-3 sm:flex-row sm:gap-0">
+            <div className="grid grid-cols-2 gap-4 md:grid-cols-4 md:gap-6">
               {[
-                { num: "01", title: "Buy", desc: "Drink with QR code" },
-                { num: "02", title: "Scan", desc: "Verify in 3 seconds" },
-                { num: "03", title: "Return", desc: "To any ECO-Station" },
-                { num: "04", title: "Collect", desc: "Electric bike pickup" },
-                { num: "05", title: "Earn", desc: "Instant M-Pesa credit" },
-              ].map((step, i, arr) => (
-                <div key={step.num} className="flex items-center">
-                  <div className="flex flex-col items-center gap-1 px-3 md:px-5">
-                    <span className="text-xl font-bold text-primary md:text-2xl">{step.num}</span>
-                    <span className="text-sm font-semibold text-white">{step.title}</span>
-                    <span className="text-xs text-white/50">{step.desc}</span>
-                  </div>
-                  {i < arr.length - 1 && (
-                    <span className="hidden text-primary/40 sm:block">&#8250;</span>
-                  )}
+                {
+                  emoji: "🛒",
+                  role: "Consumers",
+                  desc: "Earn M-Pesa rewards on every bottle returned",
+                },
+                {
+                  emoji: "🏪",
+                  role: "Retailers",
+                  desc: "Boost loyalty & drive repeat foot-traffic",
+                },
+                {
+                  emoji: "🏭",
+                  role: "Producers",
+                  desc: "Close your supply loop, cut packaging waste",
+                },
+                {
+                  emoji: "💡",
+                  role: "Investors",
+                  desc: "Back Africa's first circular bottle economy",
+                },
+              ].map((r) => (
+                <div
+                  key={r.role}
+                  className="flex flex-col items-center gap-2 rounded-2xl px-4 py-5"
+                  style={{
+                    background: "rgba(255,255,255,0.06)",
+                    border: "1px solid rgba(255,255,255,0.10)",
+                  }}
+                >
+                  <span className="text-3xl">{r.emoji}</span>
+                  <span className="text-sm font-semibold text-white">{r.role}</span>
+                  <span className="text-xs leading-snug text-white/50">{r.desc}</span>
                 </div>
               ))}
             </div>

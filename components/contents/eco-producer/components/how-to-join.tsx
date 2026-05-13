@@ -1,88 +1,61 @@
-import ImageAndItem from "@/components/shared/image-and-item/image-and-item";
-import Image from "next/image";
-import React from "react";
-import { ItemList } from "../../courier/components/ItemList";
-import HyperLink from "@/components/shared/hyperlink/hyperlink";
-import RegisterPopup from "@/components/shared/register-popup";
+import ImageAndItem from "@/components/shared/image-and-item/image-and-item"
+import Image from "next/image"
+import React from "react"
+import { ItemList } from "../../courier/components/ItemList"
+import HyperLink from "@/components/shared/hyperlink/hyperlink"
+import RegisterPopup from "@/components/shared/register-popup"
 
 const howToData = [
   {
     id: 1,
-    icon: (
-      <Image
-        src="/assets/images/producer/one.png"
-        width={23}
-        height={23}
-        alt="icon"
-      />
-    ),
+    icon: <Image src="/assets/images/producer/one.png" width={23} height={23} alt="icon" />,
     title: (
       <div>
-        <RegisterPopup join="Register Here" className="text-lg font-bold h-0"/> and we&apos;ll revert ASAP
+        <RegisterPopup join="Register Here" className="h-0 text-lg font-bold" /> and we&apos;ll
+        revert ASAP
       </div>
     ),
     description: (
       <p className="mt-2 text-[#888D92]">
-        With onboarding consultation, and walk through the <br/>
+        With onboarding consultation, and walk through the <br />
         legalities together
       </p>
     ),
   },
   {
     id: 2,
-    icon: (
-      <Image
-        src="/assets/images/producer/two.png"
-        width={23}
-        height={23}
-        alt="icon"
-      />
-    ),
+    icon: <Image src="/assets/images/producer/two.png" width={23} height={23} alt="icon" />,
     title: "After onboarding, we'll tailor our systems for you",
     description: (
       <p className="mt-2 text-[#888D92]">
-       By customising Security codes for your brands, and set up TnT 
-        <br/> and DRS profiles for your organisation
+        By customising Security codes for your brands, and set up TnT
+        <br /> and DRS profiles for your organisation
       </p>
     ),
   },
   {
     id: 3,
-    icon: (
-      <Image
-        src="/assets/images/producer/three.png"
-        width={23}
-        height={23}
-        alt="icon"
-      />
-    ),
+    icon: <Image src="/assets/images/producer/three.png" width={23} height={23} alt="icon" />,
     title: "Then digitally deliver the codes  to your printers",
     description: (
       <p className="mt-2 text-[#888D92]">
-        For seamless printing onto your packaging using existing printing
-        technology; no customisation needed
+        For seamless printing onto your packaging using existing printing technology; no
+        customisation needed
       </p>
     ),
   },
   {
     id: 4,
-    icon: (
-      <Image
-        src="/assets/images/producer/four.png"
-        width={23}
-        height={23}
-        alt="icon"
-      />
-    ),
+    icon: <Image src="/assets/images/producer/four.png" width={23} height={23} alt="icon" />,
     title: "And you are good to go!",
     description: (
       <p className="mt-2 text-[#888D92]">
-        Sit back and let the TnT & DRS handle the rest; protecting your <br/>
+        Sit back and let the TnT & DRS handle the rest; protecting your <br />
         brand, enhancing efficiency, and promoting sustainability
       </p>
     ),
   },
-];
+]
 
 export default function HowToJoin() {
   return (
@@ -99,10 +72,8 @@ export default function HowToJoin() {
         }
         item={
           <div className="space-y-6">
-            <h2 className="font-semibold text-3xl lg:text-[2rem]">
-              How to join the ECOmmunity
-            </h2>
-            <p className="text-secondary lg:text-xl">It&apos;s easy like Sunday morning</p>
+            <h2 className="text-3xl font-semibold lg:text-[2rem]">How to join the ECOmmunity</h2>
+            <p className="text-muted-foreground lg:text-xl">It&apos;s easy like Sunday morning</p>
             {howToData.map((data) => (
               <ItemList
                 key={data.id}
@@ -115,5 +86,5 @@ export default function HowToJoin() {
         }
       />
     </div>
-  );
+  )
 }

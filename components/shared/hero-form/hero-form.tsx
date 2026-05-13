@@ -1,17 +1,11 @@
-"use client";
+"use client"
 
-import React from "react";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { useForm } from "react-hook-form";
-import { z } from "zod";
-import { Button } from "@/components/ui/button";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+import React from "react"
+import { zodResolver } from "@hookform/resolvers/zod"
+import { useForm } from "react-hook-form"
+import { z } from "zod"
+import { Button } from "@/components/ui/button"
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import {
   Form,
   FormControl,
@@ -19,23 +13,23 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from "@/components/ui/form";
-import { Input } from "@/components/ui/input";
+} from "@/components/ui/form"
+import { Input } from "@/components/ui/input"
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@/components/ui/select";
-import Link from "next/link";
-import HyperLink from "../hyperlink/hyperlink";
-import clsx from "clsx";
-import { LucideMapPin } from "lucide-react";
+} from "@/components/ui/select"
+import Link from "next/link"
+import HyperLink from "../hyperlink/hyperlink"
+import clsx from "clsx"
+import { LucideMapPin } from "lucide-react"
 
 interface EcostationFormProps {
-  title?: string;
-  className?: string;
+  title?: string
+  className?: string
 }
 
 const formSchema = z.object({
@@ -49,7 +43,7 @@ const formSchema = z.object({
     .string()
     .min(10, "Contact number must be at least 10 digits")
     .max(15, "Contact number can't exceed 15 digits"),
-});
+})
 
 export default function EcostationForm({
   title = "Let's grow together",
@@ -66,16 +60,16 @@ export default function EcostationForm({
       email: "",
       contact: "",
     },
-  });
+  })
 
   function onSubmit(values: z.infer<typeof formSchema>) {
-    console.log(values);
+    console.log(values)
   }
 
   return (
     <Card
       className={clsx(
-        "rounded-smooth lg:rounded-smooth-lg w-5/6 ms-auto border-none shadow-none",
+        "ms-auto w-5/6 rounded-smooth border-none shadow-none lg:rounded-smooth-lg",
         className
       )}
     >
@@ -98,15 +92,12 @@ export default function EcostationForm({
                 render={({ field }) => (
                   <FormItem>
                     <FormLabel>Business Type</FormLabel>
-                    <Select
-                      onValueChange={field.onChange}
-                      defaultValue={field.value}
-                    >
+                    <Select onValueChange={field.onChange} defaultValue={field.value}>
                       <FormControl>
                         <SelectTrigger>
                           <SelectValue
                             placeholder="Type of business"
-                            className="placeholder:text-secondary"
+                            className="placeholder:text-muted-foreground"
                           />
                         </SelectTrigger>
                       </FormControl>
@@ -129,19 +120,15 @@ export default function EcostationForm({
                   <FormItem>
                     <FormLabel>Address</FormLabel>
                     <div className="relative">
-                      <LucideMapPin className="absolute left-3 top-1/2 h-6 w-6 -translate-y-1/2 text-white fill-primary" />
-                      <Input
-                        className="pl-10"
-                        placeholder="Pin location"
-                        {...field}
-                      />
+                      <LucideMapPin className="absolute left-3 top-1/2 h-6 w-6 -translate-y-1/2 fill-primary text-white" />
+                      <Input className="pl-10" placeholder="Pin location" {...field} />
                     </div>
                     <FormMessage />
                   </FormItem>
                 )}
               />
             </div>
-            <div className="grid grid-cols-2 xl:grid-cols-1 gap-4">
+            <div className="grid grid-cols-2 gap-4 xl:grid-cols-1">
               <FormField
                 control={form.control}
                 name="businessName"
@@ -187,11 +174,7 @@ export default function EcostationForm({
                           <SelectItem value="+44">+44</SelectItem>
                         </SelectContent>
                       </Select>
-                      <Input
-                        placeholder="Mobile number"
-                        className="flex-1 ml-2"
-                        {...field}
-                      />
+                      <Input placeholder="Mobile number" className="ml-2 flex-1" {...field} />
                     </div>
                   </FormControl>
                   <FormMessage />
@@ -210,5 +193,5 @@ export default function EcostationForm({
         </Form>
       </CardContent>
     </Card>
-  );
+  )
 }

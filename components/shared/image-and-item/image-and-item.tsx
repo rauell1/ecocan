@@ -1,16 +1,16 @@
-import React from "react";
-import Image from "next/image";
-import clsx from "clsx";
+import React from "react"
+import Image from "next/image"
+import clsx from "clsx"
 
 interface ImageAndItemProps {
-  title?: React.ReactNode;
-  subtitle?: React.ReactNode;
-  description?: React.ReactNode;
-  item?: React.ReactNode;
-  image?: React.ReactNode;
-  className?: string;
-  mainClassName?: string;
-  fDivClassName? : string;
+  title?: React.ReactNode
+  subtitle?: React.ReactNode
+  description?: React.ReactNode
+  item?: React.ReactNode
+  image?: React.ReactNode
+  className?: string
+  mainClassName?: string
+  fDivClassName?: string
 }
 
 export default function ImageAndItem({
@@ -26,21 +26,18 @@ export default function ImageAndItem({
   return (
     <div>
       <div className={clsx("lg:text-center", fDivClassName)}>
-        <div className="text-3xl lg:text-5xl font-medium">{title}</div>
+        <div className="text-3xl font-medium lg:text-5xl">{title}</div>
         <div
-          className={clsx(
-             "text-secondary my-4 lg:my-6 text-base lg:text-xl",
-            mainClassName
-          )}
+          className={clsx("my-4 text-base text-muted-foreground lg:my-6 lg:text-xl", mainClassName)}
         >
           {subtitle}
         </div>
-        <div className="text-accent font-light lg:text-xl">{description}</div>
+        <div className="font-light text-accent lg:text-xl">{description}</div>
       </div>
       <div className={clsx("flex flex-col-reverse lg:flex-row", className)}>
-        <div className="relative lg:w-[45%] my-auto">{image}</div>
-        <div className="lg:w-[55%] space-y-4 me-auto w-full">{item}</div>
+        <div className="relative my-auto lg:w-[45%]">{image}</div>
+        <div className="me-auto w-full space-y-4 lg:w-[55%]">{item}</div>
       </div>
     </div>
-  );
+  )
 }

@@ -1,22 +1,22 @@
-"use client";
+"use client"
 
-import React, { useState } from "react";
+import React, { useState } from "react"
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from "@/components/ui/accordion";
-import HyperLink from "@/components/shared/hyperlink/hyperlink";
-import Image from "next/image";
-import JoinEcommunity from "../../../shared/join-ecommunity";
-import ScanqrPopup from "@/components/shared/scan-qr";
-import AppStoreButton from "@/components/shared/download-app";
+} from "@/components/ui/accordion"
+import HyperLink from "@/components/shared/hyperlink/hyperlink"
+import Image from "next/image"
+import JoinEcommunity from "../../../shared/join-ecommunity"
+import ScanqrPopup from "@/components/shared/scan-qr"
+import AppStoreButton from "@/components/shared/download-app"
 
 interface AccordionData {
-  id: number;
-  title: string;
-  description: React.ReactNode;
+  id: number
+  title: string
+  description: React.ReactNode
 }
 
 const accordionData: AccordionData[] = [
@@ -24,7 +24,7 @@ const accordionData: AccordionData[] = [
     id: 1,
     title: "Get EcocanApp today",
     description: (
-      <div className="space-y-2 w-11/12">
+      <div className="w-11/12 space-y-2">
         <div>
           <AppStoreButton
             className="h-0 font-normal lg:hidden"
@@ -34,16 +34,15 @@ const accordionData: AccordionData[] = [
           />
           <ScanqrPopup
             join="Download EcocanApp"
-            className="h-0 font-normal hidden lg:inline-flex"
+            className="hidden h-0 font-normal lg:inline-flex"
           />{" "}
-          here, sign up in under 2 minutes, and start your sustainability
-          journey today!
+          here, sign up in under 2 minutes, and start your sustainability journey today!
         </div>
         <div>
           {" "}
           After registration, you can join the exclusive{" "}
           <JoinEcommunity
-            className="p-0 border-none text-primary text-base underline underline-offset-4 font-normal h-0"
+            className="h-0 border-none p-0 text-base font-normal text-primary underline underline-offset-4"
             showArrow={false}
             join="ECOmmunity here"
           />
@@ -56,15 +55,11 @@ const accordionData: AccordionData[] = [
     id: 2,
     title: "Scan to Authenticate",
     description: (
-      <div className="space-y-2 w-11/12">
+      <div className="w-11/12 space-y-2">
+        <div>With ECO-scanner, you can easily and securely tell what&apos;s real from fake.</div>
         <div>
-          With ECO-scanner, you can easily and securely tell what&apos;s real
-          from fake.
-        </div>
-        <div>
-          Scan attached ECOCAN Security codes, and an authentication page will
-          pop up. If it doesn&apos;t, it&apos;s a fake!{" "}
-          <span className="text-red-500">DON&apos;T BUY IT!</span>
+          Scan attached ECOCAN Security codes, and an authentication page will pop up. If it
+          doesn&apos;t, it&apos;s a fake! <span className="text-red-500">DON&apos;T BUY IT!</span>
         </div>
       </div>
     ),
@@ -73,7 +68,7 @@ const accordionData: AccordionData[] = [
     id: 3,
     title: "Return for recycling",
     description: (
-      <div className="space-y-2 w-11/12">
+      <div className="w-11/12 space-y-2">
         <div>
           After enjoying your drink, navigate to the nearest or your favourite{" "}
           <HyperLink link="ECO-Station" href="#faq" /> on{" "}
@@ -81,9 +76,8 @@ const accordionData: AccordionData[] = [
         </div>
 
         <div>
-          While there, either hand your empties to{" "}
-          <HyperLink link="Egents" href="#faq" />, or drop them into{" "}
-          <HyperLink link="ECOcans" href="/#what_are_ecocans" />
+          While there, either hand your empties to <HyperLink link="Egents" href="#faq" />, or drop
+          them into <HyperLink link="ECOcans" href="/#what_are_ecocans" />
         </div>
       </div>
     ),
@@ -92,15 +86,14 @@ const accordionData: AccordionData[] = [
     id: 4,
     title: "Get paid, right away",
     description: (
-      <div className="space-y-2 w-11/12">
+      <div className="w-11/12 space-y-2">
         <div>
-          Once your eligible empties are accepted, you&apos;ll get paid
-          instantly, right into your ECO-wallet!
+          Once your eligible empties are accepted, you&apos;ll get paid instantly, right into your
+          ECO-wallet!
         </div>
         <div>
-          Additionally, the App will inform you of the CO2e reduction & energy
-          savings you&apos;ve made. And we&apos;ll reward your ECO-friendly
-          efforts with exclusive discounts
+          Additionally, the App will inform you of the CO2e reduction & energy savings you&apos;ve
+          made. And we&apos;ll reward your ECO-friendly efforts with exclusive discounts
         </div>
       </div>
     ),
@@ -109,32 +102,27 @@ const accordionData: AccordionData[] = [
     id: 5,
     title: "Your cash, Your call",
     description: (
-      <div className="space-y-2 w-11/12">
+      <div className="w-11/12 space-y-2">
         <div>
           You can order more drinks affordably from{" "}
-          <span className="font-semibold">ECOCAN Market</span>, transfer
-          deposits to friends, donate to charity, or cash out.
+          <span className="font-semibold">ECOCAN Market</span>, transfer deposits to friends, donate
+          to charity, or cash out.
         </div>
         <div>
-          Take a look at the EcocanApp{" "}
-          <ScanqrPopup join="tutorial" className="h-0" /> for more!
+          Take a look at the EcocanApp <ScanqrPopup join="tutorial" className="h-0" /> for more!
         </div>
       </div>
     ),
   },
-];
+]
 
-export function AccordionDemo({
-  onSelect,
-}: {
-  onSelect: (id: number) => void;
-}) {
-  const [openItem, setOpenItem] = useState("item-1");
+export function AccordionDemo({ onSelect }: { onSelect: (id: number) => void }) {
+  const [openItem, setOpenItem] = useState("item-1")
 
   const handleItemClick = (id: number) => {
-    onSelect(id);
-    setOpenItem(`item-${id}`);
-  };
+    onSelect(id)
+    setOpenItem(`item-${id}`)
+  }
 
   return (
     <Accordion
@@ -147,29 +135,26 @@ export function AccordionDemo({
       {accordionData.map((item) => (
         <AccordionItem key={item.id} value={`item-${item.id}`}>
           <div className="flex items-center">
-            <div className="w-12 h-12 flex items-center">
+            <div className="flex h-12 w-12 items-center">
               <Image
                 src="/assets/images/consumer/checkmark.svg"
                 alt="checklist"
                 width={24}
                 height={24}
-                className="w-6 h-6"
+                className="h-6 w-6"
               />
             </div>
             <div className="w-full">
-              <AccordionTrigger
-                onClick={() => handleItemClick(item.id)}
-                className={`text-xl`}
-              >
+              <AccordionTrigger onClick={() => handleItemClick(item.id)} className={`text-xl`}>
                 {item.title}
               </AccordionTrigger>
             </div>
           </div>
-          <AccordionContent className={`text-secondary text-sm lg:text-base`}>
+          <AccordionContent className={`text-sm text-muted-foreground lg:text-base`}>
             {item.description}
           </AccordionContent>
         </AccordionItem>
       ))}
     </Accordion>
-  );
+  )
 }

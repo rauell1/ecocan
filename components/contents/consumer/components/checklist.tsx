@@ -1,18 +1,18 @@
-import React from "react";
-import Image from "next/image";
-import clsx from "clsx";
+import React from "react"
+import Image from "next/image"
+import clsx from "clsx"
 
 interface CheckListItem {
-  id: number | string;
-  step?: React.ReactNode;
-  description?: React.ReactNode;
-  icon?: React.ReactNode;
+  id: number | string
+  step?: React.ReactNode
+  description?: React.ReactNode
+  icon?: React.ReactNode
 }
 
 interface CheckListProps {
-  items: CheckListItem[];
-  className?: string;
-  defaultImageSrc?: string;
+  items: CheckListItem[]
+  className?: string
+  defaultImageSrc?: string
 }
 
 const CheckList: React.FC<CheckListProps> = ({
@@ -23,9 +23,9 @@ const CheckList: React.FC<CheckListProps> = ({
   return (
     <div>
       {items.map((item, index) => (
-        <div className={clsx("flex mt-5", className)} key={index}>
+        <div className={clsx("mt-5 flex", className)} key={index}>
           <div>
-            <div className="w-12 h-12 flex items-center justify-center">
+            <div className="flex h-12 w-12 items-center justify-center">
               {item.icon ? (
                 item.icon
               ) : (
@@ -34,19 +34,19 @@ const CheckList: React.FC<CheckListProps> = ({
                   alt="checklist"
                   width={24}
                   height={24}
-                  className="w-6 h-6"
+                  className="h-6 w-6"
                 />
               )}
             </div>
           </div>
           <div>
-            <div className="text-base lg:text-lg font-medium">{item.step}</div>
-            <div className="text-secondary text-base">{item.description}</div>
+            <div className="text-base font-medium lg:text-lg">{item.step}</div>
+            <div className="text-base text-muted-foreground">{item.description}</div>
           </div>
         </div>
       ))}
     </div>
-  );
-};
+  )
+}
 
-export default CheckList;
+export default CheckList

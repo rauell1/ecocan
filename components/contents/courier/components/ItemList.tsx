@@ -1,22 +1,22 @@
-import React from "react";
+import React from "react"
 
 interface ItemListProps {
-    id: number | string ;
-    title?: React.ReactNode;
-    description?: React.ReactNode;
-    icon?: React.ReactNode
-  }
-  
-  export const ItemList: React.FC<ItemListProps> = ({ id, title, description }) => (
-    <div className="flex flex-row mb-4 gap-3">
-      <div>
-        <div className="flex items-center justify-center w-8 h-8 bg-gradient-to-r from-[#228B22] via-[#4ac63fcf] to-[#FFDD4C] rounded-full">
-          <span className="text-xs text-white leading-none">{id}</span>
-        </div>
-      </div>
-      <div className="pt-0">
-        <span className="lg:text-lg text-secondary font-medium">{title}</span>
-        <span className="text-secondary">{description}</span>
+  id: number | string
+  title?: React.ReactNode
+  description?: React.ReactNode
+  icon?: React.ReactNode
+}
+
+export const ItemList: React.FC<ItemListProps> = ({ id, title, description }) => (
+  <div className="mb-4 flex flex-row gap-3">
+    <div>
+      <div className="flex h-8 w-8 items-center justify-center rounded-full bg-gradient-to-r from-[#228B22] via-[#4ac63fcf] to-[#FFDD4C]">
+        <span className="text-xs leading-none text-white">{id}</span>
       </div>
     </div>
-  );
+    <div className="pt-0">
+      <span className="font-medium text-muted-foreground lg:text-lg">{title}</span>
+      <span className="text-muted-foreground">{description}</span>
+    </div>
+  </div>
+)

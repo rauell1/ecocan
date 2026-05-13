@@ -1,13 +1,13 @@
-import TextWithComponent from "@/components/contents/consumer/components/text-with-component";
-import ImageAndItem from "@/components/shared/image-and-item/image-and-item";
-import Image from "next/image";
-import React from "react";
+import TextWithComponent from "@/components/contents/consumer/components/text-with-component"
+import ImageAndItem from "@/components/shared/image-and-item/image-and-item"
+import Image from "next/image"
+import React from "react"
 
 export default function Visionaries() {
   return (
     <div>
       <ImageAndItem
-        className="gap-12 lg:flex-row-reverse items-center"
+        className="items-center gap-12 lg:flex-row-reverse"
         image={
           <Image
             src="/assets/images/solutions/people.svg"
@@ -22,18 +22,17 @@ export default function Visionaries() {
             title="Why We're Here"
             description={
               <h2
-                className={`bg-gradient-to-r my-2 from-[#228B22] via-[#FFDD4C] to-[#FFDD4C] text-transparent bg-clip-text font-medium text-3xl`}
+                className={`my-2 bg-gradient-to-r from-[#228B22] via-[#FFDD4C] to-[#FFDD4C] bg-clip-text text-3xl font-medium text-transparent`}
               >
-                To support ECO-friendly  <br /> COmmunities{" "}
+                To support ECO-friendly <br /> COmmunities{" "}
               </h2>
             }
             component={
               <div>
-                <p className="lg:text-xl text-secondary">
-                  Who envision and strive for a planet free from pollution, safe
-                  for all the life it sustains, and brimming with limitless
-                  opportunities to thrive. An achievable aspiration only when
-                  communities work together, and are empowered with intelligent
+                <p className="text-muted-foreground lg:text-xl">
+                  Who envision and strive for a planet free from pollution, safe for all the life it
+                  sustains, and brimming with limitless opportunities to thrive. An achievable
+                  aspiration only when communities work together, and are empowered with intelligent
                   technology to prosper
                 </p>
               </div>
@@ -42,5 +41,5 @@ export default function Visionaries() {
         }
       />
     </div>
-  );
+  )
 }

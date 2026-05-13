@@ -1,23 +1,17 @@
-import React from "react";
-import {
-  Card,
-  CardContent,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "../ui/card";
-import clsx from "clsx";
-import Image from "next/image";
-import { ExpandableContent } from "./expandable-content";
+import React from "react"
+import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "../ui/card"
+import clsx from "clsx"
+import Image from "next/image"
+import { ExpandableContent } from "./expandable-content"
 
 interface WhiteBgCardProps {
-  title?: string;
-  content?: React.ReactNode;
-  className?: string;
-  iconPath: string;
-  footer?: React.ReactNode;
-  expandable?: boolean;
-  hasGradientBorder?: boolean;
+  title?: string
+  content?: React.ReactNode
+  className?: string
+  iconPath: string
+  footer?: React.ReactNode
+  expandable?: boolean
+  hasGradientBorder?: boolean
 }
 
 export const WhiteBgCard = ({
@@ -32,32 +26,26 @@ export const WhiteBgCard = ({
   return (
     <div
       className={clsx(
-        "relative rounded-smooth-lg h-fit",
+        "relative h-fit rounded-smooth-lg",
         hasGradientBorder &&
-          "p-[2px] hover:bg-gradient-to-r from-[#228B22] via-[#4AC63FCF] to-[#FFDD4C]",
+          "from-[#228B22] via-[#4AC63FCF] to-[#FFDD4C] p-[2px] hover:bg-gradient-to-r",
         className
       )}
     >
       <Card
         className={clsx(
-          "rounded-smooth-lg overflow-hidden h-full",
+          "h-full overflow-hidden rounded-smooth-lg",
           hasGradientBorder ? "border-none bg-white" : "border-2"
         )}
       >
         <CardHeader className="pb-2">
           <CardTitle className="text-xl font-semibold">
-            <Image
-              src={iconPath}
-              alt="green icon"
-              className="w-12 h-12"
-              width={50}
-              height={40}
-            />
+            <Image src={iconPath} alt="green icon" className="h-12 w-12" width={50} height={40} />
             {title}
           </CardTitle>
         </CardHeader>
         <ExpandableContent
-          className="text-secondary font-light px-4"
+          className="px-4 font-light text-muted-foreground"
           expandable={expandable}
         >
           {content}
@@ -65,5 +53,5 @@ export const WhiteBgCard = ({
         <CardFooter>{footer}</CardFooter>
       </Card>
     </div>
-  );
-};
+  )
+}

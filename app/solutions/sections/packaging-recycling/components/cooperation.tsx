@@ -1,12 +1,12 @@
-import Timeline from "@/components/shared/timeline";
-import { Card } from "@/components/ui/card";
-import Image from "next/image";
-import React from "react";
+import Timeline from "@/components/shared/timeline"
+import { Card } from "@/components/ui/card"
+import Image from "next/image"
+import React from "react"
 
 const timelineData = {
   title: <div className="text-white">Recycling is cooperation</div>,
   subtitle: (
-    <p className="font-light text-secondary">
+    <p className="font-light text-muted-foreground">
       We all have a role to play in the ECO-system:
     </p>
   ),
@@ -36,11 +36,11 @@ const timelineData = {
         "ECO-Stations accept returned eligible empties, and digitally refund applicable deposit incentives. Subsequently, ECOuriers on E-mobility efficiently handle pick-ups, while ECO-Recyclers process empties into new bottles, completing the closed-loop cycle",
     },
   ],
-};
+}
 
 export default function Cooperation() {
   return (
-    <div className="bg-[#2F313F] py-8 md:py-24 relative">
+    <div className="relative bg-[#2F313F] py-8 md:py-24">
       <Timeline
         className="bottom-[22.5%]"
         title={timelineData.title}
@@ -53,14 +53,14 @@ export default function Cooperation() {
             <Image
               src={item.image}
               alt={item.title}
-              className="w-full lg:h-72 object-cover"
+              className="w-full object-cover lg:h-72"
               width={100}
               height={100}
             />
           </div>
           <div className="py-4">
-            <h3 className="font-bold text-xl mb-2 text-white">{item.title}</h3>
-            <p className="text-secondary font-light">{item.description}</p>
+            <h3 className="mb-2 text-xl font-bold text-white">{item.title}</h3>
+            <p className="font-light text-muted-foreground">{item.description}</p>
           </div>
         </div>
       ))}
@@ -69,23 +69,15 @@ export default function Cooperation() {
         viewBox="0 0 1440 100"
         className="absolute bottom-0 z-50 hidden lg:block"
       >
-        <path
-          fill="white"
-          fillOpacity="1"
-          d="M0,80L1440,0L1440,340L0,340Z"
-        ></path>
+        <path fill="white" fillOpacity="1" d="M0,80L1440,0L1440,340L0,340Z"></path>
       </svg>
       <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 600 120"
         className="absolute bottom-0 z-50 hidden md:block lg:hidden"
       >
-        <path
-          fill="white"
-          fillOpacity="1"
-          d="M0,100L600,0L600,600L0,600Z"
-        ></path>
+        <path fill="white" fillOpacity="1" d="M0,100L600,0L600,600L0,600Z"></path>
       </svg>
     </div>
-  );
+  )
 }

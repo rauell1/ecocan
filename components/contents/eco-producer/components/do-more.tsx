@@ -1,19 +1,19 @@
-import TextWithCards from "@/components/shared/text-with-cards/text-with-cards";
-import Image from "next/image";
-import React from "react";
-import SimpleCard from "./simpleCard";
+import TextWithCards from "@/components/shared/text-with-cards/text-with-cards"
+import Image from "next/image"
+import React from "react"
+import SimpleCard from "./simpleCard"
 import {
   Carousel,
   CarouselContent,
   CarouselItem,
   CarouselNext,
   CarouselPrevious,
-} from "@/components/ui/carousel";
+} from "@/components/ui/carousel"
 
 interface CardContent {
-  src: string;
-  content: string;
-  description: string;
+  src: string
+  content: string
+  description: string
 }
 
 const cardContent: CardContent[] = [
@@ -35,37 +35,29 @@ const cardContent: CardContent[] = [
     description:
       "Safeguard their health from counterfeits and packaging waste. And protect their future by cutting your negative environmental impact.",
   },
-];
+]
 
 interface CardComponentProps {
-  card: CardContent;
-  className?: string;
+  card: CardContent
+  className?: string
 }
 
 const CardComponent: React.FC<CardComponentProps> = ({ card, className }) => (
   <SimpleCard
-    className={`border border-secondary/30 lg:border-none p-0 w-full ${className ?? ""}`}
+    className={`w-full border border-secondary/30 p-0 lg:border-none ${className ?? ""}`}
     image={
-      <div className="h-52 overflow-hidden relative">
-        <Image
-          src={card.src}
-          alt="image"
-          width={280}
-          height={220}
-          className="w-full"
-        />
+      <div className="relative h-52 overflow-hidden">
+        <Image src={card.src} alt="image" width={280} height={220} className="w-full" />
       </div>
     }
     title={
-      <div className="text-xl font-medium leading-[1.625rem] text-left text-black">
+      <div className="text-left text-xl font-medium leading-[1.625rem] text-black">
         {card.content}
       </div>
     }
-    content={
-      <div className="text-secondary font-light">{card.description}</div>
-    }
+    content={<div className="font-light text-muted-foreground">{card.description}</div>}
   />
-);
+)
 
 const DoMore: React.FC = () => {
   return (
@@ -73,17 +65,16 @@ const DoMore: React.FC = () => {
       <TextWithCards
         title="Do more, with less"
         description={
-          <div className="lg:w-4/5 my-8">
-            Directly engage with ECOnsumers to elevate your presence, preserve
-            their health to amplify your impact, and empower them to shape their
-            future
+          <div className="my-8 lg:w-4/5">
+            Directly engage with ECOnsumers to elevate your presence, preserve their health to
+            amplify your impact, and empower them to shape their future
           </div>
         }
         customCard={
           <>
             {/* Mobile Carousel */}
-            <div className="lg:hidden mt-6">
-              <Carousel className="w-full mx-auto">
+            <div className="mt-6 lg:hidden">
+              <Carousel className="mx-auto w-full">
                 <CarouselContent>
                   {cardContent.map((card, index) => (
                     <CarouselItem key={index}>
@@ -95,7 +86,7 @@ const DoMore: React.FC = () => {
             </div>
 
             {/* Desktop Grid */}
-            <div className="hidden lg:grid grid-cols-3 gap-8 mt-6">
+            <div className="mt-6 hidden grid-cols-3 gap-8 lg:grid">
               {cardContent.map((card, index) => (
                 <CardComponent key={index} card={card} />
               ))}
@@ -104,7 +95,7 @@ const DoMore: React.FC = () => {
         }
       />
     </div>
-  );
-};
+  )
+}
 
-export default DoMore;
+export default DoMore
