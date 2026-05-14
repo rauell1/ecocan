@@ -6,6 +6,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger"
 import Image from "next/image"
 import Link from "next/link"
 import { ArrowRight } from "lucide-react"
+import SectionBadge from "@/components/shared/section-badge"
 
 const steps = [
   { num: "01", title: "Buy", desc: "Any drink with ECOCAN security code" },
@@ -88,6 +89,7 @@ export default function HowItWorksSection({ scrollEnabled }: HowItWorksSectionPr
       <div className="relative z-10 mx-auto max-w-[1280px] px-6">
         {/* ── Centered heading block ── */}
         <div className="mb-14 flex flex-col items-center text-center">
+          <SectionBadge number="02" />
           <p className="section-overline heading-animate mb-4">How It Works</p>
           <h2 className="section-headline heading-animate mb-4 max-w-[700px] text-eco-dark">
             From your hand back to the shelf.

@@ -2,6 +2,7 @@
 
 import Link from "next/link"
 import { TrendingUp, Globe, ShieldCheck, ArrowRight } from "lucide-react"
+import SectionBadge from "@/components/shared/section-badge"
 
 const highlights = [
   {
@@ -30,6 +31,7 @@ export default function ForInvestorsSection() {
       <div className="mx-auto max-w-[1180px]">
         {/* Header */}
         <div className="mb-14 max-w-[600px]">
+          <SectionBadge number="04" />
           <p className="section-overline mb-3">For Investors</p>
           <h2 className="section-headline mb-4 text-eco-dark">
             Back the infrastructure

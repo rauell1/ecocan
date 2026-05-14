@@ -1,6 +1,7 @@
 "use client"
 
 import { useRef, useEffect } from "react"
+import SectionBadge from "@/components/shared/section-badge"
 
 const stats = [
   { value: "30%", label: "of drinks in Africa are counterfeit" },
@@ -171,6 +172,7 @@ export default function ProblemSolutionSection() {
         <div className="mx-auto max-w-[1280px] px-6">
           <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-20">
             <div>
+              <SectionBadge number="01" />
               <p className="section-overline ps-animate mb-6" style={{ color: "hsl(156 61% 38%)" }}>
                 The Problem
               </p>

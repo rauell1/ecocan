@@ -3,6 +3,7 @@
 import { useRef, useEffect } from "react"
 import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
+import SectionBadge from "@/components/shared/section-badge"
 
 const stats = [
   { label: "Bottles recovered (monthly)", value: 50000, suffix: "+" },
@@ -87,6 +88,7 @@ export default function SustainabilityImpactSection() {
       <div className="absolute inset-0 bg-eco-dark/75" />
 
       <div className="relative z-10 mx-auto max-w-[1280px] px-6">
+        <SectionBadge number="05" />
         <p className="section-overline heading-animate mb-6">Impact</p>
         <h2 className="section-headline heading-animate mb-12 text-white">
           Measurable. Transparent. Real.

@@ -2,6 +2,7 @@
 
 import Link from "next/link"
 import { Recycle, Store, Truck, Factory, Music, ArrowRight } from "lucide-react"
+import SectionBadge from "@/components/shared/section-badge"
 
 const roles = [
   {
@@ -72,6 +73,7 @@ export default function EcommunityRolesSection() {
       <div className="mx-auto max-w-[1180px]">
         {/* Header */}
         <div className="mb-14 max-w-[600px]">
+          <SectionBadge number="03" />
           <p className="section-overline mb-3">Who is ECOCAN for?</p>
           <h2 className="section-headline mb-4">Every role in the ECOmmunity</h2>
           <p className="section-body">
