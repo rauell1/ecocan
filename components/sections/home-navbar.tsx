@@ -1,14 +1,14 @@
-"use client";
+"use client"
 
-import { useEffect, useState } from "react";
-import Image from "next/image";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
-import { Menu, X } from "lucide-react";
+import { useEffect, useState } from "react"
+import Image from "next/image"
+import Link from "next/link"
+import { usePathname } from "next/navigation"
+import { Menu, X } from "lucide-react"
 
 interface HomeNavbarProps {
-  scrollEnabled: boolean;
-  onMenuToggle: () => void;
+  scrollEnabled: boolean
+  onMenuToggle: () => void
 }
 
 const sectionLinks = [
@@ -16,53 +16,51 @@ const sectionLinks = [
   { label: "ECOmmunity", href: "#ecommunity" },
   { label: "Investors", href: "#investors" },
   { label: "Impact", href: "#impact" },
-];
+]
 
 const pageLinks = [
   { label: "Solutions", href: "/solutions" },
   { label: "About", href: "/about-us" },
-];
+]
 
 export default function HomeNavbar({ scrollEnabled, onMenuToggle }: HomeNavbarProps) {
-  const [scrolled, setScrolled] = useState(false);
-  const pathname = usePathname();
-  const logoHref = pathname === "/" ? "#hero" : "/";
+  const [scrolled, setScrolled] = useState(false)
+  const pathname = usePathname()
+  const logoHref = pathname === "/" ? "#hero" : "/"
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 60);
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+    const handleScroll = () => setScrolled(window.scrollY > 60)
+    window.addEventListener("scroll", handleScroll, { passive: true })
+    return () => window.removeEventListener("scroll", handleScroll)
+  }, [])
 
   const handleSectionClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
-    e.preventDefault();
+    e.preventDefault()
     // If scroll is still locked (hero animation not done), unlock first then scroll
     if (!scrollEnabled) {
-      document.body.style.overflow = "";
+      document.body.style.overflow = ""
     }
-    const el = document.querySelector(href);
-    if (el) el.scrollIntoView({ behavior: "smooth" });
-  };
+    const el = document.querySelector(href)
+    if (el) el.scrollIntoView({ behavior: "smooth" })
+  }
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        scrolled
-          ? "bg-white/95 backdrop-blur-md shadow-sm"
-          : "bg-transparent"
+      className={`fixed left-0 right-0 top-0 z-50 transition-all duration-500 ${
+        scrolled ? "bg-white/95 shadow-sm backdrop-blur-md" : "bg-transparent"
       }`}
       style={{ height: 72 }}
     >
-      <div className="max-w-[1280px] mx-auto px-6 h-full flex items-center justify-between">
+      <div className="mx-auto flex h-full max-w-[1280px] items-center justify-between px-6">
         {/* Logo */}
         <Link
           href={logoHref}
           onClick={(e) => {
             if (pathname === "/") {
-              handleSectionClick(e, "#hero");
+              handleSectionClick(e, "#hero")
             }
           }}
-          className="shrink-0 flex items-center gap-2"
+          className="flex shrink-0 items-center gap-2"
         >
           <Image
             src="/images/ecocan-logo.png"
@@ -73,7 +71,7 @@ export default function HomeNavbar({ scrollEnabled, onMenuToggle }: HomeNavbarPr
             priority
           />
           <span
-            className={`hidden md:inline text-xs font-semibold tracking-[0.18em] uppercase transition-colors ${
+            className={`hidden text-xs font-semibold uppercase tracking-[0.18em] transition-colors md:inline ${
               scrolled ? "text-eco-dark/80" : "text-white/80"
             }`}
           >
@@ -82,13 +80,13 @@ export default function HomeNavbar({ scrollEnabled, onMenuToggle }: HomeNavbarPr
         </Link>
 
         {/* Desktop nav */}
-        <div className="hidden lg:flex items-center gap-7">
+        <div className="hidden items-center gap-7 lg:flex">
           {sectionLinks.map((link) => (
             <a
               key={link.href}
               href={link.href}
               onClick={(e) => handleSectionClick(e, link.href)}
-              className={`text-[15px] font-medium transition-colors hover:text-primary cursor-pointer ${
+              className={`cursor-pointer text-[15px] font-medium transition-colors hover:text-primary ${
                 scrolled ? "text-eco-dark" : "text-white"
               }`}
             >
@@ -113,17 +111,18 @@ export default function HomeNavbar({ scrollEnabled, onMenuToggle }: HomeNavbarPr
         <div className="flex items-center gap-3">
           <Link
             href="/download"
-            className={`hidden md:inline-flex pill-btn text-sm !py-2.5 !px-6 transition-all ${
+            className={`pill-btn hidden !px-6 !py-2.5 text-sm font-semibold transition-all md:inline-flex ${
               scrolled
-                ? "pill-btn-filled"
+                ? "text-eco-dark hover:opacity-90"
                 : "border border-white/60 text-white hover:bg-white hover:text-eco-dark"
             }`}
+            style={scrolled ? { background: "hsl(48 100% 62%)", borderColor: "transparent" } : {}}
           >
             Download App
           </Link>
           <button
             onClick={onMenuToggle}
-            className={`lg:hidden p-2 rounded-lg transition-colors ${
+            className={`rounded-lg p-2 transition-colors lg:hidden ${
               scrolled ? "text-eco-dark" : "text-white"
             }`}
             aria-label="Toggle menu"
@@ -133,5 +132,5 @@ export default function HomeNavbar({ scrollEnabled, onMenuToggle }: HomeNavbarPr
         </div>
       </div>
     </nav>
-  );
+  )
 }
