@@ -1,56 +1,80 @@
-"use client";
+"use client"
 
-import { useRef, useEffect } from "react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useRef, useEffect } from "react"
+import { gsap } from "gsap"
+import { ScrollTrigger } from "gsap/ScrollTrigger"
 
 const stats = [
   { label: "Bottles recovered (monthly)", value: 50000, suffix: "+" },
   { label: "Tons CO₂ saved", value: 120, suffix: "" },
   { label: "Active collection points", value: 150, suffix: "+" },
-];
+]
 
 export default function SustainabilityImpactSection() {
-  const sectionRef = useRef<HTMLDivElement>(null);
-  const countersRef = useRef<HTMLDivElement>(null);
+  const sectionRef = useRef<HTMLDivElement>(null)
+  const countersRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
-    gsap.registerPlugin(ScrollTrigger);
+    gsap.registerPlugin(ScrollTrigger)
 
     const ctx = gsap.context(() => {
-      const headingEls = sectionRef.current?.querySelectorAll(".heading-animate");
+      const headingEls = sectionRef.current?.querySelectorAll(".heading-animate")
       if (headingEls && headingEls.length > 0) {
-        gsap.fromTo(headingEls, { opacity: 0, y: 40 }, {
-          opacity: 1, y: 0, duration: 0.8, stagger: 0.1, ease: "power2.out",
-          scrollTrigger: { trigger: sectionRef.current, start: "top 80%", once: true },
-        });
+        gsap.fromTo(
+          headingEls,
+          { opacity: 0, y: 40 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.8,
+            stagger: 0.1,
+            ease: "power2.out",
+            scrollTrigger: { trigger: sectionRef.current, start: "top 80%", once: true },
+          }
+        )
       }
-      if (!countersRef.current) return;
+      if (!countersRef.current) return
 
-      const counterEls = countersRef.current.querySelectorAll(".counter-value");
+      const counterEls = countersRef.current.querySelectorAll(".counter-value")
       counterEls.forEach((el) => {
-        const target = parseInt(el.getAttribute("data-target") || "0", 10);
-        gsap.fromTo(el, { textContent: "0", scale: 0.8, opacity: 0 }, {
-          textContent: target, scale: 1, opacity: 1, duration: 2, ease: "power2.out",
-          snap: { textContent: 1 },
-          scrollTrigger: { trigger: el, start: "top 85%", once: true },
-        });
-      });
+        const target = parseInt(el.getAttribute("data-target") || "0", 10)
+        gsap.fromTo(
+          el,
+          { textContent: "0", scale: 0.8, opacity: 0 },
+          {
+            textContent: target,
+            scale: 1,
+            opacity: 1,
+            duration: 2,
+            ease: "power2.out",
+            snap: { textContent: 1 },
+            scrollTrigger: { trigger: el, start: "top 85%", once: true },
+          }
+        )
+      })
 
-      const cards = countersRef.current.querySelectorAll(".stat-card");
+      const cards = countersRef.current.querySelectorAll(".stat-card")
       if (cards.length > 0) {
-        gsap.fromTo(cards, { opacity: 0, y: 40 }, {
-          opacity: 1, y: 0, duration: 0.7, stagger: 0.15, ease: "power2.out",
-          scrollTrigger: { trigger: countersRef.current, start: "top 80%", once: true },
-        });
+        gsap.fromTo(
+          cards,
+          { opacity: 0, y: 40 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.7,
+            stagger: 0.15,
+            ease: "power2.out",
+            scrollTrigger: { trigger: countersRef.current, start: "top 80%", once: true },
+          }
+        )
       }
-    }, sectionRef);
+    }, sectionRef)
 
-    return () => ctx.revert();
-  }, []);
+    return () => ctx.revert()
+  }, [])
 
   return (
-    <section ref={sectionRef} className="relative w-full py-[120px] md:py-[160px] overflow-hidden">
+    <section ref={sectionRef} className="relative w-full overflow-hidden py-[120px] md:py-[160px]">
       <div
         className="absolute inset-0"
         style={{
@@ -62,23 +86,34 @@ export default function SustainabilityImpactSection() {
       />
       <div className="absolute inset-0 bg-eco-dark/75" />
 
-      <div className="relative z-10 max-w-[1280px] mx-auto px-6">
+      <div className="relative z-10 mx-auto max-w-[1280px] px-6">
         <p className="section-overline heading-animate mb-6">Impact</p>
-        <h2 className="section-headline text-white heading-animate mb-12">Measurable. Transparent. Real.</h2>
+        <h2 className="section-headline heading-animate mb-12 text-white">
+          Measurable. Transparent. Real.
+        </h2>
 
-        <div ref={countersRef} className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div
+          ref={countersRef}
+          className="grid grid-cols-1 gap-0 md:grid-cols-3 md:divide-x md:divide-white/10"
+        >
           {stats.map((stat) => (
-            <div key={stat.label} className="stat-card glass-card p-8 md:p-10 text-center">
-              <div className="text-5xl md:text-6xl font-bold text-primary mb-3">
-                <span className="counter-value" data-target={stat.value}>0</span>
+            <div key={stat.label} className="stat-card px-8 py-10 text-center md:px-12">
+              {/* Oversized editorial number */}
+              <div
+                className="mb-4 font-extrabold leading-none text-primary"
+                style={{ fontSize: "clamp(72px, 10vw, 128px)" }}
+              >
+                <span className="counter-value" data-target={stat.value}>
+                  0
+                </span>
                 <span>{stat.suffix}</span>
               </div>
-              <p className="text-white/80 text-base mb-2">{stat.label}</p>
-              <p className="text-white/50 text-sm">Live data from ECOCAN system. Updated daily.</p>
+              <div className="mx-auto mb-4 h-px w-8 bg-white/20" />
+              <p className="text-base font-medium text-white/80">{stat.label}</p>
             </div>
           ))}
         </div>
       </div>
     </section>
-  );
+  )
 }
