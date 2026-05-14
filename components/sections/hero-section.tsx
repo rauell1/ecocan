@@ -14,13 +14,12 @@ export default function HeroSection({ onTransitionComplete }: HeroSectionProps) 
   const contentRef = useRef<HTMLDivElement>(null)
   const brandRef = useRef<HTMLDivElement>(null)
 
-  // Unlock scroll + Lenis immediately on mount
   useEffect(() => {
     onTransitionComplete()
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
-  // Entry fade-in for hero text
+  // Entry fade-in
   useEffect(() => {
     const ctx = gsap.context(() => {
       gsap.fromTo(
@@ -37,7 +36,7 @@ export default function HeroSection({ onTransitionComplete }: HeroSectionProps) 
     return () => ctx.revert()
   }, [])
 
-  // Clean scroll transition — fade + dim only, no scale
+  // Scroll transition — opacity only, no brightness, no scale
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger)
 
@@ -45,10 +44,8 @@ export default function HeroSection({ onTransitionComplete }: HeroSectionProps) 
       const hero = heroRef.current
       if (!hero) return
 
-      // 1) Hero: pure opacity + brightness fade — no scale at all
       gsap.to(hero, {
         opacity: 0,
-        filter: "brightness(0.6)",
         ease: "none",
         scrollTrigger: {
           trigger: hero,
@@ -58,7 +55,6 @@ export default function HeroSection({ onTransitionComplete }: HeroSectionProps) 
         },
       })
 
-      // 2) Next section: minimal rise
       const nextSection = hero.nextElementSibling as HTMLElement | null
       if (nextSection) {
         gsap.fromTo(
@@ -78,7 +74,6 @@ export default function HeroSection({ onTransitionComplete }: HeroSectionProps) 
         )
       }
 
-      // 3) Global .ps-animate section reveals
       const animatedSections = document.querySelectorAll<HTMLElement>(".ps-animate")
       animatedSections.forEach((el) => {
         gsap.fromTo(
@@ -114,8 +109,8 @@ export default function HeroSection({ onTransitionComplete }: HeroSectionProps) 
       className="relative w-full overflow-hidden"
       style={{ height: "100dvh" }}
     >
-      {/* ── Video background ─────────────────────────────────────────────── */}
       <div className="absolute inset-0" style={{ zIndex: 1 }}>
+        {/* Video — full natural brightness, no CSS filter */}
         <video
           autoPlay
           loop
@@ -123,34 +118,25 @@ export default function HeroSection({ onTransitionComplete }: HeroSectionProps) 
           playsInline
           preload="auto"
           poster="/images/scan-verify.jpg"
-          className="h-full w-full object-cover brightness-[0.85]"
+          className="h-full w-full object-cover"
         >
           <source src="/videos/hero-loop.mp4" type="video/mp4" />
         </video>
 
-        {/* Directional glare killer — top-right */}
+        {/* Base depth gradient — keeps text readable */}
         <div
           className="absolute inset-0"
           style={{
             background:
-              "radial-gradient(ellipse 80% 60% at 85% 10%, rgba(10,10,10,0.65) 0%, rgba(10,10,10,0.0) 70%)",
+              "linear-gradient(to bottom, rgba(16,16,16,0.35) 0%, rgba(16,16,16,0.04) 40%, rgba(16,16,16,0.80) 100%)",
           }}
         />
 
-        {/* Base depth gradient */}
+        {/* Soft left-edge vignette */}
         <div
           className="absolute inset-0"
           style={{
-            background:
-              "linear-gradient(to bottom, rgba(16,16,16,0.45) 0%, rgba(16,16,16,0.08) 40%, rgba(16,16,16,0.85) 100%)",
-          }}
-        />
-
-        {/* Left-edge vignette */}
-        <div
-          className="absolute inset-0"
-          style={{
-            background: "linear-gradient(to right, rgba(10,10,10,0.40) 0%, rgba(10,10,10,0.0) 55%)",
+            background: "linear-gradient(to right, rgba(10,10,10,0.25) 0%, rgba(10,10,10,0.0) 55%)",
           }}
         />
 
@@ -165,7 +151,6 @@ export default function HeroSection({ onTransitionComplete }: HeroSectionProps) 
         />
       </div>
 
-      {/* ── Hero content ─────────────────────────────────────────────────── */}
       <div className="absolute inset-0 flex flex-col" style={{ zIndex: 3 }}>
         <div
           ref={contentRef}
@@ -211,7 +196,6 @@ export default function HeroSection({ onTransitionComplete }: HeroSectionProps) 
           </span>
         </div>
 
-        {/* ECOCAN brand + Explore CTA */}
         <div
           ref={brandRef}
           className="flex flex-col items-center justify-center gap-3 pb-[2vh] pt-1"
