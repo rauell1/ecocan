@@ -1,20 +1,28 @@
-import React, { useState, useEffect, useCallback, useRef } from 'react';
-import { motion } from 'framer-motion';
+"use client"
+
+import React, { useState, useEffect, useCallback, useRef } from "react"
+import { motion, AnimatePresence } from "framer-motion"
+import { ChevronLeft, ChevronRight } from "lucide-react"
 
 interface CarouselProps {
-  children: React.ReactNode;
-  showArrow?: Boolean;
-  onPageChange?: (pageIndex: number) => void;
-  currentPage: number;
-  setCurrentPage: (page: number) => void;
-  autoScrollInterval?: number;
-  autoScroll?: boolean;
-  enableScrollTracking?: boolean;
+  children: React.ReactNode
+  showArrow?: boolean
+  onPageChange?: (pageIndex: number) => void
+  currentPage: number
+  setCurrentPage: (page: number) => void
+  autoScrollInterval?: number
+  autoScroll?: boolean
+  enableScrollTracking?: boolean
+}
+
+const variants = {
+  enter: (dir: number) => ({ opacity: 0, x: dir > 0 ? 72 : -72 }),
+  center: { opacity: 1, x: 0 },
+  exit: (dir: number) => ({ opacity: 0, x: dir > 0 ? -72 : 72 }),
 }
 
 const Carousel: React.FC<CarouselProps> = ({
   children,
-  showArrow = true,
   onPageChange,
   currentPage,
   setCurrentPage,
@@ -22,95 +30,83 @@ const Carousel: React.FC<CarouselProps> = ({
   autoScroll = true,
   enableScrollTracking = true,
 }) => {
-  const [isPaused, setIsPaused] = useState(false);
-  const [isTransitioning, setIsTransitioning] = useState(false);
-  const pages = React.Children.toArray(children);
-  const scrollTimeout = useRef<NodeJS.Timeout>();
-  const lastScrollTime = useRef<number>(0);
+  const [isPaused, setIsPaused] = useState(false)
+  const [isTransitioning, setIsTransitioning] = useState(false)
+  const [direction, setDirection] = useState<1 | -1>(1)
+  const pages = React.Children.toArray(children)
+  const scrollTimeout = useRef<NodeJS.Timeout>()
+  const lastScrollTime = useRef<number>(0)
 
-  const nextPage = useCallback((): void => {
-    if (currentPage < pages.length - 1 && !isTransitioning) {
-      setIsTransitioning(true);
-      setCurrentPage(currentPage + 1);
-      onPageChange?.(currentPage + 1);
-      
-      setTimeout(() => setIsTransitioning(false), 1000);
-    }
-  }, [currentPage, pages.length, setCurrentPage, onPageChange, isTransitioning]);
+  const goTo = useCallback(
+    (index: number) => {
+      if (isTransitioning || index === currentPage) return
+      setDirection(index > currentPage ? 1 : -1)
+      setIsTransitioning(true)
+      setCurrentPage(index)
+      onPageChange?.(index)
+      setTimeout(() => setIsTransitioning(false), 600)
+    },
+    [currentPage, isTransitioning, setCurrentPage, onPageChange]
+  )
 
-  const prevPage = useCallback((): void => {
-    if (currentPage > 0 && !isTransitioning) {
-      setIsTransitioning(true);
-      setCurrentPage(currentPage - 1);
-      onPageChange?.(currentPage - 1);
-      
-      // Reset transition lock after animation
-      setTimeout(() => setIsTransitioning(false), 500);
-    }
-  }, [currentPage, setCurrentPage, onPageChange, isTransitioning]);
+  const nextPage = useCallback(() => {
+    if (currentPage < pages.length - 1) goTo(currentPage + 1)
+  }, [currentPage, pages.length, goTo])
 
+  const prevPage = useCallback(() => {
+    if (currentPage > 0) goTo(currentPage - 1)
+  }, [currentPage, goTo])
+
+  // Wheel scroll: advance page when at top/bottom of current slide content
   const handleScroll = useCallback(
     (event: WheelEvent) => {
-      const now = Date.now();
-      const content = document.querySelector('.carousel-content') as HTMLElement;
-      
-      // Prevent scroll handling during transitions
+      const now = Date.now()
+      const content = document.querySelector(".carousel-content") as HTMLElement
+      if (!content) return
       if (isTransitioning) {
-        event.preventDefault();
-        return;
+        event.preventDefault()
+        return
       }
-
-      // Throttle scroll events
-      if (now - lastScrollTime.current < 500) {
-        event.preventDefault();
-        return;
+      if (now - lastScrollTime.current < 600) {
+        event.preventDefault()
+        return
       }
+      if (scrollTimeout.current) clearTimeout(scrollTimeout.current)
 
-      // Clear any existing timeout
-      if (scrollTimeout.current) {
-        clearTimeout(scrollTimeout.current);
-      }
-
-      const isAtTop = content.scrollTop <= 0;
-      const isAtBottom = 
-        Math.abs(content.scrollHeight - content.scrollTop - content.clientHeight) < 1;
+      const atTop = content.scrollTop <= 0
+      const atBottom = Math.abs(content.scrollHeight - content.scrollTop - content.clientHeight) < 1
 
       scrollTimeout.current = setTimeout(() => {
-        if (event.deltaY > 0 && isAtBottom) {
-          // Scrolling down and at bottom of content
-          nextPage();
-          lastScrollTime.current = now;
-        } else if (event.deltaY < 0 && isAtTop) {
-          // Scrolling up and at top of content
-          prevPage();
-          lastScrollTime.current = now;
+        if (event.deltaY > 0 && atBottom) {
+          nextPage()
+          lastScrollTime.current = now
+        } else if (event.deltaY < 0 && atTop) {
+          prevPage()
+          lastScrollTime.current = now
         }
-      }, 50); // Small delay to ensure smooth scrolling
+      }, 50)
     },
     [nextPage, prevPage, isTransitioning]
-  );
+  )
 
   useEffect(() => {
-    if (enableScrollTracking) {
-      window.addEventListener('wheel', handleScroll, { passive: false });
-      return () => {
-        window.removeEventListener('wheel', handleScroll);
-        if (scrollTimeout.current) {
-          clearTimeout(scrollTimeout.current);
-        }
-      };
+    if (!enableScrollTracking) return
+    window.addEventListener("wheel", handleScroll, { passive: false })
+    return () => {
+      window.removeEventListener("wheel", handleScroll)
+      if (scrollTimeout.current) clearTimeout(scrollTimeout.current)
     }
-  }, [handleScroll, enableScrollTracking]);
+  }, [handleScroll, enableScrollTracking])
 
+  // Auto-advance
   useEffect(() => {
-    if (!autoScroll || isPaused) return;
+    if (!autoScroll || isPaused) return
+    const id = setInterval(nextPage, autoScrollInterval)
+    return () => clearInterval(id)
+  }, [autoScroll, isPaused, nextPage, autoScrollInterval])
 
-    const interval = setInterval(() => {
-      nextPage();
-    }, autoScrollInterval);
-
-    return () => clearInterval(interval);
-  }, [autoScroll, isPaused, nextPage, autoScrollInterval]);
+  const isFirst = currentPage === 0
+  const isLast = currentPage === pages.length - 1
 
   return (
     <div
@@ -118,34 +114,89 @@ const Carousel: React.FC<CarouselProps> = ({
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
     >
-      <motion.div
-        className="w-full h-full carousel-content overflow-y-auto"
-        initial={{ opacity: 0, x: 100 }}
-        animate={{ opacity: 1, x: 0 }}
-        exit={{ opacity: 0, x: -100 }}
-        transition={{ duration: 0.2 }}
-        key={currentPage}
+      {/*
+       * PRELOAD ZONE — every non-active slide is rendered here at full
+       * viewport dimensions but completely invisible. This forces the
+       * browser to fetch every image (Next.js <Image>, CSS background-image,
+       * SVGs) before the user ever swipes to that slide.
+       *
+       * opacity:0  → images load (unlike display:none which skips them)
+       * pointer-events:none + z-index:-1 → completely non-interactive
+       * position:absolute inset:0 → full dimensions so images size correctly
+       */}
+      <div
+        aria-hidden="true"
+        style={{
+          position: "absolute",
+          inset: 0,
+          zIndex: -1,
+          overflow: "hidden",
+          pointerEvents: "none",
+        }}
       >
-        {pages[currentPage]}
-      </motion.div>
+        {pages.map((page, i) =>
+          i !== currentPage ? (
+            <div key={`preload-${i}`} style={{ position: "absolute", inset: 0, opacity: 0 }}>
+              {page}
+            </div>
+          ) : null
+        )}
+      </div>
 
-      <div className="absolute bottom-24 lg:bottom-8 left-0 right-0 flex justify-center items-center gap-8 z-[999]">
-        <div className="flex gap-1">
+      {/* Active slide with direction-aware slide-fade animation */}
+      <AnimatePresence mode="wait" custom={direction}>
+        <motion.div
+          key={currentPage}
+          custom={direction}
+          variants={variants}
+          initial="enter"
+          animate="center"
+          exit="exit"
+          transition={{ duration: 0.48, ease: [0.22, 1, 0.36, 1] }}
+          className="carousel-content w-full overflow-y-auto"
+        >
+          {pages[currentPage]}
+        </motion.div>
+      </AnimatePresence>
+
+      {/* ── Left arrow ─────────────────────────────────────────────────── */}
+      <button
+        onClick={prevPage}
+        disabled={isFirst || isTransitioning}
+        aria-label="Previous slide"
+        className="fixed left-3 top-1/2 z-[1000] flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border border-black/10 bg-white/90 text-gray-800 shadow-xl backdrop-blur-sm transition-all duration-200 hover:scale-110 hover:bg-white hover:shadow-2xl disabled:pointer-events-none disabled:opacity-0 md:left-5"
+      >
+        <ChevronLeft size={22} strokeWidth={2.2} />
+      </button>
+
+      {/* ── Right arrow ────────────────────────────────────────────────── */}
+      <button
+        onClick={nextPage}
+        disabled={isLast || isTransitioning}
+        aria-label="Next slide"
+        className="fixed right-3 top-1/2 z-[1000] flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border border-black/10 bg-white/90 text-gray-800 shadow-xl backdrop-blur-sm transition-all duration-200 hover:scale-110 hover:bg-white hover:shadow-2xl disabled:pointer-events-none disabled:opacity-0 md:right-5"
+      >
+        <ChevronRight size={22} strokeWidth={2.2} />
+      </button>
+
+      {/* ── Dot navigation ─────────────────────────────────────────────── */}
+      <div className="fixed bottom-6 left-0 right-0 z-[999] flex items-center justify-center">
+        <div className="flex items-center gap-1.5 rounded-full bg-black/20 px-3 py-2 backdrop-blur-sm">
           {pages.map((_, index) => (
             <button
               key={index}
-              onClick={() => setCurrentPage(index)}
-              className={`h-2 rounded-full transition-all duration-300 ${
-                currentPage === index ? 'bg-green-500 w-16' : 'bg-gray-300 w-2'
-              }`}
+              onClick={() => goTo(index)}
               aria-label={`Go to slide ${index + 1}`}
-              aria-current={currentPage === index ? 'true' : 'false'}
+              aria-current={currentPage === index ? "true" : "false"}
+              className={`h-2 rounded-full transition-all duration-300 ${
+                currentPage === index ? "w-8 bg-green-400" : "w-2 bg-white/50 hover:bg-white/80"
+              }`}
             />
           ))}
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Carousel;
+export default Carousel
