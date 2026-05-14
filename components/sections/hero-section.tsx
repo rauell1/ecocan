@@ -14,7 +14,7 @@ export default function HeroSection({ onTransitionComplete }: HeroSectionProps) 
   const contentRef = useRef<HTMLDivElement>(null)
   const brandRef = useRef<HTMLDivElement>(null)
 
-  // Unlock scroll and initialise Lenis immediately on mount
+  // Unlock scroll + Lenis immediately on mount
   useEffect(() => {
     onTransitionComplete()
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -25,20 +25,19 @@ export default function HeroSection({ onTransitionComplete }: HeroSectionProps) 
     const ctx = gsap.context(() => {
       gsap.fromTo(
         contentRef.current,
-        { opacity: 0, y: 30 },
-        { opacity: 1, y: 0, duration: 1, delay: 0.2, ease: "power2.out" }
+        { opacity: 0, y: 24 },
+        { opacity: 1, y: 0, duration: 1.1, delay: 0.15, ease: "power3.out" }
       )
       gsap.fromTo(
         brandRef.current,
-        { opacity: 0, y: 16 },
-        { opacity: 1, y: 0, duration: 0.9, delay: 0.5, ease: "power2.out" }
+        { opacity: 0, y: 12 },
+        { opacity: 1, y: 0, duration: 1.0, delay: 0.4, ease: "power3.out" }
       )
     }, heroRef)
     return () => ctx.revert()
   }, [])
 
-  // New global-feeling transition: hero subtly scales & darkens as you leave,
-  // while the rest of the page content gently lifts into place.
+  // Tighter, cleaner scroll transition
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger)
 
@@ -46,59 +45,56 @@ export default function HeroSection({ onTransitionComplete }: HeroSectionProps) 
       const hero = heroRef.current
       if (!hero) return
 
-      // 1) Hero parallax + fade as you scroll from top of hero to bottom
+      // 1) Hero: very subtle scale, deeper brightness fade, snappy scrub
       gsap.to(hero, {
         opacity: 0,
-        scale: 0.96,
-        filter: "brightness(0.8)",
+        scale: 0.98,           // much smaller pull-back — almost imperceptible shift
+        filter: "brightness(0.6)", // darker final frame = crisper handoff
         transformOrigin: "center center",
         ease: "none",
         scrollTrigger: {
           trigger: hero,
           start: "top top",
           end: "bottom top",
-          scrub: 0.6,
+          scrub: 0.4,          // snappier response to scroll
         },
       })
 
-      // 2) Any next section directly after #hero gets a gentle rise + fade-in
+      // 2) Next section: minimal rise, snappy
       const nextSection = hero.nextElementSibling as HTMLElement | null
       if (nextSection) {
         gsap.fromTo(
           nextSection,
-          {
-            opacity: 0,
-            y: 40,
-          },
+          { opacity: 0, y: 20 },  // smaller lift
           {
             opacity: 1,
             y: 0,
             ease: "power2.out",
             scrollTrigger: {
               trigger: nextSection,
-              start: "top 80%",
-              end: "top 40%",
-              scrub: 0.6,
+              start: "top 85%",   // reveals a touch later — cleaner window
+              end: "top 45%",
+              scrub: 0.4,
             },
           }
         )
       }
 
-      // 3) Global section reveals: any .ps-animate fades up consistently
+      // 3) Global .ps-animate section reveals — consistent with hero
       const animatedSections = document.querySelectorAll<HTMLElement>(".ps-animate")
       animatedSections.forEach((el) => {
         gsap.fromTo(
           el,
-          { opacity: 0, y: 40 },
+          { opacity: 0, y: 20 },
           {
             opacity: 1,
             y: 0,
             ease: "power2.out",
             scrollTrigger: {
               trigger: el,
-              start: "top 80%",
-              end: "top 50%",
-              scrub: 0.6,
+              start: "top 85%",
+              end: "top 52%",
+              scrub: 0.4,
             },
           }
         )
@@ -143,12 +139,12 @@ export default function HeroSection({ onTransitionComplete }: HeroSectionProps) 
           }}
         />
 
-        {/* Base depth gradient */}
+        {/* Base depth gradient — deeper final stop for cleaner handoff */}
         <div
           className="absolute inset-0"
           style={{
             background:
-              "linear-gradient(to bottom, rgba(16,16,16,0.45) 0%, rgba(16,16,16,0.08) 45%, rgba(16,16,16,0.75) 100%)",
+              "linear-gradient(to bottom, rgba(16,16,16,0.45) 0%, rgba(16,16,16,0.08) 40%, rgba(16,16,16,0.85) 100%)",
           }}
         />
 
@@ -160,11 +156,11 @@ export default function HeroSection({ onTransitionComplete }: HeroSectionProps) 
           }}
         />
 
-        {/* Hero → section bridge gradient — fades video bottom into #101010 */}
+        {/* Hero → section bridge gradient — taller for smoother blend */}
         <div
           className="absolute bottom-0 left-0 right-0"
           style={{
-            height: "30vh",
+            height: "40vh",
             background: "linear-gradient(to bottom, rgba(16,16,16,0) 0%, #101010 100%)",
             zIndex: 2,
           }}
