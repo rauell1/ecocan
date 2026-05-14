@@ -6,9 +6,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger"
 import { Download, ArrowRight } from "lucide-react"
 
 interface HeroSectionProps {
-  scrollEnabled: boolean
   onTransitionComplete: () => void
-  resetSignal: number
 }
 
 export default function HeroSection({ onTransitionComplete }: HeroSectionProps) {
