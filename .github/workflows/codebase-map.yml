@@ -1,0 +1,77 @@
+name: Update Codebase Map
+
+on:
+  push:
+    branches:
+      - '**'
+    paths-ignore:
+      - 'docs/codebase-map.md'
+      - 'docs/codebase-map.json'
+      - '**.md'
+      - 'pnpm-lock.yaml'
+      - 'package-lock.json'
+      - '.github/workflows/codebase-map.yml'
+  pull_request:
+    branches:
+      - main
+    paths-ignore:
+      - 'docs/**'
+      - '**.md'
+
+jobs:
+  update-map:
+    name: Regenerate Codebase Map
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Generate codebase map
+        run: |
+          mkdir -p docs
+          node scripts/generate-codebase-map.mjs
+
+      - name: Check for map changes
+        id: map_changes
+        run: |
+          if git diff --quiet docs/codebase-map.md docs/codebase-map.json; then
+            echo "changed=false" >> $GITHUB_OUTPUT
+          else
+            echo "changed=true" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Commit updated map (push events only)
+        if: github.event_name == 'push' && steps.map_changes.outputs.changed == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add docs/codebase-map.md docs/codebase-map.json
+          git commit -m "docs(auto): update codebase map [skip ci]"
+          git push
+
+      - name: Comment on PR with map diff (PR events only)
+        if: github.event_name == 'pull_request' && steps.map_changes.outputs.changed == 'true'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const mapContent = fs.readFileSync('docs/codebase-map.md', 'utf-8');
+            const summary = mapContent.split('\n').slice(0, 30).join('\n');
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: `## 🗺️ Codebase Map Updated\n\nThis PR triggers a codebase map update.\n\n<details><summary>Map preview</summary>\n\n\`\`\`markdown\n${summary}\n...\n\`\`\`\n</details>\n\n[View full map](https://github.com/${context.repo.owner}/${context.repo.repo}/blob/main/docs/codebase-map.md)`
+            });

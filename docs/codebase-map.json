@@ -1,0 +1,76 @@
+{
+  "meta": {
+    "version": "6e6a787",
+    "generatedAt": "2026-05-14T19:52:00.000Z",
+    "branch": "main",
+    "previousVersion": "4d2a86e",
+    "generator": "scripts/generate-codebase-map.mjs",
+    "framework": "Next.js 14",
+    "packageManager": "pnpm"
+  },
+  "changes": [
+    "Added: docs/codebase-map.md",
+    "Added: docs/codebase-map.json",
+    "Added: scripts/generate-codebase-map.mjs",
+    "Added: .husky/post-commit",
+    "Added: .github/workflows/codebase-map.yml"
+  ],
+  "routes": [
+    { "path": "/", "file": "app/page.tsx", "risk": "critical" },
+    { "path": "/about-us", "file": "app/about-us/page.tsx", "risk": "low" },
+    { "path": "/contact", "file": "app/contact/page.tsx", "risk": "medium" },
+    { "path": "/download", "file": "app/download/page.tsx", "risk": "low" },
+    { "path": "/eco-friendly-cans", "file": "app/eco-friendly-cans/page.tsx", "risk": "low" },
+    { "path": "/ecocan-market", "file": "app/ecocan-market/page.tsx", "risk": "low" },
+    { "path": "/news", "file": "app/news/page.tsx", "risk": "low" },
+    { "path": "/solutions", "file": "app/solutions/page.tsx", "risk": "low" }
+  ],
+  "hotspots": [
+    { "file": "components/shared/heros/HeroSection.tsx", "risk": "critical", "reason": "GSAP + Lenis + scroll animation orchestration" },
+    { "file": "app/page.tsx", "risk": "critical", "reason": "Homepage section orchestrator" },
+    { "file": "app/layout.tsx", "risk": "critical", "reason": "Root layout — all routes" },
+    { "file": "components/shared/navbar/", "risk": "high", "reason": "Global nav — all routes" },
+    { "file": "tailwind.config.ts", "risk": "medium", "reason": "Theme tokens cascade everywhere" },
+    { "file": "app/globals.css", "risk": "medium", "reason": "CSS custom properties" }
+  ],
+  "dependencies": {
+    "animation": ["gsap@3.15.0", "lenis@1.3.23", "framer-motion@11.13.1"],
+    "ui": ["@radix-ui/react-accordion", "@radix-ui/react-alert-dialog", "@radix-ui/react-dropdown-menu", "@radix-ui/react-label", "@radix-ui/react-select", "@radix-ui/react-slot", "@radix-ui/react-switch", "@radix-ui/react-tabs", "@radix-ui/react-tooltip"],
+    "forms": ["react-hook-form@7.52.2", "@hookform/resolvers@3.9.0", "zod@3.23.8"],
+    "framework": ["next@14.2.35", "react@18", "react-dom@18"],
+    "styling": ["tailwindcss@3.4.1", "class-variance-authority", "clsx", "tailwind-merge"],
+    "analytics": ["@vercel/analytics@2.0.1"],
+    "testing": ["vitest@4.1.6", "@testing-library/react@16.3.2"]
+  },
+  "risks": [
+    { "id": "R1", "severity": "critical", "description": "No API routes — forms have no server-side handler" },
+    { "id": "R2", "severity": "critical", "description": "No error boundaries or error.tsx in route segments" },
+    { "id": "R3", "severity": "high", "description": "Lenis init tightly coupled to HeroSection onTransitionComplete" },
+    { "id": "R4", "severity": "high", "description": "No loading.tsx — no Suspense-based loading states" },
+    { "id": "R5", "severity": "medium", "description": "Three animation libraries (GSAP, Lenis, Framer Motion) — potential conflicts" },
+    { "id": "R6", "severity": "low", "description": "Typo: eligble-popup.tsx should be eligible-popup.tsx" }
+  ],
+  "fileHashes": {
+    "app/layout.tsx": "be06b5082e285b7a88a6d131f8b45b7319eee276",
+    "app/page.tsx": "ac6d9aa7663874c0c7bc7095691c9406f886e744",
+    "app/globals.css": "0a2c10730e41df6846b5375347b2a9c7e33c0f28",
+    "package.json": "91e1b19b998410f5ab39d1698eb443a091fb3b2a",
+    "tailwind.config.ts": "c182b261c72a18a3b05bfc530a12d14634fc5068",
+    "next.config.mjs": "2bc4d9196c1cd2d49e5324b0a6a9c05570fbcfb5",
+    "tsconfig.json": "5841f1c2f8bba110464eaba24059d47cb59d3b64"
+  },
+  "changelog": [
+    {
+      "version": "6e6a787",
+      "date": "2026-05-14T19:52:00.000Z",
+      "branch": "main",
+      "changes": ["Added self-updating codebase map system"]
+    },
+    {
+      "version": "4d2a86e",
+      "date": "2026-05-14T17:00:00.000Z",
+      "branch": "main",
+      "changes": ["Rebuilt scroll transition from scratch in HeroSection", "Modified app/page.tsx"]
+    }
+  ]
+}
