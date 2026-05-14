@@ -6,107 +6,96 @@ import { ScrollTrigger } from "gsap/ScrollTrigger"
 import { Download, ArrowRight } from "lucide-react"
 
 interface HeroSectionProps {
-  scrollEnabled: boolean
   onTransitionComplete: () => void
-  resetSignal: number
 }
 
 export default function HeroSection({ onTransitionComplete }: HeroSectionProps) {
   const heroRef = useRef<HTMLDivElement>(null)
-  const videoWrapperRef = useRef<HTMLDivElement>(null)
   const contentRef = useRef<HTMLDivElement>(null)
   const brandRef = useRef<HTMLDivElement>(null)
 
-  // Initialise Lenis smooth-scroll immediately on mount
+  // Unlock scroll + Lenis immediately on mount
   useEffect(() => {
     onTransitionComplete()
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
-  // ── Intro fade-in ─────────────────────────────────────────────────────────
+  // Entry fade-in
   useEffect(() => {
     const ctx = gsap.context(() => {
       gsap.fromTo(
         contentRef.current,
-        { opacity: 0, y: 30 },
-        { opacity: 1, y: 0, duration: 1, delay: 0.2, ease: "power2.out" }
+        { opacity: 0, y: 24 },
+        { opacity: 1, y: 0, duration: 1.1, delay: 0.15, ease: "power3.out" }
       )
       gsap.fromTo(
         brandRef.current,
-        { opacity: 0, y: 16 },
-        { opacity: 1, y: 0, duration: 0.9, delay: 0.5, ease: "power2.out" }
+        { opacity: 0, y: 12 },
+        { opacity: 1, y: 0, duration: 1.0, delay: 0.4, ease: "power3.out" }
       )
     }, heroRef)
     return () => ctx.revert()
   }, [])
 
-  // ── Scroll-driven zoom-out ─────────────────────────────────────────────────
-  // Runs after Lenis has been initialised (300 ms gives two rAF + async import
-  // time from handleTransitionComplete in page.tsx). ScrollTrigger.refresh()
-  // at 200 ms in page.tsx then recalculates positions once Lenis is up.
+  // Scroll transition — opacity only, no brightness, no scale
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger)
 
-    let scrollCtx: ReturnType<typeof gsap.context> | null = null
+    const ctx = gsap.context(() => {
+      const hero = heroRef.current
+      if (!hero) return
 
-    const timer = setTimeout(() => {
-      scrollCtx = gsap.context(() => {
-        // Video wrapper: scale down + grow rounded corners
+      gsap.to(hero, {
+        opacity: 0,
+        ease: "none",
+        scrollTrigger: {
+          trigger: hero,
+          start: "top top",
+          end: "bottom top",
+          scrub: 0.4,
+        },
+      })
+
+      const nextSection = hero.nextElementSibling as HTMLElement | null
+      if (nextSection) {
         gsap.fromTo(
-          videoWrapperRef.current,
-          { scale: 1, borderRadius: "0px" },
+          nextSection,
+          { opacity: 0, y: 20 },
           {
-            scale: 0.82,
-            borderRadius: "28px",
-            ease: "none",
+            opacity: 1,
+            y: 0,
+            ease: "power2.out",
             scrollTrigger: {
-              trigger: heroRef.current,
-              start: "top top",
-              end: "bottom top",
-              scrub: 1.2,
+              trigger: nextSection,
+              start: "top 85%",
+              end: "top 45%",
+              scrub: 0.4,
             },
           }
         )
+      }
 
-        // Main copy fades up and out in the first 50 % of the scroll
+      const animatedSections = document.querySelectorAll<HTMLElement>(".ps-animate")
+      animatedSections.forEach((el) => {
         gsap.fromTo(
-          contentRef.current,
-          { opacity: 1, y: 0 },
+          el,
+          { opacity: 0, y: 20 },
           {
-            opacity: 0,
-            y: -48,
-            ease: "none",
+            opacity: 1,
+            y: 0,
+            ease: "power2.out",
             scrollTrigger: {
-              trigger: heroRef.current,
-              start: "top top",
-              end: "40% top",
-              scrub: 1,
+              trigger: el,
+              start: "top 85%",
+              end: "top 52%",
+              scrub: 0.4,
             },
           }
         )
+      })
+    }, heroRef)
 
-        // ECOCAN brand fades out slightly later
-        gsap.fromTo(
-          brandRef.current,
-          { opacity: 1 },
-          {
-            opacity: 0,
-            ease: "none",
-            scrollTrigger: {
-              trigger: heroRef.current,
-              start: "5% top",
-              end: "35% top",
-              scrub: 1,
-            },
-          }
-        )
-      }, heroRef)
-    }, 300)
-
-    return () => {
-      clearTimeout(timer)
-      scrollCtx?.revert()
-    }
+    return () => ctx.revert()
   }, [])
 
   const scrollToSection = (id: string) => {
@@ -115,23 +104,14 @@ export default function HeroSection({ onTransitionComplete }: HeroSectionProps) 
   }
 
   return (
-    /*
-     * bg-[#080808] is the dark canvas that shows around the video as it
-     * shrinks. No overflow-hidden here — the video wrapper handles its own
-     * clipping so the rounded-corner zoom looks correct.
-     */
     <div
       ref={heroRef}
       id="hero"
-      className="relative w-full bg-[#080808]"
+      className="relative w-full overflow-hidden"
       style={{ height: "100dvh" }}
     >
-      {/* ── Video wrapper — scaled by ScrollTrigger ───────────────────────── */}
-      <div
-        ref={videoWrapperRef}
-        className="absolute inset-0 overflow-hidden"
-        style={{ willChange: "transform, border-radius" }}
-      >
+      <div className="absolute inset-0" style={{ zIndex: 1 }}>
+        {/* Video — full natural brightness */}
         <video
           autoPlay
           loop
@@ -139,41 +119,40 @@ export default function HeroSection({ onTransitionComplete }: HeroSectionProps) 
           playsInline
           preload="auto"
           poster="/images/scan-verify.jpg"
-          className="h-full w-full object-cover brightness-[0.85]"
+          className="h-full w-full object-cover"
         >
           <source src="/videos/hero-loop.mp4" type="video/mp4" />
         </video>
 
-        {/* Directional glare killer — top-right */}
+        {/* Base depth gradient — keeps text readable */}
         <div
           className="absolute inset-0"
           style={{
             background:
-              "radial-gradient(ellipse 80% 60% at 85% 10%, rgba(10,10,10,0.65) 0%, rgba(10,10,10,0.0) 70%)",
+              "linear-gradient(to bottom, rgba(16,16,16,0.35) 0%, rgba(16,16,16,0.04) 40%, rgba(16,16,16,0.80) 100%)",
           }}
         />
 
-        {/* Base depth gradient */}
+        {/* Soft left-edge vignette */}
         <div
           className="absolute inset-0"
           style={{
-            background:
-              "linear-gradient(to bottom, rgba(16,16,16,0.45) 0%, rgba(16,16,16,0.08) 45%, rgba(16,16,16,0.75) 100%)",
+            background: "linear-gradient(to right, rgba(10,10,10,0.25) 0%, rgba(10,10,10,0.0) 55%)",
           }}
         />
 
-        {/* Left-edge vignette */}
+        {/* Hero → section bridge gradient */}
         <div
-          className="absolute inset-0"
+          className="absolute bottom-0 left-0 right-0"
           style={{
-            background: "linear-gradient(to right, rgba(10,10,10,0.40) 0%, rgba(10,10,10,0.0) 55%)",
+            height: "40vh",
+            background: "linear-gradient(to bottom, rgba(16,16,16,0) 0%, #101010 100%)",
+            zIndex: 2,
           }}
         />
       </div>
 
-      {/* ── Hero text content ─────────────────────────────────────────────── */}
       <div className="absolute inset-0 flex flex-col" style={{ zIndex: 3 }}>
-        {/* Main copy */}
         <div
           ref={contentRef}
           className="flex flex-1 flex-col items-center justify-center px-4 text-center"
@@ -218,7 +197,6 @@ export default function HeroSection({ onTransitionComplete }: HeroSectionProps) 
           </span>
         </div>
 
-        {/* ECOCAN brand + Explore CTA */}
         <div
           ref={brandRef}
           className="flex flex-col items-center justify-center gap-3 pb-[2vh] pt-1"
