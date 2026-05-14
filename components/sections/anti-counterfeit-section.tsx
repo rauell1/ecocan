@@ -4,41 +4,60 @@ import { useRef, useEffect } from "react"
 import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 import Image from "next/image"
-import { ArrowRight, ShieldCheck } from "lucide-react"
+import { ShieldCheck } from "lucide-react"
 import SectionBadge from "@/components/shared/section-badge"
 
 export default function AntiCounterfeitSection() {
   const sectionRef = useRef<HTMLDivElement>(null)
-  const imageRef = useRef<HTMLDivElement>(null)
+  const textColRef = useRef<HTMLDivElement>(null)
+  const imageColRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger)
 
     const ctx = gsap.context(() => {
-      const textEls = sectionRef.current?.querySelectorAll(".text-animate")
-      if (textEls && textEls.length > 0) {
+      const trigger = {
+        trigger: sectionRef.current,
+        start: "top 75%",
+        once: true,
+      }
+
+      // ── Left column: text elements slide in from the left ──────────────
+      if (textColRef.current) {
+        const els = textColRef.current.querySelectorAll(".text-slide")
+        if (els.length > 0) {
+          gsap.fromTo(
+            els,
+            { opacity: 0, x: -80 },
+            {
+              opacity: 1,
+              x: 0,
+              duration: 0.85,
+              stagger: 0.12,
+              ease: "power3.out",
+              scrollTrigger: trigger,
+            }
+          )
+        }
+      }
+
+      // ── Right column: image slides in from the right ───────────────────
+      if (imageColRef.current) {
         gsap.fromTo(
-          textEls,
-          { opacity: 0, x: -60 },
+          imageColRef.current,
+          {
+            opacity: 0,
+            x: 100,
+            scale: 0.96,
+          },
           {
             opacity: 1,
             x: 0,
-            duration: 0.8,
-            stagger: 0.1,
-            ease: "power2.out",
-            scrollTrigger: { trigger: sectionRef.current, start: "top 80%", once: true },
-          }
-        )
-      }
-      if (imageRef.current) {
-        gsap.fromTo(
-          imageRef.current,
-          { clipPath: "inset(0 100% 0 0)" },
-          {
-            clipPath: "inset(0 0% 0 0)",
-            duration: 1,
-            ease: "power3.inOut",
-            scrollTrigger: { trigger: imageRef.current, start: "top 80%", once: true },
+            scale: 1,
+            duration: 1.05,
+            delay: 0.18, // slightly after text starts
+            ease: "power3.out",
+            scrollTrigger: trigger,
           }
         )
       }
@@ -62,23 +81,28 @@ export default function AntiCounterfeitSection() {
     >
       <div className="mx-auto max-w-[1280px] px-6">
         <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-5 lg:gap-16">
-          {/* ── Left: text ── */}
-          <div className="lg:col-span-3">
-            <SectionBadge number="06" />
-            <p className="section-overline text-animate mb-6">Anti-Counterfeit</p>
-            <h2 className="section-headline text-animate mb-6 text-white">
+          {/* ── Left: text ──────────────────────────────────────────────── */}
+          <div ref={textColRef} className="lg:col-span-3">
+            <div className="text-slide">
+              <SectionBadge number="06" />
+            </div>
+
+            <p className="section-overline text-slide mb-6">Anti-Counterfeit</p>
+
+            <h2 className="section-headline text-slide mb-6 text-white">
               Fake alcohol kills.
               <br />
               We stop it.
             </h2>
-            <p className="section-body text-animate mb-8 max-w-[520px] text-white/70">
+
+            <p className="section-body text-slide mb-8 max-w-[520px] text-white/70">
               Every bottle in our system is traceable from producer to return. Criminals can&apos;t
               refill what they can&apos;t collect.
             </p>
 
             {/* Stat callout */}
             <div
-              className="text-animate mb-10 inline-flex items-center gap-4 rounded-2xl border border-primary/30 px-6 py-4"
+              className="text-slide mb-10 inline-flex items-center gap-4 rounded-2xl border border-primary/30 px-6 py-4"
               style={{ background: "rgba(42,122,79,0.1)" }}
             >
               <ShieldCheck size={28} className="shrink-0 text-primary" />
@@ -88,10 +112,10 @@ export default function AntiCounterfeitSection() {
             </div>
 
             {/* Traceability steps */}
-            <p className="text-animate mb-4 text-xs font-semibold uppercase tracking-widest text-white/40">
+            <p className="text-slide mb-4 text-xs font-semibold uppercase tracking-widest text-white/40">
               How traceability works
             </p>
-            <div className="text-animate space-y-3">
+            <div className="text-slide space-y-3">
               {traceSteps.map((step, i) => (
                 <div key={i} className="flex items-start gap-3">
                   <span className="mt-0.5 text-lg leading-none">{step.icon}</span>
@@ -101,10 +125,10 @@ export default function AntiCounterfeitSection() {
             </div>
           </div>
 
-          {/* ── Right: image with wipe-in transition ── */}
+          {/* ── Right: image — slides in from the right ──────────────────── */}
           <div className="lg:col-span-2">
             <div
-              ref={imageRef}
+              ref={imageColRef}
               className="overflow-hidden rounded-3xl shadow-elevated lg:translate-x-8"
             >
               <Image
