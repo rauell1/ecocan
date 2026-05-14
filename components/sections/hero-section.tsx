@@ -2,6 +2,7 @@
 
 import { useRef, useEffect } from "react"
 import { gsap } from "gsap"
+import { ScrollTrigger } from "gsap/ScrollTrigger"
 import { Download, ArrowRight } from "lucide-react"
 
 interface HeroSectionProps {
@@ -12,16 +13,17 @@ interface HeroSectionProps {
 
 export default function HeroSection({ onTransitionComplete }: HeroSectionProps) {
   const heroRef = useRef<HTMLDivElement>(null)
+  const videoWrapperRef = useRef<HTMLDivElement>(null)
   const contentRef = useRef<HTMLDivElement>(null)
   const brandRef = useRef<HTMLDivElement>(null)
 
-  // Unlock scroll and initialise Lenis immediately on mount
+  // Initialise Lenis smooth-scroll immediately on mount
   useEffect(() => {
     onTransitionComplete()
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
-  // Simple fade-in intro for hero text
+  // ── Intro fade-in ─────────────────────────────────────────────────────────
   useEffect(() => {
     const ctx = gsap.context(() => {
       gsap.fromTo(
@@ -38,20 +40,98 @@ export default function HeroSection({ onTransitionComplete }: HeroSectionProps) 
     return () => ctx.revert()
   }, [])
 
+  // ── Scroll-driven zoom-out ─────────────────────────────────────────────────
+  // Runs after Lenis has been initialised (300 ms gives two rAF + async import
+  // time from handleTransitionComplete in page.tsx). ScrollTrigger.refresh()
+  // at 200 ms in page.tsx then recalculates positions once Lenis is up.
+  useEffect(() => {
+    gsap.registerPlugin(ScrollTrigger)
+
+    let scrollCtx: ReturnType<typeof gsap.context> | null = null
+
+    const timer = setTimeout(() => {
+      scrollCtx = gsap.context(() => {
+        // Video wrapper: scale down + grow rounded corners
+        gsap.fromTo(
+          videoWrapperRef.current,
+          { scale: 1, borderRadius: "0px" },
+          {
+            scale: 0.82,
+            borderRadius: "28px",
+            ease: "none",
+            scrollTrigger: {
+              trigger: heroRef.current,
+              start: "top top",
+              end: "bottom top",
+              scrub: 1.2,
+            },
+          }
+        )
+
+        // Main copy fades up and out in the first 50 % of the scroll
+        gsap.fromTo(
+          contentRef.current,
+          { opacity: 1, y: 0 },
+          {
+            opacity: 0,
+            y: -48,
+            ease: "none",
+            scrollTrigger: {
+              trigger: heroRef.current,
+              start: "top top",
+              end: "40% top",
+              scrub: 1,
+            },
+          }
+        )
+
+        // ECOCAN brand fades out slightly later
+        gsap.fromTo(
+          brandRef.current,
+          { opacity: 1 },
+          {
+            opacity: 0,
+            ease: "none",
+            scrollTrigger: {
+              trigger: heroRef.current,
+              start: "5% top",
+              end: "35% top",
+              scrub: 1,
+            },
+          }
+        )
+      }, heroRef)
+    }, 300)
+
+    return () => {
+      clearTimeout(timer)
+      scrollCtx?.revert()
+    }
+  }, [])
+
   const scrollToSection = (id: string) => {
     const el = document.getElementById(id)
     if (el) el.scrollIntoView({ behavior: "smooth" })
   }
 
   return (
+    /*
+     * bg-[#080808] is the dark canvas that shows around the video as it
+     * shrinks. No overflow-hidden here — the video wrapper handles its own
+     * clipping so the rounded-corner zoom looks correct.
+     */
     <div
       ref={heroRef}
       id="hero"
-      className="relative w-full overflow-hidden"
+      className="relative w-full bg-[#080808]"
       style={{ height: "100dvh" }}
     >
-      {/* ── Video background ──────────────────────────────────────────────── */}
-      <div className="absolute inset-0" style={{ zIndex: 1 }}>
+      {/* ── Video wrapper — scaled by ScrollTrigger ───────────────────────── */}
+      <div
+        ref={videoWrapperRef}
+        className="absolute inset-0 overflow-hidden"
+        style={{ willChange: "transform, border-radius" }}
+      >
         <video
           autoPlay
           loop
@@ -91,7 +171,7 @@ export default function HeroSection({ onTransitionComplete }: HeroSectionProps) 
         />
       </div>
 
-      {/* ── Hero content ──────────────────────────────────────────────────── */}
+      {/* ── Hero text content ─────────────────────────────────────────────── */}
       <div className="absolute inset-0 flex flex-col" style={{ zIndex: 3 }}>
         {/* Main copy */}
         <div
