@@ -40,10 +40,12 @@ export default function HeroSection({ onTransitionComplete }: HeroSectionProps) 
     return () => ctx.revert()
   }, [])
 
-  // ── Scroll-driven zoom-out ─────────────────────────────────────────────────
-  // Runs after Lenis has been initialised (300 ms gives two rAF + async import
-  // time from handleTransitionComplete in page.tsx). ScrollTrigger.refresh()
-  // at 200 ms in page.tsx then recalculates positions once Lenis is up.
+  // ── Scroll-driven zoom-out (pinned) ──────────────────────────────────────
+  // The hero is pinned for one viewport-height of scroll so the animation is
+  // fully visible before the section scrolls away. A single timeline drives
+  // all three targets so they stay in sync on a shared ScrollTrigger.
+  // We wait 500 ms to ensure Lenis + ScrollTrigger are wired up in page.tsx
+  // before registering the pinned trigger.
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger)
 
@@ -51,57 +53,42 @@ export default function HeroSection({ onTransitionComplete }: HeroSectionProps) 
 
     const timer = setTimeout(() => {
       scrollCtx = gsap.context(() => {
-        // Video wrapper: scale down + grow rounded corners
-        gsap.fromTo(
-          videoWrapperRef.current,
-          { scale: 1, borderRadius: "0px" },
-          {
-            scale: 0.82,
-            borderRadius: "28px",
-            ease: "none",
-            scrollTrigger: {
-              trigger: heroRef.current,
-              start: "top top",
-              end: "bottom top",
-              scrub: 1.2,
-            },
-          }
-        )
+        const tl = gsap.timeline({
+          scrollTrigger: {
+            trigger: heroRef.current,
+            start: "top top",
+            end: "+=100%", // pin for one full viewport-height of scroll
+            pin: true,
+            scrub: 1.5,
+            anticipatePin: 1,
+          },
+        })
 
-        // Main copy fades up and out in the first 50 % of the scroll
-        gsap.fromTo(
+        // 1. Text fades up and disappears first (0 → 40 % of the timeline)
+        tl.fromTo(
           contentRef.current,
           { opacity: 1, y: 0 },
-          {
-            opacity: 0,
-            y: -48,
-            ease: "none",
-            scrollTrigger: {
-              trigger: heroRef.current,
-              start: "top top",
-              end: "40% top",
-              scrub: 1,
-            },
-          }
+          { opacity: 0, y: -60, ease: "power1.in", duration: 0.4 },
+          0
         )
-
-        // ECOCAN brand fades out slightly later
-        gsap.fromTo(
+        tl.fromTo(
           brandRef.current,
           { opacity: 1 },
-          {
-            opacity: 0,
-            ease: "none",
-            scrollTrigger: {
-              trigger: heroRef.current,
-              start: "5% top",
-              end: "35% top",
-              scrub: 1,
-            },
-          }
+          { opacity: 0, ease: "power1.in", duration: 0.35 },
+          0.05
+        )
+
+        // 2. Video pulls back + corners round (plays across full timeline)
+        tl.fromTo(
+          videoWrapperRef.current,
+          { scale: 1, borderRadius: "0px" },
+          { scale: 0.78, borderRadius: "32px", ease: "power2.inOut", duration: 1 },
+          0
         )
       }, heroRef)
-    }, 300)
+
+      ScrollTrigger.refresh()
+    }, 500)
 
     return () => {
       clearTimeout(timer)
