@@ -9,17 +9,15 @@ const envSchema = z.object({
   // Node environment
   NODE_ENV: z.enum(["development", "production", "test"]).default("development"),
 
-  // App URL — required in production for absolute Open Graph / sitemap / canonical URLs.
-  // Set this to your Vercel deployment URL or custom domain.
+  // App URL — used for absolute Open Graph / sitemap / canonical URLs.
+  // Falls back to a placeholder during build-time static generation.
+  // Set NEXT_PUBLIC_APP_URL in your Vercel project environment variables
+  // (e.g. https://ecocan.vercel.app) for correct OG/sitemap URLs in production.
   NEXT_PUBLIC_APP_URL: z
     .string()
     .url()
     .optional()
-    .refine(
-      (val) =>
-        process.env.NODE_ENV !== "production" || (val !== undefined && val.length > 0),
-      { message: "NEXT_PUBLIC_APP_URL is required in production" }
-    ),
+    .default("https://ecocan.vercel.app"),
 
   // Human-readable site name used in meta tags, OG cards, emails etc.
   NEXT_PUBLIC_SITE_NAME: z.string().default("ECOCAN"),
