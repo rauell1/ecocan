@@ -123,7 +123,6 @@ export default function ProblemSolutionSection() {
 
     const observer = new IntersectionObserver(
       ([entry]) => {
-        // Guard: entry is undefined when the entries array is empty
         if (!entry) return
         if (entry.isIntersecting) {
           section.setAttribute("data-visible", "true")
@@ -144,9 +143,10 @@ export default function ProblemSolutionSection() {
           from { opacity: 0; transform: translateY(36px); }
           to   { opacity: 1; transform: translateY(0); }
         }
+        /* Default: hidden until IntersectionObserver fires data-visible */
         .ps-animate {
-          opacity: 1;
-          transform: translateY(0);
+          opacity: 0;
+          transform: translateY(36px);
         }
         [data-visible="true"] .ps-animate {
           animation: ps-fade-up 0.75s cubic-bezier(0.16, 1, 0.3, 1) both;
@@ -158,7 +158,7 @@ export default function ProblemSolutionSection() {
         [data-visible="true"] .ps-stat:nth-child(2) { animation: ps-fade-up 0.6s 0.47s cubic-bezier(0.16,1,0.3,1) both; }
         [data-visible="true"] .ps-stat:nth-child(3) { animation: ps-fade-up 0.6s 0.59s cubic-bezier(0.16,1,0.3,1) both; }
         @media (prefers-reduced-motion: reduce) {
-          .ps-animate, .ps-stat { animation: none !important; }
+          .ps-animate, .ps-stat { animation: none !important; opacity: 1 !important; transform: none !important; }
         }
       `}</style>
 
