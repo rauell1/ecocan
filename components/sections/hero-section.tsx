@@ -2,6 +2,7 @@
 
 import { useRef, useEffect } from "react"
 import { gsap } from "gsap"
+import { ScrollTrigger } from "gsap/ScrollTrigger"
 import { Download, ArrowRight } from "lucide-react"
 
 interface HeroSectionProps {
@@ -36,33 +37,75 @@ export default function HeroSection({ onTransitionComplete }: HeroSectionProps) 
     return () => ctx.revert()
   }, [])
 
-  // Exit scrub — fade the entire hero out as it scrolls off the top
+  // New global-feeling transition: hero subtly scales & darkens as you leave,
+  // while the rest of the page content gently lifts into place.
   useEffect(() => {
-    let ctx: ReturnType<typeof gsap.context> | null = null
+    gsap.registerPlugin(ScrollTrigger)
 
-    // Delay until Lenis + ScrollTrigger have been registered (async import in page.tsx)
-    const id = setTimeout(async () => {
-      const { ScrollTrigger } = await import("gsap/ScrollTrigger")
-      gsap.registerPlugin(ScrollTrigger)
+    const ctx = gsap.context(() => {
+      const hero = heroRef.current
+      if (!hero) return
 
-      ctx = gsap.context(() => {
-        gsap.to(heroRef.current, {
-          opacity: 0,
-          ease: "none",
-          scrollTrigger: {
-            trigger: heroRef.current,
-            start: "top top",
-            end: "bottom top",
-            scrub: true,
+      // 1) Hero parallax + fade as you scroll from top of hero to bottom
+      gsap.to(hero, {
+        opacity: 0,
+        scale: 0.96,
+        filter: "brightness(0.8)",
+        transformOrigin: "center center",
+        ease: "none",
+        scrollTrigger: {
+          trigger: hero,
+          start: "top top",
+          end: "bottom top",
+          scrub: 0.6,
+        },
+      })
+
+      // 2) Any next section directly after #hero gets a gentle rise + fade-in
+      const nextSection = hero.nextElementSibling as HTMLElement | null
+      if (nextSection) {
+        gsap.fromTo(
+          nextSection,
+          {
+            opacity: 0,
+            y: 40,
           },
-        })
-      }, heroRef)
-    }, 400)
+          {
+            opacity: 1,
+            y: 0,
+            ease: "power2.out",
+            scrollTrigger: {
+              trigger: nextSection,
+              start: "top 80%",
+              end: "top 40%",
+              scrub: 0.6,
+            },
+          }
+        )
+      }
 
-    return () => {
-      clearTimeout(id)
-      ctx?.revert()
-    }
+      // 3) Global section reveals: any .ps-animate fades up consistently
+      const animatedSections = document.querySelectorAll<HTMLElement>(".ps-animate")
+      animatedSections.forEach((el) => {
+        gsap.fromTo(
+          el,
+          { opacity: 0, y: 40 },
+          {
+            opacity: 1,
+            y: 0,
+            ease: "power2.out",
+            scrollTrigger: {
+              trigger: el,
+              start: "top 80%",
+              end: "top 50%",
+              scrub: 0.6,
+            },
+          }
+        )
+      })
+    }, heroRef)
+
+    return () => ctx.revert()
   }, [])
 
   const scrollToSection = (id: string) => {
