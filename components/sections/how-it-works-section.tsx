@@ -83,27 +83,16 @@ export default function HowItWorksSection({ scrollEnabled }: HowItWorksSectionPr
     <section
       ref={sectionRef}
       className="relative w-full overflow-hidden py-[120px] md:py-[160px]"
-      style={{ background: "#101010" }}
+      style={{ background: "#f5f5f0" }}
     >
-      {/* subtle background texture */}
-      <div
-        className="absolute inset-0 opacity-15"
-        style={{
-          backgroundImage: "url(/images/bottle-journey.jpg)",
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-        }}
-      />
-      <div className="absolute inset-0 bg-gradient-to-b from-[#101010] via-transparent to-[#101010]" />
-
       <div className="relative z-10 mx-auto max-w-[1280px] px-6">
         {/* ── Centered heading block ── */}
         <div className="mb-14 flex flex-col items-center text-center">
           <p className="section-overline heading-animate mb-4">How It Works</p>
-          <h2 className="section-headline heading-animate mb-4 max-w-[700px] text-white">
+          <h2 className="section-headline heading-animate mb-4 max-w-[700px] text-eco-dark">
             From your hand back to the shelf.
           </h2>
-          <p className="heading-animate text-lg font-normal leading-relaxed text-white/60">
+          <p className="heading-animate text-lg font-normal leading-relaxed text-eco-dark/55">
             Clean. Traceable. Rewarded.
           </p>
         </div>
@@ -113,25 +102,25 @@ export default function HowItWorksSection({ scrollEnabled }: HowItWorksSectionPr
           {steps.map((step) => (
             <div
               key={step.num}
-              className="step-card glass-card p-6 transition-all duration-300 hover:-translate-y-2 hover:border-white/30 md:p-8"
+              className="step-card border-black/8 rounded-2xl border bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-2 hover:shadow-md md:p-8"
             >
               <span className="mb-4 block text-4xl font-bold leading-none text-primary md:text-5xl">
                 {step.num}
               </span>
-              <h3 className="mb-2 text-xl font-semibold text-white">{step.title}</h3>
-              <p className="text-sm leading-relaxed text-white/60">{step.desc}</p>
+              <h3 className="mb-2 text-xl font-semibold text-eco-dark">{step.title}</h3>
+              <p className="text-sm leading-relaxed text-eco-dark/55">{step.desc}</p>
             </div>
           ))}
         </div>
 
         {/* ── Sub-copy + CTA ── */}
-        <p className="heading-animate mb-3 text-sm italic text-white/40">
+        <p className="heading-animate mb-3 text-sm italic text-eco-dark/40">
           No machine? No problem. Our partner counters scan and pay you instantly - right now,
           today.
         </p>
         <Link
           href="/solutions"
-          className="heading-animate mb-16 inline-flex items-center gap-2 font-medium text-white hover:underline"
+          className="heading-animate mb-16 inline-flex items-center gap-2 font-medium text-eco-dark hover:text-primary hover:underline"
         >
           See full journey <ArrowRight size={16} />
         </Link>
@@ -148,7 +137,7 @@ export default function HowItWorksSection({ scrollEnabled }: HowItWorksSectionPr
             className="object-cover"
             loading="lazy"
           />
-          <div className="absolute inset-0 flex items-center bg-gradient-to-r from-[#101010]/70 via-[#101010]/20 to-transparent p-8 md:p-12">
+          <div className="absolute inset-0 flex items-center bg-gradient-to-r from-black/65 via-black/20 to-transparent p-8 md:p-12">
             <div>
               <p className="mb-2 text-2xl font-bold text-white md:text-3xl">
                 Return it right here.
