@@ -1,9 +1,16 @@
 "use client"
 
-import { useRef, useEffect } from "react"
+import { useRef, useEffect, useCallback } from "react"
 import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 import { Download, ArrowRight } from "lucide-react"
+
+// ── Animation constants ────────────────────────────────────────────────────
+const ENTRY_CONTENT_DELAY = 0.15
+const ENTRY_BRAND_DELAY = 0.4
+const SCROLL_END = "+=100%"
+const SCROLL_SCRUB = 1.5
+const LENIS_INIT_DELAY = 500 // ms — waits for Lenis wiring in page.tsx
 
 interface HeroSectionProps {
   onTransitionComplete: () => void
@@ -15,103 +22,100 @@ export default function HeroSection({ onTransitionComplete }: HeroSectionProps) 
   const contentRef = useRef<HTMLDivElement>(null)
   const brandRef = useRef<HTMLDivElement>(null)
 
-  // Unlock scroll + initialise Lenis immediately on mount
-  useEffect(() => {
+  // Stable reference so it can safely be included in deps without re-running
+  const initLenis = useCallback(() => {
     onTransitionComplete()
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
+  }, [onTransitionComplete])
 
-  // ── Entry fade-in ─────────────────────────────────────────────────────────
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      gsap.fromTo(
-        contentRef.current,
-        { opacity: 0, y: 28 },
-        { opacity: 1, y: 0, duration: 1.1, delay: 0.15, ease: "power3.out" }
-      )
-      gsap.fromTo(
-        brandRef.current,
-        { opacity: 0, y: 14 },
-        { opacity: 1, y: 0, duration: 1.0, delay: 0.4, ease: "power3.out" }
-      )
-    }, heroRef)
-    return () => ctx.revert()
-  }, [])
-
-  // ── Pinned scroll zoom-out ────────────────────────────────────────────────
-  // The hero is pinned for one full viewport-height of additional scroll so
-  // the animation plays while the hero stays on screen. A single timeline
-  // scrubbed to the scroll position drives all three targets together.
-  // 500 ms delay ensures Lenis is wired up in page.tsx before we register.
+  // ── All GSAP work in one context — one cleanup ─────────────────────────
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger)
 
-    let scrollCtx: ReturnType<typeof gsap.context> | null = null
+    // Respect reduced-motion at the source
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches
 
+    const ctx = gsap.context(() => {
+      // Entry animations
+      if (!reducedMotion) {
+        gsap.fromTo(
+          contentRef.current,
+          { opacity: 0, y: 28 },
+          { opacity: 1, y: 0, duration: 1.1, delay: ENTRY_CONTENT_DELAY, ease: "power3.out" }
+        )
+        gsap.fromTo(
+          brandRef.current,
+          { opacity: 0, y: 14 },
+          { opacity: 1, y: 0, duration: 1.0, delay: ENTRY_BRAND_DELAY, ease: "power3.out" }
+        )
+      } else {
+        // Immediately visible for reduced-motion users
+        gsap.set([contentRef.current, brandRef.current], { opacity: 1, y: 0 })
+      }
+    }, heroRef)
+
+    // Lenis + scroll animation — deferred so Lenis is wired up in page.tsx first
+    let scrollCtx: ReturnType<typeof gsap.context> | null = null
     const timer = setTimeout(() => {
+      initLenis()
+
       scrollCtx = gsap.context(() => {
         const tl = gsap.timeline({
           scrollTrigger: {
             trigger: heroRef.current,
             start: "top top",
-            end: "+=100%",
+            end: SCROLL_END,
             pin: true,
-            scrub: 1.5,
+            scrub: SCROLL_SCRUB,
             anticipatePin: 1,
           },
         })
 
-        // Text fades up and out
-        tl.fromTo(
-          contentRef.current,
-          { opacity: 1, y: 0 },
-          { opacity: 0, y: -60, ease: "power1.in", duration: 0.4 },
-          0
-        )
-        tl.fromTo(
-          brandRef.current,
-          { opacity: 1 },
-          { opacity: 0, ease: "power1.in", duration: 0.35 },
-          0.05
-        )
-
-        // Video wrapper pulls back + corners round
-        tl.fromTo(
-          videoWrapperRef.current,
-          { scale: 1, borderRadius: "0px" },
-          { scale: 0.78, borderRadius: "32px", ease: "power2.inOut", duration: 1 },
-          0
-        )
+        if (!reducedMotion) {
+          // Text fades up and out
+          tl.fromTo(
+            contentRef.current,
+            { opacity: 1, y: 0 },
+            { opacity: 0, y: -60, ease: "power1.in", duration: 0.4 },
+            0
+          )
+          tl.fromTo(
+            brandRef.current,
+            { opacity: 1 },
+            { opacity: 0, ease: "power1.in", duration: 0.35 },
+            0.05
+          )
+          // Video wrapper pulls back + rounds corners
+          tl.fromTo(
+            videoWrapperRef.current,
+            { scale: 1, borderRadius: "0px" },
+            { scale: 0.78, borderRadius: "32px", ease: "power2.inOut", duration: 1 },
+            0
+          )
+        }
       }, heroRef)
 
       ScrollTrigger.refresh()
-    }, 500)
+    }, LENIS_INIT_DELAY)
 
     return () => {
       clearTimeout(timer)
+      ctx.revert()
       scrollCtx?.revert()
     }
-  }, [])
+  }, [initLenis])
 
   const scrollToSection = (id: string) => {
-    const el = document.getElementById(id)
-    if (el) el.scrollIntoView({ behavior: "smooth" })
+    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" })
   }
 
   return (
-    /*
-     * bg-[#080808] — the dark canvas that appears around the video as it
-     * shrinks. No overflow-hidden on the root so the scaled-down video
-     * wrapper shows the rounded corners against the dark background.
-     * The video wrapper carries its own overflow-hidden for corner clipping.
-     */
     <div
       ref={heroRef}
       id="hero"
-      className="relative w-full bg-[#080808]"
+      className="hero-root relative w-full bg-[#080808]"
       style={{ height: "100dvh" }}
     >
-      {/* ── Video wrapper — target of the scale animation ─────────────────── */}
+      {/* Video wrapper — target of scale animation */}
       <div
         ref={videoWrapperRef}
         className="absolute inset-0 overflow-hidden"
@@ -129,35 +133,34 @@ export default function HeroSection({ onTransitionComplete }: HeroSectionProps) 
           <source src="/videos/hero-loop.mp4" type="video/mp4" />
         </video>
 
-        {/* Directional glare killer — top-right bright spill */}
+        {/* Decorative overlays — hidden from accessibility tree */}
         <div
+          aria-hidden="true"
           className="absolute inset-0"
           style={{
             background:
-              "radial-gradient(ellipse 80% 60% at 85% 10%, rgba(10,10,10,0.65) 0%, rgba(10,10,10,0.0) 70%)",
+              "radial-gradient(ellipse 80% 60% at 85% 10%, rgba(10,10,10,0.65) 0%, rgba(10,10,10,0) 70%)",
           }}
         />
-
-        {/* Base depth gradient — top and bottom vignette */}
         <div
+          aria-hidden="true"
           className="absolute inset-0"
           style={{
             background:
               "linear-gradient(to bottom, rgba(16,16,16,0.45) 0%, rgba(16,16,16,0.08) 45%, rgba(16,16,16,0.75) 100%)",
           }}
         />
-
-        {/* Left-edge vignette for text legibility */}
         <div
+          aria-hidden="true"
           className="absolute inset-0"
           style={{
-            background: "linear-gradient(to right, rgba(10,10,10,0.40) 0%, rgba(10,10,10,0.0) 55%)",
+            background: "linear-gradient(to right, rgba(10,10,10,0.40) 0%, rgba(10,10,10,0) 55%)",
           }}
         />
       </div>
 
-      {/* ── Hero text ─────────────────────────────────────────────────────── */}
-      <div className="absolute inset-0 flex flex-col" style={{ zIndex: 3 }}>
+      {/* Hero content */}
+      <div className="absolute inset-0 z-[3] flex flex-col">
         {/* Main copy */}
         <div
           ref={contentRef}
@@ -192,15 +195,17 @@ export default function HeroSection({ onTransitionComplete }: HeroSectionProps) 
           </div>
 
           <div className="mb-3 flex flex-wrap justify-center gap-2">
-            {["Early-stage funded", "Operational in Kenya", "GDPR Compliant"].map((badge) => (
-              <span key={badge} className="glass-pill px-4 py-1.5 text-[13px] text-white">
-                {badge}
-              </span>
-            ))}
+            {(["Early-stage funded", "Operational in Kenya", "GDPR Compliant"] as const).map(
+              (badge) => (
+                <span key={badge} className="glass-pill px-4 py-1.5 text-[13px] text-white">
+                  {badge}
+                </span>
+              )
+            )}
           </div>
         </div>
 
-        {/* ECOCAN brand + Explore CTA */}
+        {/* ECOCAN wordmark + Explore CTA */}
         <div
           ref={brandRef}
           className="flex flex-col items-center justify-center gap-3 pb-[2vh] pt-1"
@@ -225,7 +230,7 @@ export default function HeroSection({ onTransitionComplete }: HeroSectionProps) 
             className="glass-pill flex cursor-pointer items-center gap-3 px-6 py-2.5 text-white transition-all hover:bg-white/20 active:scale-95"
             aria-label="Explore the site"
           >
-            <span className="h-2 w-2 animate-pulse-dot rounded-full bg-primary" />
+            <span aria-hidden="true" className="h-2 w-2 animate-pulse-dot rounded-full bg-primary" />
             Explore the Journey
           </button>
         </div>
