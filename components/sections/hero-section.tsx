@@ -159,9 +159,10 @@ export default function HeroSection({ onTransitionComplete }: HeroSectionProps) 
       {/* ── Hero text ─────────────────────────────────────────────────────── */}
       <div className="absolute inset-0 flex flex-col" style={{ zIndex: 3 }}>
         {/* Main copy */}
+        {/* Left-aligned on desktop (Rivian-style asymmetric composition) */}
         <div
           ref={contentRef}
-          className="flex flex-1 flex-col items-center justify-center px-4 text-center"
+          className="flex flex-1 flex-col justify-center px-6 text-center md:max-w-[640px] md:px-12 md:text-left"
         >
           <p className="mb-3 text-xs font-semibold uppercase tracking-[0.15em] text-white/70">
             Africa&apos;s Circular Bottle Ecosystem
@@ -174,11 +175,11 @@ export default function HeroSection({ onTransitionComplete }: HeroSectionProps) 
             <br />
             Make a difference.
           </h2>
-          <p className="mb-6 max-w-[560px] text-base font-normal text-white/80 md:text-xl">
+          <p className="mb-6 max-w-[520px] text-base font-normal text-white/80 md:text-xl">
             Recycle at any ECO-Station. Save the planet. Stop fake drinks. Get a bonus.
           </p>
 
-          <div className="mb-6 flex flex-col items-center gap-4 sm:flex-row">
+          <div className="mb-6 flex flex-col items-center gap-4 sm:flex-row md:items-start">
             <a href="/download" className="pill-btn pill-btn-white">
               <Download size={18} />
               Download App
@@ -191,14 +192,14 @@ export default function HeroSection({ onTransitionComplete }: HeroSectionProps) 
             </button>
           </div>
 
-          <div className="mb-3 flex flex-wrap justify-center gap-2">
+          <div className="mb-3 flex flex-wrap justify-center gap-2 md:justify-start">
             {["Early-stage funded", "Operational in Kenya", "GDPR Compliant"].map((badge) => (
               <span key={badge} className="glass-pill px-4 py-1.5 text-[13px] text-white">
                 {badge}
               </span>
             ))}
           </div>
-          <span className="glass-pill px-4 py-1.5 text-[13px] italic text-white/80">
+          <span className="glass-pill self-center px-4 py-1.5 text-[13px] italic text-white/80 md:self-start">
             No machine? No problem. Our counters work today.
           </span>
         </div>
