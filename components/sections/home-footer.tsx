@@ -69,7 +69,7 @@ export default function HomeFooter() {
   const [email, setEmail] = useState("")
 
   return (
-    <footer className="w-full pb-10 pt-20" style={{ background: "#1A2B3C" }}>
+    <footer className="w-full pb-10 pt-20" style={{ background: "#0d0d0d" }}>
       <div className="mx-auto max-w-[1280px] px-6">
         {/* Top: logo + tagline + newsletter */}
         <div className="mb-16 grid grid-cols-1 gap-12 border-b border-white/10 pb-16 lg:grid-cols-2">
