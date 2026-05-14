@@ -84,6 +84,7 @@ export default function ElectricMobilitySection() {
                 alt="ECOCAN electric cargo bike collecting bottles"
                 width={800}
                 height={600}
+                sizes="(max-width: 768px) 100vw, 50vw"
                 className="h-auto w-full object-cover"
                 loading="lazy"
               />

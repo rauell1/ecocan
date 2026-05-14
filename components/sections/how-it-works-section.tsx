@@ -136,6 +136,7 @@ export default function HowItWorksSection({ scrollEnabled }: HowItWorksSectionPr
             src="/images/return-counter.jpg"
             alt="ECOCAN return counter at a supermarket"
             fill
+            sizes="(max-width: 1280px) 100vw, 1280px"
             className="object-cover"
             loading="lazy"
           />

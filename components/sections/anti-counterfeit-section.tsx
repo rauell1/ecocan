@@ -112,6 +112,7 @@ export default function AntiCounterfeitSection() {
                 alt="Counterfeit vs verified bottles"
                 width={600}
                 height={800}
+                sizes="(max-width: 1024px) 100vw, 40vw"
                 className="h-auto w-full object-cover"
                 loading="lazy"
               />
