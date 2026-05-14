@@ -52,7 +52,7 @@ const formSchema = z.object({
 });
 
 export default function EcoProducerForm({
-  title = "Let’s do Business the Right way",
+  title = "Let's do Business the Right way",
 }: HeroFormProps) {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -69,8 +69,8 @@ export default function EcoProducerForm({
     },
   });
 
-  function onSubmit(values: z.infer<typeof formSchema>) {
-    console.log(values);
+  function onSubmit(_values: z.infer<typeof formSchema>) {
+    // TODO: wire up form submission
   }
 
   return (
@@ -215,7 +215,7 @@ export default function EcoProducerForm({
                 <FormItem>
                   <FormLabel>Talk to Us</FormLabel>
                   <FormControl>
-                    <Textarea/>
+                    <Textarea {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>

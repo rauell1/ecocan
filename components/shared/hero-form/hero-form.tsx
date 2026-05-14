@@ -62,8 +62,8 @@ export default function EcostationForm({
     },
   })
 
-  function onSubmit(values: z.infer<typeof formSchema>) {
-    console.log(values)
+  function onSubmit(_values: z.infer<typeof formSchema>) {
+    // TODO: wire up form submission
   }
 
   return (
