@@ -6,7 +6,6 @@ import { X, Download } from "lucide-react"
 interface HomeMobileMenuProps {
   isOpen: boolean
   onClose: () => void
-  scrollEnabled: boolean
 }
 
 const sectionLinks = [
@@ -24,10 +23,9 @@ const pageLinks = [
   { label: "News", href: "/news" },
 ]
 
-export default function HomeMobileMenu({ isOpen, onClose, scrollEnabled }: HomeMobileMenuProps) {
+export default function HomeMobileMenu({ isOpen, onClose }: HomeMobileMenuProps) {
   const handleSectionClick = (href: string) => {
     onClose()
-    // Unlock body scroll regardless of scrollEnabled state
     document.body.style.overflow = ""
     setTimeout(() => {
       const el = document.querySelector(href)
@@ -37,7 +35,7 @@ export default function HomeMobileMenu({ isOpen, onClose, scrollEnabled }: HomeM
 
   return (
     <>
-      {/* Backdrop — covers the page when drawer is open */}
+      {/* Backdrop */}
       <div
         onClick={onClose}
         aria-hidden="true"
@@ -46,12 +44,7 @@ export default function HomeMobileMenu({ isOpen, onClose, scrollEnabled }: HomeM
         }`}
       />
 
-      {/*
-       * Drawer — slides in from the right.
-       * aria-hidden hides it from the accessibility tree when closed.
-       * pointer-events-none when closed prevents any accidental interaction
-       * while the slide-out transition plays.
-       */}
+      {/* Drawer */}
       <div
         role="dialog"
         aria-modal="true"

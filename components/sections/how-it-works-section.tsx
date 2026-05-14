@@ -16,16 +16,11 @@ const steps = [
   { num: "05", title: "Get Rewarded", desc: "Instant deposit money to M-PESA or bank" },
 ]
 
-interface HowItWorksSectionProps {
-  scrollEnabled: boolean
-}
-
-export default function HowItWorksSection({ scrollEnabled }: HowItWorksSectionProps) {
+export default function HowItWorksSection() {
   const sectionRef = useRef<HTMLDivElement>(null)
   const cardsRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
-    if (!scrollEnabled) return
     gsap.registerPlugin(ScrollTrigger)
 
     const ctx = gsap.context(() => {
@@ -78,7 +73,7 @@ export default function HowItWorksSection({ scrollEnabled }: HowItWorksSectionPr
     }, sectionRef)
 
     return () => ctx.revert()
-  }, [scrollEnabled])
+  }, [])
 
   return (
     <section
@@ -87,7 +82,7 @@ export default function HowItWorksSection({ scrollEnabled }: HowItWorksSectionPr
       style={{ background: "#f5f5f0" }}
     >
       <div className="relative z-10 mx-auto max-w-[1280px] px-6">
-        {/* ── Centered heading block ── */}
+        {/* Centered heading block */}
         <div className="mb-14 flex flex-col items-center text-center">
           <SectionBadge number="02" />
           <p className="section-overline heading-animate mb-4">How It Works</p>
@@ -99,7 +94,7 @@ export default function HowItWorksSection({ scrollEnabled }: HowItWorksSectionPr
           </p>
         </div>
 
-        {/* ── Step cards ── */}
+        {/* Step cards */}
         <div ref={cardsRef} className="mb-12 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-5">
           {steps.map((step) => (
             <div
@@ -115,10 +110,9 @@ export default function HowItWorksSection({ scrollEnabled }: HowItWorksSectionPr
           ))}
         </div>
 
-        {/* ── Sub-copy + CTA ── */}
+        {/* Sub-copy + CTA */}
         <p className="heading-animate mb-3 text-sm italic text-eco-dark/40">
-          No machine? No problem. Our partner counters scan and pay you instantly - right now,
-          today.
+          No machine? No problem. Our partner counters scan and pay you instantly - right now, today.
         </p>
         <Link
           href="/solutions"
@@ -127,7 +121,7 @@ export default function HowItWorksSection({ scrollEnabled }: HowItWorksSectionPr
           See full journey <ArrowRight size={16} />
         </Link>
 
-        {/* ── Return counter photo ── */}
+        {/* Return counter photo */}
         <div
           className="counter-img heading-animate relative overflow-hidden rounded-3xl"
           style={{ height: "clamp(200px, 32vw, 400px)" }}
