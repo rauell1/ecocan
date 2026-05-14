@@ -1,7 +1,7 @@
 "use client"
 
 import Link from "next/link"
-import { Recycle, Store, Truck, Factory, Music, ArrowRight } from "lucide-react"
+import { Recycle, Store, Truck, Factory, Music, Leaf, ArrowRight } from "lucide-react"
 import SectionBadge from "@/components/shared/section-badge"
 
 const roles = [
@@ -11,59 +11,65 @@ const roles = [
     subtitle: "Return & Earn",
     description:
       "Scan, return your empty bottles at any ECO-Station, and earn real money straight to your M-Pesa wallet.",
+    stat: "Up to KES 5 per bottle",
     color: "#16a34a",
-    href: "/solutions",
-    cta: "How to earn",
+    href: "/download",
+    cta: "Download the app",
   },
   {
     icon: Store,
     title: "ECO-Station",
     subtitle: "Host a Drop-off Point",
     description:
-      "Become a collection hub, earn per-unit fees, and grow your business as part of Africa's DRS network.",
+      "Become a collection hub in your neighbourhood. Earn a per-unit handling fee and grow foot traffic to your business.",
+    stat: "Fee per unit collected",
     color: "#0891b2",
-    href: "/solutions",
-    cta: "Become a station",
+    href: "/contact",
+    cta: "Register your station",
   },
   {
     icon: Truck,
     title: "ECO-Courier",
     subtitle: "Ride & Collect",
     description:
-      "Use electric two-wheelers to collect from stations and earn per pickup on a flexible schedule.",
+      "Use electric two-wheelers to collect full batches from stations and earn per pickup on a schedule that fits you.",
+    stat: "Flexible daily earnings",
     color: "#7c3aed",
-    href: "/solutions",
-    cta: "Start delivering",
+    href: "/contact",
+    cta: "Apply as courier",
   },
   {
     icon: Factory,
     title: "Eco-Producer",
     subtitle: "Brand Protection + DRS",
     description:
-      "Protect your brand from counterfeits with QR authentication and join the official deposit return loop.",
+      "Authenticate every bottle with a unique QR code. Stop counterfeits, meet sustainability targets, and join the official deposit-return loop.",
+    stat: "100% bottle traceability",
     color: "#d97706",
-    href: "/solutions",
+    href: "/contact",
     cta: "Protect your brand",
   },
   {
-    icon: Recycle,
+    icon: Leaf,
     title: "Recycler",
     subtitle: "Close the Loop",
     description:
-      "Receive sorted, clean material from ECO-Stations and turn it into raw input for manufacturing.",
+      "Receive sorted, clean material from ECO-Stations and turn it into raw input for manufacturing — zero sorting overhead.",
+    stat: "Pre-sorted clean material",
     color: "#059669",
-    href: "/solutions",
-    cta: "Join as recycler",
+    href: "/contact",
+    cta: "Partner with us",
   },
   {
     icon: Music,
     title: "Events",
     subtitle: "Zero-Waste Activations",
     description:
-      "Deploy portable ECO-Stations at festivals and events to hit your sustainability goals.",
+      "Deploy portable ECO-Stations at festivals and events. Hit your sustainability goals and delight your audience.",
+    stat: "Portable stations available",
     color: "#e11d48",
-    href: "/solutions",
-    cta: "Event solutions",
+    href: "/contact",
+    cta: "Get an event quote",
   },
 ]
 
@@ -93,41 +99,54 @@ export default function EcommunityRolesSection() {
               <Link
                 key={role.title}
                 href={role.href}
-                className="group relative flex w-[80vw] shrink-0 cursor-pointer flex-col rounded-2xl border border-black/5 bg-white p-7 transition-all duration-200 hover:border-black/10 hover:shadow-lg sm:w-[60vw] lg:w-auto"
+                className="group relative flex w-[82vw] shrink-0 cursor-pointer flex-col overflow-hidden rounded-2xl border border-black/5 bg-white transition-all duration-200 hover:shadow-lg sm:w-[60vw] lg:w-auto"
                 style={{ scrollSnapAlign: "start" }}
               >
-                {/* Icon */}
-                <div
-                  className="mb-5 flex h-11 w-11 items-center justify-center rounded-xl"
-                  style={{ background: role.color + "15" }}
-                >
-                  <Icon size={22} style={{ color: role.color }} />
-                </div>
+                {/* Coloured top accent bar */}
+                <div className="h-[3px] w-full" style={{ background: role.color }} />
 
-                {/* Content */}
-                <p
-                  className="mb-1 text-[11px] font-semibold uppercase tracking-widest"
-                  style={{ color: role.color }}
-                >
-                  {role.subtitle}
-                </p>
-                <h3 className="mb-2 text-[20px] font-bold leading-tight text-eco-dark">
-                  {role.title}
-                </h3>
-                <p className="flex-1 text-[15px] leading-relaxed text-eco-dark/60">
-                  {role.description}
-                </p>
+                <div className="flex flex-1 flex-col p-6">
+                  {/* Icon */}
+                  <div
+                    className="mb-5 flex h-11 w-11 items-center justify-center rounded-xl transition-colors duration-200"
+                    style={{ background: role.color + "18" }}
+                  >
+                    <Icon size={22} style={{ color: role.color }} />
+                  </div>
 
-                {/* CTA */}
-                <div
-                  className="mt-5 flex items-center gap-1.5 text-[14px] font-semibold"
-                  style={{ color: role.color }}
-                >
-                  {role.cta}
-                  <ArrowRight
-                    size={14}
-                    className="transition-transform group-hover:translate-x-1"
-                  />
+                  {/* Content */}
+                  <p
+                    className="mb-1 text-[11px] font-semibold uppercase tracking-widest"
+                    style={{ color: role.color }}
+                  >
+                    {role.subtitle}
+                  </p>
+                  <h3 className="mb-2 text-[20px] font-bold leading-tight text-eco-dark">
+                    {role.title}
+                  </h3>
+                  <p className="flex-1 text-[14px] leading-relaxed text-eco-dark/60">
+                    {role.description}
+                  </p>
+
+                  {/* Stat pill */}
+                  <div
+                    className="mt-4 inline-flex w-fit items-center gap-1.5 rounded-full px-3 py-1 text-[12px] font-semibold"
+                    style={{ background: role.color + "12", color: role.color }}
+                  >
+                    {role.stat}
+                  </div>
+
+                  {/* CTA */}
+                  <div
+                    className="mt-5 flex items-center gap-1.5 text-[14px] font-semibold"
+                    style={{ color: role.color }}
+                  >
+                    {role.cta}
+                    <ArrowRight
+                      size={14}
+                      className="transition-transform group-hover:translate-x-1"
+                    />
+                  </div>
                 </div>
               </Link>
             )
