@@ -8,7 +8,6 @@ import HeroSection from "@/components/sections/hero-section"
 import ProblemSolutionSection from "@/components/sections/problem-solution-section"
 import HowItWorksSection from "@/components/sections/how-it-works-section"
 import EcommunityRolesSection from "@/components/sections/ecommunity-roles-section"
-import ElectricMobilitySection from "@/components/sections/electric-mobility-section"
 import AntiCounterfeitSection from "@/components/sections/anti-counterfeit-section"
 import AppShowcaseSection from "@/components/sections/app-showcase-section"
 import ForInvestorsSection from "@/components/sections/for-investors-section"
@@ -90,10 +89,6 @@ export default function Home() {
 
       <div id="ecommunity">
         <EcommunityRolesSection />
-      </div>
-
-      <div id="mobility">
-        <ElectricMobilitySection />
       </div>
 
       <div id="counterfeit">
