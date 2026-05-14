@@ -6,49 +6,49 @@ import { ScrollTrigger } from "gsap/ScrollTrigger"
 import { Download, ArrowRight } from "lucide-react"
 
 interface HeroSectionProps {
+  scrollEnabled: boolean
   onTransitionComplete: () => void
+  resetSignal: number
 }
 
 export default function HeroSection({ onTransitionComplete }: HeroSectionProps) {
   const heroRef = useRef<HTMLDivElement>(null)
+  const videoWrapperRef = useRef<HTMLDivElement>(null)
   const contentRef = useRef<HTMLDivElement>(null)
   const brandRef = useRef<HTMLDivElement>(null)
 
-  // Unlock scroll + Lenis immediately on mount
+  // Unlock scroll + initialise Lenis immediately on mount
   useEffect(() => {
     onTransitionComplete()
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
-  // Entry fade-in
+  // ── Entry fade-in ─────────────────────────────────────────────────────────
   useEffect(() => {
     const ctx = gsap.context(() => {
       gsap.fromTo(
         contentRef.current,
-        { opacity: 0, y: 24 },
+        { opacity: 0, y: 28 },
         { opacity: 1, y: 0, duration: 1.1, delay: 0.15, ease: "power3.out" }
       )
       gsap.fromTo(
         brandRef.current,
-        { opacity: 0, y: 12 },
+        { opacity: 0, y: 14 },
         { opacity: 1, y: 0, duration: 1.0, delay: 0.4, ease: "power3.out" }
       )
     }, heroRef)
     return () => ctx.revert()
   }, [])
 
-  // ── Scroll-driven zoom-out (pinned) ──────────────────────────────────────
-  // The hero is pinned for one viewport-height of scroll so the animation is
-  // fully visible before the section scrolls away. A single timeline drives
-  // all three targets so they stay in sync on a shared ScrollTrigger.
-  // We wait 500 ms to ensure Lenis + ScrollTrigger are wired up in page.tsx
-  // before registering the pinned trigger.
+  // ── Pinned scroll zoom-out ────────────────────────────────────────────────
+  // The hero is pinned for one full viewport-height of additional scroll so
+  // the animation plays while the hero stays on screen. A single timeline
+  // scrubbed to the scroll position drives all three targets together.
+  // 500 ms delay ensures Lenis is wired up in page.tsx before we register.
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger)
 
-    const ctx = gsap.context(() => {
-      const hero = heroRef.current
-      if (!hero) return
+    let scrollCtx: ReturnType<typeof gsap.context> | null = null
 
     const timer = setTimeout(() => {
       scrollCtx = gsap.context(() => {
@@ -56,14 +56,14 @@ export default function HeroSection({ onTransitionComplete }: HeroSectionProps) 
           scrollTrigger: {
             trigger: heroRef.current,
             start: "top top",
-            end: "+=100%", // pin for one full viewport-height of scroll
+            end: "+=100%",
             pin: true,
             scrub: 1.5,
             anticipatePin: 1,
           },
         })
 
-        // 1. Text fades up and disappears first (0 → 40 % of the timeline)
+        // Text fades up and out
         tl.fromTo(
           contentRef.current,
           { opacity: 1, y: 0 },
@@ -77,7 +77,7 @@ export default function HeroSection({ onTransitionComplete }: HeroSectionProps) 
           0.05
         )
 
-        // 2. Video pulls back + corners round (plays across full timeline)
+        // Video wrapper pulls back + corners round
         tl.fromTo(
           videoWrapperRef.current,
           { scale: 1, borderRadius: "0px" },
@@ -101,14 +101,24 @@ export default function HeroSection({ onTransitionComplete }: HeroSectionProps) 
   }
 
   return (
+    /*
+     * bg-[#080808] — the dark canvas that appears around the video as it
+     * shrinks. No overflow-hidden on the root so the scaled-down video
+     * wrapper shows the rounded corners against the dark background.
+     * The video wrapper carries its own overflow-hidden for corner clipping.
+     */
     <div
       ref={heroRef}
       id="hero"
-      className="relative w-full overflow-hidden"
+      className="relative w-full bg-[#080808]"
       style={{ height: "100dvh" }}
     >
-      <div className="absolute inset-0" style={{ zIndex: 1 }}>
-        {/* Video — full natural brightness */}
+      {/* ── Video wrapper — target of the scale animation ─────────────────── */}
+      <div
+        ref={videoWrapperRef}
+        className="absolute inset-0 overflow-hidden"
+        style={{ willChange: "transform, border-radius" }}
+      >
         <video
           autoPlay
           loop
@@ -116,40 +126,41 @@ export default function HeroSection({ onTransitionComplete }: HeroSectionProps) 
           playsInline
           preload="auto"
           poster="/images/scan-verify.jpg"
-          className="h-full w-full object-cover"
+          className="h-full w-full object-cover brightness-[0.85]"
         >
           <source src="/videos/hero-loop.mp4" type="video/mp4" />
         </video>
 
-        {/* Base depth gradient — keeps text readable */}
+        {/* Directional glare killer — top-right bright spill */}
         <div
           className="absolute inset-0"
           style={{
             background:
-              "linear-gradient(to bottom, rgba(16,16,16,0.35) 0%, rgba(16,16,16,0.04) 40%, rgba(16,16,16,0.80) 100%)",
+              "radial-gradient(ellipse 80% 60% at 85% 10%, rgba(10,10,10,0.65) 0%, rgba(10,10,10,0.0) 70%)",
           }}
         />
 
-        {/* Soft left-edge vignette */}
+        {/* Base depth gradient — top and bottom vignette */}
         <div
           className="absolute inset-0"
           style={{
-            background: "linear-gradient(to right, rgba(10,10,10,0.25) 0%, rgba(10,10,10,0.0) 55%)",
+            background:
+              "linear-gradient(to bottom, rgba(16,16,16,0.45) 0%, rgba(16,16,16,0.08) 45%, rgba(16,16,16,0.75) 100%)",
           }}
         />
 
-        {/* Hero → section bridge gradient */}
+        {/* Left-edge vignette for text legibility */}
         <div
-          className="absolute bottom-0 left-0 right-0"
+          className="absolute inset-0"
           style={{
-            height: "40vh",
-            background: "linear-gradient(to bottom, rgba(16,16,16,0) 0%, #101010 100%)",
-            zIndex: 2,
+            background: "linear-gradient(to right, rgba(10,10,10,0.40) 0%, rgba(10,10,10,0.0) 55%)",
           }}
         />
       </div>
 
+      {/* ── Hero text ─────────────────────────────────────────────────────── */}
       <div className="absolute inset-0 flex flex-col" style={{ zIndex: 3 }}>
+        {/* Main copy */}
         <div
           ref={contentRef}
           className="flex flex-1 flex-col items-center justify-center px-4 text-center"
@@ -194,6 +205,7 @@ export default function HeroSection({ onTransitionComplete }: HeroSectionProps) 
           </span>
         </div>
 
+        {/* ECOCAN brand + Explore CTA */}
         <div
           ref={brandRef}
           className="flex flex-col items-center justify-center gap-3 pb-[2vh] pt-1"
