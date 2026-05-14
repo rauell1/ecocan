@@ -5,9 +5,7 @@ import { gsap } from "gsap"
 import { Download, ArrowRight } from "lucide-react"
 
 interface HeroSectionProps {
-  scrollEnabled: boolean
   onTransitionComplete: () => void
-  resetSignal: number
 }
 
 export default function HeroSection({ onTransitionComplete }: HeroSectionProps) {
@@ -21,7 +19,7 @@ export default function HeroSection({ onTransitionComplete }: HeroSectionProps) 
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
-  // Simple fade-in intro for hero text
+  // Entry fade-in for hero text
   useEffect(() => {
     const ctx = gsap.context(() => {
       gsap.fromTo(
@@ -36,6 +34,35 @@ export default function HeroSection({ onTransitionComplete }: HeroSectionProps) 
       )
     }, heroRef)
     return () => ctx.revert()
+  }, [])
+
+  // Exit scrub — fade the entire hero out as it scrolls off the top
+  useEffect(() => {
+    let ctx: ReturnType<typeof gsap.context> | null = null
+
+    // Delay until Lenis + ScrollTrigger have been registered (async import in page.tsx)
+    const id = setTimeout(async () => {
+      const { ScrollTrigger } = await import("gsap/ScrollTrigger")
+      gsap.registerPlugin(ScrollTrigger)
+
+      ctx = gsap.context(() => {
+        gsap.to(heroRef.current, {
+          opacity: 0,
+          ease: "none",
+          scrollTrigger: {
+            trigger: heroRef.current,
+            start: "top top",
+            end: "bottom top",
+            scrub: true,
+          },
+        })
+      }, heroRef)
+    }, 400)
+
+    return () => {
+      clearTimeout(id)
+      ctx?.revert()
+    }
   }, [])
 
   const scrollToSection = (id: string) => {
@@ -87,6 +114,16 @@ export default function HeroSection({ onTransitionComplete }: HeroSectionProps) 
           className="absolute inset-0"
           style={{
             background: "linear-gradient(to right, rgba(10,10,10,0.40) 0%, rgba(10,10,10,0.0) 55%)",
+          }}
+        />
+
+        {/* Hero → section bridge gradient — fades video bottom into #101010 */}
+        <div
+          className="absolute bottom-0 left-0 right-0"
+          style={{
+            height: "30vh",
+            background: "linear-gradient(to bottom, rgba(16,16,16,0) 0%, #101010 100%)",
+            zIndex: 2,
           }}
         />
       </div>

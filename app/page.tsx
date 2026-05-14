@@ -19,9 +19,6 @@ import CallToActionSection from "@/components/sections/call-to-action-section"
 import FAQSection from "@/components/sections/faq-section"
 import HomeFooter from "@/components/sections/home-footer"
 
-// gsap and Lenis are dynamically imported inside handleTransitionComplete so
-// they are excluded from the critical-path JS bundle and don't block LCP.
-
 export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false)
 
@@ -40,7 +37,6 @@ export default function Home() {
     }
   }, [])
 
-  // Called by HeroSection on mount — initialises Lenis smooth scroll
   const handleTransitionComplete = useCallback(async () => {
     const [{ gsap }, { ScrollTrigger }, { default: Lenis }] = await Promise.all([
       import("gsap"),
@@ -82,10 +78,9 @@ export default function Home() {
       <HomeNavbar scrollEnabled={true} onMenuToggle={() => setMenuOpen(!menuOpen)} />
       <HomeMobileMenu isOpen={menuOpen} onClose={() => setMenuOpen(false)} scrollEnabled={true} />
 
+      {/* HeroSection — scrollEnabled and resetSignal removed (unused) */}
       <HeroSection
-        scrollEnabled={true}
         onTransitionComplete={handleTransitionComplete}
-        resetSignal={0}
       />
 
       <div id="problem">
