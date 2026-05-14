@@ -37,7 +37,7 @@ export default function HeroSection({ onTransitionComplete }: HeroSectionProps) 
     return () => ctx.revert()
   }, [])
 
-  // Tighter, cleaner scroll transition
+  // Clean scroll transition — fade + dim only, no scale
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger)
 
@@ -45,34 +45,32 @@ export default function HeroSection({ onTransitionComplete }: HeroSectionProps) 
       const hero = heroRef.current
       if (!hero) return
 
-      // 1) Hero: very subtle scale, deeper brightness fade, snappy scrub
+      // 1) Hero: pure opacity + brightness fade — no scale at all
       gsap.to(hero, {
         opacity: 0,
-        scale: 0.98,           // much smaller pull-back — almost imperceptible shift
-        filter: "brightness(0.6)", // darker final frame = crisper handoff
-        transformOrigin: "center center",
+        filter: "brightness(0.6)",
         ease: "none",
         scrollTrigger: {
           trigger: hero,
           start: "top top",
           end: "bottom top",
-          scrub: 0.4,          // snappier response to scroll
+          scrub: 0.4,
         },
       })
 
-      // 2) Next section: minimal rise, snappy
+      // 2) Next section: minimal rise
       const nextSection = hero.nextElementSibling as HTMLElement | null
       if (nextSection) {
         gsap.fromTo(
           nextSection,
-          { opacity: 0, y: 20 },  // smaller lift
+          { opacity: 0, y: 20 },
           {
             opacity: 1,
             y: 0,
             ease: "power2.out",
             scrollTrigger: {
               trigger: nextSection,
-              start: "top 85%",   // reveals a touch later — cleaner window
+              start: "top 85%",
               end: "top 45%",
               scrub: 0.4,
             },
@@ -80,7 +78,7 @@ export default function HeroSection({ onTransitionComplete }: HeroSectionProps) 
         )
       }
 
-      // 3) Global .ps-animate section reveals — consistent with hero
+      // 3) Global .ps-animate section reveals
       const animatedSections = document.querySelectorAll<HTMLElement>(".ps-animate")
       animatedSections.forEach((el) => {
         gsap.fromTo(
@@ -116,7 +114,7 @@ export default function HeroSection({ onTransitionComplete }: HeroSectionProps) 
       className="relative w-full overflow-hidden"
       style={{ height: "100dvh" }}
     >
-      {/* ── Video background ──────────────────────────────────────────────── */}
+      {/* ── Video background ─────────────────────────────────────────────── */}
       <div className="absolute inset-0" style={{ zIndex: 1 }}>
         <video
           autoPlay
@@ -139,7 +137,7 @@ export default function HeroSection({ onTransitionComplete }: HeroSectionProps) 
           }}
         />
 
-        {/* Base depth gradient — deeper final stop for cleaner handoff */}
+        {/* Base depth gradient */}
         <div
           className="absolute inset-0"
           style={{
@@ -156,7 +154,7 @@ export default function HeroSection({ onTransitionComplete }: HeroSectionProps) 
           }}
         />
 
-        {/* Hero → section bridge gradient — taller for smoother blend */}
+        {/* Hero → section bridge gradient */}
         <div
           className="absolute bottom-0 left-0 right-0"
           style={{
@@ -167,9 +165,8 @@ export default function HeroSection({ onTransitionComplete }: HeroSectionProps) 
         />
       </div>
 
-      {/* ── Hero content ──────────────────────────────────────────────────── */}
+      {/* ── Hero content ─────────────────────────────────────────────────── */}
       <div className="absolute inset-0 flex flex-col" style={{ zIndex: 3 }}>
-        {/* Main copy */}
         <div
           ref={contentRef}
           className="flex flex-1 flex-col items-center justify-center px-4 text-center"
