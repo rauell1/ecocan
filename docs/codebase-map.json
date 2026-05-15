@@ -1,15 +1,15 @@
 {
   "meta": {
-    "version": "405db4f",
-    "generatedAt": "2026-05-15T13:10:47.807Z",
+    "version": "bece7e7",
+    "generatedAt": "2026-05-15T13:15:50.816Z",
     "branch": "main",
-    "previousVersion": "58fc7d3",
+    "previousVersion": "405db4f",
     "generator": "scripts/generate-codebase-map.mjs",
     "framework": "Next.js 14",
     "packageManager": "pnpm"
   },
   "changes": [
-    "Modified: components/sections/ecommunity-roles-section.tsx"
+    "Modified: components/sections/hero-section.tsx"
   ],
   "affectedHotspots": [],
   "routes": [
@@ -282,7 +282,7 @@
     "components/sections/electric-mobility-section.tsx": "9a3ce8d0debbfc932250d02094a2a186ae30d0fc",
     "components/sections/faq-section.tsx": "cfacab9f7cbf433fea6f9e40657e39b5a9b5009d",
     "components/sections/for-investors-section.tsx": "55048ed4a375a49b37df752e587ca3d8e28ca690",
-    "components/sections/hero-section.tsx": "13b1ccf1e48f2b3ec6a9fa419ecf9b5cfe5e61b3",
+    "components/sections/hero-section.tsx": "081990bbe3030f3af91a13272271dd36bc3bdfce",
     "components/sections/home-footer.tsx": "dfa45d1a2c353b17d18fe3abf27844f46511d767",
     "components/sections/home-mobile-menu.tsx": "723e8b61a5acdd85b59f957f4ee80964686efe3f",
     "components/sections/home-navbar.tsx": "68130a2f7f8c73156e00aa8a062f4a4c527a6fbb",
@@ -408,6 +408,14 @@
       "branch": "main",
       "changes": [
         "Modified: components/sections/ecommunity-roles-section.tsx"
+      ]
+    },
+    {
+      "version": "bece7e7",
+      "date": "2026-05-15T13:15:50.816Z",
+      "branch": "main",
+      "changes": [
+        "Modified: components/sections/hero-section.tsx"
       ]
     }
   ]

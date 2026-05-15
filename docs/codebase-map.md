@@ -5,14 +5,14 @@
 
 # 🗺️ EcoCan Codebase Map
 
-> **Version:** `405db4f`
-> **Generated:** 2026-05-15T13:10:47.807Z
+> **Version:** `bece7e7`
+> **Generated:** 2026-05-15T13:15:50.816Z
 > **Branch:** `main`
-> **Previous:** `58fc7d3`
+> **Previous:** `405db4f`
 
 ## Changes Since Last Version
 
-- Modified: components/sections/ecommunity-roles-section.tsx
+- Modified: components/sections/hero-section.tsx
 
 ---
 
@@ -59,6 +59,7 @@
 
 | Version | Date | Branch | Changes |
 |---|---|---|---|
+| `bece7e7` | 2026-05-15 | main | Modified: components/sections/hero-section.tsx |
 | `405db4f` | 2026-05-15 | main | Modified: components/sections/ecommunity-roles-section.tsx |
 | `58fc7d3` | 2026-05-15 | main | Modified: components/sections/hero-section.tsx; Modified: components/sections/problem-solution-section.tsx |
 | `711f046` | 2026-05-14 | main | Full map regeneration |
