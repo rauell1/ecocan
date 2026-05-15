@@ -2,7 +2,6 @@
 
 import { useRef, useEffect } from "react"
 import { gsap } from "gsap"
-import { ScrollTrigger } from "gsap/ScrollTrigger"
 import NavigationBar from "@/components/shared/navbar/navbar"
 import { useScroll } from "@/lib/useScroll"
 import Footer from "@/components/shared/footer/footer"
@@ -10,16 +9,29 @@ import News from "./components/news"
 
 export default function Blog() {
   const isScrolled = useScroll()
-  const headingRef = useRef<HTMLDivElement>(null)
+  const heroRef = useRef<HTMLDivElement>(null)
+  const contentRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
-    gsap.registerPlugin(ScrollTrigger)
     const ctx = gsap.context(() => {
-      gsap.fromTo(
-        headingRef.current,
-        { opacity: 0, y: 30 },
-        { opacity: 1, y: 0, duration: 0.9, ease: "power2.out", delay: 0.1 }
-      )
+      // Hero text staggers in
+      const els = heroRef.current?.querySelectorAll(".news-animate")
+      if (els && els.length > 0) {
+        gsap.fromTo(
+          els,
+          { opacity: 0, y: 32 },
+          { opacity: 1, y: 0, duration: 0.8, stagger: 0.12, delay: 0.15, ease: "power3.out" }
+        )
+      }
+
+      // News content section fades up
+      if (contentRef.current) {
+        gsap.fromTo(
+          contentRef.current,
+          { opacity: 0, y: 24 },
+          { opacity: 1, y: 0, duration: 0.7, delay: 0.3, ease: "power2.out" }
+        )
+      }
     })
     return () => ctx.revert()
   }, [])
@@ -32,20 +44,54 @@ export default function Blog() {
         linkColor="text-eco-dark"
       />
 
-      {/* Page hero */}
-      <div className="w-full pt-[72px]" style={{ background: "#F7F7F7" }}>
-        <div className="mx-auto max-w-[1280px] px-6 py-20 md:py-28" ref={headingRef}>
-          <p className="section-overline mb-4">Latest from ECOCAN</p>
-          <h1 className="section-headline max-w-[640px] text-eco-dark">News &amp; Stories</h1>
-          <p className="section-body mt-4 max-w-[560px] text-eco-dark">
+      {/* ── Page hero ───────────────────────────────────────────────────── */}
+      <div
+        ref={heroRef}
+        className="relative w-full overflow-hidden pt-[72px]"
+        style={{ background: "#0f0f0f" }}
+      >
+        {/* Ambient green glow top-left */}
+        <div
+          className="pointer-events-none absolute -left-24 -top-24 h-[480px] w-[480px] rounded-full opacity-15 blur-3xl"
+          style={{ background: "radial-gradient(circle, #22c55e, transparent 70%)" }}
+        />
+
+        <div className="relative z-10 mx-auto max-w-[1280px] px-6 py-20 md:py-28">
+          <p className="news-animate section-overline mb-4 text-primary">Latest from ECOCAN</p>
+          <h1
+            className="news-animate mb-4 font-bold text-white"
+            style={{ fontSize: "clamp(36px, 5vw, 64px)", lineHeight: 1.1 }}
+          >
+            News &amp; Stories
+          </h1>
+          <p className="news-animate max-w-[520px] text-lg leading-relaxed text-white/60">
             Updates on sustainability, partnerships, and impact across Africa&apos;s circular
             economy.
           </p>
+
+          {/* Category pills */}
+          <div className="news-animate mt-8 flex flex-wrap gap-3">
+            {["Sustainability", "Partnerships", "Impact", "Policy"].map((tag) => (
+              <span
+                key={tag}
+                className="rounded-full px-4 py-1.5 text-sm font-medium text-white/70"
+                style={{
+                  background: "rgba(255,255,255,0.07)",
+                  border: "1px solid rgba(255,255,255,0.12)",
+                }}
+              >
+                {tag}
+              </span>
+            ))}
+          </div>
         </div>
+
+        {/* Bottom fade to white */}
+        <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-b from-transparent to-white" />
       </div>
 
-      {/* News tabs + articles  -  unchanged */}
-      <div className="mx-auto max-w-[1280px] px-6 py-12">
+      {/* ── News tabs + articles ─────────────────────────────────────────── */}
+      <div ref={contentRef} className="mx-auto max-w-[1280px] px-6 py-12">
         <News />
       </div>
 
