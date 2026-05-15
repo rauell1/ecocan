@@ -5,15 +5,22 @@
 
 # 🗺️ EcoCan Codebase Map
 
-> **Version:** `96d4656`
-> **Generated:** 2026-05-15T16:26:03.508Z
+> **Version:** `24ec96a`
+> **Generated:** 2026-05-15T16:42:31.458Z
 > **Branch:** `main`
-> **Previous:** `b343424`
+> **Previous:** `96d4656`
 
 ## Changes Since Last Version
 
-- Modified: components/sections/for-investors-section.tsx
+- Modified: components/sections/anti-counterfeit-section.tsx
+- Modified: components/sections/app-showcase-section.tsx
+- Modified: components/sections/call-to-action-section.tsx
+- Modified: components/sections/ecommunity-roles-section.tsx
+- Modified: components/sections/faq-section.tsx
+- Modified: components/sections/hero-section.tsx
 - Modified: components/sections/how-it-works-section.tsx
+- Modified: components/sections/partners-testimonials-section.tsx
+- Modified: components/sections/problem-solution-section.tsx
 - Modified: components/sections/sustainability-impact-section.tsx
 
 ---
@@ -61,6 +68,7 @@
 
 | Version | Date | Branch | Changes |
 |---|---|---|---|
+| `24ec96a` | 2026-05-15 | main | Modified: components/sections/anti-counterfeit-section.tsx; Modified: components/sections/app-showcase-section.tsx; Modified: components/sections/call-to-action-section.tsx; Modified: components/sections/ecommunity-roles-section.tsx; Modified: components/sections/faq-section.tsx; Modified: components/sections/hero-section.tsx; Modified: components/sections/how-it-works-section.tsx; Modified: components/sections/partners-testimonials-section.tsx; Modified: components/sections/problem-solution-section.tsx; Modified: components/sections/sustainability-impact-section.tsx |
 | `96d4656` | 2026-05-15 | main | Modified: components/sections/for-investors-section.tsx; Modified: components/sections/how-it-works-section.tsx; Modified: components/sections/sustainability-impact-section.tsx |
 | `b343424` | 2026-05-15 | main | Modified: app/contact/components/contact-form.tsx; Modified: app/page.tsx; Modified: components/sections/ecommunity-roles-section.tsx; Modified: components/sections/hero-section.tsx; Modified: components/sections/home-mobile-menu.tsx; Modified: components/sections/home-navbar.tsx; Modified: components/sections/how-it-works-section.tsx; Modified: components/sections/problem-solution-section.tsx; Modified: components/shared/eco-events-form.tsx; Modified: components/shared/eco-producer-form.tsx; Modified: components/shared/hero-form/hero-form.tsx; Added: components/shared/problem-illustration.tsx; Modified: components/ui/ticker-counter.tsx; Modified: lib/env.ts |
 | `bece7e7` | 2026-05-15 | main | Modified: components/sections/hero-section.tsx |
