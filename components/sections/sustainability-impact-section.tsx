@@ -3,22 +3,27 @@
 import { useRef, useEffect } from "react"
 import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
+import { Leaf, Recycle, MapPin } from "lucide-react"
 import SectionBadge from "@/components/shared/section-badge"
 
 const stats = [
   {
     value: 50000,
     suffix: "+",
-    label: "Bottles recovered",
-    sublabel: "per month",
+    label: "Bottles Recovered",
+    sublabel: "every single month",
     color: "#4ade80",
+    icon: Recycle,
+    desc: "Every bottle scanned and returned funds the local collector — a living wage, not charity.",
   },
   {
     value: 120,
     suffix: "",
-    label: "Tons CO₂ saved",
-    sublabel: "and counting",
+    label: "Tons CO₂ Saved",
+    sublabel: "and still counting",
     color: "#facc15",
+    icon: Leaf,
+    desc: "Fewer trucks, fewer furnaces. Each return trip on an electric bike cuts carbon twice over.",
   },
   {
     value: 150,
@@ -26,6 +31,8 @@ const stats = [
     label: "ECO-Stations",
     sublabel: "active collection points",
     color: "#60a5fa",
+    icon: MapPin,
+    desc: "From corner shops to supermarkets — a growing network that pays you where you already shop.",
   },
 ]
 
@@ -37,43 +44,44 @@ export default function SustainabilityImpactSection() {
     gsap.registerPlugin(ScrollTrigger)
 
     const ctx = gsap.context(() => {
-      // Heading slides up
-      const headingEls = sectionRef.current?.querySelectorAll(".heading-animate")
+      // Heading block
+      const headingEls = sectionRef.current?.querySelectorAll(".si-heading")
       if (headingEls && headingEls.length > 0) {
         gsap.fromTo(
           headingEls,
-          { opacity: 0, y: 40 },
+          { opacity: 0, y: 36 },
           {
             opacity: 1,
             y: 0,
-            duration: 0.8,
-            stagger: 0.1,
-            ease: "power2.out",
-            scrollTrigger: { trigger: sectionRef.current, start: "top 80%", once: true },
+            duration: 0.75,
+            stagger: 0.12,
+            ease: "power3.out",
+            scrollTrigger: { trigger: sectionRef.current, start: "top 78%", once: true },
           }
         )
       }
 
       if (!countersRef.current) return
 
-      // Stat cards slide up with stagger
+      // Stat cards stagger up
       const cards = countersRef.current.querySelectorAll(".stat-card")
       if (cards.length > 0) {
         gsap.fromTo(
           cards,
-          { opacity: 0, y: 56 },
+          { opacity: 0, y: 64, scale: 0.96 },
           {
             opacity: 1,
             y: 0,
-            duration: 0.75,
-            stagger: 0.18,
+            scale: 1,
+            duration: 0.72,
+            stagger: 0.15,
             ease: "power3.out",
             scrollTrigger: { trigger: countersRef.current, start: "top 80%", once: true },
           }
         )
       }
 
-      // Counter roll-up animation
+      // Counter roll-up
       const counterEls = countersRef.current.querySelectorAll(".counter-value")
       counterEls.forEach((el) => {
         const target = parseInt(el.getAttribute("data-target") ?? "0", 10)
@@ -82,73 +90,175 @@ export default function SustainabilityImpactSection() {
           { textContent: "0" },
           {
             textContent: target,
-            duration: 2.2,
+            duration: 2.4,
             ease: "power2.out",
             snap: { textContent: 1 },
             scrollTrigger: { trigger: el, start: "top 85%", once: true },
           }
         )
       })
+
+      // Subtle parallax on the background
+      if (sectionRef.current) {
+        gsap.fromTo(
+          sectionRef.current.querySelector(".si-bg"),
+          { backgroundPositionY: "-10%" },
+          {
+            backgroundPositionY: "10%",
+            ease: "none",
+            scrollTrigger: {
+              trigger: sectionRef.current,
+              start: "top bottom",
+              end: "bottom top",
+              scrub: true,
+            },
+          }
+        )
+      }
     }, sectionRef)
 
     return () => ctx.revert()
   }, [])
 
   return (
-    <section ref={sectionRef} className="relative w-full overflow-hidden py-[120px] md:py-[160px]">
-      {/* Parallax background */}
+    <section
+      ref={sectionRef}
+      className="relative w-full overflow-hidden py-[120px] md:py-[160px]"
+      style={{ background: "#0a1a0f" }} /* fallback if image fails */
+    >
+      {/* Parallax background image */}
       <div
-        className="absolute inset-0"
+        className="si-bg absolute inset-0"
         style={{
           backgroundImage: "url(/images/recycling-hub.jpg)",
           backgroundSize: "cover",
           backgroundPosition: "center",
-          backgroundAttachment: "fixed",
         }}
       />
-      {/* Dark overlay — slightly heavier so cards pop */}
-      <div className="absolute inset-0 bg-eco-dark/80" />
+      {/* Multi-layer overlay: gradient for depth + solid for legibility */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/75 to-black/85" />
+      {/* Green tint layer for brand consistency */}
+      <div className="absolute inset-0" style={{ background: "rgba(5,40,20,0.45)" }} />
+
+      {/* Subtle ambient glow behind numbers */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute left-1/2 top-1/2 h-[700px] w-[700px] -translate-x-1/2 -translate-y-1/2 rounded-full opacity-15 blur-3xl"
+        style={{ background: "radial-gradient(circle, #22c55e 0%, transparent 65%)" }}
+      />
 
       <div className="relative z-10 mx-auto max-w-[1280px] px-6">
-        <SectionBadge number="05" />
-        <p className="section-overline heading-animate mb-4 text-white/60">Impact</p>
-        <h2 className="section-headline heading-animate mb-16 text-white">
-          Measurable. Transparent. Real.
+        {/* Badge + heading */}
+        <div className="mb-4">
+          <SectionBadge number="05" />
+        </div>
+        <p className="section-overline si-heading mb-4" style={{ color: "rgba(255,255,255,0.55)" }}>
+          Impact
+        </p>
+        <h2
+          className="si-heading mb-5 font-bold text-white"
+          style={{ fontSize: "clamp(2rem, 4vw, 3rem)", lineHeight: 1.1, letterSpacing: "-0.02em" }}
+        >
+          Measurable.{" "}
+          <span
+            style={{
+              background: "linear-gradient(90deg, #4ade80, #22c55e)",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+            }}
+          >
+            Transparent.
+          </span>{" "}
+          Real.
         </h2>
+        <p
+          className="si-heading mb-16 max-w-[520px] text-[17px] leading-relaxed"
+          style={{ color: "rgba(255,255,255,0.65)" }}
+        >
+          Every scan, every return, every peso — tracked, verified, and publicly shared. No
+          greenwashing. Just proof.
+        </p>
 
         {/* Stat cards */}
-        <div ref={countersRef} className="grid grid-cols-1 gap-5 md:grid-cols-3">
-          {stats.map((stat) => (
-            <div
-              key={stat.label}
-              className="stat-card group relative overflow-hidden rounded-2xl border border-white/10 bg-white/5 px-8 py-10 backdrop-blur-sm transition-all duration-300 hover:bg-white/10"
-            >
-              {/* Coloured top accent */}
+        <div ref={countersRef} className="grid grid-cols-1 gap-6 md:grid-cols-3">
+          {stats.map((stat) => {
+            const Icon = stat.icon
+            return (
               <div
-                className="absolute inset-x-0 top-0 h-[3px]"
-                style={{ background: stat.color }}
-              />
-
-              {/* Number */}
-              <div
-                className="mb-1 font-extrabold tabular-nums leading-none"
-                style={{ fontSize: "clamp(56px, 8vw, 96px)", color: stat.color }}
+                key={stat.label}
+                className="stat-card group relative overflow-hidden rounded-2xl transition-all duration-300 hover:-translate-y-1"
+                style={{
+                  background: "rgba(255,255,255,0.06)",
+                  border: "1px solid rgba(255,255,255,0.10)",
+                  backdropFilter: "blur(12px)",
+                }}
               >
-                <span className="counter-value" data-target={stat.value}>
-                  0
-                </span>
-                <span>{stat.suffix}</span>
+                {/* Colored top accent */}
+                <div
+                  className="absolute inset-x-0 top-0 h-[3px] transition-all duration-300 group-hover:h-[4px]"
+                  style={{ background: stat.color }}
+                />
+
+                {/* Hover glow layer */}
+                <div
+                  className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+                  style={{
+                    background: `radial-gradient(ellipse at top, ${stat.color}12 0%, transparent 60%)`,
+                  }}
+                />
+
+                <div className="relative px-8 py-10">
+                  {/* Icon */}
+                  <div
+                    className="mb-6 flex h-11 w-11 items-center justify-center rounded-xl"
+                    style={{ background: stat.color + "20" }}
+                  >
+                    <Icon size={22} style={{ color: stat.color }} strokeWidth={1.8} />
+                  </div>
+
+                  {/* Number */}
+                  <div
+                    className="mb-1 font-extrabold tabular-nums leading-none"
+                    style={{ fontSize: "clamp(52px, 7vw, 88px)", color: stat.color }}
+                  >
+                    <span className="counter-value" data-target={stat.value}>
+                      0
+                    </span>
+                    <span>{stat.suffix}</span>
+                  </div>
+
+                  {/* Divider */}
+                  <div className="my-4 h-px w-12" style={{ background: stat.color + "40" }} />
+
+                  {/* Label */}
+                  <p className="text-lg font-bold text-white">{stat.label}</p>
+                  <p
+                    className="mt-1 text-sm font-medium"
+                    style={{ color: "rgba(255,255,255,0.55)" }}
+                  >
+                    {stat.sublabel}
+                  </p>
+
+                  {/* Description — shown on hover */}
+                  <p
+                    className="mt-4 text-[13px] leading-relaxed transition-all duration-300"
+                    style={{ color: "rgba(255,255,255,0.45)" }}
+                  >
+                    {stat.desc}
+                  </p>
+                </div>
               </div>
-
-              {/* Divider */}
-              <div className="my-4 h-px w-10 bg-white/20" />
-
-              {/* Labels */}
-              <p className="text-lg font-semibold text-white">{stat.label}</p>
-              <p className="mt-1 text-sm text-white/45">{stat.sublabel}</p>
-            </div>
-          ))}
+            )
+          })}
         </div>
+
+        {/* Bottom footnote */}
+        <p
+          className="si-heading mt-10 text-center text-xs"
+          style={{ color: "rgba(255,255,255,0.3)" }}
+        >
+          Figures updated monthly · Independently audited · Data available on request
+        </p>
       </div>
     </section>
   )
