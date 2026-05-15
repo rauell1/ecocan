@@ -1,16 +1,15 @@
 {
   "meta": {
-    "version": "58fc7d3",
-    "generatedAt": "2026-05-15T13:08:14.602Z",
+    "version": "405db4f",
+    "generatedAt": "2026-05-15T13:10:47.807Z",
     "branch": "main",
-    "previousVersion": "711f046",
+    "previousVersion": "58fc7d3",
     "generator": "scripts/generate-codebase-map.mjs",
     "framework": "Next.js 14",
     "packageManager": "pnpm"
   },
   "changes": [
-    "Modified: components/sections/hero-section.tsx",
-    "Modified: components/sections/problem-solution-section.tsx"
+    "Modified: components/sections/ecommunity-roles-section.tsx"
   ],
   "affectedHotspots": [],
   "routes": [
@@ -279,7 +278,7 @@
     "components/sections/app-showcase-section.tsx": "a81988917ba5a9ccf1561f1908352584e05df0fa",
     "components/sections/call-to-action-section.tsx": "a088d46feab049ed1a2b7fe63815cda8b83d61df",
     "components/sections/ecocan-model-section.tsx": "c65a4cd7e93f538628c67576a58389fb1ba5d246",
-    "components/sections/ecommunity-roles-section.tsx": "889490c932c85eb7dbfc91f77b24638c000f2b39",
+    "components/sections/ecommunity-roles-section.tsx": "59ef6bb9fb8f002638e12a60a036e1bd60fadee6",
     "components/sections/electric-mobility-section.tsx": "9a3ce8d0debbfc932250d02094a2a186ae30d0fc",
     "components/sections/faq-section.tsx": "cfacab9f7cbf433fea6f9e40657e39b5a9b5009d",
     "components/sections/for-investors-section.tsx": "55048ed4a375a49b37df752e587ca3d8e28ca690",
@@ -401,6 +400,14 @@
       "changes": [
         "Modified: components/sections/hero-section.tsx",
         "Modified: components/sections/problem-solution-section.tsx"
+      ]
+    },
+    {
+      "version": "405db4f",
+      "date": "2026-05-15T13:10:47.807Z",
+      "branch": "main",
+      "changes": [
+        "Modified: components/sections/ecommunity-roles-section.tsx"
       ]
     }
   ]

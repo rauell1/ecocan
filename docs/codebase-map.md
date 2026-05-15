@@ -5,15 +5,14 @@
 
 # 🗺️ EcoCan Codebase Map
 
-> **Version:** `58fc7d3`
-> **Generated:** 2026-05-15T13:08:14.602Z
+> **Version:** `405db4f`
+> **Generated:** 2026-05-15T13:10:47.807Z
 > **Branch:** `main`
-> **Previous:** `711f046`
+> **Previous:** `58fc7d3`
 
 ## Changes Since Last Version
 
-- Modified: components/sections/hero-section.tsx
-- Modified: components/sections/problem-solution-section.tsx
+- Modified: components/sections/ecommunity-roles-section.tsx
 
 ---
 
@@ -60,6 +59,7 @@
 
 | Version | Date | Branch | Changes |
 |---|---|---|---|
+| `405db4f` | 2026-05-15 | main | Modified: components/sections/ecommunity-roles-section.tsx |
 | `58fc7d3` | 2026-05-15 | main | Modified: components/sections/hero-section.tsx; Modified: components/sections/problem-solution-section.tsx |
 | `711f046` | 2026-05-14 | main | Full map regeneration |
 | `4d2a86e` | 2026-05-14 | main | Rebuilt scroll transition from scratch in HeroSection; Modified app/page.tsx |
