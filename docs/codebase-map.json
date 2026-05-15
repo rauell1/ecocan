@@ -1,15 +1,28 @@
 {
   "meta": {
-    "version": "bece7e7",
-    "generatedAt": "2026-05-15T13:15:50.816Z",
+    "version": "b343424",
+    "generatedAt": "2026-05-15T16:11:54.718Z",
     "branch": "main",
-    "previousVersion": "405db4f",
+    "previousVersion": "bece7e7",
     "generator": "scripts/generate-codebase-map.mjs",
     "framework": "Next.js 14",
     "packageManager": "pnpm"
   },
   "changes": [
-    "Modified: components/sections/hero-section.tsx"
+    "Modified: app/contact/components/contact-form.tsx",
+    "Modified: app/page.tsx",
+    "Modified: components/sections/ecommunity-roles-section.tsx",
+    "Modified: components/sections/hero-section.tsx",
+    "Modified: components/sections/home-mobile-menu.tsx",
+    "Modified: components/sections/home-navbar.tsx",
+    "Modified: components/sections/how-it-works-section.tsx",
+    "Modified: components/sections/problem-solution-section.tsx",
+    "Modified: components/shared/eco-events-form.tsx",
+    "Modified: components/shared/eco-producer-form.tsx",
+    "Modified: components/shared/hero-form/hero-form.tsx",
+    "Added: components/shared/problem-illustration.tsx",
+    "Modified: components/ui/ticker-counter.tsx",
+    "Modified: lib/env.ts"
   ],
   "affectedHotspots": [],
   "routes": [
@@ -134,10 +147,10 @@
     "app/about-us/layout.tsx": "ce644e290feb32e6936c2c17b09404e8658a5e05",
     "app/about-us/page.tsx": "9423de316787af40c4dbfb1c77b41b092823df92",
     "app/contact/components/contact-form.tsx": "497409d1570dd0e5f070030834924dd1c5e9e3d1",
-    "app/contact/components/hero.tsx": "203724f62eb623105012903ba417abec9f73562a",
+    "app/contact/components/hero.tsx": "6540681fa43e98a742ee923bcae30ac2da9bbde7",
     "app/contact/page.tsx": "016cb23672e4d91a3df1f94377725aa095d641b3",
     "app/download/layout.tsx": "b0654c2a96999952656d9cec029bbe01ce34cd97",
-    "app/download/page.tsx": "d2c59257e9f28d35ff442968c41b9364dcdb79e1",
+    "app/download/page.tsx": "8ffde15ced1e94b80dcf7da6914d23b8776aa6f0",
     "app/eco-friendly-cans/components/accordion-demo.tsx": "25dc1fc8d699b0ce4455e0a88d4a3f516ed08c6d",
     "app/eco-friendly-cans/components/economic.tsx": "5d38034e61b6c49370ab8edc4aae2c120c5f6071",
     "app/eco-friendly-cans/components/heading.tsx": "55d74a5546cbb8a999a2bb782e12409b4f9262de",
@@ -158,7 +171,7 @@
     "app/news/components/partnership-articles.tsx": "e53cec0deec7842fe0c92977e6426d9f62d23182",
     "app/news/components/partnership-blog-hero.tsx": "a3f35c0d78e9f420b8f0de088c1c3ba85f294c70",
     "app/news/layout.tsx": "0098cea1ad4e3b29e8cfdba0cfeb8d7c071e7dbf",
-    "app/news/page.tsx": "350b6a01cf209bd01c7f80819f6d1f70e61ff0fb",
+    "app/news/page.tsx": "b3d556c34047627fb2e7bfe20fde127b6bc461d5",
     "app/page.tsx": "ac6d9aa7663874c0c7bc7095691c9406f886e744",
     "app/robots.ts": "0ac82ce211b91b4cdf082231be4ad246cef3ddca",
     "app/sitemap.ts": "fec458ba9b30441fdd98ecf1f49e4d0e39f277ec",
@@ -201,7 +214,7 @@
     "app/solutions/sections/packaging-recycling/components/process.tsx": "ab97aea357c6cdd268280a56717e8527bcaa9053",
     "app/solutions/sections/packaging-recycling/components/small-deeds.tsx": "496145ede3e1b88095f91554c3766ddaef338977",
     "app/solutions/sections/packaging-recycling/packaging-recycling.tsx": "5377031e6cf993b3fcf318bc6929aaeca22a9a31",
-    "app/solutions/sections/solutions-content.tsx": "088e8154148a97c40e65627a57664b9cf3f29d2a",
+    "app/solutions/sections/solutions-content.tsx": "3a6108e3f8384505e5c56a4a8c97eecd17ed2aa4",
     "app/solutions/sections/solutions-home/components/brand-promotion.tsx": "8a9ac58d4b42815ce365bf1e040478972b14e720",
     "app/solutions/sections/solutions-home/components/brand-protection.tsx": "92eebd41c962e98fedc85e8a423b5e1e4d6f0fb3",
     "app/solutions/sections/solutions-home/components/download.tsx": "ed679e684256eee8d2baa7cda65fd6066c33eb54",
@@ -416,6 +429,27 @@
       "branch": "main",
       "changes": [
         "Modified: components/sections/hero-section.tsx"
+      ]
+    },
+    {
+      "version": "b343424",
+      "date": "2026-05-15T16:11:54.718Z",
+      "branch": "main",
+      "changes": [
+        "Modified: app/contact/components/contact-form.tsx",
+        "Modified: app/page.tsx",
+        "Modified: components/sections/ecommunity-roles-section.tsx",
+        "Modified: components/sections/hero-section.tsx",
+        "Modified: components/sections/home-mobile-menu.tsx",
+        "Modified: components/sections/home-navbar.tsx",
+        "Modified: components/sections/how-it-works-section.tsx",
+        "Modified: components/sections/problem-solution-section.tsx",
+        "Modified: components/shared/eco-events-form.tsx",
+        "Modified: components/shared/eco-producer-form.tsx",
+        "Modified: components/shared/hero-form/hero-form.tsx",
+        "Added: components/shared/problem-illustration.tsx",
+        "Modified: components/ui/ticker-counter.tsx",
+        "Modified: lib/env.ts"
       ]
     }
   ]

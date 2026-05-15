@@ -5,14 +5,27 @@
 
 # 🗺️ EcoCan Codebase Map
 
-> **Version:** `bece7e7`
-> **Generated:** 2026-05-15T13:15:50.816Z
+> **Version:** `b343424`
+> **Generated:** 2026-05-15T16:11:54.718Z
 > **Branch:** `main`
-> **Previous:** `405db4f`
+> **Previous:** `bece7e7`
 
 ## Changes Since Last Version
 
+- Modified: app/contact/components/contact-form.tsx
+- Modified: app/page.tsx
+- Modified: components/sections/ecommunity-roles-section.tsx
 - Modified: components/sections/hero-section.tsx
+- Modified: components/sections/home-mobile-menu.tsx
+- Modified: components/sections/home-navbar.tsx
+- Modified: components/sections/how-it-works-section.tsx
+- Modified: components/sections/problem-solution-section.tsx
+- Modified: components/shared/eco-events-form.tsx
+- Modified: components/shared/eco-producer-form.tsx
+- Modified: components/shared/hero-form/hero-form.tsx
+- Added: components/shared/problem-illustration.tsx
+- Modified: components/ui/ticker-counter.tsx
+- Modified: lib/env.ts
 
 ---
 
@@ -59,6 +72,7 @@
 
 | Version | Date | Branch | Changes |
 |---|---|---|---|
+| `b343424` | 2026-05-15 | main | Modified: app/contact/components/contact-form.tsx; Modified: app/page.tsx; Modified: components/sections/ecommunity-roles-section.tsx; Modified: components/sections/hero-section.tsx; Modified: components/sections/home-mobile-menu.tsx; Modified: components/sections/home-navbar.tsx; Modified: components/sections/how-it-works-section.tsx; Modified: components/sections/problem-solution-section.tsx; Modified: components/shared/eco-events-form.tsx; Modified: components/shared/eco-producer-form.tsx; Modified: components/shared/hero-form/hero-form.tsx; Added: components/shared/problem-illustration.tsx; Modified: components/ui/ticker-counter.tsx; Modified: lib/env.ts |
 | `bece7e7` | 2026-05-15 | main | Modified: components/sections/hero-section.tsx |
 | `405db4f` | 2026-05-15 | main | Modified: components/sections/ecommunity-roles-section.tsx |
 | `58fc7d3` | 2026-05-15 | main | Modified: components/sections/hero-section.tsx; Modified: components/sections/problem-solution-section.tsx |
