@@ -1,6 +1,7 @@
 "use client"
 
 import Link from "next/link"
+import Image from "next/image"
 import { X, Download } from "lucide-react"
 
 interface HomeMobileMenuProps {
@@ -11,7 +12,6 @@ interface HomeMobileMenuProps {
 const sectionLinks = [
   { label: "How It Works", href: "#how-it-works" },
   { label: "ECOmmunity", href: "#ecommunity" },
-  { label: "Investors", href: "#investors" },
   { label: "Impact", href: "#impact" },
   { label: "FAQ", href: "#faq" },
 ]
@@ -26,11 +26,9 @@ const pageLinks = [
 export default function HomeMobileMenu({ isOpen, onClose }: HomeMobileMenuProps) {
   const handleSectionClick = (href: string) => {
     onClose()
-    document.body.style.overflow = ""
     setTimeout(() => {
-      const el = document.querySelector(href)
-      if (el) el.scrollIntoView({ behavior: "smooth" })
-    }, 200)
+      document.querySelector(href)?.scrollIntoView({ behavior: "smooth" })
+    }, 220)
   }
 
   return (
@@ -39,7 +37,7 @@ export default function HomeMobileMenu({ isOpen, onClose }: HomeMobileMenuProps)
       <div
         onClick={onClose}
         aria-hidden="true"
-        className={`fixed inset-0 z-40 bg-black/70 transition-opacity duration-300 ${
+        className={`fixed inset-0 z-40 bg-black/60 backdrop-blur-sm transition-opacity duration-300 ${
           isOpen ? "pointer-events-auto opacity-100" : "pointer-events-none opacity-0"
         }`}
       />
@@ -50,60 +48,63 @@ export default function HomeMobileMenu({ isOpen, onClose }: HomeMobileMenuProps)
         aria-modal="true"
         aria-label="Site navigation"
         aria-hidden={!isOpen}
-        className={`fixed right-0 top-0 z-50 h-full w-[300px] max-w-[90vw] bg-white shadow-2xl transition-transform duration-300 ${
+        className={`fixed right-0 top-0 z-50 flex h-full w-[280px] max-w-[88vw] flex-col bg-white shadow-2xl transition-transform duration-300 ${
           isOpen ? "pointer-events-auto translate-x-0" : "pointer-events-none translate-x-full"
         }`}
       >
-        <div className="border-black/8 flex items-center justify-between border-b px-6 py-5">
-          <span className="text-[17px] font-bold text-eco-dark">Menu</span>
+        {/* Header */}
+        <div className="flex items-center justify-between border-b border-black/[0.07] px-5 py-4">
+          <Image
+            src="/images/ecocan-logo.png"
+            alt="ECOCAN"
+            width={80}
+            height={30}
+            className="h-7 w-auto"
+          />
           <button
             onClick={onClose}
-            className="rounded-lg p-2 transition-colors hover:bg-black/5"
+            className="rounded-lg p-2 transition-colors hover:bg-black/[0.05]"
             aria-label="Close menu"
           >
-            <X size={22} className="text-eco-dark" />
+            <X size={20} className="text-eco-dark" />
           </button>
         </div>
 
-        <nav className="flex flex-col gap-1 px-6 pt-6">
-          <p className="mb-2 text-[11px] font-semibold uppercase tracking-widest text-eco-dark/40">
-            On this page
-          </p>
+        {/* Links */}
+        <nav className="flex flex-1 flex-col gap-0.5 overflow-y-auto px-3 pt-4">
           {sectionLinks.map((link) => (
             <button
               key={link.href}
               onClick={() => handleSectionClick(link.href)}
-              className="hover:bg-primary/8 w-full cursor-pointer rounded-lg px-3 py-3 text-left text-[16px] font-medium text-eco-dark transition-colors hover:text-primary"
+              className="w-full rounded-xl px-4 py-3 text-left text-[15px] font-medium text-eco-dark transition-colors hover:bg-black/[0.04] hover:text-primary"
             >
               {link.label}
             </button>
           ))}
 
-          <div className="border-black/8 my-4 border-t" />
+          <div className="my-3 border-t border-black/[0.07]" />
 
-          <p className="mb-2 text-[11px] font-semibold uppercase tracking-widest text-eco-dark/40">
-            Pages
-          </p>
           {pageLinks.map((link) => (
             <Link
               key={link.href}
               href={link.href}
               onClick={onClose}
-              className="hover:bg-primary/8 rounded-lg px-3 py-3 text-[16px] font-medium text-eco-dark transition-colors hover:text-primary"
+              className="rounded-xl px-4 py-3 text-[15px] font-medium text-eco-dark/70 transition-colors hover:bg-black/[0.04] hover:text-primary"
             >
               {link.label}
             </Link>
           ))}
         </nav>
 
-        <div className="border-black/8 absolute bottom-0 left-0 right-0 border-t p-6">
+        {/* Sticky CTA */}
+        <div className="border-t border-black/[0.07] p-5">
           <Link
             href="/download"
             onClick={onClose}
-            className="pill-btn pill-btn-filled w-full justify-center text-base transition-transform active:scale-95"
+            className="pill-btn pill-btn-filled w-full justify-center text-[15px]"
           >
-            <Download size={18} />
-            Download ECOCAN App
+            <Download size={17} />
+            Download ECOCAN
           </Link>
         </div>
       </div>
