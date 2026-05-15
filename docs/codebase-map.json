@@ -1,28 +1,17 @@
 {
   "meta": {
-    "version": "b343424",
-    "generatedAt": "2026-05-15T16:11:54.718Z",
+    "version": "96d4656",
+    "generatedAt": "2026-05-15T16:26:03.508Z",
     "branch": "main",
-    "previousVersion": "bece7e7",
+    "previousVersion": "b343424",
     "generator": "scripts/generate-codebase-map.mjs",
     "framework": "Next.js 14",
     "packageManager": "pnpm"
   },
   "changes": [
-    "Modified: app/contact/components/contact-form.tsx",
-    "Modified: app/page.tsx",
-    "Modified: components/sections/ecommunity-roles-section.tsx",
-    "Modified: components/sections/hero-section.tsx",
-    "Modified: components/sections/home-mobile-menu.tsx",
-    "Modified: components/sections/home-navbar.tsx",
+    "Modified: components/sections/for-investors-section.tsx",
     "Modified: components/sections/how-it-works-section.tsx",
-    "Modified: components/sections/problem-solution-section.tsx",
-    "Modified: components/shared/eco-events-form.tsx",
-    "Modified: components/shared/eco-producer-form.tsx",
-    "Modified: components/shared/hero-form/hero-form.tsx",
-    "Added: components/shared/problem-illustration.tsx",
-    "Modified: components/ui/ticker-counter.tsx",
-    "Modified: lib/env.ts"
+    "Modified: components/sections/sustainability-impact-section.tsx"
   ],
   "affectedHotspots": [],
   "routes": [
@@ -294,15 +283,15 @@
     "components/sections/ecommunity-roles-section.tsx": "59ef6bb9fb8f002638e12a60a036e1bd60fadee6",
     "components/sections/electric-mobility-section.tsx": "9a3ce8d0debbfc932250d02094a2a186ae30d0fc",
     "components/sections/faq-section.tsx": "cfacab9f7cbf433fea6f9e40657e39b5a9b5009d",
-    "components/sections/for-investors-section.tsx": "55048ed4a375a49b37df752e587ca3d8e28ca690",
+    "components/sections/for-investors-section.tsx": "3dad3f1579969377af291013b5e52a691c48ecf4",
     "components/sections/hero-section.tsx": "081990bbe3030f3af91a13272271dd36bc3bdfce",
     "components/sections/home-footer.tsx": "dfa45d1a2c353b17d18fe3abf27844f46511d767",
     "components/sections/home-mobile-menu.tsx": "723e8b61a5acdd85b59f957f4ee80964686efe3f",
     "components/sections/home-navbar.tsx": "68130a2f7f8c73156e00aa8a062f4a4c527a6fbb",
-    "components/sections/how-it-works-section.tsx": "3d0a8491852cabf4346da17e7748bc2c3261d3a9",
+    "components/sections/how-it-works-section.tsx": "508f41235599131c1c92d03accf9809ee0b11286",
     "components/sections/partners-testimonials-section.tsx": "733794c06c57fd6f38283a36ad73d1862f815172",
     "components/sections/problem-solution-section.tsx": "c4987632218087f4639e8f9f75ef4a608f23f76d",
-    "components/sections/sustainability-impact-section.tsx": "b01e4bb9fb5244003c7796ac90b70adc5edc3f2b",
+    "components/sections/sustainability-impact-section.tsx": "edc5df6f28356117f6554156c85b58640cf8b02a",
     "components/shared/HowTo.tsx": "ec2b55f43fa3d7e12750f7a46b2429dfd4419ae9",
     "components/shared/accordion.tsx": "c68c2697a68fcdfb6ce7cebae1adf67d8160739e",
     "components/shared/cta-card/cta-card.tsx": "7ea1c58a0ab1cde2bfcda652e7ff2d417eae3e37",
@@ -450,6 +439,16 @@
         "Added: components/shared/problem-illustration.tsx",
         "Modified: components/ui/ticker-counter.tsx",
         "Modified: lib/env.ts"
+      ]
+    },
+    {
+      "version": "96d4656",
+      "date": "2026-05-15T16:26:03.508Z",
+      "branch": "main",
+      "changes": [
+        "Modified: components/sections/for-investors-section.tsx",
+        "Modified: components/sections/how-it-works-section.tsx",
+        "Modified: components/sections/sustainability-impact-section.tsx"
       ]
     }
   ]
