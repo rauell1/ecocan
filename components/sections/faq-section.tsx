@@ -8,23 +8,23 @@ import { Plus, Minus } from "lucide-react"
 const faqs = [
   {
     q: "What is ECOCAN?",
-    a: "ECOCAN is Africa's Circular Bottle Ecosystem — a Deposit Return System (DRS) that lets consumers return empty bottles and cans at ECO-Stations to receive monetary rewards, while helping brands fight counterfeiting and drive recycling.",
+    a: "Africa's Circular Bottle Ecosystem — a deposit return system that pays you for returning empty bottles, while helping brands fight counterfeiting and drive recycling across the continent.",
   },
   {
     q: "How do I return a bottle and get paid?",
-    a: "Download the ECOCAN app, locate your nearest ECO-Station, scan the QR code on your bottle, and deposit it. Your account is credited instantly. Cash out via M-Pesa or your linked mobile wallet.",
+    a: "Download the ECOCAN app, find your nearest ECO-Station, scan the QR code on your bottle, and deposit it. Your wallet is credited instantly — cash out via M-Pesa.",
   },
   {
     q: "How does ECOCAN stop counterfeit drinks?",
-    a: "Every genuine bottle carries a unique, tamper-evident QR code. Consumers scan it with the ECOCAN app to instantly verify authenticity before drinking. Counterfeit bottles fail verification and are flagged in real time.",
+    a: "Every genuine bottle carries a unique, tamper-evident QR code. Scan it in the app to verify authenticity before drinking. Counterfeit bottles fail instantly.",
   },
   {
-    q: "I'm a brand — how do I join the ECOCAN network?",
-    a: "Fill in the partner form on our Contact page or email us directly. Our team will walk you through onboarding, labelling requirements, ECO-Station coverage, and the DRS deposit structure.",
+    q: "I'm a brand — how do I join?",
+    a: "Fill in the partner form on our Contact page. Our team will walk you through onboarding, labelling requirements, and the deposit structure.",
   },
   {
     q: "Is ECOCAN available outside Kenya?",
-    a: "ECOCAN is currently operational in Kenya and expanding across East Africa. Reach out if you'd like to bring ECOCAN to your market.",
+    a: "We're operational in Kenya and actively expanding across East Africa. Reach out to bring ECOCAN to your market.",
   },
 ]
 
@@ -42,13 +42,13 @@ export default function FAQSection() {
       if (els && els.length > 0) {
         gsap.fromTo(
           els,
-          { opacity: 0, y: 36 },
+          { opacity: 0, y: 32 },
           {
             opacity: 1,
             y: 0,
             duration: 0.7,
-            stagger: 0.1,
-            ease: "power2.out",
+            stagger: 0.09,
+            ease: "power3.out",
             scrollTrigger: { trigger: sectionRef.current, start: "top 80%", once: true },
           }
         )
@@ -59,20 +59,16 @@ export default function FAQSection() {
   }, [])
 
   return (
-    <section ref={sectionRef} id="faq" className="bg-white px-6 py-24">
-      <div className="mx-auto max-w-[720px]">
-        {/* Header */}
-        <p className="faq-animate section-overline mb-3 text-center">Got questions?</p>
-        <h2 className="faq-animate section-headline mb-4 text-center">
-          Frequently Asked Questions
+    <section ref={sectionRef} id="faq" className="bg-white px-6 py-24 md:py-32">
+      <div className="mx-auto max-w-[680px]">
+        {/* Minimal header */}
+        <p className="faq-animate section-overline mb-3 text-center">Questions</p>
+        <h2 className="faq-animate section-headline mb-14 text-center text-eco-dark">
+          Everything you need to know
         </h2>
-        <p className="faq-animate section-body mx-auto mb-12 max-w-[520px] text-center">
-          Everything you need to know about returning bottles, fighting counterfeits, and joining
-          the ECOCAN network.
-        </p>
 
         {/* Accordion */}
-        <div className="faq-animate divide-black/8 divide-y">
+        <div className="faq-animate divide-y divide-black/[0.07]">
           {faqs.map((faq, i) => {
             const isOpen = openIndex === i
             return (
@@ -83,7 +79,7 @@ export default function FAQSection() {
                   aria-expanded={isOpen}
                 >
                   <span
-                    className={`text-[17px] font-semibold leading-snug transition-colors ${
+                    className={`text-[16px] font-semibold leading-snug transition-colors ${
                       isOpen ? "text-primary" : "text-eco-dark group-hover:text-primary"
                     }`}
                   >
@@ -93,30 +89,27 @@ export default function FAQSection() {
                     className={`flex h-7 w-7 shrink-0 items-center justify-center rounded-full transition-all ${
                       isOpen
                         ? "bg-primary text-white"
-                        : "bg-black/6 text-eco-dark group-hover:bg-primary group-hover:text-white"
+                        : "bg-black/[0.06] text-eco-dark group-hover:bg-primary group-hover:text-white"
                     }`}
                   >
-                    {isOpen ? <Minus size={14} /> : <Plus size={14} />}
+                    {isOpen ? <Minus size={13} /> : <Plus size={13} />}
                   </span>
                 </button>
                 <div
                   className="overflow-hidden transition-all duration-300"
                   style={{ maxHeight: isOpen ? "400px" : "0px", opacity: isOpen ? 1 : 0 }}
                 >
-                  <p className="max-w-[620px] pb-5 text-[16px] leading-relaxed text-eco-dark/70">
-                    {faq.a}
-                  </p>
+                  <p className="pb-5 text-[15px] leading-relaxed text-eco-dark/65">{faq.a}</p>
                 </div>
               </div>
             )
           })}
         </div>
 
-        {/* Bottom CTA */}
+        {/* Minimal bottom CTA */}
         <div className="faq-animate mt-12 text-center">
-          <p className="mb-4 text-[15px] text-eco-dark/60">Still have questions?</p>
           <a href="/contact" className="pill-btn pill-btn-filled inline-flex !px-8 !py-3 text-sm">
-            Contact Us
+            Still have questions? Contact us
           </a>
         </div>
       </div>

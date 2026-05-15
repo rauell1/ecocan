@@ -194,9 +194,19 @@ export default function EcommunityRolesSection() {
     cardRefs.current.forEach((card, i) => {
       if (!card) return
       if (activeCard === i) {
-        gsap.to(card, { y: -8, boxShadow: "0 20px 48px rgba(0,0,0,0.12)", duration: 0.35, ease: "power2.out" })
+        gsap.to(card, {
+          y: -8,
+          boxShadow: "0 20px 48px rgba(0,0,0,0.12)",
+          duration: 0.35,
+          ease: "power2.out",
+        })
       } else {
-        gsap.to(card, { y: 0, boxShadow: "0 1px 4px rgba(0,0,0,0.05)", duration: 0.3, ease: "power2.out" })
+        gsap.to(card, {
+          y: 0,
+          boxShadow: "0 1px 4px rgba(0,0,0,0.05)",
+          duration: 0.3,
+          ease: "power2.out",
+        })
       }
     })
   }, [activeCard])
@@ -212,16 +222,14 @@ export default function EcommunityRolesSection() {
         aria-hidden="true"
         className="pointer-events-none absolute -right-32 -top-32 h-[520px] w-[520px] rounded-full"
         style={{
-          background:
-            "radial-gradient(circle, rgba(22,163,74,0.07) 0%, rgba(22,163,74,0) 70%)",
+          background: "radial-gradient(circle, rgba(22,163,74,0.07) 0%, rgba(22,163,74,0) 70%)",
         }}
       />
       <div
         aria-hidden="true"
         className="pointer-events-none absolute -bottom-20 -left-20 h-[380px] w-[380px] rounded-full"
         style={{
-          background:
-            "radial-gradient(circle, rgba(8,145,178,0.06) 0%, rgba(8,145,178,0) 70%)",
+          background: "radial-gradient(circle, rgba(8,145,178,0.06) 0%, rgba(8,145,178,0) 70%)",
         }}
       />
 
@@ -244,9 +252,8 @@ export default function EcommunityRolesSection() {
               ECOmmunity
             </span>
           </h2>
-          <p className="section-body eco-body max-w-[500px]">
-            ECOCAN connects six types of participants into one circular economy. Find your role and
-            tap in.
+          <p className="section-body eco-body max-w-[440px]">
+            Six roles. One loop. Find yours and tap in.
           </p>
         </div>
 
@@ -263,7 +270,9 @@ export default function EcommunityRolesSection() {
             return (
               <div
                 key={role.title}
-                ref={(el) => { cardRefs.current[i] = el }}
+                ref={(el) => {
+                  cardRefs.current[i] = el
+                }}
                 className="role-card group relative flex w-[82vw] shrink-0 cursor-pointer flex-col overflow-hidden rounded-2xl border border-black/[0.06] bg-white sm:w-[60vw] lg:w-auto"
                 style={{
                   scrollSnapAlign: "start",
@@ -301,7 +310,9 @@ export default function EcommunityRolesSection() {
                 <div className="flex flex-1 flex-col p-6">
                   {/* Icon */}
                   <div
-                    ref={(el) => { iconRefs.current[i] = el }}
+                    ref={(el) => {
+                      iconRefs.current[i] = el
+                    }}
                     className="mb-5 flex h-12 w-12 items-center justify-center rounded-xl"
                     style={{ background: role.color + "18" }}
                   >
@@ -351,7 +362,9 @@ export default function EcommunityRolesSection() {
                     {role.cta}
                     <ArrowRight
                       size={14}
-                      ref={(el) => { arrowRefs.current[i] = el }}
+                      ref={(el) => {
+                        arrowRefs.current[i] = el
+                      }}
                       style={{ flexShrink: 0 }}
                     />
                   </Link>
@@ -370,8 +383,8 @@ export default function EcommunityRolesSection() {
               "linear-gradient(to right, transparent, rgba(22,163,74,0.25) 30%, rgba(8,145,178,0.25) 70%, transparent)",
           }}
         />
-        <p className="mt-4 hidden text-center text-[13px] text-eco-dark/35 lg:block">
-          Six roles. One loop. Tap any card to explore.
+        <p className="mt-4 hidden text-center text-[12px] text-eco-dark/30 lg:block">
+          Tap any card to explore
         </p>
       </div>
     </section>

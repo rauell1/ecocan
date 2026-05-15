@@ -4,8 +4,7 @@ import { useRef, useEffect, useState } from "react"
 import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 import Image from "next/image"
-import Link from "next/link"
-import { ArrowRight, ShoppingBag, ScanLine, RotateCcw, Bike, Wallet } from "lucide-react"
+import { ShoppingBag, ScanLine, RotateCcw, Bike, Wallet, ArrowRight } from "lucide-react"
 import SectionBadge from "@/components/shared/section-badge"
 
 const steps = [
@@ -271,18 +270,10 @@ export default function HowItWorksSection() {
           </div>
         </div>
 
-        {/* Sub-copy + CTA */}
-        <div className="hiw-heading mb-16 flex flex-col items-center gap-4 text-center sm:flex-row sm:justify-center sm:gap-8">
-          <p className="text-sm italic text-eco-dark/40">
-            No machine? No problem — partner counters scan and pay instantly.
-          </p>
-          <Link
-            href="/solutions"
-            className="inline-flex items-center gap-2 text-sm font-semibold text-eco-dark transition-colors hover:text-primary"
-          >
-            See full journey <ArrowRight size={15} />
-          </Link>
-        </div>
+        {/* Sub-copy */}
+        <p className="hiw-heading mb-16 text-center text-sm italic text-eco-dark/40">
+          No machine needed — partner counters scan and pay you instantly.
+        </p>
 
         {/* Return counter photo */}
         <div
@@ -315,12 +306,12 @@ export default function HowItWorksSection() {
               <p className="mb-6 max-w-[320px] text-[15px] leading-relaxed text-white/65">
                 Any ECO-Station counter accepts empties — no machine required, instant payment.
               </p>
-              <Link
+              <a
                 href="/contact"
                 className="inline-flex items-center gap-2 rounded-full bg-white/15 px-5 py-2.5 text-sm font-semibold text-white backdrop-blur-sm transition-all hover:bg-white/25"
               >
                 Find a station <ArrowRight size={14} />
-              </Link>
+              </a>
             </div>
           </div>
         </div>

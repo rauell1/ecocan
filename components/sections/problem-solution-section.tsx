@@ -7,7 +7,7 @@ import ProblemIllustration from "@/components/shared/problem-illustration"
 const stats = [
   { value: "30%", label: "of drinks in Africa are counterfeit" },
   { value: "80%", label: "of plastic bottles are never recovered" },
-  { value: "$1B+", label: "lost annually to packaging waste" },
+  { value: "$1B+", label: "lost to packaging waste every year" },
 ] as const
 
 export default function ProblemSolutionSection() {
@@ -20,7 +20,6 @@ export default function ProblemSolutionSection() {
       section.setAttribute("data-visible", "true")
       return
     }
-
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry?.isIntersecting) {
@@ -30,7 +29,6 @@ export default function ProblemSolutionSection() {
       },
       { threshold: 0.08 }
     )
-
     observer.observe(section)
     return () => observer.disconnect()
   }, [])
@@ -47,38 +45,28 @@ export default function ProblemSolutionSection() {
           {/* Left — copy */}
           <div>
             <SectionBadge number="01" />
-            <p className="section-overline ps-animate mb-6 text-eco-green">
-              The Problem
-            </p>
-            <h2 className="section-headline ps-animate mb-8 text-white">
+            <p className="section-overline ps-animate text-eco-green mb-6">The Problem</p>
+            <h2 className="section-headline ps-animate mb-10 text-white">
               30% of drinks are fake.
               <br />
-              Billions of bottles wasted.
+              80% of bottles wasted.
               <br />
               <span className="text-eco-green">You can fix both.</span>
             </h2>
-            <p className="section-body ps-animate mb-10 text-white/60">
-              Every bottle you return is one less fake drink, one less piece of plastic in our
-              oceans, and one more step toward a cleaner Africa. ECOCAN creates a closed loop:
-              collect → recycle → reuse.
-            </p>
 
-            {/* Stats — redesigned for maximum readability */}
-            <div className="grid grid-cols-1 gap-5">
+            <div className="grid grid-cols-1 gap-4">
               {stats.map((stat) => (
                 <div
                   key={stat.label}
-                  className="ps-stat flex items-center gap-5 rounded-xl border-l-4 border-eco-green bg-white/[0.04] py-4 pl-6 pr-4"
+                  className="ps-stat border-eco-green flex items-center gap-5 rounded-xl border-l-4 bg-white/[0.04] py-4 pl-6 pr-4"
                 >
-                  {/* Stat value */}
                   <span
-                    className="shrink-0 font-extrabold leading-none text-eco-green"
-                    style={{ fontSize: "clamp(2rem, 4vw, 3.5rem)" }}
+                    className="text-eco-green shrink-0 font-extrabold leading-none"
+                    style={{ fontSize: "clamp(1.75rem, 3.5vw, 3rem)" }}
                   >
                     {stat.value}
                   </span>
-                  {/* Stat label */}
-                  <span className="text-base font-medium leading-snug text-white/80 md:text-lg">
+                  <span className="text-sm font-medium leading-snug text-white/70 md:text-base">
                     {stat.label}
                   </span>
                 </div>
@@ -100,17 +88,14 @@ export default function ProblemSolutionSection() {
               <ProblemIllustration />
             </div>
 
-            {/* 1M+ counter card */}
-            <div
-              className="absolute -bottom-6 -left-6 min-w-[180px] rounded-2xl border border-white/10 bg-white/[0.08] p-6 backdrop-blur-xl"
-            >
+            <div className="absolute -bottom-6 -left-6 min-w-[160px] rounded-2xl border border-white/10 bg-white/[0.08] p-5 backdrop-blur-xl">
               <p
-                className="mb-1.5 font-extrabold leading-none text-eco-green"
-                style={{ fontSize: "clamp(2.25rem, 4vw, 3rem)" }}
+                className="text-eco-green mb-1 font-extrabold leading-none"
+                style={{ fontSize: "clamp(2rem, 3.5vw, 2.75rem)" }}
               >
                 1M+
               </p>
-              <p className="text-base font-medium text-white/75">Bottles in our system</p>
+              <p className="text-sm font-medium text-white/65">Bottles in our system</p>
             </div>
           </div>
         </div>

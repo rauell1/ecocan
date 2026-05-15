@@ -239,10 +239,10 @@ export default function SustainabilityImpactSection() {
                     {stat.sublabel}
                   </p>
 
-                  {/* Description — shown on hover */}
+                  {/* Description */}
                   <p
-                    className="mt-4 text-[13px] leading-relaxed transition-all duration-300"
-                    style={{ color: "rgba(255,255,255,0.45)" }}
+                    className="mt-3 text-[13px] leading-relaxed"
+                    style={{ color: "rgba(255,255,255,0.40)" }}
                   >
                     {stat.desc}
                   </p>

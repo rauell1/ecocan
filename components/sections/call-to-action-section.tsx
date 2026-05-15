@@ -17,13 +17,13 @@ export default function CallToActionSection() {
       if (els && els.length > 0) {
         gsap.fromTo(
           els,
-          { opacity: 0, y: 40 },
+          { opacity: 0, y: 36 },
           {
             opacity: 1,
             y: 0,
             duration: 0.75,
             stagger: 0.12,
-            ease: "power2.out",
+            ease: "power3.out",
             scrollTrigger: { trigger: sectionRef.current, start: "top 80%", once: true },
           }
         )
@@ -37,71 +37,49 @@ export default function CallToActionSection() {
     <section
       ref={sectionRef}
       id="cta"
-      className="relative overflow-hidden px-6 py-28"
+      className="relative overflow-hidden px-6 py-28 md:py-36"
       style={{
         background: "linear-gradient(135deg, #0f5132 0%, #1a7a4a 50%, #0f5132 100%)",
       }}
     >
-      {/* Decorative circles */}
+      {/* Subtle decorative circles */}
       <div
-        className="pointer-events-none absolute -right-32 -top-32 h-[480px] w-[480px] rounded-full"
-        style={{ background: "rgba(255,255,255,0.04)" }}
+        className="pointer-events-none absolute -right-32 -top-32 h-[420px] w-[420px] rounded-full"
+        style={{ background: "rgba(255,255,255,0.035)" }}
       />
       <div
-        className="pointer-events-none absolute -bottom-24 -left-24 h-[360px] w-[360px] rounded-full"
-        style={{ background: "rgba(255,255,255,0.04)" }}
+        className="pointer-events-none absolute -bottom-20 -left-20 h-[300px] w-[300px] rounded-full"
+        style={{ background: "rgba(255,255,255,0.035)" }}
       />
 
-      <div className="relative mx-auto max-w-[760px] text-center">
-        <p className="cta-animate mb-4 text-xs font-semibold uppercase tracking-[0.18em] text-white/60">
+      <div className="relative mx-auto max-w-[680px] text-center">
+        <p className="cta-animate mb-4 text-xs font-semibold uppercase tracking-[0.2em] text-white/50">
           Join the Movement
         </p>
         <h2
-          className="cta-animate mb-5 font-bold leading-tight text-white"
-          style={{ fontSize: "clamp(36px, 5vw, 60px)" }}
+          className="cta-animate mb-10 font-bold leading-tight text-white"
+          style={{ fontSize: "clamp(36px, 5vw, 60px)", letterSpacing: "-0.02em" }}
         >
           Ready to Return,
           <br />
           Recycle &amp; Earn?
         </h2>
-        <p className="cta-animate mx-auto mb-10 max-w-[480px] text-lg leading-relaxed text-white/75">
-          Download the free ECOCAN app, find your nearest ECO-Station, and earn rewards every time
-          you return a bottle.
-        </p>
 
-        <div className="cta-animate mb-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
+        <div className="cta-animate flex flex-col items-center justify-center gap-4 sm:flex-row">
           <Link
             href="/download"
-            className="pill-btn pill-btn-white min-w-[200px] !px-8 !py-4 text-base transition-transform active:scale-95"
+            className="pill-btn pill-btn-white min-w-[180px] !px-8 !py-4 text-base transition-transform active:scale-95"
           >
-            <Download size={20} />
-            Download Free App
+            <Download size={18} />
+            Download Free
           </Link>
           <Link
             href="/contact"
-            className="pill-btn min-w-[200px] border-2 border-white/50 !px-8 !py-4 text-base text-white transition-all hover:bg-white/15"
+            className="pill-btn hover:bg-white/12 min-w-[160px] border-2 border-white/40 !px-8 !py-4 text-base text-white transition-all"
           >
             Partner with Us
-            <ArrowRight size={18} />
+            <ArrowRight size={17} />
           </Link>
-        </div>
-
-        {/* Trust badges */}
-        <div className="cta-animate flex flex-wrap items-center justify-center gap-3">
-          {["Free to download", "M-Pesa cashout", "500+ ECO-Stations", "No sign-up fee"].map(
-            (item) => (
-              <span
-                key={item}
-                className="rounded-full px-4 py-1.5 text-[13px] font-medium text-white/70"
-                style={{
-                  background: "rgba(255,255,255,0.1)",
-                  border: "1px solid rgba(255,255,255,0.15)",
-                }}
-              >
-                ✓&nbsp;&nbsp;{item}
-              </span>
-            )
-          )}
         </div>
       </div>
     </section>

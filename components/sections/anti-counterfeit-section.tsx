@@ -16,13 +16,8 @@ export default function AntiCounterfeitSection() {
     gsap.registerPlugin(ScrollTrigger)
 
     const ctx = gsap.context(() => {
-      const trigger = {
-        trigger: sectionRef.current,
-        start: "top 75%",
-        once: true,
-      }
+      const trigger = { trigger: sectionRef.current, start: "top 75%", once: true }
 
-      // ── Left column: text elements slide in from the left ──────────────
       if (textColRef.current) {
         const els = textColRef.current.querySelectorAll(".text-slide")
         if (els.length > 0) {
@@ -41,21 +36,16 @@ export default function AntiCounterfeitSection() {
         }
       }
 
-      // ── Right column: image slides in from the right ───────────────────
       if (imageColRef.current) {
         gsap.fromTo(
           imageColRef.current,
-          {
-            opacity: 0,
-            x: 100,
-            scale: 0.96,
-          },
+          { opacity: 0, x: 100, scale: 0.96 },
           {
             opacity: 1,
             x: 0,
             scale: 1,
             duration: 1.05,
-            delay: 0.18, // slightly after text starts
+            delay: 0.18,
             ease: "power3.out",
             scrollTrigger: trigger,
           }
@@ -66,13 +56,6 @@ export default function AntiCounterfeitSection() {
     return () => ctx.revert()
   }, [])
 
-  const traceSteps = [
-    { icon: "🏭", label: "Producer registers bottle with unique QR code" },
-    { icon: "🛒", label: "Consumer scans to verify before drinking" },
-    { icon: "♻️", label: "Empty returned to ECO-Station — code invalidated" },
-    { icon: "🚫", label: "Refilled fake? Code fails scan instantly" },
-  ]
-
   return (
     <section
       ref={sectionRef}
@@ -81,51 +64,35 @@ export default function AntiCounterfeitSection() {
     >
       <div className="mx-auto max-w-[1280px] px-6">
         <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-5 lg:gap-16">
-          {/* ── Left: text ──────────────────────────────────────────────── */}
+          {/* Left: text */}
           <div ref={textColRef} className="lg:col-span-3">
             <div className="text-slide">
               <SectionBadge number="06" />
             </div>
-
             <p className="section-overline text-slide mb-6">Anti-Counterfeit</p>
-
             <h2 className="section-headline text-slide mb-6 text-white">
               Fake alcohol kills.
               <br />
               We stop it.
             </h2>
-
-            <p className="section-body text-slide mb-8 max-w-[520px] text-white/70">
-              Every bottle in our system is traceable from producer to return. Criminals can&apos;t
-              refill what they can&apos;t collect.
+            <p className="section-body text-slide mb-8 max-w-[480px] text-white/60">
+              Every bottle carries a unique, tamper-evident QR code. One scan tells you if it&apos;s
+              real — before you drink.
             </p>
 
-            {/* Stat callout */}
+            {/* Single stat callout */}
             <div
-              className="text-slide mb-10 inline-flex items-center gap-4 rounded-2xl border border-primary/30 px-6 py-4"
-              style={{ background: "rgba(42,122,79,0.1)" }}
+              className="text-slide inline-flex items-center gap-4 rounded-2xl border border-primary/25 px-6 py-4"
+              style={{ background: "rgba(22,163,74,0.08)" }}
             >
-              <ShieldCheck size={28} className="shrink-0 text-primary" />
-              <p className="text-lg font-bold text-white md:text-xl">
-                2 out of 5 drinks in Africa are counterfeit
+              <ShieldCheck size={26} className="shrink-0 text-primary" />
+              <p className="text-base font-semibold text-white md:text-lg">
+                2 in 5 drinks in Africa are counterfeit
               </p>
-            </div>
-
-            {/* Traceability steps */}
-            <p className="text-slide mb-4 text-xs font-semibold uppercase tracking-widest text-white/40">
-              How traceability works
-            </p>
-            <div className="text-slide space-y-3">
-              {traceSteps.map((step, i) => (
-                <div key={i} className="flex items-start gap-3">
-                  <span className="mt-0.5 text-lg leading-none">{step.icon}</span>
-                  <p className="text-[14px] leading-snug text-white/65">{step.label}</p>
-                </div>
-              ))}
             </div>
           </div>
 
-          {/* ── Right: image — slides in from the right ──────────────────── */}
+          {/* Right: image */}
           <div className="lg:col-span-2">
             <div
               ref={imageColRef}
