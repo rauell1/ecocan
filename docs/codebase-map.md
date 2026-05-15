@@ -5,14 +5,15 @@
 
 # 🗺️ EcoCan Codebase Map
 
-> **Version:** `711f046`
-> **Generated:** 2026-05-14T19:58:49.740Z
+> **Version:** `58fc7d3`
+> **Generated:** 2026-05-15T13:08:14.602Z
 > **Branch:** `main`
-> **Previous:** `6e6a787`
+> **Previous:** `711f046`
 
 ## Changes Since Last Version
 
-- Full map regeneration
+- Modified: components/sections/hero-section.tsx
+- Modified: components/sections/problem-solution-section.tsx
 
 ---
 
@@ -59,6 +60,7 @@
 
 | Version | Date | Branch | Changes |
 |---|---|---|---|
+| `58fc7d3` | 2026-05-15 | main | Modified: components/sections/hero-section.tsx; Modified: components/sections/problem-solution-section.tsx |
 | `711f046` | 2026-05-14 | main | Full map regeneration |
 | `4d2a86e` | 2026-05-14 | main | Rebuilt scroll transition from scratch in HeroSection; Modified app/page.tsx |
 | `6e6a787` | 2026-05-14 | main | Added self-updating codebase map system |

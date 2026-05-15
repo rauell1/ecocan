@@ -1,15 +1,16 @@
 {
   "meta": {
-    "version": "711f046",
-    "generatedAt": "2026-05-14T19:58:49.740Z",
+    "version": "58fc7d3",
+    "generatedAt": "2026-05-15T13:08:14.602Z",
     "branch": "main",
-    "previousVersion": "6e6a787",
+    "previousVersion": "711f046",
     "generator": "scripts/generate-codebase-map.mjs",
     "framework": "Next.js 14",
     "packageManager": "pnpm"
   },
   "changes": [
-    "Full map regeneration"
+    "Modified: components/sections/hero-section.tsx",
+    "Modified: components/sections/problem-solution-section.tsx"
   ],
   "affectedHotspots": [],
   "routes": [
@@ -282,13 +283,13 @@
     "components/sections/electric-mobility-section.tsx": "9a3ce8d0debbfc932250d02094a2a186ae30d0fc",
     "components/sections/faq-section.tsx": "cfacab9f7cbf433fea6f9e40657e39b5a9b5009d",
     "components/sections/for-investors-section.tsx": "55048ed4a375a49b37df752e587ca3d8e28ca690",
-    "components/sections/hero-section.tsx": "4e1d69af7ec32426c803060e7e692c2e1eaec7a6",
+    "components/sections/hero-section.tsx": "13b1ccf1e48f2b3ec6a9fa419ecf9b5cfe5e61b3",
     "components/sections/home-footer.tsx": "dfa45d1a2c353b17d18fe3abf27844f46511d767",
     "components/sections/home-mobile-menu.tsx": "723e8b61a5acdd85b59f957f4ee80964686efe3f",
     "components/sections/home-navbar.tsx": "68130a2f7f8c73156e00aa8a062f4a4c527a6fbb",
     "components/sections/how-it-works-section.tsx": "3d0a8491852cabf4346da17e7748bc2c3261d3a9",
     "components/sections/partners-testimonials-section.tsx": "733794c06c57fd6f38283a36ad73d1862f815172",
-    "components/sections/problem-solution-section.tsx": "55b02093e38edcebc15a17fa937766758a108d94",
+    "components/sections/problem-solution-section.tsx": "c4987632218087f4639e8f9f75ef4a608f23f76d",
     "components/sections/sustainability-impact-section.tsx": "b01e4bb9fb5244003c7796ac90b70adc5edc3f2b",
     "components/shared/HowTo.tsx": "ec2b55f43fa3d7e12750f7a46b2429dfd4419ae9",
     "components/shared/accordion.tsx": "c68c2697a68fcdfb6ce7cebae1adf67d8160739e",
@@ -391,6 +392,15 @@
       "branch": "main",
       "changes": [
         "Full map regeneration"
+      ]
+    },
+    {
+      "version": "58fc7d3",
+      "date": "2026-05-15T13:08:14.602Z",
+      "branch": "main",
+      "changes": [
+        "Modified: components/sections/hero-section.tsx",
+        "Modified: components/sections/problem-solution-section.tsx"
       ]
     }
   ]
