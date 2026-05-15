@@ -5,51 +5,44 @@
 
 # 🗺️ EcoCan Codebase Map
 
-> **Version:** `24ec96a`
-> **Generated:** 2026-05-15T16:41:12.865Z
+> **Version:** `51c436b`
+> **Generated:** 2026-05-15T16:51:52.098Z
 > **Branch:** `main`
-> **Previous:** `96d4656`
+> **Previous:** `24ec96a`
 
 ## Changes Since Last Version
 
-- Modified: components/sections/anti-counterfeit-section.tsx
-- Modified: components/sections/app-showcase-section.tsx
-- Modified: components/sections/call-to-action-section.tsx
-- Modified: components/sections/ecommunity-roles-section.tsx
-- Modified: components/sections/faq-section.tsx
 - Modified: components/sections/hero-section.tsx
-- Modified: components/sections/how-it-works-section.tsx
-- Modified: components/sections/partners-testimonials-section.tsx
-- Modified: components/sections/problem-solution-section.tsx
-- Modified: components/sections/sustainability-impact-section.tsx
+- Modified: components/sections/home-mobile-menu.tsx
+- Modified: components/sections/home-navbar.tsx
 
 ---
 
 ## Hotspot Risk Summary
 
-| File                                      | Risk        | Reason                                        |
-| ----------------------------------------- | ----------- | --------------------------------------------- |
+| File | Risk | Reason |
+|---|---|---|
 | `components/shared/heros/HeroSection.tsx` | 🔴 critical | GSAP + Lenis + scroll animation orchestration |
-| `app/page.tsx`                            | 🔴 critical | Homepage section orchestrator                 |
-| `app/layout.tsx`                          | 🔴 critical | Root layout — all routes                      |
-| `components/shared/navbar/`               | 🟠 high     | Global nav — all routes                       |
-| `tailwind.config.ts`                      | 🟡 medium   | Theme tokens cascade everywhere               |
-| `app/globals.css`                         | 🟡 medium   | CSS custom properties                         |
+| `app/page.tsx` | 🔴 critical | Homepage section orchestrator |
+| `app/layout.tsx` | 🔴 critical | Root layout — all routes |
+| `components/shared/navbar/` | 🟠 high | Global nav — all routes |
+| `tailwind.config.ts` | 🟡 medium | Theme tokens cascade everywhere |
+| `app/globals.css` | 🟡 medium | CSS custom properties |
 
 ---
 
 ## Routes
 
-| Route                | File                             | Risk     |
-| -------------------- | -------------------------------- | -------- |
-| `/`                  | `app/page.tsx`                   | critical |
-| `/about-us`          | `app/about-us/page.tsx`          | low      |
-| `/contact`           | `app/contact/page.tsx`           | medium   |
-| `/download`          | `app/download/page.tsx`          | low      |
-| `/eco-friendly-cans` | `app/eco-friendly-cans/page.tsx` | low      |
-| `/ecocan-market`     | `app/ecocan-market/page.tsx`     | low      |
-| `/news`              | `app/news/page.tsx`              | low      |
-| `/solutions`         | `app/solutions/page.tsx`         | low      |
+| Route | File | Risk |
+|---|---|---|
+| `/` | `app/page.tsx` | critical |
+| `/about-us` | `app/about-us/page.tsx` | low |
+| `/contact` | `app/contact/page.tsx` | medium |
+| `/download` | `app/download/page.tsx` | low |
+| `/eco-friendly-cans` | `app/eco-friendly-cans/page.tsx` | low |
+| `/ecocan-market` | `app/ecocan-market/page.tsx` | low |
+| `/news` | `app/news/page.tsx` | low |
+| `/solutions` | `app/solutions/page.tsx` | low |
 
 ---
 
@@ -66,18 +59,19 @@
 
 ## Changelog (last 20)
 
-| Version   | Date       | Branch | Changes                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
-| --------- | ---------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `24ec96a` | 2026-05-15 | main   | Modified: components/sections/anti-counterfeit-section.tsx; Modified: components/sections/app-showcase-section.tsx; Modified: components/sections/call-to-action-section.tsx; Modified: components/sections/ecommunity-roles-section.tsx; Modified: components/sections/faq-section.tsx; Modified: components/sections/hero-section.tsx; Modified: components/sections/how-it-works-section.tsx; Modified: components/sections/partners-testimonials-section.tsx; Modified: components/sections/problem-solution-section.tsx; Modified: components/sections/sustainability-impact-section.tsx                                                                                              |
-| `96d4656` | 2026-05-15 | main   | Modified: components/sections/for-investors-section.tsx; Modified: components/sections/how-it-works-section.tsx; Modified: components/sections/sustainability-impact-section.tsx                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| `b343424` | 2026-05-15 | main   | Modified: app/contact/components/contact-form.tsx; Modified: app/page.tsx; Modified: components/sections/ecommunity-roles-section.tsx; Modified: components/sections/hero-section.tsx; Modified: components/sections/home-mobile-menu.tsx; Modified: components/sections/home-navbar.tsx; Modified: components/sections/how-it-works-section.tsx; Modified: components/sections/problem-solution-section.tsx; Modified: components/shared/eco-events-form.tsx; Modified: components/shared/eco-producer-form.tsx; Modified: components/shared/hero-form/hero-form.tsx; Added: components/shared/problem-illustration.tsx; Modified: components/ui/ticker-counter.tsx; Modified: lib/env.ts |
-| `bece7e7` | 2026-05-15 | main   | Modified: components/sections/hero-section.tsx                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-| `405db4f` | 2026-05-15 | main   | Modified: components/sections/ecommunity-roles-section.tsx                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| `58fc7d3` | 2026-05-15 | main   | Modified: components/sections/hero-section.tsx; Modified: components/sections/problem-solution-section.tsx                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| `711f046` | 2026-05-14 | main   | Full map regeneration                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-| `4d2a86e` | 2026-05-14 | main   | Rebuilt scroll transition from scratch in HeroSection; Modified app/page.tsx                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
-| `6e6a787` | 2026-05-14 | main   | Added self-updating codebase map system                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| Version | Date | Branch | Changes |
+|---|---|---|---|
+| `51c436b` | 2026-05-15 | main | Modified: components/sections/hero-section.tsx; Modified: components/sections/home-mobile-menu.tsx; Modified: components/sections/home-navbar.tsx |
+| `24ec96a` | 2026-05-15 | main | Modified: components/sections/anti-counterfeit-section.tsx; Modified: components/sections/app-showcase-section.tsx; Modified: components/sections/call-to-action-section.tsx; Modified: components/sections/ecommunity-roles-section.tsx; Modified: components/sections/faq-section.tsx; Modified: components/sections/hero-section.tsx; Modified: components/sections/how-it-works-section.tsx; Modified: components/sections/partners-testimonials-section.tsx; Modified: components/sections/problem-solution-section.tsx; Modified: components/sections/sustainability-impact-section.tsx |
+| `96d4656` | 2026-05-15 | main | Modified: components/sections/for-investors-section.tsx; Modified: components/sections/how-it-works-section.tsx; Modified: components/sections/sustainability-impact-section.tsx |
+| `b343424` | 2026-05-15 | main | Modified: app/contact/components/contact-form.tsx; Modified: app/page.tsx; Modified: components/sections/ecommunity-roles-section.tsx; Modified: components/sections/hero-section.tsx; Modified: components/sections/home-mobile-menu.tsx; Modified: components/sections/home-navbar.tsx; Modified: components/sections/how-it-works-section.tsx; Modified: components/sections/problem-solution-section.tsx; Modified: components/shared/eco-events-form.tsx; Modified: components/shared/eco-producer-form.tsx; Modified: components/shared/hero-form/hero-form.tsx; Added: components/shared/problem-illustration.tsx; Modified: components/ui/ticker-counter.tsx; Modified: lib/env.ts |
+| `bece7e7` | 2026-05-15 | main | Modified: components/sections/hero-section.tsx |
+| `405db4f` | 2026-05-15 | main | Modified: components/sections/ecommunity-roles-section.tsx |
+| `58fc7d3` | 2026-05-15 | main | Modified: components/sections/hero-section.tsx; Modified: components/sections/problem-solution-section.tsx |
+| `711f046` | 2026-05-14 | main | Full map regeneration |
+| `4d2a86e` | 2026-05-14 | main | Rebuilt scroll transition from scratch in HeroSection; Modified app/page.tsx |
+| `6e6a787` | 2026-05-14 | main | Added self-updating codebase map system |
 
 ---
 
-_Full annotated map: see [docs/codebase-map.md](./codebase-map.md) for the complete tree, interaction map, and improvement recommendations._
+*Full annotated map: see [docs/codebase-map.md](./codebase-map.md) for the complete tree, interaction map, and improvement recommendations.*
