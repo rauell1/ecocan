@@ -37,10 +37,10 @@ export default function HomeNavbar({ onMenuToggle }: HomeNavbarProps) {
     <nav
       className="fixed left-0 right-0 top-0 z-50 transition-all duration-500"
       style={{
-        height: 68,
-        background: scrolled ? "rgba(255,255,255,0.96)" : "transparent",
-        backdropFilter: scrolled ? "blur(12px)" : "none",
-        borderBottom: scrolled ? "1px solid rgba(0,0,0,0.07)" : "none",
+        height: 64,
+        background: scrolled ? "rgba(255,255,255,0.97)" : "rgba(10,14,11,0.55)",
+        backdropFilter: "blur(14px)",
+        borderBottom: scrolled ? "1px solid rgba(0,0,0,0.08)" : "1px solid rgba(255,255,255,0.08)",
       }}
     >
       <div className="mx-auto flex h-full max-w-[1280px] items-center px-6">
@@ -71,10 +71,10 @@ export default function HomeNavbar({ onMenuToggle }: HomeNavbarProps) {
                 key={link.href}
                 href={link.href}
                 onClick={(e) => handleSectionClick(e, link.href)}
-                className={`cursor-pointer text-[14px] font-medium transition-colors duration-200 hover:opacity-100 ${
+                className={`cursor-pointer text-[14px] font-medium transition-colors duration-200 ${
                   scrolled
-                    ? "text-eco-dark/70 hover:text-eco-dark"
-                    : "text-white/75 hover:text-white"
+                    ? "text-eco-dark/65 hover:text-eco-dark"
+                    : "text-white/70 hover:text-white"
                 }`}
               >
                 {link.label}
@@ -83,10 +83,10 @@ export default function HomeNavbar({ onMenuToggle }: HomeNavbarProps) {
               <Link
                 key={link.href}
                 href={link.href}
-                className={`text-[14px] font-medium transition-colors duration-200 hover:opacity-100 ${
+                className={`text-[14px] font-medium transition-colors duration-200 ${
                   scrolled
-                    ? "text-eco-dark/70 hover:text-eco-dark"
-                    : "text-white/75 hover:text-white"
+                    ? "text-eco-dark/65 hover:text-eco-dark"
+                    : "text-white/70 hover:text-white"
                 }`}
               >
                 {link.label}
@@ -102,7 +102,7 @@ export default function HomeNavbar({ onMenuToggle }: HomeNavbarProps) {
             className={`hidden rounded-full px-5 py-2 text-[13.5px] font-semibold transition-all duration-200 md:inline-flex ${
               scrolled
                 ? "bg-primary text-white hover:bg-primary/90"
-                : "border border-white/50 text-white hover:bg-white hover:text-eco-dark"
+                : "border border-white/40 bg-white/10 text-white hover:bg-white hover:text-eco-dark"
             }`}
           >
             Download App

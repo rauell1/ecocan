@@ -173,7 +173,7 @@ export default function HeroSection({ onTransitionComplete }: HeroSectionProps) 
             </h1>
 
             {/* Two CTAs */}
-            <div className="mb-10 flex flex-wrap items-center gap-4">
+            <div className="flex flex-wrap items-center gap-4">
               <a
                 href="/download"
                 className="inline-flex items-center gap-2 rounded-full bg-white px-6 py-3 text-[14px] font-semibold text-eco-dark transition-all hover:bg-white/90 active:scale-95"
@@ -187,45 +187,6 @@ export default function HeroSection({ onTransitionComplete }: HeroSectionProps) 
               >
                 How it works <ArrowRight size={14} />
               </button>
-            </div>
-
-            {/* Stats strip */}
-            <div
-              className="flex flex-wrap items-stretch gap-px overflow-hidden rounded-2xl"
-              style={{
-                background: "rgba(255,255,255,0.06)",
-                border: "1px solid rgba(255,255,255,0.10)",
-              }}
-            >
-              {[
-                { value: "30%", label: "of drinks are counterfeit" },
-                { value: "80%", label: "of bottles never recovered" },
-                { value: "$1B+", label: "lost to waste yearly" },
-                { value: "1M+", label: "bottles in our system" },
-              ].map((s, i) => (
-                <div
-                  key={s.value}
-                  className="flex flex-1 flex-col items-start px-5 py-3"
-                  style={{
-                    background: "rgba(255,255,255,0.04)",
-                    borderLeft: i > 0 ? "1px solid rgba(255,255,255,0.08)" : "none",
-                    minWidth: "80px",
-                  }}
-                >
-                  <span
-                    className="font-extrabold leading-none text-white"
-                    style={{ fontSize: "clamp(18px, 2.5vw, 26px)" }}
-                  >
-                    {s.value}
-                  </span>
-                  <span
-                    className="mt-1 text-[11px] leading-tight"
-                    style={{ color: "rgba(255,255,255,0.45)" }}
-                  >
-                    {s.label}
-                  </span>
-                </div>
-              ))}
             </div>
           </div>
 
