@@ -22,20 +22,16 @@ export default function HeroSection({ onTransitionComplete }: HeroSectionProps) 
   const contentRef = useRef<HTMLDivElement>(null)
   const brandRef = useRef<HTMLDivElement>(null)
 
-  // Stable reference so it can safely be included in deps without re-running
   const initLenis = useCallback(() => {
     onTransitionComplete()
   }, [onTransitionComplete])
 
-  // ── All GSAP work in one context — one cleanup ─────────────────────────
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger)
 
-    // Respect reduced-motion at the source
     const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches
 
     const ctx = gsap.context(() => {
-      // Entry animations
       if (!reducedMotion) {
         gsap.fromTo(
           contentRef.current,
@@ -48,12 +44,10 @@ export default function HeroSection({ onTransitionComplete }: HeroSectionProps) 
           { opacity: 1, y: 0, duration: 1.0, delay: ENTRY_BRAND_DELAY, ease: "power3.out" }
         )
       } else {
-        // Immediately visible for reduced-motion users
         gsap.set([contentRef.current, brandRef.current], { opacity: 1, y: 0 })
       }
     }, heroRef)
 
-    // Lenis + scroll animation — deferred so Lenis is wired up in page.tsx first
     let scrollCtx: ReturnType<typeof gsap.context> | null = null
     const timer = setTimeout(() => {
       initLenis()
@@ -71,7 +65,6 @@ export default function HeroSection({ onTransitionComplete }: HeroSectionProps) 
         })
 
         if (!reducedMotion) {
-          // Text fades up and out
           tl.fromTo(
             contentRef.current,
             { opacity: 1, y: 0 },
@@ -84,7 +77,6 @@ export default function HeroSection({ onTransitionComplete }: HeroSectionProps) 
             { opacity: 0, ease: "power1.in", duration: 0.35 },
             0.05
           )
-          // Video wrapper pulls back + rounds corners
           tl.fromTo(
             videoWrapperRef.current,
             { scale: 1, borderRadius: "0px" },
@@ -115,7 +107,7 @@ export default function HeroSection({ onTransitionComplete }: HeroSectionProps) 
       className="hero-root relative w-full bg-[#080808]"
       style={{ height: "100dvh" }}
     >
-      {/* Video wrapper — target of scale animation */}
+      {/* Video wrapper */}
       <div
         ref={videoWrapperRef}
         className="absolute inset-0 overflow-hidden"
@@ -133,7 +125,6 @@ export default function HeroSection({ onTransitionComplete }: HeroSectionProps) 
           <source src="/videos/hero-loop.mp4" type="video/mp4" />
         </video>
 
-        {/* Decorative overlays — hidden from accessibility tree */}
         <div
           aria-hidden="true"
           className="absolute inset-0"
@@ -194,14 +185,16 @@ export default function HeroSection({ onTransitionComplete }: HeroSectionProps) 
             </button>
           </div>
 
-          <div className="mb-3 flex flex-wrap justify-center gap-2">
-            {(["Early-stage funded", "Operational in Kenya", "GDPR Compliant"] as const).map(
-              (badge) => (
-                <span key={badge} className="glass-pill px-4 py-1.5 text-[13px] text-white">
-                  {badge}
-                </span>
-              )
-            )}
+          {/* BUY · RETURN · EARN — enlarged for legibility */}
+          <div className="mb-3 flex flex-wrap justify-center gap-3">
+            {(["BUY", "RETURN", "EARN"] as const).map((word) => (
+              <span
+                key={word}
+                className="glass-pill px-5 py-2 text-sm font-semibold tracking-[0.18em] text-white"
+              >
+                {word}
+              </span>
+            ))}
           </div>
         </div>
 

@@ -16,7 +16,6 @@ export default function ProblemSolutionSection() {
   useEffect(() => {
     const section = sectionRef.current
     if (!section) return
-    // Feature-detect: SSR / old-browser safety
     if (typeof IntersectionObserver === "undefined") {
       section.setAttribute("data-visible", "true")
       return
@@ -63,16 +62,25 @@ export default function ProblemSolutionSection() {
               oceans, and one more step toward a cleaner Africa. ECOCAN creates a closed loop:
               collect → recycle → reuse.
             </p>
-            <div className="grid grid-cols-1 gap-4">
+
+            {/* Stats — redesigned for maximum readability */}
+            <div className="grid grid-cols-1 gap-5">
               {stats.map((stat) => (
                 <div
                   key={stat.label}
-                  className="ps-stat flex items-center gap-4 border-l-2 border-eco-green pl-5"
+                  className="ps-stat flex items-center gap-5 rounded-xl border-l-4 border-eco-green bg-white/[0.04] py-4 pl-6 pr-4"
                 >
-                  <span className="shrink-0 text-3xl font-bold text-eco-green">
+                  {/* Stat value */}
+                  <span
+                    className="shrink-0 font-extrabold leading-none text-eco-green"
+                    style={{ fontSize: "clamp(2rem, 4vw, 3.5rem)" }}
+                  >
                     {stat.value}
                   </span>
-                  <span className="text-base text-white/60">{stat.label}</span>
+                  {/* Stat label */}
+                  <span className="text-base font-medium leading-snug text-white/80 md:text-lg">
+                    {stat.label}
+                  </span>
                 </div>
               ))}
             </div>
@@ -91,9 +99,18 @@ export default function ProblemSolutionSection() {
             >
               <ProblemIllustration />
             </div>
-            <div className="absolute -bottom-6 -left-6 rounded-2xl border border-white/10 bg-white/[0.08] p-5 backdrop-blur-xl">
-              <p className="mb-1 text-4xl font-bold text-eco-green">1M+</p>
-              <p className="text-sm text-white/60">Bottles in our system</p>
+
+            {/* 1M+ counter card */}
+            <div
+              className="absolute -bottom-6 -left-6 min-w-[180px] rounded-2xl border border-white/10 bg-white/[0.08] p-6 backdrop-blur-xl"
+            >
+              <p
+                className="mb-1.5 font-extrabold leading-none text-eco-green"
+                style={{ fontSize: "clamp(2.25rem, 4vw, 3rem)" }}
+              >
+                1M+
+              </p>
+              <p className="text-base font-medium text-white/75">Bottles in our system</p>
             </div>
           </div>
         </div>
