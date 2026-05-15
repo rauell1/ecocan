@@ -1,0 +1,14 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+echo "📍 EcoCan: Regenerating codebase map after commit..."
+
+# Run incremental update (skips if no significant changes)
+node scripts/generate-codebase-map.mjs --incremental
+
+# Stage updated map files for inclusion in the next commit
+# (We do NOT auto-commit here to avoid recursive commit loops)
+git add docs/codebase-map.md docs/codebase-map.json 2>/dev/null || true
+
+echo "✅ Codebase map staged. It will be included in your next commit."
+echo "   Or run: git commit --amend --no-edit"

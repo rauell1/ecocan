@@ -60,8 +60,8 @@ export default function ContactForm({
     },
   });
 
-  function onSubmit(values: z.infer<typeof formSchema>) {
-    console.log(values);
+  function onSubmit(_values: z.infer<typeof formSchema>) {
+    // TODO: wire up form submission
   }
 
   return (
@@ -127,7 +127,7 @@ export default function ContactForm({
                         <SelectTrigger className="w-[80px]">
                           <SelectValue placeholder="+254" />
                         </SelectTrigger>
-                        <SelectContent className="z-[9999]">
+                        <SelectContent>
                           <SelectItem value="+254">+254</SelectItem>
                           <SelectItem value="+1">+1</SelectItem>
                           <SelectItem value="+44">+44</SelectItem>
@@ -145,7 +145,7 @@ export default function ContactForm({
               )}
             />
             <Button type="submit" className="w-full rounded-full">
-              Get Started
+              Send Message
             </Button>
           </form>
         </Form>

@@ -4,10 +4,9 @@ import { useEffect, useState } from "react"
 import Image from "next/image"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
-import { Menu, X } from "lucide-react"
+import { Menu } from "lucide-react"
 
 interface HomeNavbarProps {
-  scrollEnabled: boolean
   onMenuToggle: () => void
 }
 
@@ -23,7 +22,7 @@ const pageLinks = [
   { label: "About", href: "/about-us" },
 ]
 
-export default function HomeNavbar({ scrollEnabled, onMenuToggle }: HomeNavbarProps) {
+export default function HomeNavbar({ onMenuToggle }: HomeNavbarProps) {
   const [scrolled, setScrolled] = useState(false)
   const pathname = usePathname()
   const logoHref = pathname === "/" ? "#hero" : "/"
@@ -36,10 +35,6 @@ export default function HomeNavbar({ scrollEnabled, onMenuToggle }: HomeNavbarPr
 
   const handleSectionClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault()
-    // If scroll is still locked (hero animation not done), unlock first then scroll
-    if (!scrollEnabled) {
-      document.body.style.overflow = ""
-    }
     const el = document.querySelector(href)
     if (el) el.scrollIntoView({ behavior: "smooth" })
   }
@@ -57,7 +52,7 @@ export default function HomeNavbar({ scrollEnabled, onMenuToggle }: HomeNavbarPr
           href={logoHref}
           onClick={(e) => {
             if (pathname === "/") {
-              handleSectionClick(e, "#hero")
+              handleSectionClick(e as React.MouseEvent<HTMLAnchorElement>, "#hero")
             }
           }}
           className="flex shrink-0 items-center gap-2"

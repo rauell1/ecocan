@@ -45,7 +45,7 @@ const formSchema = z.object({
   email: z.string().email("Invalid email address"),
   pin: z.string().min(4, "KRA Pin must be more than 4 digits"),
   sector: z.string().min(1, "Sector is required"),
-  feedback: z.string().min(1, "Sector is required"),
+  feedback: z.string().min(1, "Feedback is required"),
   contact: z
     .string()
     .min(10, "Contact number must be at least 10 digits")
@@ -71,8 +71,8 @@ export default function EcoEventsForm({
     },
   });
 
-  function onSubmit(values: z.infer<typeof formSchema>) {
-    console.log(values);
+  function onSubmit(_values: z.infer<typeof formSchema>) {
+    // TODO: wire up form submission
   }
 
   return (
@@ -194,7 +194,7 @@ export default function EcoEventsForm({
                 <FormItem>
                   <FormLabel>Vibe with us</FormLabel>
                   <FormControl>
-                    <Textarea placeholder="Leave comments"/>
+                    <Textarea placeholder="Leave comments" {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>

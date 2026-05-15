@@ -73,10 +73,9 @@ export default function Home() {
 
   return (
     <div className="relative overflow-x-hidden">
-      <HomeNavbar scrollEnabled={true} onMenuToggle={() => setMenuOpen(!menuOpen)} />
-      <HomeMobileMenu isOpen={menuOpen} onClose={() => setMenuOpen(false)} scrollEnabled={true} />
+      <HomeNavbar onMenuToggle={() => setMenuOpen(!menuOpen)} />
+      <HomeMobileMenu isOpen={menuOpen} onClose={() => setMenuOpen(false)} />
 
-      {/* HeroSection — scrollEnabled and resetSignal removed (unused) */}
       <HeroSection onTransitionComplete={handleTransitionComplete} />
 
       <div id="problem">
@@ -84,7 +83,7 @@ export default function Home() {
       </div>
 
       <div id="how-it-works">
-        <HowItWorksSection scrollEnabled={true} />
+        <HowItWorksSection />
       </div>
 
       <div id="ecommunity">
@@ -103,7 +102,7 @@ export default function Home() {
         <ForInvestorsSection />
       </div>
 
-      <div id="impact">
+      <div id="impact" className="ps-animate">
         <SustainabilityImpactSection />
       </div>
 

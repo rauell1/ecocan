@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { motion, useAnimationControls } from 'framer-motion';
 
 export default function TickerCounter({
@@ -15,31 +15,23 @@ export default function TickerCounter({
   const controls = useAnimationControls();
   const [hasAnimated, setHasAnimated] = useState(false);
 
-  // Function to animate the counter
-  const animateCounter = async () => {
-    if (hasAnimated) return; // Prevent re-running
-    
+  const animateCounter = useCallback(async () => {
+    if (hasAnimated) return;
     setHasAnimated(true);
     const startValue = direction === 'down' ? value : 0;
     const endValue = direction === 'down' ? 0 : value;
-    const duration = 2; // Animation duration in seconds
-    
+    const duration = 2;
     const start = performance.now();
     const updateCounter = () => {
       if (!ref.current) return;
-      
       const now = performance.now();
       const progress = Math.min((now - start) / (duration * 1000), 1);
-      
-      // Easing function for smooth animation
       const easeOutQuart = (x: number) => 1 - Math.pow(1 - x, 4);
       const easedProgress = easeOutQuart(progress);
-      
       const currentValue = startValue + (endValue - startValue) * easedProgress;
       ref.current.textContent = Intl.NumberFormat('en-US').format(
         Math.round(currentValue)
       );
-      
       if (progress < 1) {
         requestAnimationFrame(updateCounter);
       } else {
@@ -47,20 +39,19 @@ export default function TickerCounter({
         controls.start({ opacity: 1, y: 0 });
       }
     };
-    
     requestAnimationFrame(updateCounter);
-  };
+  }, [hasAnimated, direction, value, controls]);
 
   useEffect(() => {
-    // Start animation when component mounts
     animateCounter();
-    
-    // Cleanup function
     return () => {
       setHasAnimated(false);
       setIsCountComplete(false);
     };
-  }, []); // Empty dependency array ensures it only runs once on mount
+  }, [animateCounter]);
+
+  // suppress unused warning until feature is used
+  void isCountComplete;
 
   return (
     <div className="flex items-start">
