@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect, useState } from "react"
+import { useRef } from "react"
 import Image from "next/image"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
@@ -19,14 +19,8 @@ const navLinks = [
 ]
 
 export default function HomeNavbar({ onMenuToggle }: HomeNavbarProps) {
-  const [scrolled, setScrolled] = useState(false)
   const pathname = usePathname()
-
-  useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 56)
-    window.addEventListener("scroll", handleScroll, { passive: true })
-    return () => window.removeEventListener("scroll", handleScroll)
-  }, [])
+  const navRef = useRef<HTMLElement>(null)
 
   const handleSectionClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault()
@@ -35,16 +29,20 @@ export default function HomeNavbar({ onMenuToggle }: HomeNavbarProps) {
 
   return (
     <nav
-      className="fixed left-0 right-0 top-0 z-50 transition-all duration-500"
+      ref={navRef}
+      className="fixed left-0 right-0 top-0 z-50"
       style={{
         height: 64,
-        background: scrolled ? "rgba(255,255,255,0.97)" : "rgba(10,14,11,0.55)",
-        backdropFilter: "blur(14px)",
-        borderBottom: scrolled ? "1px solid rgba(0,0,0,0.08)" : "1px solid rgba(255,255,255,0.08)",
+        // Dark bar — ALWAYS. No scroll-state toggle.
+        // Matches ANC / Nexora reference exactly.
+        background: "rgba(8,12,9,0.75)",
+        backdropFilter: "blur(18px)",
+        WebkitBackdropFilter: "blur(18px)",
+        borderBottom: "1px solid rgba(255,255,255,0.07)",
       }}
     >
       <div className="mx-auto flex h-full max-w-[1280px] items-center px-6">
-        {/* Logo — left */}
+        {/* Logo — white version always */}
         <Link
           href={pathname === "/" ? "#hero" : "/"}
           onClick={(e) => {
@@ -54,7 +52,7 @@ export default function HomeNavbar({ onMenuToggle }: HomeNavbarProps) {
           className="flex shrink-0 items-center"
         >
           <Image
-            src={scrolled ? "/images/ecocan-logo.png" : "/assets/images/ecocan-logo-alt.svg"}
+            src="/assets/images/ecocan-logo-alt.svg"
             alt="ECOCAN"
             width={96}
             height={36}
@@ -71,11 +69,7 @@ export default function HomeNavbar({ onMenuToggle }: HomeNavbarProps) {
                 key={link.href}
                 href={link.href}
                 onClick={(e) => handleSectionClick(e, link.href)}
-                className={`cursor-pointer text-[14px] font-medium transition-colors duration-200 ${
-                  scrolled
-                    ? "text-eco-dark/65 hover:text-eco-dark"
-                    : "text-white/70 hover:text-white"
-                }`}
+                className="cursor-pointer text-[14px] font-medium text-white/60 transition-colors duration-200 hover:text-white"
               >
                 {link.label}
               </a>
@@ -83,11 +77,7 @@ export default function HomeNavbar({ onMenuToggle }: HomeNavbarProps) {
               <Link
                 key={link.href}
                 href={link.href}
-                className={`text-[14px] font-medium transition-colors duration-200 ${
-                  scrolled
-                    ? "text-eco-dark/65 hover:text-eco-dark"
-                    : "text-white/70 hover:text-white"
-                }`}
+                className="text-[14px] font-medium text-white/60 transition-colors duration-200 hover:text-white"
               >
                 {link.label}
               </Link>
@@ -99,19 +89,14 @@ export default function HomeNavbar({ onMenuToggle }: HomeNavbarProps) {
         <div className="ml-auto flex items-center gap-3 lg:ml-0">
           <Link
             href="/download"
-            className={`hidden rounded-full px-5 py-2 text-[13.5px] font-semibold transition-all duration-200 md:inline-flex ${
-              scrolled
-                ? "bg-primary text-white hover:bg-primary/90"
-                : "border border-white/40 bg-white/10 text-white hover:bg-white hover:text-eco-dark"
-            }`}
+            className="hidden rounded-full border border-white/30 px-5 py-2 text-[13.5px] font-semibold text-white transition-all duration-200 hover:bg-white hover:text-eco-dark md:inline-flex"
+            style={{ background: "rgba(255,255,255,0.08)" }}
           >
             Download App
           </Link>
           <button
             onClick={onMenuToggle}
-            className={`rounded-lg p-2 transition-colors lg:hidden ${
-              scrolled ? "text-eco-dark" : "text-white"
-            }`}
+            className="rounded-lg p-2 text-white/70 transition-colors hover:text-white lg:hidden"
             aria-label="Open menu"
           >
             <Menu size={22} />
