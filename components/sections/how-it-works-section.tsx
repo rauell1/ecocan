@@ -1,10 +1,19 @@
 "use client"
 
-import { useRef, useEffect, useState } from "react"
+import { useRef, useEffect, useState, useCallback } from "react"
 import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 import Image from "next/image"
-import { ShoppingBag, ScanLine, RotateCcw, Bike, Wallet, ArrowRight } from "lucide-react"
+import {
+  ShoppingBag,
+  ScanLine,
+  RotateCcw,
+  Bike,
+  Wallet,
+  ArrowRight,
+  ChevronLeft,
+  ChevronRight,
+} from "lucide-react"
 import SectionBadge from "@/components/shared/section-badge"
 
 const steps = [
@@ -50,17 +59,107 @@ const steps = [
   },
 ]
 
+// ── Shared card inner ──────────────────────────────────────────────────────
+function StepCardInner({ step, isActive }: { step: (typeof steps)[number]; isActive: boolean }) {
+  const Icon = step.icon
+  return (
+    <div
+      className="relative h-full overflow-hidden rounded-2xl border p-6 transition-all duration-300"
+      style={{
+        background: isActive ? step.accent : "white",
+        borderColor: isActive ? step.color + "55" : "rgba(0,0,0,0.07)",
+        transform: isActive ? "translateY(-6px)" : "translateY(0)",
+        boxShadow: isActive ? `0 16px 40px ${step.color}22` : "0 1px 6px rgba(0,0,0,0.05)",
+      }}
+    >
+      {/* Top colour bar */}
+      <div
+        className="absolute inset-x-0 top-0 transition-all duration-300"
+        style={{
+          height: isActive ? "4px" : "3px",
+          background: step.color,
+          opacity: isActive ? 1 : 0.6,
+        }}
+      />
+
+      {/* Number + icon row */}
+      <div className="mb-5 flex items-start justify-between">
+        <span
+          className="font-mono text-5xl font-extrabold leading-none transition-colors duration-200 md:text-6xl"
+          style={{ color: isActive ? step.color : "rgba(0,0,0,0.08)" }}
+        >
+          {step.num}
+        </span>
+        <div
+          className="flex h-10 w-10 items-center justify-center rounded-xl transition-all duration-300"
+          style={{ background: isActive ? step.color : step.color + "15" }}
+        >
+          <Icon size={20} style={{ color: isActive ? "white" : step.color }} strokeWidth={1.8} />
+        </div>
+      </div>
+
+      {/* Title */}
+      <h3
+        className="mb-2 text-[19px] font-bold leading-tight transition-colors duration-200"
+        style={{ color: isActive ? step.color : "#111" }}
+      >
+        {step.title}
+      </h3>
+
+      {/* Description */}
+      <p
+        className="text-[13.5px] leading-relaxed transition-colors duration-200"
+        style={{ color: isActive ? "rgba(0,0,0,0.65)" : "rgba(0,0,0,0.45)" }}
+      >
+        {step.desc}
+      </p>
+
+      {/* Pulse dot on resting state */}
+      {!isActive && (
+        <div
+          className="absolute bottom-4 right-4 h-2 w-2 animate-pulse-dot rounded-full"
+          style={{ background: step.color, opacity: 0.4 }}
+        />
+      )}
+    </div>
+  )
+}
+
+// ── Main section ───────────────────────────────────────────────────────────
 export default function HowItWorksSection() {
   const sectionRef = useRef<HTMLDivElement>(null)
   const cardsRef = useRef<HTMLDivElement>(null)
   const lineRef = useRef<HTMLDivElement>(null)
-  const [activeStep, setActiveStep] = useState<number | null>(null)
+  const sliderRef = useRef<HTMLDivElement>(null)
 
+  const [activeStep, setActiveStep] = useState<number | null>(null) // desktop hover
+  const [activeSlide, setActiveSlide] = useState(0) // mobile carousel
+
+  // ── Mobile: track active slide from scroll position ──────────────────────
+  const handleScroll = useCallback(() => {
+    const el = sliderRef.current
+    if (!el) return
+    // Each slide is the full scroll width divided by count
+    const slideWidth = el.scrollWidth / steps.length
+    const idx = Math.round(el.scrollLeft / slideWidth)
+    setActiveSlide(Math.min(Math.max(idx, 0), steps.length - 1))
+  }, [])
+
+  const scrollToSlide = (index: number) => {
+    const el = sliderRef.current
+    if (!el) return
+    const slideWidth = el.scrollWidth / steps.length
+    el.scrollTo({ left: slideWidth * index, behavior: "smooth" })
+  }
+
+  const prev = () => scrollToSlide(Math.max(activeSlide - 1, 0))
+  const next = () => scrollToSlide(Math.min(activeSlide + 1, steps.length - 1))
+
+  // ── GSAP animations (desktop grid only) ──────────────────────────────────
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger)
 
     const ctx = gsap.context(() => {
-      // Heading block
       const headingEls = sectionRef.current?.querySelectorAll(".hiw-heading")
       if (headingEls && headingEls.length > 0) {
         gsap.fromTo(
@@ -77,7 +176,6 @@ export default function HowItWorksSection() {
         )
       }
 
-      // Connector line draw animation (desktop)
       if (lineRef.current) {
         gsap.fromTo(
           lineRef.current,
@@ -91,7 +189,7 @@ export default function HowItWorksSection() {
         )
       }
 
-      // Step cards stagger in
+      // Desktop cards only (cardsRef is the lg grid)
       if (cardsRef.current) {
         const cards = cardsRef.current.querySelectorAll(".step-card")
         if (cards.length > 0) {
@@ -111,7 +209,6 @@ export default function HowItWorksSection() {
         }
       }
 
-      // Bottom image slide up
       const imgEl = sectionRef.current?.querySelector(".counter-img")
       if (imgEl) {
         gsap.fromTo(
@@ -134,10 +231,11 @@ export default function HowItWorksSection() {
   return (
     <section
       ref={sectionRef}
+      id="how-it-works"
       className="relative w-full overflow-hidden py-[120px] md:py-[160px]"
       style={{ background: "#f5f5f0" }}
     >
-      {/* Decorative background dot grid */}
+      {/* Dot-grid background */}
       <div
         aria-hidden="true"
         className="pointer-events-none absolute inset-0"
@@ -149,7 +247,7 @@ export default function HowItWorksSection() {
       />
 
       <div className="relative z-10 mx-auto max-w-[1280px] px-6">
-        {/* Centered heading block */}
+        {/* ── Heading ──────────────────────────────────────────────────── */}
         <div className="mb-16 flex flex-col items-center text-center">
           <div className="hiw-heading">
             <SectionBadge number="02" />
@@ -172,12 +270,91 @@ export default function HowItWorksSection() {
           </p>
         </div>
 
-        {/* Step cards with desktop connector line */}
-        <div className="relative mb-6">
-          {/* Connecting line — desktop only */}
+        {/* ── MOBILE CAROUSEL (hidden lg+) ─────────────────────────────── */}
+        <div className="relative mb-6 lg:hidden">
+          {/* Scroll track — breaks out of px-6 container */}
+          <div
+            ref={sliderRef}
+            onScroll={handleScroll}
+            className="hiw-slider flex gap-4 overflow-x-auto pb-2"
+            style={{
+              scrollSnapType: "x mandatory",
+              WebkitOverflowScrolling: "touch",
+              scrollbarWidth: "none",
+              msOverflowStyle: "none",
+              marginLeft: "-24px",
+              marginRight: "-24px",
+              paddingLeft: "24px",
+              paddingRight: "24px",
+            }}
+          >
+            {steps.map((step, i) => (
+              <div
+                key={step.num}
+                className="shrink-0"
+                style={{
+                  scrollSnapAlign: "center",
+                  width: "82vw",
+                  maxWidth: "320px",
+                  // last card gets extra right padding so it can snap fully
+                  paddingRight: i === steps.length - 1 ? "24px" : "0",
+                }}
+              >
+                <StepCardInner step={step} isActive={activeSlide === i} />
+              </div>
+            ))}
+          </div>
+
+          {/* Prev / Next arrows */}
+          <button
+            onClick={prev}
+            disabled={activeSlide === 0}
+            className="absolute -left-1 top-1/2 z-10 flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-full bg-white shadow-md transition-all disabled:opacity-25"
+            aria-label="Previous step"
+          >
+            <ChevronLeft size={18} className="text-eco-dark" />
+          </button>
+          <button
+            onClick={next}
+            disabled={activeSlide === steps.length - 1}
+            className="absolute -right-1 top-1/2 z-10 flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-full bg-white shadow-md transition-all disabled:opacity-25"
+            aria-label="Next step"
+          >
+            <ChevronRight size={18} className="text-eco-dark" />
+          </button>
+        </div>
+
+        {/* Dot indicators + step counter — mobile only */}
+        <div className="mb-10 flex flex-col items-center gap-3 lg:hidden">
+          <div className="flex items-center gap-2">
+            {steps.map((step, i) => (
+              <button
+                key={i}
+                onClick={() => scrollToSlide(i)}
+                aria-label={`Go to step ${i + 1}`}
+                className="rounded-full transition-all duration-300"
+                style={{
+                  width: activeSlide === i ? "24px" : "8px",
+                  height: "8px",
+                  background:
+                    activeSlide === i
+                      ? (steps[activeSlide]?.color ?? "#16a34a")
+                      : "rgba(0,0,0,0.15)",
+                }}
+              />
+            ))}
+          </div>
+          <p className="text-[12px] font-medium text-eco-dark/40">
+            Step {activeSlide + 1} of {steps.length}
+          </p>
+        </div>
+
+        {/* ── DESKTOP GRID (hidden below lg) ───────────────────────────── */}
+        <div className="relative mb-6 hidden lg:block">
+          {/* Connecting line */}
           <div
             aria-hidden="true"
-            className="pointer-events-none absolute left-[10%] right-[10%] top-[52px] hidden h-[2px] origin-left lg:block"
+            className="pointer-events-none absolute left-[10%] right-[10%] top-[52px] h-[2px] origin-left"
             ref={lineRef}
             style={{
               background: "linear-gradient(to right, #16a34a, #0891b2, #7c3aed, #d97706, #e11d48)",
@@ -185,88 +362,17 @@ export default function HowItWorksSection() {
             }}
           />
 
-          <div ref={cardsRef} className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-5">
-            {steps.map((step, i) => {
-              const Icon = step.icon
-              const isActive = activeStep === i
-              return (
-                <div
-                  key={step.num}
-                  className="step-card group relative cursor-pointer"
-                  onMouseEnter={() => setActiveStep(i)}
-                  onMouseLeave={() => setActiveStep(null)}
-                >
-                  {/* Card body */}
-                  <div
-                    className="relative overflow-hidden rounded-2xl border p-6 transition-all duration-300 md:p-7"
-                    style={{
-                      background: isActive ? step.accent : "white",
-                      borderColor: isActive ? step.color + "55" : "rgba(0,0,0,0.07)",
-                      transform: isActive ? "translateY(-6px)" : "translateY(0)",
-                      boxShadow: isActive
-                        ? `0 16px 40px ${step.color}22`
-                        : "0 1px 6px rgba(0,0,0,0.05)",
-                    }}
-                  >
-                    {/* Top colored bar */}
-                    <div
-                      className="absolute inset-x-0 top-0 transition-all duration-300"
-                      style={{
-                        height: isActive ? "4px" : "3px",
-                        background: step.color,
-                        opacity: isActive ? 1 : 0.6,
-                      }}
-                    />
-
-                    {/* Step number + icon row */}
-                    <div className="mb-5 flex items-start justify-between">
-                      <span
-                        className="font-mono text-5xl font-extrabold leading-none transition-colors duration-200 md:text-6xl"
-                        style={{ color: isActive ? step.color : "rgba(0,0,0,0.08)" }}
-                      >
-                        {step.num}
-                      </span>
-                      <div
-                        className="flex h-10 w-10 items-center justify-center rounded-xl transition-all duration-300"
-                        style={{
-                          background: isActive ? step.color : step.color + "15",
-                        }}
-                      >
-                        <Icon
-                          size={20}
-                          style={{ color: isActive ? "white" : step.color }}
-                          strokeWidth={1.8}
-                        />
-                      </div>
-                    </div>
-
-                    {/* Title */}
-                    <h3
-                      className="mb-2 text-[19px] font-bold leading-tight transition-colors duration-200"
-                      style={{ color: isActive ? step.color : "#111" }}
-                    >
-                      {step.title}
-                    </h3>
-
-                    {/* Description */}
-                    <p
-                      className="text-[13.5px] leading-relaxed transition-colors duration-200"
-                      style={{ color: isActive ? "rgba(0,0,0,0.65)" : "rgba(0,0,0,0.45)" }}
-                    >
-                      {step.desc}
-                    </p>
-
-                    {/* "Hover me" pulse dot — only on resting state */}
-                    {!isActive && (
-                      <div
-                        className="absolute bottom-4 right-4 h-2 w-2 animate-pulse-dot rounded-full"
-                        style={{ background: step.color, opacity: 0.4 }}
-                      />
-                    )}
-                  </div>
-                </div>
-              )
-            })}
+          <div ref={cardsRef} className="grid grid-cols-5 gap-4">
+            {steps.map((step, i) => (
+              <div
+                key={step.num}
+                className="step-card group relative cursor-pointer"
+                onMouseEnter={() => setActiveStep(i)}
+                onMouseLeave={() => setActiveStep(null)}
+              >
+                <StepCardInner step={step} isActive={activeStep === i} />
+              </div>
+            ))}
           </div>
         </div>
 
@@ -290,10 +396,7 @@ export default function HowItWorksSection() {
             placeholder="blur"
             blurDataURL="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxIiBoZWlnaHQ9IjEiPjxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9IiMwYTFhMGYiLz48L3N2Zz4="
           />
-          {/* Gradient overlay */}
           <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/30 to-transparent" />
-
-          {/* Overlay copy */}
           <div className="absolute inset-0 flex items-center p-8 md:p-14">
             <div>
               <p
