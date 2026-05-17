@@ -127,13 +127,13 @@ export default function ForInvestorsSection() {
           </div>
           <p className="section-overline inv-heading mb-3">For Investors</p>
           <h2 className="section-headline inv-heading mb-4 text-eco-dark">
-            Back the infrastructure
+            This is not a recycling project.
             <br />
-            Africa&apos;s circular economy needs
+            This is logistics infrastructure.
           </h2>
           <p className="section-body inv-heading text-eco-dark/60">
-            ECOCAN is building the deposit-return backbone that makes recycling profitable for
-            everyone — from individual consumers to multinational brands.
+            Early-stage funding secured. Operations live. ECOCAN is building the deposit-return
+            backbone across Africa — ready for Series A.
           </p>
         </div>
 

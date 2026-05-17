@@ -1,36 +1,45 @@
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import BlogHero from "./blog-hero";
-import Articles from "./articles";
-import PartnershipBlogHero from "./partnership-blog-hero";
-import PartnershipArticles from "./partnership-articles";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+import BlogHero from "./blog-hero"
+import Articles from "./articles"
+import PartnershipBlogHero from "./partnership-blog-hero"
+import PartnershipArticles from "./partnership-articles"
 
 export default function News() {
   return (
-    <section id="">
+    <section>
       <Tabs defaultValue="sustainability">
-        <TabsList className="grid md:w-3/5 mx-auto grid-cols-2 bg-white border-[#E6E6E6] rounded-full my-8">
+        {/* Tab switcher */}
+        <TabsList
+          className="mx-auto mb-10 grid w-full max-w-sm grid-cols-2 rounded-full p-1"
+          style={{
+            background: "rgba(255,255,255,0.06)",
+            border: "1px solid rgba(255,255,255,0.10)",
+          }}
+        >
           <TabsTrigger
             value="sustainability"
-            className="rounded-full text-[#0000004D] text-[0.7375rem] md:text-[0.9125rem] lg:text-base"
+            className="rounded-full text-sm font-medium text-white/50 data-[state=active]:bg-white/10 data-[state=active]:text-white"
           >
-            Sustainability News
+            Sustainability
           </TabsTrigger>
           <TabsTrigger
             value="partnership"
-            className="rounded-full text-[#0000004D] text-[0.7375rem] md:text-[0.9125rem] md:text-base"
+            className="rounded-full text-sm font-medium text-white/50 data-[state=active]:bg-white/10 data-[state=active]:text-white"
           >
-            Partnership News
+            Partnerships
           </TabsTrigger>
         </TabsList>
-        <TabsContent value="sustainability" className="space-y-12">
+
+        <TabsContent value="sustainability" className="space-y-10">
           <BlogHero />
           <Articles />
         </TabsContent>
-        <TabsContent value="partnership" className="space-y-12">
+
+        <TabsContent value="partnership" className="space-y-10">
           <PartnershipBlogHero />
           <PartnershipArticles />
         </TabsContent>
       </Tabs>
     </section>
-  );
+  )
 }

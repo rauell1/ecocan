@@ -106,6 +106,8 @@ export default function AntiCounterfeitSection() {
                 sizes="(max-width: 1024px) 100vw, 40vw"
                 className="h-auto w-full object-cover"
                 loading="lazy"
+                placeholder="blur"
+                blurDataURL="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxIiBoZWlnaHQ9IjEiPjxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9IiMwYTFhMGYiLz48L3N2Zz4="
               />
             </div>
           </div>

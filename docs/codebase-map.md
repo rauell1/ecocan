@@ -5,15 +5,15 @@
 
 # 🗺️ EcoCan Codebase Map
 
-> **Version:** `0e2a336`
-> **Generated:** 2026-05-15T17:11:17.359Z
+> **Version:** `77ed8e7`
+> **Generated:** 2026-05-15T17:17:19.907Z
 > **Branch:** `main`
-> **Previous:** `a1343fd`
+> **Previous:** `0e2a336`
 
 ## Changes Since Last Version
 
-- Modified: components/sections/hero-section.tsx
 - Modified: components/sections/home-navbar.tsx
+- Modified: components/sections/problem-solution-section.tsx
 
 ---
 
@@ -60,6 +60,7 @@
 
 | Version   | Date       | Branch | Changes                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
 | --------- | ---------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `77ed8e7` | 2026-05-15 | main   | Modified: components/sections/home-navbar.tsx; Modified: components/sections/problem-solution-section.tsx                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 | `0e2a336` | 2026-05-15 | main   | Modified: components/sections/hero-section.tsx; Modified: components/sections/home-navbar.tsx                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
 | `a1343fd` | 2026-05-15 | main   | Modified: components/sections/hero-section.tsx                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
 | `51c436b` | 2026-05-15 | main   | Modified: components/sections/hero-section.tsx; Modified: components/sections/home-mobile-menu.tsx; Modified: components/sections/home-navbar.tsx                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |

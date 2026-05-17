@@ -7,16 +7,20 @@ import { Plus, Minus } from "lucide-react"
 
 const faqs = [
   {
-    q: "What is ECOCAN?",
-    a: "Africa's Circular Bottle Ecosystem — a deposit return system that pays you for returning empty bottles, while helping brands fight counterfeiting and drive recycling across the continent.",
+    q: "Do I need a machine to return bottles?",
+    a: "No. You can return bottles today at any ECO-Station counter. Our partner scans your bottle with a phone, verifies it, and sends money instantly to your ECO-wallet. ECOcan machines are coming soon — but the system works right now.",
   },
   {
-    q: "How do I return a bottle and get paid?",
-    a: "Download the ECOCAN app, find your nearest ECO-Station, scan the QR code on your bottle, and deposit it. Your wallet is credited instantly — cash out via M-Pesa.",
+    q: "What is ECOCAN?",
+    a: "Africa's Circular Bottle Ecosystem — a deposit return system that rewards you for returning empty bottles, while helping brands fight counterfeiting and drive recycling across the continent.",
+  },
+  {
+    q: "How do I get rewarded?",
+    a: "Download the ECOCAN app, find your nearest ECO-Station or counter, scan the QR code on your bottle, and return it. Your ECO-wallet is credited instantly — withdraw to M-Pesa or bank anytime.",
   },
   {
     q: "How does ECOCAN stop counterfeit drinks?",
-    a: "Every genuine bottle carries a unique, tamper-evident QR code. Scan it in the app to verify authenticity before drinking. Counterfeit bottles fail instantly.",
+    a: "Every genuine bottle carries a unique, tamper-evident QR code. Scan it in the app before drinking — green means safe, red means fake. Counterfeit bottles fail instantly.",
   },
   {
     q: "I'm a brand — how do I join?",

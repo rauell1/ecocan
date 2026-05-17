@@ -83,6 +83,8 @@ export default function PartnersTestimonialsSection() {
             sizes="(max-width: 1280px) 100vw, 1280px"
             className="object-cover"
             loading="lazy"
+            placeholder="blur"
+            blurDataURL="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxIiBoZWlnaHQ9IjEiPjxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9IiMwYTFhMGYiLz48L3N2Zz4="
           />
           <div className="absolute inset-0 bg-gradient-to-t from-eco-dark/65 via-eco-dark/15 to-transparent" />
           <div className="absolute bottom-0 left-0 p-8 md:p-10">

@@ -151,7 +151,8 @@ export default function HeroSection({ onTransitionComplete }: HeroSectionProps) 
         {/* Bottom row: left content + right label */}
         <div className="flex items-end justify-between gap-6">
           {/* LEFT: headline + CTAs */}
-          <div ref={contentRef} className="max-w-[600px]">
+          <div ref={contentRef} className="max-w-[640px]">
+            {/* Eyebrow */}
             <p
               className="mb-3 text-[11px] font-semibold uppercase tracking-[0.22em]"
               style={{ color: "rgba(255,255,255,0.45)" }}
@@ -159,8 +160,9 @@ export default function HeroSection({ onTransitionComplete }: HeroSectionProps) 
               Africa&apos;s Circular Bottle Ecosystem
             </p>
 
+            {/* Main headline */}
             <h1
-              className="mb-7 font-bold text-white"
+              className="mb-3 font-bold text-white"
               style={{
                 fontSize: "clamp(40px, 6.5vw, 80px)",
                 lineHeight: 1.04,
@@ -169,25 +171,55 @@ export default function HeroSection({ onTransitionComplete }: HeroSectionProps) 
             >
               Return. Recycle.
               <br />
-              Get Rewarded.
+              Make a difference.
             </h1>
 
-            {/* Two CTAs */}
-            <div className="flex flex-wrap items-center gap-4">
+            {/* Sub-headline */}
+            <p
+              className="mb-6 max-w-[480px] text-[15px] leading-relaxed"
+              style={{ color: "rgba(255,255,255,0.6)" }}
+            >
+              Recycle at any ECO-Station. Save the planet. Stop fake drinks. Get a bonus.
+            </p>
+
+            {/* CTAs */}
+            <div className="mb-5 flex flex-wrap items-center gap-3">
               <a
                 href="/download"
                 className="inline-flex items-center gap-2 rounded-full bg-white px-6 py-3 text-[14px] font-semibold text-eco-dark transition-all hover:bg-white/90 active:scale-95"
               >
                 <Download size={15} />
-                Download Free
+                Start Making a Difference
               </a>
-              <button
-                onClick={() => scrollTo("how-it-works")}
-                className="inline-flex items-center gap-2 text-[14px] font-medium text-white/70 transition-colors hover:text-white"
+              <a
+                href="/contact"
+                className="inline-flex items-center gap-2 rounded-full border border-white/30 px-5 py-3 text-[14px] font-medium text-white transition-all hover:bg-white/10"
               >
-                How it works <ArrowRight size={14} />
-              </button>
+                Partner with ECOCAN <ArrowRight size={14} />
+              </a>
             </div>
+
+            {/* Trust badges */}
+            <div className="flex flex-wrap items-center gap-2">
+              {["Early-stage funded", "Operational in Kenya", "GDPR Compliant"].map((badge) => (
+                <span
+                  key={badge}
+                  className="rounded-full px-3 py-1 text-[11px] font-medium"
+                  style={{
+                    background: "rgba(255,255,255,0.08)",
+                    border: "1px solid rgba(255,255,255,0.15)",
+                    color: "rgba(255,255,255,0.6)",
+                  }}
+                >
+                  {badge}
+                </span>
+              ))}
+            </div>
+
+            {/* "No machine" note */}
+            <p className="mt-3 text-[12px]" style={{ color: "rgba(255,255,255,0.35)" }}>
+              No machine? No problem. Our counters work today.
+            </p>
           </div>
 
           {/* RIGHT: scroll cue */}

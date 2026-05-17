@@ -12,12 +12,12 @@ interface HomeMobileMenuProps {
 const sectionLinks = [
   { label: "How It Works", href: "#how-it-works" },
   { label: "ECOmmunity", href: "#ecommunity" },
-  { label: "Impact", href: "#impact" },
+  { label: "Investors", href: "#investors" },
   { label: "FAQ", href: "#faq" },
 ]
 
 const pageLinks = [
-  { label: "Solutions", href: "/solutions" },
+  { label: "For Producers", href: "/solutions" },
   { label: "About Us", href: "/about-us" },
   { label: "Contact", href: "/contact" },
   { label: "News", href: "/news" },

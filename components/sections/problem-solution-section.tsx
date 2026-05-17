@@ -97,7 +97,7 @@ export default function ProblemSolutionSection() {
               The Problem
             </p>
             <h2
-              className="ps-heading mb-12 font-bold text-white"
+              className="ps-heading mb-5 font-bold text-white"
               style={{
                 fontSize: "clamp(2rem, 4.5vw, 3.5rem)",
                 lineHeight: 1.1,
@@ -106,10 +106,27 @@ export default function ProblemSolutionSection() {
             >
               30% of drinks are fake.
               <br />
-              80% of bottles wasted.
+              Billions of bottles wasted.
               <br />
               <span style={{ color: GREEN }}>You can fix both.</span>
             </h2>
+
+            <p
+              className="ps-heading mb-3 text-[16px] font-medium"
+              style={{ color: "rgba(255,255,255,0.4)", letterSpacing: "-0.01em" }}
+            >
+              One empty at a time.
+            </p>
+
+            {/* Body text */}
+            <p
+              className="ps-heading mb-10 max-w-[460px] text-[15px] leading-relaxed"
+              style={{ color: "rgba(255,255,255,0.5)" }}
+            >
+              Every bottle you return is one less fake drink, one less piece of plastic in our
+              oceans, and one more step toward a cleaner Africa. ECOCAN creates a closed loop:
+              collect → recycle → reuse. Every bottle is traceable.
+            </p>
 
             {/* Stat cards */}
             <div className="flex flex-col gap-3">

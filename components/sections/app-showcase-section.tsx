@@ -147,6 +147,8 @@ export default function AppShowcaseSection() {
                 height={560}
                 className="h-auto w-full drop-shadow-2xl"
                 loading="lazy"
+                placeholder="blur"
+                blurDataURL="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxIiBoZWlnaHQ9IjEiPjxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9IiMwZjFhMGYiLz48L3N2Zz4="
               />
             </div>
             <div className="relative z-10 w-[55%]">
@@ -157,6 +159,8 @@ export default function AppShowcaseSection() {
                 height={680}
                 className="h-auto w-full drop-shadow-2xl"
                 loading="lazy"
+                placeholder="blur"
+                blurDataURL="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxIiBoZWlnaHQ9IjEiPjxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9IiMwZjFhMGYiLz48L3N2Zz4="
               />
             </div>
             <div className="absolute -right-4 bottom-0 z-0 w-[40%] origin-bottom-right rotate-[6deg] opacity-65 md:-right-8">
@@ -167,6 +171,8 @@ export default function AppShowcaseSection() {
                 height={480}
                 className="h-auto w-full drop-shadow-2xl"
                 loading="lazy"
+                placeholder="blur"
+                blurDataURL="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxIiBoZWlnaHQ9IjEiPjxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9IiMwZjFhMGYiLz48L3N2Zz4="
               />
             </div>
           </div>

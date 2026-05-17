@@ -85,14 +85,13 @@ export default function Blog() {
             ))}
           </div>
         </div>
-
-        {/* Bottom fade to white */}
-        <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-b from-transparent to-white" />
       </div>
 
       {/* ── News tabs + articles ─────────────────────────────────────────── */}
-      <div ref={contentRef} className="mx-auto max-w-[1280px] px-6 py-12">
-        <News />
+      <div style={{ background: "#0f0f0f" }}>
+        <div ref={contentRef} className="mx-auto max-w-[1280px] px-6 py-12 pb-20">
+          <News />
+        </div>
       </div>
 
       <Footer />

@@ -13,8 +13,8 @@ interface HomeNavbarProps {
 const navLinks = [
   { label: "How It Works", href: "#how-it-works", scroll: true },
   { label: "ECOmmunity", href: "#ecommunity", scroll: true },
-  { label: "Impact", href: "#impact", scroll: true },
-  { label: "Solutions", href: "/solutions", scroll: false },
+  { label: "For Producers", href: "/solutions", scroll: false },
+  { label: "Investors", href: "#investors", scroll: true },
   { label: "About", href: "/about-us", scroll: false },
 ]
 

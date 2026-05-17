@@ -1,16 +1,16 @@
 {
   "meta": {
-    "version": "0e2a336",
-    "generatedAt": "2026-05-15T17:11:17.359Z",
+    "version": "77ed8e7",
+    "generatedAt": "2026-05-15T17:17:19.907Z",
     "branch": "main",
-    "previousVersion": "a1343fd",
+    "previousVersion": "0e2a336",
     "generator": "scripts/generate-codebase-map.mjs",
     "framework": "Next.js 14",
     "packageManager": "pnpm"
   },
   "changes": [
-    "Modified: components/sections/hero-section.tsx",
-    "Modified: components/sections/home-navbar.tsx"
+    "Modified: components/sections/home-navbar.tsx",
+    "Modified: components/sections/problem-solution-section.tsx"
   ],
   "affectedHotspots": [],
   "routes": [
@@ -286,10 +286,10 @@
     "components\\sections\\hero-section.tsx": "db41ad2820cddce66d05b0016362cdfdfb7e3730",
     "components\\sections\\home-footer.tsx": "dfa45d1a2c353b17d18fe3abf27844f46511d767",
     "components\\sections\\home-mobile-menu.tsx": "5753a553f8adc96d473b3f496807fe091ca9e579",
-    "components\\sections\\home-navbar.tsx": "dd756f847f408da84f32cd0c2aeda8e51634f614",
+    "components\\sections\\home-navbar.tsx": "b00a4bffe95ca13828a73c8304b7e61bd73412a4",
     "components\\sections\\how-it-works-section.tsx": "0013fba0f08f4ab1385e4a808a46bf5ffb01a0a6",
     "components\\sections\\partners-testimonials-section.tsx": "cd7a75315c936211d0913138f5f88c530a3afa8f",
-    "components\\sections\\problem-solution-section.tsx": "81d2e082a7eae31fa8742815c27510babd02d834",
+    "components\\sections\\problem-solution-section.tsx": "c1994e172d6dbed1d28462e2241cb6fe0f67ceef",
     "components\\sections\\sustainability-impact-section.tsx": "f0b12b9043ecd28773e0a34b2d63a8d80df8cbf3",
     "components\\shared\\accordion.tsx": "c68c2697a68fcdfb6ce7cebae1adf67d8160739e",
     "components\\shared\\cta-card\\cta-card.tsx": "7ea1c58a0ab1cde2bfcda652e7ff2d417eae3e37",
@@ -482,6 +482,15 @@
       "changes": [
         "Modified: components/sections/hero-section.tsx",
         "Modified: components/sections/home-navbar.tsx"
+      ]
+    },
+    {
+      "version": "77ed8e7",
+      "date": "2026-05-15T17:17:19.907Z",
+      "branch": "main",
+      "changes": [
+        "Modified: components/sections/home-navbar.tsx",
+        "Modified: components/sections/problem-solution-section.tsx"
       ]
     }
   ]

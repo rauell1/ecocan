@@ -35,6 +35,9 @@ const nextConfig = {
   // Image optimisation
   images: {
     formats: ["image/avif", "image/webp"],
+    // Breakpoints that map to our responsive layouts
+    deviceSizes: [640, 768, 1024, 1280, 1536],
+    imageSizes: [48, 96, 128, 256, 384],
     remotePatterns: [],
   },
 }
