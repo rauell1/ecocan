@@ -19,29 +19,29 @@
 
 ## Hotspot Risk Summary
 
-| File                                      | Risk        | Reason                                        |
-| ----------------------------------------- | ----------- | --------------------------------------------- |
+| File | Risk | Reason |
+|---|---|---|
 | `components/shared/heros/HeroSection.tsx` | 🔴 critical | GSAP + Lenis + scroll animation orchestration |
-| `app/page.tsx`                            | 🔴 critical | Homepage section orchestrator                 |
-| `app/layout.tsx`                          | 🔴 critical | Root layout — all routes                      |
-| `components/shared/navbar/`               | 🟠 high     | Global nav — all routes                       |
-| `tailwind.config.ts`                      | 🟡 medium   | Theme tokens cascade everywhere               |
-| `app/globals.css`                         | 🟡 medium   | CSS custom properties                         |
+| `app/page.tsx` | 🔴 critical | Homepage section orchestrator |
+| `app/layout.tsx` | 🔴 critical | Root layout — all routes |
+| `components/shared/navbar/` | 🟠 high | Global nav — all routes |
+| `tailwind.config.ts` | 🟡 medium | Theme tokens cascade everywhere |
+| `app/globals.css` | 🟡 medium | CSS custom properties |
 
 ---
 
 ## Routes
 
-| Route                | File                             | Risk     |
-| -------------------- | -------------------------------- | -------- |
-| `/`                  | `app/page.tsx`                   | critical |
-| `/about-us`          | `app/about-us/page.tsx`          | low      |
-| `/contact`           | `app/contact/page.tsx`           | medium   |
-| `/download`          | `app/download/page.tsx`          | low      |
-| `/eco-friendly-cans` | `app/eco-friendly-cans/page.tsx` | low      |
-| `/ecocan-market`     | `app/ecocan-market/page.tsx`     | low      |
-| `/news`              | `app/news/page.tsx`              | low      |
-| `/solutions`         | `app/solutions/page.tsx`         | low      |
+| Route | File | Risk |
+|---|---|---|
+| `/` | `app/page.tsx` | critical |
+| `/about-us` | `app/about-us/page.tsx` | low |
+| `/contact` | `app/contact/page.tsx` | medium |
+| `/download` | `app/download/page.tsx` | low |
+| `/eco-friendly-cans` | `app/eco-friendly-cans/page.tsx` | low |
+| `/ecocan-market` | `app/ecocan-market/page.tsx` | low |
+| `/news` | `app/news/page.tsx` | low |
+| `/solutions` | `app/solutions/page.tsx` | low |
 
 ---
 
@@ -76,4 +76,4 @@
 
 ---
 
-_Full annotated map: see [docs/codebase-map.md](./codebase-map.md) for the complete tree, interaction map, and improvement recommendations._
+*Full annotated map: see [docs/codebase-map.md](./codebase-map.md) for the complete tree, interaction map, and improvement recommendations.*
