@@ -83,7 +83,7 @@ export default function HomeNavbar() {
               <a
                 key={link.href}
                 href={link.href}
-                onClick={(e) => (link.scroll ? handleSectionClick(e, link.href) : null)}
+                onClick={link.scroll ? (e) => handleSectionClick(e, link.href) : undefined}
                 className="flex min-h-11 cursor-pointer items-center text-[13px] font-bold uppercase tracking-widest text-white/80 transition-colors hover:text-white"
               >
                 {link.label}
