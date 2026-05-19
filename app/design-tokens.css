@@ -1,0 +1,78 @@
+/* ─── ECOCAN DESIGN TOKENS ─────────────────────────────────────────────────
+   Single source of truth for every visual decision on the site.
+   Import in globals.css BEFORE Tailwind layers.
+────────────────────────────────────────────────────────────────────────── */
+
+:root {
+  /* ── COLOUR ───────────────────────────────────────────────────────────── */
+  --c-bg:           #FBFBFD;   /* page canvas              */
+  --c-surface:      #FFFFFF;   /* card / section on bg     */
+  --c-surface-alt:  #F4F6F4;   /* alternating light section*/
+  --c-dark:         #0A0F0B;   /* dark section bg          */
+  --c-border:       rgba(0, 0, 0, 0.08);
+  --c-border-dark:  rgba(255, 255, 255, 0.10);
+
+  --c-text:         #111827;   /* gray-900  */
+  --c-text-muted:   #6B7280;   /* gray-500  */
+  --c-text-faint:   #9CA3AF;   /* gray-400  */
+  --c-text-inv:     #FFFFFF;
+
+  /* Brand greens */
+  --c-green:        #16A34A;   /* emerald-600 */
+  --c-green-light:  #4ADE80;   /* for dark-bg accents */
+  --c-green-dim:    rgba(22, 163, 74, 0.12);
+
+  /* ── TYPOGRAPHY ──────────────────────────────────────────────────────── */
+  --font-display:   var(--font-inter, 'Inter', system-ui, sans-serif);
+  --font-body:      var(--font-inter, 'Inter', system-ui, sans-serif);
+
+  /* Fluid type scale — clamp(min, preferred, max) */
+  --text-xs:    clamp(0.688rem, 0.65rem  + 0.19vw, 0.813rem);  /* 11→13px */
+  --text-sm:    clamp(0.813rem, 0.78rem  + 0.17vw, 0.938rem);  /* 13→15px */
+  --text-base:  clamp(1rem,     0.96rem  + 0.20vw, 1.125rem);  /* 16→18px */
+  --text-lg:    clamp(1.125rem, 1.05rem  + 0.38vw, 1.375rem);  /* 18→22px */
+  --text-xl:    clamp(1.5rem,   1.3rem   + 1.00vw, 2.25rem);   /* 24→36px */
+  --text-2xl:   clamp(2rem,     1.6rem   + 2.00vw, 3.25rem);   /* 32→52px */
+  --text-hero:  clamp(2.75rem,  1.5rem   + 5.00vw, 5.5rem);    /* 44→88px */
+
+  /* Overline — always the same */
+  --text-overline: 0.6875rem;  /* 11px — uppercased, tracked */
+
+  /* ── SPACING ─────────────────────────────────────────────────────────── */
+  --space-1:   0.25rem;   /*  4px */
+  --space-2:   0.5rem;    /*  8px */
+  --space-3:   0.75rem;   /* 12px */
+  --space-4:   1rem;      /* 16px */
+  --space-6:   1.5rem;    /* 24px */
+  --space-8:   2rem;      /* 32px */
+  --space-10:  2.5rem;    /* 40px */
+  --space-12:  3rem;      /* 48px */
+  --space-16:  4rem;      /* 64px */
+  --space-20:  5rem;      /* 80px */
+  --space-24:  6rem;      /* 96px */
+
+  /* Section vertical rhythm */
+  --py-section: clamp(5rem, 8vw, 10rem);   /* 80→160px — all sections */
+  --py-section-sm: clamp(3rem, 5vw, 6rem); /* tight variant            */
+
+  /* Content width */
+  --max-w-site:   1280px;
+  --max-w-prose:  640px;
+  --px-site:      clamp(1rem, 4vw, 3rem);
+
+  /* ── RADIUS ──────────────────────────────────────────────────────────── */
+  --radius-sm:   0.375rem;  /*  6px */
+  --radius-md:   0.75rem;   /* 12px */
+  --radius-card: 1.5rem;    /* 24px — all cards */
+  --radius-xl:   2rem;      /* 32px — media frames */
+  --radius-full: 9999px;
+
+  /* ── SHADOW ──────────────────────────────────────────────────────────── */
+  --shadow-card:  0 1px 3px rgba(0,0,0,0.04), 0 8px 24px rgba(0,0,0,0.06);
+  --shadow-lift:  0 4px 12px rgba(0,0,0,0.06), 0 20px 48px rgba(0,0,0,0.10);
+
+  /* ── MOTION ──────────────────────────────────────────────────────────── */
+  --ease-out-expo:  cubic-bezier(0.16, 1, 0.3, 1);
+  --duration-base:  180ms;
+  --duration-slow:  320ms;
+}

@@ -1,120 +1,55 @@
 "use client"
 
-import { useRef, useEffect, useState } from "react"
-import { gsap } from "gsap"
-import { ScrollTrigger } from "gsap/ScrollTrigger"
-import { Plus, Minus } from "lucide-react"
+import { useState } from "react"
+import { ChevronDown } from "lucide-react"
+import { useEcReveal } from "@/lib/use-ec-reveal"
+import { SectionOverline } from "@/components/shared/section-shell"
 
 const faqs = [
-  {
-    q: "Do I need a machine to return bottles?",
-    a: "No. You can return bottles today at any ECO-Station counter. Our partner scans your bottle with a phone, verifies it, and sends money instantly to your ECO-wallet. ECOcan machines are coming soon — but the system works right now.",
-  },
-  {
-    q: "What is ECOCAN?",
-    a: "Africa's Circular Bottle Ecosystem — a deposit return system that rewards you for returning empty bottles, while helping brands fight counterfeiting and drive recycling across the continent.",
-  },
-  {
-    q: "How do I get rewarded?",
-    a: "Download the ECOCAN app, find your nearest ECO-Station or counter, scan the QR code on your bottle, and return it. Your ECO-wallet is credited instantly — withdraw to M-Pesa or bank anytime.",
-  },
-  {
-    q: "How does ECOCAN stop counterfeit drinks?",
-    a: "Every genuine bottle carries a unique, tamper-evident QR code. Scan it in the app before drinking — green means safe, red means fake. Counterfeit bottles fail instantly.",
-  },
-  {
-    q: "I'm a brand — how do I join?",
-    a: "Fill in the partner form on our Contact page. Our team will walk you through onboarding, labelling requirements, and the deposit structure.",
-  },
-  {
-    q: "Is ECOCAN available outside Kenya?",
-    a: "We're operational in Kenya and actively expanding across East Africa. Reach out to bring ECOCAN to your market.",
-  },
+  { q: "How does the QR code verification work?",                    a: "Each bottle has a unique, tamper-evident QR code linked to our digital ledger. Scanning it instantly confirms the drink's authenticity and its chain of custody." },
+  { q: "How do I get paid for returning bottles?",                   a: "After dropping a bottle at any ECO-Station, your account is credited automatically. Cash out instantly to M-PESA or your linked bank account — no minimum balance." },
+  { q: "What happens to the bottles after I return them?",           a: "Verified bottles are collected by our electric cargo bike fleet, sorted, and delivered to certified recyclers. The whole chain is tracked on our platform." },
+  { q: "Can any retailer become an ECO-Station host?",              a: "Yes. Any shop, kiosk, or supermarket can apply. We provide the hardware, training, and a monthly host reward for every bottle returned through your location." },
+  { q: "Is ECOCAN available outside Kenya?",                         a: "We're live in Kenya and actively expanding. Tanzania and Uganda are next on the roadmap. Sign up to be notified when we launch in your country." },
 ]
 
 export default function FAQSection() {
-  const sectionRef = useRef<HTMLDivElement>(null)
-  const [openIndex, setOpenIndex] = useState<number | null>(0)
-
-  const toggle = (i: number) => setOpenIndex(openIndex === i ? null : i)
-
-  useEffect(() => {
-    gsap.registerPlugin(ScrollTrigger)
-
-    const ctx = gsap.context(() => {
-      const els = sectionRef.current?.querySelectorAll(".faq-animate")
-      if (els && els.length > 0) {
-        gsap.fromTo(
-          els,
-          { opacity: 0, y: 32 },
-          {
-            opacity: 1,
-            y: 0,
-            duration: 0.7,
-            stagger: 0.09,
-            ease: "power3.out",
-            scrollTrigger: { trigger: sectionRef.current, start: "top 80%", once: true },
-          }
-        )
-      }
-    }, sectionRef)
-
-    return () => ctx.revert()
-  }, [])
+  const ref = useEcReveal()
+  const [open, setOpen] = useState<number | null>(null)
 
   return (
-    <section ref={sectionRef} id="faq" className="bg-white px-6 py-24 md:py-32">
-      <div className="mx-auto max-w-[680px]">
-        {/* Minimal header */}
-        <p className="faq-animate section-overline mb-3 text-center">Questions</p>
-        <h2 className="faq-animate section-headline mb-14 text-center text-eco-dark">
-          Everything you need to know
-        </h2>
-
-        {/* Accordion */}
-        <div className="faq-animate divide-y divide-black/[0.07]">
-          {faqs.map((faq, i) => {
-            const isOpen = openIndex === i
-            return (
-              <div key={i}>
-                <button
-                  onClick={() => toggle(i)}
-                  className="group flex w-full cursor-pointer items-center justify-between gap-4 py-5 text-left"
-                  aria-expanded={isOpen}
-                >
-                  <span
-                    className={`text-[16px] font-semibold leading-snug transition-colors ${
-                      isOpen ? "text-primary" : "text-eco-dark group-hover:text-primary"
-                    }`}
-                  >
-                    {faq.q}
-                  </span>
-                  <span
-                    className={`flex h-7 w-7 shrink-0 items-center justify-center rounded-full transition-all ${
-                      isOpen
-                        ? "bg-primary text-white"
-                        : "bg-black/[0.06] text-eco-dark group-hover:bg-primary group-hover:text-white"
-                    }`}
-                  >
-                    {isOpen ? <Minus size={13} /> : <Plus size={13} />}
-                  </span>
-                </button>
-                <div
-                  className="overflow-hidden transition-all duration-300"
-                  style={{ maxHeight: isOpen ? "400px" : "0px", opacity: isOpen ? 1 : 0 }}
-                >
-                  <p className="pb-5 text-[15px] leading-relaxed text-eco-dark/65">{faq.a}</p>
-                </div>
-              </div>
-            )
-          })}
+    <section
+      ref={ref as React.RefObject<HTMLDivElement>}
+      className="relative w-full section-py section-alt overflow-hidden"
+    >
+      <div className="site-container">
+        <div className="ec-reveal mb-14">
+          <SectionOverline>FAQ</SectionOverline>
+          <h2 className="section-heading">Common questions.</h2>
         </div>
 
-        {/* Minimal bottom CTA */}
-        <div className="faq-animate mt-12 text-center">
-          <a href="/contact" className="pill-btn pill-btn-filled inline-flex !px-8 !py-3 text-sm">
-            Still have questions? Contact us
-          </a>
+        <div className="max-w-[720px] flex flex-col gap-3">
+          {faqs.map((faq, i) => (
+            <div key={i} className="ec-reveal ec-card overflow-hidden">
+              <button
+                className="w-full flex items-center justify-between gap-6 p-7 text-left"
+                onClick={() => setOpen(open === i ? null : i)}
+                aria-expanded={open === i}
+              >
+                <span className="text-base font-semibold tracking-tight">{faq.q}</span>
+                <ChevronDown
+                  size={18}
+                  className="shrink-0 text-[--c-text-muted] transition-transform duration-300"
+                  style={{ transform: open === i ? "rotate(180deg)" : "rotate(0deg)" }}
+                />
+              </button>
+              <div
+                style={{ maxHeight: open === i ? "320px" : "0", overflow: "hidden", transition: "max-height 0.35s cubic-bezier(0.16,1,0.3,1)" }}
+              >
+                <p className="px-7 pb-7 text-sm text-[--c-text-muted] leading-relaxed">{faq.a}</p>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </section>

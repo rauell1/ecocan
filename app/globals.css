@@ -1,10 +1,156 @@
+@import "./design-tokens.css";
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+/* ── RESET / BASE ───────────────────────────────────────────────────────── */
 @layer base {
-  body {
-    @apply min-h-screen bg-[#FBFBFD] text-gray-900 font-sans;
-    -webkit-font-smoothing: antialiased;
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: none;
+    text-size-adjust: none;
+    scroll-padding-top: 5rem;
   }
+
+  body {
+    min-height: 100dvh;
+    font-family: var(--font-body);
+    font-size: var(--text-base);
+    line-height: 1.65;
+    color: var(--c-text);
+    background-color: var(--c-bg);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+  }
+
+  img, picture, video, canvas, svg { display: block; max-width: 100%; }
+  input, button, textarea, select  { font: inherit; color: inherit; }
+  button { cursor: pointer; background: none; border: none; }
+
+  h1, h2, h3, h4 { text-wrap: balance; line-height: 1.12; }
+  p, li { text-wrap: pretty; max-width: 68ch; }
+
+  :focus-visible {
+    outline: 2px solid var(--c-green);
+    outline-offset: 3px;
+    border-radius: var(--radius-sm);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+/* ── GLOBAL ANIMATION PRIMITIVE ────────────────────────────────────────── */
+/*
+  .ec-reveal  — every animatable element starts hidden here.
+  GSAP ScrollTrigger in each section drives opacity → 1, y → 0.
+  Using a single class name prevents "reveal" / "ps-reveal" / "text-slide"
+  from co-existing across sections.
+*/
+.ec-reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  will-change: opacity, transform;
+}
+
+/* ── SECTION SHELL UTILITIES ────────────────────────────────────────────── */
+.section-light  { background-color: var(--c-bg); }
+.section-white  { background-color: var(--c-surface); }
+.section-alt    { background-color: var(--c-surface-alt); }
+.section-dark   { background-color: var(--c-dark); }
+
+.section-py     { padding-top: var(--py-section); padding-bottom: var(--py-section); }
+.section-py-sm  { padding-top: var(--py-section-sm); padding-bottom: var(--py-section-sm); }
+
+.site-container {
+  max-width: var(--max-w-site);
+  margin-inline: auto;
+  padding-inline: var(--px-site);
+  width: 100%;
+}
+
+/* ── OVERLINE ───────────────────────────────────────────────────────────── */
+.section-overline {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: var(--text-overline);
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--c-green);
+  margin-bottom: var(--space-6);
+}
+.section-overline::before {
+  content: '';
+  display: block;
+  width: 2rem;
+  height: 2px;
+  background-color: currentColor;
+  flex-shrink: 0;
+}
+
+.section-overline-inv {
+  color: rgba(255, 255, 255, 0.55);
+}
+.section-overline-inv::before {
+  background-color: rgba(255, 255, 255, 0.35);
+}
+
+/* ── SECTION HEADING ────────────────────────────────────────────────────── */
+.section-heading {
+  font-size: var(--text-2xl);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.08;
+  color: var(--c-text);
+}
+.section-heading-inv { color: #FFFFFF; }
+
+/* ── CARD PRIMITIVE ─────────────────────────────────────────────────────── */
+.ec-card {
+  border-radius: var(--radius-card);
+  border: 1px solid var(--c-border);
+  background: var(--c-surface);
+  box-shadow: var(--shadow-card);
+  transition:
+    box-shadow var(--duration-slow) var(--ease-out-expo),
+    border-color var(--duration-slow) var(--ease-out-expo),
+    transform var(--duration-slow) var(--ease-out-expo);
+}
+.ec-card:hover {
+  box-shadow: var(--shadow-lift);
+  border-color: rgba(22, 163, 74, 0.35);
+  transform: translateY(-4px);
+}
+
+.ec-card-dark {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--c-border-dark);
+  backdrop-filter: blur(12px);
+}
+.ec-card-dark:hover {
+  border-color: rgba(74, 222, 128, 0.30);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+/* ── INTERACTIVE / BUTTON TRANSITIONS ──────────────────────────────────── */
+a, button, [role="button"] {
+  transition:
+    color      var(--duration-base) var(--ease-out-expo),
+    background var(--duration-base) var(--ease-out-expo),
+    border-color var(--duration-base) var(--ease-out-expo),
+    box-shadow var(--duration-base) var(--ease-out-expo),
+    transform  var(--duration-base) var(--ease-out-expo);
 }
