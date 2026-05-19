@@ -3,208 +3,101 @@
 import { useRef, useEffect } from "react"
 import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
-import SectionBadge from "@/components/shared/section-badge"
-import ProblemIllustration from "@/components/shared/problem-illustration"
-
-const GREEN = "#4ade80"
+import { AlertCircle, Trash2, TrendingUp, ArrowRight } from "lucide-react"
 
 const stats = [
-  { value: "30%", label: "of drinks in Africa are counterfeit" },
-  { value: "80%", label: "of plastic bottles are never recovered" },
-  { value: "$1B+", label: "lost to packaging waste every year" },
-] as const
+  { value: "30%", label: "of drinks in Africa are counterfeit", icon: AlertCircle },
+  { value: "80%", label: "of plastic bottles never recovered", icon: Trash2 },
+  { value: "$1B+", label: "lost to packaging waste annually", icon: TrendingUp },
+]
 
 export default function ProblemSolutionSection() {
   const sectionRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger)
-
     const ctx = gsap.context(() => {
-      // Headline + overline
-      const headingEls = sectionRef.current?.querySelectorAll(".ps-heading")
-      if (headingEls && headingEls.length > 0) {
-        gsap.fromTo(
-          headingEls,
-          { opacity: 0, y: 36 },
-          {
-            opacity: 1,
-            y: 0,
-            duration: 0.75,
-            stagger: 0.12,
-            ease: "power3.out",
-            scrollTrigger: { trigger: sectionRef.current, start: "top 78%", once: true },
-          }
-        )
-      }
-
-      // Stat cards stagger up
-      const statCards = sectionRef.current?.querySelectorAll(".ps-stat")
-      if (statCards && statCards.length > 0) {
-        gsap.fromTo(
-          statCards,
-          { opacity: 0, x: -32 },
-          {
-            opacity: 1,
-            x: 0,
-            duration: 0.65,
-            stagger: 0.12,
-            ease: "power3.out",
-            scrollTrigger: { trigger: sectionRef.current, start: "top 72%", once: true },
-          }
-        )
-      }
-
-      // Illustration
-      const illus = sectionRef.current?.querySelector(".ps-illus")
-      if (illus) {
-        gsap.fromTo(
-          illus,
-          { opacity: 0, scale: 0.96, y: 24 },
-          {
-            opacity: 1,
-            scale: 1,
-            y: 0,
-            duration: 0.9,
-            ease: "power3.out",
-            scrollTrigger: { trigger: illus, start: "top 80%", once: true },
-          }
-        )
-      }
+      gsap.fromTo(".ps-reveal", 
+        { opacity: 0, y: 30 }, 
+        { 
+          opacity: 1, 
+          y: 0, 
+          duration: 1, 
+          stagger: 0.15, 
+          ease: "power3.out", 
+          scrollTrigger: { trigger: sectionRef.current, start: "top 60%", once: true }
+        }
+      )
     }, sectionRef)
-
     return () => ctx.revert()
   }, [])
 
   return (
-    <section
-      ref={sectionRef}
-      id="problem"
-      className="w-full py-[120px] md:py-[160px]"
-      style={{ background: "#101010" }}
-    >
-      <div className="mx-auto max-w-[1280px] px-6">
-        <div className="grid grid-cols-1 items-center gap-16 lg:grid-cols-2 lg:gap-24">
-          {/* ── Left: headline + stat cards ── */}
-          <div>
-            <div className="ps-heading">
-              <SectionBadge number="01" />
+    <section ref={sectionRef} id="problem" className="relative w-full py-32 bg-[#F9FAF9] text-gray-900 overflow-hidden">
+      <div className="mx-auto max-w-7xl px-6">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
+          
+          {/* CONTENT COLUMN */}
+          <div className="lg:col-span-5 flex flex-col gap-12">
+            <div className="space-y-6 ps-reveal">
+              <div className="flex items-center gap-4">
+                <div className="h-[2px] w-12 bg-emerald-600" />
+                <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-emerald-700">The Problem</span>
+              </div>
+              
+              <h2 className="text-5xl md:text-6xl font-bold leading-[1.1] tracking-tight text-gray-900">
+                Systemic Failure <br />
+                <span className="text-gray-900">Demands Change.</span>
+              </h2>
             </div>
-            <p
-              className="ps-heading mb-5 text-xs font-semibold uppercase tracking-[0.18em]"
-              style={{ color: GREEN }}
-            >
-              The Problem
-            </p>
-            <h2
-              className="ps-heading mb-5 font-bold text-white"
-              style={{
-                fontSize: "clamp(2rem, 4.5vw, 3.5rem)",
-                lineHeight: 1.1,
-                letterSpacing: "-0.02em",
-              }}
-            >
-              30% of drinks are fake.
-              <br />
-              Billions of bottles wasted.
-              <br />
-              <span style={{ color: GREEN }}>You can fix both.</span>
-            </h2>
 
-            <p
-              className="ps-heading mb-3 text-[16px] font-medium"
-              style={{ color: "rgba(255,255,255,0.4)", letterSpacing: "-0.01em" }}
-            >
-              One empty at a time.
-            </p>
-
-            {/* Body text */}
-            <p
-              className="ps-heading mb-10 max-w-[460px] text-[15px] leading-relaxed"
-              style={{ color: "rgba(255,255,255,0.5)" }}
-            >
-              Every bottle you return is one less fake drink, one less piece of plastic in our
-              oceans, and one more step toward a cleaner Africa. ECOCAN creates a closed loop:
-              collect → recycle → reuse. Every bottle is traceable.
-            </p>
-
-            {/* Stat cards */}
-            <div className="flex flex-col gap-3">
-              {stats.map((stat) => (
-                <div
-                  key={stat.label}
-                  className="ps-stat group flex items-center gap-5 overflow-hidden rounded-xl py-5 pl-5 pr-6 transition-all duration-300 hover:-translate-y-0.5"
-                  style={{
-                    background: "rgba(255,255,255,0.04)",
-                    border: "1px solid rgba(255,255,255,0.07)",
-                    borderLeft: `3px solid ${GREEN}`,
-                  }}
+            <div className="grid gap-6 mt-4 ps-reveal">
+              {stats.map((stat, i) => (
+                <div 
+                  key={i} 
+                  className="group relative p-8 rounded-3xl border-2 border-gray-200 bg-gray-50 transition-all duration-500 hover:border-emerald-500 hover:bg-white hover:shadow-[0_20px_40px_-10px_rgba(0,0,0,0.15)] cursor-default"
                 >
-                  {/* Number — explicit color, never inherits */}
-                  <span
-                    className="shrink-0 font-extrabold tabular-nums leading-none"
-                    style={{
-                      fontSize: "clamp(2rem, 3.5vw, 3rem)",
-                      color: GREEN,
-                    }}
-                  >
-                    {stat.value}
-                  </span>
-
-                  {/* Divider */}
-                  <span
-                    className="h-8 w-px shrink-0"
-                    style={{ background: "rgba(255,255,255,0.12)" }}
-                  />
-
-                  {/* Label */}
-                  <span
-                    className="text-[15px] font-medium leading-snug"
-                    style={{ color: "rgba(255,255,255,0.72)" }}
-                  >
-                    {stat.label}
-                  </span>
+                  <div className="flex items-center gap-6">
+                    {/* UPDATED: Icon container is now pre-filled with light green */}
+                    <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl bg-emerald-50 border border-emerald-100 text-emerald-600 shadow-sm transition-all duration-500 group-hover:bg-emerald-600 group-hover:text-white group-hover:rotate-[10deg]">
+                      <stat.icon size={28} strokeWidth={1.5} />
+                    </div>
+                    <div>
+                      <div className="text-3xl font-bold tracking-tight text-gray-900">{stat.value}</div>
+                      <div className="text-[11px] font-semibold text-gray-500 uppercase tracking-widest mt-1">{stat.label}</div>
+                    </div>
+                  </div>
                 </div>
               ))}
             </div>
           </div>
 
-          {/* ── Right: illustration ── */}
-          <div className="ps-illus relative hidden items-center justify-center lg:flex">
-            <div
-              className="relative overflow-hidden rounded-3xl"
-              style={{
-                width: 480,
-                height: 480,
-                background: "#151e19",
-                boxShadow: "0 32px 80px rgba(0,0,0,0.6)",
-              }}
-            >
-              <ProblemIllustration />
-            </div>
-
-            {/* 1M+ floating card */}
-            <div
-              className="absolute -bottom-5 -left-5 min-w-[164px] rounded-2xl p-5"
-              style={{
-                background: "rgba(15,25,18,0.92)",
-                border: "1px solid rgba(255,255,255,0.10)",
-                backdropFilter: "blur(16px)",
-              }}
-            >
-              <p
-                className="mb-1 font-extrabold leading-none"
-                style={{
-                  fontSize: "clamp(2rem, 3.5vw, 2.75rem)",
-                  color: GREEN,
-                }}
+          {/* MEDIA COLUMN */}
+          <div className="lg:col-span-7 ps-reveal flex flex-col gap-8">
+            <div className="relative w-full aspect-[4/3] rounded-[2rem] overflow-hidden border-4 border-white shadow-[0_20px_60px_rgba(0,0,0,0.1)] group">
+              <video 
+                autoPlay 
+                loop 
+                muted 
+                playsInline 
+                className="w-full h-full object-cover transition-transform duration-[2s] group-hover:scale-[1.02]"
               >
-                1M+
-              </p>
-              <p className="text-sm font-medium" style={{ color: "rgba(255,255,255,0.6)" }}>
-                Bottles in our system
-              </p>
+                <source src="/videos/circular-loop.mp4" type="video/mp4" />
+              </video>
             </div>
+            
+            <button className="flex items-center justify-between w-full bg-gray-900 border-2 border-gray-900 rounded-3xl p-10 transition-all hover:bg-white hover:border-emerald-500 group">
+              <span className="text-lg font-medium text-white group-hover:text-gray-900 transition-colors italic">
+                Ready to join the loop?
+              </span>
+              
+              <div className="flex items-center gap-4 font-semibold text-white group-hover:text-emerald-600 group-hover:gap-8 transition-all duration-300">
+                See How It Works 
+                <span className="bg-white/10 p-3 rounded-full group-hover:bg-emerald-50 group-hover:rotate-[-45deg] transition-all duration-300">
+                  <ArrowRight size={20} />
+                </span>
+              </div>
+            </button>
           </div>
         </div>
       </div>
