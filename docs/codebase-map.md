@@ -5,16 +5,14 @@
 
 # 🗺️ EcoCan Codebase Map
 
-> **Version:** `899352c`
-> **Generated:** 2026-05-19T16:25:06.301Z
+> **Version:** `a67bed4`
+> **Generated:** 2026-05-19T16:30:49.400Z
 > **Branch:** `main`
-> **Previous:** `60f4271`
+> **Previous:** `899352c`
 
 ## Changes Since Last Version
 
-- Modified: app/page.tsx
-- Modified: components/sections/anti-counterfeit-section.tsx
-- Modified: components/sections/ecocan-model-section.tsx
+- Modified: components/sections/for-investors-section.tsx
 
 ---
 
@@ -61,6 +59,7 @@
 
 | Version | Date | Branch | Changes |
 |---|---|---|---|
+| `a67bed4` | 2026-05-19 | main | Modified: components/sections/for-investors-section.tsx |
 | `899352c` | 2026-05-19 | main | Modified: app/page.tsx; Modified: components/sections/anti-counterfeit-section.tsx; Modified: components/sections/ecocan-model-section.tsx |
 | `60f4271` | 2026-05-19 | main | Modified: app/globals.css; Modified: app/page.tsx; Modified: components/sections/anti-counterfeit-section.tsx; Modified: components/sections/app-showcase-section.tsx; Modified: components/sections/ecocan-model-section.tsx; Modified: components/sections/ecommunity-roles-section.tsx; Modified: components/sections/for-investors-section.tsx; Modified: components/sections/hero-section.tsx; Modified: components/sections/home-navbar.tsx; Modified: components/sections/how-it-works-section.tsx; Modified: components/sections/problem-solution-section.tsx; Added: components/ui/design-tokens.tsx; Modified: package.json; Modified: tailwind.config.ts |
 | `73e8969` | 2026-05-17 | main | Full map regeneration |

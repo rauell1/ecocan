@@ -1,17 +1,15 @@
 {
   "meta": {
-    "version": "899352c",
-    "generatedAt": "2026-05-19T16:25:06.301Z",
+    "version": "a67bed4",
+    "generatedAt": "2026-05-19T16:30:49.400Z",
     "branch": "main",
-    "previousVersion": "60f4271",
+    "previousVersion": "899352c",
     "generator": "scripts/generate-codebase-map.mjs",
     "framework": "Next.js 14",
     "packageManager": "pnpm"
   },
   "changes": [
-    "Modified: app/page.tsx",
-    "Modified: components/sections/anti-counterfeit-section.tsx",
-    "Modified: components/sections/ecocan-model-section.tsx"
+    "Modified: components/sections/for-investors-section.tsx"
   ],
   "affectedHotspots": [],
   "routes": [
@@ -283,7 +281,7 @@
     "components/sections/ecommunity-roles-section.tsx": "3e25a7575be9994f3926eb2ec064978732ecd9de",
     "components/sections/electric-mobility-section.tsx": "e0cba4e32099e10a8c90223a70f9605b1b0612b5",
     "components/sections/faq-section.tsx": "f17f1be2b84363a7dbf3e7597cd46da46dd70982",
-    "components/sections/for-investors-section.tsx": "cb720316d7b42095027218b9e15b356e27b343c9",
+    "components/sections/for-investors-section.tsx": "2e1e0a2abaa2abb124e5c830c99bb0b515671b78",
     "components/sections/hero-section.tsx": "7ca99b8e65fe066844e07f81f376326ca2045476",
     "components/sections/home-footer.tsx": "dfa45d1a2c353b17d18fe3abf27844f46511d767",
     "components/sections/home-mobile-menu.tsx": "fb3b2ee486bd8fa684435b988f19d3bec1ad9125",
@@ -577,6 +575,14 @@
         "Modified: app/page.tsx",
         "Modified: components/sections/anti-counterfeit-section.tsx",
         "Modified: components/sections/ecocan-model-section.tsx"
+      ]
+    },
+    {
+      "version": "a67bed4",
+      "date": "2026-05-19T16:30:49.400Z",
+      "branch": "main",
+      "changes": [
+        "Modified: components/sections/for-investors-section.tsx"
       ]
     }
   ]
