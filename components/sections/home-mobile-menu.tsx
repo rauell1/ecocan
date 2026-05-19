@@ -44,7 +44,6 @@ const HomeMobileMenu = forwardRef<HTMLDivElement, HomeMobileMenuProps>(function 
         className={`fixed inset-0 z-40 bg-black/60 backdrop-blur-md transition-opacity duration-300 lg:hidden ${
           isOpen ? "pointer-events-auto opacity-100" : "pointer-events-none opacity-0"
         }`}
-        style={{ backdropFilter: "blur(12px)" }}
       />
 
       {/* Drawer */}
