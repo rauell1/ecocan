@@ -15,6 +15,7 @@
 
 /* Off-screen sections: browser skips layout/paint until near viewport */
 main > div {
+  /* Reserve enough space for the average homepage section before it is rendered. */
   content-visibility: auto;
   contain-intrinsic-size: 0 600px;
 }

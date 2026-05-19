@@ -32,7 +32,7 @@ export default function HomeNavbar() {
       return
     }
 
-    const handleOutsideInteraction = (event: MouseEvent | TouchEvent) => {
+    const handleOutsideClick = (event: MouseEvent | TouchEvent) => {
       const target = event.target as Node | null
 
       if (!target) {
@@ -46,12 +46,12 @@ export default function HomeNavbar() {
       closeMenu()
     }
 
-    document.addEventListener("mousedown", handleOutsideInteraction)
-    document.addEventListener("touchstart", handleOutsideInteraction)
+    document.addEventListener("mousedown", handleOutsideClick)
+    document.addEventListener("touchstart", handleOutsideClick)
 
     return () => {
-      document.removeEventListener("mousedown", handleOutsideInteraction)
-      document.removeEventListener("touchstart", handleOutsideInteraction)
+      document.removeEventListener("mousedown", handleOutsideClick)
+      document.removeEventListener("touchstart", handleOutsideClick)
     }
   }, [closeMenu, isMenuOpen])
 
