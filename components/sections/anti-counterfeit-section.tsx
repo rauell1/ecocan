@@ -110,7 +110,7 @@ export default function AntiCounterfeitSection() {
             </h2>
             
             <p className="text-slide text-lg text-white/60 mb-10 max-w-[500px] leading-relaxed">
-              Every EcoCan bottle carries a unique, tamper-evident QR code. One scan tells you if it's real—before you take a sip.
+              Every EcoCan bottle carries a unique, tamper-evident QR code. One scan tells you if it&apos;s real—before you take a sip.
             </p>
 
             <div className="flex flex-col gap-5 max-w-[520px]">
