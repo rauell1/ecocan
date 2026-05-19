@@ -5,14 +5,29 @@
 
 # 🗺️ EcoCan Codebase Map
 
-> **Version:** `73e8969`
-> **Generated:** 2026-05-17T18:29:55.656Z
+> **Version:** `60f4271`
+> **Generated:** 2026-05-19T16:12:39.205Z
 > **Branch:** `main`
-> **Previous:** `a09167f`
+> **Previous:** `73e8969`
+
+> ⚠️ **This commit affected 1 hotspot(s):** `tailwind.config.ts`
 
 ## Changes Since Last Version
 
-- Full map regeneration
+- Modified: app/globals.css
+- Modified: app/page.tsx
+- Modified: components/sections/anti-counterfeit-section.tsx
+- Modified: components/sections/app-showcase-section.tsx
+- Modified: components/sections/ecocan-model-section.tsx
+- Modified: components/sections/ecommunity-roles-section.tsx
+- Modified: components/sections/for-investors-section.tsx
+- Modified: components/sections/hero-section.tsx
+- Modified: components/sections/home-navbar.tsx
+- Modified: components/sections/how-it-works-section.tsx
+- Modified: components/sections/problem-solution-section.tsx
+- Added: components/ui/design-tokens.tsx
+- Modified: package.json
+- Modified: tailwind.config.ts
 
 ---
 
@@ -59,6 +74,7 @@
 
 | Version | Date | Branch | Changes |
 |---|---|---|---|
+| `60f4271` | 2026-05-19 | main | Modified: app/globals.css; Modified: app/page.tsx; Modified: components/sections/anti-counterfeit-section.tsx; Modified: components/sections/app-showcase-section.tsx; Modified: components/sections/ecocan-model-section.tsx; Modified: components/sections/ecommunity-roles-section.tsx; Modified: components/sections/for-investors-section.tsx; Modified: components/sections/hero-section.tsx; Modified: components/sections/home-navbar.tsx; Modified: components/sections/how-it-works-section.tsx; Modified: components/sections/problem-solution-section.tsx; Added: components/ui/design-tokens.tsx; Modified: package.json; Modified: tailwind.config.ts |
 | `73e8969` | 2026-05-17 | main | Full map regeneration |
 | `a09167f` | 2026-05-17 | main | Modified: app/globals.css; Modified: components/sections/how-it-works-section.tsx |
 | `d82f0cf` | 2026-05-17 | main | Modified: app/news/components/articles.tsx; Modified: app/news/components/blog-hero.tsx; Modified: app/news/components/news.tsx; Modified: app/news/components/partnership-articles.tsx; Modified: app/news/components/partnership-blog-hero.tsx; Modified: app/news/page.tsx; Modified: components/sections/anti-counterfeit-section.tsx; Modified: components/sections/app-showcase-section.tsx; Modified: components/sections/call-to-action-section.tsx; Modified: components/sections/electric-mobility-section.tsx; Modified: components/sections/faq-section.tsx; Modified: components/sections/for-investors-section.tsx; Modified: components/sections/hero-section.tsx; Modified: components/sections/home-mobile-menu.tsx; Modified: components/sections/home-navbar.tsx; Modified: components/sections/how-it-works-section.tsx; Modified: components/sections/partners-testimonials-section.tsx; Modified: components/sections/problem-solution-section.tsx; Modified: next.config.mjs |
