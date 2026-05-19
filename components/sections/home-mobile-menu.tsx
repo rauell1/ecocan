@@ -1,5 +1,6 @@
 "use client"
 
+import { forwardRef } from "react"
 import Link from "next/link"
 import Image from "next/image"
 import { X, Download } from "lucide-react"
@@ -23,7 +24,10 @@ const pageLinks = [
   { label: "News", href: "/news" },
 ]
 
-export default function HomeMobileMenu({ isOpen, onClose }: HomeMobileMenuProps) {
+const HomeMobileMenu = forwardRef<HTMLDivElement, HomeMobileMenuProps>(function HomeMobileMenu(
+  { isOpen, onClose },
+  ref
+) {
   const handleSectionClick = (href: string) => {
     onClose()
     setTimeout(() => {
@@ -37,18 +41,21 @@ export default function HomeMobileMenu({ isOpen, onClose }: HomeMobileMenuProps)
       <div
         onClick={onClose}
         aria-hidden="true"
-        className={`fixed inset-0 z-40 bg-black/60 backdrop-blur-sm transition-opacity duration-300 ${
+        className={`fixed inset-0 z-40 bg-black/60 backdrop-blur-md transition-opacity duration-300 lg:hidden ${
           isOpen ? "pointer-events-auto opacity-100" : "pointer-events-none opacity-0"
         }`}
+        style={{ backdropFilter: "blur(12px)" }}
       />
 
       {/* Drawer */}
       <div
+        ref={ref}
+        id="home-mobile-menu"
         role="dialog"
         aria-modal="true"
         aria-label="Site navigation"
         aria-hidden={!isOpen}
-        className={`fixed right-0 top-0 z-50 flex h-full w-[280px] max-w-[88vw] flex-col bg-white shadow-2xl transition-transform duration-300 ${
+        className={`fixed right-0 top-0 z-50 flex h-full w-[280px] max-w-[88vw] flex-col bg-white shadow-2xl transition-transform duration-300 lg:hidden ${
           isOpen ? "pointer-events-auto translate-x-0" : "pointer-events-none translate-x-full"
         }`}
       >
@@ -60,9 +67,11 @@ export default function HomeMobileMenu({ isOpen, onClose }: HomeMobileMenuProps)
             width={80}
             height={30}
             className="h-7 w-auto"
+            loading="lazy"
           />
           <button
             onClick={onClose}
+            type="button"
             className="rounded-lg p-2 transition-colors hover:bg-black/[0.05]"
             aria-label="Close menu"
           >
@@ -75,8 +84,9 @@ export default function HomeMobileMenu({ isOpen, onClose }: HomeMobileMenuProps)
           {sectionLinks.map((link) => (
             <button
               key={link.href}
+              type="button"
               onClick={() => handleSectionClick(link.href)}
-              className="w-full rounded-xl px-4 py-3 text-left text-[15px] font-medium text-eco-dark transition-colors hover:bg-black/[0.04] hover:text-primary"
+              className="text-eco-dark hover:text-primary min-h-11 w-full rounded-xl px-4 py-3 text-left text-[15px] font-medium transition-colors hover:bg-black/[0.04]"
             >
               {link.label}
             </button>
@@ -89,7 +99,7 @@ export default function HomeMobileMenu({ isOpen, onClose }: HomeMobileMenuProps)
               key={link.href}
               href={link.href}
               onClick={onClose}
-              className="rounded-xl px-4 py-3 text-[15px] font-medium text-eco-dark/70 transition-colors hover:bg-black/[0.04] hover:text-primary"
+              className="text-eco-dark/70 hover:text-primary flex min-h-11 items-center rounded-xl px-4 py-3 text-[15px] font-medium transition-colors hover:bg-black/[0.04]"
             >
               {link.label}
             </Link>
@@ -110,4 +120,6 @@ export default function HomeMobileMenu({ isOpen, onClose }: HomeMobileMenuProps)
       </div>
     </>
   )
-}
+})
+
+export default HomeMobileMenu

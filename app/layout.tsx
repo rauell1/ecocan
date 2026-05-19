@@ -1,5 +1,5 @@
 import type { Metadata } from "next"
-import { Inter } from "next/font/google"
+import { Inter, Nunito_Sans } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
 import "./globals.css"
 import "@/lib/env" // Validate environment variables at startup
@@ -38,6 +38,12 @@ const inter = Inter({
   display: "swap",
   variable: "--font-sans",
   preload: true,
+})
+
+const nunitoSans = Nunito_Sans({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-nunito",
 })
 
 const APP_URL = "https://ecocan.africa"
@@ -104,12 +110,18 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className={inter.variable}>
+    <html lang="en" className={`${inter.variable} ${nunitoSans.variable}`}>
+      <head>
+        <link rel="dns-prefetch" href="//fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <meta name="theme-color" content="#080808" />
+      </head>
       <body className="font-sans">
         {/* Skip navigation link for keyboard users */}
         <a
           href="#main-content"
-          className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[9999] focus:rounded-lg focus:bg-primary focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-white focus:outline-none focus:ring-2 focus:ring-white"
+          className="focus:bg-primary sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[9999] focus:rounded-lg focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-white focus:outline-none focus:ring-2 focus:ring-white"
         >
           Skip to main content
         </a>

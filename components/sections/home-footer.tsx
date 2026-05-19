@@ -80,6 +80,7 @@ export default function HomeFooter() {
               width={160}
               height={56}
               className="mb-4 h-12 w-auto"
+              loading="lazy"
             />
             <p className="max-w-sm text-base leading-relaxed text-white/50">
               Africa&apos;s circular bottle ecosystem - closing the loop on waste, one bottle at a
@@ -95,7 +96,7 @@ export default function HomeFooter() {
                   aria-label={s.name}
                   className="opacity-60 transition-opacity hover:opacity-100"
                 >
-                  <Image src={s.icon} alt={s.name} width={28} height={28} />
+                  <Image src={s.icon} alt={s.name} width={28} height={28} loading="lazy" />
                 </Link>
               ))}
             </div>
@@ -155,7 +156,7 @@ export default function HomeFooter() {
           {/* Kenya office */}
           <div>
             <div className="mb-4 flex items-center gap-2">
-              <Image src="/assets/images/kenya.png" alt="Kenya" width={20} height={20} />
+              <Image src="/assets/images/kenya.png" alt="Kenya" width={20} height={20} loading="lazy" />
               <h4 className="text-sm font-semibold uppercase tracking-wider text-white">Kenya</h4>
             </div>
             <div className="space-y-1 text-sm text-white/60">
@@ -170,7 +171,7 @@ export default function HomeFooter() {
           {/* Finland office */}
           <div>
             <div className="mb-4 flex items-center gap-2">
-              <Image src="/assets/images/finland.png" alt="Finland" width={20} height={20} />
+              <Image src="/assets/images/finland.png" alt="Finland" width={20} height={20} loading="lazy" />
               <h4 className="text-sm font-semibold uppercase tracking-wider text-white">Finland</h4>
             </div>
             <div className="space-y-1 text-sm text-white/60">
@@ -184,8 +185,8 @@ export default function HomeFooter() {
 
         {/* Compliance badges */}
         <div className="mb-10 flex items-center gap-6">
-          <Image src="/assets/images/gdpr-badge.svg" alt="GDPR Compliant" width={80} height={95} />
-          <Image src="/assets/images/odpc-badge.svg" alt="ODPC Compliant" width={80} height={95} />
+          <Image src="/assets/images/gdpr-badge.svg" alt="GDPR Compliant" width={80} height={95} loading="lazy" />
+          <Image src="/assets/images/odpc-badge.svg" alt="ODPC Compliant" width={80} height={95} loading="lazy" />
         </div>
 
         {/* Bottom bar */}

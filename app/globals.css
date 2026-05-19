@@ -4,7 +4,24 @@
 
 @layer base {
   body {
-    @apply min-h-screen bg-[#FBFBFD] text-gray-900 font-sans;
+    @apply min-h-screen bg-[#FBFBFD] font-sans text-gray-900;
     -webkit-font-smoothing: antialiased;
+  }
+}
+
+.font-nunito {
+  font-family: var(--font-nunito), sans-serif;
+}
+
+/* Off-screen sections: browser skips layout/paint until near viewport */
+main > div {
+  content-visibility: auto;
+  contain-intrinsic-size: 0 600px;
+}
+
+/* Smooth scrolling only when no motion preference */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
   }
 }
