@@ -1,54 +1,69 @@
-"use client"
+"use client";
 
-import { useRef, useEffect, useCallback } from "react"
-import { gsap } from "gsap"
-import { ScrollTrigger } from "gsap/ScrollTrigger"
-import { Download, ArrowRight } from "lucide-react"
+import { useRef, useEffect, useCallback } from "react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { Download, ArrowRight } from "lucide-react";
 
-const LENIS_INIT_DELAY = 500
-const SCROLL_END = "+=100%"
-const SCROLL_SCRUB = 1.5
+const LENIS_INIT_DELAY = 500;
+const SCROLL_END = "+=100%";
+const SCROLL_SCRUB = 1.5;
 
 interface HeroSectionProps {
-  onTransitionComplete: () => void
+  onTransitionComplete: () => void;
 }
 
-export default function HeroSection({ onTransitionComplete }: HeroSectionProps) {
-  const heroRef = useRef<HTMLDivElement>(null)
-  const videoWrapperRef = useRef<HTMLDivElement>(null)
-  const contentRef = useRef<HTMLDivElement>(null) // bottom-left block
-  const cornerRef = useRef<HTMLDivElement>(null) // bottom-right label
+export default function HeroSection({
+  onTransitionComplete,
+}: HeroSectionProps) {
+  const heroRef = useRef<HTMLDivElement>(null);
+  const videoWrapperRef = useRef<HTMLDivElement>(null);
+  const contentRef = useRef<HTMLDivElement>(null);
+  const cornerRef = useRef<HTMLDivElement>(null);
 
-  const initLenis = useCallback(() => onTransitionComplete(), [onTransitionComplete])
+  const initLenis = useCallback(() => onTransitionComplete(), [onTransitionComplete]);
 
   useEffect(() => {
-    gsap.registerPlugin(ScrollTrigger)
-    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches
+    gsap.registerPlugin(ScrollTrigger);
 
-    // ── Entry animations ───────────────────────────────────────────
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
     const ctx = gsap.context(() => {
       if (!reducedMotion) {
-        // Content block rises from below
         gsap.fromTo(
           contentRef.current,
-          { opacity: 0, y: 40 },
-          { opacity: 1, y: 0, duration: 1.1, delay: 0.3, ease: "power3.out" }
-        )
-        // Corner label fades in later
+          { opacity: 0, y: 50, filter: "blur(10px)" },
+          {
+            opacity: 1,
+            y: 0,
+            filter: "blur(0px)",
+            duration: 1.4,
+            delay: 0.2,
+            ease: "power3.out",
+          }
+        );
+
         gsap.fromTo(
           cornerRef.current,
-          { opacity: 0 },
-          { opacity: 1, duration: 0.9, delay: 0.85, ease: "power2.out" }
-        )
+          { opacity: 0, x: 20 },
+          {
+            opacity: 1,
+            x: 0,
+            duration: 1,
+            delay: 1,
+            ease: "power2.out",
+          }
+        );
       } else {
-        gsap.set([contentRef.current, cornerRef.current], { opacity: 1 })
+        gsap.set([contentRef.current, cornerRef.current], { opacity: 1 });
       }
-    }, heroRef)
+    }, heroRef);
 
-    // ── Scroll-out timeline ────────────────────────────────────────
-    let scrollCtx: ReturnType<typeof gsap.context> | null = null
+    let scrollCtx: ReturnType<typeof gsap.context> | null = null;
+
     const timer = setTimeout(() => {
-      initLenis()
+      initLenis();
+
       scrollCtx = gsap.context(() => {
         const tl = gsap.timeline({
           scrollTrigger: {
@@ -59,57 +74,68 @@ export default function HeroSection({ onTransitionComplete }: HeroSectionProps) 
             scrub: SCROLL_SCRUB,
             anticipatePin: 1,
           },
-        })
+        });
 
         if (!reducedMotion) {
-          // Text fades up as you scroll
           tl.fromTo(
             contentRef.current,
-            { opacity: 1, y: 0 },
-            { opacity: 0, y: -50, ease: "power1.in", duration: 0.45 },
+            { opacity: 1, y: 0, scale: 1 },
+            {
+              opacity: 0,
+              y: -120,
+              scale: 0.95,
+              ease: "power1.inOut",
+              duration: 0.6,
+            },
             0
           )
-          tl.fromTo(
+          .fromTo(
             cornerRef.current,
             { opacity: 1 },
             { opacity: 0, ease: "power1.in", duration: 0.3 },
             0
           )
-          // Video shrinks into a rounded card
-          tl.fromTo(
+          .fromTo(
             videoWrapperRef.current,
-            { scale: 1, borderRadius: "0px" },
-            { scale: 0.78, borderRadius: "28px", ease: "power2.inOut", duration: 1 },
+            { scale: 1, borderRadius: "0px", filter: "brightness(0.72)" },
+            {
+              scale: 0.75,
+              borderRadius: "32px",
+              filter: "brightness(0.4)",
+              ease: "power2.inOut",
+              duration: 1,
+            },
             0
-          )
+          );
         }
-      }, heroRef)
+      }, heroRef);
 
-      ScrollTrigger.refresh()
-    }, LENIS_INIT_DELAY)
+      ScrollTrigger.refresh();
+    }, LENIS_INIT_DELAY);
 
     return () => {
-      clearTimeout(timer)
-      ctx.revert()
-      scrollCtx?.revert()
-    }
-  }, [initLenis])
+      clearTimeout(timer);
+      ctx.revert();
+      scrollCtx?.revert();
+    };
+  }, [initLenis]);
 
-  const scrollTo = (id: string) =>
-    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" })
+  // FIXED: The scrollTo function must be closed correctly
+  const scrollTo = (id: string) => {
+    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+  }; 
 
   return (
     <div
       ref={heroRef}
       id="hero"
-      className="relative w-full bg-[#060a08]"
+      className="relative w-full bg-[#060a08] text-white"
       style={{ height: "100dvh" }}
     >
-      {/* ── Full-bleed video ──────────────────────────────────── */}
       <div
         ref={videoWrapperRef}
-        className="absolute inset-0 overflow-hidden"
-        style={{ willChange: "transform, border-radius" }}
+        className="absolute inset-0 overflow-hidden shadow-[0_0_50px_rgba(0,0,0,0.5)]"
+        style={{ willChange: "transform, border-radius, filter" }}
       >
         <video
           autoPlay
@@ -118,129 +144,96 @@ export default function HeroSection({ onTransitionComplete }: HeroSectionProps) 
           playsInline
           preload="auto"
           poster="/images/scan-verify.jpg"
-          className="h-full w-full object-cover brightness-[0.72]"
+          className="h-full w-full object-cover brightness-[0.75]"
         >
           <source src="/videos/hero-loop.mp4" type="video/mp4" />
         </video>
 
-        {/* Bottom gradient — gives text a base to sit on */}
         <div
           aria-hidden="true"
-          className="absolute inset-0"
+          className="absolute inset-0 mix-blend-multiply"
           style={{
-            background:
-              "linear-gradient(to top, rgba(4,10,6,0.92) 0%, rgba(4,10,6,0.55) 30%, rgba(4,10,6,0.1) 65%, transparent 100%)",
+            background: "linear-gradient(to bottom, rgba(4,10,6,0.4) 0%, transparent 40%, rgba(4,10,6,0.8) 100%)",
           }}
         />
-        {/* Left edge darkening */}
         <div
           aria-hidden="true"
           className="absolute inset-0"
           style={{
-            background:
-              "linear-gradient(to right, rgba(4,10,6,0.55) 0%, rgba(4,10,6,0.12) 45%, transparent 80%)",
+            background: "radial-gradient(circle at 20% 80%, rgba(16,185,129,0.15) 0%, transparent 50%)",
           }}
         />
       </div>
 
-      {/* ── Overlay content ──────────────────────────────────── */}
-      <div className="absolute inset-0 z-10 flex flex-col justify-between px-8 pb-10 pt-24 md:px-12 md:pb-14">
-        {/* Spacer — top area is used by navbar */}
-        <div />
-
-        {/* Bottom row: left content + right label */}
+      <div className="absolute inset-0 z-10 flex flex-col justify-end px-6 pb-16 md:px-16 md:pb-20">
         <div className="flex items-end justify-between gap-6">
-          {/* LEFT: headline + CTAs */}
-          <div ref={contentRef} className="max-w-[640px]">
-            {/* Eyebrow */}
-            <p
-              className="mb-3 text-[11px] font-semibold uppercase tracking-[0.22em]"
-              style={{ color: "rgba(255,255,255,0.45)" }}
-            >
-              Africa&apos;s Circular Bottle Ecosystem
-            </p>
-
-            {/* Main headline */}
+          <div ref={contentRef} className="max-w-[640px] lg:max-w-[900px]">
+            
             <h1
-              className="mb-3 font-bold text-white"
+              className="mb-6 font-semibold text-white drop-shadow-sm tracking-tight"
               style={{
-                fontSize: "clamp(40px, 6.5vw, 80px)",
-                lineHeight: 1.04,
+                fontSize: "clamp(48px, 7vw, 90px)",
+                lineHeight: 1.1,
                 letterSpacing: "-0.03em",
               }}
             >
               Return. Recycle.
               <br />
-              Make a difference.
+              <span className="whitespace-normal md:whitespace-nowrap bg-gradient-to-r from-emerald-300 via-green-400 to-emerald-500 bg-clip-text text-transparent">
+                Make a difference.
+              </span>
             </h1>
 
-            {/* Sub-headline */}
-            <p
-              className="mb-6 max-w-[480px] text-[15px] leading-relaxed"
-              style={{ color: "rgba(255,255,255,0.6)" }}
-            >
-              Recycle at any ECO-Station. Save the planet. Stop fake drinks. Get a bonus.
+            <p className="mb-10 max-w-[500px] text-[16px] md:text-[18px] leading-relaxed text-white/70 drop-shadow-md font-medium">
+              Recycle at any ECO-Station. Save the planet. Stop fake drinks. Get a bonus directly in your wallet.
             </p>
 
-            {/* CTAs */}
-            <div className="mb-5 flex flex-wrap items-center gap-3">
+            <div className="mb-8 flex flex-wrap items-center gap-4">
               <a
                 href="/download"
-                className="inline-flex items-center gap-2 rounded-full bg-white px-6 py-3 text-[14px] font-semibold text-eco-dark transition-all hover:bg-white/90 active:scale-95"
+                className="group relative inline-flex items-center gap-2 overflow-hidden rounded-full bg-white px-7 py-3.5 text-[15px] font-bold text-black transition-all duration-300 hover:scale-105 hover:shadow-[0_0_30px_rgba(255,255,255,0.4)] active:scale-95"
               >
-                <Download size={15} />
-                Start Making a Difference
+                <div className="absolute inset-0 bg-gradient-to-r from-white to-gray-200 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+                <Download size={18} className="relative z-10 transition-transform group-hover:-translate-y-0.5" />
+                <span className="relative z-10">Start Making a Difference</span>
               </a>
+
               <a
                 href="/contact"
-                className="inline-flex items-center gap-2 rounded-full border border-white/30 px-5 py-3 text-[14px] font-medium text-white transition-all hover:bg-white/10"
+                className="group inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-6 py-3.5 text-[15px] font-medium text-white backdrop-blur-lg transition-all duration-300 hover:bg-white/15 hover:border-white/40 active:scale-95"
               >
-                Partner with ECOCAN <ArrowRight size={14} />
+                Partner with ECOCAN
+                <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
               </a>
             </div>
 
-            {/* Trust badges */}
-            <div className="flex flex-wrap items-center gap-2">
-              {["Early-stage funded", "Operational in Kenya", "GDPR Compliant"].map((badge) => (
-                <span
-                  key={badge}
-                  className="rounded-full px-3 py-1 text-[11px] font-medium"
-                  style={{
-                    background: "rgba(255,255,255,0.08)",
-                    border: "1px solid rgba(255,255,255,0.15)",
-                    color: "rgba(255,255,255,0.6)",
-                  }}
-                >
-                  {badge}
-                </span>
-              ))}
+            <div className="flex items-center gap-3">
+              <p className="text-[13px] font-medium tracking-wide text-white/50 uppercase">
+                Early-stage Funded <span className="mx-2 text-emerald-500/50">•</span> 
+                Operational in Kenya <span className="mx-2 text-emerald-500/50">•</span> 
+                GDPR Compliant
+              </p>
             </div>
-
-            {/* "No machine" note */}
-            <p className="mt-3 text-[12px]" style={{ color: "rgba(255,255,255,0.35)" }}>
-              No machine? No problem. Our counters work today.
-            </p>
           </div>
 
-          {/* RIGHT: scroll cue */}
           <div
             ref={cornerRef}
-            className="hidden shrink-0 flex-col items-end gap-2 text-right md:flex"
+            className="hidden shrink-0 flex-col items-end gap-3 text-right md:flex"
           >
             <button
               onClick={() => scrollTo("how-it-works")}
-              className="flex items-center gap-2 text-[12px] font-medium transition-colors"
-              style={{ color: "rgba(255,255,255,0.38)" }}
+              className="group flex flex-col items-end gap-3 transition-opacity hover:opacity-80"
             >
-              <span
-                className="h-2 w-2 animate-pulse-dot rounded-full"
-                style={{ background: "rgba(74,222,128,0.8)" }}
-              />
-              Scroll to explore
+              <div className="flex h-10 w-6 justify-center rounded-full border border-white/20 bg-white/5 backdrop-blur-sm p-1 shadow-inner">
+                <div className="h-2 w-1.5 rounded-full bg-emerald-400 animate-bounce shadow-[0_0_8px_rgba(52,211,153,0.8)]" />
+              </div>
+              <span className="text-[11px] font-bold uppercase tracking-widest text-white/40 group-hover:text-white/70 transition-colors">
+                Scroll to explore
+              </span>
             </button>
           </div>
         </div>
       </div>
     </div>
-  )
+  );
 }
