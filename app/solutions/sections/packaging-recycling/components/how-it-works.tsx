@@ -1,11 +1,8 @@
 import React from "react";
 import Image from "next/image";
 import StyledText from "@/components/shared/styled-text";
-import { Nunito_Sans } from "next/font/google";
 import TextWithComponent from "@/components/contents/consumer/components/text-with-component";
 import HiwImage from "./hiw-img";
-
-const nunitoSans = Nunito_Sans({ subsets: ["latin"] });
 
 type FeatureItem = {
   title: string;
@@ -18,7 +15,7 @@ const FeatureList: React.FC<{ items: FeatureItem[]; startIndex?: number }> = ({
   <ul className="space-y-12">
     {items.map((item, index) => (
       <li key={index}>
-        <h3 className={`${nunitoSans.className}`}>
+        <h3 className="font-nunito">
           {startIndex + index}. {item.title}
         </h3>
       </li>

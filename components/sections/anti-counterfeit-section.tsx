@@ -152,6 +152,7 @@ export default function AntiCounterfeitSection() {
                 width={600}
                 height={800}
                 className="h-auto w-full object-cover transition-transform duration-1000 hover:scale-105"
+                loading="lazy"
               />
             </div>
 

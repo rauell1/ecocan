@@ -10,9 +10,6 @@ import {
 import HyperLink from "@/components/shared/hyperlink/hyperlink"
 import StyledText from "@/components/shared/styled-text"
 import Image from "next/image"
-import { Nunito_Sans } from "next/font/google"
-
-const nunitoSans = Nunito_Sans({ subsets: ["latin"] })
 
 interface AccordionData {
   id: number

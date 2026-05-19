@@ -146,17 +146,17 @@ export default function AppShowcaseSection() {
              
              {/* Left Phone */}
              <div className="phone-side absolute -left-2 md:-left-8 bottom-4 z-0 w-[45%] origin-bottom-left rotate-[-8deg]">
-               <Image src="/assets/images/consumer/earn-image.png" alt="Earn rewards" width={280} height={560} className="w-full h-auto drop-shadow-2xl" />
+               <Image src="/assets/images/consumer/earn-image.png" alt="Earn rewards" width={280} height={560} className="w-full h-auto drop-shadow-2xl" loading="lazy" />
              </div>
              
              {/* Right Phone */}
              <div className="phone-side absolute -right-2 md:-right-8 bottom-8 z-0 w-[40%] origin-bottom-right rotate-[6deg]">
-               <Image src="/assets/images/consumer/get-app.png" alt="Download" width={240} height={480} className="w-full h-auto drop-shadow-2xl" />
+               <Image src="/assets/images/consumer/get-app.png" alt="Download" width={240} height={480} className="w-full h-auto drop-shadow-2xl" loading="lazy" />
              </div>
              
              {/* Center Phone */}
              <div className="phone-center relative z-10 w-[55%]">
-               <Image src="/assets/images/consumer/ecocan-app.png" alt="Main App" width={340} height={680} className="w-full h-auto drop-shadow-2xl" />
+               <Image src="/assets/images/consumer/ecocan-app.png" alt="Main App" width={340} height={680} className="w-full h-auto drop-shadow-2xl" loading="lazy" />
              </div>
           </div>
         </div>

@@ -1,10 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import StyledText from "@/components/shared/styled-text";
-import { Nunito_Sans } from "next/font/google";
 import clsx from "clsx";
-
-const nunitoSans = Nunito_Sans({ subsets: ["latin"] });
 
 type FeatureItem = {
   title: string;
@@ -17,7 +14,7 @@ const FeatureList: React.FC<{ items: FeatureItem[]; startIndex?: number; classNa
   <div className="space-y-12">
     {items.map((item, index) => (
       <div key={index} className={clsx(`border w-3/5 text-center p-4`, className)}>
-        <h3 className={`${nunitoSans.className}`}>
+        <h3 className="font-nunito">
           {item.title}
         </h3>
       </div>
