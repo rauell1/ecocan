@@ -1,26 +1,16 @@
 {
   "meta": {
-    "version": "6d773db",
-    "generatedAt": "2026-05-19T16:50:31.632Z",
+    "version": "2fc2d69",
+    "generatedAt": "2026-05-19T16:53:59.706Z",
     "branch": "main",
-    "previousVersion": "a67bed4",
+    "previousVersion": "6d773db",
     "generator": "scripts/generate-codebase-map.mjs",
     "framework": "Next.js 14",
     "packageManager": "pnpm"
   },
   "changes": [
-    "Added: app/design-tokens.css",
-    "Modified: app/globals.css",
-    "Modified: components/sections/anti-counterfeit-section.tsx",
     "Modified: components/sections/call-to-action-section.tsx",
-    "Modified: components/sections/ecommunity-roles-section.tsx",
-    "Modified: components/sections/faq-section.tsx",
-    "Modified: components/sections/for-investors-section.tsx",
-    "Modified: components/sections/how-it-works-section.tsx",
-    "Modified: components/sections/problem-solution-section.tsx",
-    "Modified: components/sections/sustainability-impact-section.tsx",
-    "Added: components/shared/section-shell.tsx",
-    "Added: lib/use-ec-reveal.ts"
+    "Modified: lib/use-ec-reveal.ts"
   ],
   "affectedHotspots": [],
   "routes": [
@@ -288,7 +278,7 @@
     "components/media-viewer.tsx": "09dc888948fc4bb2934b8c9c6f4b2fdf1a18114f",
     "components/sections/anti-counterfeit-section.tsx": "a61be9fa6d08981e9415365dd0447464935dc0a6",
     "components/sections/app-showcase-section.tsx": "721c1d0acf65bbc00d0c9b72d7c67b16d0be9bf1",
-    "components/sections/call-to-action-section.tsx": "f436cea84c151e80dd1ca7da7dbc866cdfa9acfd",
+    "components/sections/call-to-action-section.tsx": "68380cdb894636efb050a74449ba431a33c8b8dc",
     "components/sections/ecocan-model-section.tsx": "f9c55aae5f88428eb2731ac53c8f99be59449ac3",
     "components/sections/ecommunity-roles-section.tsx": "02119239f250d2eb8f9372aa9acd792f557baa21",
     "components/sections/electric-mobility-section.tsx": "e0cba4e32099e10a8c90223a70f9605b1b0612b5",
@@ -367,7 +357,7 @@
     "lib/pdfViewer.ts": "1b4133fb614b23f9d55ca3e9789f3198b323ed80",
     "lib/site-contract.ts": "1fefde933066445a467d31b579c68642539a437a",
     "lib/tabContent.tsx": "6cc677b6088b4be850c38e04c9f405739368755f",
-    "lib/use-ec-reveal.ts": "4dab164bef2324091a81096eff9a15ba4dcc77cf",
+    "lib/use-ec-reveal.ts": "fba0447df1034089118677c6d5cdd40fa211d316",
     "lib/useLoadImages.ts": "bc297f22e525651d54ee4ff150001bfdfaa7f17f",
     "lib/useMediaQuery.ts": "a73d90648d7ef4153eb27066ebbea31063cf0593",
     "lib/useScroll.ts": "5f71375c02d98a7238c3e02f831aa70f2e7ee985",
@@ -383,14 +373,6 @@
     "tsconfig.json": "5841f1c2f8bba110464eaba24059d47cb59d3b64"
   },
   "changelog": [
-    {
-      "version": "6e6a787",
-      "date": "2026-05-14T19:52:00.000Z",
-      "branch": "main",
-      "changes": [
-        "Added self-updating codebase map system"
-      ]
-    },
     {
       "version": "4d2a86e",
       "date": "2026-05-14T17:00:00.000Z",
@@ -616,6 +598,15 @@
         "Modified: components/sections/sustainability-impact-section.tsx",
         "Added: components/shared/section-shell.tsx",
         "Added: lib/use-ec-reveal.ts"
+      ]
+    },
+    {
+      "version": "2fc2d69",
+      "date": "2026-05-19T16:53:59.706Z",
+      "branch": "main",
+      "changes": [
+        "Modified: components/sections/call-to-action-section.tsx",
+        "Modified: lib/use-ec-reveal.ts"
       ]
     }
   ]

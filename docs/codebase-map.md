@@ -5,25 +5,15 @@
 
 # 🗺️ EcoCan Codebase Map
 
-> **Version:** `6d773db`
-> **Generated:** 2026-05-19T16:50:31.632Z
+> **Version:** `2fc2d69`
+> **Generated:** 2026-05-19T16:53:59.706Z
 > **Branch:** `main`
-> **Previous:** `a67bed4`
+> **Previous:** `6d773db`
 
 ## Changes Since Last Version
 
-- Added: app/design-tokens.css
-- Modified: app/globals.css
-- Modified: components/sections/anti-counterfeit-section.tsx
 - Modified: components/sections/call-to-action-section.tsx
-- Modified: components/sections/ecommunity-roles-section.tsx
-- Modified: components/sections/faq-section.tsx
-- Modified: components/sections/for-investors-section.tsx
-- Modified: components/sections/how-it-works-section.tsx
-- Modified: components/sections/problem-solution-section.tsx
-- Modified: components/sections/sustainability-impact-section.tsx
-- Added: components/shared/section-shell.tsx
-- Added: lib/use-ec-reveal.ts
+- Modified: lib/use-ec-reveal.ts
 
 ---
 
@@ -70,6 +60,7 @@
 
 | Version | Date | Branch | Changes |
 |---|---|---|---|
+| `2fc2d69` | 2026-05-19 | main | Modified: components/sections/call-to-action-section.tsx; Modified: lib/use-ec-reveal.ts |
 | `6d773db` | 2026-05-19 | main | Added: app/design-tokens.css; Modified: app/globals.css; Modified: components/sections/anti-counterfeit-section.tsx; Modified: components/sections/call-to-action-section.tsx; Modified: components/sections/ecommunity-roles-section.tsx; Modified: components/sections/faq-section.tsx; Modified: components/sections/for-investors-section.tsx; Modified: components/sections/how-it-works-section.tsx; Modified: components/sections/problem-solution-section.tsx; Modified: components/sections/sustainability-impact-section.tsx; Added: components/shared/section-shell.tsx; Added: lib/use-ec-reveal.ts |
 | `a67bed4` | 2026-05-19 | main | Modified: components/sections/for-investors-section.tsx |
 | `899352c` | 2026-05-19 | main | Modified: app/page.tsx; Modified: components/sections/anti-counterfeit-section.tsx; Modified: components/sections/ecocan-model-section.tsx |
@@ -89,7 +80,6 @@
 | `58fc7d3` | 2026-05-15 | main | Modified: components/sections/hero-section.tsx; Modified: components/sections/problem-solution-section.tsx |
 | `711f046` | 2026-05-14 | main | Full map regeneration |
 | `4d2a86e` | 2026-05-14 | main | Rebuilt scroll transition from scratch in HeroSection; Modified app/page.tsx |
-| `6e6a787` | 2026-05-14 | main | Added self-updating codebase map system |
 
 ---
 
