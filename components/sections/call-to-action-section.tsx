@@ -25,7 +25,7 @@ export default function CallToActionSection() {
           <span className="text-[--c-green-light]">the loop?</span>
         </h2>
         <p className="ec-reveal mb-12 max-w-[480px] text-base text-white/55 leading-relaxed">
-          Whether you're a brand, retailer, collector, or investor — there's a place for you in the ECOCAN network.
+          Whether you&apos;re a brand, retailer, collector, or investor &mdash; there&apos;s a place for you in the ECOCAN network.
         </p>
         <div className="ec-reveal flex flex-wrap gap-4 justify-center">
           <Link

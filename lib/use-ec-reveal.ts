@@ -24,6 +24,9 @@ export function useEcReveal<T extends HTMLElement = HTMLDivElement>(
 ): RefObject<T> {
   const ref = useRef<T>(null)
 
+  // Options are intentionally excluded from the dep array — they are
+  // configuration values passed at mount time and do not change.
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger)
     const ctx = gsap.context(() => {
