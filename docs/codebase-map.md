@@ -5,29 +5,16 @@
 
 # 🗺️ EcoCan Codebase Map
 
-> **Version:** `60f4271`
-> **Generated:** 2026-05-19T16:12:39.205Z
+> **Version:** `899352c`
+> **Generated:** 2026-05-19T16:25:06.301Z
 > **Branch:** `main`
-> **Previous:** `73e8969`
-
-> ⚠️ **This commit affected 1 hotspot(s):** `tailwind.config.ts`
+> **Previous:** `60f4271`
 
 ## Changes Since Last Version
 
-- Modified: app/globals.css
 - Modified: app/page.tsx
 - Modified: components/sections/anti-counterfeit-section.tsx
-- Modified: components/sections/app-showcase-section.tsx
 - Modified: components/sections/ecocan-model-section.tsx
-- Modified: components/sections/ecommunity-roles-section.tsx
-- Modified: components/sections/for-investors-section.tsx
-- Modified: components/sections/hero-section.tsx
-- Modified: components/sections/home-navbar.tsx
-- Modified: components/sections/how-it-works-section.tsx
-- Modified: components/sections/problem-solution-section.tsx
-- Added: components/ui/design-tokens.tsx
-- Modified: package.json
-- Modified: tailwind.config.ts
 
 ---
 
@@ -74,6 +61,7 @@
 
 | Version | Date | Branch | Changes |
 |---|---|---|---|
+| `899352c` | 2026-05-19 | main | Modified: app/page.tsx; Modified: components/sections/anti-counterfeit-section.tsx; Modified: components/sections/ecocan-model-section.tsx |
 | `60f4271` | 2026-05-19 | main | Modified: app/globals.css; Modified: app/page.tsx; Modified: components/sections/anti-counterfeit-section.tsx; Modified: components/sections/app-showcase-section.tsx; Modified: components/sections/ecocan-model-section.tsx; Modified: components/sections/ecommunity-roles-section.tsx; Modified: components/sections/for-investors-section.tsx; Modified: components/sections/hero-section.tsx; Modified: components/sections/home-navbar.tsx; Modified: components/sections/how-it-works-section.tsx; Modified: components/sections/problem-solution-section.tsx; Added: components/ui/design-tokens.tsx; Modified: package.json; Modified: tailwind.config.ts |
 | `73e8969` | 2026-05-17 | main | Full map regeneration |
 | `a09167f` | 2026-05-17 | main | Modified: app/globals.css; Modified: components/sections/how-it-works-section.tsx |

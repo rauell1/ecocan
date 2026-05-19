@@ -1,36 +1,19 @@
 {
   "meta": {
-    "version": "60f4271",
-    "generatedAt": "2026-05-19T16:12:39.205Z",
+    "version": "899352c",
+    "generatedAt": "2026-05-19T16:25:06.301Z",
     "branch": "main",
-    "previousVersion": "73e8969",
+    "previousVersion": "60f4271",
     "generator": "scripts/generate-codebase-map.mjs",
     "framework": "Next.js 14",
     "packageManager": "pnpm"
   },
   "changes": [
-    "Modified: app/globals.css",
     "Modified: app/page.tsx",
     "Modified: components/sections/anti-counterfeit-section.tsx",
-    "Modified: components/sections/app-showcase-section.tsx",
-    "Modified: components/sections/ecocan-model-section.tsx",
-    "Modified: components/sections/ecommunity-roles-section.tsx",
-    "Modified: components/sections/for-investors-section.tsx",
-    "Modified: components/sections/hero-section.tsx",
-    "Modified: components/sections/home-navbar.tsx",
-    "Modified: components/sections/how-it-works-section.tsx",
-    "Modified: components/sections/problem-solution-section.tsx",
-    "Added: components/ui/design-tokens.tsx",
-    "Modified: package.json",
-    "Modified: tailwind.config.ts"
+    "Modified: components/sections/ecocan-model-section.tsx"
   ],
-  "affectedHotspots": [
-    {
-      "file": "tailwind.config.ts",
-      "risk": "medium",
-      "reason": "Theme tokens cascade everywhere"
-    }
-  ],
+  "affectedHotspots": [],
   "routes": [
     {
       "path": "/",
@@ -178,7 +161,7 @@
     "app/news/components/partnership-blog-hero.tsx": "63e1bd2a6eaabb86a3438bf67cd62db98fad9058",
     "app/news/layout.tsx": "0098cea1ad4e3b29e8cfdba0cfeb8d7c071e7dbf",
     "app/news/page.tsx": "d1031f50d7cb9b834a73a7ac6749c16521290383",
-    "app/page.tsx": "05e960deaef67a4c37ae968779b563ad433a8de8",
+    "app/page.tsx": "e4e18f9e02facf75bb49ee501fec14fd56ac9b69",
     "app/robots.ts": "0ac82ce211b91b4cdf082231be4ad246cef3ddca",
     "app/sitemap.ts": "fec458ba9b30441fdd98ecf1f49e4d0e39f277ec",
     "app/solutions/[section]/page.tsx": "32989e137fa274979021390d726cd33f502ade96",
@@ -293,10 +276,10 @@
     "components/hero-container.tsx": "d2fa089b871d8970ab1b48139fdf89ba4944dc95",
     "components/hero.tsx": "661121ec23ba574a56ecf5638f2bf7a01cb757ab",
     "components/media-viewer.tsx": "09dc888948fc4bb2934b8c9c6f4b2fdf1a18114f",
-    "components/sections/anti-counterfeit-section.tsx": "0450fc318358bc4d27ddffca7115b50f98100805",
+    "components/sections/anti-counterfeit-section.tsx": "b387dae37f136be269db6fad1dd2c33a613ae593",
     "components/sections/app-showcase-section.tsx": "721c1d0acf65bbc00d0c9b72d7c67b16d0be9bf1",
     "components/sections/call-to-action-section.tsx": "804089d401d680acce83aecf8173d1df823aa921",
-    "components/sections/ecocan-model-section.tsx": "97fa4edf8bca3fe4788367bc9a8a5c744144290e",
+    "components/sections/ecocan-model-section.tsx": "f9c55aae5f88428eb2731ac53c8f99be59449ac3",
     "components/sections/ecommunity-roles-section.tsx": "3e25a7575be9994f3926eb2ec064978732ecd9de",
     "components/sections/electric-mobility-section.tsx": "e0cba4e32099e10a8c90223a70f9605b1b0612b5",
     "components/sections/faq-section.tsx": "f17f1be2b84363a7dbf3e7597cd46da46dd70982",
@@ -584,6 +567,16 @@
         "Added: components/ui/design-tokens.tsx",
         "Modified: package.json",
         "Modified: tailwind.config.ts"
+      ]
+    },
+    {
+      "version": "899352c",
+      "date": "2026-05-19T16:25:06.301Z",
+      "branch": "main",
+      "changes": [
+        "Modified: app/page.tsx",
+        "Modified: components/sections/anti-counterfeit-section.tsx",
+        "Modified: components/sections/ecocan-model-section.tsx"
       ]
     }
   ]
