@@ -18,6 +18,7 @@ export default function ForInvestorsSection() {
 
   const animateNumber = (index: number) => {
     const h = highlights[index]
+    if (!h) return
     const valObj = { val: 0 }
     gsap.to(valObj, {
       val: h.value,
@@ -60,11 +61,8 @@ export default function ForInvestorsSection() {
                 key={i}
                 onMouseEnter={() => { setActiveCard(i); animateNumber(i); }}
                 onMouseLeave={() => setActiveCard(null)}
-                // Added border-gray-200 for the grey stroke, border-t-4 for the color line
                 className="inv-reveal group relative flex flex-col p-8 rounded-3xl bg-white border border-gray-200 border-t-[6px] transition-all duration-500 hover:shadow-[0_20px_50px_-15px_rgba(0,0,0,0.15)]"
-                style={{ 
-                  borderTopColor: h.color,
-                }}
+                style={{ borderTopColor: h.color }}
               >
                 <div className="mb-8 flex items-center justify-between">
                   <div className="p-3 rounded-2xl bg-gray-50 border border-gray-100 shadow-sm transition-transform duration-500 group-hover:-rotate-12 group-hover:scale-110" style={{ color: h.color }}>
