@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState, useCallback } from "react";
+import { useEffect, useState, useCallback, useMemo } from "react";
 import Image from "next/image";
 
 // Components
@@ -24,13 +24,16 @@ export default function Home() {
 
   const handleHeroComplete = useCallback(() => {}, []);
 
-  const sections = [
-    { id: "problem", label: "Problem" },
-    { id: "how-it-works", label: "How It Works" },
-    { id: "app", label: "App" },
-    { id: "investors", label: "Investors" },
-    { id: "faq", label: "FAQ" },
-  ];
+  const sections = useMemo(
+    () => [
+      { id: "problem", label: "Problem" },
+      { id: "how-it-works", label: "How It Works" },
+      { id: "app", label: "App" },
+      { id: "investors", label: "Investors" },
+      { id: "faq", label: "FAQ" },
+    ],
+    []
+  );
 
   // Scroll spy logic
   useEffect(() => {

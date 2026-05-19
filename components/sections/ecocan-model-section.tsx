@@ -42,8 +42,8 @@ export default function EcocanModelSection({ scrollEnabled }: EcocanModelSection
         {/* Apple-style header */}
         <div className="mb-24 text-center reveal">
           <h2 className="text-5xl md:text-7xl font-semibold text-[#1d1d1f] tracking-[-0.02em] leading-tight">
-            We don't do this alone. <br />
-            <span className="text-[#86868b]">That's the point.</span>
+            We don&apos;t do this alone. <br />
+            <span className="text-[#86868b]">That&apos;s the point.</span>
           </h2>
         </div>
 
