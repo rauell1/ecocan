@@ -1,16 +1,15 @@
 {
   "meta": {
-    "version": "2fc2d69",
-    "generatedAt": "2026-05-19T16:53:59.706Z",
-    "branch": "main",
-    "previousVersion": "6d773db",
+    "version": "08815c8",
+    "generatedAt": "2026-05-20T07:15:32.524Z",
+    "branch": "consumer-revamp-home",
+    "previousVersion": "2fc2d69",
     "generator": "scripts/generate-codebase-map.mjs",
     "framework": "Next.js 14",
     "packageManager": "pnpm"
   },
   "changes": [
-    "Modified: components/sections/call-to-action-section.tsx",
-    "Modified: lib/use-ec-reveal.ts"
+    "Modified: app/page.tsx"
   ],
   "affectedHotspots": [],
   "routes": [
@@ -161,7 +160,7 @@
     "app/news/components/partnership-blog-hero.tsx": "63e1bd2a6eaabb86a3438bf67cd62db98fad9058",
     "app/news/layout.tsx": "0098cea1ad4e3b29e8cfdba0cfeb8d7c071e7dbf",
     "app/news/page.tsx": "d1031f50d7cb9b834a73a7ac6749c16521290383",
-    "app/page.tsx": "e4e18f9e02facf75bb49ee501fec14fd56ac9b69",
+    "app/page.tsx": "a6cfe5344d3c0275f70238c7cbcdb40d166eb579",
     "app/robots.ts": "0ac82ce211b91b4cdf082231be4ad246cef3ddca",
     "app/sitemap.ts": "fec458ba9b30441fdd98ecf1f49e4d0e39f277ec",
     "app/solutions/[section]/page.tsx": "32989e137fa274979021390d726cd33f502ade96",
@@ -284,13 +283,13 @@
     "components/sections/electric-mobility-section.tsx": "e0cba4e32099e10a8c90223a70f9605b1b0612b5",
     "components/sections/faq-section.tsx": "327cb3901468da62c8d5ddb4bc608218e1f555b4",
     "components/sections/for-investors-section.tsx": "a466103054168cdccc88d3a4f59e9d8cee4500fe",
-    "components/sections/hero-section.tsx": "7ca99b8e65fe066844e07f81f376326ca2045476",
+    "components/sections/hero-section.tsx": "314f96e4222196afa45d889e819aaeb6998c3641",
     "components/sections/home-footer.tsx": "dfa45d1a2c353b17d18fe3abf27844f46511d767",
     "components/sections/home-mobile-menu.tsx": "fb3b2ee486bd8fa684435b988f19d3bec1ad9125",
-    "components/sections/home-navbar.tsx": "6c01b50e07f677f43f2d3ba16ad891c8fdd5bea3",
+    "components/sections/home-navbar.tsx": "c9dedcd95fd0c03ff2d884e949c046d19bf1f8ed",
     "components/sections/how-it-works-section.tsx": "e533a6cc43f7e74285233644ac87cbe0a8a7ab96",
     "components/sections/partners-testimonials-section.tsx": "a94760a9b55acbabd76805c19409730089ebc39c",
-    "components/sections/problem-solution-section.tsx": "f0981b9ee74cf1b69241bfbd4ef2c01cc6f52d1d",
+    "components/sections/problem-solution-section.tsx": "855b70abc0f967721b3b399713ee06b45f492167",
     "components/sections/sustainability-impact-section.tsx": "56fdff801254429a428806e46c8736bc6340db62",
     "components/shared/HowTo.tsx": "ec2b55f43fa3d7e12750f7a46b2429dfd4419ae9",
     "components/shared/accordion.tsx": "c68c2697a68fcdfb6ce7cebae1adf67d8160739e",
@@ -373,15 +372,6 @@
     "tsconfig.json": "5841f1c2f8bba110464eaba24059d47cb59d3b64"
   },
   "changelog": [
-    {
-      "version": "4d2a86e",
-      "date": "2026-05-14T17:00:00.000Z",
-      "branch": "main",
-      "changes": [
-        "Rebuilt scroll transition from scratch in HeroSection",
-        "Modified app/page.tsx"
-      ]
-    },
     {
       "version": "711f046",
       "date": "2026-05-14T19:58:49.740Z",
@@ -607,6 +597,14 @@
       "changes": [
         "Modified: components/sections/call-to-action-section.tsx",
         "Modified: lib/use-ec-reveal.ts"
+      ]
+    },
+    {
+      "version": "08815c8",
+      "date": "2026-05-20T07:15:32.524Z",
+      "branch": "consumer-revamp-home",
+      "changes": [
+        "Modified: app/page.tsx"
       ]
     }
   ]

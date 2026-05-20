@@ -5,15 +5,14 @@
 
 # 🗺️ EcoCan Codebase Map
 
-> **Version:** `2fc2d69`
-> **Generated:** 2026-05-19T16:53:59.706Z
-> **Branch:** `main`
-> **Previous:** `6d773db`
+> **Version:** `08815c8`
+> **Generated:** 2026-05-20T07:15:32.524Z
+> **Branch:** `consumer-revamp-home`
+> **Previous:** `2fc2d69`
 
 ## Changes Since Last Version
 
-- Modified: components/sections/call-to-action-section.tsx
-- Modified: lib/use-ec-reveal.ts
+- Modified: app/page.tsx
 
 ---
 
@@ -60,6 +59,7 @@
 
 | Version | Date | Branch | Changes |
 |---|---|---|---|
+| `08815c8` | 2026-05-20 | consumer-revamp-home | Modified: app/page.tsx |
 | `2fc2d69` | 2026-05-19 | main | Modified: components/sections/call-to-action-section.tsx; Modified: lib/use-ec-reveal.ts |
 | `6d773db` | 2026-05-19 | main | Added: app/design-tokens.css; Modified: app/globals.css; Modified: components/sections/anti-counterfeit-section.tsx; Modified: components/sections/call-to-action-section.tsx; Modified: components/sections/ecommunity-roles-section.tsx; Modified: components/sections/faq-section.tsx; Modified: components/sections/for-investors-section.tsx; Modified: components/sections/how-it-works-section.tsx; Modified: components/sections/problem-solution-section.tsx; Modified: components/sections/sustainability-impact-section.tsx; Added: components/shared/section-shell.tsx; Added: lib/use-ec-reveal.ts |
 | `a67bed4` | 2026-05-19 | main | Modified: components/sections/for-investors-section.tsx |
@@ -79,7 +79,6 @@
 | `405db4f` | 2026-05-15 | main | Modified: components/sections/ecommunity-roles-section.tsx |
 | `58fc7d3` | 2026-05-15 | main | Modified: components/sections/hero-section.tsx; Modified: components/sections/problem-solution-section.tsx |
 | `711f046` | 2026-05-14 | main | Full map regeneration |
-| `4d2a86e` | 2026-05-14 | main | Rebuilt scroll transition from scratch in HeroSection; Modified app/page.tsx |
 
 ---
 
