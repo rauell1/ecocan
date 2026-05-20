@@ -5,14 +5,14 @@
 
 # 🗺️ EcoCan Codebase Map
 
-> **Version:** `a9d0721`
-> **Generated:** 2026-05-20T16:21:42.115Z
+> **Version:** `bed5c72`
+> **Generated:** 2026-05-20T16:44:35.671Z
 > **Branch:** `main`
-> **Previous:** `fd26688`
+> **Previous:** `a9d0721`
 
 ## Changes Since Last Version
 
-- Modified: lib/use-ec-reveal.ts
+- Modified: components/sections/partners-testimonials-section.tsx
 
 ---
 
@@ -59,6 +59,7 @@
 
 | Version | Date | Branch | Changes |
 |---|---|---|---|
+| `bed5c72` | 2026-05-20 | main | Modified: components/sections/partners-testimonials-section.tsx |
 | `a9d0721` | 2026-05-20 | main | Modified: lib/use-ec-reveal.ts |
 | `fd26688` | 2026-05-20 | main | Modified: components/sections/for-investors-section.tsx |
 | `330954f` | 2026-05-20 | main | Modified: components/sections/call-to-action-section.tsx |
@@ -78,7 +79,6 @@
 | `6d773db` | 2026-05-19 | main | Added: app/design-tokens.css; Modified: app/globals.css; Modified: components/sections/anti-counterfeit-section.tsx; Modified: components/sections/call-to-action-section.tsx; Modified: components/sections/ecommunity-roles-section.tsx; Modified: components/sections/faq-section.tsx; Modified: components/sections/for-investors-section.tsx; Modified: components/sections/how-it-works-section.tsx; Modified: components/sections/problem-solution-section.tsx; Modified: components/sections/sustainability-impact-section.tsx; Added: components/shared/section-shell.tsx; Added: lib/use-ec-reveal.ts |
 | `a67bed4` | 2026-05-19 | main | Modified: components/sections/for-investors-section.tsx |
 | `899352c` | 2026-05-19 | main | Modified: app/page.tsx; Modified: components/sections/anti-counterfeit-section.tsx; Modified: components/sections/ecocan-model-section.tsx |
-| `60f4271` | 2026-05-19 | main | Modified: app/globals.css; Modified: app/page.tsx; Modified: components/sections/anti-counterfeit-section.tsx; Modified: components/sections/app-showcase-section.tsx; Modified: components/sections/ecocan-model-section.tsx; Modified: components/sections/ecommunity-roles-section.tsx; Modified: components/sections/for-investors-section.tsx; Modified: components/sections/hero-section.tsx; Modified: components/sections/home-navbar.tsx; Modified: components/sections/how-it-works-section.tsx; Modified: components/sections/problem-solution-section.tsx; Added: components/ui/design-tokens.tsx; Modified: package.json; Modified: tailwind.config.ts |
 
 ---
 

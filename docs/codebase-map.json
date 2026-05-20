@@ -1,15 +1,15 @@
 {
   "meta": {
-    "version": "a9d0721",
-    "generatedAt": "2026-05-20T16:21:42.115Z",
+    "version": "bed5c72",
+    "generatedAt": "2026-05-20T16:44:35.671Z",
     "branch": "main",
-    "previousVersion": "fd26688",
+    "previousVersion": "a9d0721",
     "generator": "scripts/generate-codebase-map.mjs",
     "framework": "Next.js 14",
     "packageManager": "pnpm"
   },
   "changes": [
-    "Modified: lib/use-ec-reveal.ts"
+    "Modified: components/sections/partners-testimonials-section.tsx"
   ],
   "affectedHotspots": [],
   "routes": [
@@ -289,8 +289,8 @@
     "components/sections/home-footer.tsx": "a0ab62d81354e130ca0c9a5ee7eac59000070ed9",
     "components/sections/home-mobile-menu.tsx": "fb3b2ee486bd8fa684435b988f19d3bec1ad9125",
     "components/sections/home-navbar.tsx": "58a13f3ef72f77a46402efff7a4be0b1151874ff",
-    "components/sections/how-it-works-section.tsx": "00dd5a7df5e2575c42039cc4c2289c1a3a9c8625",
-    "components/sections/partners-testimonials-section.tsx": "2e48045eb9b39af9fbfa04a7db0870bf833c6ad7",
+    "components/sections/how-it-works-section.tsx": "d8f0f409e58c3ce0384dfbcf965e312c430e406a",
+    "components/sections/partners-testimonials-section.tsx": "0ee9508dcd62c183eb5296ecabb11deec4cc9ef0",
     "components/sections/problem-solution-section.tsx": "b6b4431557edc84b185e3199913fe823d08787fe",
     "components/sections/sustainability-impact-section.tsx": "f7805d4dac8bf7a48305aadc74c242057d8dd67b",
     "components/shared/HowTo.tsx": "ec2b55f43fa3d7e12750f7a46b2429dfd4419ae9",
@@ -371,31 +371,10 @@
     "scripts/update-docs.ts": "357d7be3067089c6c69578fa0deb092d3bb41354",
     "package.json": "f88216f017d83932f0a71714de1631777e7aaa0c",
     "tailwind.config.ts": "655ba12dee5e5bd35632f12aee77909951c84021",
-    "next.config.mjs": "9e0b481f57f58a2d1fd2373371e6b7b1c8cce2c6",
+    "next.config.mjs": "6839dc908b96d947296d90c50ea271e97581cd87",
     "tsconfig.json": "5841f1c2f8bba110464eaba24059d47cb59d3b64"
   },
   "changelog": [
-    {
-      "version": "60f4271",
-      "date": "2026-05-19T16:12:39.205Z",
-      "branch": "main",
-      "changes": [
-        "Modified: app/globals.css",
-        "Modified: app/page.tsx",
-        "Modified: components/sections/anti-counterfeit-section.tsx",
-        "Modified: components/sections/app-showcase-section.tsx",
-        "Modified: components/sections/ecocan-model-section.tsx",
-        "Modified: components/sections/ecommunity-roles-section.tsx",
-        "Modified: components/sections/for-investors-section.tsx",
-        "Modified: components/sections/hero-section.tsx",
-        "Modified: components/sections/home-navbar.tsx",
-        "Modified: components/sections/how-it-works-section.tsx",
-        "Modified: components/sections/problem-solution-section.tsx",
-        "Added: components/ui/design-tokens.tsx",
-        "Modified: package.json",
-        "Modified: tailwind.config.ts"
-      ]
-    },
     {
       "version": "899352c",
       "date": "2026-05-19T16:25:06.301Z",
@@ -631,6 +610,14 @@
       "branch": "main",
       "changes": [
         "Modified: lib/use-ec-reveal.ts"
+      ]
+    },
+    {
+      "version": "bed5c72",
+      "date": "2026-05-20T16:44:35.671Z",
+      "branch": "main",
+      "changes": [
+        "Modified: components/sections/partners-testimonials-section.tsx"
       ]
     }
   ]
