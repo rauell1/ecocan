@@ -3,7 +3,7 @@
 import { useRef, useEffect, useCallback } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { Download, ArrowRight } from "lucide-react";
+import { Download, Recycle, ArrowRight } from "lucide-react";
 
 const LENIS_INIT_DELAY = 500;
 const SCROLL_END = "+=100%";
@@ -89,24 +89,24 @@ export default function HeroSection({
             },
             0
           )
-          .fromTo(
-            cornerRef.current,
-            { opacity: 1 },
-            { opacity: 0, ease: "power1.in", duration: 0.3 },
-            0
-          )
-          .fromTo(
-            videoWrapperRef.current,
-            { scale: 1, borderRadius: "0px", filter: "brightness(0.72)" },
-            {
-              scale: 0.75,
-              borderRadius: "32px",
-              filter: "brightness(0.4)",
-              ease: "power2.inOut",
-              duration: 1,
-            },
-            0
-          );
+            .fromTo(
+              cornerRef.current,
+              { opacity: 1 },
+              { opacity: 0, ease: "power1.in", duration: 0.3 },
+              0
+            )
+            .fromTo(
+              videoWrapperRef.current,
+              { scale: 1, borderRadius: "0px", filter: "brightness(0.72)" },
+              {
+                scale: 0.75,
+                borderRadius: "32px",
+                filter: "brightness(0.4)",
+                ease: "power2.inOut",
+                duration: 1,
+              },
+              0
+            );
         }
       }, heroRef);
 
@@ -120,10 +120,9 @@ export default function HeroSection({
     };
   }, [initLenis]);
 
-  // FIXED: The scrollTo function must be closed correctly
   const scrollTo = (id: string) => {
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
-  }; 
+  };
 
   return (
     <div
@@ -153,14 +152,16 @@ export default function HeroSection({
           aria-hidden="true"
           className="absolute inset-0 mix-blend-multiply"
           style={{
-            background: "linear-gradient(to bottom, rgba(4,10,6,0.4) 0%, transparent 40%, rgba(4,10,6,0.8) 100%)",
+            background:
+              "linear-gradient(to bottom, rgba(4,10,6,0.4) 0%, transparent 40%, rgba(4,10,6,0.8) 100%)",
           }}
         />
         <div
           aria-hidden="true"
           className="absolute inset-0"
           style={{
-            background: "radial-gradient(circle at 20% 80%, rgba(16,185,129,0.15) 0%, transparent 50%)",
+            background:
+              "radial-gradient(circle at 20% 80%, rgba(16,185,129,0.15) 0%, transparent 50%)",
           }}
         />
       </div>
@@ -168,51 +169,58 @@ export default function HeroSection({
       <div className="absolute inset-0 z-10 flex flex-col justify-end px-6 pb-16 md:px-16 md:pb-20">
         <div className="flex items-end justify-between gap-6">
           <div ref={contentRef} className="max-w-[640px] lg:max-w-[900px]">
-            
+            <p className="mb-4 inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-1 text-[12px] font-semibold uppercase tracking-[0.2em] text-emerald-200/90">
+              <Recycle size={14} />
+              Made for everyday consumers in Kenya
+            </p>
+
             <h1
               className="mb-6 font-semibold text-white drop-shadow-sm tracking-tight"
               style={{
-                fontSize: "clamp(48px, 7vw, 90px)",
-                lineHeight: 1.1,
-                letterSpacing: "-0.03em",
+                fontSize: "clamp(44px, 6.5vw, 82px)",
+                lineHeight: 1.05,
+                letterSpacing: "-0.04em",
               }}
             >
-              Return. Recycle.
+              Turn every drink
               <br />
-              <span className="whitespace-normal md:whitespace-nowrap bg-gradient-to-r from-emerald-300 via-green-400 to-emerald-500 bg-clip-text text-transparent">
-                Make a difference.
-              </span>
+              into a <span className="bg-gradient-to-r from-emerald-300 via-green-400 to-emerald-500 bg-clip-text text-transparent">recycling win</span>.
             </h1>
 
-            <p className="mb-10 max-w-[500px] text-[16px] md:text-[18px] leading-relaxed text-white/70 drop-shadow-md font-medium">
-              Recycle at any ECO-Station. Save the planet. Stop fake drinks. Get a bonus directly in your wallet.
+            <p className="mb-8 max-w-[520px] text-[15px] md:text-[17px] leading-relaxed text-white/75 drop-shadow-md font-medium">
+              Scan genuine Ecocan bottles, enjoy your drink, then drop empties at any ECO-Station near you. Earn rewards, keep plastics out of rivers, and help stop fake drinks in Kenyan shops.
             </p>
 
             <div className="mb-8 flex flex-wrap items-center gap-4">
               <a
-                href="/download"
+                href="#how-it-works"
+                onClick={(e) => {
+                  e.preventDefault();
+                  scrollTo("how-it-works");
+                }}
                 className="group relative inline-flex items-center gap-2 overflow-hidden rounded-full bg-white px-7 py-3.5 text-[15px] font-bold text-black transition-all duration-300 hover:scale-105 hover:shadow-[0_0_30px_rgba(255,255,255,0.4)] active:scale-95"
               >
                 <div className="absolute inset-0 bg-gradient-to-r from-white to-gray-200 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
                 <Download size={18} className="relative z-10 transition-transform group-hover:-translate-y-0.5" />
-                <span className="relative z-10">Start Making a Difference</span>
+                <span className="relative z-10">Start recycling with Ecocan</span>
               </a>
 
               <a
-                href="/contact"
+                href="#ecommunity"
+                onClick={(e) => {
+                  e.preventDefault();
+                  scrollTo("ecommunity");
+                }}
                 className="group inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-6 py-3.5 text-[15px] font-medium text-white backdrop-blur-lg transition-all duration-300 hover:bg-white/15 hover:border-white/40 active:scale-95"
               >
-                Partner with ECOCAN
+                See how rewards work
                 <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
               </a>
             </div>
 
-            <div className="flex items-center gap-3">
-              <p className="text-[13px] font-medium tracking-wide text-white/50 uppercase">
-                Early-stage Funded <span className="mx-2 text-emerald-500/50">•</span> 
-                Operational in Kenya <span className="mx-2 text-emerald-500/50">•</span> 
-                GDPR Compliant
-              </p>
+            <div className="flex flex-wrap items-center gap-4 text-[12px] font-medium text-white/55">
+              <span>• 5,000+ bottles already collected in pilot drives</span>
+              <span>• ECO-Stations active in Nairobi & Kisumu</span>
             </div>
           </div>
 
@@ -221,14 +229,14 @@ export default function HeroSection({
             className="hidden shrink-0 flex-col items-end gap-3 text-right md:flex"
           >
             <button
-              onClick={() => scrollTo("how-it-works")}
+              onClick={() => scrollTo("problem")}
               className="group flex flex-col items-end gap-3 transition-opacity hover:opacity-80"
             >
               <div className="flex h-10 w-6 justify-center rounded-full border border-white/20 bg-white/5 backdrop-blur-sm p-1 shadow-inner">
                 <div className="h-2 w-1.5 rounded-full bg-emerald-400 animate-bounce shadow-[0_0_8px_rgba(52,211,153,0.8)]" />
               </div>
               <span className="text-[11px] font-bold uppercase tracking-widest text-white/40 group-hover:text-white/70 transition-colors">
-                Scroll to explore
+                Why it matters in Kenya
               </span>
             </button>
           </div>
