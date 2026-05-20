@@ -1,33 +1,33 @@
-"use client";
+"use client"
 
-import React, { useState } from "react";
-import Image from "next/image";
-import Carousel from "../about-us/components/carousel-wrapper";
-import Searchbar from "./components/searchbar";
-import { useImagePreloader } from "@/lib/useLoadImages";
-import Footer from "@/components/shared/footer/footer";
-import { LucideChevronsDown } from "lucide-react";
+import React, { useState } from "react"
+import Image from "next/image"
+import Carousel from "../about-us/components/carousel-wrapper"
+import Searchbar from "./components/searchbar"
+import { useImagePreloader } from "@/lib/useLoadImages"
+import Footer from "@/components/shared/footer/footer"
+import { LucideChevronsDown } from "lucide-react"
 
 const images = [
   "/assets/images/ecocan-market/carousel-1.svg",
   "/assets/images/ecocan-market/carousel-2.svg",
   "/assets/images/ecocan-market/carousel-4.svg",
   "/assets/images/ecocan-market/carousel-5.svg",
-];
+]
 
 export default function EcocanMarket() {
-  const [currentPage, setCurrentPage] = useState(0);
+  const [currentPage, setCurrentPage] = useState(0)
   const { imagesLoaded, preloadedImages } = useImagePreloader(images, {
     onError: (error) => console.error("Error preloading images:", error),
-  });
+  })
 
   return (
     <>
       <div>
         {/* Loading state */}
         {!imagesLoaded && (
-          <div className="min-h-screen flex items-center justify-center bg-gray-50">
-            <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-primary"></div>
+          <div className="flex min-h-screen items-center justify-center bg-gray-50">
+            <div className="border-primary h-12 w-12 animate-spin rounded-full border-b-2 border-t-2"></div>
           </div>
         )}
 
@@ -48,7 +48,7 @@ export default function EcocanMarket() {
                     opacity: preloadedImages[index] ? 1 : 0,
                     transition: "opacity 0.3s ease-in-out",
                   }}
-                  className="min-h-screen bg-[-100px] lg:bg-center bg-cover"
+                  className="min-h-screen bg-cover bg-[-100px] lg:bg-center"
                 >
                   {/* Add next/image component for better image optimization */}
                   <Image
@@ -64,9 +64,9 @@ export default function EcocanMarket() {
                 </div>
               ))}
             </Carousel>
-            <div className="text-center w-fit mx-auto absolute bottom-1 lg:bottom-14 right-1/2 translate-x-1/2 text-white">
+            <div className="absolute bottom-1 right-1/2 mx-auto w-fit translate-x-1/2 text-center text-white lg:bottom-14">
               <LucideChevronsDown size={60} className="mx-auto" />
-              <p>Scroll down</p>
+              <p>Scroll to find verified recyclable drinks</p>
             </div>
           </div>
           <Searchbar />
@@ -74,5 +74,5 @@ export default function EcocanMarket() {
         </div>
       </div>
     </>
-  );
+  )
 }

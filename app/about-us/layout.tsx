@@ -3,11 +3,11 @@ import type { Metadata } from "next"
 export const metadata: Metadata = {
   title: "About Us",
   description:
-    "Learn about ECOCAN's mission to create Africa's circular bottle ecosystem, fighting counterfeits and driving recycling across East Africa.",
+    "Meet the team building a consumer-first recycling movement in Kenya with safer drinks, bottle returns, and ECO-Station rewards.",
   openGraph: {
     title: "About ECOCAN",
     description:
-      "Our mission: a circular economy that rewards every bottle returned and eliminates fake drinks from African markets.",
+      "Our mission in Kenya: reward every returned bottle and help families avoid counterfeit drinks.",
   },
 }
 

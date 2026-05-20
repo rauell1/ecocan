@@ -3,10 +3,10 @@ import type { Metadata } from "next"
 export const metadata: Metadata = {
   title: "Download the App",
   description:
-    "Download the ECOCAN app to scan bottles, find your nearest ECO-Station, and earn M-Pesa rewards for recycling.",
+    "Download EcocanApp in Kenya to verify safe drinks, find nearby ECO-Stations, and earn recycling rewards.",
   openGraph: {
     title: "Download the ECOCAN App",
-    description: "Available on iOS and Android. Scan. Return. Earn. Available now in Kenya.",
+    description: "Available on iOS and Android in Kenya. Verify, return, and earn with ECOCAN.",
   },
 }
 

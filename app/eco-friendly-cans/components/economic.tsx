@@ -7,7 +7,8 @@ const timelineData = {
   title: <span className="text-4xl text-white">3. ECOnomic efficiency and Social Benefits</span>,
   subtitle: (
     <p className="text-muted-foreground">
-      Let recycling work for you by turning ECOcans into money-makers and brand ambassadors
+      Let recycling work for Kenyan communities by turning ECOcans into reliable reward and
+      awareness points
     </p>
   ),
   items: [
@@ -49,7 +50,7 @@ export default function Economic() {
       />
       {timelineData.items.map((item, index) => (
         <div key={index} className="mx-4 md:hidden">
-          <div className="overflow-hidden rounded-smooth-lg">
+          <div className="rounded-smooth-lg overflow-hidden">
             <Image
               src={item.image}
               alt={item.title}
@@ -60,7 +61,7 @@ export default function Economic() {
           </div>
           <div className="py-4">
             <h3 className="mb-2 text-xl font-bold text-white">{item.title}</h3>
-            <p className="font-light text-muted-foreground">{item.description}</p>
+            <p className="text-muted-foreground font-light">{item.description}</p>
           </div>
         </div>
       ))}

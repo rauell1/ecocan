@@ -1,32 +1,30 @@
-"use client";
+"use client"
 
-import { useRef, useEffect, useCallback } from "react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { Download, ArrowRight } from "lucide-react";
+import { useRef, useEffect, useCallback } from "react"
+import { gsap } from "gsap"
+import { ScrollTrigger } from "gsap/ScrollTrigger"
+import { Download, ArrowRight } from "lucide-react"
 
-const LENIS_INIT_DELAY = 500;
-const SCROLL_END = "+=100%";
-const SCROLL_SCRUB = 1.5;
+const LENIS_INIT_DELAY = 500
+const SCROLL_END = "+=100%"
+const SCROLL_SCRUB = 1.5
 
 interface HeroSectionProps {
-  onTransitionComplete: () => void;
+  onTransitionComplete: () => void
 }
 
-export default function HeroSection({
-  onTransitionComplete,
-}: HeroSectionProps) {
-  const heroRef = useRef<HTMLDivElement>(null);
-  const videoWrapperRef = useRef<HTMLDivElement>(null);
-  const contentRef = useRef<HTMLDivElement>(null);
-  const cornerRef = useRef<HTMLDivElement>(null);
+export default function HeroSection({ onTransitionComplete }: HeroSectionProps) {
+  const heroRef = useRef<HTMLDivElement>(null)
+  const videoWrapperRef = useRef<HTMLDivElement>(null)
+  const contentRef = useRef<HTMLDivElement>(null)
+  const cornerRef = useRef<HTMLDivElement>(null)
 
-  const initLenis = useCallback(() => onTransitionComplete(), [onTransitionComplete]);
+  const initLenis = useCallback(() => onTransitionComplete(), [onTransitionComplete])
 
   useEffect(() => {
-    gsap.registerPlugin(ScrollTrigger);
+    gsap.registerPlugin(ScrollTrigger)
 
-    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches
 
     const ctx = gsap.context(() => {
       if (!reducedMotion) {
@@ -41,7 +39,7 @@ export default function HeroSection({
             delay: 0.2,
             ease: "power3.out",
           }
-        );
+        )
 
         gsap.fromTo(
           cornerRef.current,
@@ -53,16 +51,16 @@ export default function HeroSection({
             delay: 1,
             ease: "power2.out",
           }
-        );
+        )
       } else {
-        gsap.set([contentRef.current, cornerRef.current], { opacity: 1 });
+        gsap.set([contentRef.current, cornerRef.current], { opacity: 1 })
       }
-    }, heroRef);
+    }, heroRef)
 
-    let scrollCtx: ReturnType<typeof gsap.context> | null = null;
+    let scrollCtx: ReturnType<typeof gsap.context> | null = null
 
     const timer = setTimeout(() => {
-      initLenis();
+      initLenis()
 
       scrollCtx = gsap.context(() => {
         const tl = gsap.timeline({
@@ -74,7 +72,7 @@ export default function HeroSection({
             scrub: SCROLL_SCRUB,
             anticipatePin: 1,
           },
-        });
+        })
 
         if (!reducedMotion) {
           tl.fromTo(
@@ -89,41 +87,41 @@ export default function HeroSection({
             },
             0
           )
-          .fromTo(
-            cornerRef.current,
-            { opacity: 1 },
-            { opacity: 0, ease: "power1.in", duration: 0.3 },
-            0
-          )
-          .fromTo(
-            videoWrapperRef.current,
-            { scale: 1, borderRadius: "0px", filter: "brightness(0.72)" },
-            {
-              scale: 0.75,
-              borderRadius: "32px",
-              filter: "brightness(0.4)",
-              ease: "power2.inOut",
-              duration: 1,
-            },
-            0
-          );
+            .fromTo(
+              cornerRef.current,
+              { opacity: 1 },
+              { opacity: 0, ease: "power1.in", duration: 0.3 },
+              0
+            )
+            .fromTo(
+              videoWrapperRef.current,
+              { scale: 1, borderRadius: "0px", filter: "brightness(0.72)" },
+              {
+                scale: 0.75,
+                borderRadius: "32px",
+                filter: "brightness(0.4)",
+                ease: "power2.inOut",
+                duration: 1,
+              },
+              0
+            )
         }
-      }, heroRef);
+      }, heroRef)
 
-      ScrollTrigger.refresh();
-    }, LENIS_INIT_DELAY);
+      ScrollTrigger.refresh()
+    }, LENIS_INIT_DELAY)
 
     return () => {
-      clearTimeout(timer);
-      ctx.revert();
-      scrollCtx?.revert();
-    };
-  }, [initLenis]);
+      clearTimeout(timer)
+      ctx.revert()
+      scrollCtx?.revert()
+    }
+  }, [initLenis])
 
   // FIXED: The scrollTo function must be closed correctly
   const scrollTo = (id: string) => {
-    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
-  }; 
+    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" })
+  }
 
   return (
     <div
@@ -153,14 +151,16 @@ export default function HeroSection({
           aria-hidden="true"
           className="absolute inset-0 mix-blend-multiply"
           style={{
-            background: "linear-gradient(to bottom, rgba(4,10,6,0.4) 0%, transparent 40%, rgba(4,10,6,0.8) 100%)",
+            background:
+              "linear-gradient(to bottom, rgba(4,10,6,0.4) 0%, transparent 40%, rgba(4,10,6,0.8) 100%)",
           }}
         />
         <div
           aria-hidden="true"
           className="absolute inset-0"
           style={{
-            background: "radial-gradient(circle at 20% 80%, rgba(16,185,129,0.15) 0%, transparent 50%)",
+            background:
+              "radial-gradient(circle at 20% 80%, rgba(16,185,129,0.15) 0%, transparent 50%)",
           }}
         />
       </div>
@@ -168,24 +168,24 @@ export default function HeroSection({
       <div className="absolute inset-0 z-10 flex flex-col justify-end px-6 pb-16 md:px-16 md:pb-20">
         <div className="flex items-end justify-between gap-6">
           <div ref={contentRef} className="max-w-[640px] lg:max-w-[900px]">
-            
             <h1
-              className="mb-6 font-semibold text-white drop-shadow-sm tracking-tight"
+              className="mb-6 font-semibold tracking-tight text-white drop-shadow-sm"
               style={{
                 fontSize: "clamp(48px, 7vw, 90px)",
                 lineHeight: 1.1,
                 letterSpacing: "-0.03em",
               }}
             >
-              Return. Recycle.
+              Buy Safe. Return Bottles.
               <br />
-              <span className="whitespace-normal md:whitespace-nowrap bg-gradient-to-r from-emerald-300 via-green-400 to-emerald-500 bg-clip-text text-transparent">
-                Make a difference.
+              <span className="whitespace-normal bg-gradient-to-r from-emerald-300 via-green-400 to-emerald-500 bg-clip-text text-transparent md:whitespace-nowrap">
+                Earn M-PESA rewards.
               </span>
             </h1>
 
-            <p className="mb-10 max-w-[500px] text-[16px] md:text-[18px] leading-relaxed text-white/70 drop-shadow-md font-medium">
-              Recycle at any ECO-Station. Save the planet. Stop fake drinks. Get a bonus directly in your wallet.
+            <p className="mb-10 max-w-[500px] text-[16px] font-medium leading-relaxed text-white/70 drop-shadow-md md:text-[18px]">
+              Join thousands of Kenyan shoppers using ECOCAN to verify genuine drinks, return
+              empties at ECO-Stations, and get paid for recycling.
             </p>
 
             <div className="mb-8 flex flex-wrap items-center gap-4">
@@ -194,24 +194,27 @@ export default function HeroSection({
                 className="group relative inline-flex items-center gap-2 overflow-hidden rounded-full bg-white px-7 py-3.5 text-[15px] font-bold text-black transition-all duration-300 hover:scale-105 hover:shadow-[0_0_30px_rgba(255,255,255,0.4)] active:scale-95"
               >
                 <div className="absolute inset-0 bg-gradient-to-r from-white to-gray-200 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-                <Download size={18} className="relative z-10 transition-transform group-hover:-translate-y-0.5" />
-                <span className="relative z-10">Start Making a Difference</span>
+                <Download
+                  size={18}
+                  className="relative z-10 transition-transform group-hover:-translate-y-0.5"
+                />
+                <span className="relative z-10">Download & Start Recycling</span>
               </a>
 
               <a
-                href="/contact"
-                className="group inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-6 py-3.5 text-[15px] font-medium text-white backdrop-blur-lg transition-all duration-300 hover:bg-white/15 hover:border-white/40 active:scale-95"
+                href="/solutions"
+                className="group inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-6 py-3.5 text-[15px] font-medium text-white backdrop-blur-lg transition-all duration-300 hover:border-white/40 hover:bg-white/15 active:scale-95"
               >
-                Partner with ECOCAN
+                For Brands & Investors
                 <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
               </a>
             </div>
 
             <div className="flex items-center gap-3">
-              <p className="text-[13px] font-medium tracking-wide text-white/50 uppercase">
-                Early-stage Funded <span className="mx-2 text-emerald-500/50">•</span> 
-                Operational in Kenya <span className="mx-2 text-emerald-500/50">•</span> 
-                GDPR Compliant
+              <p className="text-[13px] font-medium uppercase tracking-wide text-white/50">
+                Safer Drinks in Kenya <span className="mx-2 text-emerald-500/50">•</span>
+                ECO-Station Rewards <span className="mx-2 text-emerald-500/50">•</span>
+                Instant M-PESA Payouts
               </p>
             </div>
           </div>
@@ -224,10 +227,10 @@ export default function HeroSection({
               onClick={() => scrollTo("how-it-works")}
               className="group flex flex-col items-end gap-3 transition-opacity hover:opacity-80"
             >
-              <div className="flex h-10 w-6 justify-center rounded-full border border-white/20 bg-white/5 backdrop-blur-sm p-1 shadow-inner">
-                <div className="h-2 w-1.5 rounded-full bg-emerald-400 animate-bounce shadow-[0_0_8px_rgba(52,211,153,0.8)]" />
+              <div className="flex h-10 w-6 justify-center rounded-full border border-white/20 bg-white/5 p-1 shadow-inner backdrop-blur-sm">
+                <div className="h-2 w-1.5 animate-bounce rounded-full bg-emerald-400 shadow-[0_0_8px_rgba(52,211,153,0.8)]" />
               </div>
-              <span className="text-[11px] font-bold uppercase tracking-widest text-white/40 group-hover:text-white/70 transition-colors">
+              <span className="text-[11px] font-bold uppercase tracking-widest text-white/40 transition-colors group-hover:text-white/70">
                 Scroll to explore
               </span>
             </button>
@@ -235,5 +238,5 @@ export default function HeroSection({
         </div>
       </div>
     </div>
-  );
+  )
 }
