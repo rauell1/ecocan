@@ -21,19 +21,16 @@ export default function Home() {
 
   const handleHeroComplete = useCallback(() => {}, [])
 
-  // Section IDs used for scroll-spy (internal only — navbar has its own links)
-  const sections = useMemo(
-    () => [
-      { id: "problem" },
-      { id: "how-it-works" },
-      { id: "stories" },
-      { id: "impact" },
-      { id: "faq" },
-    ],
-    []
-  )
+  const sections = useMemo(() => [
+    { id: "problem" },
+    { id: "how-it-works" },
+    { id: "ecommunity" },
+    { id: "impact" },
+    { id: "stories" },
+    { id: "cta" },
+    { id: "faq" },
+  ], [])
 
-  // Scroll-spy to track active section (could drive future nav highlighting)
   useEffect(() => {
     const handleScroll = () => {
       const scrollPos = window.scrollY + 150
@@ -49,56 +46,63 @@ export default function Home() {
   }, [sections])
 
   return (
-    <div className="relative min-h-screen overflow-x-hidden">
-      {/* Navbar only accepts onMenuToggle */}
+    <div className="relative min-h-screen overflow-x-hidden" style={{ background: "#0C0E0C" }}>
       <HomeNavbar onMenuToggle={() => setIsMenuOpen(!isMenuOpen)} />
 
       <HeroSection onTransitionComplete={handleHeroComplete} />
 
       <main className="relative z-20 flex flex-col gap-0">
-        {/* 1. Why recycling matters */}
+
+        {/* 1. The problem */}
         <div id="problem">
           <ProblemSolutionSection />
         </div>
 
-        {/* 2. How Ecocan works */}
+        {/* 2. How it works — 5 steps */}
         <div id="how-it-works">
           <HowItWorksSection />
         </div>
 
-        {/* 3. Community roles */}
+        {/* 3. Who benefits */}
         <div id="ecommunity">
           <EcommunityRolesSection />
         </div>
 
-        {/* 4. Trust — anti-counterfeit */}
+        {/* 4. Anti-counterfeit trust */}
         <div id="counterfeit">
           <AntiCounterfeitSection />
         </div>
 
-        {/* 5. Rewards / app */}
+        {/* 5. The app */}
         <div id="app">
           <AppShowcaseSection />
         </div>
 
-        {/* 6. Impact + investors */}
+        {/* 6. Impact numbers */}
         <div id="impact">
           <SustainabilityImpactSection />
+        </div>
+
+        {/* 7. Investors */}
+        <div id="investors">
           <ForInvestorsSection />
         </div>
 
-        {/* 7. Real stories + partners */}
+        {/* 8. Real stories + partners */}
         <div id="stories">
           <PartnersTestimonialsSection />
         </div>
 
-        {/* 8. CTA + FAQ */}
+        {/* 9. CTA — 3 roles */}
         <div id="cta">
           <CallToActionSection />
         </div>
+
+        {/* 10. FAQ */}
         <div id="faq">
           <FAQSection />
         </div>
+
       </main>
 
       <HomeFooter />

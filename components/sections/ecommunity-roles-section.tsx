@@ -2,28 +2,40 @@
 
 import { useEcReveal } from "@/lib/use-ec-reveal"
 import { SectionOverline } from "@/components/shared/section-shell"
-import { Store, Users, Truck, Recycle } from "lucide-react"
+import { Store, Users, Truck, Recycle, ArrowRight } from "lucide-react"
 
 const roles = [
   {
     icon: Users,
     title: "Consumers",
     desc: "Scan for genuine drinks, return empties at ECO-Stations, and receive instant M-PESA recycling rewards.",
+    cta: "Download App",
+    href: "/download",
+    color: "#4ade80",
   },
   {
     icon: Store,
     title: "ECO-Stations",
-    desc: "Serve nearby shoppers by accepting empties and helping neighbourhoods recycle more bottles every day.",
+    desc: "Host a collection point for your neighbourhood. Accept empties, attract foot traffic, earn host rewards.",
+    cta: "Register a Station",
+    href: "/contact",
+    color: "#60a5fa",
   },
   {
     icon: Truck,
     title: "Couriers",
-    desc: "Move sorted empties from ECO-Stations to recyclers quickly and reliably across urban Kenya.",
+    desc: "Move sorted empties from ECO-Stations to certified recyclers quickly and reliably across urban Kenya.",
+    cta: "Become a Courier",
+    href: "/contact",
+    color: "#facc15",
   },
   {
     icon: Recycle,
     title: "Recyclers",
     desc: "Receive clean, sorted PET from a digitally verified chain — no sorting cost, no contamination.",
+    cta: "Partner With Us",
+    href: "/contact",
+    color: "#f97316",
   },
 ]
 
@@ -33,27 +45,41 @@ export default function EcommunityRolesSection() {
   return (
     <section
       ref={ref as React.RefObject<HTMLDivElement>}
-      className="section-py section-white relative w-full overflow-hidden"
+      className="section-py section-alt relative w-full overflow-hidden"
     >
       <div className="site-container">
-        <div className="ec-reveal mb-16">
+        <div className="ec-reveal mb-5">
           <SectionOverline>The eCommunity</SectionOverline>
           <h2 className="section-heading">
             Everyone wins.
-            <br />
-            <span className="font-light text-[--c-text-muted]">Together.</span>
           </h2>
         </div>
+        <p className="ec-reveal mb-16 max-w-xl text-sm leading-relaxed text-[--c-text-muted]">
+          ECOCAN is a circular economy that rewards every participant — from the consumer who returns a bottle to the recycler who gives it new life.
+        </p>
 
         <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {roles.map((role, i) => (
-            <div key={i} className="ec-reveal ec-card group flex flex-col gap-6 p-8">
-              <div className="ec-icon-well group-hover:bg-[--c-green] group-hover:text-white transition-colors duration-300">
+            <div key={i} className="ec-reveal ec-card group relative flex flex-col gap-6 overflow-hidden p-8">
+              {/* Colour top stripe */}
+              <div className="absolute inset-x-0 top-0 h-[3px] opacity-0 transition-opacity duration-300 group-hover:opacity-100" style={{ background: role.color }} />
+
+              <div
+                className="flex h-12 w-12 items-center justify-center rounded-xl transition-all duration-300 group-hover:scale-110"
+                style={{ background: role.color + "1a", color: role.color }}
+              >
                 <role.icon size={22} strokeWidth={1.5} />
               </div>
-              <div>
-                <h3 className="mb-2 text-base font-semibold tracking-tight">{role.title}</h3>
-                <p className="text-sm leading-relaxed text-[--c-text-muted]">{role.desc}</p>
+              <div className="flex flex-1 flex-col">
+                <h3 className="mb-2 text-base font-bold tracking-tight">{role.title}</h3>
+                <p className="mb-6 flex-1 text-sm leading-relaxed text-[--c-text-muted]">{role.desc}</p>
+                <a
+                  href={role.href}
+                  className="inline-flex items-center gap-1.5 text-[13px] font-bold transition-colors"
+                  style={{ color: role.color }}
+                >
+                  {role.cta} <ArrowRight size={13} />
+                </a>
               </div>
             </div>
           ))}

@@ -14,9 +14,8 @@ const highlights = [
     value: 4.5,
     suffix: "B+",
     note: "African beverage recycling market by 2030",
-    accent: "#16a34a",
-    detail:
-      "East Africa alone generates 2B+ plastic bottles a year with <10% formal recycling rate.",
+    accent: "#22c55e",
+    detail: "East Africa alone generates 2B+ plastic bottles a year with less than 10% formal recycling rate.",
   },
   {
     icon: Globe,
@@ -24,7 +23,7 @@ const highlights = [
     value: 12,
     suffix: "",
     note: "East & West African markets in 5-year roadmap",
-    accent: "#0891b2",
+    accent: "#60a5fa",
     detail: "Starting with Kenya, scaling to Tanzania, Uganda, Rwanda and beyond within 36 months.",
   },
   {
@@ -32,10 +31,9 @@ const highlights = [
     label: "Anti-Counterfeit TAM",
     value: 820,
     suffix: "M",
-    note: "Annual losses to fake beverages across SSA",
-    accent: "#7c3aed",
-    detail:
-      "ECOCAN's QR security layer is the first verifiable on-pack authentication at scale in Africa.",
+    note: "Annual losses to fake beverages across Sub-Saharan Africa",
+    accent: "#a78bfa",
+    detail: "ECOCAN's QR security layer is the first verifiable on-pack authentication at scale in Africa.",
   },
 ]
 
@@ -61,15 +59,15 @@ export default function ForInvestorsSection() {
   return (
     <section
       ref={ref as React.RefObject<HTMLDivElement>}
-      className="section-py section-white relative w-full overflow-hidden"
+      className="section-py section-light-inv relative w-full overflow-hidden"
     >
       <div className="site-container">
         <div className="ec-reveal mb-16">
-          <SectionOverline>Also For Investors</SectionOverline>
-          <h2 className="section-heading">
+          <SectionOverline>For Investors</SectionOverline>
+          <h2 className="section-heading" style={{ color: "#111827" }}>
             Backing the consumer loop
             <br />
-            <span className="font-light text-[--c-text-muted]">
+            <span style={{ color: "#6B7280", fontWeight: 400 }}>
               means backing core recycling infrastructure.
             </span>
           </h2>
@@ -81,12 +79,9 @@ export default function ForInvestorsSection() {
             return (
               <div
                 key={i}
-                className="ec-card ec-reveal group flex cursor-default flex-col p-8"
+                className="ec-card-light ec-reveal group flex cursor-default flex-col p-8"
                 style={{ borderTop: `3px solid ${h.accent}` }}
-                onMouseEnter={() => {
-                  setActive(i)
-                  animateNumber(i)
-                }}
+                onMouseEnter={() => { setActive(i); animateNumber(i) }}
                 onMouseLeave={() => setActive(null)}
               >
                 <div className="mb-7 flex items-center justify-between">
@@ -96,16 +91,15 @@ export default function ForInvestorsSection() {
                   >
                     <Icon size={22} strokeWidth={1.5} />
                   </div>
-                  <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-[--c-text-faint] transition-colors group-hover:text-[--c-text]">
+                  <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-gray-400 transition-colors group-hover:text-gray-700">
                     {h.label}
                   </span>
                 </div>
-                <h3 id={`inv-stat-${i}`} className="mb-2 text-5xl font-extrabold tracking-tighter">
-                  {h.value}
-                  {h.suffix}
+                <h3 id={`inv-stat-${i}`} className="mb-2 text-5xl font-extrabold tracking-tighter" style={{ color: "#111827" }}>
+                  {h.value}{h.suffix}
                 </h3>
-                <p className="mb-auto text-sm font-medium text-[--c-text-muted]">{h.note}</p>
-                <p className="mt-6 border-t border-[--c-border] pt-5 text-sm leading-relaxed text-[--c-text-faint] transition-colors group-hover:text-[--c-text-muted]">
+                <p className="mb-auto text-sm font-medium text-gray-500">{h.note}</p>
+                <p className="mt-6 border-t border-gray-100 pt-5 text-sm leading-relaxed text-gray-400 transition-colors group-hover:text-gray-500">
                   {h.detail}
                 </p>
               </div>
@@ -116,14 +110,14 @@ export default function ForInvestorsSection() {
         <div className="ec-reveal flex flex-wrap gap-4">
           <Link
             href="/contact"
-            className="group inline-flex items-center gap-3 rounded-[--radius-full] bg-[--c-green] px-9 py-4 font-semibold text-white shadow-lg shadow-emerald-600/20 hover:bg-[#15803d] active:scale-95"
+            className="group inline-flex items-center gap-3 rounded-full bg-[--c-green-mid] px-9 py-4 font-semibold text-white shadow-lg shadow-green-600/15 hover:bg-[#15803d] active:scale-95"
           >
             Request Investor Deck{" "}
             <ArrowRight size={18} className="transition-transform group-hover:translate-x-1" />
           </Link>
           <Link
             href="/about-us"
-            className="inline-flex items-center gap-2 px-7 py-4 font-semibold text-[--c-text-muted] transition-colors hover:text-[--c-green]"
+            className="inline-flex items-center gap-2 px-7 py-4 font-semibold text-gray-500 transition-colors hover:text-[--c-green-mid]"
           >
             Meet the Team <ExternalLink size={15} />
           </Link>
