@@ -13,21 +13,39 @@ export default function AppShowcaseSection() {
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger)
     const ctx = gsap.context(() => {
-      const trigger = { trigger: sectionRef.current, start: "top 72%", once: true }
+      const trigger = { trigger: sectionRef.current, start: "top 75%", once: true }
 
       const textEls = sectionRef.current!.querySelectorAll(".ec-reveal")
       if (textEls.length) {
         gsap.fromTo(
           textEls,
-          { opacity: 0, y: 28, filter: "blur(6px)" },
+          { opacity: 0, y: 36, filter: "blur(8px)" },
           {
             opacity: 1,
             y: 0,
             filter: "blur(0px)",
-            duration: 0.9,
+            duration: 1.1,
             stagger: 0.12,
             ease: "power3.out",
             scrollTrigger: trigger,
+          }
+        )
+      }
+
+      const bgImg = sectionRef.current?.querySelector(".section-bg-img") as HTMLElement | null
+      if (bgImg) {
+        gsap.fromTo(
+          bgImg,
+          { yPercent: -8 },
+          {
+            yPercent: 8,
+            ease: "none",
+            scrollTrigger: {
+              trigger: sectionRef.current,
+              start: "top bottom",
+              end: "bottom top",
+              scrub: 1.2,
+            },
           }
         )
       }
@@ -42,7 +60,10 @@ export default function AppShowcaseSection() {
         )
       }
     }, sectionRef)
-    return () => ctx.revert()
+    return () => {
+      ctx.revert()
+      ScrollTrigger.getAll().forEach((triggerItem) => triggerItem.kill())
+    }
   }, [])
 
   return (
@@ -51,7 +72,17 @@ export default function AppShowcaseSection() {
       className="relative w-full overflow-hidden bg-[#0a0a0a] py-[clamp(5rem,10vw,9rem)]"
       id="app"
     >
-      <div className="px-[clamp(1.25rem,4vw,3rem)] text-center">
+      <div className="absolute inset-0 z-0">
+        <img
+          src="https://source.unsplash.com/1600x900/?phone,app,dark"
+          alt=""
+          aria-hidden="true"
+          className="section-bg-img h-full w-full object-cover"
+        />
+        <div className="absolute inset-0" style={{ background: "rgba(0,0,0,0.75)" }} />
+      </div>
+
+      <div className="relative z-10 px-[clamp(1.25rem,4vw,3rem)] text-center">
         <h2
           className="ec-reveal font-bold text-[#f5f5f5]"
           style={{ fontSize: "clamp(2rem,5vw,4rem)", letterSpacing: "-0.03em", lineHeight: 1.05 }}

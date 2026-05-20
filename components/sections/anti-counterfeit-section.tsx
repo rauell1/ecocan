@@ -7,29 +7,28 @@ import { ScrollTrigger } from "gsap/ScrollTrigger"
 
 export default function AntiCounterfeitSection() {
   const sectionRef = useRef<HTMLDivElement>(null)
-  const textColRef = useRef<HTMLDivElement>(null)
   const imageColRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger)
     const ctx = gsap.context(() => {
-      const trigger = { trigger: sectionRef.current, start: "top 72%", once: true }
+      const trigger = { trigger: sectionRef.current, start: "top 75%", once: true }
+      const targets = sectionRef.current!.querySelectorAll(".ec-reveal")
 
-      if (textColRef.current) {
-        gsap.fromTo(
-          textColRef.current.querySelectorAll(".ps-reveal"),
-          { opacity: 0, y: 32, filter: "blur(6px)" },
-          {
-            opacity: 1,
-            y: 0,
-            filter: "blur(0px)",
-            duration: 0.9,
-            stagger: 0.12,
-            ease: "power3.out",
-            scrollTrigger: trigger,
-          }
-        )
-      }
+      gsap.fromTo(
+        targets,
+        { opacity: 0, y: 36, filter: "blur(8px)" },
+        {
+          opacity: 1,
+          y: 0,
+          filter: "blur(0px)",
+          duration: 1.1,
+          stagger: 0.12,
+          ease: "power3.out",
+          scrollTrigger: trigger,
+        }
+      )
+
       if (imageColRef.current) {
         gsap.fromTo(
           imageColRef.current,
@@ -45,17 +44,48 @@ export default function AntiCounterfeitSection() {
           }
         )
       }
+
+      const bgImg = sectionRef.current?.querySelector(".section-bg-img") as HTMLElement | null
+      if (bgImg) {
+        gsap.fromTo(
+          bgImg,
+          { yPercent: -8 },
+          {
+            yPercent: 8,
+            ease: "none",
+            scrollTrigger: {
+              trigger: sectionRef.current,
+              start: "top bottom",
+              end: "bottom top",
+              scrub: 1.2,
+            },
+          }
+        )
+      }
     }, sectionRef)
-    return () => ctx.revert()
+    return () => {
+      ctx.revert()
+      ScrollTrigger.getAll().forEach((triggerItem) => triggerItem.kill())
+    }
   }, [])
 
   return (
     <section
       ref={sectionRef}
-      className="ps-reveal relative w-full overflow-hidden bg-[#0a0a0a] py-[clamp(5rem,10vw,9rem)]"
+      className="relative w-full overflow-hidden bg-[#0a0a0a] py-[clamp(5rem,10vw,9rem)]"
     >
-      <div className="grid items-center gap-10 px-[clamp(1.25rem,4vw,3rem)] lg:grid-cols-2">
-        <div ref={imageColRef} className="order-2 lg:order-1">
+      <div className="absolute inset-0 z-0">
+        <img
+          src="https://source.unsplash.com/1600x900/?security,qr,technology"
+          alt=""
+          aria-hidden="true"
+          className="section-bg-img h-full w-full object-cover"
+        />
+        <div className="absolute inset-0" style={{ background: "rgba(0,0,0,0.65)" }} />
+      </div>
+
+      <div className="relative z-10 grid items-center gap-10 px-[clamp(1.25rem,4vw,3rem)] lg:grid-cols-2">
+        <div ref={imageColRef} className="order-2 ec-reveal lg:order-1">
           <div className="overflow-hidden border border-white/10 bg-white/5">
             <Image
               src="/images/counterfeit-alert.jpg"
@@ -67,9 +97,9 @@ export default function AntiCounterfeitSection() {
           </div>
         </div>
 
-        <div ref={textColRef} className="order-1 lg:order-2">
+        <div className="order-1 lg:order-2">
           <h2
-            className="ps-reveal font-bold text-[#f5f5f5]"
+            className="ec-reveal font-bold text-[#f5f5f5]"
             style={{
               fontSize: "clamp(2rem,5vw,4.5rem)",
               letterSpacing: "-0.03em",
@@ -78,7 +108,7 @@ export default function AntiCounterfeitSection() {
           >
             Every can. Verified.
           </h2>
-          <p className="ps-reveal mt-4 text-base text-white/50">
+          <p className="ec-reveal mt-4 text-base text-white/50">
             Scan once to confirm authenticity before every sip.
           </p>
         </div>

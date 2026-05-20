@@ -11,33 +11,61 @@ export default function CallToActionSection() {
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger)
     const ctx = gsap.context(() => {
-      const section = sectionRef.current
-      if (!section) return
-      const els = section.querySelectorAll(".ec-reveal")
-      if (!els.length) return
+      const els = sectionRef.current!.querySelectorAll(".ec-reveal")
       gsap.fromTo(
         els,
-        { opacity: 0, y: 28, filter: "blur(6px)" },
+        { opacity: 0, y: 36, filter: "blur(8px)" },
         {
           opacity: 1,
           y: 0,
           filter: "blur(0px)",
-          duration: 0.9,
+          duration: 1.1,
           stagger: 0.12,
           ease: "power3.out",
-          scrollTrigger: { trigger: section, start: "top 75%", once: true },
+          scrollTrigger: { trigger: sectionRef.current, start: "top 75%", once: true },
         }
       )
+
+      const bgImg = sectionRef.current?.querySelector(".section-bg-img") as HTMLElement | null
+      if (bgImg) {
+        gsap.fromTo(
+          bgImg,
+          { yPercent: -8 },
+          {
+            yPercent: 8,
+            ease: "none",
+            scrollTrigger: {
+              trigger: sectionRef.current,
+              start: "top bottom",
+              end: "bottom top",
+              scrub: 1.2,
+            },
+          }
+        )
+      }
     }, sectionRef)
-    return () => ctx.revert()
+    return () => {
+      ctx.revert()
+      ScrollTrigger.getAll().forEach((trigger) => trigger.kill())
+    }
   }, [])
 
   return (
     <section
       ref={sectionRef}
-      className="relative w-full overflow-hidden bg-[#052e16] py-[clamp(5rem,10vw,9rem)]"
+      className="relative w-full overflow-hidden bg-[#0a0a0a] py-[clamp(5rem,10vw,9rem)]"
     >
-      <div className="px-[clamp(1.25rem,4vw,3rem)]">
+      <div className="absolute inset-0 z-0">
+        <img
+          src="https://source.unsplash.com/1600x900/?forest,green"
+          alt=""
+          aria-hidden="true"
+          className="section-bg-img h-full w-full object-cover"
+        />
+        <div className="absolute inset-0" style={{ background: "rgba(0,0,0,0.60)" }} />
+      </div>
+
+      <div className="relative z-10 px-[clamp(1.25rem,4vw,3rem)]">
         <h2
           className="ec-reveal mb-7 font-bold text-[#f5f5f5]"
           style={{ fontSize: "clamp(2rem,5vw,4rem)", lineHeight: 1.04, letterSpacing: "-0.03em" }}
