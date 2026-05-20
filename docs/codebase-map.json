@@ -1,15 +1,15 @@
 {
   "meta": {
-    "version": "9e90aec",
-    "generatedAt": "2026-05-20T09:01:44.125Z",
+    "version": "e535e73",
+    "generatedAt": "2026-05-20T11:15:42.423Z",
     "branch": "main",
-    "previousVersion": "1f1d704",
+    "previousVersion": "9e90aec",
     "generator": "scripts/generate-codebase-map.mjs",
     "framework": "Next.js 14",
     "packageManager": "pnpm"
   },
   "changes": [
-    "Modified: components/shared/section-shell.tsx"
+    "Modified: app/page.tsx"
   ],
   "affectedHotspots": [],
   "routes": [
@@ -160,7 +160,7 @@
     "app/news/components/partnership-blog-hero.tsx": "63e1bd2a6eaabb86a3438bf67cd62db98fad9058",
     "app/news/layout.tsx": "0098cea1ad4e3b29e8cfdba0cfeb8d7c071e7dbf",
     "app/news/page.tsx": "d1031f50d7cb9b834a73a7ac6749c16521290383",
-    "app/page.tsx": "8cf2caada8077e6836632326c23a0e750548728c",
+    "app/page.tsx": "7e53fe3b353d62f3625e322a98bf5300eebbbe02",
     "app/robots.ts": "0ac82ce211b91b4cdf082231be4ad246cef3ddca",
     "app/sitemap.ts": "fec458ba9b30441fdd98ecf1f49e4d0e39f277ec",
     "app/solutions/[section]/page.tsx": "32989e137fa274979021390d726cd33f502ade96",
@@ -375,23 +375,6 @@
     "tsconfig.json": "5841f1c2f8bba110464eaba24059d47cb59d3b64"
   },
   "changelog": [
-    {
-      "version": "24ec96a",
-      "date": "2026-05-15T16:41:12.865Z",
-      "branch": "main",
-      "changes": [
-        "Modified: components/sections/anti-counterfeit-section.tsx",
-        "Modified: components/sections/app-showcase-section.tsx",
-        "Modified: components/sections/call-to-action-section.tsx",
-        "Modified: components/sections/ecommunity-roles-section.tsx",
-        "Modified: components/sections/faq-section.tsx",
-        "Modified: components/sections/hero-section.tsx",
-        "Modified: components/sections/how-it-works-section.tsx",
-        "Modified: components/sections/partners-testimonials-section.tsx",
-        "Modified: components/sections/problem-solution-section.tsx",
-        "Modified: components/sections/sustainability-impact-section.tsx"
-      ]
-    },
     {
       "version": "51c436b",
       "date": "2026-05-15T16:50:34.097Z",
@@ -636,6 +619,14 @@
       "branch": "main",
       "changes": [
         "Modified: components/shared/section-shell.tsx"
+      ]
+    },
+    {
+      "version": "e535e73",
+      "date": "2026-05-20T11:15:42.423Z",
+      "branch": "main",
+      "changes": [
+        "Modified: app/page.tsx"
       ]
     }
   ]
