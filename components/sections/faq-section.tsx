@@ -58,7 +58,7 @@ export default function FAQSection() {
               </button>
               <div
                 style={{
-                  maxHeight: open === i ? "120px" : "0",
+                  maxHeight: open === i ? "320px" : "0",
                   overflow: "hidden",
                   transition: "max-height 0.35s cubic-bezier(0.16,1,0.3,1)",
                 }}
