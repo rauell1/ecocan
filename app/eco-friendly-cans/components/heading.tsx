@@ -1,18 +1,18 @@
-import TextWithComponent from "@/components/contents/consumer/components/text-with-component";
-import Image from "next/image";
-import React from "react";
+import TextWithComponent from "@/components/contents/consumer/components/text-with-component"
+import Image from "next/image"
+import React from "react"
 
 export default function Heading() {
   return (
     <section className="relative" id="eco_friendly_cans">
-      <div className="py-8 lg:pb-36 lg:pt-44 max-w-[72rem] mx-auto px-4 xl:px-0 relative z-[999]">
+      <div className="relative z-[999] mx-auto max-w-[72rem] px-4 py-8 lg:pb-36 lg:pt-44 xl:px-0">
         <TextWithComponent
           title="ECO-friendly cans"
           description={
             <p className="lg:w-3/4">
-              ECOcans empower entrepreneurs with high foot traffic to enhance
-              their productivity, and maximise customer satisfaction, most
-              sustainably. Additionally, these smart cans are a powerful tool for promoting brand visibility, and fostering customer loyalty.
+              ECOcans make bottle returns easy for everyday shoppers in Kenya. At ECO-Stations, they
+              speed up recycling, prevent fake return claims, and help communities keep streets
+              cleaner while unlocking digital rewards.
             </p>
           }
         />
@@ -22,19 +22,15 @@ export default function Heading() {
         viewBox="0 0 1440 100"
         className="absolute top-0 z-50 hidden lg:block"
       >
-        <path
-          fill="#F6F6F6"
-          fillOpacity="1"
-          d="M0,0L1440,0L1440,00L0,100Z"
-        ></path>
+        <path fill="#F6F6F6" fillOpacity="1" d="M0,0L1440,0L1440,00L0,100Z"></path>
       </svg>
       <Image
         src="/assets/images/eco-station/green-rectangles.svg"
         alt="green rectangles"
-        className="absolute top-6 xl:top-16 -left-3 z-[997] hidden lg:block"
+        className="absolute -left-3 top-6 z-[997] hidden lg:block xl:top-16"
         width={500}
         height={109}
       />
     </section>
-  );
+  )
 }

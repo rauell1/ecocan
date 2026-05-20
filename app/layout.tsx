@@ -45,11 +45,11 @@ const APP_URL = "https://ecocan.africa"
 export const metadata: Metadata = {
   metadataBase: new URL(APP_URL),
   title: {
-    default: "ECOCAN - Africa's Circular Bottle Ecosystem",
+    default: "ECOCAN Kenya | Safe Drinks, Bottle Recycling & Rewards",
     template: "%s | ECOCAN",
   },
   description:
-    "Return empty bottles, fight counterfeits, and earn rewards. ECOCAN is Africa's Deposit Return System connecting consumers, brands, and ECO-Stations across East Africa.",
+    "For Kenyan consumers: verify genuine drinks, return empty bottles at ECO-Stations, and earn recycling rewards with ECOCAN.",
   keywords: [
     "ECOCAN",
     "deposit return system",
@@ -70,9 +70,9 @@ export const metadata: Metadata = {
     googleBot: { index: true, follow: true, "max-image-preview": "large" },
   },
   openGraph: {
-    title: "ECOCAN - Africa's Circular Bottle Ecosystem",
+    title: "ECOCAN Kenya | Safe Drinks, Bottle Recycling & Rewards",
     description:
-      "Return empty bottles at any ECO-Station. Earn M-Pesa rewards. Fight fake drinks. Join Africa's circular economy.",
+      "Verify safe drinks, return bottles at ECO-Stations, and earn M-PESA rewards with ECOCAN in Kenya.",
     url: APP_URL,
     siteName: "ECOCAN",
     images: [
@@ -88,8 +88,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "ECOCAN - Africa's Circular Bottle Ecosystem",
-    description: "Return bottles. Earn rewards. Stop counterfeits. Join ECOCAN.",
+    title: "ECOCAN Kenya | Recycle & Earn",
+    description: "Safe drinks, bottle returns, and ECO-Station rewards for Kenyan consumers.",
     images: ["/images/og-image.jpg"],
     site: "@ecocanapp",
   },
@@ -109,7 +109,7 @@ export default function RootLayout({
         {/* Skip navigation link for keyboard users */}
         <a
           href="#main-content"
-          className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[9999] focus:rounded-lg focus:bg-primary focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-white focus:outline-none focus:ring-2 focus:ring-white"
+          className="focus:bg-primary sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[9999] focus:rounded-lg focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-white focus:outline-none focus:ring-2 focus:ring-white"
         >
           Skip to main content
         </a>

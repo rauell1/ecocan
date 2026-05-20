@@ -67,8 +67,8 @@ export default function ContactHero() {
               Contact us.
             </h1>
             <p className="contact-animate max-w-[420px] text-lg leading-relaxed text-white/70">
-              Whether you&apos;re a brand, retailer, investor, or just curious — we&apos;d love to
-              hear from you.
+              Need help with bottle returns, ECO-Station locations, or suspected counterfeit drinks?
+              We&apos;re here for consumers first.
             </p>
 
             <div className="contact-animate mt-2 flex flex-wrap gap-3">
@@ -84,8 +84,10 @@ export default function ContactHero() {
               className="contact-animate mt-4 inline-flex w-fit flex-col rounded-2xl border border-white/15 px-6 py-5"
               style={{ background: "rgba(255,255,255,0.07)", backdropFilter: "blur(10px)" }}
             >
-              <span className="text-4xl font-extrabold text-white">12+</span>
-              <span className="mt-1 text-sm text-white/60">African markets in our roadmap</span>
+              <span className="text-4xl font-extrabold text-white">KE Focus</span>
+              <span className="mt-1 text-sm text-white/60">
+                Built around Kenyan recycling journeys
+              </span>
             </div>
           </div>
 
