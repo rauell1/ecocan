@@ -1,15 +1,15 @@
 {
   "meta": {
-    "version": "330954f",
-    "generatedAt": "2026-05-20T16:11:24.273Z",
+    "version": "fd26688",
+    "generatedAt": "2026-05-20T16:16:34.601Z",
     "branch": "main",
-    "previousVersion": "4342367",
+    "previousVersion": "330954f",
     "generator": "scripts/generate-codebase-map.mjs",
     "framework": "Next.js 14",
     "packageManager": "pnpm"
   },
   "changes": [
-    "Modified: components/sections/call-to-action-section.tsx"
+    "Modified: components/sections/for-investors-section.tsx"
   ],
   "affectedHotspots": [],
   "routes": [
@@ -284,7 +284,7 @@
     "components/sections/ecommunity-roles-section.tsx": "2deed4cc5696542a309374fe84df1adcb280c73c",
     "components/sections/electric-mobility-section.tsx": "fb5eb531604a0013b61003d552fd3676577599a2",
     "components/sections/faq-section.tsx": "327cb3901468da62c8d5ddb4bc608218e1f555b4",
-    "components/sections/for-investors-section.tsx": "61c67400cde18331fc6ded2c7a50a1b73f6c1467",
+    "components/sections/for-investors-section.tsx": "41205c1a42863e73c1bfc51927155f3160cff53d",
     "components/sections/hero-section.tsx": "65e8ca40595a92139aa22f36d54e7611dabd6405",
     "components/sections/home-footer.tsx": "a0ab62d81354e130ca0c9a5ee7eac59000070ed9",
     "components/sections/home-mobile-menu.tsx": "fb3b2ee486bd8fa684435b988f19d3bec1ad9125",
@@ -375,15 +375,6 @@
     "tsconfig.json": "5841f1c2f8bba110464eaba24059d47cb59d3b64"
   },
   "changelog": [
-    {
-      "version": "a09167f",
-      "date": "2026-05-17T18:28:05.000Z",
-      "branch": "main",
-      "changes": [
-        "Modified: app/globals.css",
-        "Modified: components/sections/how-it-works-section.tsx"
-      ]
-    },
     {
       "version": "73e8969",
       "date": "2026-05-17T18:29:55.656Z",
@@ -632,6 +623,14 @@
       "branch": "main",
       "changes": [
         "Modified: components/sections/call-to-action-section.tsx"
+      ]
+    },
+    {
+      "version": "fd26688",
+      "date": "2026-05-20T16:16:34.601Z",
+      "branch": "main",
+      "changes": [
+        "Modified: components/sections/for-investors-section.tsx"
       ]
     }
   ]
