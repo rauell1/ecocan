@@ -61,11 +61,13 @@ export function SectionShell({
 interface OverlineProps {
   children: ReactNode
   inv?: boolean
+  /** Optional extra Tailwind / CSS classes to override default styles */
+  className?: string
 }
 
-export function SectionOverline({ children, inv = false }: OverlineProps) {
+export function SectionOverline({ children, inv = false, className = '' }: OverlineProps) {
   return (
-    <p className={`section-overline ${inv ? 'section-overline-inv' : ''}`}>
+    <p className={`section-overline ${inv ? 'section-overline-inv' : ''} ${className}`.trim()}>
       {children}
     </p>
   )
