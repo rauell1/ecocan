@@ -31,11 +31,22 @@ export default function ForInvestorsSection() {
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger)
     const ctx = gsap.context(() => {
+      const section = sectionRef.current
+      if (!section) return
+      const els = section.querySelectorAll(".ec-reveal")
+      if (!els.length) return
       gsap.fromTo(
-        sectionRef.current?.querySelectorAll(".ec-reveal"),
+        els,
         { opacity: 0, y: 28, filter: "blur(6px)" },
-        { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.9, stagger: 0.11, ease: "power3.out",
-          scrollTrigger: { trigger: sectionRef.current, start: "top 72%", once: true } }
+        {
+          opacity: 1,
+          y: 0,
+          filter: "blur(0px)",
+          duration: 0.9,
+          stagger: 0.11,
+          ease: "power3.out",
+          scrollTrigger: { trigger: section, start: "top 72%", once: true },
+        }
       )
     }, sectionRef)
     return () => ctx.revert()
