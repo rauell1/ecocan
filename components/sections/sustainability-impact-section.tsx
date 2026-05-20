@@ -3,81 +3,82 @@
 import { useRef, useEffect } from "react"
 import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
-import { Leaf, Recycle, MapPin, TrendingUp } from "lucide-react"
+import { Leaf, Users, TrendingUp, Globe } from "lucide-react"
 import { SectionOverline } from "@/components/shared/section-shell"
 
-const stats = [
-  { value: 50000, suffix: "+",  label: "Bottles Recovered",    sub: "and climbing every month",         color: "#4ade80", icon: Recycle },
-  { value: 120,   suffix: "",   label: "Tons CO\u2082 Saved",  sub: "equivalent to 52 cars off the road", color: "#facc15", icon: Leaf },
-  { value: 150,   suffix: "+",  label: "ECO-Stations Active",  sub: "across Nairobi and Mombasa",         color: "#60a5fa", icon: MapPin },
-  { value: 18000, suffix: "+",  label: "Kenyans Earning",      sub: "from recycling their empties",       color: "#f97316", icon: TrendingUp },
+const metrics = [
+  { icon: Leaf,       value: "2M+",   label: "Cans collected",      sub: "and growing" },
+  { icon: Users,      value: "50K+",  label: "Active collectors",   sub: "across East Africa" },
+  { icon: TrendingUp, value: "KES 8M",label: "Paid out to users",   sub: "via M-PESA" },
+  { icon: Globe,      value: "3",     label: "Countries live",      sub: "Kenya · Uganda · Rwanda" },
 ]
 
 export default function SustainabilityImpactSection() {
-  const sectionRef  = useRef<HTMLDivElement>(null)
-  const countersRef = useRef<HTMLDivElement>(null)
+  const sectionRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger)
     const ctx = gsap.context(() => {
-      if (countersRef.current) {
-        gsap.fromTo(countersRef.current.querySelectorAll(".stat-card"),
-          { opacity: 0, y: 56, scale: 0.96 },
-          { opacity: 1, y: 0, scale: 1, duration: 0.72, stagger: 0.14, ease: "power3.out",
-            scrollTrigger: { trigger: countersRef.current, start: "top 78%", once: true } })
-        countersRef.current.querySelectorAll(".counter-value").forEach(el => {
-          const target = parseInt(el.getAttribute("data-target") ?? "0", 10)
-          gsap.fromTo(el, { textContent: "0" },
-            { textContent: target, duration: 2.4, ease: "power2.out", snap: { textContent: 1 },
-              scrollTrigger: { trigger: el, start: "top 83%", once: true } })
-        })
-      }
+      gsap.fromTo(
+        sectionRef.current?.querySelectorAll(".ec-reveal"),
+        { opacity: 0, y: 28, filter: "blur(6px)" },
+        { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.9, stagger: 0.10, ease: "power3.out",
+          scrollTrigger: { trigger: sectionRef.current, start: "top 72%", once: true } }
+      )
     }, sectionRef)
     return () => ctx.revert()
   }, [])
 
   return (
-    <section ref={sectionRef} className="ps-reveal relative w-full section-py overflow-hidden" style={{ background: "#060E06" }}>
+    <section id="impact" ref={sectionRef} className="relative w-full section-py section-alt overflow-hidden">
+
+      {/* Ambient */}
       <div className="pointer-events-none absolute inset-0">
-        <div className="absolute inset-0" style={{ backgroundImage: "url(/images/recycling-hub.jpg)", backgroundSize: "cover", backgroundPosition: "center", opacity: 0.18 }} />
-        <div className="absolute inset-0 bg-gradient-to-b from-[#060E06]/80 via-[#060E06]/65 to-[#060E06]/90" />
-        <div aria-hidden className="absolute left-1/2 top-1/2 h-[700px] w-[700px] -translate-x-1/2 -translate-y-1/2 rounded-full opacity-10 blur-3xl"
-          style={{ background: "radial-gradient(circle,#22c55e 0%,transparent 65%)" }} />
+        <div className="absolute bottom-0 left-1/2 h-[360px] w-[700px] -translate-x-1/2 opacity-12 blur-[120px]"
+             style={{ background: "radial-gradient(ellipse at bottom,#16a34a 0%,transparent 70%)" }} />
       </div>
 
       <div className="site-container relative z-10">
-        <div className="mb-4">
-          <SectionOverline>Impact</SectionOverline>
-        </div>
-        <h2 className="section-heading mb-4">
-          Measurable.{" "}
-          <span style={{ background: "linear-gradient(90deg,#4ade80,#22c55e)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>Real.</span>
-        </h2>
-        <p className="mb-16 max-w-lg text-sm leading-relaxed text-[--c-text-muted]">
-          Every bottle returned is tracked, every ton of CO\u2082 avoided is counted. Here is what the loop looks like in numbers.
-        </p>
 
-        <div ref={countersRef} className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
-          {stats.map(stat => {
-            const Icon = stat.icon
-            return (
-              <div key={stat.label} className="stat-card ec-card group relative overflow-hidden">
-                <div className="absolute inset-x-0 top-0 h-[3px]" style={{ background: stat.color }} />
-                <div className="px-7 py-9">
-                  <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-xl" style={{ background: stat.color + "18" }}>
-                    <Icon size={20} style={{ color: stat.color }} strokeWidth={1.8} />
-                  </div>
-                  <div className="mb-1 font-extrabold tabular-nums leading-none" style={{ fontSize: "clamp(40px,5.5vw,68px)", color: stat.color }}>
-                    <span className="counter-value" data-target={stat.value}>0</span>
-                    <span>{stat.suffix}</span>
-                  </div>
-                  <p className="text-sm font-bold">{stat.label}</p>
-                  <p className="mt-1 text-[12px] text-[--c-text-muted]">{stat.sub}</p>
-                </div>
-              </div>
-            )
-          })}
+        {/* Header */}
+        <div className="flex flex-col items-center text-center mb-16">
+          <div className="ec-reveal">
+            <SectionOverline>Our Impact</SectionOverline>
+          </div>
+          <h2 className="ec-reveal section-heading mb-5">
+            Numbers that<br />
+            <span className="text-[--c-green]">speak for themselves.</span>
+          </h2>
+          <p className="ec-reveal section-subhead section-subhead-center">
+            Real people. Real cans. Real cash. Every metric below represents a can that didn&apos;t end up in a river — and a person who got paid.
+          </p>
         </div>
+
+        {/* Metrics grid */}
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-5">
+          {metrics.map(({ icon: Icon, value, label, sub }) => (
+            <div key={label} className="ec-reveal ec-card group flex flex-col items-center p-8 text-center">
+              <div className="mb-5 flex h-13 w-13 items-center justify-center rounded-xl bg-emerald-500/10 border border-emerald-500/18 transition-transform duration-300 group-hover:scale-110" style={{ height: "3.25rem", width: "3.25rem" }}>
+                <Icon size={22} className="text-emerald-400" strokeWidth={1.5} />
+              </div>
+              <span className="stat-number mb-1">{value}</span>
+              <span className="text-sm font-semibold text-white/80 mb-1">{label}</span>
+              <span className="text-xs text-white/35 font-medium">{sub}</span>
+            </div>
+          ))}
+        </div>
+
+        {/* Quote strip */}
+        <div className="ec-reveal mt-12 rounded-[--radius-card] border border-white/07 bg-[--c-surface] p-8 md:p-10 flex flex-col md:flex-row items-start md:items-center gap-6">
+          <div className="text-4xl text-emerald-400 leading-none font-serif select-none">&ldquo;</div>
+          <div>
+            <p className="text-base md:text-lg font-medium text-white/80 leading-relaxed max-w-[600px]">
+              ECOCAN turned my daily commute into income. I collect on the way to work and earn before I reach the office.
+            </p>
+            <p className="mt-3 text-sm text-white/35 font-medium">— Grace M., Nairobi collector</p>
+          </div>
+        </div>
+
       </div>
     </section>
   )

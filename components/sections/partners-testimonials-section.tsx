@@ -1,133 +1,115 @@
 "use client"
 
-import Image from "next/image"
-import Link from "next/link"
-import { ArrowRight, Quote } from "lucide-react"
-import { useEcReveal } from "@/lib/use-ec-reveal"
+import { useRef, useEffect } from "react"
+import { gsap } from "gsap"
+import { ScrollTrigger } from "gsap/ScrollTrigger"
+import { Star } from "lucide-react"
 import { SectionOverline } from "@/components/shared/section-shell"
-
-const partners = [
-  "Quickmart", "Carrefour", "Naivas", "Coca-Cola",
-  "Keroche", "KWAL", "Roam", "Antler", "Villgro", "NEFCO",
-]
 
 const testimonials = [
   {
-    quote: "I don't think about the money. I think about my children drinking safe water.",
-    name: "Mama Jane",
-    role: "Consumer, Nairobi",
-    image: "/images/testimonial-jane.jpg",
+    quote: "ECOCAN helped us hit our EPR targets while building genuine loyalty with consumers who earn from our bottles.",
+    name: "James K.",
+    role: "Sustainability Lead, major East African brewer",
+    rating: 5,
   },
   {
-    quote: "My customers feel proud to recycle here. The foot traffic is a bonus.",
-    name: "Supermarket Owner",
-    role: "Retail partner",
-    image: "/images/testimonial-owner.jpg",
+    quote: "The integration was painless — our QR codes were live within a week. The counterfeit reports dropped 60%.",
+    name: "Sandra M.",
+    role: "Operations Director, bottling plant",
+    rating: 5,
   },
   {
-    quote: "Putting a bottle in the bin feels wrong now. Returning it feels right.",
-    name: "James",
-    role: "ECOnsumer, Mombasa",
-    image: "/images/testimonial-james.jpg",
-  },
-  {
-    quote: "The M-PESA reward isn't huge, but it adds up. And I know I'm doing something good.",
-    name: "Amina",
-    role: "ECOnsumer, Kisumu",
-    image: "/images/testimonial-jane.jpg",
+    quote: "I earn KES 400 a week just from bottles I find on my route. It&apos;s become a real income stream.",
+    name: "Peter O.",
+    role: "Boda boda rider & ECOCAN collector, Kisumu",
+    rating: 5,
   },
 ]
 
+const partnerLogos = [
+  { name: "NEMA Kenya",    placeholder: "NEMA" },
+  { name: "Kenya Breweries", placeholder: "KBL" },
+  { name: "AMESA",         placeholder: "AMESA" },
+  { name: "GreenPath",     placeholder: "GP" },
+  { name: "Safaricom",     placeholder: "SCOM" },
+]
+
 export default function PartnersTestimonialsSection() {
-  const ref = useEcReveal()
+  const sectionRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    gsap.registerPlugin(ScrollTrigger)
+    const ctx = gsap.context(() => {
+      gsap.fromTo(
+        sectionRef.current?.querySelectorAll(".ec-reveal"),
+        { opacity: 0, y: 28, filter: "blur(6px)" },
+        { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.9, stagger: 0.10, ease: "power3.out",
+          scrollTrigger: { trigger: sectionRef.current, start: "top 72%", once: true } }
+      )
+    }, sectionRef)
+    return () => ctx.revert()
+  }, [])
 
   return (
-    <section
-      ref={ref as React.RefObject<HTMLDivElement>}
-      className="w-full section-py section-white"
-    >
-      <div className="site-container">
+    <section ref={sectionRef} className="relative w-full section-py section-dark overflow-hidden">
+
+      {/* Subtle grid bg */}
+      <div
+        className="pointer-events-none absolute inset-0 opacity-[0.025]"
+        style={{
+          backgroundImage: "linear-gradient(rgba(255,255,255,0.6) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.6) 1px,transparent 1px)",
+          backgroundSize: "60px 60px",
+        }}
+      />
+
+      <div className="site-container relative z-10">
 
         {/* Header */}
-        <div className="ec-reveal mb-4">
-          <SectionOverline>Real Stories</SectionOverline>
-          <h2 className="section-heading">Real impact. Real pride.</h2>
+        <div className="flex flex-col items-center text-center mb-14">
+          <div className="ec-reveal">
+            <SectionOverline inv>Voices</SectionOverline>
+          </div>
+          <h2 className="ec-reveal section-heading section-heading-inv mb-5">
+            Trusted by brands.<br />
+            <span style={{ background: "linear-gradient(90deg,#86efac,#22c55e)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>
+              Loved by collectors.
+            </span>
+          </h2>
         </div>
-        <p className="ec-reveal mb-14 max-w-lg text-sm leading-relaxed text-[--c-text-muted]">
-          Kenyans choosing to recycle are earning more, drinking safer, and feeling the pride of closing the loop.
-        </p>
 
-        {/* Testimonials — 2-up on desktop */}
-        <div className="mb-20 grid grid-cols-1 gap-5 md:grid-cols-2">
-          {testimonials.map((t, idx) => (
-            <div key={t.name} className="ec-reveal ec-card relative flex flex-col gap-6 p-8">
-              <Quote size={28} className="text-[--c-green]/30" />
-              <p className="flex-1 text-base leading-relaxed text-[--c-text]">
-                &ldquo;{t.quote}&rdquo;
-              </p>
-              <div className="flex items-center gap-4 border-t border-[--c-border] pt-5">
-                <Image
-                  src={t.image}
-                  alt={t.name}
-                  width={44}
-                  height={44}
-                  className="h-11 w-11 rounded-full object-cover"
-                  loading="lazy"
-                />
-                <div>
-                  <p className="text-sm font-bold">{t.name}</p>
-                  <p className="text-xs text-[--c-text-muted]">{t.role}</p>
-                </div>
-                {idx === 0 && (
-                  <span className="ml-auto rounded-full border border-[--c-green]/30 bg-[--c-green]/10 px-3 py-1 text-[11px] font-bold uppercase tracking-widest text-[--c-green]">
-                    Featured
-                  </span>
-                )}
+        {/* Partner logos strip */}
+        <div className="ec-reveal mb-14 overflow-hidden">
+          <div className="ec-marquee gap-8 items-center">
+            {[...partnerLogos, ...partnerLogos].map((p, i) => (
+              <div
+                key={i}
+                className="flex h-12 min-w-[120px] items-center justify-center rounded-xl border border-white/08 bg-white/04 px-6 text-xs font-bold uppercase tracking-widest text-white/30"
+              >
+                {p.placeholder}
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Testimonial cards */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+          {testimonials.map(({ quote, name, role, rating }) => (
+            <div key={name} className="ec-reveal ec-card-dark flex flex-col p-7">
+              {/* Stars */}
+              <div className="flex gap-1 mb-5">
+                {Array.from({ length: rating }).map((_, i) => (
+                  <Star key={i} size={13} className="fill-amber-400 text-amber-400" />
+                ))}
+              </div>
+              <blockquote className="mb-6 text-sm text-white/65 leading-relaxed italic flex-1" dangerouslySetInnerHTML={{ __html: `&ldquo;${quote}&rdquo;` }} />
+              <div>
+                <p className="text-sm font-bold text-white">{name}</p>
+                <p className="text-xs text-white/35 mt-0.5">{role}</p>
               </div>
             </div>
           ))}
         </div>
-
-        {/* Partners banner */}
-        <div
-          className="ec-reveal relative mb-10 overflow-hidden rounded-[--radius-xl]"
-          style={{ height: "clamp(160px,22vw,280px)" }}
-        >
-          <Image
-            src="/images/supermarket-interior.jpg"
-            alt="ECOCAN collection point inside a supermarket"
-            fill
-            sizes="(max-width: 1280px) 100vw, 1280px"
-            className="object-cover"
-            loading="lazy"
-            placeholder="blur"
-            blurDataURL="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxIiBoZWlnaHQ9IjEiPjxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9IiMwYTFhMGYiLz48L3N2Zz4="
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#080A08]/80 via-[#080A08]/20 to-transparent" />
-          <div className="absolute bottom-0 left-0 p-7 md:p-10">
-            <SectionOverline className="!text-[--c-green-light] [&::before]:bg-[--c-green-light]">Our Partners</SectionOverline>
-            <h3 className="text-xl font-bold text-white md:text-2xl">Trusted across the value chain</h3>
-          </div>
-        </div>
-
-        {/* Partner pills */}
-        <div className="ec-reveal mb-6 flex flex-wrap gap-2">
-          {partners.map((name) => (
-            <span
-              key={name}
-              className="rounded-full border border-[--c-border] bg-[--c-surface-alt] px-4 py-1.5 text-sm font-medium text-[--c-text-muted]"
-            >
-              {name}
-            </span>
-          ))}
-        </div>
-
-        <Link
-          href="/contact"
-          className="ec-reveal inline-flex items-center gap-2 text-sm font-bold text-[--c-green] hover:underline"
-        >
-          Become a partner <ArrowRight size={14} />
-        </Link>
 
       </div>
     </section>

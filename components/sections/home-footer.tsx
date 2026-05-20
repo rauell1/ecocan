@@ -1,141 +1,127 @@
 "use client"
 
-import { useState } from "react"
 import Image from "next/image"
 import Link from "next/link"
+import { Github, Twitter, Instagram, Linkedin } from "lucide-react"
 
-const footerColumns = [
-  {
-    title: "Navigate",
-    links: [
-      { label: "Home",         href: "/" },
-      { label: "Solutions",    href: "/solutions" },
-      { label: "About Us",     href: "/about-us" },
-      { label: "News",         href: "/news" },
-      { label: "Contact",      href: "/contact" },
-    ],
-  },
-  {
-    title: "Get Involved",
-    links: [
-      { label: "Download App",         href: "/download" },
-      { label: "Register ECO-Station", href: "/contact" },
-      { label: "Register as Producer", href: "/contact" },
-      { label: "ECOCAN Market",         href: "/ecocan-market" },
-    ],
-  },
-]
+const footerLinks = {
+  Product: [
+    { label: "How It Works",  href: "#how-it-works" },
+    { label: "Download App",  href: "/download" },
+    { label: "ECO-Stations",  href: "/stations" },
+    { label: "Rewards",       href: "/rewards" },
+  ],
+  Company: [
+    { label: "About",         href: "/about" },
+    { label: "Impact Report", href: "/impact" },
+    { label: "Careers",       href: "/careers" },
+    { label: "Press",         href: "/press" },
+  ],
+  Partners: [
+    { label: "For Brands",    href: "/solutions" },
+    { label: "For Investors", href: "/investors" },
+    { label: "Become a Retailer", href: "/retailers" },
+    { label: "API Access",    href: "/api" },
+  ],
+}
 
 const socials = [
-  { name: "Facebook",   href: "https://facebook.com/EcocanAfrica",              icon: "/assets/icons/facebook.svg" },
-  { name: "X (Twitter)",href: "https://twitter.com/EcocanAfrica",               icon: "/assets/icons/X.svg" },
-  { name: "Instagram",  href: "https://www.instagram.com/ecocanafrica",         icon: "/assets/icons/Instagram.svg" },
-  { name: "TikTok",     href: "https://www.tiktok.com/@ecocanafrica",           icon: "/assets/icons/tiktok.svg" },
-  { name: "LinkedIn",   href: "https://linkedin.com/company/ecocan",            icon: "/assets/icons/linkedin.svg" },
-  { name: "YouTube",    href: "https://www.youtube.com/@EcocanAfrica",          icon: "/assets/icons/youtube.svg" },
+  { icon: Twitter,   href: "https://twitter.com/ecocan",   label: "Twitter" },
+  { icon: Instagram, href: "https://instagram.com/ecocan", label: "Instagram" },
+  { icon: Linkedin,  href: "https://linkedin.com/company/ecocan", label: "LinkedIn" },
+  { icon: Github,    href: "https://github.com/rauell1/ecocan",   label: "GitHub" },
 ]
 
 export default function HomeFooter() {
-  const [email, setEmail] = useState("")
-
   return (
-    <footer className="w-full pb-10 pt-20" style={{ background: "#0d0d0d" }}>
-      <div className="mx-auto max-w-[1280px] px-6">
+    <footer className="relative w-full overflow-hidden border-t border-white/06 bg-[--c-dark]">
 
-        {/* Top: logo + tagline + newsletter */}
-        <div className="mb-16 grid grid-cols-1 gap-12 border-b border-white/10 pb-16 lg:grid-cols-2">
-          <div>
-            <Image src="/assets/images/logo-curved-white.svg" alt="ECOCAN" width={160} height={56} className="mb-4 h-12 w-auto" />
-            <p className="max-w-xs text-sm leading-relaxed text-white/45">
-              Africa&apos;s circular bottle ecosystem.
-            </p>
-            <div className="mt-6 flex items-center gap-3">
-              {socials.map((s) => (
-                <Link key={s.name} href={s.href} target="_blank" rel="noopener noreferrer" aria-label={s.name} className="opacity-50 transition-opacity hover:opacity-100">
-                  <Image src={s.icon} alt={s.name} width={26} height={26} />
-                </Link>
-              ))}
-            </div>
-          </div>
+      {/* Very subtle green ambient */}
+      <div className="pointer-events-none absolute bottom-0 left-1/2 h-[300px] w-[600px] -translate-x-1/2 opacity-06 blur-[120px]"
+           style={{ background: "radial-gradient(ellipse,#22c55e 0%,transparent 70%)" }} />
 
-          <div>
-            <h4 className="mb-2 text-sm font-semibold text-white">Newsletter</h4>
-            <p className="mb-4 text-sm text-white/45">Stay updated on ECOCAN&apos;s impact.</p>
-            <div className="flex gap-2">
-              <label htmlFor="footer-email" className="sr-only">Email address</label>
-              <input
-                id="footer-email"
-                type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                placeholder="your@email.com"
-                aria-label="Email address for newsletter"
-                className="flex-1 rounded-xl border border-white/10 bg-white/10 px-4 py-3 text-sm text-white placeholder:text-white/35 focus:ring-2 focus:ring-primary focus-visible:ring-2 focus-visible:ring-primary"
-              />
-              <button type="submit" aria-label="Subscribe" className="whitespace-nowrap rounded-xl bg-primary px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-primary-dark">
-                Subscribe
-              </button>
-            </div>
+      <div className="site-container relative z-10 py-16 md:py-20">
+
+        {/* Top row: logo + social */}
+        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-8 mb-14">
+          <Link href="/" className="flex shrink-0 items-center group">
+            <Image
+              src="/assets/images/ecocan-logo-alt.svg"
+              alt="ECOCAN"
+              width={108}
+              height={36}
+              className="h-8 w-auto brightness-0 invert opacity-80 group-hover:opacity-100 transition-opacity"
+            />
+          </Link>
+          <div className="flex items-center gap-3">
+            {socials.map(({ icon: Icon, href, label }) => (
+              <a
+                key={label}
+                href={href}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={label}
+                className="flex h-9 w-9 items-center justify-center rounded-lg border border-white/10 text-white/40 transition-all hover:border-white/25 hover:text-white/80"
+              >
+                <Icon size={15} strokeWidth={1.75} />
+              </a>
+            ))}
           </div>
         </div>
 
-        {/* Middle: 2 nav columns + 2 office columns */}
-        <div className="mb-16 grid grid-cols-2 gap-8 md:grid-cols-4">
-          {footerColumns.map((col) => (
-            <div key={col.title}>
-              <h4 className="mb-4 text-xs font-semibold uppercase tracking-wider text-white">{col.title}</h4>
-              <ul className="space-y-2.5">
-                {col.links.map((link) => (
-                  <li key={link.label}>
-                    <Link href={link.href} className="text-sm text-white/55 transition-colors hover:text-primary">{link.label}</Link>
+        {/* Link columns */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-10 mb-14">
+          {Object.entries(footerLinks).map(([col, links]) => (
+            <div key={col}>
+              <p className="mb-5 text-[11px] font-bold uppercase tracking-[0.18em] text-white/30">{col}</p>
+              <ul className="space-y-3">
+                {links.map(({ label, href }) => (
+                  <li key={label}>
+                    <Link
+                      href={href}
+                      className="text-sm text-white/50 transition-colors hover:text-white/90"
+                    >
+                      {label}
+                    </Link>
                   </li>
                 ))}
               </ul>
             </div>
           ))}
 
-          {/* Kenya */}
+          {/* Newsletter micro-form */}
           <div>
-            <div className="mb-4 flex items-center gap-2">
-              <Image src="/assets/images/kenya.png" alt="Kenya" width={18} height={18} />
-              <h4 className="text-xs font-semibold uppercase tracking-wider text-white">Kenya</h4>
-            </div>
-            <div className="space-y-1 text-sm text-white/55">
-              <p>Plessey House, Boricho Rd</p>
-              <p>Nairobi, Kenya</p>
-              <p className="mt-2">info@ecocanafrica.com</p>
-            </div>
+            <p className="mb-5 text-[11px] font-bold uppercase tracking-[0.18em] text-white/30">Stay updated</p>
+            <p className="mb-4 text-sm text-white/40 leading-relaxed">Impact reports, new stations, product news.</p>
+            <form
+              onSubmit={(e) => e.preventDefault()}
+              className="flex gap-2"
+            >
+              <input
+                type="email"
+                placeholder="Your email"
+                className="flex-1 min-w-0 rounded-lg border border-white/10 bg-white/05 px-3 py-2 text-sm text-white placeholder:text-white/25 focus:border-[--c-green]/50 focus:outline-none focus:ring-1 focus:ring-[--c-green]/30 transition-colors"
+              />
+              <button
+                type="submit"
+                className="shrink-0 rounded-lg bg-[--c-green] px-3 py-2 text-xs font-bold text-black hover:bg-[--c-green-light] transition-colors"
+              >
+                →
+              </button>
+            </form>
           </div>
-
-          {/* Finland */}
-          <div>
-            <div className="mb-4 flex items-center gap-2">
-              <Image src="/assets/images/finland.png" alt="Finland" width={18} height={18} />
-              <h4 className="text-xs font-semibold uppercase tracking-wider text-white">Finland</h4>
-            </div>
-            <div className="space-y-1 text-sm text-white/55">
-              <p>Korkeavuorenkatu 7c 49</p>
-              <p>Helsinki, Finland</p>
-              <p className="mt-2">info@ecocanafrica.com</p>
-            </div>
-          </div>
-        </div>
-
-        {/* Compliance badges */}
-        <div className="mb-10 flex items-center gap-5">
-          <Image src="/assets/images/gdpr-badge.svg" alt="GDPR Compliant" width={72} height={86} />
-          <Image src="/assets/images/odpc-badge.svg" alt="ODPC Compliant" width={72} height={86} />
         </div>
 
         {/* Bottom bar */}
-        <div className="flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-8 md:flex-row">
-          <p className="text-sm text-white/35">\u00a9 {new Date().getFullYear()} ECOCAN. All Rights Reserved.</p>
+        <div className="ec-divider mb-6" />
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-white/25">
+          <p>© {new Date().getFullYear()} ECOCAN Ltd. All rights reserved.</p>
           <div className="flex items-center gap-6">
-            <Link href="/" className="text-sm text-white/35 transition-colors hover:text-primary">Privacy</Link>
-            <Link href="/" className="text-sm text-white/35 transition-colors hover:text-primary">Terms</Link>
+            <Link href="/privacy" className="hover:text-white/60 transition-colors">Privacy Policy</Link>
+            <Link href="/terms"   className="hover:text-white/60 transition-colors">Terms of Use</Link>
+            <Link href="/cookies" className="hover:text-white/60 transition-colors">Cookie Settings</Link>
           </div>
         </div>
-
       </div>
     </footer>
   )

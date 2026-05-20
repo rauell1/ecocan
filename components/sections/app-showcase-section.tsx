@@ -9,9 +9,9 @@ import { ScanLine, Wallet, MapPin } from "lucide-react"
 import { SectionOverline } from "@/components/shared/section-shell"
 
 const features = [
-  { icon: ScanLine, title: "Scan & verify in 3 seconds",   desc: "Know if it's real before you drink." },
-  { icon: Wallet,   title: "Earn straight to M-PESA",       desc: "Return empties, get paid instantly." },
-  { icon: MapPin,   title: "Find the nearest ECO-Station",  desc: "Real-time map of every collection point." },
+  { icon: ScanLine, title: "Scan & verify in 3 seconds",  desc: "Know if it's real before you drink." },
+  { icon: Wallet,   title: "Earn straight to M-PESA",      desc: "Return empties, get paid instantly." },
+  { icon: MapPin,   title: "Find the nearest ECO-Station", desc: "Real-time map of every collection point." },
 ]
 
 export default function AppShowcaseSection() {
@@ -23,31 +23,29 @@ export default function AppShowcaseSection() {
     const ctx = gsap.context(() => {
       const trigger = { trigger: sectionRef.current, start: "top 72%", once: true }
 
-      // Text + feature cards — same timing as every other section
       const textEls = sectionRef.current?.querySelectorAll(".ec-reveal")
       if (textEls?.length) {
         gsap.fromTo(
           textEls,
-          { opacity: 0, y: 32, filter: "blur(6px)" },
+          { opacity: 0, y: 28, filter: "blur(6px)" },
           { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.9, stagger: 0.12, ease: "power3.out", scrollTrigger: trigger }
         )
       }
 
-      // Phone reveal + float
       if (phonesRef.current) {
         const center = phonesRef.current.querySelector(".phone-center")
         const sides  = phonesRef.current.querySelectorAll(".phone-side")
 
         gsap.fromTo(center,
-          { opacity: 0, y: 80, scale: 0.92 },
+          { opacity: 0, y: 64, scale: 0.93 },
           { opacity: 1, y: 0, scale: 1, duration: 1.1, ease: "power3.out", scrollTrigger: trigger }
         )
         gsap.fromTo(sides,
-          { opacity: 0, y: 100, scale: 0.88 },
+          { opacity: 0, y: 80, scale: 0.90 },
           { opacity: 0.75, y: 0, scale: 1, duration: 1.1, stagger: 0.18, ease: "power3.out", scrollTrigger: trigger }
         )
         sides.forEach((phone, i) => {
-          gsap.to(phone, { y: i === 0 ? -14 : 14, rotation: i === 0 ? -8 : 6, duration: 4, repeat: -1, yoyo: true, ease: "sine.inOut", delay: 1.2 })
+          gsap.to(phone, { y: i === 0 ? -14 : 14, rotation: i === 0 ? -8 : 6, duration: 4.2, repeat: -1, yoyo: true, ease: "sine.inOut", delay: 1.3 })
         })
       }
     }, sectionRef)
@@ -55,10 +53,11 @@ export default function AppShowcaseSection() {
   }, [])
 
   return (
-    <section ref={sectionRef} className="relative w-full section-py section-dark overflow-hidden">
+    <section ref={sectionRef} className="relative w-full section-py section-dark overflow-hidden" id="app">
       {/* Ambient glow */}
       <div className="pointer-events-none absolute inset-0">
-        <div className="absolute left-1/2 top-1/2 h-[560px] w-[560px] -translate-x-1/2 -translate-y-1/2 rounded-full opacity-20 blur-[120px]" style={{ background: "radial-gradient(circle,#16a34a 0%,transparent 65%)" }} />
+        <div className="absolute left-1/2 top-1/2 h-[600px] w-[600px] -translate-x-1/2 -translate-y-1/2 rounded-full opacity-15 blur-[130px]"
+             style={{ background: "radial-gradient(circle,#16a34a 0%,transparent 65%)" }} />
       </div>
 
       <div className="site-container relative z-10">
@@ -76,27 +75,32 @@ export default function AppShowcaseSection() {
               </span>
             </h2>
 
-            <div className="mb-12 flex flex-col gap-4">
+            <div className="mb-12 flex flex-col gap-3">
               {features.map((f, idx) => (
-                <div key={idx} className="ec-reveal ec-card-dark group flex items-start sm:items-center gap-5 p-4">
-                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-emerald-500/15 border border-emerald-500/25 transition-transform duration-300 group-hover:scale-110">
-                    <f.icon size={22} className="text-emerald-400" strokeWidth={1.5} />
+                <div key={idx} className="ec-reveal ec-card-dark group flex items-start sm:items-center gap-5 p-5">
+                  <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-emerald-500/12 border border-emerald-500/22 transition-transform duration-300 group-hover:scale-110">
+                    <f.icon size={20} className="text-emerald-400" strokeWidth={1.5} />
                   </div>
                   <div>
                     <h3 className="mb-0.5 text-base font-semibold text-white">{f.title}</h3>
-                    <p className="text-sm leading-relaxed text-white/55">{f.desc}</p>
+                    <p className="text-sm leading-relaxed text-white/50">{f.desc}</p>
                   </div>
                 </div>
               ))}
             </div>
 
-            <div className="ec-reveal flex flex-wrap gap-4">
-              <Link href="https://apps.apple.com/app/6502695438" target="_blank"
-                className="inline-flex items-center gap-3 rounded-[--radius-full] bg-white px-8 py-3.5 text-sm font-bold text-black hover:shadow-[0_0_24px_rgba(255,255,255,0.35)] active:scale-95">
+            <div className="ec-reveal flex flex-wrap gap-3">
+              <Link
+                href="https://apps.apple.com/app/6502695438"
+                target="_blank"
+                className="btn-primary"
+              >
                 App Store
               </Link>
-              <Link href="#"
-                className="inline-flex items-center gap-2 rounded-[--radius-full] border border-white/20 px-8 py-3.5 text-sm font-semibold text-white/75 hover:border-white/45 hover:text-white active:scale-95">
+              <Link
+                href="#"
+                className="btn-ghost"
+              >
                 Google Play
               </Link>
             </div>
