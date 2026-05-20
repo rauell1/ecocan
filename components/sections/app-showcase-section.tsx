@@ -5,22 +5,6 @@ import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 import Image from "next/image"
 import Link from "next/link"
-import { ScanLine, Wallet, MapPin } from "lucide-react"
-import { SectionOverline } from "@/components/shared/section-shell"
-
-const features = [
-  {
-    icon: ScanLine,
-    title: "Scan & verify in 3 seconds",
-    desc: "Know if it's real before you drink.",
-  },
-  { icon: Wallet, title: "Earn straight to M-PESA", desc: "Return empties, get paid instantly." },
-  {
-    icon: MapPin,
-    title: "Find the nearest ECO-Station",
-    desc: "Real-time map of every collection point.",
-  },
-]
 
 export default function AppShowcaseSection() {
   const sectionRef = useRef<HTMLDivElement>(null)
@@ -50,37 +34,12 @@ export default function AppShowcaseSection() {
 
       if (phonesRef.current) {
         const center = phonesRef.current.querySelector(".phone-center")
-        const sides = phonesRef.current.querySelectorAll(".phone-side")
 
         gsap.fromTo(
           center,
           { opacity: 0, y: 64, scale: 0.93 },
           { opacity: 1, y: 0, scale: 1, duration: 1.1, ease: "power3.out", scrollTrigger: trigger }
         )
-        gsap.fromTo(
-          sides,
-          { opacity: 0, y: 80, scale: 0.9 },
-          {
-            opacity: 0.75,
-            y: 0,
-            scale: 1,
-            duration: 1.1,
-            stagger: 0.18,
-            ease: "power3.out",
-            scrollTrigger: trigger,
-          }
-        )
-        sides.forEach((phone, i) => {
-          gsap.to(phone, {
-            y: i === 0 ? -14 : 14,
-            rotation: i === 0 ? -8 : 6,
-            duration: 4.2,
-            repeat: -1,
-            yoyo: true,
-            ease: "sine.inOut",
-            delay: 1.3,
-          })
-        })
       }
     }, sectionRef)
     return () => ctx.revert()
@@ -89,102 +48,34 @@ export default function AppShowcaseSection() {
   return (
     <section
       ref={sectionRef}
-      className="section-py section-dark relative w-full overflow-hidden"
+      className="relative w-full overflow-hidden bg-[#0a0a0a] py-[clamp(5rem,10vw,9rem)]"
       id="app"
     >
-      {/* Ambient glow */}
-      <div className="pointer-events-none absolute inset-0">
-        <div
-          className="absolute left-1/2 top-1/2 h-[600px] w-[600px] -translate-x-1/2 -translate-y-1/2 rounded-full opacity-15 blur-[130px]"
-          style={{ background: "radial-gradient(circle,#16a34a 0%,transparent 65%)" }}
-        />
-      </div>
+      <div className="px-[clamp(1.25rem,4vw,3rem)] text-center">
+        <h2
+          className="ec-reveal font-bold text-[#f5f5f5]"
+          style={{ fontSize: "clamp(2rem,5vw,4rem)", letterSpacing: "-0.03em", lineHeight: 1.05 }}
+        >
+          Your rewards app
+        </h2>
 
-      <div className="site-container relative z-10">
-        <div className="grid grid-cols-1 items-center gap-16 lg:grid-cols-2 lg:gap-24">
-          {/* TEXT COLUMN */}
-          <div className="flex flex-col pt-8">
-            <div className="ec-reveal">
-              <SectionOverline inv>The ECOCAN App</SectionOverline>
-            </div>
-            <h2 className="ec-reveal section-heading section-heading-inv mb-10">
-              Everything you need.
-              <br />
-              <span
-                style={{
-                  background: "linear-gradient(90deg,#86efac,#4ade80,#16a34a)",
-                  WebkitBackgroundClip: "text",
-                  WebkitTextFillColor: "transparent",
-                }}
-              >
-                One app.
-              </span>
-            </h2>
+        <div ref={phonesRef} className="phone-center ec-reveal mx-auto my-12 w-[min(360px,78vw)]">
+          <Image
+            src="/assets/images/consumer/ecocan-app.png"
+            alt="ECOCAN mobile app"
+            width={340}
+            height={680}
+            className="h-auto w-full"
+          />
+        </div>
 
-            <div className="mb-12 flex flex-col gap-3">
-              {features.map((f, idx) => (
-                <div
-                  key={idx}
-                  className="ec-reveal ec-card-dark group flex items-start gap-5 p-5 sm:items-center"
-                >
-                  <div className="bg-emerald-500/12 border-emerald-500/22 flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border transition-transform duration-300 group-hover:scale-110">
-                    <f.icon size={20} className="text-emerald-400" strokeWidth={1.5} />
-                  </div>
-                  <div>
-                    <h3 className="mb-0.5 text-base font-semibold text-white">{f.title}</h3>
-                    <p className="text-sm leading-relaxed text-white/50">{f.desc}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            <div className="ec-reveal flex flex-wrap gap-3">
-              <Link
-                href="https://apps.apple.com/app/6502695438"
-                target="_blank"
-                className="btn-primary"
-              >
-                App Store
-              </Link>
-              <Link href="#" className="btn-ghost">
-                Google Play
-              </Link>
-            </div>
-          </div>
-
-          {/* PHONES COLUMN */}
-          <div
-            ref={phonesRef}
-            className="relative mt-10 flex h-[500px] items-end justify-center md:h-[640px] lg:mt-0"
-          >
-            <div className="phone-side absolute -left-2 bottom-4 z-0 w-[45%] origin-bottom-left rotate-[-8deg] md:-left-8">
-              <Image
-                src="/assets/images/consumer/earn-image.png"
-                alt="Earn rewards"
-                width={280}
-                height={560}
-                className="h-auto w-full drop-shadow-2xl"
-              />
-            </div>
-            <div className="phone-side absolute -right-2 bottom-8 z-0 w-[40%] origin-bottom-right rotate-[6deg] md:-right-8">
-              <Image
-                src="/assets/images/consumer/get-app.png"
-                alt="Download"
-                width={240}
-                height={480}
-                className="h-auto w-full drop-shadow-2xl"
-              />
-            </div>
-            <div className="phone-center relative z-10 w-[55%]">
-              <Image
-                src="/assets/images/consumer/ecocan-app.png"
-                alt="ECOCAN App"
-                width={340}
-                height={680}
-                className="h-auto w-full drop-shadow-2xl"
-              />
-            </div>
-          </div>
+        <div className="ec-reveal flex items-center justify-center gap-3">
+          <Link href="https://apps.apple.com/app/6502695438" target="_blank" className="btn-ghost">
+            App Store
+          </Link>
+          <Link href="#" className="btn-ghost">
+            Google Play
+          </Link>
         </div>
       </div>
     </section>

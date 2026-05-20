@@ -3,40 +3,8 @@
 import { useRef, useEffect } from "react"
 import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
-import { Star } from "lucide-react"
-import { SectionOverline } from "@/components/shared/section-shell"
 
-const testimonials = [
-  {
-    quote:
-      "ECOCAN helped us hit our EPR targets while building genuine loyalty with consumers who earn from our bottles.",
-    name: "James K.",
-    role: "Sustainability Lead, major East African brewer",
-    rating: 5,
-  },
-  {
-    quote:
-      "The integration was painless — our QR codes were live within a week. The counterfeit reports dropped 60%.",
-    name: "Sandra M.",
-    role: "Operations Director, bottling plant",
-    rating: 5,
-  },
-  {
-    quote:
-      "I earn KES 400 a week just from bottles I find on my route. It&apos;s become a real income stream.",
-    name: "Peter O.",
-    role: "Boda boda rider & ECOCAN collector, Kisumu",
-    rating: 5,
-  },
-]
-
-const partnerLogos = [
-  { name: "NEMA Kenya", placeholder: "NEMA" },
-  { name: "Kenya Breweries", placeholder: "KBL" },
-  { name: "AMESA", placeholder: "AMESA" },
-  { name: "GreenPath", placeholder: "GP" },
-  { name: "Safaricom", placeholder: "SCOM" },
-]
+const partnerLogos = ["NEMA", "KBL", "AMESA", "GREENPATH", "SAFARICOM"]
 
 export default function PartnersTestimonialsSection() {
   const sectionRef = useRef<HTMLDivElement>(null)
@@ -64,73 +32,28 @@ export default function PartnersTestimonialsSection() {
   }, [])
 
   return (
-    <section ref={sectionRef} className="section-py section-dark relative w-full overflow-hidden">
-      {/* Subtle grid bg */}
-      <div
-        className="pointer-events-none absolute inset-0 opacity-[0.025]"
-        style={{
-          backgroundImage:
-            "linear-gradient(rgba(255,255,255,0.6) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.6) 1px,transparent 1px)",
-          backgroundSize: "60px 60px",
-        }}
-      />
-
-      <div className="site-container relative z-10">
-        {/* Header */}
-        <div className="mb-14 flex flex-col items-center text-center">
-          <div className="ec-reveal">
-            <SectionOverline inv>Voices</SectionOverline>
-          </div>
-          <h2 className="ec-reveal section-heading section-heading-inv mb-5">
-            Trusted by brands.
-            <br />
+    <section
+      ref={sectionRef}
+      className="relative w-full overflow-hidden bg-[#0a0a0a] py-[clamp(5rem,10vw,9rem)]"
+    >
+      <div className="ec-reveal bg-white/5 px-[clamp(1.25rem,4vw,3rem)] py-8">
+        <div className="flex flex-wrap items-center gap-8 md:gap-12">
+          {partnerLogos.map((logo) => (
             <span
-              style={{
-                background: "linear-gradient(90deg,#86efac,#22c55e)",
-                WebkitBackgroundClip: "text",
-                WebkitTextFillColor: "transparent",
-              }}
+              key={logo}
+              className="text-xs font-semibold uppercase tracking-[0.2em] text-white/45"
             >
-              Loved by collectors.
+              {logo}
             </span>
-          </h2>
-        </div>
-
-        {/* Partner logos strip */}
-        <div className="ec-reveal mb-14 overflow-hidden">
-          <div className="ec-marquee items-center gap-8">
-            {[...partnerLogos, ...partnerLogos].map((p, i) => (
-              <div
-                key={i}
-                className="border-white/08 bg-white/04 flex h-12 min-w-[120px] items-center justify-center rounded-xl border px-6 text-xs font-bold uppercase tracking-widest text-white/30"
-              >
-                {p.placeholder}
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Testimonial cards */}
-        <div className="grid grid-cols-1 gap-5 md:grid-cols-3">
-          {testimonials.map(({ quote, name, role, rating }) => (
-            <div key={name} className="ec-reveal ec-card-dark flex flex-col p-7">
-              {/* Stars */}
-              <div className="mb-5 flex gap-1">
-                {Array.from({ length: rating }).map((_, i) => (
-                  <Star key={i} size={13} className="fill-amber-400 text-amber-400" />
-                ))}
-              </div>
-              <blockquote
-                className="mb-6 flex-1 text-sm italic leading-relaxed text-white/65"
-                dangerouslySetInnerHTML={{ __html: `&ldquo;${quote}&rdquo;` }}
-              />
-              <div>
-                <p className="text-sm font-bold text-white">{name}</p>
-                <p className="mt-0.5 text-xs text-white/35">{role}</p>
-              </div>
-            </div>
           ))}
         </div>
+      </div>
+
+      <div className="ec-reveal px-[clamp(1.25rem,4vw,3rem)] pt-12">
+        <blockquote className="max-w-[26ch] text-2xl italic text-[#f5f5f5] md:text-4xl">
+          “ECOCAN made returns profitable for every street collector.”
+        </blockquote>
+        <p className="mt-3 text-sm text-white/50">Grace M., Retail Operations Lead</p>
       </div>
     </section>
   )
