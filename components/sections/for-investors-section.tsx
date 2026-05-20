@@ -40,6 +40,7 @@ export default function ForInvestorsSection() {
 
   return (
     <section
+      id="investors"
       ref={sectionRef}
       className="relative w-full overflow-hidden bg-[#0a0a0a] py-[clamp(5rem,10vw,9rem)]"
     >
