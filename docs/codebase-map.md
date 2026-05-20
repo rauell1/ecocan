@@ -5,10 +5,10 @@
 
 # 🗺️ EcoCan Codebase Map
 
-> **Version:** `e535e73`
-> **Generated:** 2026-05-20T11:15:42.423Z
+> **Version:** `4bbc9a9`
+> **Generated:** 2026-05-20T11:26:17.848Z
 > **Branch:** `main`
-> **Previous:** `9e90aec`
+> **Previous:** `e535e73`
 
 ## Changes Since Last Version
 
@@ -59,6 +59,7 @@
 
 | Version | Date | Branch | Changes |
 |---|---|---|---|
+| `4bbc9a9` | 2026-05-20 | main | Modified: app/page.tsx |
 | `e535e73` | 2026-05-20 | main | Modified: app/page.tsx |
 | `9e90aec` | 2026-05-20 | main | Modified: components/shared/section-shell.tsx |
 | `1f1d704` | 2026-05-20 | main | Modified: app/globals.css; Modified: components/sections/ecocan-model-section.tsx; Modified: components/sections/ecommunity-roles-section.tsx; Modified: components/sections/electric-mobility-section.tsx; Modified: components/sections/how-it-works-section.tsx; Modified: components/sections/partners-testimonials-section.tsx |
@@ -78,7 +79,6 @@
 | `77ed8e7` | 2026-05-15 | main | Modified: components/sections/home-navbar.tsx; Modified: components/sections/problem-solution-section.tsx |
 | `0e2a336` | 2026-05-15 | main | Modified: components/sections/hero-section.tsx; Modified: components/sections/home-navbar.tsx |
 | `a1343fd` | 2026-05-15 | main | Modified: components/sections/hero-section.tsx |
-| `51c436b` | 2026-05-15 | main | Modified: components/sections/hero-section.tsx; Modified: components/sections/home-mobile-menu.tsx; Modified: components/sections/home-navbar.tsx |
 
 ---
 

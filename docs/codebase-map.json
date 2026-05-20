@@ -1,9 +1,9 @@
 {
   "meta": {
-    "version": "e535e73",
-    "generatedAt": "2026-05-20T11:15:42.423Z",
+    "version": "4bbc9a9",
+    "generatedAt": "2026-05-20T11:26:17.848Z",
     "branch": "main",
-    "previousVersion": "9e90aec",
+    "previousVersion": "e535e73",
     "generator": "scripts/generate-codebase-map.mjs",
     "framework": "Next.js 14",
     "packageManager": "pnpm"
@@ -160,7 +160,7 @@
     "app/news/components/partnership-blog-hero.tsx": "63e1bd2a6eaabb86a3438bf67cd62db98fad9058",
     "app/news/layout.tsx": "0098cea1ad4e3b29e8cfdba0cfeb8d7c071e7dbf",
     "app/news/page.tsx": "d1031f50d7cb9b834a73a7ac6749c16521290383",
-    "app/page.tsx": "7e53fe3b353d62f3625e322a98bf5300eebbbe02",
+    "app/page.tsx": "e5fa6c868b875e6a85eb5e22bd49579b875bb2ca",
     "app/robots.ts": "0ac82ce211b91b4cdf082231be4ad246cef3ddca",
     "app/sitemap.ts": "fec458ba9b30441fdd98ecf1f49e4d0e39f277ec",
     "app/solutions/[section]/page.tsx": "32989e137fa274979021390d726cd33f502ade96",
@@ -375,16 +375,6 @@
     "tsconfig.json": "5841f1c2f8bba110464eaba24059d47cb59d3b64"
   },
   "changelog": [
-    {
-      "version": "51c436b",
-      "date": "2026-05-15T16:50:34.097Z",
-      "branch": "main",
-      "changes": [
-        "Modified: components/sections/hero-section.tsx",
-        "Modified: components/sections/home-mobile-menu.tsx",
-        "Modified: components/sections/home-navbar.tsx"
-      ]
-    },
     {
       "version": "a1343fd",
       "date": "2026-05-15T17:05:16.504Z",
@@ -624,6 +614,14 @@
     {
       "version": "e535e73",
       "date": "2026-05-20T11:15:42.423Z",
+      "branch": "main",
+      "changes": [
+        "Modified: app/page.tsx"
+      ]
+    },
+    {
+      "version": "4bbc9a9",
+      "date": "2026-05-20T11:26:17.848Z",
       "branch": "main",
       "changes": [
         "Modified: app/page.tsx"
