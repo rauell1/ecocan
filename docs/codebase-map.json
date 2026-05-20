@@ -1,15 +1,16 @@
 {
   "meta": {
-    "version": "b198b5b",
-    "generatedAt": "2026-05-20T07:40:41.227Z",
+    "version": "b40f301",
+    "generatedAt": "2026-05-20T07:53:01.134Z",
     "branch": "main",
-    "previousVersion": "0802b94",
+    "previousVersion": "b198b5b",
     "generator": "scripts/generate-codebase-map.mjs",
     "framework": "Next.js 14",
     "packageManager": "pnpm"
   },
   "changes": [
-    "Modified: components/sections/sustainability-impact-section.tsx"
+    "Modified: components/sections/hero-section.tsx",
+    "Modified: components/sections/problem-solution-section.tsx"
   ],
   "affectedHotspots": [],
   "routes": [
@@ -285,13 +286,13 @@
     "components/sections/electric-mobility-section.tsx": "e0cba4e32099e10a8c90223a70f9605b1b0612b5",
     "components/sections/faq-section.tsx": "327cb3901468da62c8d5ddb4bc608218e1f555b4",
     "components/sections/for-investors-section.tsx": "8ef95157b6165da0994eb7738001aee485b0b594",
-    "components/sections/hero-section.tsx": "5a027510d796dc0ea6aad2fa0583e148c843edb2",
+    "components/sections/hero-section.tsx": "b736651318e5c3b9a72148871bc291c6c9b19241",
     "components/sections/home-footer.tsx": "dfa45d1a2c353b17d18fe3abf27844f46511d767",
     "components/sections/home-mobile-menu.tsx": "fb3b2ee486bd8fa684435b988f19d3bec1ad9125",
     "components/sections/home-navbar.tsx": "7e899522a9853e93968e9f587e5af092b6ba06de",
     "components/sections/how-it-works-section.tsx": "e533a6cc43f7e74285233644ac87cbe0a8a7ab96",
     "components/sections/partners-testimonials-section.tsx": "a94760a9b55acbabd76805c19409730089ebc39c",
-    "components/sections/problem-solution-section.tsx": "7a8f6d4273ad8d217b483ce8f0510ddc61a621ef",
+    "components/sections/problem-solution-section.tsx": "237515be213590e929257bd62d8c8dc7f5470ae5",
     "components/sections/sustainability-impact-section.tsx": "1768e9b1a5f22abf43be0b8f3d7f6052b03e71b3",
     "components/shared/HowTo.tsx": "ec2b55f43fa3d7e12750f7a46b2429dfd4419ae9",
     "components/shared/accordion.tsx": "c68c2697a68fcdfb6ce7cebae1adf67d8160739e",
@@ -374,15 +375,6 @@
     "tsconfig.json": "5841f1c2f8bba110464eaba24059d47cb59d3b64"
   },
   "changelog": [
-    {
-      "version": "58fc7d3",
-      "date": "2026-05-15T13:08:14.602Z",
-      "branch": "main",
-      "changes": [
-        "Modified: components/sections/hero-section.tsx",
-        "Modified: components/sections/problem-solution-section.tsx"
-      ]
-    },
     {
       "version": "405db4f",
       "date": "2026-05-15T13:10:47.807Z",
@@ -639,6 +631,15 @@
       "branch": "main",
       "changes": [
         "Modified: components/sections/sustainability-impact-section.tsx"
+      ]
+    },
+    {
+      "version": "b40f301",
+      "date": "2026-05-20T07:53:01.134Z",
+      "branch": "main",
+      "changes": [
+        "Modified: components/sections/hero-section.tsx",
+        "Modified: components/sections/problem-solution-section.tsx"
       ]
     }
   ]
