@@ -1,15 +1,15 @@
 {
   "meta": {
-    "version": "fd26688",
-    "generatedAt": "2026-05-20T16:16:34.601Z",
+    "version": "a9d0721",
+    "generatedAt": "2026-05-20T16:21:42.115Z",
     "branch": "main",
-    "previousVersion": "330954f",
+    "previousVersion": "fd26688",
     "generator": "scripts/generate-codebase-map.mjs",
     "framework": "Next.js 14",
     "packageManager": "pnpm"
   },
   "changes": [
-    "Modified: components/sections/for-investors-section.tsx"
+    "Modified: lib/use-ec-reveal.ts"
   ],
   "affectedHotspots": [],
   "routes": [
@@ -359,7 +359,7 @@
     "lib/pdfViewer.ts": "1b4133fb614b23f9d55ca3e9789f3198b323ed80",
     "lib/site-contract.ts": "1fefde933066445a467d31b579c68642539a437a",
     "lib/tabContent.tsx": "6cc677b6088b4be850c38e04c9f405739368755f",
-    "lib/use-ec-reveal.ts": "fba0447df1034089118677c6d5cdd40fa211d316",
+    "lib/use-ec-reveal.ts": "d54a3592de92acb6854ac93c638910f5805ac4b7",
     "lib/useLoadImages.ts": "bc297f22e525651d54ee4ff150001bfdfaa7f17f",
     "lib/useMediaQuery.ts": "a73d90648d7ef4153eb27066ebbea31063cf0593",
     "lib/useScroll.ts": "5f71375c02d98a7238c3e02f831aa70f2e7ee985",
@@ -375,14 +375,6 @@
     "tsconfig.json": "5841f1c2f8bba110464eaba24059d47cb59d3b64"
   },
   "changelog": [
-    {
-      "version": "73e8969",
-      "date": "2026-05-17T18:29:55.656Z",
-      "branch": "main",
-      "changes": [
-        "Full map regeneration"
-      ]
-    },
     {
       "version": "60f4271",
       "date": "2026-05-19T16:12:39.205Z",
@@ -631,6 +623,14 @@
       "branch": "main",
       "changes": [
         "Modified: components/sections/for-investors-section.tsx"
+      ]
+    },
+    {
+      "version": "a9d0721",
+      "date": "2026-05-20T16:21:42.115Z",
+      "branch": "main",
+      "changes": [
+        "Modified: lib/use-ec-reveal.ts"
       ]
     }
   ]
