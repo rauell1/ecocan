@@ -1,47 +1,15 @@
 {
   "meta": {
-    "version": "0802b94",
-    "generatedAt": "2026-05-20T07:37:12.627Z",
+    "version": "b198b5b",
+    "generatedAt": "2026-05-20T07:40:41.227Z",
     "branch": "main",
-    "previousVersion": "2fc2d69",
+    "previousVersion": "0802b94",
     "generator": "scripts/generate-codebase-map.mjs",
     "framework": "Next.js 14",
     "packageManager": "pnpm"
   },
   "changes": [
-    "Modified: app/about-us/components/carousel-page-1.tsx",
-    "Modified: app/about-us/components/who-we-are.tsx",
-    "Modified: app/about-us/layout.tsx",
-    "Modified: app/contact/components/hero.tsx",
-    "Modified: app/contact/page.tsx",
-    "Modified: app/download/layout.tsx",
-    "Modified: app/download/page.tsx",
-    "Modified: app/eco-friendly-cans/components/economic.tsx",
-    "Modified: app/eco-friendly-cans/components/heading.tsx",
-    "Modified: app/eco-friendly-cans/components/security.tsx",
-    "Modified: app/eco-friendly-cans/layout.tsx",
-    "Modified: app/ecocan-market/components/searchbar.tsx",
-    "Modified: app/ecocan-market/layout.tsx",
-    "Modified: app/ecocan-market/page.tsx",
-    "Modified: app/layout.tsx",
-    "Modified: app/page.tsx",
-    "Added: app/solutions/consumer/layout.tsx",
-    "Added: app/solutions/consumer/page.tsx",
-    "Modified: app/solutions/layout.tsx",
-    "Modified: components/contents/consumer/components/accordion.tsx",
-    "Modified: components/contents/consumer/components/faq.tsx",
-    "Modified: components/contents/consumer/components/get-started.tsx",
-    "Modified: components/contents/consumer/components/identify-genuine.tsx",
-    "Modified: components/contents/consumer/components/return-empties.tsx",
-    "Modified: components/contents/consumer/components/tap-tap.tsx",
-    "Modified: components/sections/call-to-action-section.tsx",
-    "Modified: components/sections/ecommunity-roles-section.tsx",
-    "Modified: components/sections/for-investors-section.tsx",
-    "Modified: components/sections/hero-section.tsx",
-    "Modified: components/sections/home-navbar.tsx",
-    "Modified: components/sections/problem-solution-section.tsx",
-    "Modified: components/shared/heros/default-hero.tsx",
-    "Modified: components/shared/navbar/components/register-dropdown-menu.tsx"
+    "Modified: components/sections/sustainability-impact-section.tsx"
   ],
   "affectedHotspots": [],
   "routes": [
@@ -324,7 +292,7 @@
     "components/sections/how-it-works-section.tsx": "e533a6cc43f7e74285233644ac87cbe0a8a7ab96",
     "components/sections/partners-testimonials-section.tsx": "a94760a9b55acbabd76805c19409730089ebc39c",
     "components/sections/problem-solution-section.tsx": "7a8f6d4273ad8d217b483ce8f0510ddc61a621ef",
-    "components/sections/sustainability-impact-section.tsx": "56fdff801254429a428806e46c8736bc6340db62",
+    "components/sections/sustainability-impact-section.tsx": "1768e9b1a5f22abf43be0b8f3d7f6052b03e71b3",
     "components/shared/HowTo.tsx": "ec2b55f43fa3d7e12750f7a46b2429dfd4419ae9",
     "components/shared/accordion.tsx": "c68c2697a68fcdfb6ce7cebae1adf67d8160739e",
     "components/shared/cta-card/cta-card.tsx": "7ea1c58a0ab1cde2bfcda652e7ff2d417eae3e37",
@@ -406,14 +374,6 @@
     "tsconfig.json": "5841f1c2f8bba110464eaba24059d47cb59d3b64"
   },
   "changelog": [
-    {
-      "version": "711f046",
-      "date": "2026-05-14T19:58:49.740Z",
-      "branch": "main",
-      "changes": [
-        "Full map regeneration"
-      ]
-    },
     {
       "version": "58fc7d3",
       "date": "2026-05-15T13:08:14.602Z",
@@ -671,6 +631,14 @@
         "Modified: components/sections/problem-solution-section.tsx",
         "Modified: components/shared/heros/default-hero.tsx",
         "Modified: components/shared/navbar/components/register-dropdown-menu.tsx"
+      ]
+    },
+    {
+      "version": "b198b5b",
+      "date": "2026-05-20T07:40:41.227Z",
+      "branch": "main",
+      "changes": [
+        "Modified: components/sections/sustainability-impact-section.tsx"
       ]
     }
   ]
