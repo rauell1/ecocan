@@ -41,8 +41,10 @@ export default function PartnersTestimonialsSection() {
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger)
     const ctx = gsap.context(() => {
+      const targets = sectionRef.current?.querySelectorAll(".ec-reveal")
+      if (!targets || targets.length === 0) return
       gsap.fromTo(
-        sectionRef.current?.querySelectorAll(".ec-reveal"),
+        targets,
         { opacity: 0, y: 28, filter: "blur(6px)" },
         { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.9, stagger: 0.10, ease: "power3.out",
           scrollTrigger: { trigger: sectionRef.current, start: "top 72%", once: true } }
