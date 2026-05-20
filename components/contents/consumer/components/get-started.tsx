@@ -17,7 +17,7 @@ const consumerFeatures = [
     answer: (
       <div className="space-y-4 text-white">
         <p>
-          EcocanApp helps you to relaibly identify genuine <EligblePopup /> beverages, before
+          EcocanApp helps you to reliably identify genuine <EligblePopup /> beverages, before
           purchase. Thus safeguarding your health & fight counterfeits.
         </p>
         <p>
