@@ -1,25 +1,15 @@
 {
   "meta": {
-    "version": "4342367",
-    "generatedAt": "2026-05-20T11:58:54.911Z",
+    "version": "330954f",
+    "generatedAt": "2026-05-20T16:11:24.273Z",
     "branch": "main",
-    "previousVersion": "fb4a220",
+    "previousVersion": "4342367",
     "generator": "scripts/generate-codebase-map.mjs",
     "framework": "Next.js 14",
     "packageManager": "pnpm"
   },
   "changes": [
-    "Modified: app/design-tokens.css",
-    "Modified: app/globals.css",
-    "Modified: components/sections/app-showcase-section.tsx",
-    "Modified: components/sections/call-to-action-section.tsx",
-    "Modified: components/sections/for-investors-section.tsx",
-    "Modified: components/sections/home-footer.tsx",
-    "Modified: components/sections/home-navbar.tsx",
-    "Modified: components/sections/how-it-works-section.tsx",
-    "Modified: components/sections/partners-testimonials-section.tsx",
-    "Modified: components/sections/problem-solution-section.tsx",
-    "Modified: components/sections/sustainability-impact-section.tsx"
+    "Modified: components/sections/call-to-action-section.tsx"
   ],
   "affectedHotspots": [],
   "routes": [
@@ -289,7 +279,7 @@
     "components/media-viewer.tsx": "09dc888948fc4bb2934b8c9c6f4b2fdf1a18114f",
     "components/sections/anti-counterfeit-section.tsx": "2bb49db48f47008d67e5423008f47d33ce4527d7",
     "components/sections/app-showcase-section.tsx": "3778a6390210a178bdd272788e792f44ea3a30ef",
-    "components/sections/call-to-action-section.tsx": "2118d0fafdf12078c6fa5977bec8d937280fdafe",
+    "components/sections/call-to-action-section.tsx": "c62aac194858e82ad11909e5d8148fc58233a4bc",
     "components/sections/ecocan-model-section.tsx": "34ee6a3bf0c3f4523250f45575c24882edc67081",
     "components/sections/ecommunity-roles-section.tsx": "2deed4cc5696542a309374fe84df1adcb280c73c",
     "components/sections/electric-mobility-section.tsx": "fb5eb531604a0013b61003d552fd3676577599a2",
@@ -385,32 +375,6 @@
     "tsconfig.json": "5841f1c2f8bba110464eaba24059d47cb59d3b64"
   },
   "changelog": [
-    {
-      "version": "d82f0cf",
-      "date": "2026-05-17T18:17:52.495Z",
-      "branch": "main",
-      "changes": [
-        "Modified: app/news/components/articles.tsx",
-        "Modified: app/news/components/blog-hero.tsx",
-        "Modified: app/news/components/news.tsx",
-        "Modified: app/news/components/partnership-articles.tsx",
-        "Modified: app/news/components/partnership-blog-hero.tsx",
-        "Modified: app/news/page.tsx",
-        "Modified: components/sections/anti-counterfeit-section.tsx",
-        "Modified: components/sections/app-showcase-section.tsx",
-        "Modified: components/sections/call-to-action-section.tsx",
-        "Modified: components/sections/electric-mobility-section.tsx",
-        "Modified: components/sections/faq-section.tsx",
-        "Modified: components/sections/for-investors-section.tsx",
-        "Modified: components/sections/hero-section.tsx",
-        "Modified: components/sections/home-mobile-menu.tsx",
-        "Modified: components/sections/home-navbar.tsx",
-        "Modified: components/sections/how-it-works-section.tsx",
-        "Modified: components/sections/partners-testimonials-section.tsx",
-        "Modified: components/sections/problem-solution-section.tsx",
-        "Modified: next.config.mjs"
-      ]
-    },
     {
       "version": "a09167f",
       "date": "2026-05-17T18:28:05.000Z",
@@ -660,6 +624,14 @@
         "Modified: components/sections/partners-testimonials-section.tsx",
         "Modified: components/sections/problem-solution-section.tsx",
         "Modified: components/sections/sustainability-impact-section.tsx"
+      ]
+    },
+    {
+      "version": "330954f",
+      "date": "2026-05-20T16:11:24.273Z",
+      "branch": "main",
+      "changes": [
+        "Modified: components/sections/call-to-action-section.tsx"
       ]
     }
   ]
