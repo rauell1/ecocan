@@ -39,11 +39,14 @@ export default function SustainabilityImpactSection() {
               scrollTrigger: { trigger: el, start: "top 83%", once: true } })
         })
       }
-      /* Subtle parallax on bg image */
-      gsap.fromTo(sectionRef.current?.querySelector(".si-bg"),
-        { backgroundPositionY: "-8%" },
-        { backgroundPositionY: "8%", ease: "none",
-          scrollTrigger: { trigger: sectionRef.current, start: "top bottom", end: "bottom top", scrub: true } })
+      /* Subtle parallax on bg image — guard against null querySelector result */
+      const bgEl = sectionRef.current?.querySelector<HTMLElement>(".si-bg")
+      if (bgEl) {
+        gsap.fromTo(bgEl,
+          { backgroundPositionY: "-8%" },
+          { backgroundPositionY: "8%", ease: "none",
+            scrollTrigger: { trigger: sectionRef.current, start: "top bottom", end: "bottom top", scrub: true } })
+      }
     }, sectionRef)
     return () => ctx.revert()
   }, [])
