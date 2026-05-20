@@ -5,16 +5,18 @@
 
 # 🗺️ EcoCan Codebase Map
 
-> **Version:** `2a78572`
-> **Generated:** 2026-05-20T07:55:38.164Z
+> **Version:** `3d6f0e8`
+> **Generated:** 2026-05-20T08:44:13.142Z
 > **Branch:** `main`
-> **Previous:** `b40f301`
+> **Previous:** `2a78572`
 
 ## Changes Since Last Version
 
-- Modified: components/sections/home-footer.tsx
-- Modified: components/sections/how-it-works-section.tsx
-- Modified: components/sections/sustainability-impact-section.tsx
+- Modified: app/design-tokens.css
+- Modified: app/globals.css
+- Modified: components/sections/anti-counterfeit-section.tsx
+- Modified: components/sections/app-showcase-section.tsx
+- Added: lib/ec-reveal.ts
 
 ---
 
@@ -61,6 +63,7 @@
 
 | Version | Date | Branch | Changes |
 |---|---|---|---|
+| `3d6f0e8` | 2026-05-20 | main | Modified: app/design-tokens.css; Modified: app/globals.css; Modified: components/sections/anti-counterfeit-section.tsx; Modified: components/sections/app-showcase-section.tsx; Added: lib/ec-reveal.ts |
 | `2a78572` | 2026-05-20 | main | Modified: components/sections/home-footer.tsx; Modified: components/sections/how-it-works-section.tsx; Modified: components/sections/sustainability-impact-section.tsx |
 | `b40f301` | 2026-05-20 | main | Modified: components/sections/hero-section.tsx; Modified: components/sections/problem-solution-section.tsx |
 | `b198b5b` | 2026-05-20 | main | Modified: components/sections/sustainability-impact-section.tsx |
@@ -80,7 +83,6 @@
 | `24ec96a` | 2026-05-15 | main | Modified: components/sections/anti-counterfeit-section.tsx; Modified: components/sections/app-showcase-section.tsx; Modified: components/sections/call-to-action-section.tsx; Modified: components/sections/ecommunity-roles-section.tsx; Modified: components/sections/faq-section.tsx; Modified: components/sections/hero-section.tsx; Modified: components/sections/how-it-works-section.tsx; Modified: components/sections/partners-testimonials-section.tsx; Modified: components/sections/problem-solution-section.tsx; Modified: components/sections/sustainability-impact-section.tsx |
 | `96d4656` | 2026-05-15 | main | Modified: components/sections/for-investors-section.tsx; Modified: components/sections/how-it-works-section.tsx; Modified: components/sections/sustainability-impact-section.tsx |
 | `b343424` | 2026-05-15 | main | Modified: app/contact/components/contact-form.tsx; Modified: app/page.tsx; Modified: components/sections/ecommunity-roles-section.tsx; Modified: components/sections/hero-section.tsx; Modified: components/sections/home-mobile-menu.tsx; Modified: components/sections/home-navbar.tsx; Modified: components/sections/how-it-works-section.tsx; Modified: components/sections/problem-solution-section.tsx; Modified: components/shared/eco-events-form.tsx; Modified: components/shared/eco-producer-form.tsx; Modified: components/shared/hero-form/hero-form.tsx; Added: components/shared/problem-illustration.tsx; Modified: components/ui/ticker-counter.tsx; Modified: lib/env.ts |
-| `bece7e7` | 2026-05-15 | main | Modified: components/sections/hero-section.tsx |
 
 ---
 

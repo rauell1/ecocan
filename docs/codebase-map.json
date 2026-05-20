@@ -1,17 +1,19 @@
 {
   "meta": {
-    "version": "2a78572",
-    "generatedAt": "2026-05-20T07:55:38.164Z",
+    "version": "3d6f0e8",
+    "generatedAt": "2026-05-20T08:44:13.142Z",
     "branch": "main",
-    "previousVersion": "b40f301",
+    "previousVersion": "2a78572",
     "generator": "scripts/generate-codebase-map.mjs",
     "framework": "Next.js 14",
     "packageManager": "pnpm"
   },
   "changes": [
-    "Modified: components/sections/home-footer.tsx",
-    "Modified: components/sections/how-it-works-section.tsx",
-    "Modified: components/sections/sustainability-impact-section.tsx"
+    "Modified: app/design-tokens.css",
+    "Modified: app/globals.css",
+    "Modified: components/sections/anti-counterfeit-section.tsx",
+    "Modified: components/sections/app-showcase-section.tsx",
+    "Added: lib/ec-reveal.ts"
   ],
   "affectedHotspots": [],
   "routes": [
@@ -138,7 +140,7 @@
     "app/contact/components/contact-form.tsx": "497409d1570dd0e5f070030834924dd1c5e9e3d1",
     "app/contact/components/hero.tsx": "9135dda141727ca99d5f392d7c0d4a3f09ca1a3e",
     "app/contact/page.tsx": "e83b0d438dc22349ce5d4310f852ef77491c0d95",
-    "app/design-tokens.css": "e2b1c0a31f087fe7f5a33d4fe283b537d882bd86",
+    "app/design-tokens.css": "1e8daf33fb2bf41a71aa25e24edcc5320c7d3bcf",
     "app/download/layout.tsx": "27859a0abad888df6e16b7f615638caf8f529208",
     "app/download/page.tsx": "a812643f994acf03feeb9ea6d7d31c9581d654bd",
     "app/eco-friendly-cans/components/accordion-demo.tsx": "25dc1fc8d699b0ce4455e0a88d4a3f516ed08c6d",
@@ -153,7 +155,7 @@
     "app/ecocan-market/components/searchbar.tsx": "b336e513a4c8ff830663891d119ea92acc61c6e2",
     "app/ecocan-market/layout.tsx": "be030a1d9284b192ddcac440dbab5db28e36e7fd",
     "app/ecocan-market/page.tsx": "d7041984ee0ea7517a7ddfc570373c5c0927eaba",
-    "app/globals.css": "c8102b3275af042f0e2c8528d2828099a0ddab51",
+    "app/globals.css": "86225b49af3cb0293a57b28e259377c8ca3ba0b7",
     "app/layout.tsx": "dc25b08d7c5be4137c028d1ddbb702d89284468b",
     "app/news/components/articles.tsx": "b64c8a9097e65fa81165f7d26f2de00aa3dabfb7",
     "app/news/components/blog-hero.tsx": "632102240617bf88a5fb3ab54d06441442b47ca1",
@@ -279,8 +281,8 @@
     "components/hero-container.tsx": "d2fa089b871d8970ab1b48139fdf89ba4944dc95",
     "components/hero.tsx": "661121ec23ba574a56ecf5638f2bf7a01cb757ab",
     "components/media-viewer.tsx": "09dc888948fc4bb2934b8c9c6f4b2fdf1a18114f",
-    "components/sections/anti-counterfeit-section.tsx": "a61be9fa6d08981e9415365dd0447464935dc0a6",
-    "components/sections/app-showcase-section.tsx": "721c1d0acf65bbc00d0c9b72d7c67b16d0be9bf1",
+    "components/sections/anti-counterfeit-section.tsx": "a5c5fafcb7550d980819fd62b56bda878f4ff34d",
+    "components/sections/app-showcase-section.tsx": "ce4bf81c22dc76f75bf9ddd401094812c20a0ee0",
     "components/sections/call-to-action-section.tsx": "763e5b2a3ac7b77fb9dbf7bfb0a1812553d83106",
     "components/sections/ecocan-model-section.tsx": "f9c55aae5f88428eb2731ac53c8f99be59449ac3",
     "components/sections/ecommunity-roles-section.tsx": "7a583ee31ba4a6d981dbe38fe9ce3746214c4d8b",
@@ -354,6 +356,7 @@
     "components/ui/textarea.tsx": "c9fd455b188966b149261ea38064cc9d714f758e",
     "components/ui/ticker-counter.tsx": "206c84726c84bb9faf588a1292e5f9b4d363e210",
     "components/ui/tooltip.tsx": "366a4af7dce8a886c850e0d83cf83535467e8dce",
+    "lib/ec-reveal.ts": "57c0f30b2315fb5289d7291afa6e2c9c01e5ee3e",
     "lib/env.ts": "5d8f1b6d34fde91fd08775b0ece044b10e1f47a4",
     "lib/imageIndex.ts": "6714ac953ee939778dfed359ee1b95238696fc0b",
     "lib/motion.ts": "da736250af945c1ff2124f776f5b088188d9ae79",
@@ -376,14 +379,6 @@
     "tsconfig.json": "5841f1c2f8bba110464eaba24059d47cb59d3b64"
   },
   "changelog": [
-    {
-      "version": "bece7e7",
-      "date": "2026-05-15T13:15:50.816Z",
-      "branch": "main",
-      "changes": [
-        "Modified: components/sections/hero-section.tsx"
-      ]
-    },
     {
       "version": "b343424",
       "date": "2026-05-15T16:11:54.718Z",
@@ -643,6 +638,18 @@
         "Modified: components/sections/home-footer.tsx",
         "Modified: components/sections/how-it-works-section.tsx",
         "Modified: components/sections/sustainability-impact-section.tsx"
+      ]
+    },
+    {
+      "version": "3d6f0e8",
+      "date": "2026-05-20T08:44:13.142Z",
+      "branch": "main",
+      "changes": [
+        "Modified: app/design-tokens.css",
+        "Modified: app/globals.css",
+        "Modified: components/sections/anti-counterfeit-section.tsx",
+        "Modified: components/sections/app-showcase-section.tsx",
+        "Added: lib/ec-reveal.ts"
       ]
     }
   ]
