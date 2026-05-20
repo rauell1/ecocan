@@ -1,19 +1,20 @@
 {
   "meta": {
-    "version": "3d6f0e8",
-    "generatedAt": "2026-05-20T08:44:13.142Z",
+    "version": "1f1d704",
+    "generatedAt": "2026-05-20T08:56:23.247Z",
     "branch": "main",
-    "previousVersion": "2a78572",
+    "previousVersion": "3d6f0e8",
     "generator": "scripts/generate-codebase-map.mjs",
     "framework": "Next.js 14",
     "packageManager": "pnpm"
   },
   "changes": [
-    "Modified: app/design-tokens.css",
     "Modified: app/globals.css",
-    "Modified: components/sections/anti-counterfeit-section.tsx",
-    "Modified: components/sections/app-showcase-section.tsx",
-    "Added: lib/ec-reveal.ts"
+    "Modified: components/sections/ecocan-model-section.tsx",
+    "Modified: components/sections/ecommunity-roles-section.tsx",
+    "Modified: components/sections/electric-mobility-section.tsx",
+    "Modified: components/sections/how-it-works-section.tsx",
+    "Modified: components/sections/partners-testimonials-section.tsx"
   ],
   "affectedHotspots": [],
   "routes": [
@@ -155,7 +156,7 @@
     "app/ecocan-market/components/searchbar.tsx": "b336e513a4c8ff830663891d119ea92acc61c6e2",
     "app/ecocan-market/layout.tsx": "be030a1d9284b192ddcac440dbab5db28e36e7fd",
     "app/ecocan-market/page.tsx": "d7041984ee0ea7517a7ddfc570373c5c0927eaba",
-    "app/globals.css": "86225b49af3cb0293a57b28e259377c8ca3ba0b7",
+    "app/globals.css": "fe99073bd1db8ebb7413e4e9c9bc4592de214345",
     "app/layout.tsx": "dc25b08d7c5be4137c028d1ddbb702d89284468b",
     "app/news/components/articles.tsx": "b64c8a9097e65fa81165f7d26f2de00aa3dabfb7",
     "app/news/components/blog-hero.tsx": "632102240617bf88a5fb3ab54d06441442b47ca1",
@@ -284,17 +285,17 @@
     "components/sections/anti-counterfeit-section.tsx": "a5c5fafcb7550d980819fd62b56bda878f4ff34d",
     "components/sections/app-showcase-section.tsx": "ce4bf81c22dc76f75bf9ddd401094812c20a0ee0",
     "components/sections/call-to-action-section.tsx": "763e5b2a3ac7b77fb9dbf7bfb0a1812553d83106",
-    "components/sections/ecocan-model-section.tsx": "f9c55aae5f88428eb2731ac53c8f99be59449ac3",
-    "components/sections/ecommunity-roles-section.tsx": "7a583ee31ba4a6d981dbe38fe9ce3746214c4d8b",
-    "components/sections/electric-mobility-section.tsx": "e0cba4e32099e10a8c90223a70f9605b1b0612b5",
+    "components/sections/ecocan-model-section.tsx": "34ee6a3bf0c3f4523250f45575c24882edc67081",
+    "components/sections/ecommunity-roles-section.tsx": "18d4337eab2e4334b7ff4be123eae8f92d40bef2",
+    "components/sections/electric-mobility-section.tsx": "fb5eb531604a0013b61003d552fd3676577599a2",
     "components/sections/faq-section.tsx": "327cb3901468da62c8d5ddb4bc608218e1f555b4",
     "components/sections/for-investors-section.tsx": "8ef95157b6165da0994eb7738001aee485b0b594",
     "components/sections/hero-section.tsx": "b736651318e5c3b9a72148871bc291c6c9b19241",
     "components/sections/home-footer.tsx": "7242550da6d69fb800bc2112cf78d441c9445f1a",
     "components/sections/home-mobile-menu.tsx": "fb3b2ee486bd8fa684435b988f19d3bec1ad9125",
     "components/sections/home-navbar.tsx": "7e899522a9853e93968e9f587e5af092b6ba06de",
-    "components/sections/how-it-works-section.tsx": "8a0b8063035a05744ab39e55661b082c6afc2158",
-    "components/sections/partners-testimonials-section.tsx": "a94760a9b55acbabd76805c19409730089ebc39c",
+    "components/sections/how-it-works-section.tsx": "a861d9c17b7581483a0aef22b0fab273672ac460",
+    "components/sections/partners-testimonials-section.tsx": "49194df1c6d440c1bc5196d036dfc84791efea46",
     "components/sections/problem-solution-section.tsx": "237515be213590e929257bd62d8c8dc7f5470ae5",
     "components/sections/sustainability-impact-section.tsx": "1a6bd5a96994c08dccb41d38d2921cbc998d23e4",
     "components/shared/HowTo.tsx": "ec2b55f43fa3d7e12750f7a46b2429dfd4419ae9",
@@ -379,27 +380,6 @@
     "tsconfig.json": "5841f1c2f8bba110464eaba24059d47cb59d3b64"
   },
   "changelog": [
-    {
-      "version": "b343424",
-      "date": "2026-05-15T16:11:54.718Z",
-      "branch": "main",
-      "changes": [
-        "Modified: app/contact/components/contact-form.tsx",
-        "Modified: app/page.tsx",
-        "Modified: components/sections/ecommunity-roles-section.tsx",
-        "Modified: components/sections/hero-section.tsx",
-        "Modified: components/sections/home-mobile-menu.tsx",
-        "Modified: components/sections/home-navbar.tsx",
-        "Modified: components/sections/how-it-works-section.tsx",
-        "Modified: components/sections/problem-solution-section.tsx",
-        "Modified: components/shared/eco-events-form.tsx",
-        "Modified: components/shared/eco-producer-form.tsx",
-        "Modified: components/shared/hero-form/hero-form.tsx",
-        "Added: components/shared/problem-illustration.tsx",
-        "Modified: components/ui/ticker-counter.tsx",
-        "Modified: lib/env.ts"
-      ]
-    },
     {
       "version": "96d4656",
       "date": "2026-05-15T16:26:03.508Z",
@@ -650,6 +630,19 @@
         "Modified: components/sections/anti-counterfeit-section.tsx",
         "Modified: components/sections/app-showcase-section.tsx",
         "Added: lib/ec-reveal.ts"
+      ]
+    },
+    {
+      "version": "1f1d704",
+      "date": "2026-05-20T08:56:23.247Z",
+      "branch": "main",
+      "changes": [
+        "Modified: app/globals.css",
+        "Modified: components/sections/ecocan-model-section.tsx",
+        "Modified: components/sections/ecommunity-roles-section.tsx",
+        "Modified: components/sections/electric-mobility-section.tsx",
+        "Modified: components/sections/how-it-works-section.tsx",
+        "Modified: components/sections/partners-testimonials-section.tsx"
       ]
     }
   ]
