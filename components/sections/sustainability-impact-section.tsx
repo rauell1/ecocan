@@ -3,14 +3,11 @@
 import { useRef, useEffect } from "react"
 import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
-import { Leaf, Users, TrendingUp, Globe } from "lucide-react"
-import { SectionOverline } from "@/components/shared/section-shell"
 
-const metrics = [
-  { icon: Leaf, value: "2M+", label: "Cans collected", sub: "and growing" },
-  { icon: Users, value: "50K+", label: "Active collectors", sub: "across East Africa" },
-  { icon: TrendingUp, value: "KES 8M", label: "Paid out to users", sub: "via M-PESA" },
-  { icon: Globe, value: "3", label: "Countries live", sub: "Kenya · Uganda · Rwanda" },
+const stats = [
+  { value: "< 5%", label: "recycled today" },
+  { value: "KES 2", label: "paid per can" },
+  { value: "100%", label: "traceable" },
 ]
 
 export default function SustainabilityImpactSection() {
@@ -40,65 +37,28 @@ export default function SustainabilityImpactSection() {
     <section
       id="impact"
       ref={sectionRef}
-      className="section-py section-alt relative w-full overflow-hidden"
+      className="relative w-full overflow-hidden bg-[#0a0a0a] py-[clamp(6rem,12vw,10rem)]"
     >
-      {/* Ambient */}
-      <div className="pointer-events-none absolute inset-0">
-        <div
-          className="opacity-12 absolute bottom-0 left-1/2 h-[360px] w-[700px] -translate-x-1/2 blur-[120px]"
-          style={{ background: "radial-gradient(ellipse at bottom,#16a34a 0%,transparent 70%)" }}
-        />
-      </div>
+      <div className="px-[clamp(1.25rem,4vw,3rem)]">
+        <p
+          className="ec-reveal text-center font-bold text-[#f5f5f5]"
+          style={{ fontSize: "clamp(4rem,16vw,12rem)", lineHeight: 0.95, letterSpacing: "-0.04em" }}
+        >
+          12 billion
+        </p>
+        <p className="ec-reveal mt-4 text-center text-xs font-semibold uppercase tracking-[0.18em] text-white/50">
+          cans recycled annually in East Africa
+        </p>
 
-      <div className="site-container relative z-10">
-        {/* Header */}
-        <div className="mb-16 flex flex-col items-center text-center">
-          <div className="ec-reveal">
-            <SectionOverline>Our Impact</SectionOverline>
-          </div>
-          <h2 className="ec-reveal section-heading mb-5">
-            Numbers that
-            <br />
-            <span className="text-[--c-green]">speak for themselves.</span>
-          </h2>
-          <p className="ec-reveal section-subhead section-subhead-center">
-            Real people. Real cans. Real cash. Every metric below represents a can that didn&apos;t
-            end up in a river — and a person who got paid.
-          </p>
-        </div>
-
-        {/* Metrics grid */}
-        <div className="grid grid-cols-2 gap-5 lg:grid-cols-4">
-          {metrics.map(({ icon: Icon, value, label, sub }) => (
-            <div
-              key={label}
-              className="ec-reveal ec-card group flex flex-col items-center p-8 text-center"
-            >
-              <div
-                className="h-13 w-13 border-emerald-500/18 mb-5 flex items-center justify-center rounded-xl border bg-emerald-500/10 transition-transform duration-300 group-hover:scale-110"
-                style={{ height: "3.25rem", width: "3.25rem" }}
-              >
-                <Icon size={22} className="text-emerald-400" strokeWidth={1.5} />
-              </div>
-              <span className="stat-number mb-1">{value}</span>
-              <span className="mb-1 text-sm font-semibold text-white/80">{label}</span>
-              <span className="text-xs font-medium text-white/35">{sub}</span>
+        <div className="ec-reveal mt-12 grid gap-px border border-white/10 bg-white/10 md:grid-cols-3">
+          {stats.map(({ value, label }) => (
+            <div key={label} className="bg-white/5 px-6 py-7 text-left">
+              <p className="text-3xl font-bold text-[#f5f5f5]" style={{ letterSpacing: "-0.02em" }}>
+                {value}
+              </p>
+              <p className="mt-1 text-sm text-white/50">{label}</p>
             </div>
           ))}
-        </div>
-
-        {/* Quote strip */}
-        <div className="ec-reveal border-white/07 mt-12 flex flex-col items-start gap-6 rounded-[--radius-card] border bg-[--c-surface] p-8 md:flex-row md:items-center md:p-10">
-          <div className="select-none font-serif text-4xl leading-none text-emerald-400">
-            &ldquo;
-          </div>
-          <div>
-            <p className="max-w-[600px] text-base font-medium leading-relaxed text-white/80 md:text-lg">
-              ECOCAN turned my daily commute into income. I collect on the way to work and earn
-              before I reach the office.
-            </p>
-            <p className="mt-3 text-sm font-medium text-white/35">— Grace M., Nairobi collector</p>
-          </div>
         </div>
       </div>
     </section>

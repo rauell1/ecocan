@@ -4,25 +4,11 @@ import { useRef, useEffect } from "react"
 import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 import Link from "next/link"
-import { TrendingUp, Globe, Layers, ArrowRight } from "lucide-react"
-import { SectionOverline } from "@/components/shared/section-shell"
 
-const pillars = [
-  {
-    icon: TrendingUp,
-    title: "High-growth market",
-    body: "Africa's beverage sector grows 8% YoY. Recycling infrastructure is at <5% capacity — ECOCAN is building the rails.",
-  },
-  {
-    icon: Globe,
-    title: "Regional expansion",
-    body: "Live in 3 countries. 7 more markets planned by 2027. One platform, infinite collection points.",
-  },
-  {
-    icon: Layers,
-    title: "Multi-sided revenue",
-    body: "Brand licensing, EPR compliance fees, recycled-material offtake, and consumer app subscriptions — four compounding streams.",
-  },
+const metrics = [
+  { value: "KES 8M", label: "paid to collectors" },
+  { value: "50K+", label: "active users" },
+  { value: "3", label: "markets live" },
 ]
 
 export default function ForInvestorsSection() {
@@ -53,54 +39,36 @@ export default function ForInvestorsSection() {
   }, [])
 
   return (
-    <section ref={sectionRef} className="relative w-full section-py section-light-inv overflow-hidden">
+    <section
+      id="investors"
+      ref={sectionRef}
+      className="relative w-full overflow-hidden bg-[#0a0a0a] py-[clamp(5rem,10vw,9rem)]"
+    >
+      <div className="px-[clamp(1.25rem,4vw,3rem)]">
+        <h2
+          className="ec-reveal mb-10 font-bold text-[#f5f5f5]"
+          style={{ fontSize: "clamp(2rem,5vw,4.5rem)", lineHeight: 1.04, letterSpacing: "-0.03em" }}
+        >
+          Build circular infrastructure with us.
+        </h2>
 
-      <div className="site-container relative z-10">
-
-        {/* Header */}
-        <div className="max-w-[640px] mb-14">
-          <div className="ec-reveal">
-            <SectionOverline>For Investors</SectionOverline>
-          </div>
-          <h2 className="ec-reveal section-heading mb-5" style={{ color: "#0B1A0D" }}>
-            Infrastructure-grade<br />
-            <span className="text-[--c-green-mid]">returns for Africa.</span>
-          </h2>
-          <p className="ec-reveal text-base text-[#3A5240] leading-relaxed max-w-[520px]">
-            ECOCAN sits at the intersection of consumer tech, sustainability mandates, and financial inclusion — three of the fastest-growing categories on the continent.
-          </p>
-        </div>
-
-        {/* Pillar cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-10">
-          {pillars.map(({ icon: Icon, title, body }, i) => (
-            <div key={title} className="ec-reveal ec-card-light group flex flex-col p-8" style={{ animationDelay: `${i * 0.1}s` }}>
-              <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-xl bg-emerald-500/10 border border-emerald-500/20 transition-transform duration-300 group-hover:scale-110">
-                <Icon size={22} className="text-emerald-600" strokeWidth={1.5} />
-              </div>
-              <h3 className="mb-3 text-base font-bold text-[#0B1A0D]">{title}</h3>
-              <p className="text-sm text-[#4A6A50] leading-relaxed">{body}</p>
+        <div className="ec-reveal grid gap-px border border-white/10 bg-white/10 md:grid-cols-3">
+          {metrics.map(({ value, label }) => (
+            <div key={label} className="bg-white/5 px-6 py-7">
+              <p className="text-3xl font-bold text-[#f5f5f5]">{value}</p>
+              <p className="mt-1 text-sm text-white/50">{label}</p>
             </div>
           ))}
         </div>
 
-        {/* CTA row */}
-        <div className="ec-reveal flex flex-col sm:flex-row items-start sm:items-center gap-4">
+        <div className="ec-reveal mt-8">
           <Link
             href="/investors"
-            className="inline-flex items-center gap-2 rounded-full bg-[--c-green-mid] px-7 py-3 text-sm font-bold text-white hover:bg-[--c-green] hover:shadow-[0_0_24px_rgba(34,197,94,0.30)] active:scale-95 transition-all"
+            className="inline-flex items-center rounded-full border border-white/30 px-7 py-3 text-sm font-semibold text-[#f5f5f5] transition hover:bg-white hover:text-black"
           >
             Download Deck
-            <ArrowRight size={16} strokeWidth={2} />
-          </Link>
-          <Link
-            href="/contact"
-            className="text-sm font-semibold text-[#3A5240] hover:text-[--c-green-mid] transition-colors"
-          >
-            Schedule a call →
           </Link>
         </div>
-
       </div>
     </section>
   )
