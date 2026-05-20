@@ -13,11 +13,22 @@ export default function CallToActionSection() {
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger)
     const ctx = gsap.context(() => {
+      const section = sectionRef.current
+      if (!section) return
+      const els = section.querySelectorAll(".ec-reveal")
+      if (!els.length) return
       gsap.fromTo(
-        sectionRef.current?.querySelectorAll(".ec-reveal"),
+        els,
         { opacity: 0, y: 28, filter: "blur(6px)" },
-        { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.9, stagger: 0.12, ease: "power3.out",
-          scrollTrigger: { trigger: sectionRef.current, start: "top 75%", once: true } }
+        {
+          opacity: 1,
+          y: 0,
+          filter: "blur(0px)",
+          duration: 0.9,
+          stagger: 0.12,
+          ease: "power3.out",
+          scrollTrigger: { trigger: section, start: "top 75%", once: true },
+        }
       )
     }, sectionRef)
     return () => ctx.revert()
@@ -28,10 +39,14 @@ export default function CallToActionSection() {
 
       {/* Layered green glow */}
       <div className="pointer-events-none absolute inset-0">
-        <div className="absolute left-1/2 top-1/2 h-[700px] w-[700px] -translate-x-1/2 -translate-y-1/2 opacity-15 blur-[160px]"
-             style={{ background: "radial-gradient(circle,#22c55e 0%,transparent 65%)" }} />
-        <div className="absolute left-1/4 bottom-0 h-[300px] w-[300px] opacity-08 blur-[100px]"
-             style={{ background: "radial-gradient(circle,#16a34a 0%,transparent 70%)" }} />
+        <div
+          className="absolute left-1/2 top-1/2 h-[700px] w-[700px] -translate-x-1/2 -translate-y-1/2 opacity-15 blur-[160px]"
+          style={{ background: "radial-gradient(circle,#22c55e 0%,transparent 65%)" }}
+        />
+        <div
+          className="absolute left-1/4 bottom-0 h-[300px] w-[300px] opacity-[0.08] blur-[100px]"
+          style={{ background: "radial-gradient(circle,#16a34a 0%,transparent 70%)" }}
+        />
       </div>
 
       <div className="site-container relative z-10">
@@ -41,9 +56,18 @@ export default function CallToActionSection() {
             <SectionOverline inv>Join the Loop</SectionOverline>
           </div>
 
-          <h2 className="ec-reveal section-heading section-heading-inv mb-6" style={{ fontSize: "clamp(2.25rem,1.6rem + 2.5vw,3.75rem)" }}>
+          <h2
+            className="ec-reveal section-heading section-heading-inv mb-6"
+            style={{ fontSize: "clamp(2.25rem,1.6rem + 2.5vw,3.75rem)" }}
+          >
             Your empties are<br />
-            <span style={{ background: "linear-gradient(90deg,#86efac,#4ade80,#22c55e)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>
+            <span
+              style={{
+                background: "linear-gradient(90deg,#86efac,#4ade80,#22c55e)",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+              }}
+            >
               worth something.
             </span>
           </h2>
@@ -61,10 +85,7 @@ export default function CallToActionSection() {
               Download the App
               <ArrowRight size={16} strokeWidth={2} />
             </Link>
-            <Link
-              href="/solutions"
-              className="btn-ghost text-sm"
-            >
+            <Link href="/solutions" className="btn-ghost text-sm">
               Partner with us
             </Link>
           </div>
