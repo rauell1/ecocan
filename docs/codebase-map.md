@@ -5,15 +5,46 @@
 
 # 🗺️ EcoCan Codebase Map
 
-> **Version:** `2fc2d69`
-> **Generated:** 2026-05-19T16:53:59.706Z
+> **Version:** `0802b94`
+> **Generated:** 2026-05-20T07:37:12.627Z
 > **Branch:** `main`
-> **Previous:** `6d773db`
+> **Previous:** `2fc2d69`
 
 ## Changes Since Last Version
 
+- Modified: app/about-us/components/carousel-page-1.tsx
+- Modified: app/about-us/components/who-we-are.tsx
+- Modified: app/about-us/layout.tsx
+- Modified: app/contact/components/hero.tsx
+- Modified: app/contact/page.tsx
+- Modified: app/download/layout.tsx
+- Modified: app/download/page.tsx
+- Modified: app/eco-friendly-cans/components/economic.tsx
+- Modified: app/eco-friendly-cans/components/heading.tsx
+- Modified: app/eco-friendly-cans/components/security.tsx
+- Modified: app/eco-friendly-cans/layout.tsx
+- Modified: app/ecocan-market/components/searchbar.tsx
+- Modified: app/ecocan-market/layout.tsx
+- Modified: app/ecocan-market/page.tsx
+- Modified: app/layout.tsx
+- Modified: app/page.tsx
+- Added: app/solutions/consumer/layout.tsx
+- Added: app/solutions/consumer/page.tsx
+- Modified: app/solutions/layout.tsx
+- Modified: components/contents/consumer/components/accordion.tsx
+- Modified: components/contents/consumer/components/faq.tsx
+- Modified: components/contents/consumer/components/get-started.tsx
+- Modified: components/contents/consumer/components/identify-genuine.tsx
+- Modified: components/contents/consumer/components/return-empties.tsx
+- Modified: components/contents/consumer/components/tap-tap.tsx
 - Modified: components/sections/call-to-action-section.tsx
-- Modified: lib/use-ec-reveal.ts
+- Modified: components/sections/ecommunity-roles-section.tsx
+- Modified: components/sections/for-investors-section.tsx
+- Modified: components/sections/hero-section.tsx
+- Modified: components/sections/home-navbar.tsx
+- Modified: components/sections/problem-solution-section.tsx
+- Modified: components/shared/heros/default-hero.tsx
+- Modified: components/shared/navbar/components/register-dropdown-menu.tsx
 
 ---
 
@@ -60,6 +91,7 @@
 
 | Version | Date | Branch | Changes |
 |---|---|---|---|
+| `0802b94` | 2026-05-20 | main | Modified: app/about-us/components/carousel-page-1.tsx; Modified: app/about-us/components/who-we-are.tsx; Modified: app/about-us/layout.tsx; Modified: app/contact/components/hero.tsx; Modified: app/contact/page.tsx; Modified: app/download/layout.tsx; Modified: app/download/page.tsx; Modified: app/eco-friendly-cans/components/economic.tsx; Modified: app/eco-friendly-cans/components/heading.tsx; Modified: app/eco-friendly-cans/components/security.tsx; Modified: app/eco-friendly-cans/layout.tsx; Modified: app/ecocan-market/components/searchbar.tsx; Modified: app/ecocan-market/layout.tsx; Modified: app/ecocan-market/page.tsx; Modified: app/layout.tsx; Modified: app/page.tsx; Added: app/solutions/consumer/layout.tsx; Added: app/solutions/consumer/page.tsx; Modified: app/solutions/layout.tsx; Modified: components/contents/consumer/components/accordion.tsx; Modified: components/contents/consumer/components/faq.tsx; Modified: components/contents/consumer/components/get-started.tsx; Modified: components/contents/consumer/components/identify-genuine.tsx; Modified: components/contents/consumer/components/return-empties.tsx; Modified: components/contents/consumer/components/tap-tap.tsx; Modified: components/sections/call-to-action-section.tsx; Modified: components/sections/ecommunity-roles-section.tsx; Modified: components/sections/for-investors-section.tsx; Modified: components/sections/hero-section.tsx; Modified: components/sections/home-navbar.tsx; Modified: components/sections/problem-solution-section.tsx; Modified: components/shared/heros/default-hero.tsx; Modified: components/shared/navbar/components/register-dropdown-menu.tsx |
 | `2fc2d69` | 2026-05-19 | main | Modified: components/sections/call-to-action-section.tsx; Modified: lib/use-ec-reveal.ts |
 | `6d773db` | 2026-05-19 | main | Added: app/design-tokens.css; Modified: app/globals.css; Modified: components/sections/anti-counterfeit-section.tsx; Modified: components/sections/call-to-action-section.tsx; Modified: components/sections/ecommunity-roles-section.tsx; Modified: components/sections/faq-section.tsx; Modified: components/sections/for-investors-section.tsx; Modified: components/sections/how-it-works-section.tsx; Modified: components/sections/problem-solution-section.tsx; Modified: components/sections/sustainability-impact-section.tsx; Added: components/shared/section-shell.tsx; Added: lib/use-ec-reveal.ts |
 | `a67bed4` | 2026-05-19 | main | Modified: components/sections/for-investors-section.tsx |
@@ -79,7 +111,6 @@
 | `405db4f` | 2026-05-15 | main | Modified: components/sections/ecommunity-roles-section.tsx |
 | `58fc7d3` | 2026-05-15 | main | Modified: components/sections/hero-section.tsx; Modified: components/sections/problem-solution-section.tsx |
 | `711f046` | 2026-05-14 | main | Full map regeneration |
-| `4d2a86e` | 2026-05-14 | main | Rebuilt scroll transition from scratch in HeroSection; Modified app/page.tsx |
 
 ---
 
