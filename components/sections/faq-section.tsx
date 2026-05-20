@@ -26,7 +26,7 @@ const faqs = [
 
 export default function FAQSection() {
   const ref = useEcReveal()
-  const [open, setOpen] = useState<number | null>(0)
+  const [open, setOpen] = useState<number | null>(null)
 
   return (
     <section

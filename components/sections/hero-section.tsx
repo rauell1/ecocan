@@ -7,6 +7,7 @@ import { ArrowDown } from "lucide-react"
 
 const LENIS_INIT_DELAY = 500
 const SCROLL_SCRUB = 1.2
+const TIMELINE_START_OFFSET = 0
 
 interface HeroSectionProps {
   onTransitionComplete: () => void
@@ -64,13 +65,13 @@ export default function HeroSection({ onTransitionComplete }: HeroSectionProps) 
             contentRef.current,
             { opacity: 1, y: 0, scale: 1 },
             { opacity: 0, y: -80, scale: 0.97, ease: "power1.inOut", duration: 0.55 },
-            0
+            TIMELINE_START_OFFSET
           )
             .fromTo(
               indicatorRef.current,
               { opacity: 1 },
               { opacity: 0, ease: "power1.in", duration: 0.2 },
-              0
+              TIMELINE_START_OFFSET
             )
             .fromTo(
               videoWrapRef.current,
@@ -82,7 +83,7 @@ export default function HeroSection({ onTransitionComplete }: HeroSectionProps) 
                 ease: "power2.inOut",
                 duration: 1,
               },
-              0
+              TIMELINE_START_OFFSET
             )
         }
       }, heroRef)

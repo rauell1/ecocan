@@ -64,7 +64,7 @@ export default function HomeNavbar({ onMenuToggle }: HomeNavbarProps) {
             <a
               key={link.href}
               href={link.href}
-              onClick={(e) => handleSection(e, link.href)}
+              onClick={(e) => (link.scroll ? handleSection(e, link.href) : undefined)}
               className="text-xs font-semibold uppercase tracking-[0.14em] text-white/60 transition hover:text-white"
             >
               {link.label}
@@ -96,7 +96,7 @@ export default function HomeNavbar({ onMenuToggle }: HomeNavbarProps) {
               <a
                 key={link.href}
                 href={link.href}
-                onClick={(e) => handleSection(e, link.href)}
+                onClick={(e) => (link.scroll ? handleSection(e, link.href) : undefined)}
                 className="rounded-xl px-4 py-3.5 text-sm font-semibold text-white/70 transition hover:bg-white/5 hover:text-white"
               >
                 {link.label}
