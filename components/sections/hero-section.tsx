@@ -25,7 +25,8 @@ export default function HeroSection({ onTransitionComplete }: HeroSectionProps) 
     gsap.registerPlugin(ScrollTrigger)
     const rm = window.matchMedia("(prefers-reduced-motion: reduce)").matches
 
-    const ctx = gsap.context(() => {
+    // ── Entrance animations (scoped to hero) ─────────────────────────────
+    const entranceCtx = gsap.context(() => {
       if (!rm) {
         gsap.fromTo(contentRef.current,
           { opacity: 0, y: 60, filter: "blur(12px)" },
@@ -42,11 +43,14 @@ export default function HeroSection({ onTransitionComplete }: HeroSectionProps) 
     }, heroRef)
 
     let scrollCtx: ReturnType<typeof gsap.context> | null = null
+    let revealCtx: ReturnType<typeof gsap.context> | null = null
+
     const timer = setTimeout(() => {
       initLenis()
+
+      // ── Hero pin + scrub-out (scoped to hero element) ─────────────────
       scrollCtx = gsap.context(() => {
         if (!rm) {
-          // ── Hero pin + scrub-out ──────────────────────────────────────────
           const tl = gsap.timeline({
             scrollTrigger: {
               trigger: heroRef.current,
@@ -70,27 +74,41 @@ export default function HeroSection({ onTransitionComplete }: HeroSectionProps) 
             .fromTo(videoWrapRef.current,
               { scale: 1, borderRadius: "0px", filter: "brightness(0.68)" },
               { scale: 0.80, borderRadius: "24px", filter: "brightness(0.28)", ease: "power2.inOut", duration: 1 }, 0)
+        }
+      }, heroRef)
 
-          // ── Global section reveal (ps-reveal class) ──────────────────────
-          document.querySelectorAll(".ps-reveal").forEach((el) => {
+      // ── Global section reveal — UNSCOPED so it reaches the entire DOM ──
+      // Runs at document level, outside heroRef context
+      if (!rm) {
+        revealCtx = gsap.context(() => {
+          gsap.utils.toArray<Element>(".ps-reveal").forEach((el) => {
             gsap.fromTo(el,
               { opacity: 0, y: 44 },
               {
-                opacity: 1, y: 0, duration: 0.9, ease: "power3.out",
+                opacity: 1,
+                y: 0,
+                duration: 0.9,
+                ease: "power3.out",
                 scrollTrigger: {
                   trigger: el,
                   start: "top 85%",
                   once: true,
-                }
+                },
               }
             )
           })
-        }
-      }, heroRef)
+        }) // no second arg = document scope
+      }
+
       ScrollTrigger.refresh()
     }, LENIS_INIT_DELAY)
 
-    return () => { clearTimeout(timer); ctx.revert(); scrollCtx?.revert() }
+    return () => {
+      clearTimeout(timer)
+      entranceCtx.revert()
+      scrollCtx?.revert()
+      revealCtx?.revert()
+    }
   }, [initLenis])
 
   const ticker = [

@@ -54,52 +54,52 @@ export default function Home() {
       <main className="relative z-20 flex flex-col gap-0">
 
         {/* 1. The problem */}
-        <div id="problem">
+        <div id="problem" className="ps-reveal">
           <ProblemSolutionSection />
         </div>
 
-        {/* 2. How it works — 5 steps */}
-        <div id="how-it-works">
+        {/* 2. How it works */}
+        <div id="how-it-works" className="ps-reveal">
           <HowItWorksSection />
         </div>
 
         {/* 3. Who benefits */}
-        <div id="ecommunity">
+        <div id="ecommunity" className="ps-reveal">
           <EcommunityRolesSection />
         </div>
 
         {/* 4. Anti-counterfeit trust */}
-        <div id="counterfeit">
+        <div id="counterfeit" className="ps-reveal">
           <AntiCounterfeitSection />
         </div>
 
         {/* 5. The app */}
-        <div id="app">
+        <div id="app" className="ps-reveal">
           <AppShowcaseSection />
         </div>
 
         {/* 6. Impact numbers */}
-        <div id="impact">
+        <div id="impact" className="ps-reveal">
           <SustainabilityImpactSection />
         </div>
 
         {/* 7. Investors */}
-        <div id="investors">
+        <div id="investors" className="ps-reveal">
           <ForInvestorsSection />
         </div>
 
         {/* 8. Real stories + partners */}
-        <div id="stories">
+        <div id="stories" className="ps-reveal">
           <PartnersTestimonialsSection />
         </div>
 
-        {/* 9. CTA — 3 roles */}
-        <div id="cta">
+        {/* 9. CTA */}
+        <div id="cta" className="ps-reveal">
           <CallToActionSection />
         </div>
 
         {/* 10. FAQ */}
-        <div id="faq">
+        <div id="faq" className="ps-reveal">
           <FAQSection />
         </div>
 
