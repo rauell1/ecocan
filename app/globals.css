@@ -137,6 +137,22 @@
   background: rgba(255,255,255,0.08);
 }
 
+/* ── ICON WELL ───────────────────────────────────────────────────────────
+   Standard icon container used across every section.
+   Hover colour is applied per-section via Tailwind group-hover utilities.
+────────────────────────────────────────────────────────────────────────── */
+.ec-icon-well {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.75rem;      /* 44px */
+  height: 2.75rem;
+  border-radius: var(--radius-md);
+  background-color: var(--c-green-dim);
+  color: var(--c-green);
+  flex-shrink: 0;
+}
+
 /* ── INTERACTIVE / BUTTON TRANSITIONS ──────────────────────────────────── */
 a, button, [role="button"] {
   transition:

@@ -1,23 +1,14 @@
 "use client"
 
-import { useRef, useEffect } from "react"
-import { gsap } from "gsap"
-import { ScrollTrigger } from "gsap/ScrollTrigger"
 import Image from "next/image"
 import Link from "next/link"
 import { ArrowRight } from "lucide-react"
+import { useEcReveal } from "@/lib/use-ec-reveal"
+import { SectionOverline } from "@/components/shared/section-shell"
 
 const partners = [
-  "Quickmart",
-  "Carrefour",
-  "Naivas",
-  "Coca-Cola",
-  "Keroche",
-  "KWAL",
-  "Roam",
-  "Antler",
-  "Villgro",
-  "NEFCO",
+  "Quickmart", "Carrefour", "Naivas", "Coca-Cola",
+  "Keroche", "KWAL", "Roam", "Antler", "Villgro", "NEFCO",
 ]
 
 const testimonials = [
@@ -42,39 +33,18 @@ const testimonials = [
 ]
 
 export default function PartnersTestimonialsSection() {
-  const sectionRef = useRef<HTMLDivElement>(null)
-
-  useEffect(() => {
-    gsap.registerPlugin(ScrollTrigger)
-
-    const ctx = gsap.context(() => {
-      const els = sectionRef.current?.querySelectorAll(".pt-animate")
-      if (els && els.length > 0) {
-        gsap.fromTo(
-          els,
-          { opacity: 0, y: 36 },
-          {
-            opacity: 1,
-            y: 0,
-            duration: 0.7,
-            stagger: 0.1,
-            ease: "power3.out",
-            scrollTrigger: { trigger: sectionRef.current, start: "top 78%", once: true },
-          }
-        )
-      }
-    }, sectionRef)
-
-    return () => ctx.revert()
-  }, [])
+  const ref = useEcReveal()
 
   return (
-    <section ref={sectionRef} className="w-full bg-white py-[120px] md:py-[160px]">
-      <div className="mx-auto max-w-[1280px] px-6">
-        {/* Partner banner image */}
+    <section
+      ref={ref as React.RefObject<HTMLDivElement>}
+      className="w-full section-py section-alt"
+    >
+      <div className="site-container">
+        {/* Partner banner */}
         <div
-          className="pt-animate relative mb-16 overflow-hidden rounded-3xl"
-          style={{ height: "clamp(160px, 25vw, 320px)" }}
+          className="ec-reveal relative mb-16 overflow-hidden rounded-[--radius-xl]"
+          style={{ height: "clamp(160px,25vw,320px)" }}
         >
           <Image
             src="/images/supermarket-interior.jpg"
@@ -86,45 +56,42 @@ export default function PartnersTestimonialsSection() {
             placeholder="blur"
             blurDataURL="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxIiBoZWlnaHQ9IjEiPjxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9IiMwYTFhMGYiLz48L3N2Zz4="
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-eco-dark/65 via-eco-dark/15 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[--c-dark]/70 via-[--c-dark]/15 to-transparent" />
           <div className="absolute bottom-0 left-0 p-8 md:p-10">
-            <p className="section-overline mb-1 !text-primary">Our Partners</p>
-            <h2 className="section-headline text-white">Trusted across the value chain</h2>
+            <SectionOverline className="!text-[--c-green-light] [&::before]:bg-[--c-green-light]">Our Partners</SectionOverline>
+            <h2 className="section-heading section-heading-inv">Trusted across the value chain</h2>
           </div>
         </div>
 
-        {/* Partner pills — flat, no categories */}
-        <div className="pt-animate mb-5 flex flex-wrap gap-2">
+        {/* Partner pills */}
+        <div className="ec-reveal mb-5 flex flex-wrap gap-2">
           {partners.map((name) => (
             <span
               key={name}
-              className="rounded-full bg-[#f0f0eb] px-4 py-1.5 text-sm font-medium text-eco-dark/65"
+              className="rounded-full border border-[--c-border] bg-[--c-surface] px-4 py-1.5 text-sm font-medium text-[--c-text-muted]"
             >
               {name}
             </span>
           ))}
         </div>
+
         <Link
           href="/contact"
-          className="pt-animate mb-16 inline-flex items-center gap-2 text-sm font-semibold text-primary hover:underline"
+          className="ec-reveal mb-16 inline-flex items-center gap-2 text-sm font-semibold text-[--c-green] hover:underline"
         >
           Become a partner <ArrowRight size={14} />
         </Link>
 
         {/* Testimonials */}
-        <h2 className="pt-animate section-headline mb-10 text-eco-dark">
-          Real impact. Real pride.
-        </h2>
+        <h2 className="ec-reveal section-heading mb-10">Real impact. Real pride.</h2>
+
         <div className="grid grid-cols-1 gap-5 md:grid-cols-3">
           {testimonials.map((t) => (
-            <div
-              key={t.name}
-              className="pt-animate rounded-2xl border border-black/[0.06] bg-white p-7 shadow-sm transition-shadow hover:shadow-md"
-            >
-              <p className="mb-6 text-[16px] italic leading-relaxed text-eco-dark/75">
+            <div key={t.name} className="ec-reveal ec-card flex flex-col gap-6 p-7">
+              <p className="text-sm italic leading-relaxed text-[--c-text-muted]">
                 &ldquo;{t.quote}&rdquo;
               </p>
-              <div className="flex items-center gap-3">
+              <div className="flex items-center gap-3 mt-auto">
                 <Image
                   src={t.image}
                   alt={t.name}
@@ -134,8 +101,8 @@ export default function PartnersTestimonialsSection() {
                   loading="lazy"
                 />
                 <div>
-                  <p className="text-sm font-semibold text-eco-dark">{t.name}</p>
-                  <p className="text-xs text-eco-dark/45">{t.role}</p>
+                  <p className="text-sm font-semibold text-[--c-text]">{t.name}</p>
+                  <p className="text-xs text-[--c-text-faint]">{t.role}</p>
                 </div>
               </div>
             </div>

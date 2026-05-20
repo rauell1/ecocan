@@ -9,25 +9,21 @@ const roles = [
     icon: Users,
     title: "Consumers",
     desc: "Scan for genuine drinks, return empties at ECO-Stations, and receive instant M-PESA recycling rewards.",
-    accent: "#0891b2",
   },
   {
     icon: Store,
     title: "ECO-Stations",
-    desc: "Serve nearby shoppers by accepting empties and helping neighborhoods recycle more bottles every day.",
-    accent: "#16A34A",
+    desc: "Serve nearby shoppers by accepting empties and helping neighbourhoods recycle more bottles every day.",
   },
   {
     icon: Truck,
     title: "Couriers",
     desc: "Move sorted empties from ECO-Stations to recyclers quickly and reliably across urban Kenya.",
-    accent: "#7c3aed",
   },
   {
     icon: Recycle,
     title: "Recyclers",
     desc: "Receive clean, sorted PET from a digitally verified chain — no sorting cost, no contamination.",
-    accent: "#d97706",
   },
 ]
 
@@ -37,7 +33,7 @@ export default function EcommunityRolesSection() {
   return (
     <section
       ref={ref as React.RefObject<HTMLDivElement>}
-      className="section-py section-alt relative w-full overflow-hidden"
+      className="section-py section-white relative w-full overflow-hidden"
     >
       <div className="site-container">
         <div className="ec-reveal mb-16">
@@ -51,15 +47,8 @@ export default function EcommunityRolesSection() {
 
         <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {roles.map((role, i) => (
-            <div
-              key={i}
-              className="ec-card group flex flex-col gap-6 p-8"
-              style={{ borderTop: `3px solid ${role.accent}` }}
-            >
-              <div
-                className="flex h-12 w-12 items-center justify-center rounded-xl transition-all duration-300 group-hover:rotate-[8deg]"
-                style={{ background: role.accent + "18", color: role.accent }}
-              >
+            <div key={i} className="ec-reveal ec-card group flex flex-col gap-6 p-8">
+              <div className="ec-icon-well group-hover:bg-[--c-green] group-hover:text-white transition-colors duration-300">
                 <role.icon size={22} strokeWidth={1.5} />
               </div>
               <div>
