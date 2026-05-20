@@ -8,7 +8,7 @@ import { SectionOverline } from "@/components/shared/section-shell"
 
 const stats = [
   { value: 50000, suffix: "+",  label: "Bottles Recovered",    sub: "and climbing every month",         color: "#4ade80", icon: Recycle },
-  { value: 120,   suffix: "",   label: "Tons CO₂ Saved",       sub: "equivalent to 52 cars off the road", color: "#facc15", icon: Leaf },
+  { value: 120,   suffix: "",   label: "Tons CO\u2082 Saved",  sub: "equivalent to 52 cars off the road", color: "#facc15", icon: Leaf },
   { value: 150,   suffix: "+",  label: "ECO-Stations Active",  sub: "across Nairobi and Mombasa",         color: "#60a5fa", icon: MapPin },
   { value: 18000, suffix: "+",  label: "Kenyans Earning",      sub: "from recycling their empties",       color: "#f97316", icon: TrendingUp },
 ]
@@ -20,11 +20,6 @@ export default function SustainabilityImpactSection() {
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger)
     const ctx = gsap.context(() => {
-      const headEls = sectionRef.current?.querySelectorAll(".ec-reveal")
-      if (headEls?.length) {
-        gsap.to(headEls, { opacity: 1, y: 0, duration: 0.8, stagger: 0.12, ease: "power3.out",
-          scrollTrigger: { trigger: sectionRef.current, start: "top 75%", once: true } })
-      }
       if (countersRef.current) {
         gsap.fromTo(countersRef.current.querySelectorAll(".stat-card"),
           { opacity: 0, y: 56, scale: 0.96 },
@@ -42,8 +37,7 @@ export default function SustainabilityImpactSection() {
   }, [])
 
   return (
-    <section ref={sectionRef} className="relative w-full section-py overflow-hidden" style={{ background: "#060E06" }}>
-      {/* Layered background atmosphere */}
+    <section ref={sectionRef} className="ps-reveal relative w-full section-py overflow-hidden" style={{ background: "#060E06" }}>
       <div className="pointer-events-none absolute inset-0">
         <div className="absolute inset-0" style={{ backgroundImage: "url(/images/recycling-hub.jpg)", backgroundSize: "cover", backgroundPosition: "center", opacity: 0.18 }} />
         <div className="absolute inset-0 bg-gradient-to-b from-[#060E06]/80 via-[#060E06]/65 to-[#060E06]/90" />
@@ -52,15 +46,15 @@ export default function SustainabilityImpactSection() {
       </div>
 
       <div className="site-container relative z-10">
-        <div className="ec-reveal mb-4">
+        <div className="mb-4">
           <SectionOverline>Impact</SectionOverline>
         </div>
-        <h2 className="ec-reveal section-heading mb-4">
+        <h2 className="section-heading mb-4">
           Measurable.{" "}
           <span style={{ background: "linear-gradient(90deg,#4ade80,#22c55e)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>Real.</span>
         </h2>
-        <p className="ec-reveal mb-16 max-w-lg text-sm leading-relaxed text-[--c-text-muted]">
-          Every bottle returned is tracked, every ton of CO₂ avoided is counted. Here is what the loop looks like in numbers.
+        <p className="mb-16 max-w-lg text-sm leading-relaxed text-[--c-text-muted]">
+          Every bottle returned is tracked, every ton of CO\u2082 avoided is counted. Here is what the loop looks like in numbers.
         </p>
 
         <div ref={countersRef} className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">

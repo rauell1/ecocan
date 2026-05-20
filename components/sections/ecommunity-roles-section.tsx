@@ -1,6 +1,5 @@
 "use client"
 
-import { useEcReveal } from "@/lib/use-ec-reveal"
 import { SectionOverline } from "@/components/shared/section-shell"
 import { Store, Users, Truck, Recycle, ArrowRight } from "lucide-react"
 
@@ -40,30 +39,21 @@ const roles = [
 ]
 
 export default function EcommunityRolesSection() {
-  const ref = useEcReveal()
-
   return (
-    <section
-      ref={ref as React.RefObject<HTMLDivElement>}
-      className="section-py section-alt relative w-full overflow-hidden"
-    >
+    <section className="ps-reveal section-py section-alt relative w-full overflow-hidden">
       <div className="site-container">
-        <div className="ec-reveal mb-5">
+        <div className="mb-5">
           <SectionOverline>The eCommunity</SectionOverline>
-          <h2 className="section-heading">
-            Everyone wins.
-          </h2>
+          <h2 className="section-heading">Everyone wins.</h2>
         </div>
-        <p className="ec-reveal mb-16 max-w-xl text-sm leading-relaxed text-[--c-text-muted]">
+        <p className="mb-16 max-w-xl text-sm leading-relaxed text-[--c-text-muted]">
           ECOCAN is a circular economy that rewards every participant — from the consumer who returns a bottle to the recycler who gives it new life.
         </p>
 
         <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {roles.map((role, i) => (
-            <div key={i} className="ec-reveal ec-card group relative flex flex-col gap-6 overflow-hidden p-8">
-              {/* Colour top stripe */}
+            <div key={i} className="ps-reveal ec-card group relative flex flex-col gap-6 overflow-hidden p-8">
               <div className="absolute inset-x-0 top-0 h-[3px] opacity-0 transition-opacity duration-300 group-hover:opacity-100" style={{ background: role.color }} />
-
               <div
                 className="flex h-12 w-12 items-center justify-center rounded-xl transition-all duration-300 group-hover:scale-110"
                 style={{ background: role.color + "1a", color: role.color }}

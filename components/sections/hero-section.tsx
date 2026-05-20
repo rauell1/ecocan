@@ -6,7 +6,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger"
 import { Download, ArrowRight, Recycle } from "lucide-react"
 
 const LENIS_INIT_DELAY = 500
-const SCROLL_SCRUB = 1.5
+const SCROLL_SCRUB = 1.2
 
 interface HeroSectionProps {
   onTransitionComplete: () => void
@@ -45,29 +45,46 @@ export default function HeroSection({ onTransitionComplete }: HeroSectionProps) 
     const timer = setTimeout(() => {
       initLenis()
       scrollCtx = gsap.context(() => {
-        const tl = gsap.timeline({
-          scrollTrigger: {
-            trigger: heroRef.current,
-            start: "top top",
-            end: "+=100%",
-            pin: true,
-            scrub: SCROLL_SCRUB,
-            anticipatePin: 1,
-          },
-        })
         if (!rm) {
-          tl.fromTo(contentRef.current,
-            { opacity: 1, y: 0, scale: 1 },
-            { opacity: 0, y: -100, scale: 0.96, ease: "power1.inOut", duration: 0.6 }, 0)
+          // ── Hero pin + scrub-out ──────────────────────────────────────────
+          const tl = gsap.timeline({
+            scrollTrigger: {
+              trigger: heroRef.current,
+              start: "top top",
+              end: "+=100%",
+              pin: true,
+              scrub: SCROLL_SCRUB,
+              anticipatePin: 1,
+            },
+          })
+          tl
+            .fromTo(contentRef.current,
+              { opacity: 1, y: 0, scale: 1 },
+              { opacity: 0, y: -80, scale: 0.97, ease: "power1.inOut", duration: 0.55 }, 0)
             .fromTo(indicatorRef.current,
-            { opacity: 1 },
-            { opacity: 0, ease: "power1.in", duration: 0.25 }, 0)
+              { opacity: 1 },
+              { opacity: 0, ease: "power1.in", duration: 0.2 }, 0)
             .fromTo(tickerRef.current,
-            { opacity: 1 },
-            { opacity: 0, ease: "power1.in", duration: 0.2 }, 0)
+              { opacity: 1 },
+              { opacity: 0, ease: "power1.in", duration: 0.18 }, 0)
             .fromTo(videoWrapRef.current,
-            { scale: 1, borderRadius: "0px", filter: "brightness(0.72)" },
-            { scale: 0.78, borderRadius: "28px", filter: "brightness(0.35)", ease: "power2.inOut", duration: 1 }, 0)
+              { scale: 1, borderRadius: "0px", filter: "brightness(0.68)" },
+              { scale: 0.80, borderRadius: "24px", filter: "brightness(0.28)", ease: "power2.inOut", duration: 1 }, 0)
+
+          // ── Global section reveal (ps-reveal class) ──────────────────────
+          document.querySelectorAll(".ps-reveal").forEach((el) => {
+            gsap.fromTo(el,
+              { opacity: 0, y: 44 },
+              {
+                opacity: 1, y: 0, duration: 0.9, ease: "power3.out",
+                scrollTrigger: {
+                  trigger: el,
+                  start: "top 85%",
+                  once: true,
+                }
+              }
+            )
+          })
         }
       }, heroRef)
       ScrollTrigger.refresh()
@@ -101,19 +118,15 @@ export default function HeroSection({ onTransitionComplete }: HeroSectionProps) 
         >
           <source src="/videos/hero-loop.mp4" type="video/mp4" />
         </video>
-        {/* Gradient vignette — bottom heavy so content pops */}
         <div aria-hidden className="absolute inset-0"
-          style={{ background: "linear-gradient(to bottom, rgba(4,6,4,0.25) 0%, transparent 35%, rgba(4,6,4,0.82) 100%)" }} />
-        {/* Subtle green tint */}
+          style={{ background: "linear-gradient(to bottom, rgba(4,6,4,0.25) 0%, transparent 35%, rgba(4,6,4,0.88) 100%)" }} />
         <div aria-hidden className="absolute inset-0"
           style={{ background: "radial-gradient(ellipse at 15% 85%, rgba(22,163,74,0.14) 0%, transparent 55%)" }} />
       </div>
 
-      {/* Main copy — anchored to bottom left, Roam style */}
+      {/* Main copy */}
       <div className="absolute inset-0 z-10 flex flex-col justify-end">
         <div ref={contentRef} className="px-6 pb-24 md:px-14 md:pb-28 max-w-[820px]">
-
-          {/* Overline pill */}
           <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/8 px-4 py-1.5 backdrop-blur-sm">
             <Recycle size={13} className="text-[--c-green-light]" />
             <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-white/65">
@@ -158,7 +171,6 @@ export default function HeroSection({ onTransitionComplete }: HeroSectionProps) 
           </div>
         </div>
 
-        {/* Scroll indicator — bottom right */}
         <div ref={indicatorRef} className="absolute bottom-10 right-8 hidden flex-col items-center gap-2 md:flex">
           <div className="flex h-10 w-5.5 justify-center rounded-full border border-white/20 bg-white/5 p-1.5 backdrop-blur-sm">
             <div className="h-2 w-1 animate-bounce rounded-full bg-[--c-green-light] shadow-[0_0_8px_rgba(74,222,128,0.9)]" />
@@ -167,7 +179,7 @@ export default function HeroSection({ onTransitionComplete }: HeroSectionProps) 
         </div>
       </div>
 
-      {/* Ticker strip — very bottom, full width */}
+      {/* Ticker */}
       <div ref={tickerRef} className="absolute bottom-0 left-0 right-0 z-10 overflow-hidden border-t border-white/8 bg-black/40 backdrop-blur-sm" style={{ height: "40px" }}>
         <div className="ec-marquee flex h-full items-center gap-0">
           {[...ticker, ...ticker].map((t, i) => (

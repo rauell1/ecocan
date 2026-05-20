@@ -51,20 +51,30 @@
   }
 }
 
-/* ── SCROLL-REVEAL PRIMITIVE ────────────────────────────────────────────── */
+/* ── SCROLL-REVEAL PRIMITIVES ───────────────────────────────────────────── */
+/* Legacy ec-reveal — kept for sections that still use useEcReveal hook */
 .ec-reveal {
   opacity: 0;
   transform: translateY(var(--reveal-from-y, 28px));
   will-change: opacity, transform;
 }
 
+/*
+  ps-reveal — universal reveal class driven by HeroSection's global
+  ScrollTrigger pass. Starts hidden; GSAP animates to visible.
+  Sections that own their own GSAP context can also target this class.
+*/
+.ps-reveal {
+  opacity: 0;
+  transform: translateY(44px);
+  will-change: opacity, transform;
+}
+
 /* ── SECTION SHELL UTILITIES ────────────────────────────────────────────── */
-/* All sections share the dark canvas — only dark variants exist now */
 .section-light  { background-color: var(--c-bg); }
 .section-white  { background-color: var(--c-surface); }
 .section-alt    { background-color: var(--c-surface-alt); }
 .section-dark   { background-color: var(--c-dark); }
-/* Light variant — investors section only */
 .section-light-inv { background-color: #F5F7F5; }
 
 .section-py     { padding-top: var(--py-section); padding-bottom: var(--py-section); }
@@ -97,14 +107,12 @@
   background-color: currentColor;
   flex-shrink: 0;
 }
-/* On dark backgrounds the overline is already legible in green; inv variant is subtle */
 .section-overline-inv            { color: rgba(255,255,255,0.45); }
 .section-overline-inv::before    { background-color: rgba(255,255,255,0.30); }
 
 /* ── SECTION HEADING ────────────────────────────────────────────────────── */
 .section-heading     { font-size: var(--text-2xl); font-weight: 700; letter-spacing: -0.03em; line-height: 1.06; color: var(--c-text); }
 .section-heading-inv { color: #FFFFFF; }
-/* On dark canvas the default heading is already off-white */
 
 /* ── CARD PRIMITIVE ─────────────────────────────────────────────────────── */
 .ec-card {
@@ -137,7 +145,6 @@
   background: rgba(255,255,255,0.07);
 }
 
-/* Light card for investor section */
 .ec-card-light {
   border-radius: var(--radius-card);
   border: 1px solid var(--c-border-light);

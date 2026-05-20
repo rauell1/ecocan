@@ -1,7 +1,6 @@
 "use client"
 
-import { ArrowRight, ShoppingBag, ScanLine, RotateCcw, Bike, Wallet, MapPin } from "lucide-react"
-import { useEcReveal } from "@/lib/use-ec-reveal"
+import { ShoppingBag, ScanLine, RotateCcw, Bike, Wallet, MapPin, ArrowRight } from "lucide-react"
 import { SectionOverline } from "@/components/shared/section-shell"
 
 const steps = [
@@ -13,18 +12,12 @@ const steps = [
 ]
 
 export default function HowItWorksSection() {
-  const ref = useEcReveal()
-
   return (
-    <section
-      ref={ref as React.RefObject<HTMLDivElement>}
-      className="relative w-full section-py section-white overflow-hidden"
-    >
-      {/* Subtle grid */}
+    <section className="ps-reveal relative w-full section-py section-white overflow-hidden">
       <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.018)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.018)_1px,transparent_1px)] bg-[size:4rem_4rem]" />
 
       <div className="site-container relative z-10">
-        <div className="ec-reveal mb-16">
+        <div className="mb-16">
           <SectionOverline>How It Works</SectionOverline>
           <h2 className="section-heading">
             From Your Hand,{" "}
@@ -37,16 +30,13 @@ export default function HowItWorksSection() {
           </p>
         </div>
 
-        {/* Step cards — numbered, connected */}
         <div className="relative">
-          {/* Connecting line desktop */}
           <div className="pointer-events-none absolute left-0 right-0 top-[2.2rem] hidden h-px lg:block"
             style={{ background: "linear-gradient(90deg, transparent 4%, rgba(34,197,94,0.20) 20%, rgba(34,197,94,0.20) 80%, transparent 96%)" }} />
 
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-5">
             {steps.map((step, i) => (
-              <div key={i} className="ec-reveal ec-card group relative flex flex-col gap-5 p-7">
-                {/* Number badge */}
+              <div key={i} className="ps-reveal ec-card group relative flex flex-col gap-5 p-7">
                 <div className="relative z-10 flex h-11 w-11 items-center justify-center rounded-full border border-[--c-border] bg-[--c-surface-alt] text-[11px] font-black tracking-wider text-[--c-green] group-hover:border-[--c-green]/40 group-hover:bg-[--c-green]/10 transition-colors duration-300">
                   {step.num}
                 </div>
@@ -57,15 +47,13 @@ export default function HowItWorksSection() {
                   </div>
                   <p className="text-[13px] leading-relaxed text-[--c-text-muted]">{step.desc}</p>
                 </div>
-                {/* Bottom accent */}
                 <div className="absolute bottom-0 left-0 right-0 h-[2px] rounded-b-[--radius-card] bg-transparent group-hover:bg-[--c-green] transition-colors duration-300" />
               </div>
             ))}
           </div>
         </div>
 
-        {/* ECO-Station CTA */}
-        <div className="ec-reveal mt-16 relative overflow-hidden rounded-[--radius-xl]" style={{ background: "linear-gradient(135deg, #080A08 0%, #0f1a0f 100%)" }}>
+        <div className="ps-reveal mt-16 relative overflow-hidden rounded-[--radius-xl]" style={{ background: "linear-gradient(135deg, #080A08 0%, #0f1a0f 100%)" }}>
           <div className="absolute inset-0" style={{ background: "radial-gradient(ellipse at 80% 50%, rgba(34,197,94,0.12) 0%, transparent 60%)" }} />
           <div className="relative z-10 flex flex-col items-start justify-between gap-8 px-10 py-12 md:flex-row md:items-center md:px-16">
             <div className="space-y-3">
