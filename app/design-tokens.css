@@ -27,15 +27,13 @@
   --font-body:      var(--font-inter, 'Inter', system-ui, sans-serif);
 
   /* Fluid type scale — clamp(min, preferred, max) */
-  --text-xs:    clamp(0.688rem, 0.65rem  + 0.19vw, 0.813rem);  /* 11→13px */
-  --text-sm:    clamp(0.813rem, 0.78rem  + 0.17vw, 0.938rem);  /* 13→15px */
-  --text-base:  clamp(1rem,     0.96rem  + 0.20vw, 1.125rem);  /* 16→18px */
-  --text-lg:    clamp(1.125rem, 1.05rem  + 0.38vw, 1.375rem);  /* 18→22px */
-  --text-xl:    clamp(1.5rem,   1.3rem   + 1.00vw, 2.25rem);   /* 24→36px */
-  --text-2xl:   clamp(2rem,     1.6rem   + 2.00vw, 3.25rem);   /* 32→52px */
-  --text-hero:  clamp(2.75rem,  1.5rem   + 5.00vw, 5.5rem);    /* 44→88px */
-
-  /* Overline — always the same */
+  --text-xs:       clamp(0.688rem, 0.65rem  + 0.19vw, 0.813rem);  /* 11→13px */
+  --text-sm:       clamp(0.813rem, 0.78rem  + 0.17vw, 0.938rem);  /* 13→15px */
+  --text-base:     clamp(1rem,     0.96rem  + 0.20vw, 1.125rem);  /* 16→18px */
+  --text-lg:       clamp(1.125rem, 1.05rem  + 0.38vw, 1.375rem);  /* 18→22px */
+  --text-xl:       clamp(1.5rem,   1.3rem   + 1.00vw, 2.25rem);   /* 24→36px */
+  --text-2xl:      clamp(2rem,     1.6rem   + 2.00vw, 3.25rem);   /* 32→52px */
+  --text-hero:     clamp(2.75rem,  1.5rem   + 5.00vw, 5.5rem);    /* 44→88px */
   --text-overline: 0.6875rem;  /* 11px — uppercased, tracked */
 
   /* ── SPACING ─────────────────────────────────────────────────────────── */
@@ -52,13 +50,13 @@
   --space-24:  6rem;      /* 96px */
 
   /* Section vertical rhythm */
-  --py-section: clamp(5rem, 8vw, 10rem);   /* 80→160px — all sections */
-  --py-section-sm: clamp(3rem, 5vw, 6rem); /* tight variant            */
+  --py-section:    clamp(5rem, 8vw, 10rem);   /* 80→160px */
+  --py-section-sm: clamp(3rem, 5vw, 6rem);    /* tight variant */
 
   /* Content width */
-  --max-w-site:   1280px;
-  --max-w-prose:  640px;
-  --px-site:      clamp(1rem, 4vw, 3rem);
+  --max-w-site:  1280px;
+  --max-w-prose: 640px;
+  --px-site:     clamp(1rem, 4vw, 3rem);
 
   /* ── RADIUS ──────────────────────────────────────────────────────────── */
   --radius-sm:   0.375rem;  /*  6px */
@@ -71,8 +69,16 @@
   --shadow-card:  0 1px 3px rgba(0,0,0,0.04), 0 8px 24px rgba(0,0,0,0.06);
   --shadow-lift:  0 4px 12px rgba(0,0,0,0.06), 0 20px 48px rgba(0,0,0,0.10);
 
-  /* ── MOTION ──────────────────────────────────────────────────────────── */
+  /* ── MOTION — single source of truth ─────────────────────────────────── */
+  /*  All GSAP animations must reference these values so timing is uniform.  */
   --ease-out-expo:  cubic-bezier(0.16, 1, 0.3, 1);
-  --duration-base:  180ms;
-  --duration-slow:  320ms;
+  --duration-base:  180ms;   /* hover / micro interactions               */
+  --duration-slow:  320ms;   /* card hover transitions                   */
+
+  /* Scroll-reveal canonical values (used in every section's GSAP call) */
+  --reveal-from-y:  32px;    /* translateY start  */
+  --reveal-blur:    6px;     /* blur start        */
+  --reveal-dur:     0.9s;    /* single element    */
+  --reveal-stagger: 0.12s;   /* between siblings  */
+  --reveal-start:   top 72%; /* ScrollTrigger start position */
 }

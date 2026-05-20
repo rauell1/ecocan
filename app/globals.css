@@ -53,14 +53,13 @@
 
 /* ── GLOBAL ANIMATION PRIMITIVE ────────────────────────────────────────── */
 /*
-  .ec-reveal  — every animatable element starts hidden here.
-  GSAP ScrollTrigger in each section drives opacity → 1, y → 0.
-  Using a single class name prevents "reveal" / "ps-reveal" / "text-slide"
-  from co-existing across sections.
+  .ec-reveal — every animatable element starts hidden here.
+  GSAP ScrollTrigger in each section drives it to opacity:1 / y:0.
+  ONE class name, ONE set of start values — never mix with ps-reveal, text-slide, etc.
 */
 .ec-reveal {
   opacity: 0;
-  transform: translateY(28px);
+  transform: translateY(var(--reveal-from-y, 28px));
   will-change: opacity, transform;
 }
 
@@ -100,22 +99,11 @@
   background-color: currentColor;
   flex-shrink: 0;
 }
-
-.section-overline-inv {
-  color: rgba(255, 255, 255, 0.55);
-}
-.section-overline-inv::before {
-  background-color: rgba(255, 255, 255, 0.35);
-}
+.section-overline-inv            { color: rgba(255,255,255,0.55); }
+.section-overline-inv::before    { background-color: rgba(255,255,255,0.35); }
 
 /* ── SECTION HEADING ────────────────────────────────────────────────────── */
-.section-heading {
-  font-size: var(--text-2xl);
-  font-weight: 700;
-  letter-spacing: -0.03em;
-  line-height: 1.08;
-  color: var(--c-text);
-}
+.section-heading     { font-size: var(--text-2xl); font-weight: 700; letter-spacing: -0.03em; line-height: 1.08; color: var(--c-text); }
 .section-heading-inv { color: #FFFFFF; }
 
 /* ── CARD PRIMITIVE ─────────────────────────────────────────────────────── */
@@ -125,32 +113,44 @@
   background: var(--c-surface);
   box-shadow: var(--shadow-card);
   transition:
-    box-shadow var(--duration-slow) var(--ease-out-expo),
-    border-color var(--duration-slow) var(--ease-out-expo),
-    transform var(--duration-slow) var(--ease-out-expo);
+    box-shadow    var(--duration-slow) var(--ease-out-expo),
+    border-color  var(--duration-slow) var(--ease-out-expo),
+    transform     var(--duration-slow) var(--ease-out-expo);
 }
 .ec-card:hover {
   box-shadow: var(--shadow-lift);
-  border-color: rgba(22, 163, 74, 0.35);
+  border-color: rgba(22,163,74,0.35);
   transform: translateY(-4px);
 }
 
 .ec-card-dark {
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(255,255,255,0.05);
   border: 1px solid var(--c-border-dark);
   backdrop-filter: blur(12px);
+  border-radius: var(--radius-card);
+  transition:
+    border-color  var(--duration-slow) var(--ease-out-expo),
+    background    var(--duration-slow) var(--ease-out-expo);
 }
 .ec-card-dark:hover {
-  border-color: rgba(74, 222, 128, 0.30);
-  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(74,222,128,0.30);
+  background: rgba(255,255,255,0.08);
 }
 
 /* ── INTERACTIVE / BUTTON TRANSITIONS ──────────────────────────────────── */
 a, button, [role="button"] {
   transition:
-    color      var(--duration-base) var(--ease-out-expo),
-    background var(--duration-base) var(--ease-out-expo),
+    color        var(--duration-base) var(--ease-out-expo),
+    background   var(--duration-base) var(--ease-out-expo),
     border-color var(--duration-base) var(--ease-out-expo),
-    box-shadow var(--duration-base) var(--ease-out-expo),
-    transform  var(--duration-base) var(--ease-out-expo);
+    box-shadow   var(--duration-base) var(--ease-out-expo),
+    transform    var(--duration-base) var(--ease-out-expo);
+}
+
+/* ── APP SHOWCASE SECTION — override non-token inline styles ────────────── */
+/* The app-showcase uses its own animation class; normalise it here */
+.app-text-animate {
+  opacity: 0;
+  transform: translateY(var(--reveal-from-y, 28px));
+  will-change: opacity, transform;
 }

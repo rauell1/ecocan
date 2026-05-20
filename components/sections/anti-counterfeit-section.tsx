@@ -19,21 +19,22 @@ export default function AntiCounterfeitSection() {
       const trigger = { trigger: sectionRef.current, start: "top 72%", once: true }
 
       if (textColRef.current) {
-        gsap.fromTo(textColRef.current.querySelectorAll(".ec-reveal"),
-          { opacity: 0, y: 28, filter: "blur(6px)" },
-          { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.9, stagger: 0.13, ease: "power3.out", scrollTrigger: trigger }
+        gsap.fromTo(
+          textColRef.current.querySelectorAll(".ec-reveal"),
+          { opacity: 0, y: 32, filter: "blur(6px)" },
+          { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.9, stagger: 0.12, ease: "power3.out", scrollTrigger: trigger }
         )
       }
       if (imageColRef.current) {
         gsap.fromTo(imageColRef.current,
-          { opacity: 0, x: 50, scale: 0.96 },
-          { opacity: 1, x: 0, scale: 1, duration: 1.1, delay: 0.2, ease: "power2.out", scrollTrigger: trigger }
+          { opacity: 0, x: 48, scale: 0.96 },
+          { opacity: 1, x: 0, scale: 1, duration: 1.0, delay: 0.18, ease: "power2.out", scrollTrigger: trigger }
         )
       }
       if (floatRef.current) {
         gsap.fromTo(floatRef.current,
-          { opacity: 0, y: 32, scale: 0.82 },
-          { opacity: 1, y: 0, scale: 1, duration: 1.1, delay: 0.75, ease: "elastic.out(1, 0.75)", scrollTrigger: trigger }
+          { opacity: 0, y: 28, scale: 0.84 },
+          { opacity: 1, y: 0, scale: 1, duration: 1.0, delay: 0.7, ease: "elastic.out(1,0.75)", scrollTrigger: trigger }
         )
         gsap.to(floatRef.current, { y: -10, duration: 3.2, repeat: -1, yoyo: true, ease: "sine.inOut", delay: 1.4 })
       }
@@ -53,7 +54,7 @@ export default function AntiCounterfeitSection() {
         <div className="grid grid-cols-1 lg:grid-cols-5 items-center gap-16 lg:gap-20">
 
           {/* TEXT */}
-          <div ref={textColRef} className="lg:col-span-3 flex flex-col gap-0">
+          <div ref={textColRef} className="lg:col-span-3 flex flex-col">
             <div className="ec-reveal">
               <SectionOverline inv>Consumer Protection</SectionOverline>
             </div>
@@ -69,12 +70,12 @@ export default function AntiCounterfeitSection() {
 
             <div className="flex flex-col gap-4 max-w-[510px]">
               {[
-                { icon: AlertTriangle, color: "red",     title: "The Danger",     body: "2 in 5 drinks in Africa are counterfeit, risking lives daily through repurposed bottles." },
-                { icon: ShieldCheck,  color: "emerald",  title: "Total Security",  body: "Our digital ledger and physical crushing mechanism permanently destroys fake supply chains." },
+                { icon: AlertTriangle, color: "red",     title: "The Danger",    body: "2 in 5 drinks in Africa are counterfeit, risking lives daily through repurposed bottles." },
+                { icon: ShieldCheck,  color: "emerald",  title: "Total Security", body: "Our digital ledger and physical crushing mechanism permanently destroys fake supply chains." },
               ].map(({ icon: Icon, color, title, body }) => (
                 <div
                   key={title}
-                  className="ec-reveal ec-card-dark group flex items-start gap-5 rounded-[--radius-card] p-5"
+                  className="ec-reveal ec-card-dark group flex items-start gap-5 p-5"
                   style={{ borderColor: color === "red" ? "rgba(239,68,68,0.18)" : "rgba(74,222,128,0.18)" }}
                 >
                   <div
