@@ -1,15 +1,16 @@
 {
   "meta": {
-    "version": "bed5c72",
-    "generatedAt": "2026-05-20T16:44:35.671Z",
+    "version": "31ae53b",
+    "generatedAt": "2026-05-20T16:49:35.009Z",
     "branch": "main",
-    "previousVersion": "a9d0721",
+    "previousVersion": "bed5c72",
     "generator": "scripts/generate-codebase-map.mjs",
     "framework": "Next.js 14",
     "packageManager": "pnpm"
   },
   "changes": [
-    "Modified: components/sections/partners-testimonials-section.tsx"
+    "Modified: app/page.tsx",
+    "Modified: components/sections/hero-section.tsx"
   ],
   "affectedHotspots": [],
   "routes": [
@@ -160,7 +161,7 @@
     "app/news/components/partnership-blog-hero.tsx": "63e1bd2a6eaabb86a3438bf67cd62db98fad9058",
     "app/news/layout.tsx": "0098cea1ad4e3b29e8cfdba0cfeb8d7c071e7dbf",
     "app/news/page.tsx": "d1031f50d7cb9b834a73a7ac6749c16521290383",
-    "app/page.tsx": "9f44ff837cb2a06ffd81421730d008c2ed90b847",
+    "app/page.tsx": "63cd7592833867cf907739ab8ae920cf464f0418",
     "app/robots.ts": "0ac82ce211b91b4cdf082231be4ad246cef3ddca",
     "app/sitemap.ts": "fec458ba9b30441fdd98ecf1f49e4d0e39f277ec",
     "app/solutions/[section]/page.tsx": "32989e137fa274979021390d726cd33f502ade96",
@@ -285,7 +286,7 @@
     "components/sections/electric-mobility-section.tsx": "fb5eb531604a0013b61003d552fd3676577599a2",
     "components/sections/faq-section.tsx": "327cb3901468da62c8d5ddb4bc608218e1f555b4",
     "components/sections/for-investors-section.tsx": "41205c1a42863e73c1bfc51927155f3160cff53d",
-    "components/sections/hero-section.tsx": "65e8ca40595a92139aa22f36d54e7611dabd6405",
+    "components/sections/hero-section.tsx": "17deda0b426e4912b2fb336b4d8957002cdb519f",
     "components/sections/home-footer.tsx": "a0ab62d81354e130ca0c9a5ee7eac59000070ed9",
     "components/sections/home-mobile-menu.tsx": "fb3b2ee486bd8fa684435b988f19d3bec1ad9125",
     "components/sections/home-navbar.tsx": "58a13f3ef72f77a46402efff7a4be0b1151874ff",
@@ -375,16 +376,6 @@
     "tsconfig.json": "5841f1c2f8bba110464eaba24059d47cb59d3b64"
   },
   "changelog": [
-    {
-      "version": "899352c",
-      "date": "2026-05-19T16:25:06.301Z",
-      "branch": "main",
-      "changes": [
-        "Modified: app/page.tsx",
-        "Modified: components/sections/anti-counterfeit-section.tsx",
-        "Modified: components/sections/ecocan-model-section.tsx"
-      ]
-    },
     {
       "version": "a67bed4",
       "date": "2026-05-19T16:30:49.400Z",
@@ -618,6 +609,15 @@
       "branch": "main",
       "changes": [
         "Modified: components/sections/partners-testimonials-section.tsx"
+      ]
+    },
+    {
+      "version": "31ae53b",
+      "date": "2026-05-20T16:49:35.009Z",
+      "branch": "main",
+      "changes": [
+        "Modified: app/page.tsx",
+        "Modified: components/sections/hero-section.tsx"
       ]
     }
   ]

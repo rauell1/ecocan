@@ -5,14 +5,15 @@
 
 # 🗺️ EcoCan Codebase Map
 
-> **Version:** `bed5c72`
-> **Generated:** 2026-05-20T16:44:35.671Z
+> **Version:** `31ae53b`
+> **Generated:** 2026-05-20T16:49:35.009Z
 > **Branch:** `main`
-> **Previous:** `a9d0721`
+> **Previous:** `bed5c72`
 
 ## Changes Since Last Version
 
-- Modified: components/sections/partners-testimonials-section.tsx
+- Modified: app/page.tsx
+- Modified: components/sections/hero-section.tsx
 
 ---
 
@@ -59,6 +60,7 @@
 
 | Version | Date | Branch | Changes |
 |---|---|---|---|
+| `31ae53b` | 2026-05-20 | main | Modified: app/page.tsx; Modified: components/sections/hero-section.tsx |
 | `bed5c72` | 2026-05-20 | main | Modified: components/sections/partners-testimonials-section.tsx |
 | `a9d0721` | 2026-05-20 | main | Modified: lib/use-ec-reveal.ts |
 | `fd26688` | 2026-05-20 | main | Modified: components/sections/for-investors-section.tsx |
@@ -78,7 +80,6 @@
 | `2fc2d69` | 2026-05-19 | main | Modified: components/sections/call-to-action-section.tsx; Modified: lib/use-ec-reveal.ts |
 | `6d773db` | 2026-05-19 | main | Added: app/design-tokens.css; Modified: app/globals.css; Modified: components/sections/anti-counterfeit-section.tsx; Modified: components/sections/call-to-action-section.tsx; Modified: components/sections/ecommunity-roles-section.tsx; Modified: components/sections/faq-section.tsx; Modified: components/sections/for-investors-section.tsx; Modified: components/sections/how-it-works-section.tsx; Modified: components/sections/problem-solution-section.tsx; Modified: components/sections/sustainability-impact-section.tsx; Added: components/shared/section-shell.tsx; Added: lib/use-ec-reveal.ts |
 | `a67bed4` | 2026-05-19 | main | Modified: components/sections/for-investors-section.tsx |
-| `899352c` | 2026-05-19 | main | Modified: app/page.tsx; Modified: components/sections/anti-counterfeit-section.tsx; Modified: components/sections/ecocan-model-section.tsx |
 
 ---
 
