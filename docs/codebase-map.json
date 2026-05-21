@@ -1,23 +1,22 @@
 {
   "meta": {
-    "version": "422e74a",
-    "generatedAt": "2026-05-21T17:55:35.288Z",
+    "version": "08bb333",
+    "generatedAt": "2026-05-21T18:10:21.264Z",
     "branch": "main",
-    "previousVersion": "e7fc65a",
+    "previousVersion": "422e74a",
     "generator": "scripts/generate-codebase-map.mjs",
     "framework": "Next.js 14",
     "packageManager": "pnpm"
   },
   "changes": [
-    "Modified: components/sections/anti-counterfeit-section.tsx",
-    "Modified: components/sections/app-showcase-section.tsx",
-    "Modified: components/sections/call-to-action-section.tsx",
+    "Modified: app/page.tsx",
+    "Added: app/template.tsx",
     "Modified: components/sections/ecommunity-roles-section.tsx",
+    "Modified: components/sections/faq-section.tsx",
     "Modified: components/sections/for-investors-section.tsx",
-    "Modified: components/sections/how-it-works-section.tsx",
-    "Modified: components/sections/partners-testimonials-section.tsx",
-    "Modified: components/sections/problem-solution-section.tsx",
-    "Modified: components/sections/sustainability-impact-section.tsx"
+    "Modified: components/sections/home-navbar.tsx",
+    "Modified: components/sections/sustainability-impact-section.tsx",
+    "Added: components/ui/spotlight-card.tsx"
   ],
   "affectedHotspots": [],
   "routes": [
@@ -168,7 +167,7 @@
     "app/news/components/partnership-blog-hero.tsx": "63e1bd2a6eaabb86a3438bf67cd62db98fad9058",
     "app/news/layout.tsx": "0098cea1ad4e3b29e8cfdba0cfeb8d7c071e7dbf",
     "app/news/page.tsx": "d1031f50d7cb9b834a73a7ac6749c16521290383",
-    "app/page.tsx": "63cd7592833867cf907739ab8ae920cf464f0418",
+    "app/page.tsx": "8f7270826318e600a1e8d6fa282e82b4a531f47c",
     "app/robots.ts": "0ac82ce211b91b4cdf082231be4ad246cef3ddca",
     "app/sitemap.ts": "fec458ba9b30441fdd98ecf1f49e4d0e39f277ec",
     "app/solutions/[section]/page.tsx": "32989e137fa274979021390d726cd33f502ade96",
@@ -220,6 +219,7 @@
     "app/solutions/sections/solutions-home/components/offering.tsx": "5ce9bf5ac1cd89a11e575a7c84440db0df732481",
     "app/solutions/sections/solutions-home/components/packaging-recycling.tsx": "d83683f6f63d7a91f51f8e1f3c015a3834abf152",
     "app/solutions/sections/solutions-home/solutions-home.tsx": "1472d06752ee9deb4566057704d8bb4ca398f66a",
+    "app/template.tsx": "9aaa0bd3e45d7e9dc0664a4b404b27360dfbfb87",
     "components/contents/consumer/components/accordion.tsx": "4c57a215c8ba691f37e7b312b03b76320c46a450",
     "components/contents/consumer/components/buy-online.tsx": "c8666e7ebd251413ece5d961962546d9094b243c",
     "components/contents/consumer/components/checklist.tsx": "c91c52010b322d24370eb7b8eb0c01705d034573",
@@ -289,18 +289,18 @@
     "components/sections/app-showcase-section.tsx": "3e7497b40a4ecf5603ce2f540328d93fc1767747",
     "components/sections/call-to-action-section.tsx": "2e24e3d3223a4d1b5136e1b41ff5655d435d226d",
     "components/sections/ecocan-model-section.tsx": "2de3ecc1ddf0f4ca105431b28d22ad0233a1a242",
-    "components/sections/ecommunity-roles-section.tsx": "de5148217070f1f330b19655c89e6ed0d4de8f72",
+    "components/sections/ecommunity-roles-section.tsx": "ef01e4e74887f4f990fa30ae11ca0118239188dc",
     "components/sections/electric-mobility-section.tsx": "fb5eb531604a0013b61003d552fd3676577599a2",
-    "components/sections/faq-section.tsx": "4a620a506e838235da3011b20c891c4bb1f800ce",
-    "components/sections/for-investors-section.tsx": "bdbbe3e965c447348aeeb01a4edd5c55d28e230e",
+    "components/sections/faq-section.tsx": "b2d3d35dcfc86a69ba892b6dd12e16b95f165012",
+    "components/sections/for-investors-section.tsx": "2d4ef8dfd1e0d46eb1e07bc001a6f7006cca3c85",
     "components/sections/hero-section.tsx": "7510bd769713df70a72b9298719cd5f9e156dc22",
     "components/sections/home-footer.tsx": "dfdb7ca1a21916e71619470eaa69e57c12aaa901",
     "components/sections/home-mobile-menu.tsx": "fb3b2ee486bd8fa684435b988f19d3bec1ad9125",
-    "components/sections/home-navbar.tsx": "8383c2cb1a26ecbdbbfa87280305a14118abb56f",
+    "components/sections/home-navbar.tsx": "af9ab8c56023508b365055ae6263d5d12ffcb7f6",
     "components/sections/how-it-works-section.tsx": "5db289f44401216dbe8ad31e4297a1ac5ce27248",
     "components/sections/partners-testimonials-section.tsx": "ca88a86e90cb964d06c01d60e9a8229c92d9b192",
     "components/sections/problem-solution-section.tsx": "72c8f56c63ef66fc39a1f02270d95b7bec4621f1",
-    "components/sections/sustainability-impact-section.tsx": "8b5b32fce41182f332d7ab97bd8c9df18224d24a",
+    "components/sections/sustainability-impact-section.tsx": "5a5960b1deeb5ff3a9fecc9ad3a9c579946c41a4",
     "components/shared/HowTo.tsx": "ec2b55f43fa3d7e12750f7a46b2429dfd4419ae9",
     "components/shared/accordion.tsx": "c68c2697a68fcdfb6ce7cebae1adf67d8160739e",
     "components/shared/cta-card/cta-card.tsx": "7ea1c58a0ab1cde2bfcda652e7ff2d417eae3e37",
@@ -355,6 +355,7 @@
     "components/ui/pill-button.tsx": "c38f19c7589527779532cce86fb0faf05e065a1a",
     "components/ui/section-heading.tsx": "47bbf713b2c97e9a34abe44df9812c05154227e9",
     "components/ui/select.tsx": "07e48287ffc5e9a4d930cae955f773940019515f",
+    "components/ui/spotlight-card.tsx": "55c44d72a37d6978dfd87271a5a58d9fc88a5140",
     "components/ui/switch.tsx": "f3eadff5663f0efe81642dd5205072f9781d1d25",
     "components/ui/tabs.tsx": "f914abecb886d0e56c8094d4785c21c770836099",
     "components/ui/textarea.tsx": "c9fd455b188966b149261ea38064cc9d714f758e",
@@ -383,14 +384,6 @@
     "tsconfig.json": "5841f1c2f8bba110464eaba24059d47cb59d3b64"
   },
   "changelog": [
-    {
-      "version": "b198b5b",
-      "date": "2026-05-20T07:40:41.227Z",
-      "branch": "main",
-      "changes": [
-        "Modified: components/sections/sustainability-impact-section.tsx"
-      ]
-    },
     {
       "version": "b40f301",
       "date": "2026-05-20T07:53:01.134Z",
@@ -614,6 +607,21 @@
         "Modified: components/sections/partners-testimonials-section.tsx",
         "Modified: components/sections/problem-solution-section.tsx",
         "Modified: components/sections/sustainability-impact-section.tsx"
+      ]
+    },
+    {
+      "version": "08bb333",
+      "date": "2026-05-21T18:10:21.264Z",
+      "branch": "main",
+      "changes": [
+        "Modified: app/page.tsx",
+        "Added: app/template.tsx",
+        "Modified: components/sections/ecommunity-roles-section.tsx",
+        "Modified: components/sections/faq-section.tsx",
+        "Modified: components/sections/for-investors-section.tsx",
+        "Modified: components/sections/home-navbar.tsx",
+        "Modified: components/sections/sustainability-impact-section.tsx",
+        "Added: components/ui/spotlight-card.tsx"
       ]
     }
   ]
