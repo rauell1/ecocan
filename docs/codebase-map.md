@@ -5,14 +5,18 @@
 
 # 🗺️ EcoCan Codebase Map
 
-> **Version:** `7cb679b`
-> **Generated:** 2026-05-21T18:53:47.770Z
+> **Version:** `d63d317`
+> **Generated:** 2026-05-21T19:09:07.579Z
 > **Branch:** `main`
-> **Previous:** `3479f58`
+> **Previous:** `7cb679b`
 
 ## Changes Since Last Version
 
-- Full map regeneration
+- Modified: app/globals.css
+- Added: app/investors/layout.tsx
+- Added: app/investors/page.tsx
+- Modified: components/sections/for-investors-section.tsx
+- Modified: components/sections/hero-section.tsx
 
 ---
 
@@ -59,6 +63,7 @@
 
 | Version | Date | Branch | Changes |
 |---|---|---|---|
+| `d63d317` | 2026-05-21 | main | Modified: app/globals.css; Added: app/investors/layout.tsx; Added: app/investors/page.tsx; Modified: components/sections/for-investors-section.tsx; Modified: components/sections/hero-section.tsx |
 | `7cb679b` | 2026-05-21 | main | Full map regeneration |
 | `3479f58` | 2026-05-21 | main | Modified: components/sections/hero-section.tsx |
 | `9e7ec1c` | 2026-05-21 | main | Modified: components/sections/hero-section.tsx |
@@ -78,7 +83,6 @@
 | `4bbc9a9` | 2026-05-20 | main | Modified: app/page.tsx |
 | `e535e73` | 2026-05-20 | main | Modified: app/page.tsx |
 | `9e90aec` | 2026-05-20 | main | Modified: components/shared/section-shell.tsx |
-| `1f1d704` | 2026-05-20 | main | Modified: app/globals.css; Modified: components/sections/ecocan-model-section.tsx; Modified: components/sections/ecommunity-roles-section.tsx; Modified: components/sections/electric-mobility-section.tsx; Modified: components/sections/how-it-works-section.tsx; Modified: components/sections/partners-testimonials-section.tsx |
 
 ---
 
