@@ -1,0 +1,90 @@
+/* ─── ECOCAN DESIGN TOKENS ─────────────────────────────────────────────────
+   Single source of truth for every visual decision on the site.
+   Import in globals.css BEFORE Tailwind layers.
+────────────────────────────────────────────────────────────────────────── */
+
+:root {
+  /* ── COLOUR ───────────────────────────────────────────────────────────── */
+  --c-bg: #0a0a0a;
+  --c-surface: rgba(255, 255, 255, 0.04);
+  --c-surface-alt: #0a0a0a;
+  --c-dark: #0a0a0a;
+  --c-border: rgba(255, 255, 255, 0.08);
+  --c-border-dark: rgba(255, 255, 255, 0.1);
+
+  --c-surface-light: #f5f7f5;
+  --c-border-light: rgba(0, 0, 0, 0.08);
+
+  --c-text: #f5f5f5;
+  --c-text-muted: rgba(255, 255, 255, 0.5);
+  --c-text-faint: #4a5a4a;
+  --c-text-inv: #0b0d0b;
+
+  /* Brand greens */
+  --c-green: #22c55e;
+  --c-green-mid: #16a34a;
+  --c-green-light: #4ade80;
+  --c-green-dim: rgba(34, 197, 94, 0.12);
+
+  /* ── TYPOGRAPHY ──────────────────────────────────────────────────────── */
+  /* Using Geist for display sharpness + Inter for body readability */
+  --font-display: var(--font-inter, "Inter", system-ui, sans-serif);
+  --font-body: var(--font-inter, "Inter", system-ui, sans-serif);
+  --font-serif: Georgia, Cambria, "Times New Roman", Times, serif;
+
+  /* Fluid type scale */
+  --text-xs: clamp(0.688rem, 0.65rem + 0.19vw, 0.813rem);
+  --text-sm: clamp(0.813rem, 0.78rem + 0.17vw, 0.938rem);
+  --text-base: clamp(1rem, 0.96rem + 0.2vw, 1.125rem);
+  --text-lg: clamp(1.125rem, 1.05rem + 0.38vw, 1.375rem);
+  --text-xl: clamp(1.5rem, 1.3rem + 1vw, 2.25rem);
+  --text-2xl: clamp(2rem, 1.6rem + 2vw, 3.25rem);
+  --text-hero: clamp(2.75rem, 1.5rem + 5vw, 5.5rem);
+  --text-overline: 0.6875rem;
+
+  /* ── SPACING ─────────────────────────────────────────────────────────── */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-20: 5rem;
+  --space-24: 6rem;
+
+  /* Section vertical rhythm */
+  --py-section: clamp(5rem, 10vw, 9rem);
+  --py-section-sm: clamp(3rem, 5vw, 5.5rem);
+
+  /* Content width */
+  --max-w-site: 1280px;
+  --max-w-prose: 640px;
+  --px-site: clamp(1.25rem, 4vw, 3rem);
+
+  /* ── RADIUS ──────────────────────────────────────────────────────────── */
+  --radius-sm: 0.375rem;
+  --radius-md: 0.75rem;
+  --radius-card: 1.5rem;
+  --radius-xl: 1.75rem;
+  --radius-full: 9999px;
+
+  /* ── SHADOW ──────────────────────────────────────────────────────────── */
+  --shadow-card: 0 1px 3px rgba(0, 0, 0, 0.3), 0 6px 20px rgba(0, 0, 0, 0.3);
+  --shadow-lift: 0 4px 12px rgba(0, 0, 0, 0.4), 0 20px 48px rgba(0, 0, 0, 0.5);
+  --shadow-glow-green: 0 0 28px rgba(34, 197, 94, 0.35);
+
+  /* ── MOTION ──────────────────────────────────────────────────────────── */
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --duration-base: 180ms;
+  --duration-slow: 320ms;
+  --reveal-from-y: 28px;
+  --reveal-blur: 6px;
+  --reveal-dur: 0.9s;
+  --reveal-stagger: 0.12s;
+  --reveal-start: top 72%;
+}

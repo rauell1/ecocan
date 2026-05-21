@@ -1,29 +1,24 @@
-"use client";
-import NavigationBar from "@/components/shared/navbar/navbar";
-import { useScroll } from "@/lib/useScroll";
-import React from "react";
-import Heading from "./components/heading";
-import Operational from "./components/operational";
-import Security from "./components/security";
-import Economic from "./components/economic";
-import Footer from "@/components/shared/footer/footer";
+"use client"
+
+import HomeNavbar from "@/components/sections/home-navbar"
+import HomeFooter from "@/components/sections/home-footer"
+import React from "react"
+import Heading from "./components/heading"
+import Operational from "./components/operational"
+import Security from "./components/security"
+import Economic from "./components/economic"
 
 export default function DrsTakeOver() {
-  const isScrolled = useScroll();
   return (
-    <>
-      <NavigationBar
-        className={isScrolled ? "bg-white shadow-sm" : "bg-[#F6F6F6]"}
-        logoSrc="/assets/images/ecocan-logo.svg"
-        linkColor="text-eco-dark"
-      />
-      <div className="space-y-24 pt-[3.275rem]">
+    <div className="relative min-h-screen overflow-x-hidden" style={{ background: "#050705" }}>
+      <HomeNavbar onMenuToggle={() => {}} />
+      <div className="space-y-0 pt-[3.275rem]">
         <Heading />
-        <Operational/>
-        <Security/>
-        <Economic/>
+        <Operational />
+        <Security />
+        <Economic />
       </div>
-      <Footer/>
-    </>
-  );
+      <HomeFooter />
+    </div>
+  )
 }

@@ -1,250 +1,127 @@
 "use client"
 
-import { useRef, useEffect, useState } from "react"
-import Link from "next/link"
+import { useRef, useEffect } from "react"
 import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
-import { TrendingUp, Globe, ShieldCheck, ArrowRight, ExternalLink } from "lucide-react"
-import SectionBadge from "@/components/shared/section-badge"
+import Link from "next/link"
+import { SpotlightCard } from "@/components/ui/spotlight-card"
 
-const highlights = [
-  {
-    icon: TrendingUp,
-    label: "Market Opportunity",
-    value: "$4.5B+",
-    note: "African beverage recycling market by 2030",
-    color: "#16a34a",
-    accent: "rgba(22,163,74,0.08)",
-    detail:
-      "East Africa alone generates 2B+ plastic bottles a year with <10% formal recycling rate.",
+const metrics = [
+  { 
+    value: "KES 8.2M", 
+    label: "Distributed Liquidity", 
+    desc: "Capital paid directly to informal collection partners, boosting local green economies." 
   },
-  {
-    icon: Globe,
-    label: "Countries Targeted",
-    value: "12",
-    note: "East & West African markets in 5-year roadmap",
-    color: "#0891b2",
-    accent: "rgba(8,145,178,0.08)",
-    detail: "Starting with Kenya, scaling to Tanzania, Uganda, Rwanda and beyond within 36 months.",
+  { 
+    value: "54,200+", 
+    label: "Verified Accounts", 
+    desc: "Active consumers scanning, tracking, and completing the circular return loop." 
   },
-  {
-    icon: ShieldCheck,
-    label: "Anti-Counterfeit TAM",
-    value: "$820M",
-    note: "Annual losses to fake beverages across SSA",
-    color: "#7c3aed",
-    accent: "rgba(124,58,237,0.08)",
-    detail:
-      "ECOCAN's QR security layer is the first verifiable on-pack authentication at scale in Africa.",
+  { 
+    value: "3 States", 
+    label: "Regional Markets", 
+    desc: "Live, scalable circular logistics networks deploying across East Africa." 
   },
 ]
 
 export default function ForInvestorsSection() {
   const sectionRef = useRef<HTMLDivElement>(null)
-  const cardsRef = useRef<HTMLDivElement>(null)
-  const [activeCard, setActiveCard] = useState<number | null>(null)
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger)
-
     const ctx = gsap.context(() => {
-      // Heading block fades up
-      const headingEls = sectionRef.current?.querySelectorAll(".inv-heading")
-      if (headingEls && headingEls.length > 0) {
-        gsap.fromTo(
-          headingEls,
-          { opacity: 0, y: 36 },
-          {
-            opacity: 1,
-            y: 0,
-            duration: 0.75,
-            stagger: 0.1,
-            ease: "power3.out",
-            scrollTrigger: { trigger: sectionRef.current, start: "top 80%", once: true },
-          }
-        )
-      }
-
-      // Stat cards stagger up
-      if (cardsRef.current) {
-        const cards = cardsRef.current.querySelectorAll(".inv-card")
-        if (cards.length > 0) {
-          gsap.fromTo(
-            cards,
-            { opacity: 0, y: 52, scale: 0.96 },
-            {
-              opacity: 1,
-              y: 0,
-              scale: 1,
-              duration: 0.7,
-              stagger: 0.14,
-              ease: "power3.out",
-              scrollTrigger: { trigger: cardsRef.current, start: "top 82%", once: true },
-            }
-          )
+      const els = sectionRef.current!.querySelectorAll(".ec-reveal")
+      gsap.fromTo(
+        els,
+        { opacity: 0, y: 36, filter: "blur(8px)" },
+        {
+          opacity: 1,
+          y: 0,
+          filter: "blur(0px)",
+          duration: 1.1,
+          stagger: 0.12,
+          ease: "power3.out",
+          scrollTrigger: { trigger: sectionRef.current, start: "top 75%", once: true },
         }
-      }
+      )
 
-      // CTA row slides up last
-      const ctaRow = sectionRef.current?.querySelector(".inv-cta")
-      if (ctaRow) {
+      const bgImg = sectionRef.current?.querySelector(".section-bg-img") as HTMLElement | null
+      if (bgImg) {
         gsap.fromTo(
-          ctaRow,
-          { opacity: 0, y: 24 },
+          bgImg,
+          { yPercent: -8 },
           {
-            opacity: 1,
-            y: 0,
-            duration: 0.65,
-            ease: "power2.out",
-            scrollTrigger: { trigger: ctaRow, start: "top 88%", once: true },
+            yPercent: 8,
+            ease: "none",
+            scrollTrigger: {
+              trigger: sectionRef.current,
+              start: "top bottom",
+              end: "bottom top",
+              scrub: 1.2,
+            },
           }
         )
       }
     }, sectionRef)
-
-    return () => ctx.revert()
+    return () => {
+      ctx.revert()
+      ScrollTrigger.getAll().forEach((trigger) => trigger.kill())
+    }
   }, [])
 
   return (
     <section
-      ref={sectionRef}
       id="investors"
-      className="relative overflow-hidden px-6 py-28 md:py-36"
-      style={{ background: "#f5f5f0" }}
+      ref={sectionRef}
+      className="relative w-full overflow-hidden bg-[#050705] py-[clamp(5rem,10vw,9rem)]"
     >
-      {/* Decorative green glow */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute -right-40 -top-40 h-[560px] w-[560px] rounded-full"
-        style={{ background: "radial-gradient(circle, rgba(22,163,74,0.07) 0%, transparent 70%)" }}
-      />
+      <div className="absolute inset-0 z-0">
+        <img
+          src="/images/hero/investors_hero.png"
+          alt="Futuristic financial growth chart"
+          aria-hidden="true"
+          className="section-bg-img img-smooth-load h-full w-full object-cover opacity-50"
+        />
+        <div 
+          className="absolute inset-0" 
+          style={{ 
+            background: "linear-gradient(to bottom, rgba(5,7,5,0.7) 0%, rgba(5,7,5,0.92) 100%)" 
+          }} 
+        />
+      </div>
 
-      <div className="relative z-10 mx-auto max-w-[1180px]">
-        {/* Header */}
-        <div className="mb-14 max-w-[600px]">
-          <div className="inv-heading">
-            <SectionBadge number="04" />
-          </div>
-          <p className="section-overline inv-heading mb-3">For Investors</p>
-          <h2 className="section-headline inv-heading mb-4 text-eco-dark">
-            This is not a recycling project.
-            <br />
-            This is logistics infrastructure.
-          </h2>
-          <p className="section-body inv-heading text-eco-dark/60">
-            Early-stage funding secured. Operations live. ECOCAN is building the deposit-return
-            backbone across Africa — ready for Series A.
-          </p>
+      <div className="relative z-10 px-[clamp(1.25rem,4vw,3rem)] max-w-5xl mx-auto">
+        <h2
+          className="ec-reveal mb-12 font-serif-luxury text-luxury-gradient"
+          style={{ 
+            fontSize: "clamp(2.5rem,5vw,4.5rem)", 
+            lineHeight: "1.1", 
+            letterSpacing: "-0.02em",
+          }}
+        >
+          Build circular <br className="hidden md:inline" />
+          <span className="font-sans font-light text-emerald-400">infrastructure with us.</span>
+        </h2>
+
+        <div className="ec-reveal grid gap-6 md:grid-cols-3 my-12">
+          {metrics.map(({ value, label, desc }) => (
+            <SpotlightCard 
+              key={label} 
+              className="bg-[#0c100c]/30 border-white/5 rounded-3xl p-8 hover:border-emerald-500/20 transition-all duration-300"
+            >
+              <p className="text-4xl font-light font-serif-luxury text-white group-hover:text-emerald-400 transition-colors duration-300" style={{ letterSpacing: "-0.02em" }}>{value}</p>
+              <p className="mt-4 text-xs font-semibold text-emerald-400 uppercase tracking-[0.12em]">{label}</p>
+              <p className="mt-2 text-[13px] leading-relaxed text-white/50 font-normal">{desc}</p>
+            </SpotlightCard>
+          ))}
         </div>
 
-        {/* Stats */}
-        <div ref={cardsRef} className="mb-14 grid grid-cols-1 gap-5 sm:grid-cols-3">
-          {highlights.map((h, i) => {
-            const Icon = h.icon
-            const isActive = activeCard === i
-            return (
-              <div
-                key={h.label}
-                className="inv-card group relative cursor-pointer overflow-hidden rounded-2xl border transition-all duration-300"
-                style={{
-                  background: isActive ? h.accent : "white",
-                  borderColor: isActive ? h.color + "50" : "rgba(0,0,0,0.07)",
-                  transform: isActive ? "translateY(-6px)" : "translateY(0)",
-                  boxShadow: isActive ? `0 20px 48px ${h.color}18` : "0 1px 6px rgba(0,0,0,0.05)",
-                }}
-                onMouseEnter={() => setActiveCard(i)}
-                onMouseLeave={() => setActiveCard(null)}
-              >
-                {/* Top bar */}
-                <div
-                  className="absolute inset-x-0 top-0 transition-all duration-300"
-                  style={{
-                    height: isActive ? "4px" : "3px",
-                    background: h.color,
-                    opacity: isActive ? 1 : 0.5,
-                  }}
-                />
-
-                {/* Inner glow */}
-                <div
-                  className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
-                  style={{
-                    background: `radial-gradient(ellipse at top left, ${h.color}10 0%, transparent 60%)`,
-                  }}
-                />
-
-                <div className="relative p-7">
-                  {/* Icon */}
-                  <div
-                    className="mb-5 flex h-11 w-11 items-center justify-center rounded-xl transition-all duration-300"
-                    style={{
-                      background: isActive ? h.color : h.color + "15",
-                    }}
-                  >
-                    <Icon
-                      size={22}
-                      style={{ color: isActive ? "white" : h.color }}
-                      strokeWidth={1.8}
-                    />
-                  </div>
-
-                  {/* Label */}
-                  <p
-                    className="mb-1 text-[11px] font-semibold uppercase tracking-widest transition-colors duration-200"
-                    style={{ color: isActive ? h.color : "rgba(0,0,0,0.35)" }}
-                  >
-                    {h.label}
-                  </p>
-
-                  {/* Value */}
-                  <p
-                    className="mb-2 font-extrabold leading-none transition-colors duration-200"
-                    style={{
-                      fontSize: "clamp(36px, 4vw, 48px)",
-                      color: isActive ? h.color : "#111",
-                    }}
-                  >
-                    {h.value}
-                  </p>
-
-                  {/* Note */}
-                  <p className="mb-4 text-[13.5px] leading-snug text-eco-dark/55">{h.note}</p>
-
-                  {/* Detail — revealed on hover */}
-                  <p
-                    className="text-[12.5px] leading-relaxed transition-all duration-300"
-                    style={{ color: isActive ? "rgba(0,0,0,0.55)" : "rgba(0,0,0,0.28)" }}
-                  >
-                    {h.detail}
-                  </p>
-
-                  {/* Pulse dot */}
-                  {!isActive && (
-                    <div
-                      className="absolute bottom-4 right-4 h-2 w-2 animate-pulse-dot rounded-full"
-                      style={{ background: h.color, opacity: 0.35 }}
-                    />
-                  )}
-                </div>
-              </div>
-            )
-          })}
-        </div>
-
-        {/* CTA row */}
-        <div className="inv-cta flex flex-col items-start gap-5 sm:flex-row sm:items-center">
+        <div className="ec-reveal mt-12">
           <Link
-            href="/contact"
-            className="pill-btn pill-btn-filled !px-9 !py-4 text-base transition-all hover:shadow-lg active:scale-95"
+            href="/investors"
+            className="inline-flex rounded-full border border-white/10 bg-white/5 backdrop-blur-md px-8 py-3 text-[14px] font-medium text-white transition-all duration-300 hover:bg-emerald-500/10 hover:text-emerald-400 hover:border-emerald-500/20"
           >
-            Request Investor Deck
-            <ArrowRight size={18} />
-          </Link>
-          <Link
-            href="/about-us"
-            className="flex items-center gap-2 text-[15px] font-semibold text-eco-dark/55 transition-colors hover:text-eco-dark"
-          >
-            Meet the Team <ExternalLink size={14} />
+            Download Pitch Deck
           </Link>
         </div>
       </div>

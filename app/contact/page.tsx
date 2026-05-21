@@ -1,20 +1,18 @@
 import type { Metadata } from "next"
-import ContactHero from "./components/hero"
+import ContactPage from "./components/hero"
 
 export const metadata: Metadata = {
   title: "Contact Us",
   description:
-    "Get in touch with the ECOCAN team. Partner with us, bring ECOCAN to your market, or ask about our deposit return system.",
+    "Contact ECOCAN Kenya for ECO-Station support, recycling rewards help, counterfeit reporting, or partnership requests.",
   openGraph: {
     title: "Contact ECOCAN",
-    description: "Partner with ECOCAN or ask us anything about our circular bottle ecosystem.",
+    description:
+      "Need help with bottle returns, safe drink verification, or ECOCAN partnerships in Kenya? Reach out.",
   },
 }
 
 export default function Contact() {
-  return (
-    <>
-      <ContactHero />
-    </>
-  )
+  return <ContactPage />
 }
+

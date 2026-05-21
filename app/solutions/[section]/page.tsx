@@ -9,13 +9,12 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
-import NavigationBar from "@/components/shared/navbar/navbar";
-import { useScroll } from "@/lib/useScroll";
+import HomeNavbar from "@/components/sections/home-navbar";
+import HomeFooter from "@/components/sections/home-footer";
 import { notFound } from "next/navigation";
 import { sectionComponents, SectionType } from "../sections";
 import { sectionConfigs } from "@/types/section";
 import { LucideArrowLeft } from "lucide-react";
-import Footer from "@/components/shared/footer/footer";
 import { CORE_ROUTES, isValidSolutionSection } from "@/lib/site-contract";
 
 interface SectionPageProps {
@@ -26,7 +25,6 @@ interface SectionPageProps {
 
 export default function SectionPage({ params }: SectionPageProps) {
   const router = useRouter();
-  const isScrolled = useScroll();
 
   // Validate that the section exists
   if (!isValidSolutionSection(params.section)) {
@@ -72,47 +70,35 @@ export default function SectionPage({ params }: SectionPageProps) {
   );
 
   return (
-    <div>
+    <div style={{ background: "#050705" }} className="min-h-screen">
       {sectionConfig.hasHeroLayout ? (
         <div
-          className="min-h-[75vh] pb-8 lg:min-h-[90vh] bg-right lg:bg-center relative after:absolute after:inset-0 after:content-[''] after:bg-black/70 lg:after:bg-black/60 after:opacity-70 after:z-10"
+          className="min-h-[75vh] pb-8 lg:min-h-[90vh] bg-right lg:bg-center relative overflow-hidden"
           style={{
             backgroundImage: `url(${sectionConfig.backgroundImage})`,
             backgroundSize: "cover",
           }}
         >
-          <NavigationBar
-            className={
-              isScrolled
-                ? "bg-card"
-                : "bg-transparent text-white backdrop-blur-none"
-            }
-            logoSrc={
-              isScrolled
-                ? "/assets/images/ecocan-logo.svg"
-                : "/assets/images/ecocan-logo-alt.svg"
-            }
-          />
-          <div className="max-w-[72rem] mx-auto px-4 xl:px-0">
+          {/* Dark overlay */}
+          <div className="absolute inset-0" style={{ background: "linear-gradient(to bottom, rgba(5,7,5,0.55) 0%, rgba(5,7,5,0.9) 100%)", zIndex: 10 }} />
+          <HomeNavbar onMenuToggle={() => {}} />
+          <div className="relative z-[999] max-w-[72rem] mx-auto px-4 xl:px-0">
             <BreadcrumbNav />
             {sectionConfig.heroContent}
           </div>
         </div>
       ) : (
         <div>
-          <NavigationBar
-            className={isScrolled ? "bg-card" : "bg-transparent"}
-            logoSrc="/assets/images/ecocan-logo.svg"
-          />
-          <div className="max-w-[72rem] mx-auto px-4 xl:px-0 border">
+          <HomeNavbar onMenuToggle={() => {}} />
+          <div className="max-w-[72rem] mx-auto px-4 xl:px-0">
             <BreadcrumbNav />
           </div>
         </div>
       )}
 
-      <div className={sectionConfig.hasHeroLayout ? "" : "mt-0"}>
+      <div className={sectionConfig.hasHeroLayout ? "" : "mt-0"} style={{ background: "#050705" }}>
         <SectionComponent />
-        <Footer />
+        <HomeFooter />
       </div>
     </div>
   );

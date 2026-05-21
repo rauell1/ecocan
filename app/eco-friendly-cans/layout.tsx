@@ -3,10 +3,11 @@ import type { Metadata } from "next"
 export const metadata: Metadata = {
   title: "Eco-Friendly Cans",
   description:
-    "ECOCAN's aluminium can program - traceable, recyclable, and integrated into Africa's deposit return system.",
+    "Learn how ECOCAN smart cans in Kenya help shoppers recycle faster, prevent counterfeit returns, and unlock rewards.",
   openGraph: {
     title: "Eco-Friendly Cans | ECOCAN",
-    description: "Every aluminium can in the ECOCAN system is traceable, recyclable, and rewarded.",
+    description:
+      "Every ECOCAN return point is built for secure bottle recovery, cleaner communities, and consumer rewards.",
   },
 }
 

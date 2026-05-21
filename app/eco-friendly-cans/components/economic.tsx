@@ -4,10 +4,10 @@ import Image from "next/image"
 import React from "react"
 
 const timelineData = {
-  title: <span className="text-4xl text-white">3. ECOnomic efficiency and Social Benefits</span>,
+  title: <span className="font-serif-luxury text-luxury-gradient text-luxury-glow" style={{ fontSize: "clamp(1.75rem,4vw,2.5rem)", lineHeight: 1.1 }}>3. ECOnomic Efficiency &amp; Social Benefits</span>,
   subtitle: (
-    <p className="text-muted-foreground">
-      Let recycling work for you by turning ECOcans into money-makers and brand ambassadors
+    <p className="text-white/55 mt-2">
+      Let recycling work for Kenyan communities by turning ECOcans into reliable reward and awareness points
     </p>
   ),
   items: [
@@ -40,7 +40,8 @@ const timelineData = {
 
 export default function Economic() {
   return (
-    <div className="relative bg-[#2F313F] py-8 md:py-24">
+    <div className="relative py-8 md:py-24" style={{ background: "#050705" }}>
+      <div className="ec-divider mx-4 mb-16" />
       <Timeline
         className="bottom-[22.5%]"
         title={timelineData.title}
@@ -49,7 +50,7 @@ export default function Economic() {
       />
       {timelineData.items.map((item, index) => (
         <div key={index} className="mx-4 md:hidden">
-          <div className="overflow-hidden rounded-smooth-lg">
+          <div className="rounded-2xl overflow-hidden border border-white/5">
             <Image
               src={item.image}
               alt={item.title}
@@ -60,17 +61,10 @@ export default function Economic() {
           </div>
           <div className="py-4">
             <h3 className="mb-2 text-xl font-bold text-white">{item.title}</h3>
-            <p className="font-light text-muted-foreground">{item.description}</p>
+            <p className="text-white/55 font-light leading-relaxed">{item.description}</p>
           </div>
         </div>
       ))}
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 1440 150"
-        className="absolute -top-24 z-50 hidden lg:block"
-      >
-        <path fill="#2F313F" fillOpacity="1" d="M0,80L1440,0L1440,180L0,180Z"></path>
-      </svg>
     </div>
   )
 }

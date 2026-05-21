@@ -27,21 +27,20 @@ export default function DefaultHero() {
             <div className="z-[99] flex flex-col justify-center gap-4 px-4 pt-12 text-white md:w-3/4 lg:w-1/2 lg:items-center lg:space-y-4 lg:pt-0 xl:px-0">
               <div>
                 <h1 className="text-start text-5xl font-semibold xl:text-[4rem]">
-                  Re-imagining{" "}
+                  Kenya&apos;s{" "}
                   <span className="bg-gradient-to-r from-[hsl(var(--eco-grad-start))] via-[hsl(var(--eco-grad-mid))] to-[hsl(var(--eco-grad-end))] bg-clip-text text-transparent">
-                    Sustainability
+                    recycling journey
                   </span>
                 </h1>
               </div>
               <div className="text-base md:space-y-8 lg:text-xl xl:space-y-6">
                 <p className="text-start text-white">
-                  At ECOCAN, sustainability goes beyond environmental conservation, to nurturing
-                  healthy and thriving communities. Download EcocanApp to avoid harmful fake drinks,
-                  and to make money while protecting the planet through recycling.
+                  Download EcocanApp to verify genuine drinks before you buy, return empties at
+                  nearby ECO-Stations, and earn rewards while keeping Kenyan neighborhoods cleaner.
                 </p>
                 <div className="mt-4 gap-4 md:mt-0 md:flex">
                   <AppStoreButton
-                    className="mb-4 border bg-white px-8 font-medium text-primary no-underline hover:bg-white lg:hidden"
+                    className="text-primary mb-4 border bg-white px-8 font-medium no-underline hover:bg-white lg:hidden"
                     playStoreUrl="https://play.google.com/store/apps/details?id=com.superapp.ecocanapp"
                     appStoreUrl="https://apps.apple.com/app/6502695438"
                     showArrow={true}
@@ -50,7 +49,7 @@ export default function DefaultHero() {
                     join="Download App"
                     showArrow={true}
                     arrow={<LucideDownload className="ml-4" />}
-                    className="mb-4 hidden border bg-white px-8 font-medium text-primary no-underline hover:bg-white lg:flex"
+                    className="text-primary mb-4 hidden border bg-white px-8 font-medium no-underline hover:bg-white lg:flex"
                   />
                   <JoinEcommunity className="text-base" />
                 </div>
@@ -100,7 +99,7 @@ export default function DefaultHero() {
           </svg>
         </div>
         <section className="px-4 py-8 text-center">
-          <h2 className="text-3xl font-medium xl:text-5xl">The ECOmmunity</h2>
+          <h2 className="text-3xl font-medium xl:text-5xl">The Consumer ECOmmunity</h2>
         </section>
       </div>
     </header>

@@ -36,17 +36,17 @@ const accordionData: AccordionData[] = [
             join="Download EcocanApp"
             className="hidden h-0 font-normal lg:inline-flex"
           />{" "}
-          here, sign up in under 2 minutes, and start your sustainability journey today!
+          here, sign up in under 2 minutes, and start your recycling rewards journey today.
         </div>
         <div>
           {" "}
           After registration, you can join the exclusive{" "}
           <JoinEcommunity
-            className="h-0 border-none p-0 text-base font-normal text-primary underline underline-offset-4"
+            className="text-primary h-0 border-none p-0 text-base font-normal underline underline-offset-4"
             showArrow={false}
             join="ECOmmunity here"
           />
-          , to enjoy jaw-dropping discounts, and VIP benefits.
+          , to enjoy local discounts and member-only recycling perks.
         </div>
       </div>
     ),
@@ -56,10 +56,12 @@ const accordionData: AccordionData[] = [
     title: "Scan to Authenticate",
     description: (
       <div className="w-11/12 space-y-2">
-        <div>With ECO-scanner, you can easily and securely tell what&apos;s real from fake.</div>
         <div>
-          Scan attached ECOCAN Security codes, and an authentication page will pop up. If it
-          doesn&apos;t, it&apos;s a fake! <span className="text-red-500">DON&apos;T BUY IT!</span>
+          With ECO-scanner, you can quickly tell genuine drinks from counterfeits before you pay.
+        </div>
+        <div>
+          Scan the ECOCAN Security code. If an authentication page does not appear, it&apos;s likely
+          fake. <span className="text-red-500">DON&apos;T BUY IT!</span>
         </div>
       </div>
     ),
@@ -77,7 +79,7 @@ const accordionData: AccordionData[] = [
 
         <div>
           While there, either hand your empties to <HyperLink link="Egents" href="#faq" />, or drop
-          them into <HyperLink link="ECOcans" href="/#what_are_ecocans" />
+          them into <HyperLink link="ECOcans" href="/#faq" />
         </div>
       </div>
     ),
@@ -88,12 +90,10 @@ const accordionData: AccordionData[] = [
     description: (
       <div className="w-11/12 space-y-2">
         <div>
-          Once your eligible empties are accepted, you&apos;ll get paid instantly, right into your
-          ECO-wallet!
+          Once your eligible empties are accepted, your refund lands instantly in your ECO-wallet.
         </div>
         <div>
-          Additionally, the App will inform you of the CO2e reduction & energy savings you&apos;ve
-          made. And we&apos;ll reward your ECO-friendly efforts with exclusive discounts
+          The app also tracks your CO2e savings and gives extra coupons from partner shops in Kenya.
         </div>
       </div>
     ),
@@ -106,7 +106,7 @@ const accordionData: AccordionData[] = [
         <div>
           You can order more drinks affordably from{" "}
           <span className="font-semibold">ECOCAN Market</span>, transfer deposits to friends, donate
-          to charity, or cash out.
+          to charity, or cash out to your preferred channel.
         </div>
         <div>
           Take a look at the EcocanApp <ScanqrPopup join="tutorial" className="h-0" /> for more!
@@ -150,7 +150,7 @@ export function AccordionDemo({ onSelect }: { onSelect: (id: number) => void }) 
               </AccordionTrigger>
             </div>
           </div>
-          <AccordionContent className={`text-sm text-muted-foreground lg:text-base`}>
+          <AccordionContent className={`text-muted-foreground text-sm lg:text-base`}>
             {item.description}
           </AccordionContent>
         </AccordionItem>

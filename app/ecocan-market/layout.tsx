@@ -3,11 +3,11 @@ import type { Metadata } from "next"
 export const metadata: Metadata = {
   title: "ECOCAN Market",
   description:
-    "The ECOCAN marketplace connecting ECO-Stations, producers, and consumers across East Africa's circular economy.",
+    "Browse verified drinks and recyclable products for Kenyan consumers on ECOCAN Market, with clear deposit-return eligibility.",
   openGraph: {
     title: "ECOCAN Market",
     description:
-      "Discover how ECOCAN connects buyers, sellers, and recyclers in one circular marketplace.",
+      "Find safe drinks and recycling-eligible products connected to ECO-Stations and consumer rewards in Kenya.",
   },
 }
 

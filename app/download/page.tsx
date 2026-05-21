@@ -78,27 +78,29 @@ export default function DownloadRedirect() {
           className="dl-animate mb-4 font-bold text-white"
           style={{ fontSize: "clamp(32px, 5vw, 56px)", lineHeight: 1.1 }}
         >
-          Scan. Return. Get paid.
+          Verify. Recycle. Get paid.
         </h1>
         <p className="dl-animate mb-10 max-w-[480px] text-lg text-white/65">
-          Verify drinks, find collection points, and collect your deposit reward — instantly to
-          M-Pesa.
+          Verify drinks, find nearby ECO-Stations across Kenya, and collect your recycling reward —
+          instantly to M-PESA.
         </p>
 
         {/* Feature pills */}
         <div className="dl-animate mb-10 flex flex-wrap justify-center gap-3">
-          {["✓  Free to download", "✓  Instant M-Pesa cashout", "✓  500+ ECO-Stations"].map((f) => (
-            <span
-              key={f}
-              className="rounded-full px-4 py-1.5 text-sm font-medium text-white/70"
-              style={{
-                background: "rgba(255,255,255,0.08)",
-                border: "1px solid rgba(255,255,255,0.12)",
-              }}
-            >
-              {f}
-            </span>
-          ))}
+          {["✓  Free to download", "✓  Instant M-PESA cashout", "✓  Safe-drink verification"].map(
+            (f) => (
+              <span
+                key={f}
+                className="rounded-full px-4 py-1.5 text-sm font-medium text-white/70"
+                style={{
+                  background: "rgba(255,255,255,0.08)",
+                  border: "1px solid rgba(255,255,255,0.12)",
+                }}
+              >
+                {f}
+              </span>
+            )
+          )}
         </div>
 
         {/* CTA buttons */}
@@ -126,7 +128,7 @@ export default function DownloadRedirect() {
 
         {/* Trust badges */}
         <div className="dl-animate flex flex-wrap justify-center gap-3">
-          {["Early-stage funded", "Operational in Kenya", "GDPR Compliant"].map((badge) => (
+          {["Built for Kenya", "Consumer-first recycling", "ECO-Station rewards"].map((badge) => (
             <span key={badge} className="glass-pill px-4 py-1.5 text-[13px] text-white/80">
               {badge}
             </span>

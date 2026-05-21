@@ -1,17 +1,15 @@
-import TextWithComponent from "@/components/contents/consumer/components/text-with-component";
-import React from "react";
-import Products from "./products";
+import TextWithComponent from "@/components/contents/consumer/components/text-with-component"
+import React from "react"
+import Products from "./products"
 
 export default function Searchbar() {
   return (
-    <div className="max-w-[72rem] mx-auto px-4 xl:px-0 py-24">
+    <div className="mx-auto max-w-[72rem] px-4 py-24 xl:px-0">
       <TextWithComponent
         title="ECOCAN Market"
-        description="ECOCAN Market is the most sustainable, pocket friendly supermarket, in your pocket"
-        component={
-          <Products/>
-        }
+        description="Discover verified drinks and recycling-eligible products for Kenyan shoppers, with clear ECOCAN return and reward pathways"
+        component={<Products />}
       />
     </div>
-  );
+  )
 }

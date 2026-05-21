@@ -293,3 +293,8 @@ _Last manually updated: 2026-05-12 | Auto-updated by CI on every push to `main`_
 | 70 | [`8d178a8`](https://github.com/rauell1/ecocan/commit/8d178a8db58b7ed94aa3436c014ae2ce8a4e78ad) | — | rauell1 | 2026-05-14 19:44 | main |
 | 71 | [`408a930`](https://github.com/rauell1/ecocan/commit/408a9307d0855a5d74c1d324d6b0b68bad308d5b) | — | rauell1 | 2026-05-14 19:47 | main |
 | 72 | [`8be650a`](https://github.com/rauell1/ecocan/commit/8be650aaf474a6c606c44ee5c56121ad485422e0) | — | rauell1 | 2026-05-14 19:49 | main |
+| 73 | [`e2b9a9d`](https://github.com/rauell1/ecocan/commit/e2b9a9df16a9fdf73a85c2577fcdf62477c3eb5b) | — | rauell1 | 2026-05-20 16:24 | main |
+| 74 | [`e610388`](https://github.com/rauell1/ecocan/commit/e61038860210e6a8e2cac6bcd718f852fb57250c) | — | rauell1 | 2026-05-20 16:25 | main |
+| 75 | [`3f8a4aa`](https://github.com/rauell1/ecocan/commit/3f8a4aab2a045a98e2b7cc2bf3a8b0e6261564b0) | — | rauell1 | 2026-05-20 17:05 | main |
+| 76 | [`cf511b2`](https://github.com/rauell1/ecocan/commit/cf511b221bcacc3adc13406c9d5615e8be5e1ba2) | — | rauell1 | 2026-05-21 17:27 | main |
+| 77 | [`f5336a6`](https://github.com/rauell1/ecocan/commit/f5336a66b21dd6e1c42b5ed4ab0db97a35cd0b67) | — | rauell1 | 2026-05-21 18:25 | main |

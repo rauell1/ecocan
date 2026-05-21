@@ -3,143 +3,108 @@
 import { useRef, useEffect } from "react"
 import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
-import Image from "next/image"
-import Link from "next/link"
-import { ArrowRight } from "lucide-react"
 
-const partners = [
-  "Quickmart",
-  "Carrefour",
-  "Naivas",
-  "Coca-Cola",
-  "Keroche",
-  "KWAL",
-  "Roam",
-  "Antler",
-  "Villgro",
-  "NEFCO",
-]
-
-const testimonials = [
-  {
-    quote: "I don't think about the money. I think about my children drinking safe water.",
-    name: "Mama Jane",
-    role: "Consumer, Nairobi",
-    image: "/images/testimonial-jane.jpg",
-  },
-  {
-    quote: "My customers feel proud to recycle here. The foot traffic is a bonus.",
-    name: "Supermarket Owner",
-    role: "Retail partner",
-    image: "/images/testimonial-owner.jpg",
-  },
-  {
-    quote: "Putting a bottle in the bin feels wrong now. Returning it feels right.",
-    name: "James",
-    role: "ECOnsumer, Mombasa",
-    image: "/images/testimonial-james.jpg",
-  },
-]
+const partnerLogos = ["NEMA", "KBL", "AMESA", "GREENPATH", "SAFARICOM"]
 
 export default function PartnersTestimonialsSection() {
   const sectionRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger)
-
     const ctx = gsap.context(() => {
-      const els = sectionRef.current?.querySelectorAll(".pt-animate")
-      if (els && els.length > 0) {
+      const targets = sectionRef.current!.querySelectorAll(".ec-reveal")
+      if (targets.length === 0) return
+      gsap.fromTo(
+        targets,
+        { opacity: 0, y: 36, filter: "blur(8px)" },
+        {
+          opacity: 1,
+          y: 0,
+          filter: "blur(0px)",
+          duration: 1.1,
+          stagger: 0.12,
+          ease: "power3.out",
+          scrollTrigger: { trigger: sectionRef.current, start: "top 75%", once: true },
+        }
+      )
+
+      const bgImg = sectionRef.current?.querySelector(".section-bg-img") as HTMLElement | null
+      if (bgImg) {
         gsap.fromTo(
-          els,
-          { opacity: 0, y: 36 },
+          bgImg,
+          { yPercent: -8 },
           {
-            opacity: 1,
-            y: 0,
-            duration: 0.7,
-            stagger: 0.1,
-            ease: "power3.out",
-            scrollTrigger: { trigger: sectionRef.current, start: "top 78%", once: true },
+            yPercent: 8,
+            ease: "none",
+            scrollTrigger: {
+              trigger: sectionRef.current,
+              start: "top bottom",
+              end: "bottom top",
+              scrub: 1.2,
+            },
           }
         )
       }
     }, sectionRef)
-
-    return () => ctx.revert()
+    return () => {
+      ctx.revert()
+      ScrollTrigger.getAll().forEach((trigger) => trigger.kill())
+    }
   }, [])
 
   return (
-    <section ref={sectionRef} className="w-full bg-white py-[120px] md:py-[160px]">
-      <div className="mx-auto max-w-[1280px] px-6">
-        {/* Partner banner image */}
-        <div
-          className="pt-animate relative mb-16 overflow-hidden rounded-3xl"
-          style={{ height: "clamp(160px, 25vw, 320px)" }}
-        >
-          <Image
-            src="/images/supermarket-interior.jpg"
-            alt="ECOCAN collection point in supermarket"
-            fill
-            sizes="(max-width: 1280px) 100vw, 1280px"
-            className="object-cover"
-            loading="lazy"
-            placeholder="blur"
-            blurDataURL="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxIiBoZWlnaHQ9IjEiPjxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9IiMwYTFhMGYiLz48L3N2Zz4="
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-eco-dark/65 via-eco-dark/15 to-transparent" />
-          <div className="absolute bottom-0 left-0 p-8 md:p-10">
-            <p className="section-overline mb-1 !text-primary">Our Partners</p>
-            <h2 className="section-headline text-white">Trusted across the value chain</h2>
-          </div>
-        </div>
+    <section
+      ref={sectionRef}
+      className="relative w-full overflow-hidden bg-[#050705] py-[clamp(6rem,12vw,10rem)]"
+    >
+      <div className="absolute inset-0 z-0">
+        <img
+          src="/images/hero/partners_hero.png"
+          alt="High tech partnership network handshake"
+          aria-hidden="true"
+          className="section-bg-img h-full w-full object-cover opacity-50"
+        />
+        <div 
+          className="absolute inset-0" 
+          style={{ 
+            background: "linear-gradient(to bottom, rgba(5,7,5,0.7) 0%, rgba(5,7,5,0.92) 100%)" 
+          }} 
+        />
+      </div>
 
-        {/* Partner pills — flat, no categories */}
-        <div className="pt-animate mb-5 flex flex-wrap gap-2">
-          {partners.map((name) => (
+      <div className="ec-reveal relative z-10 mx-[clamp(1.25rem,4vw,3rem)] max-w-5xl md:mx-auto rounded-[24px] border border-white/5 bg-[#0c100c]/20 backdrop-blur-xl px-10 py-8 shadow-2xl">
+        <div className="flex flex-wrap items-center justify-around gap-8">
+          {partnerLogos.map((logo) => (
             <span
-              key={name}
-              className="rounded-full bg-[#f0f0eb] px-4 py-1.5 text-sm font-medium text-eco-dark/65"
+              key={logo}
+              className="text-[13px] font-bold uppercase tracking-[0.25em] text-white/30 hover:text-emerald-400 transition-colors duration-300"
             >
-              {name}
+              {logo}
             </span>
           ))}
         </div>
-        <Link
-          href="/contact"
-          className="pt-animate mb-16 inline-flex items-center gap-2 text-sm font-semibold text-primary hover:underline"
-        >
-          Become a partner <ArrowRight size={14} />
-        </Link>
+      </div>
 
-        {/* Testimonials */}
-        <h2 className="pt-animate section-headline mb-10 text-eco-dark">
-          Real impact. Real pride.
-        </h2>
-        <div className="grid grid-cols-1 gap-5 md:grid-cols-3">
-          {testimonials.map((t) => (
-            <div
-              key={t.name}
-              className="pt-animate rounded-2xl border border-black/[0.06] bg-white p-7 shadow-sm transition-shadow hover:shadow-md"
-            >
-              <p className="mb-6 text-[16px] italic leading-relaxed text-eco-dark/75">
-                &ldquo;{t.quote}&rdquo;
-              </p>
-              <div className="flex items-center gap-3">
-                <Image
-                  src={t.image}
-                  alt={t.name}
-                  width={40}
-                  height={40}
-                  className="h-10 w-10 rounded-full object-cover"
-                  loading="lazy"
-                />
-                <div>
-                  <p className="text-sm font-semibold text-eco-dark">{t.name}</p>
-                  <p className="text-xs text-eco-dark/45">{t.role}</p>
-                </div>
-              </div>
-            </div>
-          ))}
+      <div className="ec-reveal relative z-10 px-[clamp(1.25rem,4vw,3rem)] pt-20 max-w-4xl mx-auto text-center md:text-left">
+        <div className="h-[1px] w-12 bg-emerald-500/30 mb-8 mx-auto md:mx-0" />
+        
+        <span className="text-8xl text-emerald-400/20 font-serif leading-none block select-none mb-[-20px] h-8">“</span>
+        
+        <blockquote className="text-2xl md:text-[36px] font-light leading-snug font-serif-luxury text-luxury-gradient tracking-tight">
+          Ecocan has completely redefined the economics of waste recovery. By bridging immediate digital liquidity with verified circular provenance, it makes sustainability a profitable reality for every collector, merchant, and recycler in our network.
+        </blockquote>
+        
+        <div className="mt-8 flex flex-col md:flex-row md:items-center justify-between gap-6 border-t border-white/5 pt-8">
+          <div className="text-left">
+            <p className="text-sm font-semibold text-emerald-400 tracking-wider uppercase">Grace M.</p>
+            <p className="text-xs text-white/40 mt-1 font-serif-luxury italic">Retail Circularity & Operations Lead</p>
+          </div>
+          
+          <div className="hidden md:flex items-center gap-4 text-xs text-white/30 uppercase tracking-[0.15em]">
+            <span>Circular Network Impact</span>
+            <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
+            <span>Scale partner</span>
+          </div>
         </div>
       </div>
     </section>

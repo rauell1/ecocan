@@ -75,8 +75,8 @@ export default function Operational() {
   }, [api])
 
   return (
-    <div className="relative bg-[#F6F6F6] lg:pb-36">
-      <div className="relative z-[999] mx-auto max-w-[72rem] px-4 py-8 lg:py-0 xl:px-0">
+    <div className="relative py-16" style={{ background: "#050705" }}>
+      <div className="relative z-10 mx-auto max-w-[72rem] px-4 py-8 lg:py-0 xl:px-0">
         <ImageAndItem
           className="lg:flex-row-reverse lg:gap-12"
           image={
@@ -114,12 +114,12 @@ export default function Operational() {
                     <CarouselContent className="mt-20 px-2 py-4 xl:mt-24">
                       {litterContent.map((item, index) => (
                         <CarouselItem key={index} className="md:basis-full">
-                          <Card className="h-full border-none p-4 shadow-none">
-                            <div className="text-muted-foreground">
+                          <Card className="h-full border border-white/5 bg-white/[0.03] rounded-2xl p-4 shadow-none">
+                            <div className="text-white/60">
                               {item.title && (
-                                <div className="text-xl font-semibold text-black">{item.title}</div>
+                                <div className="text-xl font-semibold text-emerald-400 mb-2">{item.title}</div>
                               )}
-                              <div className="text-base text-[#238A23]">{item.description}</div>
+                              <div className="text-base text-white/60 leading-relaxed">{item.description}</div>
                             </div>
                           </Card>
                         </CarouselItem>
@@ -136,20 +136,6 @@ export default function Operational() {
           }
         />
       </div>
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 1440 400"
-        className="absolute -top-36 z-50 hidden lg:block xl:-top-52"
-      >
-        <path fill="#F6F6F6" fillOpacity="1" d="M0,100L1440,0L1440,400L0,400Z"></path>
-      </svg>
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 1440 100"
-        className="absolute bottom-0 z-50 hidden lg:block"
-      >
-        <path fill="white" fillOpacity="1" d="M0,100L1440,0L1440,100L0,100Z"></path>
-      </svg>
     </div>
   )
 }

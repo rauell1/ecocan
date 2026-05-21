@@ -1,13 +1,12 @@
 "use client"
 
-import { useRef, useEffect, useCallback } from "react"
+import { useRef, useEffect, useCallback, useState } from "react"
 import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
-import { Download, ArrowRight } from "lucide-react"
+import { ArrowDown } from "lucide-react"
 
 const LENIS_INIT_DELAY = 500
-const SCROLL_END = "+=100%"
-const SCROLL_SCRUB = 1.5
+const SCROLL_SCRUB = 1.2
 
 interface HeroSectionProps {
   onTransitionComplete: () => void
@@ -15,51 +14,83 @@ interface HeroSectionProps {
 
 export default function HeroSection({ onTransitionComplete }: HeroSectionProps) {
   const heroRef = useRef<HTMLDivElement>(null)
-  const videoWrapperRef = useRef<HTMLDivElement>(null)
-  const contentRef = useRef<HTMLDivElement>(null) // bottom-left block
-  const cornerRef = useRef<HTMLDivElement>(null) // bottom-right label
+  const videoWrapRef = useRef<HTMLDivElement>(null)
+  const contentRef = useRef<HTMLDivElement>(null)
+  const indicatorRef = useRef<HTMLDivElement>(null)
+  const videoRef = useRef<HTMLVideoElement>(null)
+
+  const [isPlaying, setIsPlaying] = useState(false)
+
+  useEffect(() => {
+    const video = videoRef.current
+    if (!video) return
+
+    // Ensure initial audio status is muted for autoplay policy compatibility
+    video.muted = true
+    video.playsInline = true
+
+    const attemptPlay = async () => {
+      try {
+        await video.play()
+        removeInteractionListeners()
+      } catch (err) {
+        console.warn("Autoplay attempt blocked or video not ready, awaiting user interaction:", err)
+      }
+    }
+
+    const handleInteraction = () => {
+      attemptPlay()
+    }
+
+    const removeInteractionListeners = () => {
+      window.removeEventListener("touchstart", handleInteraction)
+      window.removeEventListener("mousedown", handleInteraction)
+      window.removeEventListener("keydown", handleInteraction)
+      window.removeEventListener("scroll", handleInteraction)
+    }
+
+    // Attempt to play immediately on mount
+    attemptPlay()
+
+    // Add robust touch/scroll/click fallbacks to automatically play once user interacts
+    window.addEventListener("touchstart", handleInteraction, { passive: true })
+    window.addEventListener("mousedown", handleInteraction, { passive: true })
+    window.addEventListener("keydown", handleInteraction, { passive: true })
+    window.addEventListener("scroll", handleInteraction, { passive: true })
+
+    return () => {
+      removeInteractionListeners()
+    }
+  }, [])
 
   const initLenis = useCallback(() => onTransitionComplete(), [onTransitionComplete])
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger)
-    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches
+    const rm = window.matchMedia("(prefers-reduced-motion: reduce)").matches
 
-    // ── Entry animations ───────────────────────────────────────────
-    const ctx = gsap.context(() => {
-      if (!reducedMotion) {
-        // Content block rises from below
+    const entranceCtx = gsap.context(() => {
+      if (!rm) {
         gsap.fromTo(
           contentRef.current,
-          { opacity: 0, y: 40 },
-          { opacity: 1, y: 0, duration: 1.1, delay: 0.3, ease: "power3.out" }
+          { opacity: 0, y: 60, filter: "blur(12px)" },
+          { opacity: 1, y: 0, filter: "blur(0px)", duration: 1.5, delay: 0.25, ease: "power3.out" }
         )
-        // Corner label fades in later
         gsap.fromTo(
-          cornerRef.current,
-          { opacity: 0 },
-          { opacity: 1, duration: 0.9, delay: 0.85, ease: "power2.out" }
+          indicatorRef.current,
+          { opacity: 0, y: 16 },
+          { opacity: 1, y: 0, duration: 1, delay: 1.2, ease: "power2.out" }
         )
       } else {
-        gsap.set([contentRef.current, cornerRef.current], { opacity: 1 })
+        gsap.set([contentRef.current, indicatorRef.current], { opacity: 1 })
       }
     }, heroRef)
 
-    // ── Scroll-out timeline ────────────────────────────────────────
     let scrollCtx: ReturnType<typeof gsap.context> | null = null
+    let revealCtx: ReturnType<typeof gsap.context> | null = null
+
     const timer = setTimeout(() => {
       initLenis()
-      scrollCtx = gsap.context(() => {
-        const tl = gsap.timeline({
-          scrollTrigger: {
-            trigger: heroRef.current,
-            start: "top top",
-            end: SCROLL_END,
-            pin: true,
-            scrub: SCROLL_SCRUB,
-            anticipatePin: 1,
-          },
-        })
 
         if (!reducedMotion) {
           // Text fades up as you scroll — video stays full-bleed throughout
@@ -82,32 +113,85 @@ export default function HeroSection({ onTransitionComplete }: HeroSectionProps) 
             { opacity: 0.6, ease: "power1.in", duration: 1 },
             0
           )
+            .fromTo(
+              indicatorRef.current,
+              { opacity: 1 },
+              { opacity: 0, ease: "power1.in", duration: 0.2 },
+              0
+            )
+            .fromTo(
+              videoWrapRef.current,
+              { scale: 1, borderRadius: "0px", filter: "brightness(0.85)" },
+              {
+                scale: 0.8,
+                borderRadius: "24px",
+                filter: "brightness(1.0)",
+                ease: "power2.inOut",
+                duration: 1,
+              },
+              0
+            )
+            .fromTo(
+              ".hero-overlay-gradient",
+              { opacity: 1 },
+              { opacity: 0, ease: "power2.inOut", duration: 1 },
+              0
+            )
+            .fromTo(
+              ".hero-bottom-fade",
+              { opacity: 1 },
+              { opacity: 0, ease: "power2.inOut", duration: 1 },
+              0
+            )
         }
       }, heroRef)
+
+      if (!rm) {
+        revealCtx = gsap.context(() => {
+          gsap.utils.toArray<Element>(".ps-reveal").forEach((el) => {
+            gsap.fromTo(
+              el,
+              { opacity: 0, y: 44 },
+              {
+                opacity: 1,
+                y: 0,
+                duration: 0.9,
+                ease: "power3.out",
+                scrollTrigger: {
+                  trigger: el,
+                  start: "top 85%",
+                  once: true,
+                },
+              }
+            )
+          })
+        })
+      }
 
       ScrollTrigger.refresh()
     }, LENIS_INIT_DELAY)
 
     return () => {
       clearTimeout(timer)
-      ctx.revert()
+      entranceCtx.revert()
       scrollCtx?.revert()
+      revealCtx?.revert()
     }
   }, [initLenis])
-
-  const scrollTo = (id: string) =>
-    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" })
 
   return (
     <div
       ref={heroRef}
       id="hero"
-      className="relative w-full bg-[#060a08]"
-      style={{ height: "100dvh" }}
+      className="relative w-full"
+      style={{ height: "100dvh", background: "#050705" }}
     >
       {/* ── Full-bleed video ──────────────────────────────────── */}
       <div ref={videoWrapperRef} className="absolute inset-0" style={{ willChange: "opacity" }}>
         <video
+          ref={videoRef}
+          src="/videos/hero-loop.mp4"
+          poster="/images/scan-verify.jpg"
           autoPlay
           loop
           muted
@@ -131,118 +215,59 @@ export default function HeroSection({ onTransitionComplete }: HeroSectionProps) 
           aria-hidden="true"
           className="absolute inset-0"
           style={{
-            background:
-              "linear-gradient(to top, rgba(4,10,6,0.92) 0%, rgba(4,10,6,0.55) 30%, rgba(4,10,6,0.1) 65%, transparent 100%)",
+            zIndex: 1,
+            opacity: isPlaying ? 1 : 0,
+          }}
+          onTimeUpdate={() => {
+            if (videoRef.current && videoRef.current.currentTime > 0.15) {
+              setIsPlaying(true)
+            }
           }}
         />
-        {/* Left edge darkening */}
         <div
-          aria-hidden="true"
-          className="absolute inset-0"
+          aria-hidden
+          className="hero-overlay-gradient absolute inset-0 z-[2]"
           style={{
             background:
-              "linear-gradient(to right, rgba(4,10,6,0.55) 0%, rgba(4,10,6,0.12) 45%, transparent 80%)",
+              "linear-gradient(to bottom, rgba(5,7,5,0.2) 0%, rgba(5,7,5,0.82) 100%)",
           }}
+        />
+        <div
+          aria-hidden
+          className="hero-bottom-fade absolute inset-x-0 bottom-0 z-[3] h-[36%]"
+          style={{ background: "linear-gradient(to bottom, transparent 60%, #050705 100%)" }}
         />
       </div>
 
-      {/* ── Overlay content ──────────────────────────────────── */}
-      <div className="absolute inset-0 z-10 flex flex-col justify-between px-8 pb-10 pt-24 md:px-12 md:pb-14">
-        {/* Spacer — top area is used by navbar */}
-        <div />
-
-        {/* Bottom row: left content + right label */}
-        <div className="flex items-end justify-between gap-6">
-          {/* LEFT: headline + CTAs */}
-          <div ref={contentRef} className="max-w-[640px]">
-            {/* Eyebrow */}
-            <p
-              className="mb-3 text-[11px] font-semibold uppercase tracking-[0.22em]"
-              style={{ color: "rgba(255,255,255,0.45)" }}
-            >
-              Africa&apos;s Circular Bottle Ecosystem
-            </p>
-
-            {/* Main headline */}
-            <h1
-              className="mb-3 font-bold text-white"
-              style={{
-                fontSize: "clamp(40px, 6.5vw, 80px)",
-                lineHeight: 1.04,
-                letterSpacing: "-0.03em",
-              }}
-            >
-              Return. Recycle.
-              <br />
-              Make a difference.
-            </h1>
-
-            {/* Sub-headline */}
-            <p
-              className="mb-6 max-w-[480px] text-[15px] leading-relaxed"
-              style={{ color: "rgba(255,255,255,0.6)" }}
-            >
-              Recycle at any ECO-Station. Save the planet. Stop fake drinks. Get a bonus.
-            </p>
-
-            {/* CTAs */}
-            <div className="mb-5 flex flex-wrap items-center gap-3">
-              <a
-                href="/download"
-                className="inline-flex items-center gap-2 rounded-full bg-white px-6 py-3 text-[14px] font-semibold text-eco-dark transition-all hover:bg-white/90 active:scale-95"
-              >
-                <Download size={15} />
-                Start Making a Difference
-              </a>
-              <a
-                href="/contact"
-                className="inline-flex items-center gap-2 rounded-full border border-white/30 px-5 py-3 text-[14px] font-medium text-white transition-all hover:bg-white/10"
-              >
-                Partner with ECOCAN <ArrowRight size={14} />
-              </a>
-            </div>
-
-            {/* Trust badges */}
-            <div className="flex flex-wrap items-center gap-2">
-              {["Early-stage funded", "Operational in Kenya", "GDPR Compliant"].map((badge) => (
-                <span
-                  key={badge}
-                  className="rounded-full px-3 py-1 text-[11px] font-medium"
-                  style={{
-                    background: "rgba(255,255,255,0.08)",
-                    border: "1px solid rgba(255,255,255,0.15)",
-                    color: "rgba(255,255,255,0.6)",
-                  }}
-                >
-                  {badge}
-                </span>
-              ))}
-            </div>
-
-            {/* "No machine" note */}
-            <p className="mt-3 text-[12px]" style={{ color: "rgba(255,255,255,0.35)" }}>
-              No machine? No problem. Our counters work today.
-            </p>
-          </div>
-
-          {/* RIGHT: scroll cue */}
-          <div
-            ref={cornerRef}
-            className="hidden shrink-0 flex-col items-end gap-2 text-right md:flex"
+      <div className="absolute inset-0 z-10 flex items-center justify-center">
+        <div ref={contentRef} className="px-6 text-center md:px-14">
+          <h1
+            className="mb-6 font-serif-luxury text-luxury-gradient text-luxury-glow"
+            style={{
+              fontSize: "clamp(3rem, 8.5vw, 6.5rem)",
+              lineHeight: 0.98,
+              letterSpacing: "-0.03em",
+            }}
           >
-            <button
-              onClick={() => scrollTo("how-it-works")}
-              className="flex items-center gap-2 text-[12px] font-medium transition-colors"
-              style={{ color: "rgba(255,255,255,0.38)" }}
-            >
-              <span
-                className="h-2 w-2 animate-pulse-dot rounded-full"
-                style={{ background: "rgba(74,222,128,0.8)" }}
-              />
-              Scroll to explore
-            </button>
-          </div>
+            Scan. Verify. Earn.
+          </h1>
+          <p className="mx-auto mb-9 max-w-[40ch] text-base uppercase tracking-[0.15em] text-white/50">
+            Safer drinks &amp; paid recycling in one tap.
+          </p>
+          <a
+            href="/download"
+            className="inline-flex items-center rounded-full border border-white/20 px-8 py-3.5 text-xs font-bold uppercase tracking-[0.15em] text-[#f5f5f5] backdrop-blur-md transition hover:bg-white hover:text-black hover:border-white"
+          >
+            Download App
+          </a>
         </div>
+      </div>
+
+      <div
+        ref={indicatorRef}
+        className="absolute bottom-8 left-1/2 z-10 -translate-x-1/2 text-white/60"
+      >
+        <ArrowDown size={20} strokeWidth={1.75} />
       </div>
     </div>
   )

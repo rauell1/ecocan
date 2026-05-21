@@ -1,9 +1,8 @@
 "use client"
 
-import { useRef, useState, useCallback, useEffect } from "react"
+import { useEffect, useState, useCallback, useMemo } from "react"
 
 import HomeNavbar from "@/components/sections/home-navbar"
-import HomeMobileMenu from "@/components/sections/home-mobile-menu"
 import HeroSection from "@/components/sections/hero-section"
 import ProblemSolutionSection from "@/components/sections/problem-solution-section"
 import HowItWorksSection from "@/components/sections/how-it-works-section"
@@ -18,105 +17,122 @@ import FAQSection from "@/components/sections/faq-section"
 import HomeFooter from "@/components/sections/home-footer"
 
 export default function Home() {
-  const [menuOpen, setMenuOpen] = useState(false)
+  const [isMenuOpen, setIsMenuOpen] = useState(false)
 
-  const gsapRef = useRef<(typeof import("gsap"))["gsap"] | null>(null)
-  const lenisRef = useRef<import("lenis").default | null>(null)
-  const lenisRafRef = useRef<((time: number) => void) | null>(null)
+  const handleHeroComplete = useCallback(() => {}, [])
 
-  const destroyLenis = useCallback(() => {
-    if (gsapRef.current && lenisRafRef.current) {
-      gsapRef.current.ticker.remove(lenisRafRef.current)
-      lenisRafRef.current = null
-    }
-    if (lenisRef.current) {
-      lenisRef.current.destroy()
-      lenisRef.current = null
+  const sections = useMemo(() => [
+    { id: "problem" },
+    { id: "how-it-works" },
+    { id: "ecommunity" },
+    { id: "impact" },
+    { id: "stories" },
+    { id: "cta" },
+    { id: "faq" },
+  ], [])
+
+  useEffect(() => {
+    let lenisInst: any = null
+    import("lenis").then(({ default: Lenis }) => {
+      lenisInst = new Lenis({
+        duration: 1.2,
+        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+        orientation: "vertical",
+        gestureOrientation: "vertical",
+        smoothWheel: true,
+      })
+
+      function raf(time: number) {
+        if (lenisInst) {
+          lenisInst.raf(time)
+          requestAnimationFrame(raf)
+        }
+      }
+
+      requestAnimationFrame(raf)
+      ;(window as any).lenis = lenisInst
+    })
+
+    return () => {
+      if (lenisInst) {
+        lenisInst.destroy()
+      }
     }
   }, [])
 
-  const handleTransitionComplete = useCallback(async () => {
-    const [{ gsap }, { ScrollTrigger }, { default: Lenis }] = await Promise.all([
-      import("gsap"),
-      import("gsap/ScrollTrigger"),
-      import("lenis"),
-    ])
-
-    gsapRef.current = gsap
-
-    requestAnimationFrame(() => {
-      requestAnimationFrame(() => {
-        gsap.registerPlugin(ScrollTrigger)
-        destroyLenis()
-
-        const lenis = new Lenis({ lerp: 0.1, smoothWheel: true })
-
-        lenis.on("scroll", () => {
-          ScrollTrigger.update()
-        })
-
-        lenisRafRef.current = (time: number) => {
-          lenis.raf(time * 1000)
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollPos = window.scrollY + 150
+      sections.forEach((section) => {
+        const el = document.getElementById(section.id)
+        if (el && el.offsetTop <= scrollPos) {
+          // active section tracking — extend if needed
         }
-        gsap.ticker.add(lenisRafRef.current)
-        gsap.ticker.lagSmoothing(0)
-        lenisRef.current = lenis
-
-        setTimeout(() => {
-          ScrollTrigger.refresh()
-        }, 200)
       })
-    })
-  }, [destroyLenis])
-
-  useEffect(() => () => destroyLenis(), [destroyLenis])
+    }
+    window.addEventListener("scroll", handleScroll, { passive: true })
+    return () => window.removeEventListener("scroll", handleScroll)
+  }, [sections])
 
   return (
-    <div className="relative overflow-x-hidden">
-      <HomeNavbar onMenuToggle={() => setMenuOpen(!menuOpen)} />
-      <HomeMobileMenu isOpen={menuOpen} onClose={() => setMenuOpen(false)} />
+    <div className="relative min-h-screen overflow-x-hidden" style={{ background: "#0C0E0C" }}>
+      <HomeNavbar onMenuToggle={() => setIsMenuOpen(!isMenuOpen)} />
 
-      <HeroSection onTransitionComplete={handleTransitionComplete} />
+      <HeroSection onTransitionComplete={handleHeroComplete} />
 
-      <div id="problem">
-        <ProblemSolutionSection />
-      </div>
+      <main className="relative z-20 flex flex-col gap-0">
 
-      <div id="how-it-works">
-        <HowItWorksSection />
-      </div>
+        {/* 1. The problem */}
+        <div id="problem" className="ps-reveal">
+          <ProblemSolutionSection />
+        </div>
 
-      <div id="ecommunity">
-        <EcommunityRolesSection />
-      </div>
+        {/* 2. How it works */}
+        <div id="how-it-works" className="ps-reveal">
+          <HowItWorksSection />
+        </div>
 
-      <div id="counterfeit">
-        <AntiCounterfeitSection />
-      </div>
+        {/* 3. Who benefits */}
+        <div id="ecommunity" className="ps-reveal">
+          <EcommunityRolesSection />
+        </div>
 
-      <div id="app">
-        <AppShowcaseSection />
-      </div>
+        {/* 4. Anti-counterfeit trust */}
+        <div id="counterfeit" className="ps-reveal">
+          <AntiCounterfeitSection />
+        </div>
 
-      <div id="investors">
-        <ForInvestorsSection />
-      </div>
+        {/* 5. The app */}
+        <div id="app" className="ps-reveal">
+          <AppShowcaseSection />
+        </div>
 
-      <div id="impact" className="ps-animate">
-        <SustainabilityImpactSection />
-      </div>
+        {/* 6. Impact numbers */}
+        <div id="impact" className="ps-reveal">
+          <SustainabilityImpactSection />
+        </div>
 
-      <div id="partners">
-        <PartnersTestimonialsSection />
-      </div>
+        {/* 7. Investors */}
+        <div id="investors" className="ps-reveal">
+          <ForInvestorsSection />
+        </div>
 
-      <div id="cta">
-        <CallToActionSection />
-      </div>
+        {/* 8. Real stories + partners */}
+        <div id="stories" className="ps-reveal">
+          <PartnersTestimonialsSection />
+        </div>
 
-      <div id="faq">
-        <FAQSection />
-      </div>
+        {/* 9. CTA */}
+        <div id="cta" className="ps-reveal">
+          <CallToActionSection />
+        </div>
+
+        {/* 10. FAQ */}
+        <div id="faq" className="ps-reveal">
+          <FAQSection />
+        </div>
+
+      </main>
 
       <HomeFooter />
     </div>

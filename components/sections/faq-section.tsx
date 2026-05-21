@@ -1,120 +1,98 @@
 "use client"
 
-import { useRef, useEffect, useState } from "react"
-import { gsap } from "gsap"
-import { ScrollTrigger } from "gsap/ScrollTrigger"
-import { Plus, Minus } from "lucide-react"
+import { useState } from "react"
+import { ChevronDown } from "lucide-react"
+import { useEcReveal } from "@/lib/use-ec-reveal"
+import { motion, AnimatePresence } from "framer-motion"
+import { SpotlightCard } from "@/components/ui/spotlight-card"
 
 const faqs = [
   {
-    q: "Do I need a machine to return bottles?",
-    a: "No. You can return bottles today at any ECO-Station counter. Our partner scans your bottle with a phone, verifies it, and sends money instantly to your ECO-wallet. ECOcan machines are coming soon — but the system works right now.",
+    q: "How do I verify a can?",
+    a: "Open the app and scan the QR code. You get an instant authenticity result.",
   },
   {
-    q: "What is ECOCAN?",
-    a: "Africa's Circular Bottle Ecosystem — a deposit return system that rewards you for returning empty bottles, while helping brands fight counterfeiting and drive recycling across the continent.",
+    q: "How do I earn rewards?",
+    a: "Return empties at an ECO-Station. Rewards are paid to your wallet.",
   },
   {
-    q: "How do I get rewarded?",
-    a: "Download the ECOCAN app, find your nearest ECO-Station or counter, scan the QR code on your bottle, and return it. Your ECO-wallet is credited instantly — withdraw to M-Pesa or bank anytime.",
+    q: "Where can I return cans?",
+    a: "Use the app map to find nearby stations. New stations are added weekly.",
   },
   {
-    q: "How does ECOCAN stop counterfeit drinks?",
-    a: "Every genuine bottle carries a unique, tamper-evident QR code. Scan it in the app before drinking — green means safe, red means fake. Counterfeit bottles fail instantly.",
+    q: "Who can host a station?",
+    a: "Retailers can apply to host returns. Our team handles setup and training.",
   },
-  {
-    q: "I'm a brand — how do I join?",
-    a: "Fill in the partner form on our Contact page. Our team will walk you through onboarding, labelling requirements, and the deposit structure.",
-  },
-  {
-    q: "Is ECOCAN available outside Kenya?",
-    a: "We're operational in Kenya and actively expanding across East Africa. Reach out to bring ECOCAN to your market.",
-  },
+  { q: "Is ECOCAN only in Kenya?", a: "Kenya is live today. Regional rollout is in progress." },
 ]
 
 export default function FAQSection() {
-  const sectionRef = useRef<HTMLDivElement>(null)
-  const [openIndex, setOpenIndex] = useState<number | null>(0)
-
-  const toggle = (i: number) => setOpenIndex(openIndex === i ? null : i)
-
-  useEffect(() => {
-    gsap.registerPlugin(ScrollTrigger)
-
-    const ctx = gsap.context(() => {
-      const els = sectionRef.current?.querySelectorAll(".faq-animate")
-      if (els && els.length > 0) {
-        gsap.fromTo(
-          els,
-          { opacity: 0, y: 32 },
-          {
-            opacity: 1,
-            y: 0,
-            duration: 0.7,
-            stagger: 0.09,
-            ease: "power3.out",
-            scrollTrigger: { trigger: sectionRef.current, start: "top 80%", once: true },
-          }
-        )
-      }
-    }, sectionRef)
-
-    return () => ctx.revert()
-  }, [])
+  const ref = useEcReveal()
+  const [openIndex, setOpenIndex] = useState<number | null>(null)
 
   return (
-    <section ref={sectionRef} id="faq" className="bg-white px-6 py-24 md:py-32">
-      <div className="mx-auto max-w-[680px]">
-        {/* Minimal header */}
-        <p className="faq-animate section-overline mb-3 text-center">Questions</p>
-        <h2 className="faq-animate section-headline mb-14 text-center text-eco-dark">
-          Everything you need to know
+    <section
+      ref={ref as React.RefObject<HTMLDivElement>}
+      className="relative w-full overflow-hidden bg-[#050705] py-[clamp(6rem,12vw,10rem)]"
+    >
+      <div className="absolute inset-0 z-0 bg-[radial-gradient(ellipse_at_bottom_left,rgba(16,185,129,0.03),transparent_40%)]" />
+      
+      <div className="relative z-10 px-[clamp(1.25rem,4vw,3rem)] max-w-4xl mx-auto">
+        <h2
+          className="ec-reveal mb-16 text-center font-serif-luxury text-luxury-gradient"
+          style={{ 
+            fontSize: "clamp(2.5rem,5vw,4.5rem)", 
+            letterSpacing: "-0.02em",
+            lineHeight: "1.1"
+          }}
+        >
+          Frequently Asked Questions
         </h2>
 
-        {/* Accordion */}
-        <div className="faq-animate divide-y divide-black/[0.07]">
+        <div className="flex flex-col gap-4">
           {faqs.map((faq, i) => {
             const isOpen = openIndex === i
             return (
-              <div key={i}>
-                <button
-                  onClick={() => toggle(i)}
-                  className="group flex w-full cursor-pointer items-center justify-between gap-4 py-5 text-left"
-                  aria-expanded={isOpen}
+              <div key={faq.q} className="ec-reveal">
+                <SpotlightCard
+                  className="p-0 border border-white/5 bg-[#0c100c]/20 hover:border-emerald-500/20 transition-all duration-500 rounded-3xl shadow-xl"
+                  spotlightColor="rgba(16,185,129,0.08)"
+                  spotlightSize={280}
                 >
-                  <span
-                    className={`text-[16px] font-semibold leading-snug transition-colors ${
-                      isOpen ? "text-primary" : "text-eco-dark group-hover:text-primary"
-                    }`}
+                  <button
+                    className="flex w-full items-center justify-between gap-6 px-8 py-6 text-left focus:outline-none"
+                    onClick={() => setOpenIndex(isOpen ? null : i)}
+                    aria-expanded={isOpen}
                   >
-                    {faq.q}
-                  </span>
-                  <span
-                    className={`flex h-7 w-7 shrink-0 items-center justify-center rounded-full transition-all ${
-                      isOpen
-                        ? "bg-primary text-white"
-                        : "bg-black/[0.06] text-eco-dark group-hover:bg-primary group-hover:text-white"
-                    }`}
-                  >
-                    {isOpen ? <Minus size={13} /> : <Plus size={13} />}
-                  </span>
-                </button>
-                <div
-                  className="overflow-hidden transition-all duration-300"
-                  style={{ maxHeight: isOpen ? "400px" : "0px", opacity: isOpen ? 1 : 0 }}
-                >
-                  <p className="pb-5 text-[15px] leading-relaxed text-eco-dark/65">{faq.a}</p>
-                </div>
+                    <span className="text-[16px] md:text-[18px] font-medium text-white/90 transition-colors duration-300 group-hover:text-emerald-300">
+                      {faq.q}
+                    </span>
+                    <ChevronDown
+                      size={18}
+                      className="shrink-0 text-white/40 transition-transform duration-500"
+                      style={{ transform: isOpen ? "rotate(180deg)" : "rotate(0deg)" }}
+                    />
+                  </button>
+                  
+                  <AnimatePresence initial={false}>
+                    {isOpen && (
+                      <motion.div
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: "auto", opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
+                        className="overflow-hidden"
+                      >
+                        <div className="px-8 pb-6 text-[14px] md:text-[15px] leading-relaxed text-white/50 border-t border-white/5 pt-4">
+                          {faq.a}
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </SpotlightCard>
               </div>
             )
           })}
-        </div>
-
-        {/* Minimal bottom CTA */}
-        <div className="faq-animate mt-12 text-center">
-          <a href="/contact" className="pill-btn pill-btn-filled inline-flex !px-8 !py-3 text-sm">
-            Still have questions? Contact us
-          </a>
         </div>
       </div>
     </section>

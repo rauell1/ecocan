@@ -1,5 +1,13 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  // ESLint: run during builds but only fail on real errors, not warnings.
+  // This ensures stray lint warnings (e.g. react-hooks/exhaustive-deps)
+  // never silently break a production deployment.
+  eslint: {
+    // Run ESLint during `next build` (default behaviour preserved)
+    ignoreDuringBuilds: false,
+  },
+
   // Security headers for all routes
   async headers() {
     return [

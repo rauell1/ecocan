@@ -5,177 +5,125 @@ import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 import Image from "next/image"
 import Link from "next/link"
-import { ScanLine, Wallet, MapPin } from "lucide-react"
-
-const features = [
-  {
-    icon: ScanLine,
-    title: "Scan & verify in 3 seconds",
-    desc: "Know if it's real before you drink.",
-  },
-  {
-    icon: Wallet,
-    title: "Earn straight to M-PESA",
-    desc: "Return empties, get paid instantly.",
-  },
-  {
-    icon: MapPin,
-    title: "Find the nearest ECO-Station",
-    desc: "Real-time map of every collection point.",
-  },
-]
 
 export default function AppShowcaseSection() {
   const sectionRef = useRef<HTMLDivElement>(null)
+  const phonesRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger)
-
     const ctx = gsap.context(() => {
-      const textEls = sectionRef.current?.querySelectorAll(".app-text-animate")
-      if (textEls && textEls.length > 0) {
+      const trigger = { trigger: sectionRef.current, start: "top 75%", once: true }
+
+      const textEls = sectionRef.current!.querySelectorAll(".ec-reveal")
+      if (textEls.length) {
         gsap.fromTo(
           textEls,
-          { opacity: 0, x: -40 },
-          {
-            opacity: 1,
-            x: 0,
-            duration: 0.7,
-            stagger: 0.1,
-            ease: "power3.out",
-            scrollTrigger: { trigger: sectionRef.current, start: "top 75%", once: true },
-          }
-        )
-      }
-      const imgEl = sectionRef.current?.querySelector(".app-img-animate")
-      if (imgEl) {
-        gsap.fromTo(
-          imgEl,
-          { opacity: 0, y: 60, scale: 0.95 },
+          { opacity: 0, y: 36, filter: "blur(8px)" },
           {
             opacity: 1,
             y: 0,
-            scale: 1,
-            duration: 1,
-            delay: 0.2,
+            filter: "blur(0px)",
+            duration: 1.1,
+            stagger: 0.12,
             ease: "power3.out",
-            scrollTrigger: { trigger: sectionRef.current, start: "top 75%", once: true },
+            scrollTrigger: trigger,
           }
         )
       }
-    }, sectionRef)
 
-    return () => ctx.revert()
+      const bgImg = sectionRef.current?.querySelector(".section-bg-img") as HTMLElement | null
+      if (bgImg) {
+        gsap.fromTo(
+          bgImg,
+          { yPercent: -8 },
+          {
+            yPercent: 8,
+            ease: "none",
+            scrollTrigger: {
+              trigger: sectionRef.current,
+              start: "top bottom",
+              end: "bottom top",
+              scrub: 1.2,
+            },
+          }
+        )
+      }
+
+      if (phonesRef.current) {
+        const center = phonesRef.current.querySelector(".phone-center")
+
+        gsap.fromTo(
+          center,
+          { opacity: 0, y: 64, scale: 0.93 },
+          { opacity: 1, y: 0, scale: 1, duration: 1.1, ease: "power3.out", scrollTrigger: trigger }
+        )
+      }
+    }, sectionRef)
+    return () => {
+      ctx.revert()
+      ScrollTrigger.getAll().forEach((triggerItem) => triggerItem.kill())
+    }
   }, [])
 
   return (
     <section
       ref={sectionRef}
-      className="w-full overflow-hidden py-[120px] md:py-[160px]"
-      style={{ background: "#101010" }}
+      className="relative w-full overflow-hidden bg-[#050705] py-[clamp(5rem,10vw,9rem)]"
+      id="app"
     >
-      <div className="mx-auto max-w-[1280px] px-6">
-        <div className="grid grid-cols-1 items-center gap-16 lg:grid-cols-2 lg:gap-24">
-          {/* Left: text + features */}
-          <div>
-            <p className="section-overline app-text-animate mb-6">The ECOCAN App</p>
-            <h2
-              className="app-text-animate mb-10 font-bold text-white"
-              style={{
-                fontSize: "clamp(32px, 4.5vw, 52px)",
-                lineHeight: 1.1,
-                letterSpacing: "-0.02em",
-              }}
-            >
-              Everything you need.
-              <br />
-              One app.
-            </h2>
+      <div className="absolute inset-0 z-0">
+        <img
+          src="/images/hero/app_showcase_hero.png"
+          alt="Ecocan rewards app screenshot mockup"
+          aria-hidden="true"
+          className="section-bg-img h-full w-full object-cover opacity-45"
+        />
+        <div 
+          className="absolute inset-0" 
+          style={{ 
+            background: "linear-gradient(to bottom, rgba(5,7,5,0.72) 0%, rgba(5,7,5,0.95) 100%)" 
+          }} 
+        />
+      </div>
 
-            <div className="mb-10 space-y-6">
-              {features.map((f) => (
-                <div key={f.title} className="app-text-animate flex items-start gap-4">
-                  <div className="mt-0.5 flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-primary/15">
-                    <f.icon size={18} className="text-primary" strokeWidth={1.8} />
-                  </div>
-                  <div>
-                    <h3 className="mb-0.5 text-[15px] font-semibold text-white">{f.title}</h3>
-                    <p className="text-[14px] leading-relaxed text-white/50">{f.desc}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
+      <div className="relative z-10 px-[clamp(1.25rem,4vw,3rem)] text-center max-w-5xl mx-auto">
+        <h2
+          className="ec-reveal font-serif-luxury text-luxury-gradient"
+          style={{ 
+            fontSize: "clamp(2.5rem,5vw,4.5rem)", 
+            letterSpacing: "-0.02em", 
+            lineHeight: "1.1",
+          }}
+        >
+          Your loop rewards app. <br />
+          <span className="font-sans font-light text-emerald-400">Paid recycling.</span>
+        </h2>
 
-            <div className="app-text-animate flex flex-wrap gap-4">
-              <Link
-                href="https://apps.apple.com/app/6502695438"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="pill-btn pill-btn-white !px-7 !py-3 text-sm"
-              >
-                <Image
-                  src="/assets/images/apple-store.png"
-                  alt="App Store"
-                  width={18}
-                  height={18}
-                  className="rounded"
-                />
-                App Store
-              </Link>
-              <Link
-                href="https://play.google.com/store/apps/details?id=com.superapp.ecocanapp"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="pill-btn border border-white/25 !px-7 !py-3 text-sm text-white hover:bg-white/10"
-              >
-                Google Play
-              </Link>
-            </div>
-          </div>
+        <div ref={phonesRef} className="phone-center ec-reveal mx-auto my-14 w-[min(340px,75vw)] transition-transform duration-500 hover:scale-[1.03] filter drop-shadow-[0_0_60px_rgba(16,185,129,0.25)]">
+          <Image
+            src="/assets/images/consumer/ecocan-app.png"
+            alt="ECOCAN mobile app"
+            width={340}
+            height={680}
+            className="h-auto w-full"
+          />
+        </div>
 
-          {/* Right: app mockup */}
-          <div className="app-img-animate relative flex items-end justify-center">
-            <div
-              className="absolute inset-0 rounded-full opacity-20 blur-3xl"
-              style={{ background: "radial-gradient(circle, #228B22 0%, transparent 70%)" }}
-            />
-            <div className="absolute -left-4 bottom-0 z-0 w-[45%] origin-bottom-left rotate-[-8deg] opacity-75 md:-left-8">
-              <Image
-                src="/assets/images/consumer/earn-image.png"
-                alt="Earn rewards screen"
-                width={280}
-                height={560}
-                className="h-auto w-full drop-shadow-2xl"
-                loading="lazy"
-                placeholder="blur"
-                blurDataURL="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxIiBoZWlnaHQ9IjEiPjxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9IiMwZjFhMGYiLz48L3N2Zz4="
-              />
-            </div>
-            <div className="relative z-10 w-[55%]">
-              <Image
-                src="/assets/images/consumer/ecocan-app.png"
-                alt="ECOCAN app"
-                width={340}
-                height={680}
-                className="h-auto w-full drop-shadow-2xl"
-                loading="lazy"
-                placeholder="blur"
-                blurDataURL="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxIiBoZWlnaHQ9IjEiPjxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9IiMwZjFhMGYiLz48L3N2Zz4="
-              />
-            </div>
-            <div className="absolute -right-4 bottom-0 z-0 w-[40%] origin-bottom-right rotate-[6deg] opacity-65 md:-right-8">
-              <Image
-                src="/assets/images/consumer/get-app.png"
-                alt="Download ECOCAN"
-                width={240}
-                height={480}
-                className="h-auto w-full drop-shadow-2xl"
-                loading="lazy"
-                placeholder="blur"
-                blurDataURL="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxIiBoZWlnaHQ9IjEiPjxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9IiMwZjFhMGYiLz48L3N2Zz4="
-              />
-            </div>
-          </div>
+        <div className="ec-reveal flex flex-wrap items-center justify-center gap-4">
+          <Link 
+            href="https://apps.apple.com/app/6502695438" 
+            target="_blank" 
+            className="inline-flex rounded-full border border-white/10 bg-white/5 backdrop-blur-md px-8 py-3 text-[14px] font-medium text-white transition-all duration-300 hover:bg-emerald-500/10 hover:text-emerald-400 hover:border-emerald-500/20"
+          >
+            App Store
+          </Link>
+          <Link 
+            href="#" 
+            className="inline-flex rounded-full border border-white/10 bg-white/5 backdrop-blur-md px-8 py-3 text-[14px] font-medium text-white transition-all duration-300 hover:bg-emerald-500/10 hover:text-emerald-400 hover:border-emerald-500/20"
+          >
+            Google Play
+          </Link>
         </div>
       </div>
     </section>
