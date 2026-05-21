@@ -1,9 +1,9 @@
 {
   "meta": {
-    "version": "9e7ec1c",
-    "generatedAt": "2026-05-21T18:31:55.104Z",
+    "version": "3479f58",
+    "generatedAt": "2026-05-21T18:46:52.019Z",
     "branch": "main",
-    "previousVersion": "08bb333",
+    "previousVersion": "9e7ec1c",
     "generator": "scripts/generate-codebase-map.mjs",
     "framework": "Next.js 14",
     "packageManager": "pnpm"
@@ -286,7 +286,7 @@
     "components/sections/electric-mobility-section.tsx": "fb5eb531604a0013b61003d552fd3676577599a2",
     "components/sections/faq-section.tsx": "b2d3d35dcfc86a69ba892b6dd12e16b95f165012",
     "components/sections/for-investors-section.tsx": "2d4ef8dfd1e0d46eb1e07bc001a6f7006cca3c85",
-    "components/sections/hero-section.tsx": "1405ba9530ea22883f38d2e25a5fe37b6e953673",
+    "components/sections/hero-section.tsx": "275e9dbb31124b013083f5c0c3f97c250b741043",
     "components/sections/home-footer.tsx": "dfdb7ca1a21916e71619470eaa69e57c12aaa901",
     "components/sections/home-mobile-menu.tsx": "fb3b2ee486bd8fa684435b988f19d3bec1ad9125",
     "components/sections/home-navbar.tsx": "af9ab8c56023508b365055ae6263d5d12ffcb7f6",
@@ -377,16 +377,6 @@
     "tsconfig.json": "5841f1c2f8bba110464eaba24059d47cb59d3b64"
   },
   "changelog": [
-    {
-      "version": "2a78572",
-      "date": "2026-05-20T07:55:38.164Z",
-      "branch": "main",
-      "changes": [
-        "Modified: components/sections/home-footer.tsx",
-        "Modified: components/sections/how-it-works-section.tsx",
-        "Modified: components/sections/sustainability-impact-section.tsx"
-      ]
-    },
     {
       "version": "3d6f0e8",
       "date": "2026-05-20T08:44:13.142Z",
@@ -611,6 +601,14 @@
     {
       "version": "9e7ec1c",
       "date": "2026-05-21T18:31:55.104Z",
+      "branch": "main",
+      "changes": [
+        "Modified: components/sections/hero-section.tsx"
+      ]
+    },
+    {
+      "version": "3479f58",
+      "date": "2026-05-21T18:46:52.019Z",
       "branch": "main",
       "changes": [
         "Modified: components/sections/hero-section.tsx"
