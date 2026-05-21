@@ -74,47 +74,49 @@ export default function SustainabilityImpactSection() {
     <section
       id="impact"
       ref={sectionRef}
-      className="relative w-full overflow-hidden bg-[#0a0a0a] py-[clamp(6rem,12vw,10rem)]"
+      className="relative w-full overflow-hidden bg-[#050705] py-[clamp(6rem,12vw,10rem)]"
     >
       <div className="absolute inset-0 z-0">
         <img
-          src="https://source.unsplash.com/1600x900/?nature,green,sustainability"
-          alt=""
+          src="/images/hero/sustainability_hero.png"
+          alt="Green plant growing out of recycled aluminum"
           aria-hidden="true"
-          className="section-bg-img h-full w-full object-cover"
+          className="section-bg-img h-full w-full object-cover opacity-50"
         />
-        <div className="absolute inset-0" style={{ background: "rgba(0,0,0,0.55)" }} />
-        <div
-          className="absolute inset-0"
-          style={{
-            background: "linear-gradient(to bottom, rgba(0,0,0,0.4) 0%, rgba(5,46,22,0.7) 100%)",
-          }}
+        <div 
+          className="absolute inset-0" 
+          style={{ 
+            background: "linear-gradient(to bottom, rgba(5,7,5,0.6) 0%, rgba(5,7,5,0.92) 100%)" 
+          }} 
         />
       </div>
       <div className="relative z-10 px-[clamp(1.25rem,4vw,3rem)]">
         <p
           ref={statRef}
-          className="ec-reveal text-center font-bold text-[#f5f5f5]"
+          className="ec-reveal text-center font-extrabold text-[#f5f5f5]"
           style={{
-            fontSize: "clamp(4rem,16vw,12rem)",
+            fontSize: "clamp(4.5rem,16vw,12rem)",
             lineHeight: 0.95,
             letterSpacing: "-0.04em",
-            textShadow: "0 0 60px rgba(34,197,94,0.3)",
+            textShadow: "0 0 60px rgba(16,185,129,0.35)",
           }}
         >
           12 billion
         </p>
-        <p className="ec-reveal mt-4 text-center text-xs font-semibold uppercase tracking-[0.18em] text-white/50">
+        <p className="ec-reveal mt-5 text-center text-sm font-semibold uppercase tracking-[0.2em] text-emerald-400/80">
           cans recycled annually in East Africa
         </p>
 
-        <div className="ec-reveal mt-12 grid gap-px border border-white/10 bg-white/10 md:grid-cols-3">
+        <div className="ec-reveal mt-16 grid gap-6 md:grid-cols-3 max-w-5xl mx-auto">
           {stats.map(({ value, label }) => (
-            <div key={label} className="bg-white/5 px-6 py-7 text-left">
-              <p className="text-3xl font-bold text-[#f5f5f5]" style={{ letterSpacing: "-0.02em" }}>
+            <div 
+              key={label} 
+              className="bg-[#0c100c]/50 backdrop-blur-md border border-white/10 p-8 rounded-2xl shadow-xl hover:border-emerald-500/30 hover:scale-[1.02] transition-all duration-300 group"
+            >
+              <p className="text-4xl font-extrabold text-[#f5f5f5] group-hover:text-emerald-400 transition-colors duration-300" style={{ letterSpacing: "-0.02em" }}>
                 {value}
               </p>
-              <p className="mt-1 text-sm text-white/50">{label}</p>
+              <p className="mt-2 text-xs font-semibold text-white/50 uppercase tracking-wider">{label}</p>
             </div>
           ))}
         </div>

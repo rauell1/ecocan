@@ -60,41 +60,55 @@ export default function ForInvestorsSection() {
     <section
       id="investors"
       ref={sectionRef}
-      className="relative w-full overflow-hidden bg-[#0a0a0a] py-[clamp(5rem,10vw,9rem)]"
+      className="relative w-full overflow-hidden bg-[#050705] py-[clamp(5rem,10vw,9rem)]"
     >
       <div className="absolute inset-0 z-0">
         <img
-          src="https://source.unsplash.com/1600x900/?finance,growth,chart"
-          alt=""
+          src="/images/hero/investors_hero.png"
+          alt="Futuristic financial growth chart"
           aria-hidden="true"
-          className="section-bg-img h-full w-full object-cover"
+          className="section-bg-img h-full w-full object-cover opacity-50"
         />
-        <div className="absolute inset-0" style={{ background: "rgba(0,0,0,0.65)" }} />
+        <div 
+          className="absolute inset-0" 
+          style={{ 
+            background: "linear-gradient(to bottom, rgba(5,7,5,0.7) 0%, rgba(5,7,5,0.92) 100%)" 
+          }} 
+        />
       </div>
 
-      <div className="relative z-10 px-[clamp(1.25rem,4vw,3rem)]">
+      <div className="relative z-10 px-[clamp(1.25rem,4vw,3rem)] max-w-5xl mx-auto">
         <h2
-          className="ec-reveal mb-10 font-bold text-[#f5f5f5]"
-          style={{ fontSize: "clamp(2rem,5vw,4.5rem)", lineHeight: 1.04, letterSpacing: "-0.03em" }}
+          className="ec-reveal mb-12 font-bold text-[#f5f5f5]"
+          style={{ 
+            fontSize: "clamp(2.5rem,5vw,4.5rem)", 
+            lineHeight: 1.04, 
+            letterSpacing: "-0.03em",
+            textShadow: "0 0 45px rgba(16,185,129,0.15)"
+          }}
         >
-          Build circular infrastructure with us.
+          Build circular <br className="hidden md:inline" />
+          <span className="bg-gradient-to-r from-emerald-400 via-teal-400 to-green-500 bg-clip-text text-transparent">infrastructure with us.</span>
         </h2>
 
-        <div className="ec-reveal grid gap-px border border-white/10 bg-white/10 md:grid-cols-3">
+        <div className="ec-reveal grid gap-6 md:grid-cols-3 my-12">
           {metrics.map(({ value, label }) => (
-            <div key={label} className="bg-white/5 px-6 py-7">
-              <p className="text-3xl font-bold text-[#f5f5f5]">{value}</p>
-              <p className="mt-1 text-sm text-white/50">{label}</p>
+            <div 
+              key={label} 
+              className="bg-[#0c100c]/50 backdrop-blur-md border border-white/10 p-8 rounded-2xl shadow-xl hover:border-emerald-500/30 hover:scale-[1.02] transition-all duration-300 group"
+            >
+              <p className="text-4xl font-extrabold text-[#f5f5f5] group-hover:text-emerald-400 transition-colors duration-300" style={{ letterSpacing: "-0.02em" }}>{value}</p>
+              <p className="mt-2 text-xs font-semibold text-white/50 uppercase tracking-wider">{label}</p>
             </div>
           ))}
         </div>
 
-        <div className="ec-reveal mt-8">
+        <div className="ec-reveal mt-10">
           <Link
             href="/investors"
-            className="inline-flex items-center rounded-full border border-white/30 px-7 py-3 text-sm font-semibold text-[#f5f5f5] transition hover:bg-white hover:text-black"
+            className="rounded-full bg-[#f5f5f5] px-8 py-3.5 text-sm font-semibold text-black hover:bg-emerald-400 hover:text-black hover:shadow-lg hover:shadow-emerald-500/20 shadow-xl transition-all duration-300"
           >
-            Download Deck
+            Download Pitch Deck
           </Link>
         </div>
       </div>

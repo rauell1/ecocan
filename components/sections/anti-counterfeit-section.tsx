@@ -72,44 +72,53 @@ export default function AntiCounterfeitSection() {
   return (
     <section
       ref={sectionRef}
-      className="relative w-full overflow-hidden bg-[#0a0a0a] py-[clamp(5rem,10vw,9rem)]"
+      className="relative w-full overflow-hidden bg-[#050705] py-[clamp(5rem,10vw,9rem)]"
     >
       <div className="absolute inset-0 z-0">
         <img
-          src="https://source.unsplash.com/1600x900/?security,qr,technology"
-          alt=""
+          src="/images/hero/anti_counterfeit_hero.png"
+          alt="Digital security QR verification matrix"
           aria-hidden="true"
-          className="section-bg-img h-full w-full object-cover"
+          className="section-bg-img h-full w-full object-cover opacity-50"
         />
-        <div className="absolute inset-0" style={{ background: "rgba(0,0,0,0.65)" }} />
+        <div 
+          className="absolute inset-0" 
+          style={{ 
+            background: "linear-gradient(to bottom, rgba(5,7,5,0.7) 0%, rgba(5,7,5,0.92) 100%)" 
+          }} 
+        />
       </div>
 
-      <div className="relative z-10 grid items-center gap-10 px-[clamp(1.25rem,4vw,3rem)] lg:grid-cols-2">
+      <div className="relative z-10 grid items-center gap-10 px-[clamp(1.25rem,4vw,3rem)] lg:grid-cols-2 max-w-7xl mx-auto">
         <div ref={imageColRef} className="order-2 ec-reveal lg:order-1">
-          <div className="overflow-hidden border border-white/10 bg-white/5">
-            <Image
-              src="/images/counterfeit-alert.jpg"
-              alt="Phone verifying QR code authenticity"
-              width={900}
-              height={1100}
-              className="h-auto w-full object-cover"
-            />
+          <div className="overflow-hidden rounded-2xl border border-white/10 bg-[#0c100c]/40 backdrop-blur-md shadow-2xl p-3">
+            <div className="overflow-hidden rounded-xl">
+              <Image
+                src="/images/counterfeit-alert.jpg"
+                alt="Phone verifying QR code authenticity"
+                width={900}
+                height={1100}
+                className="h-auto w-full object-cover transition-transform duration-700 hover:scale-105"
+              />
+            </div>
           </div>
         </div>
 
-        <div className="order-1 lg:order-2">
+        <div className="order-1 lg:order-2 lg:pl-8">
           <h2
             className="ec-reveal font-bold text-[#f5f5f5]"
             style={{
-              fontSize: "clamp(2rem,5vw,4.5rem)",
+              fontSize: "clamp(2.5rem,5vw,4.5rem)",
               letterSpacing: "-0.03em",
               lineHeight: 1.02,
+              textShadow: "0 0 40px rgba(16,185,129,0.15)"
             }}
           >
-            Every can. Verified.
+            Every can. <br />
+            <span className="bg-gradient-to-r from-emerald-400 via-teal-400 to-green-500 bg-clip-text text-transparent">Verified.</span>
           </h2>
-          <p className="ec-reveal mt-4 text-base text-white/50">
-            Scan once to confirm authenticity before every sip.
+          <p className="ec-reveal mt-6 text-lg text-white/70 max-w-md leading-relaxed">
+            Scan once to confirm authenticity before every sip. Absolute trust in a single, simple scan.
           </p>
         </div>
       </div>

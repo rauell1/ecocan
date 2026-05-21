@@ -53,32 +53,45 @@ export default function CallToActionSection() {
   return (
     <section
       ref={sectionRef}
-      className="relative w-full overflow-hidden bg-[#0a0a0a] py-[clamp(5rem,10vw,9rem)]"
+      className="relative w-full overflow-hidden bg-[#050705] py-[clamp(6rem,12vw,10rem)]"
     >
       <div className="absolute inset-0 z-0">
         <img
-          src="https://source.unsplash.com/1600x900/?forest,green"
-          alt=""
+          src="/images/hero/cta_hero.png"
+          alt="Futuristic forest canopy blending nature and technology"
           aria-hidden="true"
-          className="section-bg-img h-full w-full object-cover"
+          className="section-bg-img h-full w-full object-cover opacity-50"
         />
-        <div className="absolute inset-0" style={{ background: "rgba(0,0,0,0.60)" }} />
+        <div 
+          className="absolute inset-0" 
+          style={{ 
+            background: "linear-gradient(to bottom, rgba(5,7,5,0.6) 0%, rgba(5,7,5,0.92) 100%)" 
+          }} 
+        />
       </div>
 
-      <div className="relative z-10 px-[clamp(1.25rem,4vw,3rem)]">
+      <div className="relative z-10 px-[clamp(1.25rem,4vw,3rem)] text-center max-w-4xl mx-auto">
         <h2
-          className="ec-reveal mb-7 font-bold text-[#f5f5f5]"
-          style={{ fontSize: "clamp(2rem,5vw,4rem)", lineHeight: 1.04, letterSpacing: "-0.03em" }}
+          className="ec-reveal mb-8 font-bold text-[#f5f5f5]"
+          style={{ 
+            fontSize: "clamp(2.5rem,5vw,5rem)", 
+            lineHeight: 1.02, 
+            letterSpacing: "-0.03em",
+            textShadow: "0 0 50px rgba(16,185,129,0.3)"
+          }}
         >
-          Start earning from empties.
+          Start earning <br />
+          <span className="bg-gradient-to-r from-emerald-400 via-teal-400 to-green-500 bg-clip-text text-transparent">from empties.</span>
         </h2>
-        <Link
-          href="https://apps.apple.com/app/6502695438"
-          target="_blank"
-          className="ec-reveal inline-flex items-center rounded-full bg-white px-7 py-3 text-sm font-semibold text-[#0a0a0a] transition hover:opacity-90"
-        >
-          Download App
-        </Link>
+        <div className="ec-reveal flex justify-center mt-10">
+          <Link
+            href="https://apps.apple.com/app/6502695438"
+            target="_blank"
+            className="rounded-full bg-[#f5f5f5] px-10 py-4 text-base font-bold text-black hover:bg-emerald-400 hover:text-black hover:shadow-lg hover:shadow-emerald-500/20 shadow-xl transition-all duration-300"
+          >
+            Download App
+          </Link>
+        </div>
       </div>
     </section>
   )

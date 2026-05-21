@@ -55,24 +55,29 @@ export default function PartnersTestimonialsSection() {
   return (
     <section
       ref={sectionRef}
-      className="relative w-full overflow-hidden bg-[#0a0a0a] py-[clamp(5rem,10vw,9rem)]"
+      className="relative w-full overflow-hidden bg-[#050705] py-[clamp(5rem,10vw,9rem)]"
     >
       <div className="absolute inset-0 z-0">
         <img
-          src="https://source.unsplash.com/1600x900/?partnership,handshake"
-          alt=""
+          src="/images/hero/partners_hero.png"
+          alt="High tech partnership network handshake"
           aria-hidden="true"
-          className="section-bg-img h-full w-full object-cover"
+          className="section-bg-img h-full w-full object-cover opacity-50"
         />
-        <div className="absolute inset-0" style={{ background: "rgba(0,0,0,0.72)" }} />
+        <div 
+          className="absolute inset-0" 
+          style={{ 
+            background: "linear-gradient(to bottom, rgba(5,7,5,0.7) 0%, rgba(5,7,5,0.92) 100%)" 
+          }} 
+        />
       </div>
 
-      <div className="ec-reveal relative z-10 bg-white/5 px-[clamp(1.25rem,4vw,3rem)] py-8">
-        <div className="flex flex-wrap items-center gap-8 md:gap-12">
+      <div className="ec-reveal relative z-10 mx-[clamp(1.25rem,4vw,3rem)] rounded-2xl border border-white/10 bg-[#0c100c]/40 backdrop-blur-md px-8 py-6 shadow-2xl">
+        <div className="flex flex-wrap items-center justify-between gap-6">
           {partnerLogos.map((logo) => (
             <span
               key={logo}
-              className="text-xs font-semibold uppercase tracking-[0.2em] text-white/45"
+              className="text-sm font-extrabold uppercase tracking-[0.25em] text-emerald-400/60 hover:text-emerald-400 transition-colors duration-300"
             >
               {logo}
             </span>
@@ -80,11 +85,13 @@ export default function PartnersTestimonialsSection() {
         </div>
       </div>
 
-      <div className="ec-reveal relative z-10 px-[clamp(1.25rem,4vw,3rem)] pt-12">
-        <blockquote className="max-w-[26ch] text-2xl italic text-[#f5f5f5] md:text-4xl">
-          “ECOCAN made returns profitable for every street collector.”
+      <div className="ec-reveal relative z-10 px-[clamp(1.25rem,4vw,3rem)] pt-14 max-w-4xl">
+        <span className="text-6xl text-emerald-500/20 font-serif leading-none block select-none mb-2">“</span>
+        <blockquote className="max-w-[32ch] text-2xl md:text-4xl font-semibold tracking-tight text-[#f5f5f5] leading-snug">
+          ECOCAN made returns profitable for every street collector.
         </blockquote>
-        <p className="mt-3 text-sm text-white/50">Grace M., Retail Operations Lead</p>
+        <p className="mt-6 text-sm md:text-base font-semibold text-emerald-400">Grace M.</p>
+        <p className="text-xs text-white/50">Retail Operations Lead</p>
       </div>
     </section>
   )
