@@ -5,10 +5,10 @@
 
 # 🗺️ EcoCan Codebase Map
 
-> **Version:** `9e7ec1c`
-> **Generated:** 2026-05-21T18:31:55.104Z
+> **Version:** `3479f58`
+> **Generated:** 2026-05-21T18:46:52.019Z
 > **Branch:** `main`
-> **Previous:** `08bb333`
+> **Previous:** `9e7ec1c`
 
 ## Changes Since Last Version
 
@@ -59,6 +59,7 @@
 
 | Version | Date | Branch | Changes |
 |---|---|---|---|
+| `3479f58` | 2026-05-21 | main | Modified: components/sections/hero-section.tsx |
 | `9e7ec1c` | 2026-05-21 | main | Modified: components/sections/hero-section.tsx |
 | `08bb333` | 2026-05-21 | main | Modified: app/page.tsx; Added: app/template.tsx; Modified: components/sections/ecommunity-roles-section.tsx; Modified: components/sections/faq-section.tsx; Modified: components/sections/for-investors-section.tsx; Modified: components/sections/home-navbar.tsx; Modified: components/sections/sustainability-impact-section.tsx; Added: components/ui/spotlight-card.tsx |
 | `422e74a` | 2026-05-21 | main | Modified: components/sections/anti-counterfeit-section.tsx; Modified: components/sections/app-showcase-section.tsx; Modified: components/sections/call-to-action-section.tsx; Modified: components/sections/ecommunity-roles-section.tsx; Modified: components/sections/for-investors-section.tsx; Modified: components/sections/how-it-works-section.tsx; Modified: components/sections/partners-testimonials-section.tsx; Modified: components/sections/problem-solution-section.tsx; Modified: components/sections/sustainability-impact-section.tsx |
@@ -78,7 +79,6 @@
 | `9e90aec` | 2026-05-20 | main | Modified: components/shared/section-shell.tsx |
 | `1f1d704` | 2026-05-20 | main | Modified: app/globals.css; Modified: components/sections/ecocan-model-section.tsx; Modified: components/sections/ecommunity-roles-section.tsx; Modified: components/sections/electric-mobility-section.tsx; Modified: components/sections/how-it-works-section.tsx; Modified: components/sections/partners-testimonials-section.tsx |
 | `3d6f0e8` | 2026-05-20 | main | Modified: app/design-tokens.css; Modified: app/globals.css; Modified: components/sections/anti-counterfeit-section.tsx; Modified: components/sections/app-showcase-section.tsx; Added: lib/ec-reveal.ts |
-| `2a78572` | 2026-05-20 | main | Modified: components/sections/home-footer.tsx; Modified: components/sections/how-it-works-section.tsx; Modified: components/sections/sustainability-impact-section.tsx |
 
 ---
 
