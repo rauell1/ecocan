@@ -405,7 +405,8 @@ button,
 }
 
 .text-luxury-glow {
-  filter: drop-shadow(0 2px 24px rgba(34, 197, 94, 0.08)) drop-shadow(0 4px 60px rgba(255, 255, 255, 0.05));
+  filter: drop-shadow(0 2px 24px rgba(34, 197, 94, 0.08))
+    drop-shadow(0 4px 60px rgba(255, 255, 255, 0.05));
 }
 
 /* ── IMAGE LOAD FADE-IN ─────────────────────────────────────────────────── */
@@ -426,3 +427,11 @@ button,
   animation: imgFadeIn 1.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
+/* ── HOW IT WORKS MOBILE CAROUSEL ──────────────────────────────────────── */
+.hiw-slider {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE/Edge */
+}
+.hiw-slider::-webkit-scrollbar {
+  display: none; /* Chrome/Safari */
+}
