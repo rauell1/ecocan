@@ -74,14 +74,26 @@ export default function HeroSection({ onTransitionComplete }: HeroSectionProps) 
             )
             .fromTo(
               videoWrapRef.current,
-              { scale: 1, borderRadius: "0px", filter: "brightness(0.68)" },
+              { scale: 1, borderRadius: "0px", filter: "brightness(0.85)" },
               {
                 scale: 0.8,
                 borderRadius: "24px",
-                filter: "brightness(0.28)",
+                filter: "brightness(1.0)",
                 ease: "power2.inOut",
                 duration: 1,
               },
+              0
+            )
+            .fromTo(
+              ".hero-overlay-gradient",
+              { opacity: 1 },
+              { opacity: 0, ease: "power2.inOut", duration: 1 },
+              0
+            )
+            .fromTo(
+              ".hero-bottom-fade",
+              { opacity: 1 },
+              { opacity: 0, ease: "power2.inOut", duration: 1 },
               0
             )
         }
@@ -140,13 +152,13 @@ export default function HeroSection({ onTransitionComplete }: HeroSectionProps) 
           preload="auto"
           poster="/images/scan-verify.jpg"
           className="h-full w-full object-cover"
-          style={{ filter: "brightness(0.68)" }}
+          style={{ filter: "brightness(0.85)" }}
         >
           <source src="/videos/hero-loop.mp4" type="video/mp4" />
         </video>
         <div
           aria-hidden
-          className="absolute inset-0"
+          className="hero-overlay-gradient absolute inset-0"
           style={{
             background:
               "linear-gradient(to bottom, rgba(10,10,10,0.2) 0%, rgba(10,10,10,0.82) 100%)",
@@ -154,7 +166,7 @@ export default function HeroSection({ onTransitionComplete }: HeroSectionProps) 
         />
         <div
           aria-hidden
-          className="absolute inset-x-0 bottom-0 h-[36%]"
+          className="hero-bottom-fade absolute inset-x-0 bottom-0 h-[36%]"
           style={{ background: "linear-gradient(to bottom, transparent 60%, #0a0a0a 100%)" }}
         />
       </div>
