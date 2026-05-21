@@ -152,6 +152,11 @@ export default function HeroSection({ onTransitionComplete }: HeroSectionProps) 
               "linear-gradient(to bottom, rgba(10,10,10,0.2) 0%, rgba(10,10,10,0.82) 100%)",
           }}
         />
+        <div
+          aria-hidden
+          className="absolute inset-x-0 bottom-0 h-[36%]"
+          style={{ background: "linear-gradient(to bottom, transparent 60%, #0a0a0a 100%)" }}
+        />
       </div>
 
       <div className="absolute inset-0 z-10 flex items-center justify-center">
