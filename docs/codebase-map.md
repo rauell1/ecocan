@@ -5,10 +5,10 @@
 
 # 🗺️ EcoCan Codebase Map
 
-> **Version:** `89f0f4a`
-> **Generated:** 2026-05-21T19:42:57.681Z
+> **Version:** `3fa0ebe`
+> **Generated:** 2026-05-21T19:50:38.411Z
 > **Branch:** `main`
-> **Previous:** `16d0867`
+> **Previous:** `89f0f4a`
 
 ## Changes Since Last Version
 
@@ -59,6 +59,7 @@
 
 | Version | Date | Branch | Changes |
 |---|---|---|---|
+| `3fa0ebe` | 2026-05-21 | main | Full map regeneration |
 | `89f0f4a` | 2026-05-21 | main | Full map regeneration |
 | `16d0867` | 2026-05-21 | main | Modified: components/sections/hero-section.tsx |
 | `a09167f` | 2026-05-17 | main | Modified: app/globals.css; Modified: components/sections/how-it-works-section.tsx |
