@@ -1,22 +1,15 @@
 {
   "meta": {
-    "version": "08bb333",
-    "generatedAt": "2026-05-21T18:10:21.264Z",
+    "version": "9e7ec1c",
+    "generatedAt": "2026-05-21T18:31:55.104Z",
     "branch": "main",
-    "previousVersion": "422e74a",
+    "previousVersion": "08bb333",
     "generator": "scripts/generate-codebase-map.mjs",
     "framework": "Next.js 14",
     "packageManager": "pnpm"
   },
   "changes": [
-    "Modified: app/page.tsx",
-    "Added: app/template.tsx",
-    "Modified: components/sections/ecommunity-roles-section.tsx",
-    "Modified: components/sections/faq-section.tsx",
-    "Modified: components/sections/for-investors-section.tsx",
-    "Modified: components/sections/home-navbar.tsx",
-    "Modified: components/sections/sustainability-impact-section.tsx",
-    "Added: components/ui/spotlight-card.tsx"
+    "Modified: components/sections/hero-section.tsx"
   ],
   "affectedHotspots": [],
   "routes": [
@@ -293,7 +286,7 @@
     "components/sections/electric-mobility-section.tsx": "fb5eb531604a0013b61003d552fd3676577599a2",
     "components/sections/faq-section.tsx": "b2d3d35dcfc86a69ba892b6dd12e16b95f165012",
     "components/sections/for-investors-section.tsx": "2d4ef8dfd1e0d46eb1e07bc001a6f7006cca3c85",
-    "components/sections/hero-section.tsx": "7510bd769713df70a72b9298719cd5f9e156dc22",
+    "components/sections/hero-section.tsx": "1405ba9530ea22883f38d2e25a5fe37b6e953673",
     "components/sections/home-footer.tsx": "dfdb7ca1a21916e71619470eaa69e57c12aaa901",
     "components/sections/home-mobile-menu.tsx": "fb3b2ee486bd8fa684435b988f19d3bec1ad9125",
     "components/sections/home-navbar.tsx": "af9ab8c56023508b365055ae6263d5d12ffcb7f6",
@@ -384,15 +377,6 @@
     "tsconfig.json": "5841f1c2f8bba110464eaba24059d47cb59d3b64"
   },
   "changelog": [
-    {
-      "version": "b40f301",
-      "date": "2026-05-20T07:53:01.134Z",
-      "branch": "main",
-      "changes": [
-        "Modified: components/sections/hero-section.tsx",
-        "Modified: components/sections/problem-solution-section.tsx"
-      ]
-    },
     {
       "version": "2a78572",
       "date": "2026-05-20T07:55:38.164Z",
@@ -622,6 +606,14 @@
         "Modified: components/sections/home-navbar.tsx",
         "Modified: components/sections/sustainability-impact-section.tsx",
         "Added: components/ui/spotlight-card.tsx"
+      ]
+    },
+    {
+      "version": "9e7ec1c",
+      "date": "2026-05-21T18:31:55.104Z",
+      "branch": "main",
+      "changes": [
+        "Modified: components/sections/hero-section.tsx"
       ]
     }
   ]
