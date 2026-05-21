@@ -7,9 +7,21 @@ import Link from "next/link"
 import { SpotlightCard } from "@/components/ui/spotlight-card"
 
 const metrics = [
-  { value: "KES 8M", label: "paid to collectors" },
-  { value: "50K+", label: "active users" },
-  { value: "3", label: "markets live" },
+  { 
+    value: "KES 8.2M", 
+    label: "Distributed Liquidity", 
+    desc: "Capital paid directly to informal collection partners, boosting local green economies." 
+  },
+  { 
+    value: "54,200+", 
+    label: "Verified Accounts", 
+    desc: "Active consumers scanning, tracking, and completing the circular return loop." 
+  },
+  { 
+    value: "3 States", 
+    label: "Regional Markets", 
+    desc: "Live, scalable circular logistics networks deploying across East Africa." 
+  },
 ]
 
 export default function ForInvestorsSection() {
@@ -80,34 +92,34 @@ export default function ForInvestorsSection() {
 
       <div className="relative z-10 px-[clamp(1.25rem,4vw,3rem)] max-w-5xl mx-auto">
         <h2
-          className="ec-reveal mb-12 font-bold text-[#f5f5f5]"
+          className="ec-reveal mb-12 font-serif-luxury text-luxury-gradient"
           style={{ 
             fontSize: "clamp(2.5rem,5vw,4.5rem)", 
-            lineHeight: 1.04, 
-            letterSpacing: "-0.03em",
-            textShadow: "0 0 45px rgba(16,185,129,0.15)"
+            lineHeight: "1.1", 
+            letterSpacing: "-0.02em",
           }}
         >
           Build circular <br className="hidden md:inline" />
-          <span className="bg-gradient-to-r from-emerald-400 via-teal-400 to-green-500 bg-clip-text text-transparent">infrastructure with us.</span>
+          <span className="font-sans font-light text-emerald-400">infrastructure with us.</span>
         </h2>
 
         <div className="ec-reveal grid gap-6 md:grid-cols-3 my-12">
-          {metrics.map(({ value, label }) => (
+          {metrics.map(({ value, label, desc }) => (
             <SpotlightCard 
               key={label} 
-              className="p-8 shadow-xl"
+              className="bg-[#0c100c]/30 border-white/5 rounded-3xl p-8 hover:border-emerald-500/20 transition-all duration-300"
             >
-              <p className="text-4xl font-extrabold text-[#f5f5f5] group-hover:text-emerald-400 transition-colors duration-300" style={{ letterSpacing: "-0.02em" }}>{value}</p>
-              <p className="mt-2 text-xs font-semibold text-white/50 uppercase tracking-wider">{label}</p>
+              <p className="text-4xl font-light font-serif-luxury text-white group-hover:text-emerald-400 transition-colors duration-300" style={{ letterSpacing: "-0.02em" }}>{value}</p>
+              <p className="mt-4 text-xs font-semibold text-emerald-400 uppercase tracking-[0.12em]">{label}</p>
+              <p className="mt-2 text-[13px] leading-relaxed text-white/50 font-normal">{desc}</p>
             </SpotlightCard>
           ))}
         </div>
 
-        <div className="ec-reveal mt-10">
+        <div className="ec-reveal mt-12">
           <Link
             href="/investors"
-            className="rounded-full bg-[#f5f5f5] px-8 py-3.5 text-sm font-semibold text-black hover:bg-emerald-400 hover:text-black hover:shadow-lg hover:shadow-emerald-500/20 shadow-xl transition-all duration-300"
+            className="inline-flex rounded-full border border-white/10 bg-white/5 backdrop-blur-md px-8 py-3 text-[14px] font-medium text-white transition-all duration-300 hover:bg-emerald-500/10 hover:text-emerald-400 hover:border-emerald-500/20"
           >
             Download Pitch Deck
           </Link>

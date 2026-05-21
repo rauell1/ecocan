@@ -39,11 +39,11 @@ export default function FAQSection() {
       
       <div className="relative z-10 px-[clamp(1.25rem,4vw,3rem)] max-w-4xl mx-auto">
         <h2
-          className="ec-reveal mb-12 text-center font-bold text-[#f5f5f5]"
+          className="ec-reveal mb-16 text-center font-serif-luxury text-luxury-gradient"
           style={{ 
-            fontSize: "clamp(2.5rem,5vw,4rem)", 
-            letterSpacing: "-0.03em",
-            textShadow: "0 0 40px rgba(16,185,129,0.15)"
+            fontSize: "clamp(2.5rem,5vw,4.5rem)", 
+            letterSpacing: "-0.02em",
+            lineHeight: "1.1"
           }}
         >
           Frequently Asked Questions
@@ -55,21 +55,21 @@ export default function FAQSection() {
             return (
               <div key={faq.q} className="ec-reveal">
                 <SpotlightCard
-                  className="p-0 border-white/5 bg-[#0c100c]/30 hover:border-emerald-500/25 transition-all duration-500 rounded-xl"
-                  spotlightColor="rgba(16,185,129,0.1)"
+                  className="p-0 border border-white/5 bg-[#0c100c]/20 hover:border-emerald-500/20 transition-all duration-500 rounded-3xl shadow-xl"
+                  spotlightColor="rgba(16,185,129,0.08)"
                   spotlightSize={280}
                 >
                   <button
-                    className="flex w-full items-center justify-between gap-6 px-6 py-5 text-left focus:outline-none"
+                    className="flex w-full items-center justify-between gap-6 px-8 py-6 text-left focus:outline-none"
                     onClick={() => setOpenIndex(isOpen ? null : i)}
                     aria-expanded={isOpen}
                   >
-                    <span className="text-base font-semibold text-[#f5f5f5] md:text-lg transition-colors duration-300 group-hover:text-emerald-300">
+                    <span className="text-[16px] md:text-[18px] font-medium text-white/90 transition-colors duration-300 group-hover:text-emerald-300">
                       {faq.q}
                     </span>
                     <ChevronDown
-                      size={20}
-                      className="shrink-0 text-white/50 transition-transform duration-500"
+                      size={18}
+                      className="shrink-0 text-white/40 transition-transform duration-500"
                       style={{ transform: isOpen ? "rotate(180deg)" : "rotate(0deg)" }}
                     />
                   </button>
@@ -83,7 +83,7 @@ export default function FAQSection() {
                         transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
                         className="overflow-hidden"
                       >
-                        <div className="px-6 pb-5 text-sm text-white/60 md:text-base leading-relaxed border-t border-white/5 pt-4">
+                        <div className="px-8 pb-6 text-[14px] md:text-[15px] leading-relaxed text-white/50 border-t border-white/5 pt-4">
                           {faq.a}
                         </div>
                       </motion.div>

@@ -55,7 +55,7 @@ export default function PartnersTestimonialsSection() {
   return (
     <section
       ref={sectionRef}
-      className="relative w-full overflow-hidden bg-[#050705] py-[clamp(5rem,10vw,9rem)]"
+      className="relative w-full overflow-hidden bg-[#050705] py-[clamp(6rem,12vw,10rem)]"
     >
       <div className="absolute inset-0 z-0">
         <img
@@ -72,12 +72,12 @@ export default function PartnersTestimonialsSection() {
         />
       </div>
 
-      <div className="ec-reveal relative z-10 mx-[clamp(1.25rem,4vw,3rem)] rounded-2xl border border-white/10 bg-[#0c100c]/40 backdrop-blur-md px-8 py-6 shadow-2xl">
-        <div className="flex flex-wrap items-center justify-between gap-6">
+      <div className="ec-reveal relative z-10 mx-[clamp(1.25rem,4vw,3rem)] max-w-5xl md:mx-auto rounded-[24px] border border-white/5 bg-[#0c100c]/20 backdrop-blur-xl px-10 py-8 shadow-2xl">
+        <div className="flex flex-wrap items-center justify-around gap-8">
           {partnerLogos.map((logo) => (
             <span
               key={logo}
-              className="text-sm font-extrabold uppercase tracking-[0.25em] text-emerald-400/60 hover:text-emerald-400 transition-colors duration-300"
+              className="text-[13px] font-bold uppercase tracking-[0.25em] text-white/30 hover:text-emerald-400 transition-colors duration-300"
             >
               {logo}
             </span>
@@ -85,13 +85,27 @@ export default function PartnersTestimonialsSection() {
         </div>
       </div>
 
-      <div className="ec-reveal relative z-10 px-[clamp(1.25rem,4vw,3rem)] pt-14 max-w-4xl">
-        <span className="text-6xl text-emerald-500/20 font-serif leading-none block select-none mb-2">“</span>
-        <blockquote className="max-w-[32ch] text-2xl md:text-4xl font-semibold tracking-tight text-[#f5f5f5] leading-snug">
-          ECOCAN made returns profitable for every street collector.
+      <div className="ec-reveal relative z-10 px-[clamp(1.25rem,4vw,3rem)] pt-20 max-w-4xl mx-auto text-center md:text-left">
+        <div className="h-[1px] w-12 bg-emerald-500/30 mb-8 mx-auto md:mx-0" />
+        
+        <span className="text-8xl text-emerald-400/20 font-serif leading-none block select-none mb-[-20px] h-8">“</span>
+        
+        <blockquote className="text-2xl md:text-[36px] font-light leading-snug font-serif-luxury text-luxury-gradient tracking-tight">
+          Ecocan has completely redefined the economics of waste recovery. By bridging immediate digital liquidity with verified circular provenance, it makes sustainability a profitable reality for every collector, merchant, and recycler in our network.
         </blockquote>
-        <p className="mt-6 text-sm md:text-base font-semibold text-emerald-400">Grace M.</p>
-        <p className="text-xs text-white/50">Retail Operations Lead</p>
+        
+        <div className="mt-8 flex flex-col md:flex-row md:items-center justify-between gap-6 border-t border-white/5 pt-8">
+          <div className="text-left">
+            <p className="text-sm font-semibold text-emerald-400 tracking-wider uppercase">Grace M.</p>
+            <p className="text-xs text-white/40 mt-1 font-serif-luxury italic">Retail Circularity & Operations Lead</p>
+          </div>
+          
+          <div className="hidden md:flex items-center gap-4 text-xs text-white/30 uppercase tracking-[0.15em]">
+            <span>Circular Network Impact</span>
+            <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
+            <span>Scale partner</span>
+          </div>
+        </div>
       </div>
     </section>
   )

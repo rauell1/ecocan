@@ -89,37 +89,42 @@ export default function AntiCounterfeitSection() {
         />
       </div>
 
-      <div className="relative z-10 grid items-center gap-10 px-[clamp(1.25rem,4vw,3rem)] lg:grid-cols-2 max-w-7xl mx-auto">
-        <div ref={imageColRef} className="order-2 ec-reveal lg:order-1">
-          <div className="overflow-hidden rounded-2xl border border-white/10 bg-[#0c100c]/40 backdrop-blur-md shadow-2xl p-3">
-            <div className="overflow-hidden rounded-xl">
-              <Image
-                src="/images/counterfeit-alert.jpg"
-                alt="Phone verifying QR code authenticity"
-                width={900}
-                height={1100}
-                className="h-auto w-full object-cover transition-transform duration-700 hover:scale-105"
-              />
+      <div className="relative z-10 px-[clamp(1.25rem,4vw,3rem)] max-w-7xl mx-auto">
+        <div className="ec-reveal border border-white/5 bg-[#0c100c]/25 backdrop-blur-xl rounded-[32px] p-8 md:p-12 lg:p-16 shadow-2xl overflow-hidden relative">
+          {/* Subtle radial ambient light */}
+          <div className="absolute -top-12 -right-12 w-64 h-64 bg-emerald-500/5 rounded-full blur-3xl pointer-events-none" />
+          
+          <div className="grid items-center gap-12 lg:grid-cols-2">
+            <div ref={imageColRef} className="order-2 lg:order-1">
+              <div className="overflow-hidden rounded-2xl border border-white/5 bg-[#0a0c0a] p-2 shadow-xl">
+                <div className="overflow-hidden rounded-xl">
+                  <Image
+                    src="/images/counterfeit-alert.jpg"
+                    alt="Phone verifying QR code authenticity"
+                    width={900}
+                    height={1100}
+                    className="h-auto w-full object-cover transition-transform duration-700 hover:scale-105"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <div className="order-1 lg:order-2 lg:pl-8">
+              <h2
+                className="font-serif-luxury text-luxury-gradient leading-tight"
+                style={{
+                  fontSize: "clamp(2.2rem, 3.5vw, 3.8rem)",
+                  letterSpacing: "-0.02em",
+                }}
+              >
+                Every can. <br />
+                <span className="font-sans font-light text-emerald-400">Verified instantly.</span>
+              </h2>
+              <p className="mt-6 text-base text-white/50 max-w-md leading-relaxed font-normal">
+                Scan the smart-matrix code to confirm absolute authenticity in a single, simple action. Premium circular verification, clinical precision, complete trust.
+              </p>
             </div>
           </div>
-        </div>
-
-        <div className="order-1 lg:order-2 lg:pl-8">
-          <h2
-            className="ec-reveal font-bold text-[#f5f5f5]"
-            style={{
-              fontSize: "clamp(2.5rem,5vw,4.5rem)",
-              letterSpacing: "-0.03em",
-              lineHeight: 1.02,
-              textShadow: "0 0 40px rgba(16,185,129,0.15)"
-            }}
-          >
-            Every can. <br />
-            <span className="bg-gradient-to-r from-emerald-400 via-teal-400 to-green-500 bg-clip-text text-transparent">Verified.</span>
-          </h2>
-          <p className="ec-reveal mt-6 text-lg text-white/70 max-w-md leading-relaxed">
-            Scan once to confirm authenticity before every sip. Absolute trust in a single, simple scan.
-          </p>
         </div>
       </div>
     </section>

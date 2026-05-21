@@ -6,9 +6,21 @@ import { ScrollTrigger } from "gsap/ScrollTrigger"
 import { SpotlightCard } from "@/components/ui/spotlight-card"
 
 const stats = [
-  { value: "< 5%", label: "recycled today" },
-  { value: "KES 2", label: "paid per can" },
-  { value: "100%", label: "traceable" },
+  { 
+    value: "< 5%", 
+    label: "Recycled Today", 
+    desc: "The current regional rate of post-consumer aluminum recovery across urban centers." 
+  },
+  { 
+    value: "KES 2.00", 
+    label: "Paid Per Deposit", 
+    desc: "Instant liquidity credited to user wallets per verified physical return." 
+  },
+  { 
+    value: "100%", 
+    label: "Real-Time Traceable", 
+    desc: "End-to-end blockchain provenance from consumer hand to final foundry ingot." 
+  },
 ]
 
 export default function SustainabilityImpactSection() {
@@ -94,30 +106,30 @@ export default function SustainabilityImpactSection() {
       <div className="relative z-10 px-[clamp(1.25rem,4vw,3rem)]">
         <p
           ref={statRef}
-          className="ec-reveal text-center font-extrabold text-[#f5f5f5]"
+          className="ec-reveal text-center font-serif-luxury text-luxury-gradient"
           style={{
-            fontSize: "clamp(4.5rem,16vw,12rem)",
-            lineHeight: 0.95,
-            letterSpacing: "-0.04em",
-            textShadow: "0 0 60px rgba(16,185,129,0.35)",
+            fontSize: "clamp(3.5rem,14vw,9rem)",
+            lineHeight: 1.0,
+            letterSpacing: "-0.02em",
           }}
         >
           12 billion
         </p>
-        <p className="ec-reveal mt-5 text-center text-sm font-semibold uppercase tracking-[0.2em] text-emerald-400/80">
-          cans recycled annually in East Africa
+        <p className="ec-reveal mt-6 text-center text-[13px] font-medium uppercase tracking-[0.18em] text-emerald-400">
+          cans discarded annually in East Africa
         </p>
 
-        <div className="ec-reveal mt-16 grid gap-6 md:grid-cols-3 max-w-5xl mx-auto">
-          {stats.map(({ value, label }) => (
+        <div className="ec-reveal mt-20 grid gap-6 md:grid-cols-3 max-w-5xl mx-auto">
+          {stats.map(({ value, label, desc }) => (
             <SpotlightCard 
               key={label} 
-              className="p-8 shadow-xl"
+              className="bg-[#0c100c]/30 border-white/5 rounded-3xl p-8 hover:border-emerald-500/20 transition-all duration-300"
             >
-              <p className="text-4xl font-extrabold text-[#f5f5f5] group-hover:text-emerald-400 transition-colors duration-300" style={{ letterSpacing: "-0.02em" }}>
+              <p className="text-4xl font-light font-serif-luxury text-white group-hover:text-emerald-400 transition-colors duration-300" style={{ letterSpacing: "-0.02em" }}>
                 {value}
               </p>
-              <p className="mt-2 text-xs font-semibold text-white/50 uppercase tracking-wider">{label}</p>
+              <p className="mt-4 text-xs font-semibold text-emerald-400 uppercase tracking-[0.12em]">{label}</p>
+              <p className="mt-2 text-[13px] leading-relaxed text-white/50 font-normal">{desc}</p>
             </SpotlightCard>
           ))}
         </div>

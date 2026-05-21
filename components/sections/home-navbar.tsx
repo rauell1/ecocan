@@ -105,13 +105,13 @@ export default function HomeNavbar({ onMenuToggle }: HomeNavbarProps) {
                 key={link.href}
                 href={link.href}
                 onClick={(e) => (link.scroll ? handleSection(e, link.href) : undefined)}
-                className={`relative py-2 text-xs font-bold uppercase tracking-[0.15em] transition-all duration-300 ${
+                className={`relative py-2 text-[14px] font-medium tracking-wide transition-all duration-300 ${
                   isActive ? "text-emerald-400" : "text-white/60 hover:text-white"
                 }`}
               >
                 {link.label}
                 {isActive && (
-                  <span className="absolute bottom-0 left-0 right-0 h-[2px] bg-gradient-to-r from-emerald-400 via-teal-400 to-green-500 rounded-full filter drop-shadow-[0_0_8px_rgba(16,185,129,0.8)]" />
+                  <span className="absolute bottom-[-2px] left-0 right-0 h-[1.5px] bg-emerald-400 rounded-full" />
                 )}
               </a>
             )
@@ -121,7 +121,7 @@ export default function HomeNavbar({ onMenuToggle }: HomeNavbarProps) {
         <div className="ml-auto flex items-center gap-3">
           <Link
             href="/download"
-            className="hidden rounded-full border border-white/30 px-6 py-2.5 text-[13px] font-semibold text-[#f5f5f5] transition hover:bg-white hover:text-black md:flex"
+            className="hidden rounded-full border border-white/10 bg-white/5 backdrop-blur-md px-6 py-2 text-[13px] font-medium text-white transition-all duration-300 hover:bg-emerald-500/10 hover:text-emerald-400 hover:border-emerald-500/20 md:flex"
           >
             Download App
           </Link>

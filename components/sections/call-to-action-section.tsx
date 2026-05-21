@@ -72,22 +72,21 @@ export default function CallToActionSection() {
 
       <div className="relative z-10 px-[clamp(1.25rem,4vw,3rem)] text-center max-w-4xl mx-auto">
         <h2
-          className="ec-reveal mb-8 font-bold text-[#f5f5f5]"
+          className="ec-reveal mb-8 font-serif-luxury text-luxury-gradient"
           style={{ 
             fontSize: "clamp(2.5rem,5vw,5rem)", 
-            lineHeight: 1.02, 
-            letterSpacing: "-0.03em",
-            textShadow: "0 0 50px rgba(16,185,129,0.3)"
+            lineHeight: "1.1", 
+            letterSpacing: "-0.02em",
           }}
         >
           Start earning <br />
-          <span className="bg-gradient-to-r from-emerald-400 via-teal-400 to-green-500 bg-clip-text text-transparent">from empties.</span>
+          <span className="font-sans font-light text-emerald-400">from empties.</span>
         </h2>
-        <div className="ec-reveal flex justify-center mt-10">
+        <div className="ec-reveal flex justify-center mt-12">
           <Link
             href="https://apps.apple.com/app/6502695438"
             target="_blank"
-            className="rounded-full bg-[#f5f5f5] px-10 py-4 text-base font-bold text-black hover:bg-emerald-400 hover:text-black hover:shadow-lg hover:shadow-emerald-500/20 shadow-xl transition-all duration-300"
+            className="inline-flex rounded-full border border-white/10 bg-white/5 backdrop-blur-md px-10 py-4 text-[16px] font-medium text-white transition-all duration-300 hover:bg-emerald-500/10 hover:text-emerald-400 hover:border-emerald-500/20"
           >
             Download App
           </Link>

@@ -235,21 +235,21 @@ export default function HeroSection({ onTransitionComplete }: HeroSectionProps) 
       <div className="absolute inset-0 z-10 flex items-center justify-center">
         <div ref={contentRef} className="px-6 text-center md:px-14">
           <h1
-            className="mb-6 font-bold text-[#f5f5f5]"
+            className="mb-6 font-serif-luxury text-luxury-gradient"
             style={{
-              fontSize: "clamp(3rem, 8vw, 7rem)",
-              lineHeight: 1.02,
+              fontSize: "clamp(3rem, 8.5vw, 6.5rem)",
+              lineHeight: 0.98,
               letterSpacing: "-0.03em",
             }}
           >
             Scan. Verify. Earn.
           </h1>
-          <p className="mx-auto mb-9 max-w-[40ch] text-base text-white/50">
-            Safer drinks and paid recycling in one tap.
+          <p className="mx-auto mb-9 max-w-[40ch] text-base uppercase tracking-[0.15em] text-white/50">
+            Safer drinks &amp; paid recycling in one tap.
           </p>
           <a
             href="/download"
-            className="inline-flex items-center rounded-full border border-white/30 px-8 py-3 text-sm font-semibold text-[#f5f5f5] transition hover:bg-white hover:text-black"
+            className="inline-flex items-center rounded-full border border-white/20 px-8 py-3.5 text-xs font-bold uppercase tracking-[0.15em] text-[#f5f5f5] backdrop-blur-md transition hover:bg-white hover:text-black hover:border-white"
           >
             Download App
           </a>

@@ -102,9 +102,9 @@ export default function HowItWorksSection() {
       </div>
       <div className="relative z-10 px-[clamp(1.25rem,4vw,3rem)]">
         <h2
-          className="ec-reveal mb-12 font-bold text-[#f5f5f5]"
+          className="ec-reveal mb-16 font-serif-luxury text-luxury-gradient"
           style={{ 
-            fontSize: "clamp(2.5rem,4vw,4rem)", 
+            fontSize: "clamp(2.5rem,5.5vw,4.5rem)", 
             letterSpacing: "-0.02em",
             textShadow: "0 0 40px rgba(16,185,129,0.15)"
           }}
@@ -113,28 +113,29 @@ export default function HowItWorksSection() {
         </h2>
 
         <div className="relative">
-          <div className="steps-line-mobile absolute left-3 top-0 z-0 h-full w-px origin-top bg-white/10 md:hidden" />
-          <div className="steps-line-desktop absolute left-0 top-[3.75rem] z-0 hidden h-px w-full origin-left bg-white/10 md:block" />
+          <div className="steps-line-mobile absolute left-3 top-0 z-0 h-full w-px origin-top bg-white/5 md:hidden" />
+          <div className="steps-line-desktop absolute left-0 top-[3.75rem] z-0 hidden h-px w-full origin-left bg-white/5 md:block" />
 
-          <div className="grid gap-8 pl-7 md:grid-cols-3 md:gap-6 md:pl-0 md:pt-14">
+          <div className="grid gap-10 pl-7 md:grid-cols-3 md:gap-8 md:pl-0 md:pt-14">
           {steps.map(({ step, label }, idx) => (
               <div 
                 key={step} 
-                className={`ec-reveal relative z-10 p-8 rounded-2xl border border-white/10 bg-[#0c100c]/50 backdrop-blur-md shadow-2xl hover:border-emerald-500/30 transition-all duration-300 group ${idx < steps.length - 1 ? "md:mb-0" : ""}`}
+                className={`ec-reveal relative z-10 p-10 rounded-3xl border border-white/5 bg-[#0c100c]/30 backdrop-blur-md hover:border-emerald-500/10 transition-all duration-500 group ${idx < steps.length - 1 ? "md:mb-0" : ""}`}
               >
-                <div className="absolute -inset-px rounded-2xl bg-gradient-to-r from-emerald-500/0 via-emerald-500/10 to-emerald-500/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="absolute -inset-px rounded-3xl bg-gradient-to-r from-emerald-500/0 via-emerald-500/5 to-emerald-500/0 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
                 <div className="relative z-10">
                   <p
-                    className="leading-none text-emerald-500/20 group-hover:text-emerald-400/40 transition-colors duration-300"
+                    className="leading-none text-emerald-500/10 group-hover:text-emerald-400/20 transition-colors duration-500"
                     style={{
-                      fontSize: "clamp(3.5rem,8vw,6.5rem)",
-                      fontWeight: 800,
-                      letterSpacing: "-0.03em",
+                      fontSize: "clamp(3.5rem,8vw,5.5rem)",
+                      fontWeight: 300,
+                      fontFamily: "var(--font-sans)",
+                      letterSpacing: "-0.04em",
                     }}
                   >
                     {step}
                   </p>
-                  <p className="mt-4 text-xl font-bold text-[#f5f5f5] tracking-tight">{label}</p>
+                  <p className="mt-6 text-2xl font-normal text-[#f5f5f5] tracking-tight font-serif-luxury">{label}</p>
                 </div>
               </div>
           ))}

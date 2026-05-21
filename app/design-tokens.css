@@ -30,6 +30,7 @@
   /* Using Geist for display sharpness + Inter for body readability */
   --font-display: var(--font-inter, "Inter", system-ui, sans-serif);
   --font-body: var(--font-inter, "Inter", system-ui, sans-serif);
+  --font-serif: Georgia, Cambria, "Times New Roman", Times, serif;
 
   /* Fluid type scale */
   --text-xs: clamp(0.688rem, 0.65rem + 0.19vw, 0.813rem);
@@ -67,7 +68,7 @@
   /* ── RADIUS ──────────────────────────────────────────────────────────── */
   --radius-sm: 0.375rem;
   --radius-md: 0.75rem;
-  --radius-card: 1rem;
+  --radius-card: 1.5rem;
   --radius-xl: 1.75rem;
   --radius-full: 9999px;
 

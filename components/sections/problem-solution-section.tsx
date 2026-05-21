@@ -67,16 +67,16 @@ export default function ProblemSolutionSection() {
       </div>
       <div className="relative z-10 px-[clamp(1.25rem,4vw,3rem)] max-w-5xl">
         <p
-          className="ec-reveal font-bold text-[#f5f5f5]"
+          className="ec-reveal font-serif-luxury text-luxury-gradient"
           style={{ 
-            fontSize: "clamp(2.5rem,6vw,5.5rem)", 
+            fontSize: "clamp(2.5rem,5.5vw,5rem)", 
             lineHeight: 1.02, 
-            letterSpacing: "-0.03em",
-            textShadow: "0 0 50px rgba(16,185,129,0.2)"
+            letterSpacing: "-0.02em",
+            textShadow: "0 0 80px rgba(16,185,129,0.15)"
           }}
         >
           40% of drinks are fake. <br className="hidden md:inline" />
-          <span className="bg-gradient-to-r from-emerald-400 via-teal-400 to-green-500 bg-clip-text text-transparent">We fix that.</span>
+          <span className="font-sans font-bold bg-gradient-to-r from-emerald-400 via-teal-400 to-green-500 bg-clip-text text-transparent">We fix that.</span>
         </p>
       </div>
     </section>

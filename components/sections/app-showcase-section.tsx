@@ -89,16 +89,15 @@ export default function AppShowcaseSection() {
 
       <div className="relative z-10 px-[clamp(1.25rem,4vw,3rem)] text-center max-w-5xl mx-auto">
         <h2
-          className="ec-reveal font-bold text-[#f5f5f5]"
+          className="ec-reveal font-serif-luxury text-luxury-gradient"
           style={{ 
             fontSize: "clamp(2.5rem,5vw,4.5rem)", 
-            letterSpacing: "-0.03em", 
-            lineHeight: 1.05,
-            textShadow: "0 0 45px rgba(16,185,129,0.2)"
+            letterSpacing: "-0.02em", 
+            lineHeight: "1.1",
           }}
         >
           Your loop rewards app. <br />
-          <span className="bg-gradient-to-r from-emerald-400 via-teal-400 to-green-500 bg-clip-text text-transparent font-extrabold">Paid recycling.</span>
+          <span className="font-sans font-light text-emerald-400">Paid recycling.</span>
         </h2>
 
         <div ref={phonesRef} className="phone-center ec-reveal mx-auto my-14 w-[min(340px,75vw)] transition-transform duration-500 hover:scale-[1.03] filter drop-shadow-[0_0_60px_rgba(16,185,129,0.25)]">
@@ -115,13 +114,13 @@ export default function AppShowcaseSection() {
           <Link 
             href="https://apps.apple.com/app/6502695438" 
             target="_blank" 
-            className="rounded-full bg-[#f5f5f5] px-8 py-3 text-sm font-semibold text-black hover:bg-emerald-400 hover:text-black shadow-lg hover:shadow-emerald-500/20 transition-all duration-300"
+            className="inline-flex rounded-full border border-white/10 bg-white/5 backdrop-blur-md px-8 py-3 text-[14px] font-medium text-white transition-all duration-300 hover:bg-emerald-500/10 hover:text-emerald-400 hover:border-emerald-500/20"
           >
             App Store
           </Link>
           <Link 
             href="#" 
-            className="rounded-full border border-white/20 bg-white/5 backdrop-blur-md px-8 py-3 text-sm font-semibold text-[#f5f5f5] hover:border-emerald-400 hover:text-emerald-400 hover:bg-white/10 shadow-lg transition-all duration-300"
+            className="inline-flex rounded-full border border-white/10 bg-white/5 backdrop-blur-md px-8 py-3 text-[14px] font-medium text-white transition-all duration-300 hover:bg-emerald-500/10 hover:text-emerald-400 hover:border-emerald-500/20"
           >
             Google Play
           </Link>

@@ -6,9 +6,21 @@ import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 
 const roles = [
-  { icon: Users, title: "Consumer", action: "Scan & earn" },
-  { icon: Store, title: "Retailer", action: "Host returns" },
-  { icon: Recycle, title: "Recycler", action: "Collect & process" },
+  {
+    icon: Users,
+    title: "Consumer",
+    action: "Scan daily circular items to authenticate materials instantly. Recycled deposits convert directly into verified eco-credits in your digital app wallet.",
+  },
+  {
+    icon: Store,
+    title: "Retailer",
+    action: "Become a certified physical deposit station. Drive premium recurring footprint, unlock verified footprint offsets, and anchor retail circularity.",
+  },
+  {
+    icon: Recycle,
+    title: "Recycler",
+    action: "Access high-purity pre-sorted feedstock directly from local networks. Streamline processing lines and automate circular verification cycles.",
+  },
 ]
 
 import { SpotlightCard } from "@/components/ui/spotlight-card"
@@ -78,11 +90,11 @@ export default function EcommunityRolesSection() {
 
       <div className="relative z-10 px-[clamp(1.25rem,4vw,3rem)]">
         <h2
-          className="ec-reveal mb-12 font-bold text-[#f5f5f5]"
+          className="ec-reveal mb-16 font-serif-luxury text-luxury-gradient"
           style={{ 
-            fontSize: "clamp(2.5rem,4vw,4rem)", 
+            fontSize: "clamp(2.5rem,4vw,4.5rem)", 
             letterSpacing: "-0.02em",
-            textShadow: "0 0 40px rgba(16,185,129,0.15)"
+            lineHeight: "1.1"
           }}
         >
           One loop. Three roles.
@@ -91,15 +103,15 @@ export default function EcommunityRolesSection() {
         <div className="grid gap-6 md:grid-cols-3">
           {roles.map((role) => (
             <div key={role.title} className="ec-reveal">
-              <SpotlightCard>
-                <role.icon size={28} className="text-emerald-400 group-hover:text-emerald-300 transition-colors duration-300" strokeWidth={1.5} />
+              <SpotlightCard className="h-full bg-[#0c100c]/30 border-white/5 rounded-3xl p-8 hover:border-emerald-500/20">
+                <role.icon size={26} className="text-emerald-400 group-hover:text-emerald-300 transition-colors duration-300" strokeWidth={1.5} />
                 <h3
-                  className="mt-5 text-2xl font-bold text-[#f5f5f5]"
-                  style={{ letterSpacing: "-0.02em" }}
+                  className="mt-6 font-serif-luxury font-light text-2xl text-white"
+                  style={{ letterSpacing: "-0.01em" }}
                 >
                   {role.title}
                 </h3>
-                <p className="mt-2 text-base text-white/60">{role.action}</p>
+                <p className="mt-3 text-[14px] leading-relaxed text-white/50 font-normal">{role.action}</p>
               </SpotlightCard>
             </div>
           ))}
