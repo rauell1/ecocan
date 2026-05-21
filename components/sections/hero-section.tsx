@@ -137,12 +137,12 @@ export default function HeroSection({ onTransitionComplete }: HeroSectionProps) 
       ref={heroRef}
       id="hero"
       className="relative w-full"
-      style={{ height: "100dvh", background: "#0a0a0a" }}
+      style={{ height: "100dvh", background: "#050705" }}
     >
       <div
         ref={videoWrapRef}
         className="absolute inset-0 overflow-hidden"
-        style={{ willChange: "transform, border-radius, filter" }}
+        style={{ willChange: "transform, border-radius, filter", filter: "brightness(0.85)" }}
       >
         <video
           autoPlay
@@ -152,7 +152,6 @@ export default function HeroSection({ onTransitionComplete }: HeroSectionProps) 
           preload="auto"
           poster="/images/scan-verify.jpg"
           className="h-full w-full object-cover"
-          style={{ filter: "brightness(0.85)" }}
         >
           <source src="/videos/hero-loop.mp4" type="video/mp4" />
         </video>
@@ -161,13 +160,13 @@ export default function HeroSection({ onTransitionComplete }: HeroSectionProps) 
           className="hero-overlay-gradient absolute inset-0"
           style={{
             background:
-              "linear-gradient(to bottom, rgba(10,10,10,0.2) 0%, rgba(10,10,10,0.82) 100%)",
+              "linear-gradient(to bottom, rgba(5,7,5,0.2) 0%, rgba(5,7,5,0.82) 100%)",
           }}
         />
         <div
           aria-hidden
           className="hero-bottom-fade absolute inset-x-0 bottom-0 h-[36%]"
-          style={{ background: "linear-gradient(to bottom, transparent 60%, #0a0a0a 100%)" }}
+          style={{ background: "linear-gradient(to bottom, transparent 60%, #050705 100%)" }}
         />
       </div>
 
