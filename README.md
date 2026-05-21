@@ -1,6 +1,6 @@
 <div align="center">
 
-# 🌿 ECOCAN
+# 🌿 Ecocan
 
 **Africa's first digital Deposit Return System (DRS) — closing the beverage packaging loop through technology, incentives, and community.**
 
@@ -15,52 +15,122 @@
 
 ---
 
-> _ECOCAN connects consumers, ECO-Stations, couriers, recyclers and brands in one seamless closed-loop system. Scan to verify. Return to earn. Every bottle traceable._
+![The Ecocan DRS cycle — purchase, return, collect, recycle](public/assets/images/brand/bottle-journey.jpg)
+
+> _Ecocan connects consumers, eco-stations, couriers, recyclers and brands in one seamless closed-loop system._
 
 ---
 
-## 🌍 What is ECOCAN?
+## 🌍 What is Ecocan?
 
-ECOCAN is a **Next.js 14** marketing and information platform for Africa's first digital Deposit Return System (DRS). Consumers pay a small deposit on every beverage container at point of purchase, then earn it back — in cash to M-PESA or bank — when they return the empty to any ECO-Station counter. The packaging is picked up by couriers on electric bikes, processed at recycling hubs, and fed back into the supply chain.
+Ecocan is a **Next.js 14** web platform for Africa's Deposit Return System. Consumers pay a small deposit on every beverage container at point of purchase. They earn that deposit back — in cash or rewards — when they return the empty to an Ecocan-registered collection point. The returned packaging is then picked up by couriers, processed at recycling hubs, and fed back into the supply chain.
 
-Every bottle in the system carries a **unique, tamper-evident QR code** that:
-
-- Verifies authenticity (genuine vs. counterfeit) in 3 seconds
-- Triggers the deposit refund on return
-- Gives brands real-time traceability from factory to return
+Every step is tracked with **serialised QR codes**, **real-time verification**, and **brand-level analytics**.
 
 ---
 
-## ♻️ The Closed Loop
+## ♻️ The DRS Loop
 
 ```
-Factory → Bottle (QR code applied)
-  → Supermarket shelf
-    → Consumer buys + scans (VERIFIED ✅)
-      → Consumer drinks
-        → Consumer returns empty to ECO-Station counter
-          → Electric bike courier collects
-            → Recycling hub processes
-              → New bottle made → Factory ↺
+ 🏪 Purchase (Store)  →  📱 Scan & Return (Eco-Station)  →  🚲 Collect (Courier)  →  🏭 Recycle (Hub)
+         ↑__________________________________________________↓
 ```
+
+| Step        | Actor                  | What Happens                                      |
+| ----------- | ---------------------- | ------------------------------------------------- |
+| 1. Purchase | Consumer               | Buys beverage with embedded deposit fee           |
+| 2. Return   | Consumer + Eco-Station | Scans QR code, receives deposit refund            |
+| 3. Collect  | Courier                | Electric cargo bike picks up empties              |
+| 4. Recycle  | Recycler / Hub         | Sorts, bales, and processes for reuse             |
+| 5. Reward   | Brand + Consumer       | Brand analytics triggered; loyalty rewards issued |
+
+---
+
+## 🧑‍🤝‍🧑 User Personas
+
+| Persona          | Role                             | Key Feature                                         |
+| ---------------- | -------------------------------- | --------------------------------------------------- |
+| **Consumer**     | Returns empties, earns deposits  | QR scan, reward wallet, Ecocan app                  |
+| **Eco-Producer** | Brands & manufacturers           | Serialized packaging, DRS takeover, brand analytics |
+| **Eco-Station**  | Retail collection points         | Registration portal, revenue share, ops dashboard   |
+| **Courier**      | Empty-container logistics        | Route management, pickup tracking                   |
+| **Recycler**     | Material processing hubs         | DRS intake, material sorting, compliance            |
+| **Events**       | Activation & activation partners | Event recycling, community drives                   |
+
+---
+
+## 🛒 Ecocan in Action
+
+![Eco-Station attendant scanning empty bottle for a consumer](public/assets/images/brand/return-counter.jpg)
+
+_Eco-Station attendants use the Ecocan app to instantly verify and accept returned containers, triggering the consumer's deposit refund in real time._
+
+---
+
+## 🔐 Brand Protection & Verification
+
+![Consumer scanning a QR code on a green bottle showing VERIFIED](public/assets/images/brand/scan-verify.jpg)
+
+Every Ecocan-registered container carries a **unique serialised QR code**. Consumers scan it to:
+
+- Verify product authenticity (FAKE vs. VERIFIED)
+- Trigger deposit return on empty submission
+- Access brand loyalty rewards
+
+![FAKE vs VERIFIED brand protection split visual](public/assets/images/brand/counterfeit-alert.jpg)
+
+---
+
+## 🤝 Retail Partnerships
+
+![Retail partnership handshake outside a Fresh Picks Collection Point](public/assets/images/brand/partner-retail.jpg)
+
+Ecocan partners with supermarkets and retail chains to host **Collection Points** — no hardware required. Retail partners earn per-container handling fees and benefit from increased footfall.
+
+![Kenya Fresh supermarket interior — beverages aisle](public/assets/images/brand/supermarket-interior.jpg)
+
+---
+
+## 🚲 The Courier Network
+
+![Courier on electric cargo bike collecting empties outside FreshMarket](public/assets/images/brand/ebike-collection.jpg)
+
+Couriers operate **electric cargo bikes** to collect sorted empties from Eco-Stations and deliver them to recycling hubs. The Ecocan platform manages routing, pickup scheduling, and earnings tracking for each courier.
+
+---
+
+## 🏭 Recycling Infrastructure
+
+![Industrial recycling hub with sorted PET bales on conveyor belt](public/assets/images/brand/recycling-hub.jpg)
+
+Recycling hubs receive sorted materials from the courier network. Ecocan's platform provides intake verification, material-grade logging, and compliance reporting for each hub.
+
+---
+
+## 🌆 The Network
+
+![Aerial sunset cityscape with Ecocan green network connection overlay](public/assets/images/brand/investor-aerial.jpg)
+
+Ecocan is designed to scale across African cities — linking every store, eco-station, courier, and recycling hub in a single real-time network.
 
 ---
 
 ## 🛠️ Tech Stack
 
-| Technology                                       | Version | Role                                             |
-| ------------------------------------------------ | ------- | ------------------------------------------------ |
-| [Next.js](https://nextjs.org)                    | 14.2    | App Router, SSG/SSR, Image Optimization, Sitemap |
-| [React](https://react.dev)                       | 18      | UI rendering                                     |
-| [TypeScript](https://www.typescriptlang.org)     | 5       | Type safety                                      |
-| [Tailwind CSS](https://tailwindcss.com)          | 3.4     | Styling, responsive utilities                    |
-| [GSAP](https://gsap.com) + ScrollTrigger         | 3.15    | Scroll animations, pinned hero, stagger reveals  |
-| [Lenis](https://lenis.darkroom.engineering)      | 1.3     | Smooth scroll connected to ScrollTrigger         |
-| [Radix UI](https://www.radix-ui.com)             | Latest  | Accessible headless components (Tabs, Accordion) |
-| [Lucide React](https://lucide.dev)               | Latest  | Icon system                                      |
-| [React Hook Form](https://react-hook-form.com)   | Latest  | Contact form                                     |
-| [Zod](https://zod.dev)                           | Latest  | Form schema validation                           |
-| [Vercel Analytics](https://vercel.com/analytics) | Latest  | Performance monitoring                           |
+| Technology                                       | Version | Role                           |
+| ------------------------------------------------ | ------- | ------------------------------ |
+| [Next.js](https://nextjs.org)                    | 14.2    | App Router, SSR/SSG, routing   |
+| [React](https://react.dev)                       | 18      | UI rendering                   |
+| [TypeScript](https://www.typescriptlang.org)     | 5       | Type safety                    |
+| [Tailwind CSS](https://tailwindcss.com)          | 3.4     | Styling                        |
+| [Radix UI](https://www.radix-ui.com)             | Latest  | Accessible headless components |
+| [Framer Motion](https://www.framer.com/motion)   | Latest  | Animations                     |
+| [React Hook Form](https://react-hook-form.com)   | Latest  | Form management                |
+| [Zod](https://zod.dev)                           | Latest  | Schema validation              |
+| [Lucide React](https://lucide.dev)               | Latest  | Icons                          |
+| [Embla Carousel](https://www.embla-carousel.com) | Latest  | Carousel component             |
+| [Vercel Analytics](https://vercel.com/analytics) | Latest  | Performance monitoring         |
+| [ts-node](https://typestrong.org/ts-node)        | 10.9    | Doc-generation scripts         |
 
 ---
 
@@ -68,88 +138,71 @@ Factory → Bottle (QR code applied)
 
 ```
 ecocan/
-├── app/                              # Next.js 14 App Router
-│   ├── layout.tsx                    # Root layout
-│   ├── page.tsx                      # Homepage (all landing sections)
-│   ├── globals.css                   # Global styles, CSS variables, animations
-│   ├── sitemap.ts                    # Auto-generated /sitemap.xml
-│   ├── robots.ts                     # /robots.txt
+├── app/                          # Next.js 14 App Router
+│   ├── layout.tsx                # Root layout (nav, footer, globals)
+│   ├── page.tsx                  # Homepage
 │   ├── about-us/page.tsx
 │   ├── contact/page.tsx
 │   ├── download/page.tsx
-│   ├── news/
-│   │   ├── page.tsx                  # News hub (dark editorial theme)
-│   │   └── components/               # Articles, heroes, tab switcher
+│   ├── eco-friendly-cans/page.tsx
+│   ├── ecocan-market/page.tsx
+│   ├── news/page.tsx
 │   └── solutions/
-│       ├── page.tsx
-│       └── [section]/page.tsx        # Dynamic solution sections
-│
+│       ├── page.tsx              # Solutions hub
+│       ├── [section]/page.tsx    # Dynamic solution section
+│       └── sections/             # Section content components
 ├── components/
-│   ├── ui/                           # Radix + Tailwind primitives
-│   ├── shared/                       # SectionBadge, Navbar, Footer, PrimaryButton
-│   └── sections/                     # Homepage sections (in page order)
-│       ├── home-navbar.tsx           # Always-dark fixed nav
-│       ├── home-mobile-menu.tsx      # Slide-in mobile drawer
-│       ├── hero-section.tsx          # Fullscreen video hero, scroll-out animation
-│       ├── problem-solution-section.tsx  # Stats + closed-loop body copy
-│       ├── how-it-works-section.tsx  # 5-step flow (carousel on mobile, grid on desktop)
-│       ├── ecocan-model-section.tsx  # Retailers · Producers · Logistics
-│       ├── anti-counterfeit-section.tsx
-│       ├── app-showcase-section.tsx  # Phone mockup + app store links
-│       ├── electric-mobility-section.tsx
-│       ├── for-investors-section.tsx
-│       ├── sustainability-impact-section.tsx
-│       ├── ecommunity-roles-section.tsx
-│       ├── partners-testimonials-section.tsx
-│       ├── faq-section.tsx           # 6-question accordion
-│       ├── call-to-action-section.tsx  # 3-path cards (Consumer · Partner · Investor)
-│       └── home-footer.tsx
-│
+│   ├── ui/                       # Radix + Tailwind primitives
+│   ├── shared/                   # Nav, footer, forms, CTAs, heroes
+│   └── contents/                 # Persona content blocks
+│       ├── consumer/
+│       ├── courier/
+│       ├── eco-producer/
+│       ├── eco-station/
+│       ├── events/
+│       └── recycler/
 ├── lib/
-│   ├── imageIndex.ts                 # Centralised image path exports
-│   ├── useScroll.ts                  # Scroll-position hook
+│   ├── imageIndex.ts             # All image path exports (legacy + brand)
+│   ├── hooks/                    # useMediaQuery, useScroll, useLoadImages
 │   └── utils.ts
-│
+├── types/
+│   ├── card-data.ts
+│   └── section.tsx
 ├── public/
-│   ├── assets/images/               # All static images
-│   │   ├── blog/                    # News article images
-│   │   ├── consumer/                # App mockup screenshots
-│   │   └── icons/
-│   ├── images/                      # Section photography
-│   └── videos/
-│       └── hero-loop.mp4            # Hero background video
-│
-├── docs/
-│   ├── codebase-map.md              # ← Auto-regenerated on every commit (post-commit hook)
-│   └── codebase-map.json            # ← Machine-readable version of above
-│
+│   └── assets/images/
+│       ├── brand/                # Brand photography (9 hero images)
+│       ├── solutions/
+│       ├── consumer/
+│       ├── eco-station/
+│       └── blog/
 ├── scripts/
-│   ├── generate-codebase-map.mjs    # Post-commit codebase scanner
-│   └── update-docs.ts               # Manual: regenerates SITEMAP.md, ROLLBACK.md etc.
-│
-├── SITEMAP.md                       # Route map — run `pnpm docs:update` to refresh
-├── CODEBASE-MAP.md                  # Directory tree — run `pnpm docs:update` to refresh
-├── ROLLBACK.md                      # Deployment log — run `pnpm docs:update` to refresh
-├── VERCEL.md                        # Vercel deployment notes
-├── CLAUDE.md                        # AI assistant coding guidelines
-└── README.md                        # ← You are here
+│   └── update-docs.ts            # Auto-doc regeneration script
+├── .github/workflows/
+│   └── docs-update.yml           # CI: auto-update docs on push to main
+├── README.md                     # ← You are here
+├── SITEMAP.md                    # Auto-regenerated route map
+├── CODEBASE-MAP.md               # Auto-regenerated structure map
+├── ROLLBACK.md                   # Deployment log + rollback guide
+├── VERCEL.md                     # Vercel deployment notes
+├── CLAUDE.md                     # AI assistant guidelines
+└── BRAND-ASSETS.md               # Brand photography catalog
 ```
 
 ---
 
 ## 🗺️ Pages & Routes
 
-| Route                  | Description                                                                   |
-| ---------------------- | ----------------------------------------------------------------------------- |
-| `/`                    | Homepage — hero, how it works, anti-counterfeit, investors, FAQ, CTA          |
-| `/about-us`            | Brand story, team, values (SISU), partners                                    |
-| `/contact`             | Contact form + department emails + offices                                    |
-| `/download`            | App download CTAs (App Store + Google Play)                                   |
-| `/news`                | Dark editorial news hub — Sustainability & Partnership tabs                   |
-| `/solutions`           | Solutions overview                                                            |
-| `/solutions/[section]` | Dynamic: brand-protection, brand-promotion, packaging-recycling, online-sales |
-| `/sitemap.xml`         | Auto-generated by `app/sitemap.ts`                                            |
-| `/robots.txt`          | Auto-generated by `app/robots.ts`                                             |
+| Route                  | Page              | Description                                                                   |
+| ---------------------- | ----------------- | ----------------------------------------------------------------------------- |
+| `/`                    | Homepage          | Hero + persona journeys                                                       |
+| `/about-us`            | About             | Brand story, visionaries, community, partners                                 |
+| `/contact`             | Contact           | Contact form + info                                                           |
+| `/download`            | Download          | App download CTA                                                              |
+| `/eco-friendly-cans`   | Eco-Friendly Cans | Accordion explainer — economic, operational, security                         |
+| `/ecocan-market`       | Ecocan Market     | Product browser + search                                                      |
+| `/news`                | News              | Articles, blog posts, partnership updates                                     |
+| `/solutions`           | Solutions Hub     | Overview of all 4 solutions                                                   |
+| `/solutions/[section]` | Solution Detail   | Dynamic: brand-promotion, brand-protection, packaging-recycling, online-sales |
 
 ---
 
@@ -158,20 +211,21 @@ ecocan/
 ### Prerequisites
 
 - **Node.js** ≥ 18
-- **pnpm** ≥ 9 (or npm)
+- **pnpm** ≥ 9 (or npm / yarn)
 
 ### Install & Run
 
 ```bash
-# Clone
+# 1. Clone the repo
 git clone https://github.com/rauell1/ecocan.git
 cd ecocan
 
-# Install
+# 2. Install dependencies
 pnpm install
 
-# Dev server → http://localhost:3000
+# 3. Start the dev server
 pnpm dev
+# → http://localhost:3000
 ```
 
 ### Production Build
@@ -185,91 +239,88 @@ pnpm start
 
 ## 📜 Scripts
 
-| Command            | Description                                                      |
-| ------------------ | ---------------------------------------------------------------- |
-| `pnpm dev`         | Start development server (port 3000)                             |
-| `pnpm build`       | Production build (runs type-check + lint)                        |
-| `pnpm start`       | Start production server                                          |
-| `pnpm lint`        | ESLint across the codebase                                       |
-| `pnpm docs:update` | **Manually** regenerate SITEMAP.md, CODEBASE-MAP.md, ROLLBACK.md |
+| Command            | Description                                                                   |
+| ------------------ | ----------------------------------------------------------------------------- |
+| `pnpm dev`         | Start development server (port 3000)                                          |
+| `pnpm build`       | Build for production                                                          |
+| `pnpm start`       | Start production server                                                       |
+| `pnpm lint`        | Run ESLint                                                                    |
+| `pnpm docs:update` | Regenerate SITEMAP.md, CODEBASE-MAP.md, and append to ROLLBACK.md / VERCEL.md |
 
 ---
 
 ## 📚 Auto-Updating Documentation
 
-### What updates automatically
+Five markdown files stay in sync automatically via `scripts/update-docs.ts` and the GitHub Actions workflow `.github/workflows/docs-update.yml`.
 
-| File                     | When                 | How                                                             |
-| ------------------------ | -------------------- | --------------------------------------------------------------- |
-| `docs/codebase-map.md`   | **Every git commit** | Post-commit Husky hook runs `scripts/generate-codebase-map.mjs` |
-| `docs/codebase-map.json` | Every git commit     | Same hook                                                       |
-| `/sitemap.xml`           | Every Vercel deploy  | `app/sitemap.ts` — Next.js generates it at build time           |
-| `/robots.txt`            | Every Vercel deploy  | `app/robots.ts` — same                                          |
-
-### What requires a manual trigger
-
-| File              | How to update                  |
-| ----------------- | ------------------------------ |
-| `SITEMAP.md`      | Run `pnpm docs:update` locally |
-| `CODEBASE-MAP.md` | Run `pnpm docs:update` locally |
-| `ROLLBACK.md`     | Run `pnpm docs:update` locally |
-
-> **Why does `docs/codebase-map` sometimes conflict?**
-> The post-commit hook stages the updated map files after each commit. If a second committer (GitHub Copilot, CI bot, etc.) pushes to `main` between your commit and your push, a merge conflict occurs on those files. Resolution: `git checkout --theirs docs/codebase-map.json docs/codebase-map.md && git add docs/ && git commit`.
-
----
-
-## 🎨 Design System
-
-| Token        | Value                         | Usage                                               |
-| ------------ | ----------------------------- | --------------------------------------------------- |
-| `--primary`  | Deep green `hsl(156 61% 28%)` | Buttons, links, accents                             |
-| `--eco-dark` | Near-black green `#0a1a0f`    | Text on light backgrounds                           |
-| `#4ade80`    | Bright green                  | Dark-section accents (explicit inline, not CSS var) |
-| `#060a08`    | Hero / CTA background         |                                                     |
-| `#101010`    | Problem section background    |                                                     |
-| `#f5f5f0`    | How It Works background       | Warm off-white                                      |
-
-> **Note:** Tailwind's `text-eco-green` / `border-eco-green` reference an undefined CSS variable and render invisible on dark backgrounds. Always use explicit inline `style={{ color: "#4ade80" }}` for bright green on dark sections.
+| Doc                                    | Trigger                | What It Tracks                                   |
+| -------------------------------------- | ---------------------- | ------------------------------------------------ |
+| [`SITEMAP.md`](./SITEMAP.md)           | Every push to `main`   | All routes derived from `app/**/page.tsx`        |
+| [`CODEBASE-MAP.md`](./CODEBASE-MAP.md) | Every push to `main`   | Full directory tree and component inventory      |
+| [`ROLLBACK.md`](./ROLLBACK.md)         | Deployment events      | Commit hash, branch, actor, timestamp per deploy |
+| [`VERCEL.md`](./VERCEL.md)             | Deployment events      | Deployment URL, environment, commit per deploy   |
+| [`BRAND-ASSETS.md`](./BRAND-ASSETS.md) | Manual / `docs:update` | Brand photography catalog and usage guide        |
 
 ---
 
 ## 🌐 Deployment
 
-ECOCAN deploys to **Vercel** on every push to `main`.
+Ecocan is deployed on **Vercel** with zero-config Next.js support.
 
 1. Connect `rauell1/ecocan` to your Vercel project
 2. Framework preset: **Next.js**
-3. Node.js: **18.x+**
+3. Node.js version: **18.x or later**
 4. Build command: `next build` (default)
-5. No environment variables required for the marketing site
+5. Enable **Vercel Analytics** (the `@vercel/analytics` package is already installed)
 
-### Rollback
+See [`VERCEL.md`](./VERCEL.md) for full deployment history and environment variable reference.
 
-```bash
-# Find a good commit
-git log --oneline -10
+---
 
-# Create rollback branch
-git checkout -b rollback/fix-<short-sha> <sha>
+## 🖼️ Brand Assets
 
-# Push and promote in Vercel dashboard, or merge to main
-git push origin rollback/fix-<short-sha>
+All brand photography is catalogued in [`BRAND-ASSETS.md`](./BRAND-ASSETS.md) and exported from `lib/imageIndex.ts`.
+
+```ts
+import Image from 'next/image';
+import { brandBottleJourney, brandScanVerify } from '@/lib/imageIndex';
+
+<Image src={brandBottleJourney} alt="DRS cycle" width={1320} height={743} priority />
 ```
+
+Images are served through Vercel's [Image Optimization API](https://vercel.com/docs/image-optimization), which auto-converts to WebP/AVIF and serves from the edge CDN with appropriate cache headers.
 
 ---
 
 ## 🤝 Contributing
 
-1. Branch from `main`: `git checkout -b feat/your-feature`
-2. Follow existing patterns — sections live in `components/sections/`, use inline `style={{}}` for dark-section colours
-3. `pnpm lint && pnpm build` must pass before opening a PR
-4. Keep PRs small and focused — one section or concern per PR
+1. Fork the repo and create a feature branch: `git checkout -b feat/your-feature`
+2. Follow existing patterns — React + Tailwind, reuse `components/ui` and `components/shared`
+3. Run `pnpm lint && pnpm build` before opening a PR
+4. Keep PRs small and focused
+5. All PRs target `main`
+
+---
+
+## 🔄 Rollback & Recovery
+
+```bash
+# List recent commits
+git log --oneline -10
+
+# Roll back to a specific commit
+git checkout -b rollback/fix-<sha> <sha>
+
+# Open a PR from rollback branch → main
+# The docs-update workflow will auto-update ROLLBACK.md after merge
+```
+
+See [`ROLLBACK.md`](./ROLLBACK.md) for the full deployment log and recovery checklist.
 
 ---
 
 <div align="center">
 
-Built with 💚 for Africa · [ecocan.africa](https://ecocan.africa) · © 2026 ECOCAN
+Built with 💚 for Africa · [ecocan.africa](https://ecocan.africa) · © 2024 Ecocan
 
 </div>

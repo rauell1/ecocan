@@ -4,34 +4,6 @@ import { useRef, useEffect } from "react"
 import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 import Link from "next/link"
-import { Download, Handshake, TrendingUp } from "lucide-react"
-
-const paths = [
-  {
-    icon: Download,
-    eyebrow: "For consumers",
-    headline: "Download the app.\nStart making a difference.",
-    cta: "Get the App",
-    href: "/download",
-    accent: "#4ade80",
-  },
-  {
-    icon: Handshake,
-    eyebrow: "For partners",
-    headline: "Join our network.\nGrow with us.",
-    cta: "Become a Partner",
-    href: "/contact",
-    accent: "#38bdf8",
-  },
-  {
-    icon: TrendingUp,
-    eyebrow: "For investors",
-    headline: "Back Africa's circular infrastructure.",
-    cta: "Talk to Us",
-    href: "/contact",
-    accent: "#a78bfa",
-  },
-]
 
 export default function CallToActionSection() {
   const sectionRef = useRef<HTMLDivElement>(null)
@@ -40,7 +12,6 @@ export default function CallToActionSection() {
     gsap.registerPlugin(ScrollTrigger)
     const ctx = gsap.context(() => {
       const els = sectionRef.current!.querySelectorAll(".ec-reveal")
-      if (els.length === 0) return
       gsap.fromTo(
         els,
         { opacity: 0, y: 36, filter: "blur(8px)" },
@@ -75,107 +46,50 @@ export default function CallToActionSection() {
     }, sectionRef)
     return () => {
       ctx.revert()
-      ScrollTrigger.getAll().forEach((t) => t.kill())
+      ScrollTrigger.getAll().forEach((trigger) => trigger.kill())
     }
   }, [])
 
   return (
     <section
       ref={sectionRef}
-      className="relative w-full overflow-hidden bg-[#060a08] py-[clamp(6rem,12vw,10rem)]"
+      className="relative w-full overflow-hidden bg-[#050705] py-[clamp(6rem,12vw,10rem)]"
     >
-      {/* ambient glow */}
-      <div
-        className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
-        style={{
-          width: "600px",
-          height: "600px",
-          borderRadius: "50%",
-          background: "radial-gradient(circle, rgba(74,222,128,0.06) 0%, transparent 70%)",
-        }}
-      />
-
       <div className="absolute inset-0 z-0">
         <img
           src="/images/hero/cta_hero.png"
           alt="Futuristic forest canopy blending nature and technology"
           aria-hidden="true"
-          className="section-bg-img h-full w-full object-cover opacity-30"
+          className="section-bg-img h-full w-full object-cover opacity-50"
         />
         <div
           className="absolute inset-0"
           style={{
-            background: "linear-gradient(to bottom, rgba(6,10,8,0.7) 0%, rgba(6,10,8,0.95) 100%)",
+            background: "linear-gradient(to bottom, rgba(5,7,5,0.6) 0%, rgba(5,7,5,0.92) 100%)",
           }}
         />
       </div>
 
-      <div className="relative z-10 mx-auto max-w-6xl px-[clamp(1.25rem,4vw,3rem)]">
+      <div className="relative z-10 mx-auto max-w-4xl px-[clamp(1.25rem,4vw,3rem)] text-center">
         <h2
-          className="ec-reveal font-serif-luxury text-luxury-gradient mb-16 text-center"
+          className="ec-reveal font-serif-luxury text-luxury-gradient mb-8"
           style={{
-            fontSize: "clamp(2.2rem,4.5vw,4rem)",
+            fontSize: "clamp(2.5rem,5vw,5rem)",
+            lineHeight: "1.1",
             letterSpacing: "-0.02em",
-            lineHeight: 1.1,
           }}
         >
-          One platform. Every role.
+          Start earning <br />
+          <span className="font-sans font-light text-emerald-400">from empties.</span>
         </h2>
-
-        <div className="grid gap-6 md:grid-cols-3">
-          {paths.map(({ icon: Icon, eyebrow, headline, cta, href, accent }) => (
-            <div
-              key={eyebrow}
-              className="ec-reveal group relative flex flex-col justify-between overflow-hidden rounded-3xl border border-white/5 bg-[#0c100c]/40 p-10 backdrop-blur-md transition-all duration-500 hover:border-white/10"
-            >
-              {/* hover glow */}
-              <div
-                className="pointer-events-none absolute -inset-px rounded-3xl opacity-0 transition-opacity duration-700 group-hover:opacity-100"
-                style={{
-                  background: `linear-gradient(135deg, ${accent}10 0%, transparent 60%)`,
-                }}
-              />
-
-              <div className="relative z-10">
-                <div
-                  className="mb-6 inline-flex h-12 w-12 items-center justify-center rounded-2xl"
-                  style={{ background: `${accent}15` }}
-                >
-                  <Icon size={22} style={{ color: accent }} strokeWidth={1.5} />
-                </div>
-
-                <p
-                  className="mb-3 text-xs font-semibold uppercase tracking-[0.2em]"
-                  style={{ color: accent }}
-                >
-                  {eyebrow}
-                </p>
-
-                <p className="font-serif-luxury whitespace-pre-line text-xl font-light leading-snug text-white/90">
-                  {headline}
-                </p>
-              </div>
-
-              <Link
-                href={href}
-                className="relative z-10 mt-10 inline-flex items-center gap-2 text-sm font-medium transition-colors duration-300"
-                style={{ color: `${accent}99` }}
-              >
-                <span
-                  className="underline-offset-4 group-hover:underline"
-                  style={{ color: accent }}
-                >
-                  {cta}
-                </span>
-                <span
-                  className="transition-transform duration-300 group-hover:translate-x-1"
-                  style={{ color: accent }}
-                >
-                  →
-                </span>
-              </Link>
-            </div>
-          ))}
+        <div className="ec-reveal mt-12 flex justify-center">
+          <Link
+            href="https://apps.apple.com/app/6502695438"
+            target="_blank"
+            className="inline-flex rounded-full border border-white/10 bg-white/5 px-10 py-4 text-[16px] font-medium text-white backdrop-blur-md transition-all duration-300 hover:border-emerald-500/20 hover:bg-emerald-500/10 hover:text-emerald-400"
+          >
+            Download App
+          </Link>
         </div>
       </div>
     </section>
