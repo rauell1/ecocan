@@ -1,6 +1,6 @@
 "use client"
 
-import { useRef, useEffect, useCallback } from "react"
+import { useRef, useEffect, useCallback, useState } from "react"
 import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 import { ArrowDown } from "lucide-react"
@@ -17,6 +17,52 @@ export default function HeroSection({ onTransitionComplete }: HeroSectionProps) 
   const videoWrapRef = useRef<HTMLDivElement>(null)
   const contentRef = useRef<HTMLDivElement>(null)
   const indicatorRef = useRef<HTMLDivElement>(null)
+  const videoRef = useRef<HTMLVideoElement>(null)
+
+  const [isPlaying, setIsPlaying] = useState(false)
+
+  useEffect(() => {
+    const video = videoRef.current
+    if (!video) return
+
+    // Ensure initial audio status is muted for autoplay policy compatibility
+    video.muted = true
+    video.playsInline = true
+
+    const attemptPlay = async () => {
+      try {
+        await video.play()
+        setIsPlaying(true)
+        removeInteractionListeners()
+      } catch (err) {
+        console.warn("Autoplay attempt blocked or video not ready, awaiting user interaction:", err)
+      }
+    }
+
+    const handleInteraction = () => {
+      attemptPlay()
+    }
+
+    const removeInteractionListeners = () => {
+      window.removeEventListener("touchstart", handleInteraction)
+      window.removeEventListener("mousedown", handleInteraction)
+      window.removeEventListener("keydown", handleInteraction)
+      window.removeEventListener("scroll", handleInteraction)
+    }
+
+    // Attempt to play immediately on mount
+    attemptPlay()
+
+    // Add robust touch/scroll/click fallbacks to automatically play once user interacts
+    window.addEventListener("touchstart", handleInteraction, { passive: true })
+    window.addEventListener("mousedown", handleInteraction, { passive: true })
+    window.addEventListener("keydown", handleInteraction, { passive: true })
+    window.addEventListener("scroll", handleInteraction, { passive: true })
+
+    return () => {
+      removeInteractionListeners()
+    }
+  }, [])
 
   const initLenis = useCallback(() => onTransitionComplete(), [onTransitionComplete])
 
@@ -141,23 +187,39 @@ export default function HeroSection({ onTransitionComplete }: HeroSectionProps) 
     >
       <div
         ref={videoWrapRef}
-        className="absolute inset-0 overflow-hidden"
+        className="absolute inset-0 overflow-hidden bg-[#050705]"
         style={{ willChange: "transform, border-radius, filter", filter: "brightness(0.85)" }}
       >
+        {/* High-fidelity fallback poster image that stays underneath/behind the video element */}
+        <img
+          src="/images/scan-verify.jpg"
+          alt="Ecocan App Scan and Verify Preview"
+          className="absolute inset-0 h-full w-full object-cover transition-opacity duration-700"
+          style={{
+            zIndex: 0,
+            opacity: isPlaying ? 0 : 1,
+          }}
+        />
+
         <video
+          ref={videoRef}
+          src="/videos/hero-loop.mp4"
           autoPlay
           loop
           muted
           playsInline
           preload="auto"
-          poster="/images/scan-verify.jpg"
-          className="h-full w-full object-cover"
-        >
-          <source src="/videos/hero-loop.mp4" type="video/mp4" />
-        </video>
+          className="absolute inset-0 h-full w-full object-cover transition-opacity duration-700"
+          style={{
+            zIndex: 1,
+            opacity: isPlaying ? 1 : 0,
+          }}
+          onPlay={() => setIsPlaying(true)}
+          onPlaying={() => setIsPlaying(true)}
+        />
         <div
           aria-hidden
-          className="hero-overlay-gradient absolute inset-0"
+          className="hero-overlay-gradient absolute inset-0 z-[2]"
           style={{
             background:
               "linear-gradient(to bottom, rgba(5,7,5,0.2) 0%, rgba(5,7,5,0.82) 100%)",
@@ -165,7 +227,7 @@ export default function HeroSection({ onTransitionComplete }: HeroSectionProps) 
         />
         <div
           aria-hidden
-          className="hero-bottom-fade absolute inset-x-0 bottom-0 h-[36%]"
+          className="hero-bottom-fade absolute inset-x-0 bottom-0 z-[3] h-[36%]"
           style={{ background: "linear-gradient(to bottom, transparent 60%, #050705 100%)" }}
         />
       </div>
