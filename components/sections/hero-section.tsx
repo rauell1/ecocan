@@ -62,7 +62,7 @@ export default function HeroSection({ onTransitionComplete }: HeroSectionProps) 
         })
 
         if (!reducedMotion) {
-          // Text fades up as you scroll
+          // Text fades up as you scroll — video stays full-bleed throughout
           tl.fromTo(
             contentRef.current,
             { opacity: 1, y: 0 },
@@ -75,11 +75,11 @@ export default function HeroSection({ onTransitionComplete }: HeroSectionProps) 
             { opacity: 0, ease: "power1.in", duration: 0.3 },
             0
           )
-          // Video shrinks into a rounded card
+          // Gently darken the video overlay as user scrolls — keeps video visible at all times
           tl.fromTo(
             videoWrapperRef.current,
-            { scale: 1, borderRadius: "0px" },
-            { scale: 0.78, borderRadius: "28px", ease: "power2.inOut", duration: 1 },
+            { opacity: 1 },
+            { opacity: 0.6, ease: "power1.in", duration: 1 },
             0
           )
         }
@@ -106,11 +106,7 @@ export default function HeroSection({ onTransitionComplete }: HeroSectionProps) 
       style={{ height: "100dvh" }}
     >
       {/* ── Full-bleed video ──────────────────────────────────── */}
-      <div
-        ref={videoWrapperRef}
-        className="absolute inset-0 overflow-hidden"
-        style={{ willChange: "transform, border-radius" }}
-      >
+      <div ref={videoWrapperRef} className="absolute inset-0" style={{ willChange: "opacity" }}>
         <video
           autoPlay
           loop
@@ -119,6 +115,13 @@ export default function HeroSection({ onTransitionComplete }: HeroSectionProps) 
           preload="auto"
           poster="/images/scan-verify.jpg"
           className="h-full w-full object-cover brightness-[0.72]"
+          style={{
+            // Force GPU compositing — prevents blank-out on Safari/iOS during scroll
+            transform: "translateZ(0)",
+            WebkitTransform: "translateZ(0)",
+            backfaceVisibility: "hidden",
+            WebkitBackfaceVisibility: "hidden",
+          }}
         >
           <source src="/videos/hero-loop.mp4" type="video/mp4" />
         </video>
