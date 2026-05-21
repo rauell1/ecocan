@@ -1,25 +1,15 @@
 {
   "meta": {
-    "version": "9caf519",
-    "generatedAt": "2026-05-21T03:48:44.102Z",
+    "version": "e7fc65a",
+    "generatedAt": "2026-05-21T17:04:22.197Z",
     "branch": "main",
-    "previousVersion": "d3b6d8f",
+    "previousVersion": "9caf519",
     "generator": "scripts/generate-codebase-map.mjs",
     "framework": "Next.js 14",
     "packageManager": "pnpm"
   },
   "changes": [
-    "Modified: app/globals.css",
-    "Modified: components/sections/anti-counterfeit-section.tsx",
-    "Modified: components/sections/app-showcase-section.tsx",
-    "Modified: components/sections/call-to-action-section.tsx",
-    "Modified: components/sections/ecommunity-roles-section.tsx",
-    "Modified: components/sections/for-investors-section.tsx",
-    "Modified: components/sections/hero-section.tsx",
-    "Modified: components/sections/how-it-works-section.tsx",
-    "Modified: components/sections/partners-testimonials-section.tsx",
-    "Modified: components/sections/problem-solution-section.tsx",
-    "Modified: components/sections/sustainability-impact-section.tsx"
+    "Modified: package.json"
   ],
   "affectedHotspots": [],
   "routes": [
@@ -379,21 +369,12 @@
     "scripts/generate-codebase-map.mjs": "851c15485a39de03b6f3c0f5844fc0084b43728d",
     "scripts/update-docs.mjs": "95ff16a943f6711c16dde5b7fba93bcf42ecfcc5",
     "scripts/update-docs.ts": "357d7be3067089c6c69578fa0deb092d3bb41354",
-    "package.json": "f88216f017d83932f0a71714de1631777e7aaa0c",
+    "package.json": "5224113cad5ec3e4de83428b4c9f93e26f5431c0",
     "tailwind.config.ts": "655ba12dee5e5bd35632f12aee77909951c84021",
     "next.config.mjs": "6839dc908b96d947296d90c50ea271e97581cd87",
     "tsconfig.json": "5841f1c2f8bba110464eaba24059d47cb59d3b64"
   },
   "changelog": [
-    {
-      "version": "2fc2d69",
-      "date": "2026-05-19T16:53:59.706Z",
-      "branch": "main",
-      "changes": [
-        "Modified: components/sections/call-to-action-section.tsx",
-        "Modified: lib/use-ec-reveal.ts"
-      ]
-    },
     {
       "version": "0802b94",
       "date": "2026-05-20T07:37:12.627Z",
@@ -641,6 +622,14 @@
         "Modified: components/sections/partners-testimonials-section.tsx",
         "Modified: components/sections/problem-solution-section.tsx",
         "Modified: components/sections/sustainability-impact-section.tsx"
+      ]
+    },
+    {
+      "version": "e7fc65a",
+      "date": "2026-05-21T17:04:22.197Z",
+      "branch": "main",
+      "changes": [
+        "Modified: package.json"
       ]
     }
   ]
