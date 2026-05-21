@@ -19,6 +19,7 @@ const navLinks = [
 export default function HomeNavbar({ onMenuToggle }: HomeNavbarProps) {
   const [scrolled, setScrolled] = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false)
+  const [activeSection, setActiveSection] = useState("")
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24)
@@ -26,9 +27,46 @@ export default function HomeNavbar({ onMenuToggle }: HomeNavbarProps) {
     return () => window.removeEventListener("scroll", onScroll)
   }, [])
 
+  useEffect(() => {
+    const observerOptions = {
+      root: null,
+      rootMargin: "-40% 0px -50% 0px",
+      threshold: 0,
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          setActiveSection(entry.target.id)
+        }
+      })
+    }, observerOptions)
+
+    navLinks.forEach((link) => {
+      const id = link.href.slice(1)
+      const el = document.getElementById(id)
+      if (el) observer.observe(el)
+    })
+
+    return () => {
+      navLinks.forEach((link) => {
+        const id = link.href.slice(1)
+        const el = document.getElementById(id)
+        if (el) observer.unobserve(el)
+      })
+    }
+  }, [])
+
   const handleSection = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault()
-    document.querySelector(href)?.scrollIntoView({ behavior: "smooth" })
+    
+    // Smooth scrolling that works nicely with Lenis
+    if ((window as any).lenis) {
+      (window as any).lenis.scrollTo(href, { offset: -80, duration: 1.2 })
+    } else {
+      document.querySelector(href)?.scrollIntoView({ behavior: "smooth" })
+    }
+    
     setMobileOpen(false)
   }
 
@@ -41,7 +79,7 @@ export default function HomeNavbar({ onMenuToggle }: HomeNavbarProps) {
     <header
       className="fixed left-0 right-0 top-0 z-[100] transition-all duration-500"
       style={{
-        background: scrolled ? "rgba(0,0,0,0.8)" : "transparent",
+        background: scrolled ? "rgba(5,7,5,0.85)" : "transparent",
         backdropFilter: scrolled ? "blur(20px)" : "none",
         WebkitBackdropFilter: scrolled ? "blur(20px)" : "none",
         borderBottom: scrolled ? "1px solid rgba(255,255,255,0.08)" : "none",
@@ -60,16 +98,24 @@ export default function HomeNavbar({ onMenuToggle }: HomeNavbarProps) {
         </Link>
 
         <nav className="hidden items-center justify-center gap-8 lg:flex">
-          {navLinks.map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
-              onClick={(e) => (link.scroll ? handleSection(e, link.href) : undefined)}
-              className="text-xs font-semibold uppercase tracking-[0.14em] text-white/60 transition hover:text-white"
-            >
-              {link.label}
-            </a>
-          ))}
+          {navLinks.map((link) => {
+            const isActive = activeSection === link.href.slice(1)
+            return (
+              <a
+                key={link.href}
+                href={link.href}
+                onClick={(e) => (link.scroll ? handleSection(e, link.href) : undefined)}
+                className={`relative py-2 text-xs font-bold uppercase tracking-[0.15em] transition-all duration-300 ${
+                  isActive ? "text-emerald-400" : "text-white/60 hover:text-white"
+                }`}
+              >
+                {link.label}
+                {isActive && (
+                  <span className="absolute bottom-0 left-0 right-0 h-[2px] bg-gradient-to-r from-emerald-400 via-teal-400 to-green-500 rounded-full filter drop-shadow-[0_0_8px_rgba(16,185,129,0.8)]" />
+                )}
+              </a>
+            )
+          })}
         </nav>
 
         <div className="ml-auto flex items-center gap-3">
@@ -90,18 +136,23 @@ export default function HomeNavbar({ onMenuToggle }: HomeNavbarProps) {
       </div>
 
       {mobileOpen && (
-        <div className="border-t border-white/10 bg-black/90 px-6 pb-8 pt-4 backdrop-blur-xl lg:hidden">
-          <nav className="flex flex-col gap-1">
-            {navLinks.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                onClick={(e) => (link.scroll ? handleSection(e, link.href) : undefined)}
-                className="rounded-xl px-4 py-3.5 text-sm font-semibold text-white/70 transition hover:bg-white/5 hover:text-white"
-              >
-                {link.label}
-              </a>
-            ))}
+        <div className="border-t border-white/10 bg-black/95 px-6 pb-8 pt-4 backdrop-blur-2xl lg:hidden">
+          <nav className="flex flex-col gap-2">
+            {navLinks.map((link) => {
+              const isActive = activeSection === link.href.slice(1)
+              return (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  onClick={(e) => (link.scroll ? handleSection(e, link.href) : undefined)}
+                  className={`relative rounded-xl px-4 py-3.5 text-sm font-semibold transition-all duration-300 ${
+                    isActive ? "bg-emerald-500/10 text-emerald-400 border-l-2 border-emerald-400" : "text-white/70 hover:bg-white/5 hover:text-white"
+                  }`}
+                >
+                  {link.label}
+                </a>
+              )
+            })}
           </nav>
         </div>
       )}

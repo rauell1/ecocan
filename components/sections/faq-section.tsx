@@ -3,6 +3,8 @@
 import { useState } from "react"
 import { ChevronDown } from "lucide-react"
 import { useEcReveal } from "@/lib/use-ec-reveal"
+import { motion, AnimatePresence } from "framer-motion"
+import { SpotlightCard } from "@/components/ui/spotlight-card"
 
 const faqs = [
   {
@@ -26,47 +28,71 @@ const faqs = [
 
 export default function FAQSection() {
   const ref = useEcReveal()
-  const [open, setOpen] = useState<number | null>(null)
+  const [openIndex, setOpenIndex] = useState<number | null>(null)
 
   return (
     <section
       ref={ref as React.RefObject<HTMLDivElement>}
-      className="relative w-full overflow-hidden bg-[#0a0a0a] py-[clamp(5rem,10vw,9rem)]"
+      className="relative w-full overflow-hidden bg-[#050705] py-[clamp(6rem,12vw,10rem)]"
     >
-      <div className="px-[clamp(1.25rem,4vw,3rem)]">
+      <div className="absolute inset-0 z-0 bg-[radial-gradient(ellipse_at_bottom_left,rgba(16,185,129,0.03),transparent_40%)]" />
+      
+      <div className="relative z-10 px-[clamp(1.25rem,4vw,3rem)] max-w-4xl mx-auto">
         <h2
-          className="ec-reveal mb-10 font-bold text-[#f5f5f5]"
-          style={{ fontSize: "clamp(2rem,4vw,3.5rem)", letterSpacing: "-0.02em" }}
+          className="ec-reveal mb-12 text-center font-bold text-[#f5f5f5]"
+          style={{ 
+            fontSize: "clamp(2.5rem,5vw,4rem)", 
+            letterSpacing: "-0.03em",
+            textShadow: "0 0 40px rgba(16,185,129,0.15)"
+          }}
         >
-          FAQ
+          Frequently Asked Questions
         </h2>
 
-        <div>
-          {faqs.map((faq, i) => (
-            <div key={faq.q} className="ec-reveal border-b border-white/10 py-2">
-              <button
-                className="flex w-full items-center justify-between gap-6 py-4 text-left"
-                onClick={() => setOpen(open === i ? null : i)}
-                aria-expanded={open === i}
-              >
-                <span className="text-base font-semibold text-[#f5f5f5]">{faq.q}</span>
-                <ChevronDown
-                  size={18}
-                  className="shrink-0 text-white/50 transition-transform duration-300"
-                  style={{ transform: open === i ? "rotate(180deg)" : "rotate(0deg)" }}
-                />
-              </button>
-              <div
-                style={{
-                  maxHeight: open === i ? "320px" : "0",
-                  overflow: "hidden",
-                  transition: "max-height 0.35s cubic-bezier(0.16,1,0.3,1)",
-                }}
-              >
-                <p className="pb-4 text-sm text-white/50">{faq.a}</p>
+        <div className="flex flex-col gap-4">
+          {faqs.map((faq, i) => {
+            const isOpen = openIndex === i
+            return (
+              <div key={faq.q} className="ec-reveal">
+                <SpotlightCard
+                  className="p-0 border-white/5 bg-[#0c100c]/30 hover:border-emerald-500/25 transition-all duration-500 rounded-xl"
+                  spotlightColor="rgba(16,185,129,0.1)"
+                  spotlightSize={280}
+                >
+                  <button
+                    className="flex w-full items-center justify-between gap-6 px-6 py-5 text-left focus:outline-none"
+                    onClick={() => setOpenIndex(isOpen ? null : i)}
+                    aria-expanded={isOpen}
+                  >
+                    <span className="text-base font-semibold text-[#f5f5f5] md:text-lg transition-colors duration-300 group-hover:text-emerald-300">
+                      {faq.q}
+                    </span>
+                    <ChevronDown
+                      size={20}
+                      className="shrink-0 text-white/50 transition-transform duration-500"
+                      style={{ transform: isOpen ? "rotate(180deg)" : "rotate(0deg)" }}
+                    />
+                  </button>
+                  
+                  <AnimatePresence initial={false}>
+                    {isOpen && (
+                      <motion.div
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: "auto", opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
+                        className="overflow-hidden"
+                      >
+                        <div className="px-6 pb-5 text-sm text-white/60 md:text-base leading-relaxed border-t border-white/5 pt-4">
+                          {faq.a}
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </SpotlightCard>
               </div>
-            </div>
-          ))}
+            )
+          })}
         </div>
       </div>
     </section>

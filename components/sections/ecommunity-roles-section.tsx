@@ -11,6 +11,8 @@ const roles = [
   { icon: Recycle, title: "Recycler", action: "Collect & process" },
 ]
 
+import { SpotlightCard } from "@/components/ui/spotlight-card"
+
 export default function EcommunityRolesSection() {
   const sectionRef = useRef<HTMLDivElement>(null)
 
@@ -88,12 +90,8 @@ export default function EcommunityRolesSection() {
 
         <div className="grid gap-6 md:grid-cols-3">
           {roles.map((role) => (
-            <div 
-              key={role.title} 
-              className="ecommunity-role-card ec-reveal p-8 rounded-2xl border border-white/10 bg-[#0c100c]/50 backdrop-blur-md shadow-2xl hover:border-emerald-500/30 transition-all duration-300 group relative overflow-hidden"
-            >
-              <div className="absolute -inset-px rounded-2xl bg-gradient-to-r from-emerald-500/0 via-emerald-500/10 to-emerald-500/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-              <div className="relative z-10">
+            <div key={role.title} className="ec-reveal">
+              <SpotlightCard>
                 <role.icon size={28} className="text-emerald-400 group-hover:text-emerald-300 transition-colors duration-300" strokeWidth={1.5} />
                 <h3
                   className="mt-5 text-2xl font-bold text-[#f5f5f5]"
@@ -102,7 +100,7 @@ export default function EcommunityRolesSection() {
                   {role.title}
                 </h3>
                 <p className="mt-2 text-base text-white/60">{role.action}</p>
-              </div>
+              </SpotlightCard>
             </div>
           ))}
         </div>

@@ -32,6 +32,35 @@ export default function Home() {
   ], [])
 
   useEffect(() => {
+    let lenisInst: any = null
+    import("lenis").then(({ default: Lenis }) => {
+      lenisInst = new Lenis({
+        duration: 1.2,
+        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+        orientation: "vertical",
+        gestureOrientation: "vertical",
+        smoothWheel: true,
+      })
+
+      function raf(time: number) {
+        if (lenisInst) {
+          lenisInst.raf(time)
+          requestAnimationFrame(raf)
+        }
+      }
+
+      requestAnimationFrame(raf)
+      ;(window as any).lenis = lenisInst
+    })
+
+    return () => {
+      if (lenisInst) {
+        lenisInst.destroy()
+      }
+    }
+  }, [])
+
+  useEffect(() => {
     const handleScroll = () => {
       const scrollPos = window.scrollY + 150
       sections.forEach((section) => {

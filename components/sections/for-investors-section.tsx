@@ -4,6 +4,7 @@ import { useRef, useEffect } from "react"
 import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 import Link from "next/link"
+import { SpotlightCard } from "@/components/ui/spotlight-card"
 
 const metrics = [
   { value: "KES 8M", label: "paid to collectors" },
@@ -93,13 +94,13 @@ export default function ForInvestorsSection() {
 
         <div className="ec-reveal grid gap-6 md:grid-cols-3 my-12">
           {metrics.map(({ value, label }) => (
-            <div 
+            <SpotlightCard 
               key={label} 
-              className="bg-[#0c100c]/50 backdrop-blur-md border border-white/10 p-8 rounded-2xl shadow-xl hover:border-emerald-500/30 hover:scale-[1.02] transition-all duration-300 group"
+              className="p-8 shadow-xl"
             >
               <p className="text-4xl font-extrabold text-[#f5f5f5] group-hover:text-emerald-400 transition-colors duration-300" style={{ letterSpacing: "-0.02em" }}>{value}</p>
               <p className="mt-2 text-xs font-semibold text-white/50 uppercase tracking-wider">{label}</p>
-            </div>
+            </SpotlightCard>
           ))}
         </div>
 
