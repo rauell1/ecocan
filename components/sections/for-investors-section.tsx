@@ -80,7 +80,7 @@ export default function ForInvestorsSection() {
           src="/images/hero/investors_hero.png"
           alt="Futuristic financial growth chart"
           aria-hidden="true"
-          className="section-bg-img h-full w-full object-cover opacity-50"
+          className="section-bg-img img-smooth-load h-full w-full object-cover opacity-50"
         />
         <div 
           className="absolute inset-0" 

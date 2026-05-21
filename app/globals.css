@@ -111,10 +111,21 @@
   will-change: opacity, transform;
 }
 
+@keyframes bgImgFadeIn {
+  from {
+    opacity: 0;
+    filter: blur(8px);
+  }
+  to {
+    filter: blur(0);
+  }
+}
+
 .section-bg-img {
   will-change: transform;
   transform: scale(1.15);
   transition: opacity 0.6s ease;
+  animation: bgImgFadeIn 1.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 .ecommunity-role-card {
@@ -392,3 +403,26 @@ button,
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
+
+.text-luxury-glow {
+  filter: drop-shadow(0 2px 24px rgba(34, 197, 94, 0.08)) drop-shadow(0 4px 60px rgba(255, 255, 255, 0.05));
+}
+
+/* ── IMAGE LOAD FADE-IN ─────────────────────────────────────────────────── */
+@keyframes imgFadeIn {
+  from {
+    opacity: 0;
+    filter: blur(6px);
+    transform: scale(1.015);
+  }
+  to {
+    opacity: 1;
+    filter: blur(0);
+    transform: scale(1);
+  }
+}
+
+.img-smooth-load {
+  animation: imgFadeIn 1.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+

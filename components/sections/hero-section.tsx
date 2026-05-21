@@ -32,7 +32,6 @@ export default function HeroSection({ onTransitionComplete }: HeroSectionProps) 
     const attemptPlay = async () => {
       try {
         await video.play()
-        setIsPlaying(true)
         removeInteractionListeners()
       } catch (err) {
         console.warn("Autoplay attempt blocked or video not ready, awaiting user interaction:", err)
@@ -204,18 +203,22 @@ export default function HeroSection({ onTransitionComplete }: HeroSectionProps) 
         <video
           ref={videoRef}
           src="/videos/hero-loop.mp4"
+          poster="/images/scan-verify.jpg"
           autoPlay
           loop
           muted
           playsInline
           preload="auto"
-          className="absolute inset-0 h-full w-full object-cover transition-opacity duration-700"
+          className="absolute inset-0 h-full w-full object-cover transition-opacity duration-1000"
           style={{
             zIndex: 1,
             opacity: isPlaying ? 1 : 0,
           }}
-          onPlay={() => setIsPlaying(true)}
-          onPlaying={() => setIsPlaying(true)}
+          onTimeUpdate={() => {
+            if (videoRef.current && videoRef.current.currentTime > 0.15) {
+              setIsPlaying(true)
+            }
+          }}
         />
         <div
           aria-hidden
@@ -235,7 +238,7 @@ export default function HeroSection({ onTransitionComplete }: HeroSectionProps) 
       <div className="absolute inset-0 z-10 flex items-center justify-center">
         <div ref={contentRef} className="px-6 text-center md:px-14">
           <h1
-            className="mb-6 font-serif-luxury text-luxury-gradient"
+            className="mb-6 font-serif-luxury text-luxury-gradient text-luxury-glow"
             style={{
               fontSize: "clamp(3rem, 8.5vw, 6.5rem)",
               lineHeight: 0.98,
