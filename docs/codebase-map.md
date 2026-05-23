@@ -5,10 +5,10 @@
 
 # 🗺️ EcoCan Codebase Map
 
-> **Version:** `a16475c`
-> **Generated:** 2026-05-21T20:02:36.281Z
+> **Version:** `c0a5a66`
+> **Generated:** 2026-05-23T08:44:48.522Z
 > **Branch:** `main`
-> **Previous:** `d63d317`
+> **Previous:** `a16475c`
 
 ## Changes Since Last Version
 
@@ -59,6 +59,7 @@
 
 | Version | Date | Branch | Changes |
 |---|---|---|---|
+| `c0a5a66` | 2026-05-23 | main | Full map regeneration |
 | `a16475c` | 2026-05-21 | main | Full map regeneration |
 | `d63d317` | 2026-05-21 | main | Modified: app/globals.css; Added: app/investors/layout.tsx; Added: app/investors/page.tsx; Modified: components/sections/for-investors-section.tsx; Modified: components/sections/hero-section.tsx |
 | `7cb679b` | 2026-05-21 | main | Full map regeneration |
@@ -78,7 +79,6 @@
 | `fb4a220` | 2026-05-20 | main | Modified: app/globals.css; Modified: components/sections/anti-counterfeit-section.tsx; Modified: components/sections/ecommunity-roles-section.tsx; Modified: components/sections/hero-section.tsx; Modified: components/sections/how-it-works-section.tsx; Modified: components/sections/problem-solution-section.tsx; Modified: components/sections/sustainability-impact-section.tsx |
 | `2445537` | 2026-05-20 | main | Modified: app/design-tokens.css; Modified: app/globals.css; Modified: app/page.tsx; Modified: components/sections/call-to-action-section.tsx; Modified: components/sections/ecommunity-roles-section.tsx; Modified: components/sections/for-investors-section.tsx; Modified: components/sections/hero-section.tsx; Modified: components/sections/home-navbar.tsx; Modified: components/sections/how-it-works-section.tsx; Modified: components/sections/partners-testimonials-section.tsx; Modified: components/sections/problem-solution-section.tsx; Modified: components/sections/sustainability-impact-section.tsx |
 | `4bbc9a9` | 2026-05-20 | main | Modified: app/page.tsx |
-| `e535e73` | 2026-05-20 | main | Modified: app/page.tsx |
 
 ---
 

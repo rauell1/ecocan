@@ -1,9 +1,9 @@
 {
   "meta": {
-    "version": "a16475c",
-    "generatedAt": "2026-05-21T20:02:36.281Z",
+    "version": "c0a5a66",
+    "generatedAt": "2026-05-23T08:44:48.522Z",
     "branch": "main",
-    "previousVersion": "d63d317",
+    "previousVersion": "a16475c",
     "generator": "scripts/generate-codebase-map.mjs",
     "framework": "Next.js 14",
     "packageManager": "pnpm"
@@ -281,8 +281,8 @@
     "components/hero.tsx": "661121ec23ba574a56ecf5638f2bf7a01cb757ab",
     "components/media-viewer.tsx": "09dc888948fc4bb2934b8c9c6f4b2fdf1a18114f",
     "components/sections/anti-counterfeit-section.tsx": "d4dba51a90c339213a0c1a2e74f8549563c0d85f",
-    "components/sections/app-showcase-section.tsx": "5e8ff5175277d28e01031175ac535d8068432c88",
-    "components/sections/call-to-action-section.tsx": "da62e5e25137c7e01d9e5e855a68298ec27b4b64",
+    "components/sections/app-showcase-section.tsx": "9a81cc7dc34c991effe39ee1f7f5c0692ce430f8",
+    "components/sections/call-to-action-section.tsx": "06ecf915b715bd35ce2abc15ebfd28b913f89d0a",
     "components/sections/ecocan-model-section.tsx": "2de3ecc1ddf0f4ca105431b28d22ad0233a1a242",
     "components/sections/ecommunity-roles-section.tsx": "2f4ca3142d606cdaf66b9c8e0867f6d2e9203347",
     "components/sections/electric-mobility-section.tsx": "fb5eb531604a0013b61003d552fd3676577599a2",
@@ -379,14 +379,6 @@
     "tsconfig.json": "5841f1c2f8bba110464eaba24059d47cb59d3b64"
   },
   "changelog": [
-    {
-      "version": "e535e73",
-      "date": "2026-05-20T11:15:42.423Z",
-      "branch": "main",
-      "changes": [
-        "Modified: app/page.tsx"
-      ]
-    },
     {
       "version": "4bbc9a9",
       "date": "2026-05-20T11:26:17.848Z",
@@ -606,6 +598,14 @@
     {
       "version": "a16475c",
       "date": "2026-05-21T20:02:36.281Z",
+      "branch": "main",
+      "changes": [
+        "Full map regeneration"
+      ]
+    },
+    {
+      "version": "c0a5a66",
+      "date": "2026-05-23T08:44:48.522Z",
       "branch": "main",
       "changes": [
         "Full map regeneration"
