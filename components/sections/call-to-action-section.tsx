@@ -86,6 +86,7 @@ export default function CallToActionSection() {
           <Link
             href="https://apps.apple.com/app/6502695438"
             target="_blank"
+            rel="noopener noreferrer"
             className="inline-flex rounded-full border border-white/10 bg-white/5 px-10 py-4 text-[16px] font-medium text-white backdrop-blur-md transition-all duration-300 hover:border-emerald-500/20 hover:bg-emerald-500/10 hover:text-emerald-400"
           >
             Download App
