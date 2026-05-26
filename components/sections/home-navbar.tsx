@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react"
 import Image from "next/image"
 import Link from "next/link"
-import { Menu, X } from "lucide-react"
+import { Menu, X, Sun, Moon } from "lucide-react"
 
 interface HomeNavbarProps {
   onMenuToggle: () => void
@@ -23,6 +23,25 @@ export default function HomeNavbar({ onMenuToggle }: HomeNavbarProps) {
   const [scrolled, setScrolled] = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false)
   const [activeSection, setActiveSection] = useState("")
+  const [theme, setTheme] = useState<"dark" | "light">("dark")
+
+  useEffect(() => {
+    // Determine initial theme on client mount
+    const savedTheme = localStorage.getItem("theme") as "dark" | "light" | null
+    if (savedTheme) {
+      setTheme(savedTheme)
+      document.documentElement.setAttribute("data-theme", savedTheme)
+    } else {
+      document.documentElement.setAttribute("data-theme", "dark")
+    }
+  }, [])
+
+  const toggleTheme = () => {
+    const nextTheme = theme === "dark" ? "light" : "dark"
+    setTheme(nextTheme)
+    document.documentElement.setAttribute("data-theme", nextTheme)
+    localStorage.setItem("theme", nextTheme)
+  }
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24)
@@ -136,6 +155,15 @@ export default function HomeNavbar({ onMenuToggle }: HomeNavbarProps) {
         </nav>
 
         <div className="ml-auto flex items-center gap-3">
+          {/* Theme Toggle Button */}
+          <button
+            onClick={toggleTheme}
+            aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}
+            className="rounded-full border border-white/10 bg-white/5 p-2.5 text-white/70 backdrop-blur-md transition-all duration-300 hover:border-emerald-500/20 hover:bg-emerald-500/10 hover:text-emerald-400"
+          >
+            {theme === "dark" ? <Sun size={15} /> : <Moon size={15} />}
+          </button>
+
           <Link
             href="/download"
             className="hidden rounded-full border border-white/10 bg-white/5 px-6 py-2 text-[13px] font-medium text-white backdrop-blur-md transition-all duration-300 hover:border-emerald-500/20 hover:bg-emerald-500/10 hover:text-emerald-400 md:flex"

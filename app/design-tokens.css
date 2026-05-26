@@ -5,10 +5,10 @@
 
 :root {
   /* ── COLOUR ───────────────────────────────────────────────────────────── */
-  --c-bg: #0a0a0a;
+  --c-bg: #050705; /* Deep, rich premium near-black */
   --c-surface: rgba(255, 255, 255, 0.04);
-  --c-surface-alt: #0a0a0a;
-  --c-dark: #0a0a0a;
+  --c-surface-alt: #050705;
+  --c-dark: #050705;
   --c-border: rgba(255, 255, 255, 0.08);
   --c-border-dark: rgba(255, 255, 255, 0.1);
 
@@ -87,4 +87,28 @@
   --reveal-dur: 0.9s;
   --reveal-stagger: 0.12s;
   --reveal-start: top 72%;
+}
+
+[data-theme="light"] {
+  --c-bg: #f5f7f5; /* Fresh, organic, clean light background */
+  --c-surface: rgba(0, 0, 0, 0.03);
+  --c-surface-alt: #eaf0ea;
+  --c-dark: #ffffff;
+  --c-border: rgba(0, 0, 0, 0.06);
+  --c-border-dark: rgba(0, 0, 0, 0.1);
+
+  --c-text: #0d120d; /* Crisp dark forest charcoal */
+  --c-text-muted: rgba(13, 18, 13, 0.65);
+  --c-text-faint: #7fa07f;
+  --c-text-inv: #ffffff;
+
+  /* Brand greens for light background context */
+  --c-green: #15803d; /* Lighter background requires darker green for high visibility */
+  --c-green-mid: #166534;
+  --c-green-light: #22c55e;
+  --c-green-dim: rgba(21, 128, 61, 0.08);
+
+  --shadow-card: 0 4px 20px rgba(13, 18, 13, 0.04), 0 1px 3px rgba(13, 18, 13, 0.02);
+  --shadow-lift: 0 12px 32px rgba(13, 18, 13, 0.08), 0 4px 12px rgba(13, 18, 13, 0.03);
+  --shadow-glow-green: 0 0 28px rgba(21, 128, 61, 0.12);
 }
