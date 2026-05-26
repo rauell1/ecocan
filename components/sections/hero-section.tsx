@@ -235,26 +235,55 @@ export default function HeroSection({ onTransitionComplete }: HeroSectionProps) 
       </div>
 
       <div className="absolute inset-0 z-10 flex items-center justify-center">
-        <div ref={contentRef} className="px-6 text-center md:px-14">
+        <div
+          ref={contentRef}
+          className="mx-auto flex max-w-4xl flex-col items-center px-6 text-center md:px-14"
+        >
           <h1
             className="font-serif-luxury text-luxury-gradient text-luxury-glow mb-6"
             style={{
-              fontSize: "clamp(3rem, 8.5vw, 6.5rem)",
+              fontSize: "clamp(2.5rem, 7.5vw, 5.5rem)",
               lineHeight: 0.98,
               letterSpacing: "-0.03em",
             }}
           >
-            Scan. Verify. Earn.
+            Return. Recycle. Make a difference.
           </h1>
-          <p className="mx-auto mb-9 max-w-[40ch] text-base uppercase tracking-[0.15em] text-white/50">
-            Safer drinks &amp; paid recycling in one tap.
+          <p className="mx-auto mb-4 max-w-[40ch] text-sm uppercase tracking-[0.15em] text-white/50 md:text-base">
+            Africa&apos;s circular bottle ecosystem.
           </p>
-          <a
-            href="/download"
-            className="inline-flex items-center rounded-full border border-white/20 px-8 py-3.5 text-xs font-bold uppercase tracking-[0.15em] text-[#f5f5f5] backdrop-blur-md transition hover:border-white hover:bg-white hover:text-black"
-          >
-            Download App
-          </a>
+
+          <div className="mb-8 animate-pulse text-base font-medium tracking-wide text-emerald-400 md:text-lg">
+            Your bottle. Your planet. Your reward.
+          </div>
+
+          <div className="mb-10 flex w-full max-w-md flex-col items-center justify-center gap-4 sm:flex-row">
+            <a
+              href="/download"
+              className="inline-flex w-full items-center justify-center rounded-full border border-emerald-500 bg-emerald-500 px-6 py-3.5 text-xs font-bold uppercase tracking-[0.15em] text-black shadow-[0_0_20px_rgba(16,185,129,0.3)] transition-all duration-300 hover:bg-transparent hover:text-white sm:w-auto"
+            >
+              Download App – Start Making a Difference
+            </a>
+            <a
+              href="/contact"
+              className="inline-flex w-full items-center justify-center rounded-full border border-white/20 px-6 py-3.5 text-xs font-bold uppercase tracking-[0.15em] text-[#f5f5f5] backdrop-blur-md transition-all duration-300 hover:border-emerald-500 hover:bg-emerald-500/10 hover:text-emerald-400 sm:w-auto"
+            >
+              Partner with ECOCAN
+            </a>
+          </div>
+
+          {/* Trust Badge Strip */}
+          <div className="flex w-full max-w-xl flex-wrap items-center justify-center gap-x-6 gap-y-2 border-t border-white/5 pt-6 text-center">
+            {["Early-stage funded", "Operational in Kenya", "GDPR Compliant"].map((badge, idx) => (
+              <div
+                key={badge}
+                className="flex items-center text-[10px] font-semibold uppercase tracking-[0.15em] text-white/40 md:text-xs"
+              >
+                {idx > 0 && <span className="mr-6 h-1 w-1 rounded-full bg-emerald-500/40" />}
+                <span>{badge}</span>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
 

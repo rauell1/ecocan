@@ -4,13 +4,10 @@ import { useEffect, useState, useCallback, useMemo } from "react"
 
 import HomeNavbar from "@/components/sections/home-navbar"
 import HeroSection from "@/components/sections/hero-section"
-import ProblemSolutionSection from "@/components/sections/problem-solution-section"
 import HowItWorksSection from "@/components/sections/how-it-works-section"
-import EcommunityRolesSection from "@/components/sections/ecommunity-roles-section"
-import AntiCounterfeitSection from "@/components/sections/anti-counterfeit-section"
-import AppShowcaseSection from "@/components/sections/app-showcase-section"
+import EcocanModelSection from "@/components/sections/ecocan-model-section"
+import ElectricMobilitySection from "@/components/sections/electric-mobility-section"
 import ForInvestorsSection from "@/components/sections/for-investors-section"
-import SustainabilityImpactSection from "@/components/sections/sustainability-impact-section"
 import PartnersTestimonialsSection from "@/components/sections/partners-testimonials-section"
 import CallToActionSection from "@/components/sections/call-to-action-section"
 import FAQSection from "@/components/sections/faq-section"
@@ -21,15 +18,16 @@ export default function Home() {
 
   const handleHeroComplete = useCallback(() => {}, [])
 
-  const sections = useMemo(() => [
-    { id: "problem" },
-    { id: "how-it-works" },
-    { id: "ecommunity" },
-    { id: "impact" },
-    { id: "stories" },
-    { id: "cta" },
-    { id: "faq" },
-  ], [])
+  const sections = useMemo(
+    () => [
+      { id: "how-it-works" },
+      { id: "ecocan-model" },
+      { id: "electric-mobility" },
+      { id: "investors" },
+      { id: "faq" },
+    ],
+    []
+  )
 
   useEffect(() => {
     let lenisInst: any = null
@@ -66,7 +64,7 @@ export default function Home() {
       sections.forEach((section) => {
         const el = document.getElementById(section.id)
         if (el && el.offsetTop <= scrollPos) {
-          // active section tracking — extend if needed
+          // active section tracking
         }
       })
     }
@@ -75,63 +73,46 @@ export default function Home() {
   }, [sections])
 
   return (
-    <div className="relative min-h-screen overflow-x-hidden" style={{ background: "#0C0E0C" }}>
+    <div className="relative min-h-screen overflow-x-hidden" style={{ background: "#050705" }}>
       <HomeNavbar onMenuToggle={() => setIsMenuOpen(!isMenuOpen)} />
 
       <HeroSection onTransitionComplete={handleHeroComplete} />
 
       <main className="relative z-20 flex flex-col gap-0">
-
-        {/* 1. The problem */}
-        <div id="problem" className="ps-reveal">
-          <ProblemSolutionSection />
-        </div>
-
-        {/* 2. How it works */}
+        {/* 1. How it works */}
         <div id="how-it-works" className="ps-reveal">
           <HowItWorksSection />
         </div>
 
-        {/* 3. Who benefits */}
-        <div id="ecommunity" className="ps-reveal">
-          <EcommunityRolesSection />
+        {/* 2. The ECOCAN Model */}
+        <div id="ecocan-model" className="ps-reveal">
+          <EcocanModelSection />
         </div>
 
-        {/* 4. Anti-counterfeit trust */}
-        <div id="counterfeit" className="ps-reveal">
-          <AntiCounterfeitSection />
+        {/* 3. The Electric Mobility Angle */}
+        <div id="electric-mobility" className="ps-reveal">
+          <ElectricMobilitySection />
         </div>
 
-        {/* 5. The app */}
-        <div id="app" className="ps-reveal">
-          <AppShowcaseSection />
-        </div>
-
-        {/* 6. Impact numbers */}
-        <div id="impact" className="ps-reveal">
-          <SustainabilityImpactSection />
-        </div>
-
-        {/* 7. Investors */}
+        {/* 4. For Investors */}
         <div id="investors" className="ps-reveal">
           <ForInvestorsSection />
         </div>
 
-        {/* 8. Real stories + partners */}
+        {/* 5. Partners & Testimonials */}
         <div id="stories" className="ps-reveal">
           <PartnersTestimonialsSection />
         </div>
 
-        {/* 9. CTA */}
+        {/* 6. CTA */}
         <div id="cta" className="ps-reveal">
           <CallToActionSection />
         </div>
 
-        {/* 10. FAQ */}
+        {/* 7. FAQ */}
         <div id="faq" className="ps-reveal">
           <FAQSection />
         </div>
-
       </main>
 
       <HomeFooter />

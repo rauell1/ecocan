@@ -3,24 +3,25 @@
 import { useRef, useEffect } from "react"
 import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
-import Link from "next/link"
 import { SpotlightCard } from "@/components/ui/spotlight-card"
+import { ArrowRight, Download, PieChart } from "lucide-react"
 
-const metrics = [
-  { 
-    value: "KES 8.2M", 
-    label: "Distributed Liquidity", 
-    desc: "Capital paid directly to informal collection partners, boosting local green economies." 
+const investorCards = [
+  {
+    icon: "📦",
+    text: "Closed-loop system – Bottles → producers → bottles",
   },
-  { 
-    value: "54,200+", 
-    label: "Verified Accounts", 
-    desc: "Active consumers scanning, tracking, and completing the circular return loop." 
+  {
+    icon: "🔋",
+    text: "Electric logistics – Lower cost, scalable",
   },
-  { 
-    value: "3 States", 
-    label: "Regional Markets", 
-    desc: "Live, scalable circular logistics networks deploying across East Africa." 
+  {
+    icon: "🤝",
+    text: "Strategic partnerships – Supermarkets, distributors, brands",
+  },
+  {
+    icon: "🌍",
+    text: "Regional scaling – Kenya first, then East Africa",
   },
 ]
 
@@ -44,85 +45,92 @@ export default function ForInvestorsSection() {
           scrollTrigger: { trigger: sectionRef.current, start: "top 75%", once: true },
         }
       )
-
-      const bgImg = sectionRef.current?.querySelector(".section-bg-img") as HTMLElement | null
-      if (bgImg) {
-        gsap.fromTo(
-          bgImg,
-          { yPercent: -8 },
-          {
-            yPercent: 8,
-            ease: "none",
-            scrollTrigger: {
-              trigger: sectionRef.current,
-              start: "top bottom",
-              end: "bottom top",
-              scrub: 1.2,
-            },
-          }
-        )
-      }
     }, sectionRef)
-    return () => {
-      ctx.revert()
-      ScrollTrigger.getAll().forEach((trigger) => trigger.kill())
-    }
+    return () => ctx.revert()
   }, [])
 
   return (
     <section
       id="investors"
       ref={sectionRef}
-      className="relative w-full overflow-hidden bg-[#050705] py-[clamp(5rem,10vw,9rem)]"
+      className="relative w-full overflow-hidden border-b border-white/5 bg-[#0c100c]/30 py-[clamp(5rem,10vw,9rem)]"
     >
       <div className="absolute inset-0 z-0">
         <img
           src="/images/hero/investors_hero.png"
           alt="Futuristic financial growth chart"
           aria-hidden="true"
-          className="section-bg-img img-smooth-load h-full w-full object-cover opacity-50"
+          className="section-bg-img img-smooth-load h-full w-full object-cover opacity-20"
         />
-        <div 
-          className="absolute inset-0" 
-          style={{ 
-            background: "linear-gradient(to bottom, rgba(5,7,5,0.7) 0%, rgba(5,7,5,0.92) 100%)" 
-          }} 
+        <div
+          className="absolute inset-0"
+          style={{
+            background: "linear-gradient(to bottom, rgba(5,7,5,0.9) 0%, rgba(5,7,5,0.98) 100%)",
+          }}
         />
       </div>
 
-      <div className="relative z-10 px-[clamp(1.25rem,4vw,3rem)] max-w-5xl mx-auto">
-        <h2
-          className="ec-reveal mb-12 font-serif-luxury text-luxury-gradient"
-          style={{ 
-            fontSize: "clamp(2.5rem,5vw,4.5rem)", 
-            lineHeight: "1.1", 
-            letterSpacing: "-0.02em",
-          }}
-        >
-          Build circular <br className="hidden md:inline" />
-          <span className="font-sans font-light text-emerald-400">infrastructure with us.</span>
-        </h2>
+      <div className="relative z-10 mx-auto max-w-5xl px-[clamp(1.25rem,4vw,3rem)]">
+        <div className="mb-12 max-w-3xl">
+          <p className="ec-reveal section-overline mb-3 text-emerald-400">FOR INVESTORS</p>
+          <h2
+            className="ec-reveal font-serif-luxury text-luxury-gradient"
+            style={{
+              fontSize: "clamp(2rem,5vw,3.5rem)",
+              lineHeight: "1.1",
+              letterSpacing: "-0.02em",
+            }}
+          >
+            Invest in Africa’s First Bottle Ecosystem
+          </h2>
+        </div>
 
-        <div className="ec-reveal grid gap-6 md:grid-cols-3 my-12">
-          {metrics.map(({ value, label, desc }) => (
-            <SpotlightCard 
-              key={label} 
-              className="bg-[#0c100c]/30 border-white/5 rounded-3xl p-8 hover:border-emerald-500/20 transition-all duration-300"
+        {/* Four Cards with one line each */}
+        <div className="ec-reveal my-10 grid gap-4 md:grid-cols-2">
+          {investorCards.map((card, idx) => (
+            <SpotlightCard
+              key={idx}
+              className="flex items-center gap-4 rounded-2xl border-white/5 bg-[#050705]/60 p-6 transition-all duration-300 hover:border-emerald-500/20"
+              spotlightColor="rgba(16,185,129,0.05)"
             >
-              <p className="text-4xl font-light font-serif-luxury text-white group-hover:text-emerald-400 transition-colors duration-300" style={{ letterSpacing: "-0.02em" }}>{value}</p>
-              <p className="mt-4 text-xs font-semibold text-emerald-400 uppercase tracking-[0.12em]">{label}</p>
-              <p className="mt-2 text-[13px] leading-relaxed text-white/50 font-normal">{desc}</p>
+              <span className="flex-shrink-0 select-none text-3xl saturate-100 filter">
+                {card.icon}
+              </span>
+              <p className="font-sans text-sm font-medium leading-relaxed text-white/80">
+                {card.text}
+              </p>
             </SpotlightCard>
           ))}
         </div>
 
-        <div className="ec-reveal mt-12">
-          <Link
-            href="/investors"
-            className="inline-flex rounded-full border border-white/10 bg-white/5 backdrop-blur-md px-8 py-3 text-[14px] font-medium text-white transition-all duration-300 hover:bg-emerald-500/10 hover:text-emerald-400 hover:border-emerald-500/20"
-          >
-            Download Pitch Deck
-          </Link>
+        {/* Funding Status and Call to Action */}
+        <div className="ec-reveal mx-auto mt-12 flex max-w-4xl flex-col items-center justify-between gap-6 rounded-3xl border border-emerald-500/10 bg-emerald-500/5 p-8 shadow-[0_0_50px_rgba(16,185,129,0.03)] backdrop-blur-md md:flex-row">
+          <div className="text-left">
+            <span className="mb-2 block font-mono text-[10px] font-bold uppercase tracking-widest text-emerald-400">
+              Current Round status
+            </span>
+            <p className="font-serif-luxury text-lg font-light text-[#f5f5f5] md:text-xl">
+              Early-stage funding secured. Operations live.{" "}
+              <span className="font-sans font-semibold text-emerald-400">Ready for Series A.</span>
+            </p>
+          </div>
+
+          <div className="flex flex-wrap gap-3">
+            <a
+              href="#"
+              className="inline-flex items-center gap-2 rounded-full bg-emerald-500 px-6 py-3 text-xs font-bold uppercase tracking-wider text-black transition-all duration-300 hover:bg-emerald-400 hover:shadow-[0_0_20px_rgba(16,185,129,0.2)]"
+            >
+              <Download size={14} />
+              <span>Investor deck</span>
+            </a>
+            <a
+              href="#"
+              className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-6 py-3 text-xs font-bold uppercase tracking-wider text-white backdrop-blur-md transition-all duration-300 hover:border-emerald-500 hover:bg-emerald-500/10 hover:text-emerald-400"
+            >
+              <PieChart size={14} />
+              <span>Financials overview</span>
+            </a>
+          </div>
         </div>
       </div>
     </section>

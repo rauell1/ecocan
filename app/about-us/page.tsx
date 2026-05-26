@@ -5,26 +5,70 @@ import Image from "next/image"
 import Link from "next/link"
 import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
+import HomeNavbar from "@/components/sections/home-navbar"
 import HomeFooter from "@/components/sections/home-footer"
 import { SpotlightCard } from "@/components/ui/spotlight-card"
-import HomeNavbar from "@/components/sections/home-navbar"
-import HyperLink from "@/components/shared/hyperlink/hyperlink"
-import RegisterPopup from "@/components/shared/register-popup"
-import { ArrowDown, Globe, Leaf, Shield, Users } from "lucide-react"
+import { ArrowDown, Globe, Shield, Users, Heart, Award, ArrowRight, UserCheck } from "lucide-react"
 
-const partners = [
-  { name: "Business Finland", url: "/assets/images/about/support-4.svg" },
-  { name: "FINNPARTNERSHIP", url: "/assets/images/about/support-6.svg" },
-  { name: "YPB", url: "/assets/images/about/support-1.svg" },
-  { name: "Pure Recycle", url: "/assets/images/about/support-2.svg" },
-  { name: "NEFCO", url: "/assets/images/about/support-5.svg" },
+const timelineItems = [
+  {
+    year: "2022",
+    title: "The idea is born",
+    desc: "The founder recognized the growing challenge of bottles littering streets, communities, and natural spaces. A better way to collect and recycle had to exist.",
+  },
+  {
+    year: "2023",
+    title: "First prototype",
+    desc: "ECOCAN designed an accessible smart reverse vending solution for bottle recovery and recycling engagement.",
+  },
+  {
+    year: "2024",
+    title: "Seed funding secured",
+    desc: "Early-stage funding closed. Pilot launch in Nairobi. Manual collection counters introduced to accelerate bottle returns.",
+  },
+  {
+    year: "2025",
+    title: "Supermarket partnerships expand",
+    desc: "Collection counters become the primary return network. 50+ collection points established. 10,000+ ECOnsumers engaged.",
+  },
+  {
+    year: "2026",
+    title: "ECOCAN begins zero emission logistics",
+    desc: "Regional expansion begins as ECOCAN scales recycling infrastructure across Africa with electric motorcycles.",
+  },
 ]
 
 const missionItems = [
-  { icon: Leaf, title: "Protect our planet", desc: "We only have one planet, and every action we take today affects our tomorrow." },
-  { icon: Shield, title: "Preserve life", desc: "In every way, and all forms — embracing inclusivity, safeguarding broadly, while uplifting holistically." },
-  { icon: Users, title: "Support communities", desc: "By empowering generations, building trust, igniting hope, and fostering possibilities." },
-  { icon: Globe, title: "Promote sustainability", desc: "Optimising the value we derive from natural resources, enhancing operational productivity, while supporting sustainable commerce." },
+  {
+    icon: "🌍",
+    title: "Protect the planet",
+    desc: "Build a circular economy where every bottle collected becomes part of a new lifecycle.",
+  },
+  {
+    icon: "♻",
+    title: "Enable responsible recycling",
+    desc: "Make recycling simple, rewarding, and accessible for every community.",
+  },
+  {
+    icon: "🤝",
+    title: "Support communities",
+    desc: "Create environmental pride, shared responsibility, and economic opportunity.",
+  },
+]
+
+const valuesItems = [
+  {
+    title: "SISU",
+    desc: "A Finnish word for determination, resilience, and courage in the face of adversity. We don't give up. Not on sustainability. Not on building a cleaner future.",
+  },
+  {
+    title: "Integrity",
+    desc: "Transparent systems, measurable impact, and accountability at every stage of collection and recovery.",
+  },
+  {
+    title: "Collaboration",
+    desc: "No one builds a circular economy alone. We work with retailers, producers, recyclers, logistics partners, and the ECOnsumer community.",
+  },
 ]
 
 export default function AboutPage() {
@@ -42,25 +86,41 @@ export default function AboutPage() {
         smoothWheel: true,
       })
       function raf(time: number) {
-        if (lenisInst) { lenisInst.raf(time); requestAnimationFrame(raf) }
+        if (lenisInst) {
+          lenisInst.raf(time)
+          requestAnimationFrame(raf)
+        }
       }
       requestAnimationFrame(raf)
     })
 
     const ctx = gsap.context(() => {
       // Hero entrance
-      gsap.fromTo(".about-hero-text",
+      gsap.fromTo(
+        ".about-hero-text",
         { opacity: 0, y: 60, filter: "blur(12px)" },
-        { opacity: 1, y: 0, filter: "blur(0px)", duration: 1.4, stagger: 0.15, delay: 0.2, ease: "power3.out" }
+        {
+          opacity: 1,
+          y: 0,
+          filter: "blur(0px)",
+          duration: 1.4,
+          stagger: 0.15,
+          delay: 0.2,
+          ease: "power3.out",
+        }
       )
 
       // Scroll-triggered reveals
       gsap.utils.toArray<Element>(".about-reveal").forEach((el) => {
-        gsap.fromTo(el,
+        gsap.fromTo(
+          el,
           { opacity: 0, y: 40, filter: "blur(6px)" },
           {
-            opacity: 1, y: 0, filter: "blur(0px)",
-            duration: 1.0, ease: "power3.out",
+            opacity: 1,
+            y: 0,
+            filter: "blur(0px)",
+            duration: 1.0,
+            ease: "power3.out",
             scrollTrigger: { trigger: el, start: "top 82%", once: true },
           }
         )
@@ -77,299 +137,236 @@ export default function AboutPage() {
     <div className="relative min-h-screen overflow-x-hidden" style={{ background: "#050705" }}>
       <HomeNavbar onMenuToggle={() => {}} />
 
-      {/* ── 1. Hero Section ──────────────────────────────────────────────── */}
+      {/* ── 1. HERO SECTION ──────────────────────────────────────────────── */}
       <div
         ref={heroRef}
         id="hero"
         className="relative flex min-h-screen items-center justify-center overflow-hidden"
         style={{ background: "#050705" }}
       >
-        {/* Ambient emerald radial glow */}
         <div
           className="pointer-events-none absolute inset-0"
           style={{
-            background: "radial-gradient(ellipse at 50% 30%, rgba(34,197,94,0.1) 0%, transparent 65%)",
+            background:
+              "radial-gradient(ellipse at 50% 30%, rgba(34,197,94,0.1) 0%, transparent 65%)",
           }}
         />
-        {/* Subtle grid */}
-        <div
-          className="pointer-events-none absolute inset-0 opacity-[0.04]"
-          style={{
-            backgroundImage: "linear-gradient(rgba(255,255,255,0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.3) 1px, transparent 1px)",
-            backgroundSize: "56px 56px",
-          }}
-        />
-        {/* Hero bg image */}
-        <div className="absolute inset-0 overflow-hidden">
-          <Image
-            src="/assets/images/about/about-hero.svg"
-            alt="ECOCAN Kenya community"
-            fill
-            className="object-cover opacity-20 img-smooth-load"
-            priority
-          />
-          <div className="absolute inset-0" style={{ background: "linear-gradient(to bottom, rgba(5,7,5,0.4) 0%, rgba(5,7,5,0.85) 100%)" }} />
-        </div>
 
-        <div className="relative z-10 px-6 text-center md:px-14 max-w-5xl mx-auto">
-          <p className="about-hero-text section-overline text-emerald-400 mb-4">Our story</p>
+        <div className="relative z-10 mx-auto flex max-w-5xl flex-col items-center px-6 text-center md:px-14">
+          <p className="about-hero-text section-overline mb-4 justify-center text-emerald-400">
+            ABOUT US
+          </p>
           <h1
             className="about-hero-text font-serif-luxury text-luxury-gradient text-luxury-glow mb-6"
-            style={{ fontSize: "clamp(2.75rem, 8vw, 6rem)", lineHeight: 0.98, letterSpacing: "-0.03em" }}
+            style={{
+              fontSize: "clamp(2.5rem, 7.5vw, 5.5rem)",
+              lineHeight: 0.98,
+              letterSpacing: "-0.03em",
+            }}
           >
-            Empowering Kenyan<br />
-            <span className="font-sans font-light text-emerald-400">consumers to recycle and thrive.</span>
+            We are catalysts of positive change.
           </h1>
-          <p className="about-hero-text mx-auto max-w-[46ch] text-base tracking-wide text-white/55 mb-10">
-            We are building East Africa&apos;s most advanced consumer-first circular economy — one verified bottle at a time.
+          <p className="about-hero-text mx-auto mb-10 max-w-[46ch] text-base leading-relaxed tracking-wide text-white/55 md:text-lg">
+            Re-imagining sustainability for Africa through circular solutions.
           </p>
           <a
-            href="#who-we-are"
-            onClick={(e) => { e.preventDefault(); document.getElementById("who-we-are")?.scrollIntoView({ behavior: "smooth" }) }}
-            className="about-hero-text inline-flex items-center gap-2 rounded-full border border-white/20 px-8 py-3.5 text-xs font-bold uppercase tracking-[0.15em] text-white/80 backdrop-blur-md hover:bg-white hover:text-black hover:border-white transition-all duration-300"
+            href="#story"
+            onClick={(e) => {
+              e.preventDefault()
+              document.getElementById("story")?.scrollIntoView({ behavior: "smooth" })
+            }}
+            className="about-hero-text inline-flex items-center gap-2 rounded-full border border-white/20 px-8 py-3.5 text-xs font-bold uppercase tracking-[0.15em] text-white/80 backdrop-blur-md transition-all duration-300 hover:border-white hover:bg-white hover:text-black"
           >
-            Our Journey <ArrowDown size={14} />
+            Our Story <ArrowDown size={14} />
           </a>
         </div>
       </div>
 
-      {/* ── 2. Who We Are ───────────────────────────────────────────────── */}
-      <section id="who-we-are" className="relative py-[clamp(5rem,10vw,9rem)] px-[clamp(1.25rem,4vw,3rem)]">
-        <div className="max-w-6xl mx-auto grid gap-16 lg:grid-cols-2 items-center">
-          <div>
-            <p className="about-reveal section-overline text-emerald-400">Who are we</p>
-            <h2 className="about-reveal font-serif-luxury text-luxury-gradient text-luxury-glow mb-6" style={{ fontSize: "clamp(2rem,4.5vw,3.5rem)", lineHeight: 1.05 }}>
-              Catalysts of<br /><span className="font-sans font-light text-emerald-400">positive change.</span>
-            </h2>
-            <div className="about-reveal space-y-4 text-[15px] leading-relaxed text-white/60">
-              <p>
-                We are building a consumer-first recycling ecosystem for Kenya. Our green-tech platform helps shoppers verify genuine drinks before purchase, then return empties after consumption for rewards.
-              </p>
-              <p>
-                At the core is the blockchain-compatible{" "}
-                <HyperLink link="ECOCAN TnT" href="/solutions/brand-protection#tnt" />, plus our smart{" "}
-                <HyperLink link="EcocanApp" href="/solutions/brand-protection#ecocan-app" />, robust{" "}
-                <HyperLink link="ECOCAN security codes" href="/solutions/brand-protection#security-codes" />,
-                and the intricate{" "}
-                <HyperLink link="ECOCAN DRS" href="/solutions/packaging-recycling" />.
-              </p>
-            </div>
-          </div>
-          <div className="about-reveal relative">
-            <SpotlightCard className="bg-[#0c100c]/40 border border-white/5 rounded-3xl p-8 hover:border-emerald-500/20 transition-all duration-500">
-              <div className="grid grid-cols-2 gap-6">
-                {[
-                  { value: "54,200+", label: "Active users" },
-                  { value: "14.8M+", label: "Cans recycled" },
-                  { value: "KES 8.2M", label: "Rewards paid" },
-                  { value: "3 Markets", label: "East Africa" },
-                ].map((stat) => (
-                  <div key={stat.label}>
-                    <p className="text-3xl font-serif-luxury text-white" style={{ letterSpacing: "-0.02em" }}>{stat.value}</p>
-                    <p className="text-xs font-semibold uppercase tracking-widest text-emerald-400 mt-1">{stat.label}</p>
-                  </div>
-                ))}
-              </div>
-            </SpotlightCard>
-          </div>
-        </div>
-      </section>
-
-      {/* Divider */}
-      <div className="ec-divider mx-[clamp(1.25rem,4vw,3rem)]" />
-
-      {/* ── 3. Why We're Here ───────────────────────────────────────────── */}
-      <section className="relative py-[clamp(5rem,10vw,9rem)] px-[clamp(1.25rem,4vw,3rem)] overflow-hidden">
-        <div
-          className="pointer-events-none absolute right-0 top-0 h-[500px] w-[500px] rounded-full opacity-10 blur-3xl"
-          style={{ background: "radial-gradient(circle, #22c55e, transparent 70%)" }}
-        />
-        <div className="max-w-6xl mx-auto grid gap-16 lg:grid-cols-2 items-center">
-          <div className="about-reveal relative aspect-square max-w-sm mx-auto lg:mx-0 overflow-hidden rounded-3xl">
-            <Image
-              src="/assets/images/solutions/people.svg"
-              alt="ECOCAN eco-community"
-              fill
-              className="object-contain opacity-90"
-            />
-          </div>
-          <div>
-            <p className="about-reveal section-overline text-emerald-400">Our purpose</p>
-            <h2 className="about-reveal font-serif-luxury text-luxury-gradient text-luxury-glow mb-4" style={{ fontSize: "clamp(2rem,4.5vw,3.5rem)", lineHeight: 1.05 }}>
-              Why we&apos;re here.
-            </h2>
-            <h3 className="about-reveal font-sans font-light text-emerald-400 mb-6" style={{ fontSize: "clamp(1.25rem,2.5vw,2rem)" }}>
-              To support ECO-friendly COmmunities
-            </h3>
-            <p className="about-reveal text-[15px] leading-relaxed text-white/60">
-              Who envision and strive for a planet free from pollution, safe for all the life it sustains, and brimming with limitless opportunities to thrive. An achievable aspiration only when communities work together, empowered with intelligent technology to prosper.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Divider */}
-      <div className="ec-divider mx-[clamp(1.25rem,4vw,3rem)]" />
-
-      {/* ── 4. Our Mission ──────────────────────────────────────────────── */}
-      <section className="relative py-[clamp(5rem,10vw,9rem)] px-[clamp(1.25rem,4vw,3rem)]">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-16">
-            <p className="about-reveal section-overline text-emerald-400">Mission</p>
-            <h2 className="about-reveal font-serif-luxury text-luxury-gradient text-luxury-glow" style={{ fontSize: "clamp(2rem,4.5vw,3.5rem)", lineHeight: 1.05 }}>
-              We&apos;re on a mission
-            </h2>
-          </div>
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {missionItems.map(({ icon: Icon, title, desc }) => (
-              <SpotlightCard
-                key={title}
-                className="about-reveal bg-[#0c100c]/40 border border-white/5 rounded-3xl p-7 hover:border-emerald-500/20 transition-all duration-500"
-              >
-                <div className="mb-5 flex h-11 w-11 items-center justify-center rounded-xl bg-emerald-500/10 text-emerald-400">
-                  <Icon size={22} strokeWidth={1.5} />
-                </div>
-                <h3 className="text-base font-semibold text-white mb-2">{title}</h3>
-                <p className="text-[13px] leading-relaxed text-white/50">{desc}</p>
-              </SpotlightCard>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Divider */}
-      <div className="ec-divider mx-[clamp(1.25rem,4vw,3rem)]" />
-
-      {/* ── 5. Our DNA — SISU ───────────────────────────────────────────── */}
+      {/* ── 2. SECTION 1: OUR STORY (TIMELINE) ────────────────────────────── */}
       <section
-        className="relative py-[clamp(5rem,10vw,9rem)] px-[clamp(1.25rem,4vw,3rem)] overflow-hidden"
-        style={{ background: "linear-gradient(to bottom, #050705 0%, #081008 50%, #050705 100%)" }}
+        id="story"
+        className="relative border-t border-white/5 px-[clamp(1.25rem,4vw,3rem)] py-[clamp(6rem,12vw,10rem)]"
       >
-        <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <Image
-            src="/assets/images/solutions/about-people-bg.svg"
-            alt=""
-            fill
-            aria-hidden
-            className="object-cover opacity-10"
-          />
-          <div className="absolute inset-0" style={{ background: "linear-gradient(to bottom, #050705 0%, rgba(5,7,5,0.5) 50%, #050705 100%)" }} />
-        </div>
-        <div className="relative z-10 max-w-4xl mx-auto text-center">
-          <p className="about-reveal section-overline text-emerald-400">Our DNA</p>
-          <h2 className="about-reveal font-serif-luxury text-luxury-gradient text-luxury-glow mb-6" style={{ fontSize: "clamp(2rem,4.5vw,3.5rem)", lineHeight: 1.05 }}>
-            That shapes our identity.
-          </h2>
-          <p className="about-reveal text-[16px] leading-relaxed text-white/60 mb-8 max-w-2xl mx-auto">
-            The ability to Re-imagine. Courage to disrupt. Formidable spirit of resilience. And a strong belief in meaningful cooperation. That&apos;s the essence of our DNA. Our{" "}
-            <RegisterPopup
-              join="SISU!"
-              className="h-0"
-              form={
-                <p>
-                  Sisu is a mystical Finnish concept that represents strength of will, determination, perseverance, and acting rationally in the face of adversity. This is the true embodiment of the ECOCAN spirit.
-                </p>
-              }
-            />{" "}
-            We pledge to uphold this. All the way.
-          </p>
-          <SpotlightCard className="about-reveal bg-[#0c100c]/40 border border-white/5 rounded-3xl p-8 max-w-sm mx-auto hover:border-emerald-500/20 transition-all duration-500">
-            <p className="font-serif-luxury text-4xl text-emerald-400 mb-2" style={{ letterSpacing: "-0.02em" }}>SISU</p>
-            <p className="text-xs text-white/50 uppercase tracking-widest">Finnish · Unstoppable Spirit</p>
-          </SpotlightCard>
+        <div className="mx-auto max-w-4xl">
+          <div className="mb-20 text-center">
+            <p className="about-reveal section-overline mb-3 justify-center text-emerald-400">
+              OUR JOURNEY
+            </p>
+            <h2
+              className="about-reveal font-serif-luxury text-luxury-gradient text-luxury-glow"
+              style={{ fontSize: "clamp(2rem,5vw,3.5rem)", lineHeight: 1.05 }}
+            >
+              How we built the loop.
+            </h2>
+          </div>
+
+          <div className="relative ml-4 space-y-12 border-l border-emerald-500/10 py-4 pl-8 md:ml-32 md:pl-12">
+            {timelineItems.map((item, idx) => (
+              <div key={item.year} className="about-reveal group relative">
+                {/* Visual marker point */}
+                <div className="absolute -left-[41px] top-1 flex h-6 w-6 items-center justify-center rounded-full border border-emerald-500/20 bg-[#050705] transition-all duration-500 group-hover:border-emerald-500 md:-left-[57px]">
+                  <div className="h-2 w-2 rounded-full bg-emerald-500" />
+                </div>
+
+                {/* Left side year indicator for desktop */}
+                <div className="font-serif-luxury absolute -left-44 top-0 hidden w-24 text-right text-2xl font-light text-emerald-400 transition-colors duration-300 group-hover:text-white md:block">
+                  {item.year}
+                </div>
+
+                <div className="rounded-3xl border border-white/5 bg-[#0c100c]/35 p-8 transition-all duration-300 hover:border-emerald-500/20 hover:bg-[#0c100c]/50">
+                  {/* Mobile-only year display */}
+                  <span className="mb-2 block text-xs font-semibold uppercase tracking-widest text-emerald-400 md:hidden">
+                    {item.year}
+                  </span>
+
+                  <h3 className="font-serif-luxury mb-3 text-xl font-normal text-white transition-colors group-hover:text-emerald-400">
+                    {item.title}
+                  </h3>
+                  <p className="text-sm font-normal leading-relaxed text-white/55">{item.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
       {/* Divider */}
-      <div className="ec-divider mx-[clamp(1.25rem,4vw,3rem)]" />
+      <div className="mx-auto h-[1px] max-w-5xl bg-white/5" />
 
-      {/* ── 6. Partners & Community ─────────────────────────────────────── */}
-      <section className="py-[clamp(5rem,10vw,9rem)] px-[clamp(1.25rem,4vw,3rem)]">
-        <div className="max-w-6xl mx-auto">
-          {/* Partner with us CTA */}
-          <div className="grid gap-16 lg:grid-cols-2 items-center mb-20">
-            <div className="about-reveal relative aspect-square max-w-sm mx-auto lg:mx-0 overflow-hidden rounded-3xl">
-              <Image
-                src="/assets/images/solutions/hands.svg"
-                alt="Partner with ECOCAN"
-                fill
-                className="object-contain opacity-80"
-              />
-            </div>
-            <div>
-              <p className="about-reveal section-overline text-emerald-400">Partner with us</p>
-              <h2 className="about-reveal font-serif-luxury text-luxury-gradient text-luxury-glow mb-4" style={{ fontSize: "clamp(2rem,4.5vw,3.5rem)", lineHeight: 1.05 }}>
-                COme partner with us.
-              </h2>
-              <p className="about-reveal text-[15px] leading-relaxed text-white/60 mb-8">
-                Environmental, health and economic sustainability are our north stars. Nurturing healthier and thriving communities remains our focus. We have a solid plan. But we can&apos;t achieve all this alone.
-              </p>
-              <Link
-                href="/contact"
-                className="about-reveal inline-flex rounded-full border border-white/15 bg-white/5 backdrop-blur-md px-8 py-3 text-sm font-medium text-white transition-all duration-300 hover:bg-emerald-500/10 hover:text-emerald-400 hover:border-emerald-500/20"
-              >
-                Get in touch
-              </Link>
-            </div>
-          </div>
-
-          {/* Partners logos */}
-          <div className="about-reveal text-center mb-10">
-            <p className="section-overline text-emerald-400 justify-center">Strategic partners</p>
-            <h3 className="text-2xl font-serif-luxury text-white mb-3">And join other disruptors.</h3>
-            <p className="text-sm text-white/50 max-w-lg mx-auto">
-              Building on our collaborative spirit, you&apos;ll join these strategic partners — instrumental to bringing our aspirations to fruition. As we say in Finland;{" "}
-              <span className="text-emerald-400">hölökyn kölökyn!</span>
+      {/* ── 3. SECTION 2: OUR MISSION (3 PILLARS) ────────────────────────── */}
+      <section className="relative px-[clamp(1.25rem,4vw,3rem)] py-[clamp(6rem,12vw,10rem)]">
+        <div className="mx-auto max-w-6xl">
+          <div className="mb-16 text-center">
+            <p className="about-reveal section-overline mb-3 justify-center text-emerald-400">
+              OUR MISSION
             </p>
+            <h2
+              className="about-reveal font-serif-luxury text-luxury-gradient text-luxury-glow"
+              style={{ fontSize: "clamp(2rem,5vw,3.5rem)", lineHeight: 1.05 }}
+            >
+              The Three Pillars
+            </h2>
           </div>
-          <div className="about-reveal flex flex-wrap items-center justify-center gap-8 mb-20">
-            {partners.map((partner) => (
-              <div
-                key={partner.name}
-                className="rounded-2xl border border-white/8 bg-white/5 px-6 py-4 hover:border-emerald-500/20 hover:bg-white/8 transition-all duration-300 flex items-center justify-center"
-              >
-                <Image
-                  src={partner.url}
-                  alt={partner.name}
-                  width={120}
-                  height={44}
-                  className="h-10 w-auto object-contain brightness-0 invert opacity-70 hover:opacity-100 transition-opacity"
-                />
+
+          <div className="mx-auto grid max-w-5xl gap-6 md:grid-cols-3">
+            {missionItems.map((item, idx) => (
+              <div key={idx} className="about-reveal">
+                <SpotlightCard
+                  className="flex h-full flex-col justify-between rounded-3xl border border-white/5 bg-[#0c100c]/35 p-8 transition-all duration-500 hover:border-emerald-500/20"
+                  spotlightColor="rgba(16,185,129,0.05)"
+                >
+                  <div>
+                    <span className="mb-6 block flex-shrink-0 select-none text-4xl saturate-100 filter">
+                      {item.icon}
+                    </span>
+                    <h3 className="font-serif-luxury mb-3 text-xl font-normal text-white">
+                      {item.title}
+                    </h3>
+                    <p className="text-[13px] font-normal leading-relaxed text-white/55">
+                      {item.desc}
+                    </p>
+                  </div>
+                </SpotlightCard>
               </div>
             ))}
           </div>
+        </div>
+      </section>
 
-          {/* ECOmmunity CTA */}
-          <div
-            className="about-reveal relative overflow-hidden rounded-3xl p-10 md:p-16 text-center"
-            style={{
-              background: "linear-gradient(135deg, rgba(34,197,94,0.08) 0%, rgba(5,7,5,0) 60%)",
-              border: "1px solid rgba(34,197,94,0.15)",
-            }}
-          >
-            <div className="pointer-events-none absolute -right-24 -top-24 h-64 w-64 rounded-full bg-emerald-500/10 blur-3xl" />
-            <p className="section-overline text-emerald-400 justify-center mb-2">Community</p>
-            <h2 className="font-serif-luxury text-luxury-gradient text-luxury-glow mb-4" style={{ fontSize: "clamp(1.75rem,4vw,3rem)", lineHeight: 1.1 }}>
-              In the ECOmmunity.
-            </h2>
-            <p className="text-[15px] leading-relaxed text-white/60 max-w-xl mx-auto mb-8">
-              We strongly believe in the power of meaningful co-operation to drive positive change. Join this once-in-a-generation revolution. As we say in Kenya;{" "}
-              <RegisterPopup
-                join="Harambee!"
-                className="h-0"
-                form={
-                  <p>
-                    Harambee is a Kenyan rallying call for communities to unite and pull together their efforts, to create shared value for common good.
-                  </p>
-                }
-              />
+      {/* Divider */}
+      <div className="mx-auto h-[1px] max-w-5xl bg-white/5" />
+
+      {/* ── 4. SECTION 3: OUR VALUES ─────────────────────────────────────── */}
+      <section className="relative px-[clamp(1.25rem,4vw,3rem)] py-[clamp(6rem,12vw,10rem)]">
+        <div className="mx-auto max-w-6xl">
+          <div className="mb-16 text-center">
+            <p className="about-reveal section-overline mb-3 justify-center text-emerald-400">
+              OUR VALUES
             </p>
-            <Link
-              href="/download"
-              className="inline-flex rounded-full bg-emerald-500 hover:bg-emerald-400 text-black font-bold text-xs uppercase tracking-[0.15em] px-10 py-4 transition-all duration-300 hover:shadow-[0_0_24px_rgba(34,197,94,0.3)]"
+            <h2
+              className="about-reveal font-serif-luxury text-luxury-gradient text-luxury-glow"
+              style={{ fontSize: "clamp(2rem,5vw,3.5rem)", lineHeight: 1.05 }}
             >
-              Join the Movement
-            </Link>
+              What shapes our identity.
+            </h2>
+          </div>
+
+          <div className="mx-auto grid max-w-5xl gap-6 md:grid-cols-3">
+            {valuesItems.map((item, idx) => (
+              <div key={item.title} className="about-reveal">
+                <SpotlightCard
+                  className="h-full rounded-3xl border border-white/5 bg-[#0c100c]/35 p-8 transition-all duration-500 hover:border-emerald-500/20"
+                  spotlightColor="rgba(16,185,129,0.05)"
+                >
+                  <p
+                    className="font-serif-luxury mb-3 text-3xl text-emerald-400"
+                    style={{ letterSpacing: "-0.02em" }}
+                  >
+                    {item.title}
+                  </p>
+                  <p className="text-[13px] font-normal leading-relaxed text-white/55">
+                    {item.desc}
+                  </p>
+                </SpotlightCard>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Divider */}
+      <div className="mx-auto h-[1px] max-w-5xl bg-white/5" />
+
+      {/* ── 5. SECTION 4: OUR TEAM ───────────────────────────────────────── */}
+      <section className="relative px-[clamp(1.25rem,4vw,3rem)] py-[clamp(6rem,12vw,10rem)]">
+        <div className="mx-auto max-w-6xl">
+          <div className="mb-16 text-center">
+            <p className="about-reveal section-overline mb-3 justify-center text-emerald-400">
+              OUR TEAM
+            </p>
+            <h2
+              className="about-reveal font-serif-luxury text-luxury-gradient text-luxury-glow"
+              style={{ fontSize: "clamp(2rem,5vw,3.5rem)", lineHeight: 1.05 }}
+            >
+              The people building Africa’s circular future.
+            </h2>
+          </div>
+
+          {/* Founder Quote Card with premium layout */}
+          <div className="about-reveal relative mx-auto max-w-4xl overflow-hidden rounded-[32px] border border-emerald-500/10 bg-[#0c100c]/25 p-8 shadow-[0_0_50px_rgba(16,185,129,0.03)] backdrop-blur-xl md:p-12">
+            <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-emerald-500/0 via-emerald-500/5 to-emerald-500/0" />
+
+            <div className="relative z-10 grid items-center gap-8 md:grid-cols-[1fr_2fr]">
+              {/* Founder Avatar Placeholder */}
+              <div className="flex flex-col items-center justify-center text-center">
+                <div className="mb-4 rounded-full border border-emerald-500/15 bg-emerald-500/5 p-6 text-emerald-400 shadow-[0_0_30px_rgba(16,185,129,0.1)]">
+                  <UserCheck size={48} strokeWidth={1} />
+                </div>
+                <h4 className="text-sm font-semibold uppercase tracking-widest text-emerald-400">
+                  Founder &amp; CEO
+                </h4>
+                <p className="font-serif-luxury mt-1 text-[10px] italic text-white/40">
+                  ECOCAN Executive Leadership
+                </p>
+              </div>
+
+              {/* Founder Quote */}
+              <div className="text-left">
+                <span className="mb-[-12px] block h-6 select-none font-serif text-7xl leading-none text-emerald-400/20">
+                  “
+                </span>
+                <blockquote className="font-serif-luxury mb-6 text-base font-light italic leading-relaxed tracking-wide text-white/90 md:text-[17px]">
+                  I started ECOCAN after seeing bottles accumulate across our communities and
+                  realizing recycling needed to become easier, smarter, and more rewarding. I
+                  believed we could build a system that turns waste into value and communities into
+                  environmental champions.
+                </blockquote>
+                <div className="mb-4 h-[1px] w-12 bg-emerald-500/30" />
+                <p className="text-xs font-bold uppercase tracking-[0.18em] text-white">
+                  Founder &amp; CEO
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
