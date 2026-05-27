@@ -1,9 +1,9 @@
 {
   "meta": {
-    "version": "06d91a6",
-    "generatedAt": "2026-05-27T01:24:57.470Z",
-    "branch": "copilot/implement-frontend-fixes-ecocan-landing-page",
-    "previousVersion": "7789620",
+    "version": "833bbea",
+    "generatedAt": "2026-05-27T01:33:01.758Z",
+    "branch": "main",
+    "previousVersion": "06d91a6",
     "generator": "scripts/generate-codebase-map.mjs",
     "framework": "Next.js 14",
     "packageManager": "pnpm"
@@ -296,7 +296,7 @@
     "components/sections/electric-mobility-section.tsx": "aad25916397d3625c07e93a9bafb55fe66140cff",
     "components/sections/faq-section.tsx": "e640bdab2ec09531e89500985b847ffdec1eaf0e",
     "components/sections/for-investors-section.tsx": "5ee006697214adeee18d59272c56786c15a7a51b",
-    "components/sections/hero-section.tsx": "846a7bd2fd4b275630c273da5da90a34b75dd8a3",
+    "components/sections/hero-section.tsx": "712b35fa02a60f9ed194ff9bc93b6ec810684a1d",
     "components/sections/home-footer.tsx": "01102258d8b6e981fdac346de4b7a27c8d2f570d",
     "components/sections/home-mobile-menu.tsx": "fb3b2ee486bd8fa684435b988f19d3bec1ad9125",
     "components/sections/home-navbar.tsx": "a6f92db4e1293fa23681dfb81e8e8cd1ae342de9",
@@ -388,34 +388,37 @@
   },
   "changelog": [
     {
-      "version": "330954f",
-      "date": "2026-05-20T16:11:24.273Z",
-      "branch": "main",
-      "changes": ["Modified: components/sections/call-to-action-section.tsx"]
-    },
-    {
       "version": "fd26688",
       "date": "2026-05-20T16:16:34.601Z",
       "branch": "main",
-      "changes": ["Modified: components/sections/for-investors-section.tsx"]
+      "changes": [
+        "Modified: components/sections/for-investors-section.tsx"
+      ]
     },
     {
       "version": "a9d0721",
       "date": "2026-05-20T16:21:42.115Z",
       "branch": "main",
-      "changes": ["Modified: lib/use-ec-reveal.ts"]
+      "changes": [
+        "Modified: lib/use-ec-reveal.ts"
+      ]
     },
     {
       "version": "bed5c72",
       "date": "2026-05-20T16:44:35.671Z",
       "branch": "main",
-      "changes": ["Modified: components/sections/partners-testimonials-section.tsx"]
+      "changes": [
+        "Modified: components/sections/partners-testimonials-section.tsx"
+      ]
     },
     {
       "version": "31ae53b",
       "date": "2026-05-20T16:49:35.009Z",
       "branch": "main",
-      "changes": ["Modified: app/page.tsx", "Modified: components/sections/hero-section.tsx"]
+      "changes": [
+        "Modified: app/page.tsx",
+        "Modified: components/sections/hero-section.tsx"
+      ]
     },
     {
       "version": "d3b6d8f",
@@ -462,7 +465,9 @@
       "version": "e7fc65a",
       "date": "2026-05-21T17:04:22.197Z",
       "branch": "main",
-      "changes": ["Modified: package.json"]
+      "changes": [
+        "Modified: package.json"
+      ]
     },
     {
       "version": "422e74a",
@@ -499,19 +504,25 @@
       "version": "9e7ec1c",
       "date": "2026-05-21T18:31:55.104Z",
       "branch": "main",
-      "changes": ["Modified: components/sections/hero-section.tsx"]
+      "changes": [
+        "Modified: components/sections/hero-section.tsx"
+      ]
     },
     {
       "version": "3479f58",
       "date": "2026-05-21T18:46:52.019Z",
       "branch": "main",
-      "changes": ["Modified: components/sections/hero-section.tsx"]
+      "changes": [
+        "Modified: components/sections/hero-section.tsx"
+      ]
     },
     {
       "version": "7cb679b",
       "date": "2026-05-21T18:53:47.770Z",
       "branch": "main",
-      "changes": ["Full map regeneration"]
+      "changes": [
+        "Full map regeneration"
+      ]
     },
     {
       "version": "d63d317",
@@ -529,13 +540,17 @@
       "version": "a16475c",
       "date": "2026-05-21T20:02:36.281Z",
       "branch": "main",
-      "changes": ["Full map regeneration"]
+      "changes": [
+        "Full map regeneration"
+      ]
     },
     {
       "version": "c0a5a66",
       "date": "2026-05-23T08:44:48.522Z",
       "branch": "main",
-      "changes": ["Full map regeneration"]
+      "changes": [
+        "Full map regeneration"
+      ]
     },
     {
       "version": "69c7793",
@@ -594,6 +609,22 @@
       "version": "06d91a6",
       "date": "2026-05-27T01:24:57.470Z",
       "branch": "copilot/implement-frontend-fixes-ecocan-landing-page",
+      "changes": [
+        "Modified: app/design-tokens.css",
+        "Modified: app/page.tsx",
+        "Modified: components/sections/call-to-action-section.tsx",
+        "Modified: components/sections/electric-mobility-section.tsx",
+        "Modified: components/sections/faq-section.tsx",
+        "Modified: components/sections/for-investors-section.tsx",
+        "Modified: components/sections/hero-section.tsx",
+        "Modified: components/sections/how-it-works-section.tsx",
+        "Modified: components/sections/partners-testimonials-section.tsx"
+      ]
+    },
+    {
+      "version": "833bbea",
+      "date": "2026-05-27T01:33:01.758Z",
+      "branch": "main",
       "changes": [
         "Modified: app/design-tokens.css",
         "Modified: app/page.tsx",
