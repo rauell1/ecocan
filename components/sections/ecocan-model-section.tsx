@@ -59,7 +59,7 @@ export default function EcocanModelSection() {
     <section
       id="ecocan-model"
       ref={sectionRef}
-      className="relative w-full overflow-hidden border-b border-t border-white/5 bg-[#0c100c]/30 py-[clamp(5rem,10vw,9rem)]"
+      className="relative w-full overflow-hidden border-b border-t border-white/5 bg-transparent py-[clamp(5rem,10vw,9rem)]"
     >
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(16,185,129,0.02),transparent_60%)]" />
 
@@ -83,7 +83,7 @@ export default function EcocanModelSection() {
         <div className="relative z-10 mx-auto grid max-w-5xl gap-6 md:grid-cols-3">
           {modelColumns.map((col) => (
             <div key={col.title} className="ec-reveal">
-              <SpotlightCard className="flex h-full flex-col justify-between rounded-3xl border-white/5 bg-[#050705]/40 p-8 transition-all duration-300 hover:border-emerald-500/20">
+              <SpotlightCard className="flex h-full flex-col justify-between rounded-3xl border-[var(--c-border)] bg-[var(--c-surface)] p-8 transition-all duration-300 hover:border-emerald-500/20">
                 <div>
                   <div className="mb-6 flex items-start justify-between">
                     <div className="rounded-2xl border border-emerald-500/10 bg-emerald-500/5 p-3 text-emerald-400">
@@ -94,13 +94,13 @@ export default function EcocanModelSection() {
                     </span>
                   </div>
 
-                  <h3 className="font-serif-luxury mb-1 text-2xl font-normal tracking-tight text-white">
+                  <h3 className="font-serif-luxury mb-1 text-2xl font-normal tracking-tight text-[var(--c-text)]">
                     {col.title}
                   </h3>
                   <p className="mb-4 text-xs font-semibold tracking-wide text-emerald-400/80">
                     {col.sub}
                   </p>
-                  <p className="text-[13px] font-normal leading-relaxed text-white/55">
+                  <p className="text-[13px] font-normal leading-relaxed text-[var(--c-text-muted)]">
                     {col.desc}
                   </p>
                 </div>
@@ -111,7 +111,7 @@ export default function EcocanModelSection() {
 
         {/* Small text below all three columns */}
         <div className="ec-reveal mt-12 text-center">
-          <p className="font-mono text-xs tracking-wide text-white/45">
+          <p className="font-mono text-xs tracking-wide text-[var(--c-text-muted)]/70">
             ECOCAN integrates into existing supply chains.
           </p>
         </div>

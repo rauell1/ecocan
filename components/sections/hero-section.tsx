@@ -19,7 +19,13 @@ export default function HeroSection({ onTransitionComplete }: HeroSectionProps) 
   const indicatorRef = useRef<HTMLDivElement>(null)
   const videoRef = useRef<HTMLVideoElement>(null)
 
-  const [isPlaying, setIsPlaying] = useState(false)
+  const [videoPlaying, setVideoPlaying] = useState(false)
+
+  const handleVideoPlay = () => {
+    if (videoRef.current && videoRef.current.currentTime > 0.15) {
+      setVideoPlaying(true)
+    }
+  }
 
   useEffect(() => {
     const video = videoRef.current
@@ -182,12 +188,12 @@ export default function HeroSection({ onTransitionComplete }: HeroSectionProps) 
       ref={heroRef}
       id="hero"
       className="relative w-full"
-      style={{ height: "100dvh", background: "#050705" }}
+      style={{ height: "100dvh", background: "var(--c-bg)" }}
     >
       <div
         ref={videoWrapRef}
-        className="absolute inset-0 overflow-hidden bg-[#050705]"
-        style={{ willChange: "transform, border-radius, filter", filter: "brightness(0.85)" }}
+        className="absolute inset-0 overflow-hidden"
+        style={{ willChange: "transform, border-radius, filter", filter: "brightness(0.9)", background: "var(--c-bg)" }}
       >
         {/* High-fidelity fallback poster image that stays underneath/behind the video element */}
         <img
@@ -196,7 +202,7 @@ export default function HeroSection({ onTransitionComplete }: HeroSectionProps) 
           className="absolute inset-0 h-full w-full object-cover transition-opacity duration-700"
           style={{
             zIndex: 0,
-            opacity: isPlaying ? 0 : 1,
+            opacity: videoPlaying ? 0 : 1,
           }}
         />
 
@@ -209,28 +215,21 @@ export default function HeroSection({ onTransitionComplete }: HeroSectionProps) 
           muted
           playsInline
           preload="auto"
-          className="absolute inset-0 h-full w-full object-cover transition-opacity duration-1000"
+          onPlaying={() => setVideoPlaying(true)}
+          onTimeUpdate={handleVideoPlay}
+          className="absolute inset-0 h-full w-full object-cover transition-opacity duration-700"
           style={{
             zIndex: 1,
-            opacity: isPlaying ? 1 : 0,
-          }}
-          onTimeUpdate={() => {
-            if (videoRef.current && videoRef.current.currentTime > 0.15) {
-              setIsPlaying(true)
-            }
+            opacity: videoPlaying ? 1 : 0,
           }}
         />
         <div
           aria-hidden
           className="hero-overlay-gradient absolute inset-0 z-[2]"
-          style={{
-            background: "linear-gradient(to bottom, rgba(5,7,5,0.2) 0%, rgba(5,7,5,0.82) 100%)",
-          }}
         />
         <div
           aria-hidden
           className="hero-bottom-fade absolute inset-x-0 bottom-0 z-[3] h-[36%]"
-          style={{ background: "linear-gradient(to bottom, transparent 60%, #050705 100%)" }}
         />
       </div>
 

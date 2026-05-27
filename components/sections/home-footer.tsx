@@ -37,7 +37,7 @@ export default function HomeFooter() {
   }
 
   return (
-    <footer className="relative z-20 w-full overflow-hidden border-t border-white/10 bg-[#050705]">
+    <footer className="relative z-20 w-full overflow-hidden border-t border-[var(--c-border)] bg-[var(--c-surface-alt)] text-[var(--c-text)]">
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_bottom_right,rgba(16,185,129,0.03),transparent_40%)]" />
 
       <div className="mx-auto max-w-7xl px-[clamp(1.25rem,4vw,3rem)] py-16">
@@ -45,16 +45,16 @@ export default function HomeFooter() {
           {/* Newsletter and Brand info */}
           <div className="flex flex-col gap-6">
             <Link href="/" className="inline-flex">
-              <span className="font-serif-luxury text-2xl font-bold tracking-widest text-white">
+              <span className="font-serif-luxury text-2xl font-bold tracking-widest text-[var(--c-text)]">
                 ECOCAN
               </span>
             </Link>
 
             <div className="max-w-md">
-              <h4 className="mb-3 text-sm font-semibold uppercase tracking-widest text-white/80">
+              <h4 className="mb-3 text-sm font-semibold uppercase tracking-widest text-[var(--c-text-muted)]">
                 Stay updated on ECOCAN
               </h4>
-              <p className="mb-4 text-xs text-white/50">
+              <p className="mb-4 text-xs text-[var(--c-text-muted)]">
                 Subscribe to our newsletter for latest updates on circular infrastructure and
                 rewards.
               </p>
@@ -66,7 +66,7 @@ export default function HomeFooter() {
                   placeholder="Enter email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  className="flex-grow rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs text-white placeholder-white/30 transition-all focus:border-emerald-500/50 focus:outline-none"
+                  className="flex-grow rounded-full border border-[var(--c-border)] bg-[var(--c-surface)] px-4 py-2 text-xs text-[var(--c-text)] placeholder-[var(--c-text-muted)]/50 transition-all focus:border-emerald-500/50 focus:outline-none"
                 />
                 <button
                   type="submit"
@@ -77,7 +77,7 @@ export default function HomeFooter() {
               </form>
             </div>
 
-            <div className="mt-2 text-xs text-white/40">
+            <div className="mt-2 text-xs text-[var(--c-text-muted)]/70">
               <span className="font-semibold text-emerald-400/80">Offices:</span> Kenya · Finland
             </div>
           </div>
@@ -86,7 +86,7 @@ export default function HomeFooter() {
           <div className="grid grid-cols-2 gap-8 sm:grid-cols-4">
             {Object.entries(footerColumns).map(([title, links]) => (
               <div key={title}>
-                <p className="mb-4 text-xs font-semibold uppercase tracking-[0.16em] text-white/40">
+                <p className="mb-4 text-xs font-semibold uppercase tracking-[0.16em] text-[var(--c-text-muted)]/70">
                   {title}
                 </p>
                 <ul className="space-y-2">
@@ -94,7 +94,7 @@ export default function HomeFooter() {
                     <li key={link.label}>
                       <Link
                         href={link.href}
-                        className="text-xs text-white/55 transition-colors duration-300 hover:text-white"
+                        className="text-xs text-[var(--c-text-muted)] transition-colors duration-300 hover:text-[var(--c-text)]"
                       >
                         {link.label}
                       </Link>
@@ -106,8 +106,8 @@ export default function HomeFooter() {
           </div>
         </div>
 
-        <div className="flex flex-col items-center justify-between gap-6 border-t border-white/5 pt-8 md:flex-row">
-          <p className="font-mono text-[11px] text-white/40">
+        <div className="flex flex-col items-center justify-between gap-6 border-t border-[var(--c-border)] pt-8 md:flex-row">
+          <p className="font-mono text-[11px] text-[var(--c-text-muted)]/70">
             © {new Date().getFullYear()} ECOCAN. Africa&apos;s circular bottle ecosystem.
           </p>
 
@@ -116,7 +116,7 @@ export default function HomeFooter() {
               <a
                 key={social}
                 href="#"
-                className="text-xs text-white/40 transition-colors duration-300 hover:text-emerald-400"
+                className="text-xs text-[var(--c-text-muted)]/70 transition-colors duration-300 hover:text-emerald-400"
               >
                 {social}
               </a>

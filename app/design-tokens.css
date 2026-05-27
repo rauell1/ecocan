@@ -6,6 +6,7 @@
 :root {
   /* ── COLOUR ───────────────────────────────────────────────────────────── */
   --c-bg: #050705; /* Deep, rich premium near-black */
+  --c-bg-rgb: 5, 7, 5;
   --c-surface: rgba(255, 255, 255, 0.04);
   --c-surface-alt: #050705;
   --c-dark: #050705;
@@ -91,6 +92,7 @@
 
 [data-theme="light"] {
   --c-bg: #f5f7f5; /* Fresh, organic, clean light background */
+  --c-bg-rgb: 245, 247, 245;
   --c-surface: rgba(0, 0, 0, 0.03);
   --c-surface-alt: #eaf0ea;
   --c-dark: #ffffff;

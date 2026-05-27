@@ -72,7 +72,7 @@ export default function AntiCounterfeitSection() {
   return (
     <section
       ref={sectionRef}
-      className="relative w-full overflow-hidden bg-[#050705] py-[clamp(5rem,10vw,9rem)]"
+      className="relative w-full overflow-hidden bg-transparent py-[clamp(5rem,10vw,9rem)]"
     >
       <div className="absolute inset-0 z-0">
         <img
@@ -84,19 +84,19 @@ export default function AntiCounterfeitSection() {
         <div 
           className="absolute inset-0" 
           style={{ 
-            background: "linear-gradient(to bottom, rgba(5,7,5,0.7) 0%, rgba(5,7,5,0.92) 100%)" 
+            background: "linear-gradient(to bottom, rgba(var(--c-bg-rgb), 0.7) 0%, rgba(var(--c-bg-rgb), 0.92) 100%)" 
           }} 
         />
       </div>
 
       <div className="relative z-10 px-[clamp(1.25rem,4vw,3rem)] max-w-7xl mx-auto">
-        <div className="ec-reveal border border-white/5 bg-[#0c100c]/25 backdrop-blur-xl rounded-[32px] p-8 md:p-12 lg:p-16 shadow-2xl overflow-hidden relative">
+        <div className="ec-reveal border border-[var(--c-border)] bg-[var(--c-surface)] backdrop-blur-xl rounded-[32px] p-8 md:p-12 lg:p-16 shadow-2xl overflow-hidden relative">
           {/* Subtle radial ambient light */}
           <div className="absolute -top-12 -right-12 w-64 h-64 bg-emerald-500/5 rounded-full blur-3xl pointer-events-none" />
           
           <div className="grid items-center gap-12 lg:grid-cols-2">
             <div ref={imageColRef} className="order-2 lg:order-1">
-              <div className="overflow-hidden rounded-2xl border border-white/5 bg-[#0a0c0a] p-2 shadow-xl">
+              <div className="overflow-hidden rounded-2xl border border-[var(--c-border)] bg-[var(--c-surface-alt)] p-2 shadow-xl">
                 <div className="overflow-hidden rounded-xl">
                   <Image
                     src="/images/counterfeit-alert.jpg"
@@ -120,7 +120,7 @@ export default function AntiCounterfeitSection() {
                 Every can. <br />
                 <span className="font-sans font-light text-emerald-400">Verified instantly.</span>
               </h2>
-              <p className="mt-6 text-base text-white/50 max-w-md leading-relaxed font-normal">
+              <p className="mt-6 text-base text-[var(--c-text-muted)] max-w-md leading-relaxed font-normal">
                 Scan the smart-matrix code to confirm absolute authenticity in a single, simple action. Premium circular verification, clinical precision, complete trust.
               </p>
             </div>

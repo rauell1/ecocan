@@ -427,6 +427,20 @@ button,
   animation: imgFadeIn 1.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
+.hero-overlay-gradient {
+  background: linear-gradient(
+    to bottom,
+    rgba(5, 7, 5, 0.2) 0%,
+    rgba(5, 7, 5, 0.85) 100%
+  );
+  pointer-events: none;
+}
+
+.hero-bottom-fade {
+  background: linear-gradient(to bottom, transparent 60%, var(--c-bg) 100%);
+  pointer-events: none;
+}
+
 /* ── LIGHT THEME COMPONENT TWEAKS ───────────────────────────────────────── */
 [data-theme="light"] {
   .text-luxury-gradient {

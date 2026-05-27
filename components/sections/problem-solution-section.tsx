@@ -50,7 +50,7 @@ export default function ProblemSolutionSection() {
   }, [])
 
   return (
-    <section id="problem" ref={sectionRef} className="section-py relative w-full overflow-hidden bg-[#050705]">
+    <section id="problem" ref={sectionRef} className="section-py relative w-full overflow-hidden bg-transparent">
       <div className="absolute inset-0 z-0">
         <img
           src="/images/hero/problem_hero.png"
@@ -61,7 +61,7 @@ export default function ProblemSolutionSection() {
         <div 
           className="absolute inset-0" 
           style={{ 
-            background: "linear-gradient(to bottom, rgba(5,7,5,0.5) 0%, rgba(5,7,5,0.9) 100%)" 
+            background: "linear-gradient(to bottom, rgba(var(--c-bg-rgb), 0.5) 0%, rgba(var(--c-bg-rgb), 0.9) 100%)" 
           }} 
         />
       </div>

@@ -40,7 +40,7 @@ export default function FAQSection() {
   return (
     <section
       ref={ref as React.RefObject<HTMLDivElement>}
-      className="relative w-full overflow-hidden border-b border-white/5 bg-[#050705] py-[clamp(6rem,12vw,10rem)]"
+      className="relative w-full overflow-hidden border-b border-white/5 bg-transparent py-[clamp(6rem,12vw,10rem)]"
     >
       <div className="pointer-events-none absolute inset-0 z-0 bg-[radial-gradient(ellipse_at_bottom_left,rgba(16,185,129,0.03),transparent_40%)]" />
 

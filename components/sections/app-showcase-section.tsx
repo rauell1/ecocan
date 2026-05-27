@@ -69,7 +69,7 @@ export default function AppShowcaseSection() {
   return (
     <section
       ref={sectionRef}
-      className="relative w-full overflow-hidden bg-[#050705] py-[clamp(5rem,10vw,9rem)]"
+      className="relative w-full overflow-hidden bg-transparent py-[clamp(5rem,10vw,9rem)]"
       id="app"
     >
       <div className="absolute inset-0 z-0">
@@ -82,7 +82,7 @@ export default function AppShowcaseSection() {
         <div
           className="absolute inset-0"
           style={{
-            background: "linear-gradient(to bottom, rgba(5,7,5,0.72) 0%, rgba(5,7,5,0.95) 100%)",
+            background: "linear-gradient(to bottom, rgba(var(--c-bg-rgb), 0.72) 0%, rgba(var(--c-bg-rgb), 0.95) 100%)",
           }}
         />
       </div>

@@ -61,7 +61,7 @@ export default function CallToActionSection() {
   return (
     <section
       ref={sectionRef}
-      className="relative w-full overflow-hidden border-b border-white/5 bg-[#050705] py-[clamp(6rem,12vw,10rem)]"
+      className="relative w-full overflow-hidden border-b border-white/5 bg-transparent py-[clamp(6rem,12vw,10rem)]"
     >
       <div className="absolute inset-0 z-0">
         <img
@@ -73,7 +73,8 @@ export default function CallToActionSection() {
         <div
           className="absolute inset-0"
           style={{
-            background: "linear-gradient(to bottom, rgba(5,7,5,0.9) 0%, rgba(5,7,5,0.98) 100%)",
+            background: "var(--c-bg)",
+            opacity: 0.92,
           }}
         />
       </div>
@@ -100,7 +101,7 @@ export default function CallToActionSection() {
           {ctaPaths.map((path) => (
             <div key={path.title} className="ec-reveal">
               <SpotlightCard
-                className="flex h-full flex-col justify-between rounded-3xl border border-white/5 bg-[#0c100c]/40 p-8 transition-all duration-500 hover:border-emerald-500/20"
+                className="flex h-full flex-col justify-between rounded-3xl border border-[var(--c-border)] bg-[var(--c-surface)] p-8 transition-all duration-500 hover:border-emerald-500/20"
                 spotlightColor={path.color}
               >
                 <div>
@@ -108,11 +109,11 @@ export default function CallToActionSection() {
                     <path.icon size={24} strokeWidth={1.5} />
                   </div>
 
-                  <h3 className="font-serif-luxury mb-3 text-2xl font-normal tracking-tight text-white">
+                  <h3 className="font-serif-luxury mb-3 text-2xl font-normal tracking-tight text-[var(--c-text)]">
                     {path.title}
                   </h3>
 
-                  <p className="mb-8 text-[14px] font-normal leading-relaxed text-white/50">
+                  <p className="mb-8 text-[14px] font-normal leading-relaxed text-[var(--c-text-muted)]">
                     {path.desc}
                   </p>
                 </div>

@@ -118,7 +118,7 @@ export default function HowItWorksSection() {
     <section
       id="how-it-works"
       ref={sectionRef}
-      className="section-py relative w-full overflow-hidden bg-[#050705]"
+      className="section-py relative w-full overflow-hidden bg-transparent"
     >
       <div className="absolute inset-0 z-0">
         <img
@@ -128,9 +128,10 @@ export default function HowItWorksSection() {
           className="section-bg-img h-full w-full object-cover opacity-30"
         />
         <div
-          className="absolute inset-0"
+          className="absolute inset-0 animate-fade-in"
           style={{
-            background: "linear-gradient(to bottom, rgba(5,7,5,0.85) 0%, rgba(5,7,5,0.98) 100%)",
+            background: "var(--c-bg)",
+            opacity: 0.88,
           }}
         />
       </div>

@@ -134,7 +134,7 @@ export default function AboutPage() {
   }, [])
 
   return (
-    <div className="relative min-h-screen overflow-x-hidden" style={{ background: "#050705" }}>
+    <div className="relative min-h-screen overflow-x-hidden" style={{ background: "var(--c-bg)" }}>
       <HomeNavbar onMenuToggle={() => {}} />
 
       {/* ── 1. HERO SECTION ──────────────────────────────────────────────── */}
@@ -142,7 +142,7 @@ export default function AboutPage() {
         ref={heroRef}
         id="hero"
         className="relative flex min-h-screen items-center justify-center overflow-hidden"
-        style={{ background: "#050705" }}
+        style={{ background: "var(--c-bg)" }}
       >
         <div
           className="pointer-events-none absolute inset-0"
@@ -204,7 +204,7 @@ export default function AboutPage() {
             {timelineItems.map((item, idx) => (
               <div key={item.year} className="about-reveal group relative">
                 {/* Visual marker point */}
-                <div className="absolute -left-[41px] top-1 flex h-6 w-6 items-center justify-center rounded-full border border-emerald-500/20 bg-[#050705] transition-all duration-500 group-hover:border-emerald-500 md:-left-[57px]">
+                <div className="absolute -left-[41px] top-1 flex h-6 w-6 items-center justify-center rounded-full border border-emerald-500/20 bg-[var(--c-bg)] transition-all duration-500 group-hover:border-emerald-500 md:-left-[57px]">
                   <div className="h-2 w-2 rounded-full bg-emerald-500" />
                 </div>
 
@@ -213,7 +213,7 @@ export default function AboutPage() {
                   {item.year}
                 </div>
 
-                <div className="rounded-3xl border border-white/5 bg-[#0c100c]/35 p-8 transition-all duration-300 hover:border-emerald-500/20 hover:bg-[#0c100c]/50">
+                <div className="rounded-3xl border border-[var(--c-border)] bg-[var(--c-surface)] p-8 transition-all duration-300 hover:border-emerald-500/20">
                   {/* Mobile-only year display */}
                   <span className="mb-2 block text-xs font-semibold uppercase tracking-widest text-emerald-400 md:hidden">
                     {item.year}
@@ -252,7 +252,7 @@ export default function AboutPage() {
             {missionItems.map((item, idx) => (
               <div key={idx} className="about-reveal">
                 <SpotlightCard
-                  className="flex h-full flex-col justify-between rounded-3xl border border-white/5 bg-[#0c100c]/35 p-8 transition-all duration-500 hover:border-emerald-500/20"
+                  className="flex h-full flex-col justify-between rounded-3xl border border-[var(--c-border)] bg-[var(--c-surface)] p-8 transition-all duration-500 hover:border-emerald-500/20"
                   spotlightColor="rgba(16,185,129,0.05)"
                 >
                   <div>
@@ -295,7 +295,7 @@ export default function AboutPage() {
             {valuesItems.map((item, idx) => (
               <div key={item.title} className="about-reveal">
                 <SpotlightCard
-                  className="h-full rounded-3xl border border-white/5 bg-[#0c100c]/35 p-8 transition-all duration-500 hover:border-emerald-500/20"
+                  className="h-full rounded-3xl border border-[var(--c-border)] bg-[var(--c-surface)] p-8 transition-all duration-500 hover:border-emerald-500/20"
                   spotlightColor="rgba(16,185,129,0.05)"
                 >
                   <p
@@ -332,8 +332,7 @@ export default function AboutPage() {
             </h2>
           </div>
 
-          {/* Founder Quote Card with premium layout */}
-          <div className="about-reveal relative mx-auto max-w-4xl overflow-hidden rounded-[32px] border border-emerald-500/10 bg-[#0c100c]/25 p-8 shadow-[0_0_50px_rgba(16,185,129,0.03)] backdrop-blur-xl md:p-12">
+          <div className="about-reveal relative mx-auto max-w-4xl overflow-hidden rounded-[32px] border border-[var(--c-border)] bg-[var(--c-surface)] p-8 shadow-[0_0_50px_rgba(16,185,129,0.03)] backdrop-blur-xl md:p-12">
             <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-emerald-500/0 via-emerald-500/5 to-emerald-500/0" />
 
             <div className="relative z-10 grid items-center gap-8 md:grid-cols-[1fr_2fr]">

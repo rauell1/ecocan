@@ -53,7 +53,7 @@ export default function ForInvestorsSection() {
     <section
       id="investors"
       ref={sectionRef}
-      className="relative w-full overflow-hidden border-b border-white/5 bg-[#0c100c]/30 py-[clamp(5rem,10vw,9rem)]"
+      className="relative w-full overflow-hidden border-b border-white/5 bg-transparent py-[clamp(5rem,10vw,9rem)]"
     >
       <div className="absolute inset-0 z-0">
         <img
@@ -65,7 +65,8 @@ export default function ForInvestorsSection() {
         <div
           className="absolute inset-0"
           style={{
-            background: "linear-gradient(to bottom, rgba(5,7,5,0.9) 0%, rgba(5,7,5,0.98) 100%)",
+            background: "var(--c-bg)",
+            opacity: 0.92,
           }}
         />
       </div>

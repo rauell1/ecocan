@@ -87,7 +87,7 @@ export default function SustainabilityImpactSection() {
     <section
       id="impact"
       ref={sectionRef}
-      className="relative w-full overflow-hidden bg-[#050705] py-[clamp(6rem,12vw,10rem)]"
+      className="relative w-full overflow-hidden bg-transparent py-[clamp(6rem,12vw,10rem)]"
     >
       <div className="absolute inset-0 z-0">
         <img
@@ -99,7 +99,7 @@ export default function SustainabilityImpactSection() {
         <div 
           className="absolute inset-0" 
           style={{ 
-            background: "linear-gradient(to bottom, rgba(5,7,5,0.6) 0%, rgba(5,7,5,0.92) 100%)" 
+            background: "linear-gradient(to bottom, rgba(var(--c-bg-rgb), 0.6) 0%, rgba(var(--c-bg-rgb), 0.92) 100%)" 
           }} 
         />
       </div>
@@ -123,13 +123,13 @@ export default function SustainabilityImpactSection() {
           {stats.map(({ value, label, desc }) => (
             <SpotlightCard 
               key={label} 
-              className="bg-[#0c100c]/30 border-white/5 rounded-3xl p-8 hover:border-emerald-500/20 transition-all duration-300"
+              className="bg-[var(--c-surface)] border-[var(--c-border)] rounded-3xl p-8 hover:border-emerald-500/20 transition-all duration-300"
             >
-              <p className="text-4xl font-light font-serif-luxury text-white group-hover:text-emerald-400 transition-colors duration-300" style={{ letterSpacing: "-0.02em" }}>
+              <p className="text-4xl font-light font-serif-luxury text-[var(--c-text)] group-hover:text-emerald-400 transition-colors duration-300" style={{ letterSpacing: "-0.02em" }}>
                 {value}
               </p>
               <p className="mt-4 text-xs font-semibold text-emerald-400 uppercase tracking-[0.12em]">{label}</p>
-              <p className="mt-2 text-[13px] leading-relaxed text-white/50 font-normal">{desc}</p>
+              <p className="mt-2 text-[13px] leading-relaxed text-[var(--c-text-muted)] font-normal">{desc}</p>
             </SpotlightCard>
           ))}
         </div>

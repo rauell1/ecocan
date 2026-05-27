@@ -35,7 +35,7 @@ export default function ElectricMobilitySection() {
     <section
       id="electric-mobility"
       ref={sectionRef}
-      className="relative w-full overflow-hidden bg-[#050705] py-[clamp(5rem,10vw,9rem)]"
+      className="relative w-full overflow-hidden bg-transparent py-[clamp(5rem,10vw,9rem)]"
     >
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,rgba(16,185,129,0.02),transparent_50%)]" />
 
@@ -44,7 +44,7 @@ export default function ElectricMobilitySection() {
           {/* Left Column: Bike image / visual card + Floating badges */}
           <div className="ec-reveal relative flex items-center justify-center p-6 lg:p-0">
             {/* Visual background wrapper */}
-            <div className="group relative flex aspect-square w-full max-w-md flex-col items-center justify-center overflow-hidden rounded-[32px] border border-white/5 bg-[#0c100c]/25 p-8 backdrop-blur-md">
+            <div className="group relative flex aspect-square w-full max-w-md flex-col items-center justify-center overflow-hidden rounded-[32px] border border-[var(--c-border)] bg-[var(--c-surface)] p-8 backdrop-blur-md">
               <div className="pointer-events-none absolute inset-0 bg-gradient-to-tr from-emerald-500/0 via-emerald-500/5 to-emerald-500/0 opacity-0 transition-opacity duration-700 group-hover:opacity-100" />
 
               {/* Bike Icon Container */}
@@ -52,39 +52,48 @@ export default function ElectricMobilitySection() {
                 <Bike size={64} strokeWidth={1} />
               </div>
 
-              <p className="max-w-[20ch] text-center text-xs uppercase tracking-[0.2em] text-white/40">
+              <p className="max-w-[20ch] text-center text-xs uppercase tracking-[0.2em] text-[var(--c-text-muted)]/70">
                 ECOCAN last-mile collection electric logistics
               </p>
 
               {/* Floating Stat Badge 1 */}
-              <div className="absolute left-6 top-6 flex items-center gap-3 rounded-2xl border border-white/5 bg-[#050705]/85 px-4 py-2.5 shadow-2xl backdrop-blur-xl transition-transform duration-500 hover:-translate-y-1 md:-left-6">
+              <div 
+                className="absolute left-6 top-6 flex items-center gap-3 rounded-2xl border border-emerald-500/10 px-4 py-2.5 shadow-2xl backdrop-blur-xl transition-transform duration-500 hover:-translate-y-1 md:-left-6"
+                style={{ background: "var(--c-dark)" }}
+              >
                 <div className="h-2 w-2 animate-pulse rounded-full bg-emerald-400" />
                 <div className="text-left">
-                  <p className="text-[10px] font-bold uppercase tracking-wider text-white">
+                  <p className="text-[10px] font-bold uppercase tracking-wider text-emerald-500">
                     0 emissions
                   </p>
-                  <p className="text-[9px] text-white/50">per bottle collected</p>
+                  <p className="text-[9px] text-[var(--c-text-muted)]/70">per bottle collected</p>
                 </div>
               </div>
 
               {/* Floating Stat Badge 2 */}
-              <div className="absolute -right-6 bottom-10 flex items-center gap-3 rounded-2xl border border-white/5 bg-[#050705]/85 px-4 py-2.5 shadow-2xl backdrop-blur-xl transition-transform duration-500 hover:-translate-y-1">
+              <div 
+                className="absolute -right-6 bottom-10 flex items-center gap-3 rounded-2xl border border-emerald-500/10 px-4 py-2.5 shadow-2xl backdrop-blur-xl transition-transform duration-500 hover:-translate-y-1"
+                style={{ background: "var(--c-dark)" }}
+              >
                 <TrendingDown size={14} className="text-emerald-400" />
                 <div className="text-left">
-                  <p className="text-[10px] font-bold uppercase tracking-wider text-white">
+                  <p className="text-[10px] font-bold uppercase tracking-wider text-emerald-500">
                     60% lower cost
                   </p>
-                  <p className="text-[9px] text-white/50">vs ICE vehicle</p>
+                  <p className="text-[9px] text-[var(--c-text-muted)]/70">vs ICE vehicle</p>
                 </div>
               </div>
 
               {/* Floating Stat Badge 3 */}
-              <div className="absolute -bottom-4 left-10 flex items-center gap-3 rounded-2xl border border-white/5 bg-[#050705]/85 px-4 py-2.5 shadow-2xl backdrop-blur-xl transition-transform duration-500 hover:-translate-y-1">
+              <div 
+                className="absolute -bottom-4 left-10 flex items-center gap-3 rounded-2xl border border-emerald-500/10 px-4 py-2.5 shadow-2xl backdrop-blur-xl transition-transform duration-500 hover:-translate-y-1"
+                style={{ background: "var(--c-dark)" }}
+              >
                 <div className="text-left">
-                  <p className="text-[10px] font-bold uppercase tracking-wider text-emerald-400">
+                  <p className="text-[10px] font-bold uppercase tracking-wider text-emerald-500">
                     500+ bikes
                   </p>
-                  <p className="text-[9px] text-white/50">scaling by 2030</p>
+                  <p className="text-[9px] text-[var(--c-text-muted)]/70">scaling by 2030</p>
                 </div>
               </div>
             </div>
@@ -103,7 +112,7 @@ export default function ElectricMobilitySection() {
               <span className="font-sans font-light text-emerald-400">electric bikes.</span>
             </h2>
 
-            <p className="ec-reveal max-w-md text-[15px] leading-relaxed text-white/60">
+            <p className="ec-reveal max-w-md text-[15px] leading-relaxed text-[var(--c-text-muted)]">
               We use electric bikes for last-mile collection. Lower cost. Zero emissions.
             </p>
 
@@ -122,7 +131,7 @@ export default function ElectricMobilitySection() {
             <div className="ec-reveal mt-6">
               <a
                 href="#impact"
-                className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.15em] text-[#f5f5f5] transition-colors duration-300 hover:text-emerald-400"
+                className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.15em] text-[var(--c-text)] transition-colors duration-300 hover:text-emerald-400"
               >
                 <span>Our sustainability impact</span>
                 <ArrowRight size={14} />
