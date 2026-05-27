@@ -7,23 +7,6 @@ import { ArrowDown } from "lucide-react"
 
 const LENIS_INIT_DELAY = 500
 const SCROLL_SCRUB = 1.2
-const PRELOAD_UPGRADE_DELAY_MS = 650
-const HERO_VIDEO_SOURCES = [
-  {
-    src: "/videos/circular-loop.mp4",
-    type: "video/mp4",
-    media: "(max-width: 767px)",
-  },
-  {
-    src: "/videos/hero-loop.mp4",
-    type: "video/mp4",
-    media: "(min-width: 768px)",
-  },
-  {
-    src: "/videos/hero-loop.mp4",
-    type: "video/mp4",
-  },
-]
 
 interface HeroSectionProps {
   onTransitionComplete: () => void
@@ -36,8 +19,8 @@ export default function HeroSection({ onTransitionComplete }: HeroSectionProps) 
   const indicatorRef = useRef<HTMLDivElement>(null)
   const videoRef = useRef<HTMLVideoElement>(null)
 
+  const [videoSrc, setVideoSrc] = useState("")
   const [videoPlaying, setVideoPlaying] = useState(false)
-  const [videoFailed, setVideoFailed] = useState(false)
 
   const handleVideoPlay = () => {
     if (videoRef.current && videoRef.current.currentTime > 0.15) {
@@ -45,23 +28,39 @@ export default function HeroSection({ onTransitionComplete }: HeroSectionProps) 
     }
   }
 
+  // 1. Determine correct responsive video source on mount to prevent Next.js hydration issues
+  useEffect(() => {
+    const isMobile = window.matchMedia("(max-width: 767px)").matches
+    setVideoSrc(isMobile ? "/videos/circular-loop.mp4" : "/videos/hero-loop.mp4")
+  }, [])
+
+  // 2. Setup video playback constraints and robust interaction fallback listeners
   useEffect(() => {
     const video = videoRef.current
-    if (!video) return
+    if (!video || !videoSrc) return
 
-    // Ensure initial audio status is muted for autoplay policy compatibility
     video.muted = true
     video.playsInline = true
     video.defaultMuted = true
 
     const attemptPlay = async () => {
-      if (videoFailed) return
       try {
         await video.play()
+        removeInteractionListeners()
       } catch (err) {
-        setVideoPlaying(false)
-        console.warn("Autoplay blocked; hero poster fallback remains visible:", err)
+        console.warn("Autoplay blocked initially, waiting for user interaction:", err)
       }
+    }
+
+    const handleInteraction = () => {
+      attemptPlay()
+    }
+
+    const removeInteractionListeners = () => {
+      window.removeEventListener("touchstart", handleInteraction)
+      window.removeEventListener("mousedown", handleInteraction)
+      window.removeEventListener("keydown", handleInteraction)
+      window.removeEventListener("scroll", handleInteraction)
     }
 
     const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches
@@ -71,20 +70,25 @@ export default function HeroSection({ onTransitionComplete }: HeroSectionProps) 
             (navigator as Navigator & { connection?: { saveData?: boolean } }).connection?.saveData
           )
         : false
-    const preloadUpgradeTimer = window.setTimeout(() => {
-      if (!saveData) {
-        video.preload = "auto"
-      }
-    }, PRELOAD_UPGRADE_DELAY_MS)
+
+    if (!saveData) {
+      video.preload = "auto"
+    }
 
     if (!prefersReducedMotion) {
       attemptPlay()
+
+      // Add fallbacks to automatically trigger play as soon as the user touches, clicks, or scrolls
+      window.addEventListener("touchstart", handleInteraction, { passive: true })
+      window.addEventListener("mousedown", handleInteraction, { passive: true })
+      window.addEventListener("keydown", handleInteraction, { passive: true })
+      window.addEventListener("scroll", handleInteraction, { passive: true })
     }
 
     return () => {
-      window.clearTimeout(preloadUpgradeTimer)
+      removeInteractionListeners()
     }
-  }, [videoFailed])
+  }, [videoSrc])
 
   const initLenis = useCallback(() => onTransitionComplete(), [onTransitionComplete])
 
@@ -109,63 +113,10 @@ export default function HeroSection({ onTransitionComplete }: HeroSectionProps) 
       }
     }, heroRef)
 
-    let scrollCtx: ReturnType<typeof gsap.context> | null = null
     let revealCtx: ReturnType<typeof gsap.context> | null = null
 
     const timer = setTimeout(() => {
       initLenis()
-
-      scrollCtx = gsap.context(() => {
-        if (!rm) {
-          const tl = gsap.timeline({
-            scrollTrigger: {
-              trigger: heroRef.current,
-              start: "top top",
-              end: "+=100%",
-              pin: true,
-              scrub: SCROLL_SCRUB,
-              anticipatePin: 1,
-            },
-          })
-
-          tl.fromTo(
-            contentRef.current,
-            { opacity: 1, y: 0, scale: 1 },
-            { opacity: 0, y: -80, scale: 0.97, ease: "power1.inOut", duration: 0.55 },
-            0
-          )
-            .fromTo(
-              indicatorRef.current,
-              { opacity: 1 },
-              { opacity: 0, ease: "power1.in", duration: 0.2 },
-              0
-            )
-            .fromTo(
-              videoWrapRef.current,
-              { scale: 1, borderRadius: "0px", filter: "brightness(0.85)" },
-              {
-                scale: 0.8,
-                borderRadius: "24px",
-                filter: "brightness(1.0)",
-                ease: "power2.inOut",
-                duration: 1,
-              },
-              0
-            )
-            .fromTo(
-              ".hero-overlay-gradient",
-              { opacity: 1 },
-              { opacity: 0, ease: "power2.inOut", duration: 1 },
-              0
-            )
-            .fromTo(
-              ".hero-bottom-fade",
-              { opacity: 1 },
-              { opacity: 0, ease: "power2.inOut", duration: 1 },
-              0
-            )
-        }
-      }, heroRef)
 
       if (!rm) {
         revealCtx = gsap.context(() => {
@@ -195,7 +146,6 @@ export default function HeroSection({ onTransitionComplete }: HeroSectionProps) 
     return () => {
       clearTimeout(timer)
       entranceCtx.revert()
-      scrollCtx?.revert()
       revealCtx?.revert()
     }
   }, [initLenis])
@@ -229,41 +179,19 @@ export default function HeroSection({ onTransitionComplete }: HeroSectionProps) 
 
         <video
           ref={videoRef}
+          src={videoSrc || undefined}
           poster="/images/scan-verify.jpg"
           autoPlay
           loop
           muted
           playsInline
-          preload="metadata"
           onTimeUpdate={handleVideoPlay}
-          onCanPlay={() => {
-            if (!videoPlaying && !videoFailed) {
-              void videoRef.current?.play().catch(() => {
-                setVideoPlaying(false)
-                setVideoFailed(true)
-              })
-            }
-          }}
-          onError={() => {
-            setVideoFailed(true)
-            setVideoPlaying(false)
-          }}
           className="absolute inset-0 h-full w-full object-cover object-[center_32%] transition-opacity duration-700 sm:object-center"
           style={{
             zIndex: 1,
-            opacity: videoPlaying && !videoFailed ? 1 : 0,
+            opacity: videoPlaying ? 1 : 0,
           }}
-        >
-          {/* Browser automatically falls back through this ordered source list when needed. */}
-          {HERO_VIDEO_SOURCES.map((source) => (
-            <source
-              key={`${source.src}-${source.media ?? "default"}`}
-              src={source.src}
-              type={source.type}
-              media={source.media}
-            />
-          ))}
-        </video>
+        />
         <div aria-hidden className="hero-overlay-gradient absolute inset-0 z-[2]" />
         <div aria-hidden className="hero-bottom-fade absolute inset-x-0 bottom-0 z-[3] h-[36%]" />
       </div>
