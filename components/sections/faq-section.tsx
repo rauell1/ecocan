@@ -40,7 +40,7 @@ export default function FAQSection() {
   return (
     <section
       ref={ref as React.RefObject<HTMLDivElement>}
-      className="relative w-full overflow-hidden border-b border-white/5 bg-transparent py-[clamp(6rem,12vw,10rem)]"
+      className="relative w-full overflow-hidden border-b border-[var(--landing-divider)] bg-transparent py-[clamp(6rem,12vw,10rem)]"
     >
       <div className="pointer-events-none absolute inset-0 z-0 bg-[radial-gradient(ellipse_at_bottom_left,rgba(16,185,129,0.03),transparent_40%)]" />
 
@@ -65,7 +65,7 @@ export default function FAQSection() {
             return (
               <div key={faq.q} className="ec-reveal">
                 <SpotlightCard
-                  className="rounded-[20px] border border-white/5 bg-[#0c100c]/20 p-0 shadow-xl transition-all duration-500 hover:border-emerald-500/20"
+                  className="rounded-[20px] border border-[var(--landing-glass-border)] bg-[var(--landing-glass-bg)] p-0 shadow-xl transition-all duration-500 hover:border-emerald-500/20"
                   spotlightColor="rgba(16,185,129,0.06)"
                   spotlightSize={280}
                 >
@@ -74,12 +74,12 @@ export default function FAQSection() {
                     onClick={() => setOpenIndex(isOpen ? null : i)}
                     aria-expanded={isOpen}
                   >
-                    <span className="text-[15px] font-medium text-white/90 transition-colors duration-300">
+                    <span className="text-[15px] font-medium text-[var(--c-text)] transition-colors duration-300">
                       {faq.q}
                     </span>
                     <ChevronDown
                       size={18}
-                      className="shrink-0 text-white/40 transition-transform duration-500"
+                      className="shrink-0 text-[var(--c-text-muted)] transition-transform duration-500"
                       style={{ transform: isOpen ? "rotate(180deg)" : "rotate(0deg)" }}
                     />
                   </button>
@@ -93,7 +93,7 @@ export default function FAQSection() {
                         transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
                         className="overflow-hidden"
                       >
-                        <div className="border-t border-white/5 px-8 pb-5 pt-3 text-[14px] font-normal leading-relaxed text-white/50">
+                        <div className="border-t border-[var(--landing-divider)] px-8 pb-5 pt-3 text-[14px] font-normal leading-relaxed text-[var(--c-text-muted)]">
                           {faq.a}
                         </div>
                       </motion.div>
@@ -108,7 +108,7 @@ export default function FAQSection() {
         <div className="ec-reveal mt-12 flex justify-center">
           <a
             href="#"
-            className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-8 py-3 text-xs font-bold uppercase tracking-wider text-white backdrop-blur-md transition-all duration-300 hover:border-emerald-500 hover:bg-emerald-500/10 hover:text-emerald-400"
+            className="inline-flex items-center gap-2 rounded-full border border-[var(--landing-pill-border)] bg-[var(--landing-pill-bg)] px-8 py-3 text-xs font-bold uppercase tracking-wider text-[var(--landing-pill-text)] backdrop-blur-md transition-all duration-300 hover:border-emerald-500 hover:bg-emerald-500/10 hover:text-emerald-400"
           >
             <MessageSquare size={14} />
             <span>Full FAQ</span>
