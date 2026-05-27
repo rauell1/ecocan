@@ -115,8 +115,12 @@ export default function HomeNavbar({ onMenuToggle }: HomeNavbarProps) {
     >
       <div className="grid grid-cols-[auto_1fr_auto] items-center px-6 py-4 md:px-10">
         <Link href="/" className="flex shrink-0 items-center">
-          <span className="font-serif-luxury mr-2 text-xl font-bold tracking-wider text-white">
-            ECOCAN
+          <span className="font-serif-luxury mr-2 flex items-center gap-1 text-xl font-bold tracking-widest text-white">
+            EC
+            <span className="relative mx-[1px] inline-flex h-3.5 w-3.5 shrink-0 items-center justify-center rounded-full border border-emerald-400 bg-transparent">
+              <span className="h-1 w-1 rounded-full bg-white" />
+            </span>
+            CAN
           </span>
         </Link>
 
