@@ -1,15 +1,14 @@
 {
   "meta": {
-    "version": "6a4b006",
-    "generatedAt": "2026-05-27T01:51:04.014Z",
+    "version": "ba8bfd5",
+    "generatedAt": "2026-05-27T02:08:39.407Z",
     "branch": "main",
-    "previousVersion": "b91212e",
+    "previousVersion": "6a4b006",
     "generator": "scripts/generate-codebase-map.mjs",
     "framework": "Next.js 14",
     "packageManager": "pnpm"
   },
   "changes": [
-    "Modified: app/page.tsx",
     "Modified: components/sections/hero-section.tsx"
   ],
   "affectedHotspots": [],
@@ -289,7 +288,7 @@
     "components/sections/electric-mobility-section.tsx": "aad25916397d3625c07e93a9bafb55fe66140cff",
     "components/sections/faq-section.tsx": "e640bdab2ec09531e89500985b847ffdec1eaf0e",
     "components/sections/for-investors-section.tsx": "5ee006697214adeee18d59272c56786c15a7a51b",
-    "components/sections/hero-section.tsx": "61ef08b8e25ff28f349f137cc103bceba000ef86",
+    "components/sections/hero-section.tsx": "b0bcd5192c5619b506db85218ab81c4a409580b4",
     "components/sections/home-footer.tsx": "01102258d8b6e981fdac346de4b7a27c8d2f570d",
     "components/sections/home-mobile-menu.tsx": "fb3b2ee486bd8fa684435b988f19d3bec1ad9125",
     "components/sections/home-navbar.tsx": "a6f92db4e1293fa23681dfb81e8e8cd1ae342de9",
@@ -380,15 +379,6 @@
     "tsconfig.json": "5841f1c2f8bba110464eaba24059d47cb59d3b64"
   },
   "changelog": [
-    {
-      "version": "31ae53b",
-      "date": "2026-05-20T16:49:35.009Z",
-      "branch": "main",
-      "changes": [
-        "Modified: app/page.tsx",
-        "Modified: components/sections/hero-section.tsx"
-      ]
-    },
     {
       "version": "d3b6d8f",
       "date": "2026-05-20T18:10:58.110Z",
@@ -629,6 +619,14 @@
       "branch": "main",
       "changes": [
         "Modified: app/page.tsx",
+        "Modified: components/sections/hero-section.tsx"
+      ]
+    },
+    {
+      "version": "ba8bfd5",
+      "date": "2026-05-27T02:08:39.407Z",
+      "branch": "main",
+      "changes": [
         "Modified: components/sections/hero-section.tsx"
       ]
     }
