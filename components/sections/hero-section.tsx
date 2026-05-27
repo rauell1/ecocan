@@ -3,7 +3,7 @@
 import { useRef, useEffect, useCallback, useState } from "react"
 import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
-import { Smartphone, Handshake, Leaf, MapPin, Lock } from "lucide-react"
+import { ArrowDown } from "lucide-react"
 
 const LENIS_INIT_DELAY = 500
 const SCROLL_SCRUB = 1.2
@@ -202,104 +202,58 @@ export default function HeroSection({ onTransitionComplete }: HeroSectionProps) 
           className="mx-auto flex max-w-4xl flex-col items-center px-6 text-center md:px-14"
         >
           <h1
-            className="font-serif-luxury text-luxury-glow mb-6 text-white"
+            className="font-serif-luxury text-luxury-gradient text-luxury-glow mb-6"
             style={{
-              fontSize: "clamp(2.3rem, 7.2vw, 5.2rem)",
+              fontSize: "clamp(2.5rem, 7.5vw, 5.5rem)",
               lineHeight: 0.98,
               letterSpacing: "-0.03em",
             }}
           >
-            Return. Recycle.{" "}
-            <span className="font-serif-luxury font-light text-emerald-400">
-              Make a difference.
-            </span>
+            Return. Recycle. Make a difference.
           </h1>
-
-          <p className="mx-auto mb-3 max-w-[40ch] text-[10px] font-semibold uppercase tracking-[0.2em] text-[var(--c-text-muted)] sm:text-[11px]">
+          <p className="mx-auto mb-4 max-w-[40ch] text-sm uppercase tracking-[0.15em] text-[var(--c-text-muted)] md:text-base">
             Africa&apos;s circular bottle ecosystem.
           </p>
-          <div className="mx-auto mb-10 h-[2px] w-12 rounded-full bg-emerald-500" />
 
-          {/* Action CTAs */}
-          <div className="mb-10 flex w-full max-w-2xl flex-col items-center justify-center gap-4 px-4 sm:flex-row sm:px-0">
-            {/* Left Button */}
+          <div className="mb-8 animate-pulse text-base font-medium tracking-wide text-emerald-400 md:text-lg">
+            Your bottle. Your planet. Your reward.
+          </div>
+
+          <div className="mb-10 flex w-full max-w-md flex-col items-center justify-center gap-4 sm:flex-row">
             <a
               href="/download"
-              className="inline-flex h-[64px] w-full items-center justify-between rounded-xl bg-emerald-600 px-5 py-3 text-left text-white shadow-[0_0_20px_rgba(16,185,129,0.2)] transition-all duration-300 hover:scale-[1.02] hover:bg-emerald-500 sm:w-auto sm:min-w-[260px]"
+              className="inline-flex w-full items-center justify-center rounded-full border border-emerald-500 bg-emerald-500 px-6 py-3.5 text-xs font-bold uppercase tracking-[0.15em] text-black shadow-[0_0_20px_rgba(16,185,129,0.3)] transition-all duration-300 hover:bg-transparent hover:text-[var(--c-text)] sm:w-auto"
             >
-              <div className="flex items-center gap-3">
-                <span className="shrink-0 rounded-lg bg-emerald-700/50 p-2 text-white">
-                  <Smartphone size={18} />
-                </span>
-                <div>
-                  <p className="mb-1 text-[11px] font-bold uppercase leading-none tracking-wider">
-                    DOWNLOAD APP
-                  </p>
-                  <p className="text-[10px] font-medium leading-none text-emerald-100">
-                    Start Making a Difference
-                  </p>
-                </div>
-              </div>
-              <svg
-                className="ml-4 h-4 w-4 shrink-0 text-emerald-200"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2.5"
-                viewBox="0 0 24 24"
-              >
-                <path strokeLinecap="round" strokeLinejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-              </svg>
+              Download App – Start Making a Difference
             </a>
-
-            {/* Right Button */}
             <a
               href="/contact"
-              className="inline-flex h-[64px] w-full items-center justify-between rounded-xl border border-emerald-500/30 bg-[rgba(255,255,255,0.02)] px-5 py-3 text-left text-white backdrop-blur-md transition-all duration-300 hover:scale-[1.02] hover:border-emerald-500 hover:bg-emerald-500/10 sm:w-auto sm:min-w-[260px]"
+              className="inline-flex w-full items-center justify-center rounded-full border border-[var(--landing-pill-border)] bg-[var(--landing-pill-bg)] px-6 py-3.5 text-xs font-bold uppercase tracking-[0.15em] text-[var(--landing-pill-text)] backdrop-blur-md transition-all duration-300 hover:border-emerald-500 hover:bg-emerald-500/10 hover:text-emerald-400 sm:w-auto"
             >
-              <div className="flex items-center gap-3">
-                <span className="shrink-0 rounded-lg bg-emerald-500/10 p-2 text-emerald-400">
-                  <Handshake size={18} />
-                </span>
-                <span className="text-[11px] font-bold uppercase tracking-wider">
-                  PARTNER WITH ECOCAN
-                </span>
-              </div>
-              <svg
-                className="ml-4 h-4 w-4 shrink-0 text-emerald-400"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2.5"
-                viewBox="0 0 24 24"
-              >
-                <path strokeLinecap="round" strokeLinejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-              </svg>
+              Partner with ECOCAN
             </a>
           </div>
 
           {/* Trust Badge Strip */}
-          <div className="w-full max-w-3xl rounded-2xl border border-[var(--c-border)] bg-[rgba(255,255,255,0.03)] px-6 py-4 backdrop-blur-md">
-            <div className="grid grid-cols-1 divide-y divide-white/10 sm:grid-cols-3 sm:divide-x sm:divide-y-0 sm:divide-white/10">
-              <div className="flex items-center justify-center gap-3 py-2.5 sm:px-4 sm:py-0">
-                <Leaf size={16} className="shrink-0 text-emerald-400" />
-                <span className="text-[10px] font-bold uppercase tracking-[0.15em] text-[var(--c-text-subtle)]">
-                  EARLY-STAGE FUNDED
-                </span>
+          <div className="flex w-full max-w-xl flex-wrap items-center justify-center gap-x-6 gap-y-2 border-t border-[var(--landing-divider)] pt-6 text-center">
+            {["Early-stage funded", "Operational in Kenya", "GDPR Compliant"].map((badge, idx) => (
+              <div
+                key={badge}
+                className="flex items-center text-[10px] font-semibold uppercase tracking-[0.15em] text-[var(--c-text-subtle)] md:text-xs"
+              >
+                {idx > 0 && <span className="mr-6 h-1 w-1 rounded-full bg-emerald-500/40" />}
+                <span>{badge}</span>
               </div>
-              <div className="flex items-center justify-center gap-3 py-2.5 sm:px-4 sm:py-0">
-                <MapPin size={16} className="shrink-0 text-emerald-400" />
-                <span className="text-[10px] font-bold uppercase tracking-[0.15em] text-[var(--c-text-subtle)]">
-                  OPERATIONAL IN KENYA
-                </span>
-              </div>
-              <div className="flex items-center justify-center gap-3 py-2.5 sm:px-4 sm:py-0">
-                <Lock size={16} className="shrink-0 text-emerald-400" />
-                <span className="text-[10px] font-bold uppercase tracking-[0.15em] text-[var(--c-text-subtle)]">
-                  GDPR COMPLIANT
-                </span>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
+      </div>
+
+      <div
+        ref={indicatorRef}
+        className="absolute bottom-8 left-1/2 z-10 -translate-x-1/2 text-[var(--c-text-subtle)]"
+      >
+        <ArrowDown size={20} strokeWidth={1.75} />
       </div>
     </div>
   )
