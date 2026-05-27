@@ -1,14 +1,14 @@
 {
   "meta": {
-    "version": "3aac135",
-    "generatedAt": "2026-05-27T01:45:26.128Z",
+    "version": "b91212e",
+    "generatedAt": "2026-05-27T01:46:31.072Z",
     "branch": "copilot/fix-hero-video-autoplay",
-    "previousVersion": "833bbea",
+    "previousVersion": "3aac135",
     "generator": "scripts/generate-codebase-map.mjs",
     "framework": "Next.js 14",
     "packageManager": "pnpm"
   },
-  "changes": ["Modified: app/page.tsx", "Modified: components/sections/hero-section.tsx"],
+  "changes": ["Modified: components/sections/hero-section.tsx"],
   "affectedHotspots": [],
   "routes": [
     {
@@ -286,7 +286,7 @@
     "components/sections/electric-mobility-section.tsx": "aad25916397d3625c07e93a9bafb55fe66140cff",
     "components/sections/faq-section.tsx": "e640bdab2ec09531e89500985b847ffdec1eaf0e",
     "components/sections/for-investors-section.tsx": "5ee006697214adeee18d59272c56786c15a7a51b",
-    "components/sections/hero-section.tsx": "745a44b9910ee7af8a9a33efbdb614b1cd6a7fb8",
+    "components/sections/hero-section.tsx": "61ef08b8e25ff28f349f137cc103bceba000ef86",
     "components/sections/home-footer.tsx": "01102258d8b6e981fdac346de4b7a27c8d2f570d",
     "components/sections/home-mobile-menu.tsx": "fb3b2ee486bd8fa684435b988f19d3bec1ad9125",
     "components/sections/home-navbar.tsx": "a6f92db4e1293fa23681dfb81e8e8cd1ae342de9",
@@ -377,12 +377,6 @@
     "tsconfig.json": "5841f1c2f8bba110464eaba24059d47cb59d3b64"
   },
   "changelog": [
-    {
-      "version": "a9d0721",
-      "date": "2026-05-20T16:21:42.115Z",
-      "branch": "main",
-      "changes": ["Modified: lib/use-ec-reveal.ts"]
-    },
     {
       "version": "bed5c72",
       "date": "2026-05-20T16:44:35.671Z",
@@ -605,6 +599,12 @@
       "date": "2026-05-27T01:45:26.128Z",
       "branch": "copilot/fix-hero-video-autoplay",
       "changes": ["Modified: app/page.tsx", "Modified: components/sections/hero-section.tsx"]
+    },
+    {
+      "version": "b91212e",
+      "date": "2026-05-27T01:46:31.072Z",
+      "branch": "copilot/fix-hero-video-autoplay",
+      "changes": ["Modified: components/sections/hero-section.tsx"]
     }
   ]
 }
