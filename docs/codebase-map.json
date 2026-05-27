@@ -1,24 +1,14 @@
 {
   "meta": {
-    "version": "833bbea",
-    "generatedAt": "2026-05-27T01:33:01.758Z",
-    "branch": "main",
-    "previousVersion": "06d91a6",
+    "version": "3aac135",
+    "generatedAt": "2026-05-27T01:45:26.128Z",
+    "branch": "copilot/fix-hero-video-autoplay",
+    "previousVersion": "833bbea",
     "generator": "scripts/generate-codebase-map.mjs",
     "framework": "Next.js 14",
     "packageManager": "pnpm"
   },
-  "changes": [
-    "Modified: app/design-tokens.css",
-    "Modified: app/page.tsx",
-    "Modified: components/sections/call-to-action-section.tsx",
-    "Modified: components/sections/electric-mobility-section.tsx",
-    "Modified: components/sections/faq-section.tsx",
-    "Modified: components/sections/for-investors-section.tsx",
-    "Modified: components/sections/hero-section.tsx",
-    "Modified: components/sections/how-it-works-section.tsx",
-    "Modified: components/sections/partners-testimonials-section.tsx"
-  ],
+  "changes": ["Modified: app/page.tsx", "Modified: components/sections/hero-section.tsx"],
   "affectedHotspots": [],
   "routes": [
     {
@@ -170,7 +160,7 @@
     "app/news/components/partnership-blog-hero.tsx": "63e1bd2a6eaabb86a3438bf67cd62db98fad9058",
     "app/news/layout.tsx": "0098cea1ad4e3b29e8cfdba0cfeb8d7c071e7dbf",
     "app/news/page.tsx": "8147eeca3814e9628a11ad275acd96a2bf8b5375",
-    "app/page.tsx": "2a1f78f89bc07a06839d6258434c8e595441ae63",
+    "app/page.tsx": "b2a213ef12644126c576c592846eae5d115c266a",
     "app/robots.ts": "0ac82ce211b91b4cdf082231be4ad246cef3ddca",
     "app/sitemap.ts": "fec458ba9b30441fdd98ecf1f49e4d0e39f277ec",
     "app/solutions/[section]/page.tsx": "a6c00eea4ce3c3e609538f106402cc954ade9d04",
@@ -296,7 +286,7 @@
     "components/sections/electric-mobility-section.tsx": "aad25916397d3625c07e93a9bafb55fe66140cff",
     "components/sections/faq-section.tsx": "e640bdab2ec09531e89500985b847ffdec1eaf0e",
     "components/sections/for-investors-section.tsx": "5ee006697214adeee18d59272c56786c15a7a51b",
-    "components/sections/hero-section.tsx": "712b35fa02a60f9ed194ff9bc93b6ec810684a1d",
+    "components/sections/hero-section.tsx": "745a44b9910ee7af8a9a33efbdb614b1cd6a7fb8",
     "components/sections/home-footer.tsx": "01102258d8b6e981fdac346de4b7a27c8d2f570d",
     "components/sections/home-mobile-menu.tsx": "fb3b2ee486bd8fa684435b988f19d3bec1ad9125",
     "components/sections/home-navbar.tsx": "a6f92db4e1293fa23681dfb81e8e8cd1ae342de9",
@@ -388,37 +378,22 @@
   },
   "changelog": [
     {
-      "version": "fd26688",
-      "date": "2026-05-20T16:16:34.601Z",
-      "branch": "main",
-      "changes": [
-        "Modified: components/sections/for-investors-section.tsx"
-      ]
-    },
-    {
       "version": "a9d0721",
       "date": "2026-05-20T16:21:42.115Z",
       "branch": "main",
-      "changes": [
-        "Modified: lib/use-ec-reveal.ts"
-      ]
+      "changes": ["Modified: lib/use-ec-reveal.ts"]
     },
     {
       "version": "bed5c72",
       "date": "2026-05-20T16:44:35.671Z",
       "branch": "main",
-      "changes": [
-        "Modified: components/sections/partners-testimonials-section.tsx"
-      ]
+      "changes": ["Modified: components/sections/partners-testimonials-section.tsx"]
     },
     {
       "version": "31ae53b",
       "date": "2026-05-20T16:49:35.009Z",
       "branch": "main",
-      "changes": [
-        "Modified: app/page.tsx",
-        "Modified: components/sections/hero-section.tsx"
-      ]
+      "changes": ["Modified: app/page.tsx", "Modified: components/sections/hero-section.tsx"]
     },
     {
       "version": "d3b6d8f",
@@ -465,9 +440,7 @@
       "version": "e7fc65a",
       "date": "2026-05-21T17:04:22.197Z",
       "branch": "main",
-      "changes": [
-        "Modified: package.json"
-      ]
+      "changes": ["Modified: package.json"]
     },
     {
       "version": "422e74a",
@@ -504,25 +477,19 @@
       "version": "9e7ec1c",
       "date": "2026-05-21T18:31:55.104Z",
       "branch": "main",
-      "changes": [
-        "Modified: components/sections/hero-section.tsx"
-      ]
+      "changes": ["Modified: components/sections/hero-section.tsx"]
     },
     {
       "version": "3479f58",
       "date": "2026-05-21T18:46:52.019Z",
       "branch": "main",
-      "changes": [
-        "Modified: components/sections/hero-section.tsx"
-      ]
+      "changes": ["Modified: components/sections/hero-section.tsx"]
     },
     {
       "version": "7cb679b",
       "date": "2026-05-21T18:53:47.770Z",
       "branch": "main",
-      "changes": [
-        "Full map regeneration"
-      ]
+      "changes": ["Full map regeneration"]
     },
     {
       "version": "d63d317",
@@ -540,17 +507,13 @@
       "version": "a16475c",
       "date": "2026-05-21T20:02:36.281Z",
       "branch": "main",
-      "changes": [
-        "Full map regeneration"
-      ]
+      "changes": ["Full map regeneration"]
     },
     {
       "version": "c0a5a66",
       "date": "2026-05-23T08:44:48.522Z",
       "branch": "main",
-      "changes": [
-        "Full map regeneration"
-      ]
+      "changes": ["Full map regeneration"]
     },
     {
       "version": "69c7793",
@@ -636,6 +599,12 @@
         "Modified: components/sections/how-it-works-section.tsx",
         "Modified: components/sections/partners-testimonials-section.tsx"
       ]
+    },
+    {
+      "version": "3aac135",
+      "date": "2026-05-27T01:45:26.128Z",
+      "branch": "copilot/fix-hero-video-autoplay",
+      "changes": ["Modified: app/page.tsx", "Modified: components/sections/hero-section.tsx"]
     }
   ]
 }
