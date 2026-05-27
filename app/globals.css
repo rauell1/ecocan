@@ -458,13 +458,13 @@ button,
   .hero-overlay-gradient {
     background: linear-gradient(
       to bottom,
-      rgba(245, 247, 245, 0.15) 0%,
-      rgba(245, 247, 245, 0.9) 100%
+      rgba(245, 247, 245, 0.18) 0%,
+      rgba(245, 247, 245, 0) 100%
     ) !important;
   }
 
   .hero-bottom-fade {
-    background: linear-gradient(to bottom, transparent 60%, #f5f7f5 100%) !important;
+    background: transparent !important;
   }
 
   .ec-divider {
