@@ -74,7 +74,7 @@ export default function CallToActionSection() {
           className="absolute inset-0"
           style={{
             background: "var(--c-bg)",
-            opacity: 0.92,
+            opacity: "var(--c-overlay-flat-opacity, 0.92)" as any,
           }}
         />
       </div>

@@ -131,7 +131,7 @@ export default function HowItWorksSection() {
           className="animate-fade-in absolute inset-0"
           style={{
             background: "var(--c-bg)",
-            opacity: 0.88,
+            opacity: "var(--c-overlay-flat-opacity, 0.88)" as any,
           }}
         />
       </div>

@@ -95,6 +95,11 @@
   --reveal-dur: 0.9s;
   --reveal-stagger: 0.12s;
   --reveal-start: top 72%;
+
+  /* Background overlay opacities for image integration */
+  --c-overlay-opacity-start: 0.72;
+  --c-overlay-opacity-end: 0.92;
+  --c-overlay-flat-opacity: 0.88;
 }
 
 [data-theme="light"] {
@@ -127,4 +132,9 @@
   --shadow-card: 0 4px 20px rgba(13, 18, 13, 0.04), 0 1px 3px rgba(13, 18, 13, 0.02);
   --shadow-lift: 0 12px 32px rgba(13, 18, 13, 0.08), 0 4px 12px rgba(13, 18, 13, 0.03);
   --shadow-glow-green: 0 0 28px rgba(21, 128, 61, 0.12);
+
+  /* Background overlay opacities for light mode image integration */
+  --c-overlay-opacity-start: 0.42;
+  --c-overlay-opacity-end: 0.72;
+  --c-overlay-flat-opacity: 0.58;
 }

@@ -6,20 +6,20 @@ import { ScrollTrigger } from "gsap/ScrollTrigger"
 import { SpotlightCard } from "@/components/ui/spotlight-card"
 
 const stats = [
-  { 
-    value: "< 5%", 
-    label: "Recycled Today", 
-    desc: "The current regional rate of post-consumer aluminum recovery across urban centers." 
+  {
+    value: "< 5%",
+    label: "Recycled Today",
+    desc: "The current regional rate of post-consumer aluminum recovery across urban centers.",
   },
-  { 
-    value: "KES 2.00", 
-    label: "Paid Per Deposit", 
-    desc: "Instant liquidity credited to user wallets per verified physical return." 
+  {
+    value: "KES 2.00",
+    label: "Paid Per Deposit",
+    desc: "Instant liquidity credited to user wallets per verified physical return.",
   },
-  { 
-    value: "100%", 
-    label: "Real-Time Traceable", 
-    desc: "End-to-end blockchain provenance from consumer hand to final foundry ingot." 
+  {
+    value: "100%",
+    label: "Real-Time Traceable",
+    desc: "End-to-end blockchain provenance from consumer hand to final foundry ingot.",
   },
 ]
 
@@ -96,17 +96,18 @@ export default function SustainabilityImpactSection() {
           aria-hidden="true"
           className="section-bg-img h-full w-full object-cover opacity-50"
         />
-        <div 
-          className="absolute inset-0" 
-          style={{ 
-            background: "linear-gradient(to bottom, rgba(var(--c-bg-rgb), 0.6) 0%, rgba(var(--c-bg-rgb), 0.92) 100%)" 
-          }} 
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              "linear-gradient(to bottom, rgba(var(--c-bg-rgb), var(--c-overlay-opacity-start, 0.6)) 0%, rgba(var(--c-bg-rgb), var(--c-overlay-opacity-end, 0.92)) 100%)",
+          }}
         />
       </div>
       <div className="relative z-10 px-[clamp(1.25rem,4vw,3rem)]">
         <p
           ref={statRef}
-          className="ec-reveal text-center font-serif-luxury text-luxury-gradient"
+          className="ec-reveal font-serif-luxury text-luxury-gradient text-center"
           style={{
             fontSize: "clamp(3.5rem,14vw,9rem)",
             lineHeight: 1.0,
@@ -119,17 +120,24 @@ export default function SustainabilityImpactSection() {
           cans discarded annually in East Africa
         </p>
 
-        <div className="ec-reveal mt-20 grid gap-6 md:grid-cols-3 max-w-5xl mx-auto">
+        <div className="ec-reveal mx-auto mt-20 grid max-w-5xl gap-6 md:grid-cols-3">
           {stats.map(({ value, label, desc }) => (
-            <SpotlightCard 
-              key={label} 
-              className="bg-[var(--c-surface)] border-[var(--c-border)] rounded-3xl p-8 hover:border-emerald-500/20 transition-all duration-300"
+            <SpotlightCard
+              key={label}
+              className="rounded-3xl border-[var(--c-border)] bg-[var(--c-surface)] p-8 transition-all duration-300 hover:border-emerald-500/20"
             >
-              <p className="text-4xl font-light font-serif-luxury text-[var(--c-text)] group-hover:text-emerald-400 transition-colors duration-300" style={{ letterSpacing: "-0.02em" }}>
+              <p
+                className="font-serif-luxury text-4xl font-light text-[var(--c-text)] transition-colors duration-300 group-hover:text-emerald-400"
+                style={{ letterSpacing: "-0.02em" }}
+              >
                 {value}
               </p>
-              <p className="mt-4 text-xs font-semibold text-emerald-400 uppercase tracking-[0.12em]">{label}</p>
-              <p className="mt-2 text-[13px] leading-relaxed text-[var(--c-text-muted)] font-normal">{desc}</p>
+              <p className="mt-4 text-xs font-semibold uppercase tracking-[0.12em] text-emerald-400">
+                {label}
+              </p>
+              <p className="mt-2 text-[13px] font-normal leading-relaxed text-[var(--c-text-muted)]">
+                {desc}
+              </p>
             </SpotlightCard>
           ))}
         </div>

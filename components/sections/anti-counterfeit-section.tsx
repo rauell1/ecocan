@@ -81,19 +81,20 @@ export default function AntiCounterfeitSection() {
           aria-hidden="true"
           className="section-bg-img h-full w-full object-cover opacity-50"
         />
-        <div 
-          className="absolute inset-0" 
-          style={{ 
-            background: "linear-gradient(to bottom, rgba(var(--c-bg-rgb), 0.7) 0%, rgba(var(--c-bg-rgb), 0.92) 100%)" 
-          }} 
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              "linear-gradient(to bottom, rgba(var(--c-bg-rgb), var(--c-overlay-opacity-start, 0.7)) 0%, rgba(var(--c-bg-rgb), var(--c-overlay-opacity-end, 0.92)) 100%)",
+          }}
         />
       </div>
 
-      <div className="relative z-10 px-[clamp(1.25rem,4vw,3rem)] max-w-7xl mx-auto">
-        <div className="ec-reveal border border-[var(--c-border)] bg-[var(--c-surface)] backdrop-blur-xl rounded-[32px] p-8 md:p-12 lg:p-16 shadow-2xl overflow-hidden relative">
+      <div className="relative z-10 mx-auto max-w-7xl px-[clamp(1.25rem,4vw,3rem)]">
+        <div className="ec-reveal relative overflow-hidden rounded-[32px] border border-[var(--c-border)] bg-[var(--c-surface)] p-8 shadow-2xl backdrop-blur-xl md:p-12 lg:p-16">
           {/* Subtle radial ambient light */}
-          <div className="absolute -top-12 -right-12 w-64 h-64 bg-emerald-500/5 rounded-full blur-3xl pointer-events-none" />
-          
+          <div className="pointer-events-none absolute -right-12 -top-12 h-64 w-64 rounded-full bg-emerald-500/5 blur-3xl" />
+
           <div className="grid items-center gap-12 lg:grid-cols-2">
             <div ref={imageColRef} className="order-2 lg:order-1">
               <div className="overflow-hidden rounded-2xl border border-[var(--c-border)] bg-[var(--c-surface-alt)] p-2 shadow-xl">
@@ -120,8 +121,9 @@ export default function AntiCounterfeitSection() {
                 Every can. <br />
                 <span className="font-sans font-light text-emerald-400">Verified instantly.</span>
               </h2>
-              <p className="mt-6 text-base text-[var(--c-text-muted)] max-w-md leading-relaxed font-normal">
-                Scan the smart-matrix code to confirm absolute authenticity in a single, simple action. Premium circular verification, clinical precision, complete trust.
+              <p className="mt-6 max-w-md text-base font-normal leading-relaxed text-[var(--c-text-muted)]">
+                Scan the smart-matrix code to confirm absolute authenticity in a single, simple
+                action. Premium circular verification, clinical precision, complete trust.
               </p>
             </div>
           </div>

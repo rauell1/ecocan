@@ -82,7 +82,8 @@ export default function AppShowcaseSection() {
         <div
           className="absolute inset-0"
           style={{
-            background: "linear-gradient(to bottom, rgba(var(--c-bg-rgb), 0.72) 0%, rgba(var(--c-bg-rgb), 0.95) 100%)",
+            background:
+              "linear-gradient(to bottom, rgba(var(--c-bg-rgb), var(--c-overlay-opacity-start, 0.72)) 0%, rgba(var(--c-bg-rgb), var(--c-overlay-opacity-end, 0.95)) 100%)",
           }}
         />
       </div>
