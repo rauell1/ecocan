@@ -20,12 +20,19 @@
   --c-text-muted: rgba(255, 255, 255, 0.5);
   --c-text-faint: #4a5a4a;
   --c-text-inv: #0b0d0b;
+  --c-text-subtle: rgba(245, 245, 245, 0.72);
 
   /* Brand greens */
   --c-green: #22c55e;
   --c-green-mid: #16a34a;
   --c-green-light: #4ade80;
   --c-green-dim: rgba(34, 197, 94, 0.12);
+  --landing-glass-bg: rgba(12, 16, 12, 0.34);
+  --landing-glass-border: rgba(255, 255, 255, 0.08);
+  --landing-pill-bg: rgba(255, 255, 255, 0.05);
+  --landing-pill-border: rgba(255, 255, 255, 0.16);
+  --landing-pill-text: rgba(245, 245, 245, 0.92);
+  --landing-divider: rgba(255, 255, 255, 0.08);
 
   /* ── TYPOGRAPHY ──────────────────────────────────────────────────────── */
   /* Using Geist for display sharpness + Inter for body readability */
@@ -101,14 +108,21 @@
 
   --c-text: #0d120d; /* Crisp dark forest charcoal */
   --c-text-muted: rgba(13, 18, 13, 0.65);
-  --c-text-faint: #7fa07f;
+  --c-text-faint: #436043;
   --c-text-inv: #ffffff;
+  --c-text-subtle: rgba(13, 18, 13, 0.78);
 
   /* Brand greens for light background context */
   --c-green: #15803d; /* Lighter background requires darker green for high visibility */
   --c-green-mid: #166534;
   --c-green-light: #22c55e;
   --c-green-dim: rgba(21, 128, 61, 0.08);
+  --landing-glass-bg: rgba(255, 255, 255, 0.82);
+  --landing-glass-border: rgba(13, 18, 13, 0.1);
+  --landing-pill-bg: rgba(13, 18, 13, 0.04);
+  --landing-pill-border: rgba(13, 18, 13, 0.2);
+  --landing-pill-text: rgba(13, 18, 13, 0.9);
+  --landing-divider: rgba(13, 18, 13, 0.12);
 
   --shadow-card: 0 4px 20px rgba(13, 18, 13, 0.04), 0 1px 3px rgba(13, 18, 13, 0.02);
   --shadow-lift: 0 12px 32px rgba(13, 18, 13, 0.08), 0 4px 12px rgba(13, 18, 13, 0.03);

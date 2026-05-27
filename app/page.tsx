@@ -13,6 +13,15 @@ import CallToActionSection from "@/components/sections/call-to-action-section"
 import FAQSection from "@/components/sections/faq-section"
 import HomeFooter from "@/components/sections/home-footer"
 
+/**
+ * Temporary rollout toggle:
+ * The secondary "scroll-out magnification" experience is the Ecocan model section
+ * directly below "How it works". It relies on GSAP ScrollTrigger entrance effects
+ * plus SpotlightCard hover magnification. Keep this `false` for uniform scrolling.
+ * Set to `true` to re-enable the section in normal page flow.
+ */
+const ENABLE_SECOND_SCROLL_MAGNIFICATION_SECTION = false
+
 export default function Home() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
@@ -21,7 +30,7 @@ export default function Home() {
   const sections = useMemo(
     () => [
       { id: "how-it-works" },
-      { id: "ecocan-model" },
+      ...(ENABLE_SECOND_SCROLL_MAGNIFICATION_SECTION ? [{ id: "ecocan-model" }] : []),
       { id: "electric-mobility" },
       { id: "investors" },
       { id: "faq" },
@@ -84,10 +93,12 @@ export default function Home() {
           <HowItWorksSection />
         </div>
 
-        {/* 2. The ECOCAN Model */}
-        <div id="ecocan-model" className="ps-reveal">
-          <EcocanModelSection />
-        </div>
+        {/* 2. Optional secondary scroll-out magnification section (feature-flagged above). */}
+        {ENABLE_SECOND_SCROLL_MAGNIFICATION_SECTION ? (
+          <div id="ecocan-model" className="ps-reveal">
+            <EcocanModelSection />
+          </div>
+        ) : null}
 
         {/* 3. The Electric Mobility Angle */}
         <div id="electric-mobility" className="ps-reveal">

@@ -128,7 +128,7 @@ export default function HowItWorksSection() {
           className="section-bg-img h-full w-full object-cover opacity-30"
         />
         <div
-          className="absolute inset-0 animate-fade-in"
+          className="animate-fade-in absolute inset-0"
           style={{
             background: "var(--c-bg)",
             opacity: 0.88,
@@ -152,14 +152,14 @@ export default function HowItWorksSection() {
         </div>
 
         <div className="relative mb-16">
-          <div className="steps-line-mobile absolute left-3 top-0 z-0 h-full w-px origin-top bg-white/5 md:hidden" />
-          <div className="steps-line-desktop absolute left-0 top-[2.2rem] z-0 hidden h-px w-full origin-left bg-white/5 md:block" />
+          <div className="steps-line-mobile absolute left-3 top-0 z-0 h-full w-px origin-top bg-[var(--landing-divider)] md:hidden" />
+          <div className="steps-line-desktop absolute left-0 top-[2.2rem] z-0 hidden h-px w-full origin-left bg-[var(--landing-divider)] md:block" />
 
           <div className="grid gap-6 pl-7 md:grid-cols-5 md:gap-4 md:pl-0 md:pt-10">
             {steps.map((item, idx) => (
               <div
                 key={item.step}
-                className="ec-reveal group relative z-10 flex flex-col justify-between rounded-2xl border border-white/5 bg-[#0c100c]/45 p-6 backdrop-blur-md transition-all duration-500 hover:border-emerald-500/10"
+                className="ec-reveal group relative z-10 flex flex-col justify-between rounded-2xl border border-[var(--landing-glass-border)] bg-[var(--landing-glass-bg)] p-6 backdrop-blur-md transition-all duration-500 hover:border-emerald-500/20"
               >
                 <div className="absolute -inset-px rounded-2xl bg-gradient-to-r from-emerald-500/0 via-emerald-500/5 to-emerald-500/0 opacity-0 transition-opacity duration-700 group-hover:opacity-100" />
                 <div className="relative z-10 flex h-full flex-col">
@@ -179,15 +179,15 @@ export default function HowItWorksSection() {
                       <item.icon size={20} strokeWidth={1.5} />
                     </div>
                   </div>
-                  <h3 className="font-serif-luxury mb-2 text-xl font-normal tracking-tight text-[#f5f5f5] transition-colors group-hover:text-emerald-400">
+                  <h3 className="font-serif-luxury mb-2 text-xl font-normal tracking-tight text-[var(--c-text)] transition-colors group-hover:text-emerald-400">
                     {item.title}
                   </h3>
-                  <p className="flex-grow text-xs font-normal leading-relaxed text-white/55">
+                  <p className="flex-grow text-xs font-normal leading-relaxed text-[var(--c-text-muted)]">
                     {item.desc}
                   </p>
 
                   {item.note && (
-                    <div className="mt-4 border-t border-white/5 pt-4 font-mono text-[10px] italic leading-relaxed text-emerald-400/80">
+                    <div className="mt-4 border-t border-[var(--landing-divider)] pt-4 font-mono text-[10px] italic leading-relaxed text-emerald-400/80">
                       {item.note}
                     </div>
                   )}
@@ -198,7 +198,7 @@ export default function HowItWorksSection() {
         </div>
 
         <div className="ec-reveal mt-12 flex justify-center">
-          <button className="inline-flex items-center gap-3 rounded-full border border-white/10 bg-white/5 px-8 py-3.5 text-xs font-bold uppercase tracking-[0.15em] text-[#f5f5f5] transition-all duration-300 hover:border-emerald-500/20 hover:bg-emerald-500/10 hover:text-emerald-400">
+          <button className="inline-flex items-center gap-3 rounded-full border border-[var(--landing-pill-border)] bg-[var(--landing-pill-bg)] px-8 py-3.5 text-xs font-bold uppercase tracking-[0.15em] text-[var(--landing-pill-text)] transition-all duration-300 hover:border-emerald-500/20 hover:bg-emerald-500/10 hover:text-emerald-400">
             <Play size={12} fill="currentColor" />
             <span>See full journey video</span>
           </button>

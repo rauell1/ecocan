@@ -7,6 +7,22 @@ import { ArrowDown } from "lucide-react"
 
 const LENIS_INIT_DELAY = 500
 const SCROLL_SCRUB = 1.2
+const HERO_VIDEO_SOURCES = [
+  {
+    src: "/videos/circular-loop.mp4",
+    type: "video/mp4",
+    media: "(max-width: 767px)",
+  },
+  {
+    src: "/videos/hero-loop.mp4",
+    type: "video/mp4",
+    media: "(min-width: 768px)",
+  },
+  {
+    src: "/videos/hero-loop.mp4",
+    type: "video/mp4",
+  },
+]
 
 interface HeroSectionProps {
   onTransitionComplete: () => void
@@ -20,6 +36,7 @@ export default function HeroSection({ onTransitionComplete }: HeroSectionProps) 
   const videoRef = useRef<HTMLVideoElement>(null)
 
   const [videoPlaying, setVideoPlaying] = useState(false)
+  const [videoFailed, setVideoFailed] = useState(false)
 
   const handleVideoPlay = () => {
     if (videoRef.current && videoRef.current.currentTime > 0.15) {
@@ -34,40 +51,39 @@ export default function HeroSection({ onTransitionComplete }: HeroSectionProps) 
     // Ensure initial audio status is muted for autoplay policy compatibility
     video.muted = true
     video.playsInline = true
+    video.defaultMuted = true
 
     const attemptPlay = async () => {
+      if (videoFailed) return
       try {
         await video.play()
-        removeInteractionListeners()
       } catch (err) {
-        console.warn("Autoplay attempt blocked or video not ready, awaiting user interaction:", err)
+        setVideoPlaying(false)
+        console.warn("Autoplay blocked; hero poster fallback remains visible:", err)
       }
     }
 
-    const handleInteraction = () => {
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches
+    const saveData =
+      typeof navigator !== "undefined" && "connection" in navigator
+        ? Boolean(
+            (navigator as Navigator & { connection?: { saveData?: boolean } }).connection?.saveData
+          )
+        : false
+    const preloadUpgradeTimer = window.setTimeout(() => {
+      if (!saveData) {
+        video.preload = "auto"
+      }
+    }, 650)
+
+    if (!prefersReducedMotion) {
       attemptPlay()
     }
 
-    const removeInteractionListeners = () => {
-      window.removeEventListener("touchstart", handleInteraction)
-      window.removeEventListener("mousedown", handleInteraction)
-      window.removeEventListener("keydown", handleInteraction)
-      window.removeEventListener("scroll", handleInteraction)
-    }
-
-    // Attempt to play immediately on mount
-    attemptPlay()
-
-    // Add robust touch/scroll/click fallbacks to automatically play once user interacts
-    window.addEventListener("touchstart", handleInteraction, { passive: true })
-    window.addEventListener("mousedown", handleInteraction, { passive: true })
-    window.addEventListener("keydown", handleInteraction, { passive: true })
-    window.addEventListener("scroll", handleInteraction, { passive: true })
-
     return () => {
-      removeInteractionListeners()
+      window.clearTimeout(preloadUpgradeTimer)
     }
-  }, [])
+  }, [videoFailed])
 
   const initLenis = useCallback(() => onTransitionComplete(), [onTransitionComplete])
 
@@ -187,19 +203,23 @@ export default function HeroSection({ onTransitionComplete }: HeroSectionProps) 
     <div
       ref={heroRef}
       id="hero"
-      className="relative w-full"
+      className="relative min-h-[100svh] w-full"
       style={{ height: "100dvh", background: "var(--c-bg)" }}
     >
       <div
         ref={videoWrapRef}
         className="absolute inset-0 overflow-hidden"
-        style={{ willChange: "transform, border-radius, filter", filter: "brightness(0.9)", background: "var(--c-bg)" }}
+        style={{
+          willChange: "transform, border-radius, filter",
+          filter: "brightness(0.9)",
+          background: "var(--c-bg)",
+        }}
       >
         {/* High-fidelity fallback poster image that stays underneath/behind the video element */}
         <img
           src="/images/scan-verify.jpg"
           alt="Ecocan App Scan and Verify Preview"
-          className="absolute inset-0 h-full w-full object-cover transition-opacity duration-700"
+          className="absolute inset-0 h-full w-full object-cover object-[center_32%] transition-opacity duration-700 sm:object-center"
           style={{
             zIndex: 0,
             opacity: videoPlaying ? 0 : 1,
@@ -208,29 +228,40 @@ export default function HeroSection({ onTransitionComplete }: HeroSectionProps) 
 
         <video
           ref={videoRef}
-          src="/videos/hero-loop.mp4"
           poster="/images/scan-verify.jpg"
           autoPlay
           loop
           muted
           playsInline
-          preload="auto"
+          preload="metadata"
           onPlaying={() => setVideoPlaying(true)}
           onTimeUpdate={handleVideoPlay}
-          className="absolute inset-0 h-full w-full object-cover transition-opacity duration-700"
+          onCanPlay={() => {
+            if (!videoPlaying && !videoFailed) {
+              void videoRef.current?.play().catch(() => setVideoPlaying(false))
+            }
+          }}
+          onError={() => {
+            setVideoFailed(true)
+            setVideoPlaying(false)
+          }}
+          className="absolute inset-0 h-full w-full object-cover object-[center_32%] transition-opacity duration-700 sm:object-center"
           style={{
             zIndex: 1,
-            opacity: videoPlaying ? 1 : 0,
+            opacity: videoPlaying && !videoFailed ? 1 : 0,
           }}
-        />
-        <div
-          aria-hidden
-          className="hero-overlay-gradient absolute inset-0 z-[2]"
-        />
-        <div
-          aria-hidden
-          className="hero-bottom-fade absolute inset-x-0 bottom-0 z-[3] h-[36%]"
-        />
+        >
+          {HERO_VIDEO_SOURCES.map((source) => (
+            <source
+              key={`${source.src}-${source.media ?? "default"}`}
+              src={source.src}
+              type={source.type}
+              media={source.media}
+            />
+          ))}
+        </video>
+        <div aria-hidden className="hero-overlay-gradient absolute inset-0 z-[2]" />
+        <div aria-hidden className="hero-bottom-fade absolute inset-x-0 bottom-0 z-[3] h-[36%]" />
       </div>
 
       <div className="absolute inset-0 z-10 flex items-center justify-center">
@@ -248,7 +279,7 @@ export default function HeroSection({ onTransitionComplete }: HeroSectionProps) 
           >
             Return. Recycle. Make a difference.
           </h1>
-          <p className="mx-auto mb-4 max-w-[40ch] text-sm uppercase tracking-[0.15em] text-white/50 md:text-base">
+          <p className="mx-auto mb-4 max-w-[40ch] text-sm uppercase tracking-[0.15em] text-[var(--c-text-muted)] md:text-base">
             Africa&apos;s circular bottle ecosystem.
           </p>
 
@@ -259,24 +290,24 @@ export default function HeroSection({ onTransitionComplete }: HeroSectionProps) 
           <div className="mb-10 flex w-full max-w-md flex-col items-center justify-center gap-4 sm:flex-row">
             <a
               href="/download"
-              className="inline-flex w-full items-center justify-center rounded-full border border-emerald-500 bg-emerald-500 px-6 py-3.5 text-xs font-bold uppercase tracking-[0.15em] text-black shadow-[0_0_20px_rgba(16,185,129,0.3)] transition-all duration-300 hover:bg-transparent hover:text-white sm:w-auto"
+              className="inline-flex w-full items-center justify-center rounded-full border border-emerald-500 bg-emerald-500 px-6 py-3.5 text-xs font-bold uppercase tracking-[0.15em] text-black shadow-[0_0_20px_rgba(16,185,129,0.3)] transition-all duration-300 hover:bg-transparent hover:text-[var(--c-text)] sm:w-auto"
             >
               Download App – Start Making a Difference
             </a>
             <a
               href="/contact"
-              className="inline-flex w-full items-center justify-center rounded-full border border-white/20 px-6 py-3.5 text-xs font-bold uppercase tracking-[0.15em] text-[#f5f5f5] backdrop-blur-md transition-all duration-300 hover:border-emerald-500 hover:bg-emerald-500/10 hover:text-emerald-400 sm:w-auto"
+              className="inline-flex w-full items-center justify-center rounded-full border border-[var(--landing-pill-border)] bg-[var(--landing-pill-bg)] px-6 py-3.5 text-xs font-bold uppercase tracking-[0.15em] text-[var(--landing-pill-text)] backdrop-blur-md transition-all duration-300 hover:border-emerald-500 hover:bg-emerald-500/10 hover:text-emerald-400 sm:w-auto"
             >
               Partner with ECOCAN
             </a>
           </div>
 
           {/* Trust Badge Strip */}
-          <div className="flex w-full max-w-xl flex-wrap items-center justify-center gap-x-6 gap-y-2 border-t border-white/5 pt-6 text-center">
+          <div className="flex w-full max-w-xl flex-wrap items-center justify-center gap-x-6 gap-y-2 border-t border-[var(--landing-divider)] pt-6 text-center">
             {["Early-stage funded", "Operational in Kenya", "GDPR Compliant"].map((badge, idx) => (
               <div
                 key={badge}
-                className="flex items-center text-[10px] font-semibold uppercase tracking-[0.15em] text-white/40 md:text-xs"
+                className="flex items-center text-[10px] font-semibold uppercase tracking-[0.15em] text-[var(--c-text-subtle)] md:text-xs"
               >
                 {idx > 0 && <span className="mr-6 h-1 w-1 rounded-full bg-emerald-500/40" />}
                 <span>{badge}</span>
@@ -288,7 +319,7 @@ export default function HeroSection({ onTransitionComplete }: HeroSectionProps) 
 
       <div
         ref={indicatorRef}
-        className="absolute bottom-8 left-1/2 z-10 -translate-x-1/2 text-white/60"
+        className="absolute bottom-8 left-1/2 z-10 -translate-x-1/2 text-[var(--c-text-subtle)]"
       >
         <ArrowDown size={20} strokeWidth={1.75} />
       </div>

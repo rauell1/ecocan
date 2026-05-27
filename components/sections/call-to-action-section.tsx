@@ -61,7 +61,7 @@ export default function CallToActionSection() {
   return (
     <section
       ref={sectionRef}
-      className="relative w-full overflow-hidden border-b border-white/5 bg-transparent py-[clamp(6rem,12vw,10rem)]"
+      className="relative w-full overflow-hidden border-b border-[var(--landing-divider)] bg-transparent py-[clamp(6rem,12vw,10rem)]"
     >
       <div className="absolute inset-0 z-0">
         <img
@@ -121,7 +121,7 @@ export default function CallToActionSection() {
                 <div>
                   <Link
                     href={path.btnHref}
-                    className="inline-flex w-full justify-center rounded-full border border-white/10 bg-white/5 py-3 text-xs font-bold uppercase tracking-wider text-white transition-all duration-300 hover:border-emerald-500/20 hover:bg-emerald-500/10 hover:text-emerald-400"
+                    className="inline-flex w-full justify-center rounded-full border border-[var(--landing-pill-border)] bg-[var(--landing-pill-bg)] py-3 text-xs font-bold uppercase tracking-wider text-[var(--landing-pill-text)] transition-all duration-300 hover:border-emerald-500/20 hover:bg-emerald-500/10 hover:text-emerald-400"
                   >
                     {path.btnText}
                   </Link>

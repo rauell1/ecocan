@@ -52,13 +52,13 @@ export default function ElectricMobilitySection() {
                 <Bike size={64} strokeWidth={1} />
               </div>
 
-              <p className="max-w-[20ch] text-center text-xs uppercase tracking-[0.2em] text-[var(--c-text-muted)]/70">
+              <p className="text-[var(--c-text-muted)]/70 max-w-[20ch] text-center text-xs uppercase tracking-[0.2em]">
                 ECOCAN last-mile collection electric logistics
               </p>
 
               {/* Floating Stat Badge 1 */}
-              <div 
-                className="absolute left-6 top-6 flex items-center gap-3 rounded-2xl border border-emerald-500/10 px-4 py-2.5 shadow-2xl backdrop-blur-xl transition-transform duration-500 hover:-translate-y-1 md:-left-6"
+              <div
+                className="absolute left-3 top-3 flex items-center gap-3 rounded-2xl border border-emerald-500/10 px-4 py-2.5 shadow-2xl backdrop-blur-xl transition-transform duration-500 hover:-translate-y-1 sm:left-6 md:-left-4"
                 style={{ background: "var(--c-dark)" }}
               >
                 <div className="h-2 w-2 animate-pulse rounded-full bg-emerald-400" />
@@ -66,13 +66,13 @@ export default function ElectricMobilitySection() {
                   <p className="text-[10px] font-bold uppercase tracking-wider text-emerald-500">
                     0 emissions
                   </p>
-                  <p className="text-[9px] text-[var(--c-text-muted)]/70">per bottle collected</p>
+                  <p className="text-[var(--c-text-muted)]/70 text-[9px]">per bottle collected</p>
                 </div>
               </div>
 
               {/* Floating Stat Badge 2 */}
-              <div 
-                className="absolute -right-6 bottom-10 flex items-center gap-3 rounded-2xl border border-emerald-500/10 px-4 py-2.5 shadow-2xl backdrop-blur-xl transition-transform duration-500 hover:-translate-y-1"
+              <div
+                className="absolute bottom-8 right-3 flex items-center gap-3 rounded-2xl border border-emerald-500/10 px-4 py-2.5 shadow-2xl backdrop-blur-xl transition-transform duration-500 hover:-translate-y-1 sm:right-0 md:-right-4"
                 style={{ background: "var(--c-dark)" }}
               >
                 <TrendingDown size={14} className="text-emerald-400" />
@@ -80,20 +80,20 @@ export default function ElectricMobilitySection() {
                   <p className="text-[10px] font-bold uppercase tracking-wider text-emerald-500">
                     60% lower cost
                   </p>
-                  <p className="text-[9px] text-[var(--c-text-muted)]/70">vs ICE vehicle</p>
+                  <p className="text-[var(--c-text-muted)]/70 text-[9px]">vs ICE vehicle</p>
                 </div>
               </div>
 
               {/* Floating Stat Badge 3 */}
-              <div 
-                className="absolute -bottom-4 left-10 flex items-center gap-3 rounded-2xl border border-emerald-500/10 px-4 py-2.5 shadow-2xl backdrop-blur-xl transition-transform duration-500 hover:-translate-y-1"
+              <div
+                className="absolute bottom-2 left-4 flex items-center gap-3 rounded-2xl border border-emerald-500/10 px-4 py-2.5 shadow-2xl backdrop-blur-xl transition-transform duration-500 hover:-translate-y-1 sm:left-10 md:-bottom-4"
                 style={{ background: "var(--c-dark)" }}
               >
                 <div className="text-left">
                   <p className="text-[10px] font-bold uppercase tracking-wider text-emerald-500">
                     500+ bikes
                   </p>
-                  <p className="text-[9px] text-[var(--c-text-muted)]/70">scaling by 2030</p>
+                  <p className="text-[var(--c-text-muted)]/70 text-[9px]">scaling by 2030</p>
                 </div>
               </div>
             </div>

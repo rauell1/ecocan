@@ -59,7 +59,7 @@ export default function PartnersTestimonialsSection() {
   return (
     <section
       ref={sectionRef}
-      className="relative w-full overflow-hidden border-b border-white/5 bg-transparent py-[clamp(6rem,12vw,10rem)]"
+      className="relative w-full overflow-hidden border-b border-[var(--landing-divider)] bg-transparent py-[clamp(6rem,12vw,10rem)]"
     >
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(16,185,129,0.02),transparent_50%)]" />
 
@@ -86,16 +86,16 @@ export default function PartnersTestimonialsSection() {
           {Object.entries(partnersData).map(([category, names]) => (
             <div
               key={category}
-              className="flex flex-col gap-4 rounded-2xl border border-white/5 bg-[#0c100c]/30 p-6"
+              className="flex flex-col gap-4 rounded-2xl border border-[var(--landing-glass-border)] bg-[var(--landing-glass-bg)] p-6"
             >
-              <span className="border-b border-white/5 pb-2 font-mono text-[10px] font-bold uppercase tracking-widest text-emerald-400">
+              <span className="border-b border-[var(--landing-divider)] pb-2 font-mono text-[10px] font-bold uppercase tracking-widest text-emerald-400">
                 {category}
               </span>
               <div className="flex flex-col gap-2">
                 {names.map((name) => (
                   <span
                     key={name}
-                    className="py-1 text-sm font-semibold text-white/60 transition-colors duration-300 hover:text-white"
+                    className="py-1 text-sm font-semibold text-[var(--c-text-subtle)] transition-colors duration-300 hover:text-[var(--c-text)]"
                   >
                     {name}
                   </span>
@@ -108,7 +108,7 @@ export default function PartnersTestimonialsSection() {
         <div className="ec-reveal flex justify-center">
           <a
             href="/contact"
-            className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-8 py-3 text-xs font-bold uppercase tracking-wider text-white backdrop-blur-md transition-all duration-300 hover:border-emerald-500 hover:bg-emerald-500/10 hover:text-emerald-400"
+            className="inline-flex items-center gap-2 rounded-full border border-[var(--landing-pill-border)] bg-[var(--landing-pill-bg)] px-8 py-3 text-xs font-bold uppercase tracking-wider text-[var(--landing-pill-text)] backdrop-blur-md transition-all duration-300 hover:border-emerald-500 hover:bg-emerald-500/10 hover:text-emerald-400"
           >
             <Handshake size={14} />
             <span>Become a partner</span>
@@ -117,7 +117,7 @@ export default function PartnersTestimonialsSection() {
       </div>
 
       {/* Divider */}
-      <div className="ec-reveal mx-auto my-16 h-[1px] max-w-5xl bg-white/5 px-[clamp(1.25rem,4vw,3rem)]" />
+      <div className="ec-reveal mx-auto my-16 h-[1px] max-w-5xl bg-[var(--landing-divider)] px-[clamp(1.25rem,4vw,3rem)]" />
 
       {/* ── TESTIMONIALS (Three Voices) ── */}
       <div className="mx-auto max-w-7xl px-[clamp(1.25rem,4vw,3rem)]">
@@ -140,19 +140,19 @@ export default function PartnersTestimonialsSection() {
         <div className="mx-auto grid max-w-5xl gap-6 md:grid-cols-3">
           {testimonials.map((test, idx) => (
             <div key={idx} className="ec-reveal">
-              <SpotlightCard className="flex h-full flex-col justify-between rounded-3xl border-white/5 bg-[#0c100c]/30 p-8 transition-all duration-300 hover:border-emerald-500/20">
+              <SpotlightCard className="flex h-full flex-col justify-between rounded-3xl border-[var(--landing-glass-border)] bg-[var(--landing-glass-bg)] p-8 transition-all duration-300 hover:border-emerald-500/20">
                 <div>
                   <Quote size={32} className="mb-6 shrink-0 text-emerald-500/10" strokeWidth={1} />
-                  <blockquote className="font-serif-luxury mb-6 text-base font-light italic leading-relaxed tracking-tight text-white/90 md:text-lg">
+                  <blockquote className="font-serif-luxury mb-6 text-base font-light italic leading-relaxed tracking-tight text-[var(--c-text)] md:text-lg">
                     “{test.quote}”
                   </blockquote>
                 </div>
 
-                <div className="border-t border-white/5 pt-4">
+                <div className="border-t border-[var(--landing-divider)] pt-4">
                   <p className="text-xs font-bold uppercase tracking-wider text-emerald-400">
                     {test.author}
                   </p>
-                  <p className="font-serif-luxury mt-1 text-[11px] italic text-white/40">
+                  <p className="font-serif-luxury mt-1 text-[11px] italic text-[var(--c-text-muted)]">
                     {test.role}
                   </p>
                 </div>

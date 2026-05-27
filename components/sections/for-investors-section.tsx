@@ -53,7 +53,7 @@ export default function ForInvestorsSection() {
     <section
       id="investors"
       ref={sectionRef}
-      className="relative w-full overflow-hidden border-b border-white/5 bg-transparent py-[clamp(5rem,10vw,9rem)]"
+      className="relative w-full overflow-hidden border-b border-[var(--landing-divider)] bg-transparent py-[clamp(5rem,10vw,9rem)]"
     >
       <div className="absolute inset-0 z-0">
         <img
@@ -91,13 +91,13 @@ export default function ForInvestorsSection() {
           {investorCards.map((card, idx) => (
             <SpotlightCard
               key={idx}
-              className="flex items-center gap-4 rounded-2xl border-white/5 bg-[#050705]/60 p-6 transition-all duration-300 hover:border-emerald-500/20"
+              className="flex items-center gap-4 rounded-2xl border-[var(--landing-glass-border)] bg-[var(--landing-glass-bg)] p-6 transition-all duration-300 hover:border-emerald-500/20"
               spotlightColor="rgba(16,185,129,0.05)"
             >
               <span className="flex-shrink-0 select-none text-3xl saturate-100 filter">
                 {card.icon}
               </span>
-              <p className="font-sans text-sm font-medium leading-relaxed text-white/80">
+              <p className="font-sans text-sm font-medium leading-relaxed text-[var(--c-text-subtle)]">
                 {card.text}
               </p>
             </SpotlightCard>
@@ -110,7 +110,7 @@ export default function ForInvestorsSection() {
             <span className="mb-2 block font-mono text-[10px] font-bold uppercase tracking-widest text-emerald-400">
               Current Round status
             </span>
-            <p className="font-serif-luxury text-lg font-light text-[#f5f5f5] md:text-xl">
+            <p className="font-serif-luxury text-lg font-light text-[var(--c-text)] md:text-xl">
               Early-stage funding secured. Operations live.{" "}
               <span className="font-sans font-semibold text-emerald-400">Ready for Series A.</span>
             </p>
@@ -126,7 +126,7 @@ export default function ForInvestorsSection() {
             </a>
             <a
               href="#"
-              className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-6 py-3 text-xs font-bold uppercase tracking-wider text-white backdrop-blur-md transition-all duration-300 hover:border-emerald-500 hover:bg-emerald-500/10 hover:text-emerald-400"
+              className="inline-flex items-center gap-2 rounded-full border border-[var(--landing-pill-border)] bg-[var(--landing-pill-bg)] px-6 py-3 text-xs font-bold uppercase tracking-wider text-[var(--landing-pill-text)] backdrop-blur-md transition-all duration-300 hover:border-emerald-500 hover:bg-emerald-500/10 hover:text-emerald-400"
             >
               <PieChart size={14} />
               <span>Financials overview</span>
