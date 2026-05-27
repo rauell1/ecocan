@@ -7,6 +7,7 @@ import { ArrowDown } from "lucide-react"
 
 const LENIS_INIT_DELAY = 500
 const SCROLL_SCRUB = 1.2
+const PRELOAD_UPGRADE_DELAY_MS = 650
 const HERO_VIDEO_SOURCES = [
   {
     src: "/videos/circular-loop.mp4",
@@ -74,7 +75,7 @@ export default function HeroSection({ onTransitionComplete }: HeroSectionProps) 
       if (!saveData) {
         video.preload = "auto"
       }
-    }, 650)
+    }, PRELOAD_UPGRADE_DELAY_MS)
 
     if (!prefersReducedMotion) {
       attemptPlay()
@@ -238,7 +239,10 @@ export default function HeroSection({ onTransitionComplete }: HeroSectionProps) 
           onTimeUpdate={handleVideoPlay}
           onCanPlay={() => {
             if (!videoPlaying && !videoFailed) {
-              void videoRef.current?.play().catch(() => setVideoPlaying(false))
+              void videoRef.current?.play().catch(() => {
+                setVideoPlaying(false)
+                setVideoFailed(true)
+              })
             }
           }}
           onError={() => {
@@ -251,6 +255,7 @@ export default function HeroSection({ onTransitionComplete }: HeroSectionProps) 
             opacity: videoPlaying && !videoFailed ? 1 : 0,
           }}
         >
+          {/* Browser automatically falls back through this ordered source list when needed. */}
           {HERO_VIDEO_SOURCES.map((source) => (
             <source
               key={`${source.src}-${source.media ?? "default"}`}
