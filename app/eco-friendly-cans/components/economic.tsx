@@ -4,10 +4,18 @@ import Image from "next/image"
 import React from "react"
 
 const timelineData = {
-  title: <span className="font-serif-luxury text-luxury-gradient text-luxury-glow" style={{ fontSize: "clamp(1.75rem,4vw,2.5rem)", lineHeight: 1.1 }}>3. ECOnomic Efficiency &amp; Social Benefits</span>,
+  title: (
+    <span
+      className="font-serif-luxury text-luxury-gradient text-luxury-glow"
+      style={{ fontSize: "clamp(1.75rem,4vw,2.5rem)", lineHeight: 1.1 }}
+    >
+      3. ECOnomic Efficiency &amp; Social Benefits
+    </span>
+  ),
   subtitle: (
-    <p className="text-white/55 mt-2">
-      Let recycling work for Kenyan communities by turning ECOcans into reliable reward and awareness points
+    <p className="mt-2 text-[var(--c-text-muted)]">
+      Let recycling work for Kenyan communities by turning ECOcans into reliable reward and
+      awareness points
     </p>
   ),
   items: [
@@ -40,7 +48,10 @@ const timelineData = {
 
 export default function Economic() {
   return (
-    <div className="relative py-8 md:py-24" style={{ background: "#050705" }}>
+    <div
+      className="relative py-8 text-[var(--c-text)] md:py-24"
+      style={{ background: "var(--c-bg)" }}
+    >
       <div className="ec-divider mx-4 mb-16" />
       <Timeline
         className="bottom-[22.5%]"
@@ -50,7 +61,7 @@ export default function Economic() {
       />
       {timelineData.items.map((item, index) => (
         <div key={index} className="mx-4 md:hidden">
-          <div className="rounded-2xl overflow-hidden border border-white/5">
+          <div className="overflow-hidden rounded-2xl border border-[var(--c-border)]">
             <Image
               src={item.image}
               alt={item.title}
@@ -60,8 +71,10 @@ export default function Economic() {
             />
           </div>
           <div className="py-4">
-            <h3 className="mb-2 text-xl font-bold text-white">{item.title}</h3>
-            <p className="text-white/55 font-light leading-relaxed">{item.description}</p>
+            <h3 className="mb-2 text-xl font-bold text-[var(--c-text)]">{item.title}</h3>
+            <p className="font-light leading-relaxed text-[var(--c-text-muted)]">
+              {item.description}
+            </p>
           </div>
         </div>
       ))}

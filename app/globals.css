@@ -377,7 +377,7 @@ button,
 /* ── DIVIDER GRADIENT ────────────────────────────────────────────────────── */
 .ec-divider {
   height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  background: linear-gradient(90deg, transparent, rgba(0, 0, 0, 0.06), transparent);
   margin-block: 0;
 }
 
@@ -398,15 +398,15 @@ button,
 }
 
 .text-luxury-gradient {
-  background: linear-gradient(135deg, #ffffff 40%, rgba(255, 255, 255, 0.5) 100%);
+  background: linear-gradient(135deg, #0d120d 20%, rgba(13, 18, 13, 0.65) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
 .text-luxury-glow {
-  filter: drop-shadow(0 2px 24px rgba(34, 197, 94, 0.08))
-    drop-shadow(0 4px 60px rgba(255, 255, 255, 0.05));
+  filter: drop-shadow(0 2px 24px rgba(21, 128, 61, 0.05))
+    drop-shadow(0 4px 60px rgba(0, 0, 0, 0.02));
 }
 
 /* ── IMAGE LOAD FADE-IN ─────────────────────────────────────────────────── */
@@ -428,80 +428,50 @@ button,
 }
 
 .hero-overlay-gradient {
-  background: linear-gradient(to bottom, rgba(5, 7, 5, 0.2) 0%, rgba(5, 7, 5, 0.85) 100%);
+  background: linear-gradient(to bottom, rgba(245, 247, 245, 0.18) 0%, rgba(245, 247, 245, 0) 100%);
   pointer-events: none;
 }
 
 .hero-bottom-fade {
-  background: linear-gradient(to bottom, transparent 60%, var(--c-bg) 100%);
-  pointer-events: none;
+  display: none !important;
 }
 
-/* ── LIGHT THEME COMPONENT TWEAKS ───────────────────────────────────────── */
-[data-theme="light"] {
-  .text-luxury-gradient {
-    background: linear-gradient(135deg, #0d120d 20%, rgba(13, 18, 13, 0.65) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-
-  .text-luxury-glow {
-    filter: drop-shadow(0 2px 24px rgba(21, 128, 61, 0.05))
-      drop-shadow(0 4px 60px rgba(0, 0, 0, 0.02));
-  }
-
-  .hero-overlay-gradient {
-    background: linear-gradient(
-      to bottom,
-      rgba(245, 247, 245, 0.18) 0%,
-      rgba(245, 247, 245, 0) 100%
-    ) !important;
-  }
-
-  .hero-bottom-fade {
-    display: none !important;
-  }
-
-  .ec-divider {
-    background: linear-gradient(90deg, transparent, rgba(0, 0, 0, 0.06), transparent);
-  }
-
-  /* Make header links high contrast */
-  header {
-    a,
-    button {
-      color: rgba(13, 18, 13, 0.7);
-      &:hover {
-        color: #0d120d;
-      }
-    }
-  }
-
-  /* Force background styling on specific containers */
-  main {
-    background-color: #f5f7f5;
-  }
-
-  /* Ensure card structures look beautiful against light background */
-  .SpotlightCard {
-    background: #ffffff !important;
-    border-color: rgba(0, 0, 0, 0.06) !important;
+/* Make header links high contrast */
+header {
+  a,
+  button {
+    color: rgba(13, 18, 13, 0.7);
     &:hover {
-      border-color: rgba(21, 128, 61, 0.2) !important;
+      color: #0d120d;
     }
   }
+}
 
-  /* Form components */
-  input {
-    background: rgba(0, 0, 0, 0.03) !important;
-    border-color: rgba(0, 0, 0, 0.06) !important;
-    color: #0d120d !important;
-    &::placeholder {
-      color: rgba(0, 0, 0, 0.3) !important;
-    }
-    &:focus {
-      border-color: rgba(21, 128, 61, 0.4) !important;
-    }
+/* Force background styling on specific containers */
+main {
+  background-color: var(--c-bg);
+}
+
+/* Ensure card structures look beautiful against light background */
+.SpotlightCard {
+  background: #ffffff !important;
+  border-color: rgba(0, 0, 0, 0.06) !important;
+  &:hover {
+    border-color: rgba(21, 128, 61, 0.2) !important;
+  }
+}
+
+/* Form components */
+input,
+textarea,
+select {
+  background: rgba(0, 0, 0, 0.03) !important;
+  border-color: rgba(0, 0, 0, 0.06) !important;
+  color: #0d120d !important;
+  &::placeholder {
+    color: rgba(0, 0, 0, 0.3) !important;
+  }
+  &:focus {
+    border-color: rgba(21, 128, 61, 0.4) !important;
   }
 }

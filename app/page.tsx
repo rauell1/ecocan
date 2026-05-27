@@ -66,7 +66,7 @@ export default function Home() {
   }, [sections])
 
   return (
-    <div className="relative min-h-screen overflow-x-hidden" style={{ background: "#050705" }}>
+    <div className="relative min-h-screen overflow-x-hidden" style={{ background: "var(--c-bg)" }}>
       <HomeNavbar onMenuToggle={() => setIsMenuOpen(!isMenuOpen)} />
 
       <HeroSection onTransitionComplete={handleHeroComplete} />

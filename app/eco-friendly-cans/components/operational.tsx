@@ -75,7 +75,7 @@ export default function Operational() {
   }, [api])
 
   return (
-    <div className="relative py-16" style={{ background: "#050705" }}>
+    <div className="relative py-16" style={{ background: "var(--c-bg)" }}>
       <div className="relative z-10 mx-auto max-w-[72rem] px-4 py-8 lg:py-0 xl:px-0">
         <ImageAndItem
           className="lg:flex-row-reverse lg:gap-12"
@@ -99,8 +99,10 @@ export default function Operational() {
           }
           item={
             <TextWithCards
-              className="w-full"
-              title={<span className="text-4xl">1. Operational efficiency</span>}
+              className="w-full text-[var(--c-text)]"
+              title={
+                <span className="text-4xl text-[var(--c-text)]">1. Operational efficiency</span>
+              }
               description="Unlocking sustainability potential with small efficient steps, but with massive impact"
               customCard={
                 <>
@@ -114,12 +116,16 @@ export default function Operational() {
                     <CarouselContent className="mt-20 px-2 py-4 xl:mt-24">
                       {litterContent.map((item, index) => (
                         <CarouselItem key={index} className="md:basis-full">
-                          <Card className="h-full border border-white/5 bg-white/[0.03] rounded-2xl p-4 shadow-none">
-                            <div className="text-white/60">
+                          <Card className="h-full rounded-2xl border border-[var(--c-border)] bg-white p-4 shadow-none">
+                            <div className="text-[var(--c-text-muted)]">
                               {item.title && (
-                                <div className="text-xl font-semibold text-emerald-400 mb-2">{item.title}</div>
+                                <div className="mb-2 text-xl font-semibold text-[var(--c-green)]">
+                                  {item.title}
+                                </div>
                               )}
-                              <div className="text-base text-white/60 leading-relaxed">{item.description}</div>
+                              <div className="text-base leading-relaxed text-[var(--c-text-muted)]">
+                                {item.description}
+                              </div>
                             </div>
                           </Card>
                         </CarouselItem>

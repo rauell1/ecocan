@@ -10,7 +10,7 @@ import Economic from "./components/economic"
 
 export default function DrsTakeOver() {
   return (
-    <div className="relative min-h-screen overflow-x-hidden" style={{ background: "#050705" }}>
+    <div className="relative min-h-screen overflow-x-hidden" style={{ background: "var(--c-bg)" }}>
       <HomeNavbar onMenuToggle={() => {}} />
       <div className="space-y-0 pt-[3.275rem]">
         <Heading />

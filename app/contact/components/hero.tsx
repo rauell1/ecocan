@@ -38,128 +38,205 @@ export default function ContactPage() {
   useEffect(() => {
     let lenisInst: any = null
     import("lenis").then(({ default: Lenis }) => {
-      lenisInst = new Lenis({ duration: 1.2, easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), smoothWheel: true })
-      function raf(time: number) { if (lenisInst) { lenisInst.raf(time); requestAnimationFrame(raf) } }
+      lenisInst = new Lenis({
+        duration: 1.2,
+        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+        smoothWheel: true,
+      })
+      function raf(time: number) {
+        if (lenisInst) {
+          lenisInst.raf(time)
+          requestAnimationFrame(raf)
+        }
+      }
       requestAnimationFrame(raf)
     })
     const ctx = gsap.context(() => {
-      gsap.fromTo(".ct-reveal",
+      gsap.fromTo(
+        ".ct-reveal",
         { opacity: 0, y: 36, filter: "blur(8px)" },
-        { opacity: 1, y: 0, filter: "blur(0px)", duration: 1.1, stagger: 0.12, delay: 0.2, ease: "power3.out" }
+        {
+          opacity: 1,
+          y: 0,
+          filter: "blur(0px)",
+          duration: 1.1,
+          stagger: 0.12,
+          delay: 0.2,
+          ease: "power3.out",
+        }
       )
     }, wrapRef)
-    return () => { ctx.revert(); if (lenisInst) lenisInst.destroy() }
+    return () => {
+      ctx.revert()
+      if (lenisInst) lenisInst.destroy()
+    }
   }, [])
 
   function onSubmit(_values: FormData) {
     setIsSubmitting(true)
-    setTimeout(() => { setIsSubmitting(false); setIsSubmitted(true) }, 1200)
+    setTimeout(() => {
+      setIsSubmitting(false)
+      setIsSubmitted(true)
+    }, 1200)
   }
 
   return (
-    <div className="relative min-h-screen flex flex-col text-[#f5f5f5]" style={{ background: "#050705" }}>
+    <div
+      className="relative flex min-h-screen flex-col text-[var(--c-text)]"
+      style={{ background: "var(--c-bg)" }}
+    >
       <HomeNavbar onMenuToggle={() => {}} />
 
       {/* Ambient glow */}
-      <div className="pointer-events-none absolute inset-x-0 top-0 h-[600px]" style={{ background: "radial-gradient(ellipse at 50% 0%, rgba(34,197,94,0.08) 0%, transparent 65%)" }} />
+      <div
+        className="pointer-events-none absolute inset-x-0 top-0 h-[600px]"
+        style={{
+          background:
+            "radial-gradient(ellipse at 50% 0%, rgba(34,197,94,0.06) 0%, transparent 65%)",
+        }}
+      />
 
-      <main ref={wrapRef} className="relative z-10 flex-grow pt-32 pb-24 px-[clamp(1rem,4vw,3rem)] max-w-6xl mx-auto w-full">
-
+      <main
+        ref={wrapRef}
+        className="relative z-10 mx-auto w-full max-w-6xl flex-grow px-[clamp(1rem,4vw,3rem)] pb-24 pt-32"
+      >
         {/* Hero text */}
         <section className="mb-20">
-          <p className="ct-reveal section-overline text-emerald-400">Get in touch</p>
+          <p className="ct-reveal section-overline text-[var(--c-green)]">Get in touch</p>
           <h1
             className="ct-reveal font-serif-luxury text-luxury-gradient text-luxury-glow mb-6"
-            style={{ fontSize: "clamp(2.75rem, 6.5vw, 5rem)", lineHeight: 0.98, letterSpacing: "-0.03em" }}
+            style={{
+              fontSize: "clamp(2.75rem, 6.5vw, 5rem)",
+              lineHeight: 0.98,
+              letterSpacing: "-0.03em",
+            }}
           >
             Contact us.
           </h1>
-          <p className="ct-reveal max-w-xl text-[16px] leading-relaxed text-white/60">
-            Need help with bottle returns, ECO-Station locations, or suspected counterfeit drinks? We&apos;re here for consumers first.
+          <p className="ct-reveal max-w-xl text-[16px] leading-relaxed text-[var(--c-text-muted)]">
+            Need help with bottle returns, ECO-Station locations, or suspected counterfeit drinks?
+            We&apos;re here for consumers first.
           </p>
         </section>
 
         {/* Two-column layout: info + form */}
-        <section className="grid gap-12 lg:grid-cols-12 items-start">
-
+        <section className="grid items-start gap-12 lg:grid-cols-12">
           {/* Contact info cards */}
-          <div className="lg:col-span-4 space-y-4">
+          <div className="space-y-4 lg:col-span-4">
             {contactInfo.map(({ icon: Icon, label, sub }) => (
               <div
                 key={label}
-                className="ct-reveal flex items-start gap-4 rounded-2xl border border-white/5 bg-white/[0.03] p-5 hover:border-emerald-500/20 transition-all duration-300"
+                className="ct-reveal hover:border-[var(--c-green)]/20 flex items-start gap-4 rounded-2xl border border-[var(--c-border)] bg-[var(--c-surface)] p-5 transition-all duration-300"
               >
-                <div className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-emerald-500/10 text-emerald-400">
+                <div className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-[var(--c-green-dim)] text-[var(--c-green)]">
                   <Icon size={16} strokeWidth={1.75} />
                 </div>
                 <div>
-                  <p className="text-sm font-semibold text-white">{label}</p>
-                  <p className="text-xs text-white/45 mt-0.5 leading-relaxed">{sub}</p>
+                  <p className="text-sm font-semibold text-[var(--c-text)]">{label}</p>
+                  <p className="mt-0.5 text-xs leading-relaxed text-[var(--c-text-muted)]">{sub}</p>
                 </div>
               </div>
             ))}
 
             {/* Trust stat */}
             <div
-              className="ct-reveal rounded-2xl p-6 mt-4"
-              style={{ background: "linear-gradient(135deg, rgba(34,197,94,0.08), transparent)", border: "1px solid rgba(34,197,94,0.15)" }}
+              className="ct-reveal mt-4 rounded-2xl p-6"
+              style={{
+                background: "linear-gradient(135deg, rgba(34,197,94,0.06), transparent)",
+                border: "1px solid rgba(34,197,94,0.12)",
+              }}
             >
-              <p className="font-serif-luxury text-4xl text-white mb-1" style={{ letterSpacing: "-0.02em" }}>54,200+</p>
-              <p className="text-xs font-semibold uppercase tracking-widest text-emerald-400">Active users in Kenya</p>
-              <p className="text-xs text-white/40 mt-1">Consumer-first recycling platform</p>
+              <p
+                className="font-serif-luxury mb-1 text-4xl text-[var(--c-text)]"
+                style={{ letterSpacing: "-0.02em" }}
+              >
+                54,200+
+              </p>
+              <p className="text-xs font-semibold uppercase tracking-widest text-[var(--c-green)]">
+                Active users in Kenya
+              </p>
+              <p className="mt-1 text-xs text-[var(--c-text-muted)]">
+                Consumer-first recycling platform
+              </p>
             </div>
           </div>
 
           {/* Contact form */}
-          <div className="lg:col-span-8 ct-reveal">
+          <div className="ct-reveal lg:col-span-8">
             <div
-              className="relative overflow-hidden rounded-3xl border border-white/10 bg-[#090d09]/45 p-8 md:p-10 backdrop-blur-xl shadow-2xl"
-              style={{ boxShadow: "0 25px 50px -12px rgba(0,0,0,0.5), inset 0 1px 1px rgba(255,255,255,0.05)" }}
+              className="relative overflow-hidden rounded-3xl border border-[var(--c-border)] bg-white/80 p-8 shadow-2xl backdrop-blur-xl md:p-10"
+              style={{
+                boxShadow:
+                  "0 25px 50px -12px rgba(13,18,13,0.05), inset 0 1px 1px rgba(255,255,255,0.6)",
+              }}
             >
-              <div className="absolute right-0 top-0 -mr-20 -mt-20 h-48 w-48 rounded-full bg-emerald-500/10 blur-3xl pointer-events-none" />
+              <div className="pointer-events-none absolute right-0 top-0 -mr-20 -mt-20 h-48 w-48 rounded-full bg-emerald-500/10 blur-3xl" />
 
               {!isSubmitted ? (
                 <form onSubmit={form.handleSubmit(onSubmit)} className="relative z-10 space-y-6">
                   <div>
-                    <h2 className="text-xl font-serif-luxury text-white mb-1">Leave us a message</h2>
-                    <p className="text-xs text-white/50">We typically respond within 24 hours.</p>
+                    <h2 className="font-serif-luxury mb-1 text-xl text-[var(--c-text)]">
+                      Leave us a message
+                    </h2>
+                    <p className="text-xs text-[var(--c-text-muted)]">
+                      We typically respond within 24 hours.
+                    </p>
                   </div>
 
                   <div className="grid gap-4 sm:grid-cols-2">
                     <div className="space-y-1.5">
-                      <label htmlFor="businessName" className="text-[11px] font-bold uppercase tracking-wider text-white/60">Full Name</label>
+                      <label
+                        htmlFor="businessName"
+                        className="text-[11px] font-bold uppercase tracking-wider text-[var(--c-text-muted)]"
+                      >
+                        Full Name
+                      </label>
                       <input
                         id="businessName"
                         type="text"
                         placeholder="Your name or business"
                         {...form.register("businessName")}
-                        className="w-full rounded-xl bg-white/5 border border-white/10 px-4 py-3 text-sm placeholder-white/20 focus:outline-none focus:border-emerald-500/50 focus:ring-1 focus:ring-emerald-500/35 transition-colors"
+                        className="placeholder-[var(--c-text-muted)]/30 focus:border-[var(--c-green)]/50 focus:ring-[var(--c-green)]/35 w-full rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] px-4 py-3 text-sm text-[var(--c-text)] transition-colors focus:outline-none focus:ring-1"
                       />
                       {form.formState.errors.businessName && (
-                        <p className="text-xs text-red-400">{form.formState.errors.businessName.message}</p>
+                        <p className="text-xs text-red-500">
+                          {form.formState.errors.businessName.message}
+                        </p>
                       )}
                     </div>
                     <div className="space-y-1.5">
-                      <label htmlFor="email" className="text-[11px] font-bold uppercase tracking-wider text-white/60">Email Address</label>
+                      <label
+                        htmlFor="email"
+                        className="text-[11px] font-bold uppercase tracking-wider text-[var(--c-text-muted)]"
+                      >
+                        Email Address
+                      </label>
                       <input
                         id="email"
                         type="email"
                         placeholder="you@email.com"
                         {...form.register("email")}
-                        className="w-full rounded-xl bg-white/5 border border-white/10 px-4 py-3 text-sm placeholder-white/20 focus:outline-none focus:border-emerald-500/50 focus:ring-1 focus:ring-emerald-500/35 transition-colors"
+                        className="placeholder-[var(--c-text-muted)]/30 focus:border-[var(--c-green)]/50 focus:ring-[var(--c-green)]/35 w-full rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] px-4 py-3 text-sm text-[var(--c-text)] transition-colors focus:outline-none focus:ring-1"
                       />
                       {form.formState.errors.email && (
-                        <p className="text-xs text-red-400">{form.formState.errors.email.message}</p>
+                        <p className="text-xs text-red-500">
+                          {form.formState.errors.email.message}
+                        </p>
                       )}
                     </div>
                   </div>
 
                   <div className="space-y-1.5">
-                    <label htmlFor="contact" className="text-[11px] font-bold uppercase tracking-wider text-white/60">Phone Number</label>
+                    <label
+                      htmlFor="contact"
+                      className="text-[11px] font-bold uppercase tracking-wider text-[var(--c-text-muted)]"
+                    >
+                      Phone Number
+                    </label>
                     <div className="flex gap-2">
                       <select
-                        className="rounded-xl bg-white/5 border border-white/10 px-3 py-3 text-sm text-white/70 focus:outline-none focus:border-emerald-500/50 transition-colors"
-                        style={{ colorScheme: "dark" }}
+                        className="focus:border-[var(--c-green)]/50 rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] px-3 py-3 text-sm text-[var(--c-text-muted)] transition-colors focus:outline-none"
+                        style={{ colorScheme: "light" }}
                         defaultValue="+254"
                       >
                         <option>+254</option>
@@ -172,48 +249,63 @@ export default function ContactPage() {
                         type="tel"
                         placeholder="Mobile number"
                         {...form.register("contact")}
-                        className="flex-1 rounded-xl bg-white/5 border border-white/10 px-4 py-3 text-sm placeholder-white/20 focus:outline-none focus:border-emerald-500/50 focus:ring-1 focus:ring-emerald-500/35 transition-colors"
+                        className="placeholder-[var(--c-text-muted)]/30 focus:border-[var(--c-green)]/50 focus:ring-[var(--c-green)]/35 flex-1 rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] px-4 py-3 text-sm text-[var(--c-text)] transition-colors focus:outline-none focus:ring-1"
                       />
                     </div>
                     {form.formState.errors.contact && (
-                      <p className="text-xs text-red-400">{form.formState.errors.contact.message}</p>
+                      <p className="text-xs text-red-500">
+                        {form.formState.errors.contact.message}
+                      </p>
                     )}
                   </div>
 
                   <div className="space-y-1.5">
-                    <label htmlFor="message" className="text-[11px] font-bold uppercase tracking-wider text-white/60">Message</label>
+                    <label
+                      htmlFor="message"
+                      className="text-[11px] font-bold uppercase tracking-wider text-[var(--c-text-muted)]"
+                    >
+                      Message
+                    </label>
                     <textarea
                       id="message"
                       rows={4}
                       placeholder="Tell us how we can help..."
                       {...form.register("message")}
-                      className="w-full rounded-xl bg-white/5 border border-white/10 px-4 py-3 text-sm placeholder-white/20 focus:outline-none focus:border-emerald-500/50 focus:ring-1 focus:ring-emerald-500/35 transition-colors resize-none"
+                      className="placeholder-[var(--c-text-muted)]/30 focus:border-[var(--c-green)]/50 focus:ring-[var(--c-green)]/35 w-full resize-none rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] px-4 py-3 text-sm text-[var(--c-text)] transition-colors focus:outline-none focus:ring-1"
                     />
                     {form.formState.errors.message && (
-                      <p className="text-xs text-red-400">{form.formState.errors.message.message}</p>
+                      <p className="text-xs text-red-500">
+                        {form.formState.errors.message.message}
+                      </p>
                     )}
                   </div>
 
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full rounded-full bg-emerald-500 hover:bg-emerald-400 disabled:bg-emerald-600/50 text-[#050705] font-bold text-xs uppercase tracking-[0.15em] py-4 transition duration-300 flex items-center justify-center gap-2 hover:shadow-[0_0_24px_rgba(16,185,129,0.3)]"
+                    className="disabled:bg-[var(--c-green)]/50 flex w-full items-center justify-center gap-2 rounded-full bg-[var(--c-green)] py-4 text-xs font-bold uppercase tracking-[0.15em] text-white transition duration-300 hover:bg-[var(--c-green-light)] hover:shadow-[0_0_24px_rgba(21,128,61,0.25)]"
                   >
                     {isSubmitting ? (
-                      <><div className="h-4 w-4 border-2 border-[#050705] border-t-transparent rounded-full animate-spin" /> Processing...</>
+                      <>
+                        <div className="h-4 w-4 animate-spin rounded-full border-2 border-white border-t-transparent" />{" "}
+                        Processing...
+                      </>
                     ) : (
-                      <>Send Message <ArrowRight size={14} strokeWidth={2.5} /></>
+                      <>
+                        Send Message <ArrowRight size={14} strokeWidth={2.5} />
+                      </>
                     )}
                   </button>
                 </form>
               ) : (
-                <div className="relative z-10 flex flex-col items-center text-center py-10 space-y-4">
-                  <div className="h-16 w-16 bg-emerald-500/20 text-emerald-400 rounded-full flex items-center justify-center">
+                <div className="relative z-10 flex flex-col items-center space-y-4 py-10 text-center">
+                  <div className="flex h-16 w-16 items-center justify-center rounded-full bg-[var(--c-green-dim)] text-[var(--c-green)]">
                     <CheckCircle2 size={36} strokeWidth={1.5} />
                   </div>
-                  <h3 className="text-2xl font-serif-luxury text-white">Message Sent</h3>
-                  <p className="text-sm text-white/60 max-w-md leading-relaxed">
-                    Thanks for reaching out! Our team will get back to you within 24 hours at <span className="text-emerald-400">{form.getValues("email")}</span>.
+                  <h3 className="font-serif-luxury text-2xl text-[var(--c-text)]">Message Sent</h3>
+                  <p className="max-w-md text-sm leading-relaxed text-[var(--c-text-muted)]">
+                    Thanks for reaching out! Our team will get back to you within 24 hours at{" "}
+                    <span className="text-[var(--c-green)]">{form.getValues("email")}</span>.
                   </p>
                 </div>
               )}

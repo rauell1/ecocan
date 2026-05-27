@@ -1,9 +1,8 @@
 "use client"
 
 import { useEffect, useState } from "react"
-import Image from "next/image"
 import Link from "next/link"
-import { Menu, X, Sun, Moon } from "lucide-react"
+import { Menu, X } from "lucide-react"
 
 interface HomeNavbarProps {
   onMenuToggle: () => void
@@ -23,25 +22,12 @@ export default function HomeNavbar({ onMenuToggle }: HomeNavbarProps) {
   const [scrolled, setScrolled] = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false)
   const [activeSection, setActiveSection] = useState("")
-  const [theme, setTheme] = useState<"dark" | "light">("dark")
 
   useEffect(() => {
-    // Determine initial theme on client mount
-    const savedTheme = localStorage.getItem("theme") as "dark" | "light" | null
-    if (savedTheme) {
-      setTheme(savedTheme)
-      document.documentElement.setAttribute("data-theme", savedTheme)
-    } else {
-      document.documentElement.setAttribute("data-theme", "dark")
-    }
+    // Force Light theme on client mount
+    document.documentElement.setAttribute("data-theme", "light")
+    localStorage.setItem("theme", "light")
   }, [])
-
-  const toggleTheme = () => {
-    const nextTheme = theme === "dark" ? "light" : "dark"
-    setTheme(nextTheme)
-    document.documentElement.setAttribute("data-theme", nextTheme)
-    localStorage.setItem("theme", nextTheme)
-  }
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24)
@@ -107,15 +93,15 @@ export default function HomeNavbar({ onMenuToggle }: HomeNavbarProps) {
     <header
       className="fixed left-0 right-0 top-0 z-[100] transition-all duration-500"
       style={{
-        background: scrolled ? "rgba(5,7,5,0.85)" : "transparent",
+        background: scrolled ? "rgba(245, 247, 245, 0.85)" : "transparent",
         backdropFilter: scrolled ? "blur(20px)" : "none",
         WebkitBackdropFilter: scrolled ? "blur(20px)" : "none",
-        borderBottom: scrolled ? "1px solid rgba(255,255,255,0.08)" : "none",
+        borderBottom: scrolled ? "1px solid rgba(13, 18, 13, 0.08)" : "none",
       }}
     >
       <div className="grid grid-cols-[auto_1fr_auto] items-center px-6 py-4 md:px-10">
         <Link href="/" className="flex shrink-0 items-center">
-          <span className="font-serif-luxury mr-2 text-xl font-bold tracking-wider text-white">
+          <span className="font-serif-luxury mr-2 text-xl font-bold tracking-wider text-[var(--c-text)]">
             ECOCAN
           </span>
         </Link>
@@ -129,7 +115,7 @@ export default function HomeNavbar({ onMenuToggle }: HomeNavbarProps) {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className="relative py-2 text-[14px] font-medium tracking-wide text-white/60 transition-all duration-300 hover:text-white"
+                  className="relative py-2 text-[14px] font-medium tracking-wide text-[var(--c-text-muted)] transition-all duration-300 hover:text-[var(--c-text)]"
                 >
                   {link.label}
                 </Link>
@@ -142,12 +128,14 @@ export default function HomeNavbar({ onMenuToggle }: HomeNavbarProps) {
                 href={link.href}
                 onClick={(e) => handleSection(e, link.href, false)}
                 className={`relative py-2 text-[14px] font-medium tracking-wide transition-all duration-300 ${
-                  isActive ? "text-emerald-400" : "text-white/60 hover:text-white"
+                  isActive
+                    ? "text-[var(--c-green)]"
+                    : "text-[var(--c-text-muted)] hover:text-[var(--c-text)]"
                 }`}
               >
                 {link.label}
                 {isActive && (
-                  <span className="absolute bottom-[-2px] left-0 right-0 h-[1.5px] rounded-full bg-emerald-400" />
+                  <span className="absolute bottom-[-2px] left-0 right-0 h-[1.5px] rounded-full bg-[var(--c-green)]" />
                 )}
               </a>
             )
@@ -155,25 +143,16 @@ export default function HomeNavbar({ onMenuToggle }: HomeNavbarProps) {
         </nav>
 
         <div className="ml-auto flex items-center gap-3">
-          {/* Theme Toggle Button */}
-          <button
-            onClick={toggleTheme}
-            aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}
-            className="rounded-full border border-white/10 bg-white/5 p-2.5 text-white/70 backdrop-blur-md transition-all duration-300 hover:border-emerald-500/20 hover:bg-emerald-500/10 hover:text-emerald-400"
-          >
-            {theme === "dark" ? <Sun size={15} /> : <Moon size={15} />}
-          </button>
-
           <Link
             href="/download"
-            className="hidden rounded-full border border-white/10 bg-white/5 px-6 py-2 text-[13px] font-medium text-white backdrop-blur-md transition-all duration-300 hover:border-emerald-500/20 hover:bg-emerald-500/10 hover:text-emerald-400 md:flex"
+            className="hover:border-[var(--c-green)]/20 hover:bg-[var(--c-green)]/10 hidden rounded-full border border-[var(--c-border-dark)] bg-[var(--c-surface)] px-6 py-2 text-[13px] font-medium text-[var(--c-text)] backdrop-blur-md transition-all duration-300 hover:text-[var(--c-green)] md:flex"
           >
             Download App
           </Link>
           <button
             onClick={toggleMobile}
             aria-label={mobileOpen ? "Close menu" : "Open menu"}
-            className="rounded-lg p-2.5 text-white/70 hover:bg-white/10 hover:text-white lg:hidden"
+            className="rounded-lg p-2.5 text-[var(--c-text-muted)] hover:bg-[var(--c-surface)] hover:text-[var(--c-text)] lg:hidden"
           >
             {mobileOpen ? <X size={20} /> : <Menu size={20} />}
           </button>
@@ -181,7 +160,7 @@ export default function HomeNavbar({ onMenuToggle }: HomeNavbarProps) {
       </div>
 
       {mobileOpen && (
-        <div className="border-t border-white/10 bg-black/95 px-6 pb-8 pt-4 backdrop-blur-2xl lg:hidden">
+        <div className="bg-[var(--c-bg)]/95 border-t border-[var(--c-border)] px-6 pb-8 pt-4 backdrop-blur-2xl lg:hidden">
           <nav className="flex flex-col gap-2">
             {navLinks.map((link) => {
               const isActive = !link.isPage && activeSection === link.href.slice(1)
@@ -192,7 +171,7 @@ export default function HomeNavbar({ onMenuToggle }: HomeNavbarProps) {
                     key={link.href}
                     href={link.href}
                     onClick={() => setMobileOpen(false)}
-                    className="relative rounded-xl px-4 py-3.5 text-sm font-semibold text-white/70 transition-all duration-300 hover:bg-white/5 hover:text-white"
+                    className="relative rounded-xl px-4 py-3.5 text-sm font-semibold text-[var(--c-text-muted)] transition-all duration-300 hover:bg-[var(--c-surface)] hover:text-[var(--c-text)]"
                   >
                     {link.label}
                   </Link>
@@ -206,8 +185,8 @@ export default function HomeNavbar({ onMenuToggle }: HomeNavbarProps) {
                   onClick={(e) => handleSection(e, link.href, false)}
                   className={`relative rounded-xl px-4 py-3.5 text-sm font-semibold transition-all duration-300 ${
                     isActive
-                      ? "border-l-2 border-emerald-400 bg-emerald-500/10 text-emerald-400"
-                      : "text-white/70 hover:bg-white/5 hover:text-white"
+                      ? "border-l-2 border-[var(--c-green)] bg-[var(--c-green-dim)] text-[var(--c-green)]"
+                      : "text-[var(--c-text-muted)] hover:bg-[var(--c-surface)] hover:text-[var(--c-text)]"
                   }`}
                 >
                   {link.label}
