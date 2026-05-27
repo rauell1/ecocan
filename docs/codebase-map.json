@@ -1,14 +1,17 @@
 {
   "meta": {
-    "version": "b91212e",
-    "generatedAt": "2026-05-27T01:46:31.072Z",
-    "branch": "copilot/fix-hero-video-autoplay",
-    "previousVersion": "3aac135",
+    "version": "6a4b006",
+    "generatedAt": "2026-05-27T01:51:04.014Z",
+    "branch": "main",
+    "previousVersion": "b91212e",
     "generator": "scripts/generate-codebase-map.mjs",
     "framework": "Next.js 14",
     "packageManager": "pnpm"
   },
-  "changes": ["Modified: components/sections/hero-section.tsx"],
+  "changes": [
+    "Modified: app/page.tsx",
+    "Modified: components/sections/hero-section.tsx"
+  ],
   "affectedHotspots": [],
   "routes": [
     {
@@ -378,16 +381,13 @@
   },
   "changelog": [
     {
-      "version": "bed5c72",
-      "date": "2026-05-20T16:44:35.671Z",
-      "branch": "main",
-      "changes": ["Modified: components/sections/partners-testimonials-section.tsx"]
-    },
-    {
       "version": "31ae53b",
       "date": "2026-05-20T16:49:35.009Z",
       "branch": "main",
-      "changes": ["Modified: app/page.tsx", "Modified: components/sections/hero-section.tsx"]
+      "changes": [
+        "Modified: app/page.tsx",
+        "Modified: components/sections/hero-section.tsx"
+      ]
     },
     {
       "version": "d3b6d8f",
@@ -434,7 +434,9 @@
       "version": "e7fc65a",
       "date": "2026-05-21T17:04:22.197Z",
       "branch": "main",
-      "changes": ["Modified: package.json"]
+      "changes": [
+        "Modified: package.json"
+      ]
     },
     {
       "version": "422e74a",
@@ -471,19 +473,25 @@
       "version": "9e7ec1c",
       "date": "2026-05-21T18:31:55.104Z",
       "branch": "main",
-      "changes": ["Modified: components/sections/hero-section.tsx"]
+      "changes": [
+        "Modified: components/sections/hero-section.tsx"
+      ]
     },
     {
       "version": "3479f58",
       "date": "2026-05-21T18:46:52.019Z",
       "branch": "main",
-      "changes": ["Modified: components/sections/hero-section.tsx"]
+      "changes": [
+        "Modified: components/sections/hero-section.tsx"
+      ]
     },
     {
       "version": "7cb679b",
       "date": "2026-05-21T18:53:47.770Z",
       "branch": "main",
-      "changes": ["Full map regeneration"]
+      "changes": [
+        "Full map regeneration"
+      ]
     },
     {
       "version": "d63d317",
@@ -501,13 +509,17 @@
       "version": "a16475c",
       "date": "2026-05-21T20:02:36.281Z",
       "branch": "main",
-      "changes": ["Full map regeneration"]
+      "changes": [
+        "Full map regeneration"
+      ]
     },
     {
       "version": "c0a5a66",
       "date": "2026-05-23T08:44:48.522Z",
       "branch": "main",
-      "changes": ["Full map regeneration"]
+      "changes": [
+        "Full map regeneration"
+      ]
     },
     {
       "version": "69c7793",
@@ -598,13 +610,27 @@
       "version": "3aac135",
       "date": "2026-05-27T01:45:26.128Z",
       "branch": "copilot/fix-hero-video-autoplay",
-      "changes": ["Modified: app/page.tsx", "Modified: components/sections/hero-section.tsx"]
+      "changes": [
+        "Modified: app/page.tsx",
+        "Modified: components/sections/hero-section.tsx"
+      ]
     },
     {
       "version": "b91212e",
       "date": "2026-05-27T01:46:31.072Z",
       "branch": "copilot/fix-hero-video-autoplay",
-      "changes": ["Modified: components/sections/hero-section.tsx"]
+      "changes": [
+        "Modified: components/sections/hero-section.tsx"
+      ]
+    },
+    {
+      "version": "6a4b006",
+      "date": "2026-05-27T01:51:04.014Z",
+      "branch": "main",
+      "changes": [
+        "Modified: app/page.tsx",
+        "Modified: components/sections/hero-section.tsx"
+      ]
     }
   ]
 }
