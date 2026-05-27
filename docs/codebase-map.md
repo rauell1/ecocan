@@ -5,15 +5,26 @@
 
 # 🗺️ EcoCan Codebase Map
 
-> **Version:** `076e9e6`
-> **Generated:** 2026-05-27T08:46:08.013Z
+> **Version:** `d977c7b`
+> **Generated:** 2026-05-27T09:10:34.519Z
 > **Branch:** `main`
-> **Previous:** `4fb13f9`
+> **Previous:** `076e9e6`
 
 ## Changes Since Last Version
 
-- Modified: components/sections/hero-section.tsx
-- Modified: components/sections/home-footer.tsx
+- Modified: app/contact/components/hero.tsx
+- Modified: app/design-tokens.css
+- Modified: app/eco-friendly-cans/components/economic.tsx
+- Modified: app/eco-friendly-cans/components/heading.tsx
+- Modified: app/eco-friendly-cans/components/operational.tsx
+- Modified: app/eco-friendly-cans/page.tsx
+- Modified: app/ecocan-market/page.tsx
+- Modified: app/globals.css
+- Modified: app/investors/page.tsx
+- Modified: app/news/page.tsx
+- Modified: app/page.tsx
+- Modified: app/solutions/[section]/page.tsx
+- Modified: app/solutions/sections/solutions-content.tsx
 - Modified: components/sections/home-navbar.tsx
 
 ---
@@ -61,6 +72,7 @@
 
 | Version | Date | Branch | Changes |
 |---|---|---|---|
+| `d977c7b` | 2026-05-27 | main | Modified: app/contact/components/hero.tsx; Modified: app/design-tokens.css; Modified: app/eco-friendly-cans/components/economic.tsx; Modified: app/eco-friendly-cans/components/heading.tsx; Modified: app/eco-friendly-cans/components/operational.tsx; Modified: app/eco-friendly-cans/page.tsx; Modified: app/ecocan-market/page.tsx; Modified: app/globals.css; Modified: app/investors/page.tsx; Modified: app/news/page.tsx; Modified: app/page.tsx; Modified: app/solutions/[section]/page.tsx; Modified: app/solutions/sections/solutions-content.tsx; Modified: components/sections/home-navbar.tsx |
 | `076e9e6` | 2026-05-27 | main | Modified: components/sections/hero-section.tsx; Modified: components/sections/home-footer.tsx; Modified: components/sections/home-navbar.tsx |
 | `4fb13f9` | 2026-05-27 | HEAD | Modified: components/sections/hero-section.tsx; Modified: components/sections/home-footer.tsx; Modified: components/sections/home-navbar.tsx |
 | `6f0e96d` | 2026-05-27 | main | Modified: app/design-tokens.css; Modified: components/sections/anti-counterfeit-section.tsx; Modified: components/sections/app-showcase-section.tsx; Modified: components/sections/call-to-action-section.tsx; Modified: components/sections/ecommunity-roles-section.tsx; Modified: components/sections/for-investors-section.tsx; Modified: components/sections/how-it-works-section.tsx; Modified: components/sections/problem-solution-section.tsx; Modified: components/sections/sustainability-impact-section.tsx |
@@ -80,7 +92,6 @@
 | `69c7793` | 2026-05-26 | main | Modified: app/about-us/page.tsx; Modified: app/page.tsx; Modified: components/sections/call-to-action-section.tsx; Modified: components/sections/ecocan-model-section.tsx; Modified: components/sections/electric-mobility-section.tsx; Modified: components/sections/faq-section.tsx; Modified: components/sections/for-investors-section.tsx; Modified: components/sections/hero-section.tsx; Modified: components/sections/home-footer.tsx; Modified: components/sections/home-navbar.tsx; Modified: components/sections/how-it-works-section.tsx; Modified: components/sections/partners-testimonials-section.tsx |
 | `c0a5a66` | 2026-05-23 | main | Full map regeneration |
 | `a16475c` | 2026-05-21 | main | Full map regeneration |
-| `d63d317` | 2026-05-21 | main | Modified: app/globals.css; Added: app/investors/layout.tsx; Added: app/investors/page.tsx; Modified: components/sections/for-investors-section.tsx; Modified: components/sections/hero-section.tsx |
 
 ---
 
