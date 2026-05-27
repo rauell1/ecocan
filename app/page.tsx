@@ -5,7 +5,6 @@ import { useEffect, useState, useCallback, useMemo } from "react"
 import HomeNavbar from "@/components/sections/home-navbar"
 import HeroSection from "@/components/sections/hero-section"
 import HowItWorksSection from "@/components/sections/how-it-works-section"
-import EcocanModelSection from "@/components/sections/ecocan-model-section"
 import ElectricMobilitySection from "@/components/sections/electric-mobility-section"
 import ForInvestorsSection from "@/components/sections/for-investors-section"
 import PartnersTestimonialsSection from "@/components/sections/partners-testimonials-section"
@@ -13,28 +12,13 @@ import CallToActionSection from "@/components/sections/call-to-action-section"
 import FAQSection from "@/components/sections/faq-section"
 import HomeFooter from "@/components/sections/home-footer"
 
-/**
- * Temporary rollout toggle:
- * The secondary "scroll-out magnification" experience is the Ecocan model section
- * directly below "How it works". It relies on GSAP ScrollTrigger entrance effects
- * plus SpotlightCard hover magnification. Keep this `false` for uniform scrolling.
- * Set to `true` to re-enable the section in normal page flow.
- */
-const ENABLE_SECOND_SCROLL_MAGNIFICATION_SECTION = false
-
 export default function Home() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
   const handleHeroComplete = useCallback(() => {}, [])
 
   const sections = useMemo(
-    () => [
-      { id: "how-it-works" },
-      ...(ENABLE_SECOND_SCROLL_MAGNIFICATION_SECTION ? [{ id: "ecocan-model" }] : []),
-      { id: "electric-mobility" },
-      { id: "investors" },
-      { id: "faq" },
-    ],
+    () => [{ id: "how-it-works" }, { id: "electric-mobility" }, { id: "investors" }, { id: "faq" }],
     []
   )
 
@@ -93,34 +77,27 @@ export default function Home() {
           <HowItWorksSection />
         </div>
 
-        {/* 2. Optional secondary scroll-out magnification section (feature-flagged above). */}
-        {ENABLE_SECOND_SCROLL_MAGNIFICATION_SECTION ? (
-          <div id="ecocan-model" className="ps-reveal">
-            <EcocanModelSection />
-          </div>
-        ) : null}
-
-        {/* 3. The Electric Mobility Angle */}
+        {/* 2. The Electric Mobility Angle */}
         <div id="electric-mobility" className="ps-reveal">
           <ElectricMobilitySection />
         </div>
 
-        {/* 4. For Investors */}
+        {/* 3. For Investors */}
         <div id="investors" className="ps-reveal">
           <ForInvestorsSection />
         </div>
 
-        {/* 5. Partners & Testimonials */}
+        {/* 4. Partners & Testimonials */}
         <div id="stories" className="ps-reveal">
           <PartnersTestimonialsSection />
         </div>
 
-        {/* 6. CTA */}
+        {/* 5. CTA */}
         <div id="cta" className="ps-reveal">
           <CallToActionSection />
         </div>
 
-        {/* 7. FAQ */}
+        {/* 6. FAQ */}
         <div id="faq" className="ps-reveal">
           <FAQSection />
         </div>

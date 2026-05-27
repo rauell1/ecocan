@@ -235,7 +235,6 @@ export default function HeroSection({ onTransitionComplete }: HeroSectionProps) 
           muted
           playsInline
           preload="metadata"
-          onPlaying={() => setVideoPlaying(true)}
           onTimeUpdate={handleVideoPlay}
           onCanPlay={() => {
             if (!videoPlaying && !videoFailed) {
