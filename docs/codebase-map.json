@@ -1,16 +1,15 @@
 {
   "meta": {
-    "version": "93da0a0",
-    "generatedAt": "2026-05-29T10:29:02.215Z",
+    "version": "f2dd482",
+    "generatedAt": "2026-05-29T15:43:31.137Z",
     "branch": "main",
-    "previousVersion": "68211f8",
+    "previousVersion": "93da0a0",
     "generator": "scripts/generate-codebase-map.mjs",
     "framework": "Next.js 14",
     "packageManager": "pnpm"
   },
   "changes": [
-    "Modified: app/about-us/page.tsx",
-    "Modified: components/sections/problem-solution-section.tsx"
+    "Modified: components/sections/hero-content-section.tsx"
   ],
   "affectedHotspots": [],
   "routes": [
@@ -289,7 +288,7 @@
     "components/sections/electric-mobility-section.tsx": "aad25916397d3625c07e93a9bafb55fe66140cff",
     "components/sections/faq-section.tsx": "e640bdab2ec09531e89500985b847ffdec1eaf0e",
     "components/sections/for-investors-section.tsx": "4e464ee6dc99496ef98a1fba9907d8668715d9fe",
-    "components/sections/hero-content-section.tsx": "7b5ad4b2e8e7ec61d1d966d013e078f5cd32bffa",
+    "components/sections/hero-content-section.tsx": "e6698226cb23fb866400a2566e3ca0c7d683e33e",
     "components/sections/hero-section.tsx": "99c1699f81554957875bde450576e44480cf9345",
     "components/sections/home-footer.tsx": "01102258d8b6e981fdac346de4b7a27c8d2f570d",
     "components/sections/home-mobile-menu.tsx": "fb3b2ee486bd8fa684435b988f19d3bec1ad9125",
@@ -381,16 +380,6 @@
     "tsconfig.json": "5841f1c2f8bba110464eaba24059d47cb59d3b64"
   },
   "changelog": [
-    {
-      "version": "a736481",
-      "date": "2026-05-26T19:53:27.886Z",
-      "branch": "main",
-      "changes": [
-        "Modified: app/design-tokens.css",
-        "Modified: app/globals.css",
-        "Modified: components/sections/home-navbar.tsx"
-      ]
-    },
     {
       "version": "7789620",
       "date": "2026-05-27T01:01:00.148Z",
@@ -637,6 +626,14 @@
       "changes": [
         "Modified: app/about-us/page.tsx",
         "Modified: components/sections/problem-solution-section.tsx"
+      ]
+    },
+    {
+      "version": "f2dd482",
+      "date": "2026-05-29T15:43:31.137Z",
+      "branch": "main",
+      "changes": [
+        "Modified: components/sections/hero-content-section.tsx"
       ]
     }
   ]
