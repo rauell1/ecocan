@@ -5,14 +5,15 @@
 
 # 🗺️ EcoCan Codebase Map
 
-> **Version:** `8708ff2`
-> **Generated:** 2026-05-29T16:26:15.621Z
+> **Version:** `3948c36`
+> **Generated:** 2026-05-29T16:48:48.079Z
 > **Branch:** `main`
-> **Previous:** `f2dd482`
+> **Previous:** `8708ff2`
 
 ## Changes Since Last Version
 
 - Modified: components/sections/how-it-works-section.tsx
+- Modified: next.config.mjs
 
 ---
 
@@ -59,6 +60,7 @@
 
 | Version | Date | Branch | Changes |
 |---|---|---|---|
+| `3948c36` | 2026-05-29 | main | Modified: components/sections/how-it-works-section.tsx; Modified: next.config.mjs |
 | `8708ff2` | 2026-05-29 | main | Modified: components/sections/how-it-works-section.tsx |
 | `f2dd482` | 2026-05-29 | main | Modified: components/sections/hero-content-section.tsx |
 | `93da0a0` | 2026-05-29 | main | Modified: app/about-us/page.tsx; Modified: components/sections/problem-solution-section.tsx |
@@ -78,7 +80,6 @@
 | `b91212e` | 2026-05-27 | copilot/fix-hero-video-autoplay | Modified: components/sections/hero-section.tsx |
 | `3aac135` | 2026-05-27 | copilot/fix-hero-video-autoplay | Modified: app/page.tsx; Modified: components/sections/hero-section.tsx |
 | `833bbea` | 2026-05-27 | main | Modified: app/design-tokens.css; Modified: app/page.tsx; Modified: components/sections/call-to-action-section.tsx; Modified: components/sections/electric-mobility-section.tsx; Modified: components/sections/faq-section.tsx; Modified: components/sections/for-investors-section.tsx; Modified: components/sections/hero-section.tsx; Modified: components/sections/how-it-works-section.tsx; Modified: components/sections/partners-testimonials-section.tsx |
-| `06d91a6` | 2026-05-27 | copilot/implement-frontend-fixes-ecocan-landing-page | Modified: app/design-tokens.css; Modified: app/page.tsx; Modified: components/sections/call-to-action-section.tsx; Modified: components/sections/electric-mobility-section.tsx; Modified: components/sections/faq-section.tsx; Modified: components/sections/for-investors-section.tsx; Modified: components/sections/hero-section.tsx; Modified: components/sections/how-it-works-section.tsx; Modified: components/sections/partners-testimonials-section.tsx |
 
 ---
 

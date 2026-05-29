@@ -1,15 +1,16 @@
 {
   "meta": {
-    "version": "8708ff2",
-    "generatedAt": "2026-05-29T16:26:15.621Z",
+    "version": "3948c36",
+    "generatedAt": "2026-05-29T16:48:48.079Z",
     "branch": "main",
-    "previousVersion": "f2dd482",
+    "previousVersion": "8708ff2",
     "generator": "scripts/generate-codebase-map.mjs",
     "framework": "Next.js 14",
     "packageManager": "pnpm"
   },
   "changes": [
-    "Modified: components/sections/how-it-works-section.tsx"
+    "Modified: components/sections/how-it-works-section.tsx",
+    "Modified: next.config.mjs"
   ],
   "affectedHotspots": [],
   "routes": [
@@ -293,7 +294,7 @@
     "components/sections/home-footer.tsx": "01102258d8b6e981fdac346de4b7a27c8d2f570d",
     "components/sections/home-mobile-menu.tsx": "fb3b2ee486bd8fa684435b988f19d3bec1ad9125",
     "components/sections/home-navbar.tsx": "baa35b651e0a3c53f7fec8b181c0d2180b10f9ab",
-    "components/sections/how-it-works-section.tsx": "ddcf4817599d725d18cf2f58d8f070cc1f99efa4",
+    "components/sections/how-it-works-section.tsx": "4ba7e25223565089974ea1bceef761e8adc69d98",
     "components/sections/partners-testimonials-section.tsx": "bfcf5cc99b537ee6792a30b3bd490661ad820392",
     "components/sections/problem-solution-section.tsx": "2c511a1995a6015d77f240e0c18d36bc7dc3b70f",
     "components/sections/sustainability-impact-section.tsx": "f7ce2a848ae7690418363f182293b531e8b78c94",
@@ -376,26 +377,10 @@
     "scripts/update-docs.ts": "357d7be3067089c6c69578fa0deb092d3bb41354",
     "package.json": "687e540682b903185fa3290ff7fca9972ddb2c73",
     "tailwind.config.ts": "655ba12dee5e5bd35632f12aee77909951c84021",
-    "next.config.mjs": "6839dc908b96d947296d90c50ea271e97581cd87",
+    "next.config.mjs": "19261aaa97d2909ca76b7b2819e72907cc950323",
     "tsconfig.json": "5841f1c2f8bba110464eaba24059d47cb59d3b64"
   },
   "changelog": [
-    {
-      "version": "06d91a6",
-      "date": "2026-05-27T01:24:57.470Z",
-      "branch": "copilot/implement-frontend-fixes-ecocan-landing-page",
-      "changes": [
-        "Modified: app/design-tokens.css",
-        "Modified: app/page.tsx",
-        "Modified: components/sections/call-to-action-section.tsx",
-        "Modified: components/sections/electric-mobility-section.tsx",
-        "Modified: components/sections/faq-section.tsx",
-        "Modified: components/sections/for-investors-section.tsx",
-        "Modified: components/sections/hero-section.tsx",
-        "Modified: components/sections/how-it-works-section.tsx",
-        "Modified: components/sections/partners-testimonials-section.tsx"
-      ]
-    },
     {
       "version": "833bbea",
       "date": "2026-05-27T01:33:01.758Z",
@@ -618,6 +603,15 @@
       "branch": "main",
       "changes": [
         "Modified: components/sections/how-it-works-section.tsx"
+      ]
+    },
+    {
+      "version": "3948c36",
+      "date": "2026-05-29T16:48:48.079Z",
+      "branch": "main",
+      "changes": [
+        "Modified: components/sections/how-it-works-section.tsx",
+        "Modified: next.config.mjs"
       ]
     }
   ]
