@@ -8,7 +8,7 @@ import { ShoppingBag, QrCode, Store, Bike, Wallet, Play } from "lucide-react"
 
 /* ── Set this to the real ECOCAN YouTube video ID ──────────────────────────
    e.g. for https://youtube.com/watch?v=ABC123  →  YOUTUBE_VIDEO_ID = "ABC123"  */
-const YOUTUBE_VIDEO_ID = "f7u9t1y0e1M"
+const YOUTUBE_VIDEO_ID = "1A9o-MalN0k"
 
 const steps = [
   {
