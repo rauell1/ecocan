@@ -1,14 +1,15 @@
 {
   "meta": {
-    "version": "d977c7b",
-    "generatedAt": "2026-05-27T09:10:34.519Z",
+    "version": "d1fa3bf",
+    "generatedAt": "2026-05-29T09:30:46.411Z",
     "branch": "main",
-    "previousVersion": "076e9e6",
+    "previousVersion": "d977c7b",
     "generator": "scripts/generate-codebase-map.mjs",
     "framework": "Next.js 14",
     "packageManager": "pnpm"
   },
   "changes": [
+    "Modified: app/about-us/page.tsx",
     "Modified: app/contact/components/hero.tsx",
     "Modified: app/design-tokens.css",
     "Modified: app/eco-friendly-cans/components/economic.tsx",
@@ -19,10 +20,23 @@
     "Modified: app/globals.css",
     "Modified: app/investors/page.tsx",
     "Modified: app/news/page.tsx",
-    "Modified: app/page.tsx",
     "Modified: app/solutions/[section]/page.tsx",
     "Modified: app/solutions/sections/solutions-content.tsx",
-    "Modified: components/sections/home-navbar.tsx"
+    "Modified: components/sections/anti-counterfeit-section.tsx",
+    "Modified: components/sections/app-showcase-section.tsx",
+    "Modified: components/sections/call-to-action-section.tsx",
+    "Modified: components/sections/ecocan-model-section.tsx",
+    "Modified: components/sections/ecommunity-roles-section.tsx",
+    "Modified: components/sections/electric-mobility-section.tsx",
+    "Modified: components/sections/faq-section.tsx",
+    "Modified: components/sections/for-investors-section.tsx",
+    "Modified: components/sections/hero-section.tsx",
+    "Modified: components/sections/home-footer.tsx",
+    "Modified: components/sections/home-navbar.tsx",
+    "Modified: components/sections/how-it-works-section.tsx",
+    "Modified: components/sections/partners-testimonials-section.tsx",
+    "Modified: components/sections/problem-solution-section.tsx",
+    "Modified: components/sections/sustainability-impact-section.tsx"
   ],
   "affectedHotspots": [],
   "routes": [
@@ -175,7 +189,7 @@
     "app/news/components/partnership-blog-hero.tsx": "63e1bd2a6eaabb86a3438bf67cd62db98fad9058",
     "app/news/layout.tsx": "0098cea1ad4e3b29e8cfdba0cfeb8d7c071e7dbf",
     "app/news/page.tsx": "f57e7f9d90ae9bf562f8c251e69347702b024bba",
-    "app/page.tsx": "ee9eb6acbd61f80328f182b39dbadb1c90ff8a47",
+    "app/page.tsx": "77054190df5657216166b44e957da20ee74d83ac",
     "app/robots.ts": "0ac82ce211b91b4cdf082231be4ad246cef3ddca",
     "app/sitemap.ts": "fec458ba9b30441fdd98ecf1f49e4d0e39f277ec",
     "app/solutions/[section]/page.tsx": "973a8a869480e9f71ba9d9949e53635ac7556f85",
@@ -301,7 +315,8 @@
     "components/sections/electric-mobility-section.tsx": "aad25916397d3625c07e93a9bafb55fe66140cff",
     "components/sections/faq-section.tsx": "e640bdab2ec09531e89500985b847ffdec1eaf0e",
     "components/sections/for-investors-section.tsx": "4e464ee6dc99496ef98a1fba9907d8668715d9fe",
-    "components/sections/hero-section.tsx": "b0bcd5192c5619b506db85218ab81c4a409580b4",
+    "components/sections/hero-content-section.tsx": "7b5ad4b2e8e7ec61d1d966d013e078f5cd32bffa",
+    "components/sections/hero-section.tsx": "64ea4b6103a7f94381cf49fc9ef536d85d13fc17",
     "components/sections/home-footer.tsx": "01102258d8b6e981fdac346de4b7a27c8d2f570d",
     "components/sections/home-mobile-menu.tsx": "fb3b2ee486bd8fa684435b988f19d3bec1ad9125",
     "components/sections/home-navbar.tsx": "baa35b651e0a3c53f7fec8b181c0d2180b10f9ab",
@@ -392,14 +407,6 @@
     "tsconfig.json": "5841f1c2f8bba110464eaba24059d47cb59d3b64"
   },
   "changelog": [
-    {
-      "version": "a16475c",
-      "date": "2026-05-21T20:02:36.281Z",
-      "branch": "main",
-      "changes": [
-        "Full map regeneration"
-      ]
-    },
     {
       "version": "c0a5a66",
       "date": "2026-05-23T08:44:48.522Z",
@@ -630,6 +637,41 @@
         "Modified: app/solutions/[section]/page.tsx",
         "Modified: app/solutions/sections/solutions-content.tsx",
         "Modified: components/sections/home-navbar.tsx"
+      ]
+    },
+    {
+      "version": "d1fa3bf",
+      "date": "2026-05-29T09:30:46.411Z",
+      "branch": "main",
+      "changes": [
+        "Modified: app/about-us/page.tsx",
+        "Modified: app/contact/components/hero.tsx",
+        "Modified: app/design-tokens.css",
+        "Modified: app/eco-friendly-cans/components/economic.tsx",
+        "Modified: app/eco-friendly-cans/components/heading.tsx",
+        "Modified: app/eco-friendly-cans/components/operational.tsx",
+        "Modified: app/eco-friendly-cans/page.tsx",
+        "Modified: app/ecocan-market/page.tsx",
+        "Modified: app/globals.css",
+        "Modified: app/investors/page.tsx",
+        "Modified: app/news/page.tsx",
+        "Modified: app/solutions/[section]/page.tsx",
+        "Modified: app/solutions/sections/solutions-content.tsx",
+        "Modified: components/sections/anti-counterfeit-section.tsx",
+        "Modified: components/sections/app-showcase-section.tsx",
+        "Modified: components/sections/call-to-action-section.tsx",
+        "Modified: components/sections/ecocan-model-section.tsx",
+        "Modified: components/sections/ecommunity-roles-section.tsx",
+        "Modified: components/sections/electric-mobility-section.tsx",
+        "Modified: components/sections/faq-section.tsx",
+        "Modified: components/sections/for-investors-section.tsx",
+        "Modified: components/sections/hero-section.tsx",
+        "Modified: components/sections/home-footer.tsx",
+        "Modified: components/sections/home-navbar.tsx",
+        "Modified: components/sections/how-it-works-section.tsx",
+        "Modified: components/sections/partners-testimonials-section.tsx",
+        "Modified: components/sections/problem-solution-section.tsx",
+        "Modified: components/sections/sustainability-impact-section.tsx"
       ]
     }
   ]
