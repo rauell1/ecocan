@@ -1,16 +1,16 @@
 {
   "meta": {
-    "version": "68211f8",
-    "generatedAt": "2026-05-29T09:52:28.836Z",
+    "version": "93da0a0",
+    "generatedAt": "2026-05-29T10:29:02.215Z",
     "branch": "main",
-    "previousVersion": "d1fa3bf",
+    "previousVersion": "68211f8",
     "generator": "scripts/generate-codebase-map.mjs",
     "framework": "Next.js 14",
     "packageManager": "pnpm"
   },
   "changes": [
-    "Modified: components/sections/hero-section.tsx",
-    "Modified: package.json"
+    "Modified: app/about-us/page.tsx",
+    "Modified: components/sections/problem-solution-section.tsx"
   ],
   "affectedHotspots": [],
   "routes": [
@@ -133,7 +133,7 @@
     "app/about-us/components/visionaries.tsx": "7a9b21c535cbbeb915a34fe2211e0b2fd16b00db",
     "app/about-us/components/who-we-are.tsx": "4972a60ec740c95bfe69e1c5ec1a1fa773aa4f9a",
     "app/about-us/layout.tsx": "8be56ed49bc69d2396b97164e188406790abe259",
-    "app/about-us/page.tsx": "a2301081b2435110dd4d1f0c7cc85377da779529",
+    "app/about-us/page.tsx": "47386bfe736bd9da708f2d43e55b807901ebffa4",
     "app/contact/components/contact-form.tsx": "497409d1570dd0e5f070030834924dd1c5e9e3d1",
     "app/contact/components/hero.tsx": "2af151b79b3c2cf9f389cfac1b188246c860d499",
     "app/contact/page.tsx": "0f64b309428ce78b7a85629517ebb4d2505f0877",
@@ -163,7 +163,7 @@
     "app/news/components/partnership-blog-hero.tsx": "63e1bd2a6eaabb86a3438bf67cd62db98fad9058",
     "app/news/layout.tsx": "0098cea1ad4e3b29e8cfdba0cfeb8d7c071e7dbf",
     "app/news/page.tsx": "f57e7f9d90ae9bf562f8c251e69347702b024bba",
-    "app/page.tsx": "77054190df5657216166b44e957da20ee74d83ac",
+    "app/page.tsx": "b84cc5b3b5e7dabf393db76479146cbd8200aa83",
     "app/robots.ts": "0ac82ce211b91b4cdf082231be4ad246cef3ddca",
     "app/sitemap.ts": "fec458ba9b30441fdd98ecf1f49e4d0e39f277ec",
     "app/solutions/[section]/page.tsx": "973a8a869480e9f71ba9d9949e53635ac7556f85",
@@ -296,7 +296,7 @@
     "components/sections/home-navbar.tsx": "baa35b651e0a3c53f7fec8b181c0d2180b10f9ab",
     "components/sections/how-it-works-section.tsx": "de4132417399fe0ff5d9e3f7b3d03e9509d3304f",
     "components/sections/partners-testimonials-section.tsx": "bfcf5cc99b537ee6792a30b3bd490661ad820392",
-    "components/sections/problem-solution-section.tsx": "d7b0f3755f8cfcedb77e8d2a4dd8e9059cc92312",
+    "components/sections/problem-solution-section.tsx": "2c511a1995a6015d77f240e0c18d36bc7dc3b70f",
     "components/sections/sustainability-impact-section.tsx": "f7ce2a848ae7690418363f182293b531e8b78c94",
     "components/shared/HowTo.tsx": "ec2b55f43fa3d7e12750f7a46b2429dfd4419ae9",
     "components/shared/accordion.tsx": "c68c2697a68fcdfb6ce7cebae1adf67d8160739e",
@@ -381,25 +381,6 @@
     "tsconfig.json": "5841f1c2f8bba110464eaba24059d47cb59d3b64"
   },
   "changelog": [
-    {
-      "version": "69c7793",
-      "date": "2026-05-26T16:58:41.945Z",
-      "branch": "main",
-      "changes": [
-        "Modified: app/about-us/page.tsx",
-        "Modified: app/page.tsx",
-        "Modified: components/sections/call-to-action-section.tsx",
-        "Modified: components/sections/ecocan-model-section.tsx",
-        "Modified: components/sections/electric-mobility-section.tsx",
-        "Modified: components/sections/faq-section.tsx",
-        "Modified: components/sections/for-investors-section.tsx",
-        "Modified: components/sections/hero-section.tsx",
-        "Modified: components/sections/home-footer.tsx",
-        "Modified: components/sections/home-navbar.tsx",
-        "Modified: components/sections/how-it-works-section.tsx",
-        "Modified: components/sections/partners-testimonials-section.tsx"
-      ]
-    },
     {
       "version": "a736481",
       "date": "2026-05-26T19:53:27.886Z",
@@ -647,6 +628,15 @@
       "changes": [
         "Modified: components/sections/hero-section.tsx",
         "Modified: package.json"
+      ]
+    },
+    {
+      "version": "93da0a0",
+      "date": "2026-05-29T10:29:02.215Z",
+      "branch": "main",
+      "changes": [
+        "Modified: app/about-us/page.tsx",
+        "Modified: components/sections/problem-solution-section.tsx"
       ]
     }
   ]
