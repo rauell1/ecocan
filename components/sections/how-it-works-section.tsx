@@ -8,7 +8,7 @@ import { ShoppingBag, QrCode, Store, Bike, Wallet, Play } from "lucide-react"
 
 /* ── Set this to the real ECOCAN YouTube video ID ──────────────────────────
    e.g. for https://youtube.com/watch?v=ABC123  →  YOUTUBE_VIDEO_ID = "ABC123"  */
-const YOUTUBE_VIDEO_ID = "M1YkMXlLNVo"
+const YOUTUBE_VIDEO_ID = "f7u9t1y0e1M"
 
 const steps = [
   {
@@ -58,7 +58,7 @@ function YouTubeLite({ videoId }: { videoId: string }) {
       <div className="relative w-full" style={{ paddingBottom: "56.25%", background: "#000" }}>
         <iframe
           src={`https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&rel=0&modestbranding=1`}
-          title="ECOCAN – The Circular Bottle Ecosystem"
+          title="ECOCAN – Circular Bottle Podcast (AI NotebookLM Overview)"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowFullScreen
           className="absolute inset-0 h-full w-full border-0"
@@ -97,7 +97,7 @@ function YouTubeLite({ videoId }: { videoId: string }) {
           <Play size={32} className="translate-x-0.5 text-white" fill="white" />
         </div>
         <p className="text-sm font-medium uppercase tracking-[0.15em] text-white/80">
-          ECOCAN – The Circular Bottle Ecosystem
+          ECOCAN – Circular Bottle Podcast (AI NotebookLM Overview)
         </p>
       </div>
 
