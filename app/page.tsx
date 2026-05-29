@@ -10,7 +10,7 @@ import HowItWorksSection from "@/components/sections/how-it-works-section"
 import EcommunityRolesSection from "@/components/sections/ecommunity-roles-section"
 import AntiCounterfeitSection from "@/components/sections/anti-counterfeit-section"
 import AppShowcaseSection from "@/components/sections/app-showcase-section"
-import ForInvestorsSection from "@/components/sections/for-investors-section"
+// import ForInvestorsSection from "@/components/sections/for-investors-section"
 import SustainabilityImpactSection from "@/components/sections/sustainability-impact-section"
 import PartnersTestimonialsSection from "@/components/sections/partners-testimonials-section"
 import CallToActionSection from "@/components/sections/call-to-action-section"
@@ -59,29 +59,29 @@ export default function Home() {
       <HeroContentSection />
 
       <main className="relative z-20 flex flex-col gap-0">
-        {/* 1. The problem */}
-        <div id="problem">
-          <ProblemSolutionSection />
-        </div>
-
-        {/* 2. How it works */}
+        {/* 1. How it works */}
         <div id="how-it-works">
           <HowItWorksSection />
         </div>
 
-        {/* 3. Who benefits */}
+        {/* 2. The app */}
+        <div id="app">
+          <AppShowcaseSection />
+        </div>
+
+        {/* 3. The problem */}
+        <div id="problem">
+          <ProblemSolutionSection />
+        </div>
+
+        {/* 4. Who benefits */}
         <div id="ecommunity">
           <EcommunityRolesSection />
         </div>
 
-        {/* 4. Anti-counterfeit trust */}
+        {/* 5. Anti-counterfeit trust */}
         <div id="counterfeit">
           <AntiCounterfeitSection />
-        </div>
-
-        {/* 5. The app */}
-        <div id="app">
-          <AppShowcaseSection />
         </div>
 
         {/* 6. Impact numbers */}
@@ -89,10 +89,10 @@ export default function Home() {
           <SustainabilityImpactSection />
         </div>
 
-        {/* 7. Investors */}
-        <div id="investors">
+        {/* 7. Investors (deprioritized/hidden for consumer focus) */}
+        {/* <div id="investors">
           <ForInvestorsSection />
-        </div>
+        </div> */}
 
         {/* 8. Real stories + partners */}
         <div id="stories">
