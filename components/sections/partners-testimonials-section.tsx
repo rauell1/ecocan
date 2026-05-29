@@ -13,6 +13,108 @@ const partnersData = {
   Investors: ["Antler", "Saviu"],
 }
 
+const marqueeLogos = [
+  {
+    name: "Naivas",
+    element: (
+      <span className="font-sans text-xl font-black tracking-tight text-[var(--c-text)]">
+        Naivas<span className="text-orange-500">.</span>
+      </span>
+    ),
+  },
+  {
+    name: "Carrefour",
+    element: (
+      <span className="font-sans text-xl font-extrabold tracking-tighter text-[var(--c-text)]">
+        C<span className="text-red-500">arrefour</span>
+      </span>
+    ),
+  },
+  {
+    name: "Quickmart",
+    element: (
+      <span className="font-sans text-xl font-black tracking-tight text-[var(--c-text)]">
+        Quick<span className="text-emerald-500">mart</span>
+      </span>
+    ),
+  },
+  {
+    name: "Jaza",
+    element: (
+      <span className="font-sans text-xl font-bold tracking-widest text-[var(--c-text)]">JAZA</span>
+    ),
+  },
+  {
+    name: "Coca-Cola",
+    element: (
+      <span className="font-serif text-2xl font-black italic tracking-tight text-red-500">
+        Coca-Cola
+      </span>
+    ),
+  },
+  {
+    name: "EABL",
+    element: (
+      <span className="font-serif text-xl font-extrabold tracking-wider text-[var(--c-text)]">
+        EABL
+      </span>
+    ),
+  },
+  {
+    name: "KWAL",
+    element: (
+      <span className="font-sans text-xl font-bold tracking-tight text-[var(--c-text)]">KWAL</span>
+    ),
+  },
+  {
+    name: "BasiGo",
+    element: (
+      <span className="font-mono text-lg font-bold text-emerald-500">
+        basi<span className="text-[var(--c-text)]">go</span>
+      </span>
+    ),
+  },
+  {
+    name: "Roam",
+    element: (
+      <span className="font-sans text-xl font-extrabold tracking-tighter text-[var(--c-text)]">
+        ROAM
+      </span>
+    ),
+  },
+  {
+    name: "Antler",
+    element: (
+      <span className="font-sans text-lg font-semibold tracking-widest text-[var(--c-text)]">
+        ▲NTLER
+      </span>
+    ),
+  },
+  {
+    name: "Saviu",
+    element: (
+      <span className="font-serif text-xl font-bold tracking-wider text-[var(--c-text)]">
+        SAVIU
+      </span>
+    ),
+  },
+]
+
+const marqueeStyle = `
+  @keyframes marqueeScroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+  .marquee-track {
+    display: flex;
+    width: max-content;
+    animation: marqueeScroll 30s linear infinite;
+  }
+  .marquee-track:hover {
+    animation-play-state: paused;
+  }
+`
+
 const testimonials = [
   {
     quote: "I don't think about the money. I think about my children drinking safe water.",
@@ -79,6 +181,37 @@ export default function PartnersTestimonialsSection() {
           >
             Trusted by leaders across the value chain.
           </h2>
+        </div>
+
+        <style dangerouslySetInnerHTML={{ __html: marqueeStyle }} />
+
+        {/* Dynamic Infinite Logo Marquee */}
+        <div className="ec-reveal relative mx-auto mb-16 max-w-5xl overflow-hidden py-6">
+          {/* Edge fade gradients */}
+          <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-24 bg-gradient-to-r from-[#f5f7f5] to-transparent" />
+          <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-24 bg-gradient-to-l from-[#f5f7f5] to-transparent" />
+
+          <div className="marquee-track flex items-center gap-16">
+            {/* First sequence */}
+            {marqueeLogos.map((logo, index) => (
+              <div
+                key={`logo-1-${index}`}
+                className="flex items-center justify-center opacity-45 grayscale transition-all duration-300 hover:scale-105 hover:opacity-100 hover:grayscale-0"
+              >
+                {logo.element}
+              </div>
+            ))}
+            {/* Duplicated sequence for infinite seamless scrolling */}
+            {marqueeLogos.map((logo, index) => (
+              <div
+                key={`logo-2-${index}`}
+                className="flex items-center justify-center opacity-45 grayscale transition-all duration-300 hover:scale-105 hover:opacity-100 hover:grayscale-0"
+                aria-hidden="true"
+              >
+                {logo.element}
+              </div>
+            ))}
+          </div>
         </div>
 
         {/* Partners Grid Columns representing 3-4 rows */}
