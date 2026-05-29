@@ -13,46 +13,84 @@ export default function Blog() {
   useEffect(() => {
     let lenisInst: any = null
     import("lenis").then(({ default: Lenis }) => {
-      lenisInst = new Lenis({ duration: 1.2, easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), smoothWheel: true })
-      function raf(time: number) { if (lenisInst) { lenisInst.raf(time); requestAnimationFrame(raf) } }
+      lenisInst = new Lenis({
+        duration: 1.2,
+        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+        smoothWheel: true,
+      })
+      function raf(time: number) {
+        if (lenisInst) {
+          lenisInst.raf(time)
+          requestAnimationFrame(raf)
+        }
+      }
       requestAnimationFrame(raf)
     })
 
     const ctx = gsap.context(() => {
       const els = heroRef.current?.querySelectorAll(".news-animate")
       if (els && els.length > 0) {
-        gsap.fromTo(els,
+        gsap.fromTo(
+          els,
           { opacity: 0, y: 32, filter: "blur(8px)" },
-          { opacity: 1, y: 0, filter: "blur(0px)", duration: 1.0, stagger: 0.13, delay: 0.15, ease: "power3.out" }
+          {
+            opacity: 1,
+            y: 0,
+            filter: "blur(0px)",
+            duration: 1.0,
+            stagger: 0.13,
+            delay: 0.15,
+            ease: "power3.out",
+          }
         )
       }
       if (contentRef.current) {
-        gsap.fromTo(contentRef.current,
+        gsap.fromTo(
+          contentRef.current,
           { opacity: 0, y: 24 },
           { opacity: 1, y: 0, duration: 0.8, delay: 0.35, ease: "power2.out" }
         )
       }
     })
-    return () => { ctx.revert(); if (lenisInst) lenisInst.destroy() }
+    return () => {
+      ctx.revert()
+      if (lenisInst) lenisInst.destroy()
+    }
   }, [])
 
   return (
-    <div className="relative min-h-screen overflow-x-hidden" style={{ background: "#050705" }}>
+    <div
+      className="relative min-h-screen overflow-x-hidden text-[var(--c-text)]"
+      style={{ background: "var(--c-bg)" }}
+    >
       <HomeNavbar onMenuToggle={() => {}} />
 
       {/* Ambient glow */}
-      <div className="pointer-events-none absolute inset-x-0 top-0 h-[600px]" style={{ background: "radial-gradient(ellipse at 20% 0%, rgba(34,197,94,0.07) 0%, transparent 65%)" }} />
+      <div
+        className="pointer-events-none absolute inset-x-0 top-0 h-[600px]"
+        style={{
+          background:
+            "radial-gradient(ellipse at 20% 0%, rgba(34,197,94,0.04) 0%, transparent 65%)",
+        }}
+      />
 
       {/* ── Page hero ─────────────────────────────────────────────────── */}
-      <div ref={heroRef} className="relative z-10 w-full pt-32 pb-16 px-[clamp(1.25rem,4vw,3rem)] max-w-[1280px] mx-auto">
-        <p className="news-animate section-overline text-emerald-400">Latest from ECOCAN</p>
+      <div
+        ref={heroRef}
+        className="relative z-10 mx-auto w-full max-w-[1280px] px-[clamp(1.25rem,4vw,3rem)] pb-16 pt-32"
+      >
+        <p className="news-animate section-overline text-[var(--c-green)]">Latest from ECOCAN</p>
         <h1
           className="news-animate font-serif-luxury text-luxury-gradient text-luxury-glow mb-4"
-          style={{ fontSize: "clamp(2.75rem, 6.5vw, 5rem)", lineHeight: 0.98, letterSpacing: "-0.03em" }}
+          style={{
+            fontSize: "clamp(2.75rem, 6.5vw, 5rem)",
+            lineHeight: 0.98,
+            letterSpacing: "-0.03em",
+          }}
         >
           News &amp; Stories.
         </h1>
-        <p className="news-animate max-w-[520px] text-[16px] leading-relaxed text-white/60">
+        <p className="news-animate max-w-[520px] text-[16px] leading-relaxed text-[var(--c-text-muted)]">
           Updates on sustainability, partnerships, and impact across Africa&apos;s circular economy.
         </p>
 
@@ -61,8 +99,7 @@ export default function Blog() {
           {["Sustainability", "Partnerships", "Impact", "Policy"].map((tag) => (
             <span
               key={tag}
-              className="rounded-full px-4 py-1.5 text-sm font-medium text-white/70 hover:text-white hover:border-emerald-500/30 transition-all duration-300 cursor-default"
-              style={{ background: "rgba(255,255,255,0.06)", border: "1px solid rgba(255,255,255,0.10)" }}
+              className="hover:border-[var(--c-green)]/35 cursor-default rounded-full border border-[var(--c-border)] bg-[var(--c-surface)] px-4 py-1.5 text-sm font-medium text-[var(--c-text-muted)] transition-all duration-300 hover:text-[var(--c-text)]"
             >
               {tag}
             </span>
@@ -71,7 +108,7 @@ export default function Blog() {
       </div>
 
       {/* ── News tabs + articles ────────────────────────────────────────── */}
-      <div className="relative z-10" style={{ background: "#050705" }}>
+      <div className="relative z-10" style={{ background: "var(--c-bg)" }}>
         <div ref={contentRef} className="mx-auto max-w-[1280px] px-[clamp(1.25rem,4vw,3rem)] pb-20">
           <News />
         </div>
@@ -81,4 +118,3 @@ export default function Blog() {
     </div>
   )
 }
-

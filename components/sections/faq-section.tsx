@@ -1,29 +1,36 @@
 "use client"
 
 import { useState } from "react"
-import { ChevronDown } from "lucide-react"
+import { ChevronDown, MessageSquare } from "lucide-react"
 import { useEcReveal } from "@/lib/use-ec-reveal"
 import { motion, AnimatePresence } from "framer-motion"
 import { SpotlightCard } from "@/components/ui/spotlight-card"
 
 const faqs = [
   {
-    q: "How do I verify a can?",
-    a: "Open the app and scan the QR code. You get an instant authenticity result.",
+    q: "What bottles can I return?",
+    a: "Aluminum, PET, glass, cartons with ECOCAN code.",
   },
   {
-    q: "How do I earn rewards?",
-    a: "Return empties at an ECO-Station. Rewards are paid to your wallet.",
+    q: "How do I get paid?",
+    a: "Instant to ECO-wallet → bank or M-PESA.",
   },
   {
-    q: "Where can I return cans?",
-    a: "Use the app map to find nearby stations. New stations are added weekly.",
+    q: "Where are collection points?",
+    a: "Supermarkets, ECO-Stations – see app map.",
   },
   {
-    q: "Who can host a station?",
-    a: "Retailers can apply to host returns. Our team handles setup and training.",
+    q: "Who pays for this?",
+    a: "Producers + deposit system + impact investors.",
   },
-  { q: "Is ECOCAN only in Kenya?", a: "Kenya is live today. Regional rollout is in progress." },
+  {
+    q: "Is this really zero emissions?",
+    a: "Electric bikes + efficient routing = near zero.",
+  },
+  {
+    q: "How can I host an ECO-Station?",
+    a: "Retailers and supermarkets can apply online to host manual collection counters. ECOCAN handles setup, training, and zero emission last-mile pickup logistics.",
+  },
 ]
 
 export default function FAQSection() {
@@ -33,47 +40,50 @@ export default function FAQSection() {
   return (
     <section
       ref={ref as React.RefObject<HTMLDivElement>}
-      className="relative w-full overflow-hidden bg-[#050705] py-[clamp(6rem,12vw,10rem)]"
+      className="relative w-full overflow-hidden border-b border-[var(--landing-divider)] bg-transparent py-[clamp(6rem,12vw,10rem)]"
     >
-      <div className="absolute inset-0 z-0 bg-[radial-gradient(ellipse_at_bottom_left,rgba(16,185,129,0.03),transparent_40%)]" />
-      
-      <div className="relative z-10 px-[clamp(1.25rem,4vw,3rem)] max-w-4xl mx-auto">
-        <h2
-          className="ec-reveal mb-16 text-center font-serif-luxury text-luxury-gradient"
-          style={{ 
-            fontSize: "clamp(2.5rem,5vw,4.5rem)", 
-            letterSpacing: "-0.02em",
-            lineHeight: "1.1"
-          }}
-        >
-          Frequently Asked Questions
-        </h2>
+      <div className="pointer-events-none absolute inset-0 z-0 bg-[radial-gradient(ellipse_at_bottom_left,rgba(16,185,129,0.03),transparent_40%)]" />
 
-        <div className="flex flex-col gap-4">
+      <div className="relative z-10 mx-auto max-w-4xl px-[clamp(1.25rem,4vw,3rem)]">
+        <div className="mx-auto mb-16 max-w-2xl text-center">
+          <p className="ec-reveal section-overline mb-3 justify-center text-emerald-400">SUPPORT</p>
+          <h2
+            className="ec-reveal font-serif-luxury text-luxury-gradient"
+            style={{
+              fontSize: "clamp(2.5rem,5vw,3.5rem)",
+              letterSpacing: "-0.02em",
+              lineHeight: "1.1",
+            }}
+          >
+            Frequently Asked Questions
+          </h2>
+        </div>
+
+        <div className="mx-auto mb-12 flex max-w-3xl flex-col gap-4">
           {faqs.map((faq, i) => {
             const isOpen = openIndex === i
             return (
               <div key={faq.q} className="ec-reveal">
                 <SpotlightCard
-                  className="p-0 border border-white/5 bg-[#0c100c]/20 hover:border-emerald-500/20 transition-all duration-500 rounded-3xl shadow-xl"
-                  spotlightColor="rgba(16,185,129,0.08)"
+                  className="rounded-[20px] border border-[var(--landing-glass-border)] bg-[var(--landing-glass-bg)] p-0 shadow-xl transition-all duration-500 hover:border-emerald-500/20"
+                  spotlightColor="rgba(16,185,129,0.06)"
                   spotlightSize={280}
                 >
                   <button
-                    className="flex w-full items-center justify-between gap-6 px-8 py-6 text-left focus:outline-none"
+                    className="py-5.5 flex w-full items-center justify-between gap-6 px-8 text-left focus:outline-none"
                     onClick={() => setOpenIndex(isOpen ? null : i)}
                     aria-expanded={isOpen}
                   >
-                    <span className="text-[16px] md:text-[18px] font-medium text-white/90 transition-colors duration-300 group-hover:text-emerald-300">
+                    <span className="text-[15px] font-medium text-[var(--c-text)] transition-colors duration-300">
                       {faq.q}
                     </span>
                     <ChevronDown
                       size={18}
-                      className="shrink-0 text-white/40 transition-transform duration-500"
+                      className="shrink-0 text-[var(--c-text-muted)] transition-transform duration-500"
                       style={{ transform: isOpen ? "rotate(180deg)" : "rotate(0deg)" }}
                     />
                   </button>
-                  
+
                   <AnimatePresence initial={false}>
                     {isOpen && (
                       <motion.div
@@ -83,7 +93,7 @@ export default function FAQSection() {
                         transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
                         className="overflow-hidden"
                       >
-                        <div className="px-8 pb-6 text-[14px] md:text-[15px] leading-relaxed text-white/50 border-t border-white/5 pt-4">
+                        <div className="border-t border-[var(--landing-divider)] px-8 pb-5 pt-3 text-[14px] font-normal leading-relaxed text-[var(--c-text-muted)]">
                           {faq.a}
                         </div>
                       </motion.div>
@@ -93,6 +103,16 @@ export default function FAQSection() {
               </div>
             )
           })}
+        </div>
+
+        <div className="ec-reveal mt-12 flex justify-center">
+          <a
+            href="#"
+            className="inline-flex items-center gap-2 rounded-full border border-[var(--landing-pill-border)] bg-[var(--landing-pill-bg)] px-8 py-3 text-xs font-bold uppercase tracking-wider text-[var(--landing-pill-text)] backdrop-blur-md transition-all duration-300 hover:border-emerald-500 hover:bg-emerald-500/10 hover:text-emerald-400"
+          >
+            <MessageSquare size={14} />
+            <span>Full FAQ</span>
+          </a>
         </div>
       </div>
     </section>

@@ -9,17 +9,20 @@ const roles = [
   {
     icon: Users,
     title: "Consumer",
-    action: "Scan daily circular items to authenticate materials instantly. Recycled deposits convert directly into verified eco-credits in your digital app wallet.",
+    action:
+      "Scan daily circular items to authenticate materials instantly. Recycled deposits convert directly into verified eco-credits in your digital app wallet.",
   },
   {
     icon: Store,
     title: "Retailer",
-    action: "Become a certified physical deposit station. Drive premium recurring footprint, unlock verified footprint offsets, and anchor retail circularity.",
+    action:
+      "Become a certified physical deposit station. Drive premium recurring footprint, unlock verified footprint offsets, and anchor retail circularity.",
   },
   {
     icon: Recycle,
     title: "Recycler",
-    action: "Access high-purity pre-sorted feedstock directly from local networks. Streamline processing lines and automate circular verification cycles.",
+    action:
+      "Access high-purity pre-sorted feedstock directly from local networks. Streamline processing lines and automate circular verification cycles.",
   },
 ]
 
@@ -72,7 +75,10 @@ export default function EcommunityRolesSection() {
   }, [])
 
   return (
-    <section ref={sectionRef} className="relative w-full overflow-hidden bg-[#050705] py-[clamp(5rem,10vw,9rem)]">
+    <section
+      ref={sectionRef}
+      className="relative w-full overflow-hidden bg-transparent py-[clamp(5rem,10vw,9rem)]"
+    >
       <div className="absolute inset-0 z-0">
         <img
           src="/images/hero/community_roles_hero.png"
@@ -80,21 +86,22 @@ export default function EcommunityRolesSection() {
           aria-hidden="true"
           className="section-bg-img h-full w-full object-cover opacity-50"
         />
-        <div 
-          className="absolute inset-0" 
-          style={{ 
-            background: "linear-gradient(to bottom, rgba(5,7,5,0.7) 0%, rgba(5,7,5,0.92) 100%)" 
-          }} 
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              "linear-gradient(to bottom, rgba(var(--c-bg-rgb), var(--c-overlay-opacity-start, 0.7)) 0%, rgba(var(--c-bg-rgb), var(--c-overlay-opacity-end, 0.92)) 100%)",
+          }}
         />
       </div>
 
       <div className="relative z-10 px-[clamp(1.25rem,4vw,3rem)]">
         <h2
-          className="ec-reveal mb-16 font-serif-luxury text-luxury-gradient"
-          style={{ 
-            fontSize: "clamp(2.5rem,4vw,4.5rem)", 
+          className="ec-reveal font-serif-luxury text-luxury-gradient mb-16"
+          style={{
+            fontSize: "clamp(2.5rem,4vw,4.5rem)",
             letterSpacing: "-0.02em",
-            lineHeight: "1.1"
+            lineHeight: "1.1",
           }}
         >
           One loop. Three roles.
@@ -103,15 +110,21 @@ export default function EcommunityRolesSection() {
         <div className="grid gap-6 md:grid-cols-3">
           {roles.map((role) => (
             <div key={role.title} className="ec-reveal">
-              <SpotlightCard className="h-full bg-[#0c100c]/30 border-white/5 rounded-3xl p-8 hover:border-emerald-500/20">
-                <role.icon size={26} className="text-emerald-400 group-hover:text-emerald-300 transition-colors duration-300" strokeWidth={1.5} />
+              <SpotlightCard className="h-full rounded-3xl border-[var(--c-border)] bg-[var(--c-surface)] p-8 hover:border-emerald-500/20">
+                <role.icon
+                  size={26}
+                  className="text-emerald-400 transition-colors duration-300 group-hover:text-emerald-300"
+                  strokeWidth={1.5}
+                />
                 <h3
-                  className="mt-6 font-serif-luxury font-light text-2xl text-white"
+                  className="font-serif-luxury mt-6 text-2xl font-light text-[var(--c-text)]"
                   style={{ letterSpacing: "-0.01em" }}
                 >
                   {role.title}
                 </h3>
-                <p className="mt-3 text-[14px] leading-relaxed text-white/50 font-normal">{role.action}</p>
+                <p className="mt-3 text-[14px] font-normal leading-relaxed text-[var(--c-text-muted)]">
+                  {role.action}
+                </p>
               </SpotlightCard>
             </div>
           ))}

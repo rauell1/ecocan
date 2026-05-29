@@ -1,15 +1,28 @@
 {
   "meta": {
-    "version": "a16475c",
-    "generatedAt": "2026-05-21T20:02:36.281Z",
+    "version": "d977c7b",
+    "generatedAt": "2026-05-27T09:10:34.519Z",
     "branch": "main",
-    "previousVersion": "d63d317",
+    "previousVersion": "076e9e6",
     "generator": "scripts/generate-codebase-map.mjs",
     "framework": "Next.js 14",
     "packageManager": "pnpm"
   },
   "changes": [
-    "Full map regeneration"
+    "Modified: app/contact/components/hero.tsx",
+    "Modified: app/design-tokens.css",
+    "Modified: app/eco-friendly-cans/components/economic.tsx",
+    "Modified: app/eco-friendly-cans/components/heading.tsx",
+    "Modified: app/eco-friendly-cans/components/operational.tsx",
+    "Modified: app/eco-friendly-cans/page.tsx",
+    "Modified: app/ecocan-market/page.tsx",
+    "Modified: app/globals.css",
+    "Modified: app/investors/page.tsx",
+    "Modified: app/news/page.tsx",
+    "Modified: app/page.tsx",
+    "Modified: app/solutions/[section]/page.tsx",
+    "Modified: app/solutions/sections/solutions-content.tsx",
+    "Modified: components/sections/home-navbar.tsx"
   ],
   "affectedHotspots": [],
   "routes": [
@@ -132,28 +145,28 @@
     "app/about-us/components/visionaries.tsx": "7a9b21c535cbbeb915a34fe2211e0b2fd16b00db",
     "app/about-us/components/who-we-are.tsx": "4972a60ec740c95bfe69e1c5ec1a1fa773aa4f9a",
     "app/about-us/layout.tsx": "8be56ed49bc69d2396b97164e188406790abe259",
-    "app/about-us/page.tsx": "6d99d9694eeedc85afe8977ab5effb20b75c5441",
+    "app/about-us/page.tsx": "a2301081b2435110dd4d1f0c7cc85377da779529",
     "app/contact/components/contact-form.tsx": "497409d1570dd0e5f070030834924dd1c5e9e3d1",
-    "app/contact/components/hero.tsx": "0ac23bb695ec1c9525aaca1bae34eb2cd0255984",
+    "app/contact/components/hero.tsx": "2af151b79b3c2cf9f389cfac1b188246c860d499",
     "app/contact/page.tsx": "0f64b309428ce78b7a85629517ebb4d2505f0877",
-    "app/design-tokens.css": "45571c180f3b1d44b06e8aea598139bbdf54e731",
+    "app/design-tokens.css": "b47dfd56cf10bfa42c72ab517a8073c64f1275b7",
     "app/download/layout.tsx": "27859a0abad888df6e16b7f615638caf8f529208",
     "app/download/page.tsx": "a812643f994acf03feeb9ea6d7d31c9581d654bd",
     "app/eco-friendly-cans/components/accordion-demo.tsx": "25dc1fc8d699b0ce4455e0a88d4a3f516ed08c6d",
-    "app/eco-friendly-cans/components/economic.tsx": "978fcd98fb5c57220c5926c529522a36995e490a",
-    "app/eco-friendly-cans/components/heading.tsx": "b2c2b872e111456529a8eaef81b543ff4c324c14",
-    "app/eco-friendly-cans/components/operational.tsx": "2e44a3b72791cde45aa8962abd1e3d66b57ea2b4",
+    "app/eco-friendly-cans/components/economic.tsx": "b039d5f1d3c20ab47fc650549d48ebc87da1cace",
+    "app/eco-friendly-cans/components/heading.tsx": "0f8445d2256f2bc0f06b612ae0d4ff53a2081f87",
+    "app/eco-friendly-cans/components/operational.tsx": "20a5c80b4068749647618627eb5701f3d94feabf",
     "app/eco-friendly-cans/components/security-accordion.tsx": "fac533bf9071b5a6403f07754ddf724976009021",
     "app/eco-friendly-cans/components/security.tsx": "4ff4bb6ad77d7bac8397397654faf2e842216ea0",
     "app/eco-friendly-cans/layout.tsx": "3059dc55e073300018a8f94925325b4de45ab91a",
-    "app/eco-friendly-cans/page.tsx": "7e04d6a1d4cb30956763fd9ddbb967f88c0faf06",
+    "app/eco-friendly-cans/page.tsx": "99d52a1dc4bb6adde75341236d68c702856b86e8",
     "app/ecocan-market/components/products.tsx": "0461068d140a12e38062fef89f86e8e1bb405644",
     "app/ecocan-market/components/searchbar.tsx": "b336e513a4c8ff830663891d119ea92acc61c6e2",
     "app/ecocan-market/layout.tsx": "be030a1d9284b192ddcac440dbab5db28e36e7fd",
-    "app/ecocan-market/page.tsx": "631400d02e7ae70c550e18e6a97cf9baa92b1315",
-    "app/globals.css": "335db6c344ef5dc580bbf7c27b058436c4eb3230",
+    "app/ecocan-market/page.tsx": "16220828612aa252e12bd42b82cec05e79dedd2b",
+    "app/globals.css": "c375a11a2a0e060158493f915874f26a385510b8",
     "app/investors/layout.tsx": "537ed7056ee1438570af3cad83ba2eed211e2be1",
-    "app/investors/page.tsx": "600bcf13c5ce0f70a873648fd01845b0cc64d162",
+    "app/investors/page.tsx": "3dc6393ebd45831809133cf908c1ff46d5ee1c37",
     "app/layout.tsx": "dc25b08d7c5be4137c028d1ddbb702d89284468b",
     "app/news/components/articles.tsx": "b64c8a9097e65fa81165f7d26f2de00aa3dabfb7",
     "app/news/components/blog-hero.tsx": "632102240617bf88a5fb3ab54d06441442b47ca1",
@@ -161,11 +174,11 @@
     "app/news/components/partnership-articles.tsx": "0bbeecdb413f7f0e4b323a4a23ffaecd1835c5fc",
     "app/news/components/partnership-blog-hero.tsx": "63e1bd2a6eaabb86a3438bf67cd62db98fad9058",
     "app/news/layout.tsx": "0098cea1ad4e3b29e8cfdba0cfeb8d7c071e7dbf",
-    "app/news/page.tsx": "8147eeca3814e9628a11ad275acd96a2bf8b5375",
-    "app/page.tsx": "8f7270826318e600a1e8d6fa282e82b4a531f47c",
+    "app/news/page.tsx": "f57e7f9d90ae9bf562f8c251e69347702b024bba",
+    "app/page.tsx": "ee9eb6acbd61f80328f182b39dbadb1c90ff8a47",
     "app/robots.ts": "0ac82ce211b91b4cdf082231be4ad246cef3ddca",
     "app/sitemap.ts": "fec458ba9b30441fdd98ecf1f49e4d0e39f277ec",
-    "app/solutions/[section]/page.tsx": "a6c00eea4ce3c3e609538f106402cc954ade9d04",
+    "app/solutions/[section]/page.tsx": "973a8a869480e9f71ba9d9949e53635ac7556f85",
     "app/solutions/consumer/layout.tsx": "ec51b866ed4339d88f25f0778b574b29279ad1f0",
     "app/solutions/consumer/page.tsx": "4d89d97595c6436744e517280b3496d5036f4cd8",
     "app/solutions/layout.tsx": "dc7d1ec0be7b5625f681a3f3bb75bc3d1c4e317d",
@@ -206,7 +219,7 @@
     "app/solutions/sections/packaging-recycling/components/process.tsx": "ab97aea357c6cdd268280a56717e8527bcaa9053",
     "app/solutions/sections/packaging-recycling/components/small-deeds.tsx": "496145ede3e1b88095f91554c3766ddaef338977",
     "app/solutions/sections/packaging-recycling/packaging-recycling.tsx": "5377031e6cf993b3fcf318bc6929aaeca22a9a31",
-    "app/solutions/sections/solutions-content.tsx": "b746d1fb37758420c687ab5c19d4a8fb2a6bc0e9",
+    "app/solutions/sections/solutions-content.tsx": "8ebe03675f2db323d2e74e0551f0ca5eaa395035",
     "app/solutions/sections/solutions-home/components/brand-promotion.tsx": "8a9ac58d4b42815ce365bf1e040478972b14e720",
     "app/solutions/sections/solutions-home/components/brand-protection.tsx": "92eebd41c962e98fedc85e8a423b5e1e4d6f0fb3",
     "app/solutions/sections/solutions-home/components/download.tsx": "ed679e684256eee8d2baa7cda65fd6066c33eb54",
@@ -280,22 +293,22 @@
     "components/hero-container.tsx": "d2fa089b871d8970ab1b48139fdf89ba4944dc95",
     "components/hero.tsx": "661121ec23ba574a56ecf5638f2bf7a01cb757ab",
     "components/media-viewer.tsx": "09dc888948fc4bb2934b8c9c6f4b2fdf1a18114f",
-    "components/sections/anti-counterfeit-section.tsx": "d4dba51a90c339213a0c1a2e74f8549563c0d85f",
-    "components/sections/app-showcase-section.tsx": "5e8ff5175277d28e01031175ac535d8068432c88",
-    "components/sections/call-to-action-section.tsx": "da62e5e25137c7e01d9e5e855a68298ec27b4b64",
-    "components/sections/ecocan-model-section.tsx": "2de3ecc1ddf0f4ca105431b28d22ad0233a1a242",
-    "components/sections/ecommunity-roles-section.tsx": "2f4ca3142d606cdaf66b9c8e0867f6d2e9203347",
-    "components/sections/electric-mobility-section.tsx": "fb5eb531604a0013b61003d552fd3676577599a2",
-    "components/sections/faq-section.tsx": "1bc15d6e1fe4a6c66f974ad3824abf25e7b1eaf7",
-    "components/sections/for-investors-section.tsx": "43b7c9f5885163e2b7a667543a86fd31eeb77f20",
-    "components/sections/hero-section.tsx": "511e43ba6e7231fe7405fceecefe07b65d8183a8",
-    "components/sections/home-footer.tsx": "dfdb7ca1a21916e71619470eaa69e57c12aaa901",
+    "components/sections/anti-counterfeit-section.tsx": "434b82ef1a108cda50d5f2a578252e8235031baa",
+    "components/sections/app-showcase-section.tsx": "680be6c73b1ee3364a3bb16d471b7a727aa816e6",
+    "components/sections/call-to-action-section.tsx": "5a3a57cfdbca84d49908dba468f8d41cdd76fe1c",
+    "components/sections/ecocan-model-section.tsx": "2d6b32694821669e66f0833ce7601cf75a626a73",
+    "components/sections/ecommunity-roles-section.tsx": "d3a3cb502abf5bc0bae6166c05da8e1ae3137004",
+    "components/sections/electric-mobility-section.tsx": "aad25916397d3625c07e93a9bafb55fe66140cff",
+    "components/sections/faq-section.tsx": "e640bdab2ec09531e89500985b847ffdec1eaf0e",
+    "components/sections/for-investors-section.tsx": "4e464ee6dc99496ef98a1fba9907d8668715d9fe",
+    "components/sections/hero-section.tsx": "b0bcd5192c5619b506db85218ab81c4a409580b4",
+    "components/sections/home-footer.tsx": "01102258d8b6e981fdac346de4b7a27c8d2f570d",
     "components/sections/home-mobile-menu.tsx": "fb3b2ee486bd8fa684435b988f19d3bec1ad9125",
-    "components/sections/home-navbar.tsx": "19a312510223aedfbe737b29f25f3fa514aa5fa7",
-    "components/sections/how-it-works-section.tsx": "a04a00802ad24328a624ca571a4a62cfaa8cec4e",
-    "components/sections/partners-testimonials-section.tsx": "784b9f2a5b197c50fc87aea66a3343f5e3079d4a",
-    "components/sections/problem-solution-section.tsx": "4c7d0bff362eb5f0bff2829e86556d67a00d7f25",
-    "components/sections/sustainability-impact-section.tsx": "9d0534359b6df0a35e74874f0034962122a53b25",
+    "components/sections/home-navbar.tsx": "baa35b651e0a3c53f7fec8b181c0d2180b10f9ab",
+    "components/sections/how-it-works-section.tsx": "de4132417399fe0ff5d9e3f7b3d03e9509d3304f",
+    "components/sections/partners-testimonials-section.tsx": "bfcf5cc99b537ee6792a30b3bd490661ad820392",
+    "components/sections/problem-solution-section.tsx": "d7b0f3755f8cfcedb77e8d2a4dd8e9059cc92312",
+    "components/sections/sustainability-impact-section.tsx": "f7ce2a848ae7690418363f182293b531e8b78c94",
     "components/shared/HowTo.tsx": "ec2b55f43fa3d7e12750f7a46b2429dfd4419ae9",
     "components/shared/accordion.tsx": "c68c2697a68fcdfb6ce7cebae1adf67d8160739e",
     "components/shared/cta-card/cta-card.tsx": "7ea1c58a0ab1cde2bfcda652e7ff2d417eae3e37",
@@ -380,118 +393,56 @@
   },
   "changelog": [
     {
-      "version": "e535e73",
-      "date": "2026-05-20T11:15:42.423Z",
+      "version": "a16475c",
+      "date": "2026-05-21T20:02:36.281Z",
       "branch": "main",
       "changes": [
-        "Modified: app/page.tsx"
+        "Full map regeneration"
       ]
     },
     {
-      "version": "4bbc9a9",
-      "date": "2026-05-20T11:26:17.848Z",
+      "version": "c0a5a66",
+      "date": "2026-05-23T08:44:48.522Z",
       "branch": "main",
       "changes": [
-        "Modified: app/page.tsx"
+        "Full map regeneration"
       ]
     },
     {
-      "version": "2445537",
-      "date": "2026-05-20T11:43:28.267Z",
+      "version": "69c7793",
+      "date": "2026-05-26T16:58:41.945Z",
       "branch": "main",
       "changes": [
-        "Modified: app/design-tokens.css",
-        "Modified: app/globals.css",
+        "Modified: app/about-us/page.tsx",
         "Modified: app/page.tsx",
         "Modified: components/sections/call-to-action-section.tsx",
-        "Modified: components/sections/ecommunity-roles-section.tsx",
+        "Modified: components/sections/ecocan-model-section.tsx",
+        "Modified: components/sections/electric-mobility-section.tsx",
+        "Modified: components/sections/faq-section.tsx",
         "Modified: components/sections/for-investors-section.tsx",
         "Modified: components/sections/hero-section.tsx",
-        "Modified: components/sections/home-navbar.tsx",
-        "Modified: components/sections/how-it-works-section.tsx",
-        "Modified: components/sections/partners-testimonials-section.tsx",
-        "Modified: components/sections/problem-solution-section.tsx",
-        "Modified: components/sections/sustainability-impact-section.tsx"
-      ]
-    },
-    {
-      "version": "fb4a220",
-      "date": "2026-05-20T11:48:23.017Z",
-      "branch": "main",
-      "changes": [
-        "Modified: app/globals.css",
-        "Modified: components/sections/anti-counterfeit-section.tsx",
-        "Modified: components/sections/ecommunity-roles-section.tsx",
-        "Modified: components/sections/hero-section.tsx",
-        "Modified: components/sections/how-it-works-section.tsx",
-        "Modified: components/sections/problem-solution-section.tsx",
-        "Modified: components/sections/sustainability-impact-section.tsx"
-      ]
-    },
-    {
-      "version": "4342367",
-      "date": "2026-05-20T11:58:54.911Z",
-      "branch": "main",
-      "changes": [
-        "Modified: app/design-tokens.css",
-        "Modified: app/globals.css",
-        "Modified: components/sections/app-showcase-section.tsx",
-        "Modified: components/sections/call-to-action-section.tsx",
-        "Modified: components/sections/for-investors-section.tsx",
         "Modified: components/sections/home-footer.tsx",
         "Modified: components/sections/home-navbar.tsx",
         "Modified: components/sections/how-it-works-section.tsx",
-        "Modified: components/sections/partners-testimonials-section.tsx",
-        "Modified: components/sections/problem-solution-section.tsx",
-        "Modified: components/sections/sustainability-impact-section.tsx"
-      ]
-    },
-    {
-      "version": "330954f",
-      "date": "2026-05-20T16:11:24.273Z",
-      "branch": "main",
-      "changes": [
-        "Modified: components/sections/call-to-action-section.tsx"
-      ]
-    },
-    {
-      "version": "fd26688",
-      "date": "2026-05-20T16:16:34.601Z",
-      "branch": "main",
-      "changes": [
-        "Modified: components/sections/for-investors-section.tsx"
-      ]
-    },
-    {
-      "version": "a9d0721",
-      "date": "2026-05-20T16:21:42.115Z",
-      "branch": "main",
-      "changes": [
-        "Modified: lib/use-ec-reveal.ts"
-      ]
-    },
-    {
-      "version": "bed5c72",
-      "date": "2026-05-20T16:44:35.671Z",
-      "branch": "main",
-      "changes": [
         "Modified: components/sections/partners-testimonials-section.tsx"
       ]
     },
     {
-      "version": "31ae53b",
-      "date": "2026-05-20T16:49:35.009Z",
+      "version": "a736481",
+      "date": "2026-05-26T19:53:27.886Z",
       "branch": "main",
       "changes": [
-        "Modified: app/page.tsx",
-        "Modified: components/sections/hero-section.tsx"
+        "Modified: app/design-tokens.css",
+        "Modified: app/globals.css",
+        "Modified: components/sections/home-navbar.tsx"
       ]
     },
     {
-      "version": "d3b6d8f",
-      "date": "2026-05-20T18:10:58.110Z",
+      "version": "7789620",
+      "date": "2026-05-27T01:01:00.148Z",
       "branch": "main",
       "changes": [
+        "Modified: app/about-us/page.tsx",
         "Modified: app/design-tokens.css",
         "Modified: app/globals.css",
         "Modified: components/sections/anti-counterfeit-section.tsx",
@@ -499,11 +450,11 @@
         "Modified: components/sections/call-to-action-section.tsx",
         "Modified: components/sections/ecocan-model-section.tsx",
         "Modified: components/sections/ecommunity-roles-section.tsx",
+        "Modified: components/sections/electric-mobility-section.tsx",
         "Modified: components/sections/faq-section.tsx",
         "Modified: components/sections/for-investors-section.tsx",
         "Modified: components/sections/hero-section.tsx",
         "Modified: components/sections/home-footer.tsx",
-        "Modified: components/sections/home-navbar.tsx",
         "Modified: components/sections/how-it-works-section.tsx",
         "Modified: components/sections/partners-testimonials-section.tsx",
         "Modified: components/sections/problem-solution-section.tsx",
@@ -511,104 +462,174 @@
       ]
     },
     {
-      "version": "9caf519",
-      "date": "2026-05-21T03:48:44.102Z",
-      "branch": "main",
+      "version": "06d91a6",
+      "date": "2026-05-27T01:24:57.470Z",
+      "branch": "copilot/implement-frontend-fixes-ecocan-landing-page",
       "changes": [
-        "Modified: app/globals.css",
-        "Modified: components/sections/anti-counterfeit-section.tsx",
-        "Modified: components/sections/app-showcase-section.tsx",
+        "Modified: app/design-tokens.css",
+        "Modified: app/page.tsx",
         "Modified: components/sections/call-to-action-section.tsx",
-        "Modified: components/sections/ecommunity-roles-section.tsx",
+        "Modified: components/sections/electric-mobility-section.tsx",
+        "Modified: components/sections/faq-section.tsx",
         "Modified: components/sections/for-investors-section.tsx",
         "Modified: components/sections/hero-section.tsx",
         "Modified: components/sections/how-it-works-section.tsx",
-        "Modified: components/sections/partners-testimonials-section.tsx",
-        "Modified: components/sections/problem-solution-section.tsx",
-        "Modified: components/sections/sustainability-impact-section.tsx"
+        "Modified: components/sections/partners-testimonials-section.tsx"
       ]
     },
     {
-      "version": "e7fc65a",
-      "date": "2026-05-21T17:04:22.197Z",
+      "version": "833bbea",
+      "date": "2026-05-27T01:33:01.758Z",
       "branch": "main",
       "changes": [
-        "Modified: package.json"
+        "Modified: app/design-tokens.css",
+        "Modified: app/page.tsx",
+        "Modified: components/sections/call-to-action-section.tsx",
+        "Modified: components/sections/electric-mobility-section.tsx",
+        "Modified: components/sections/faq-section.tsx",
+        "Modified: components/sections/for-investors-section.tsx",
+        "Modified: components/sections/hero-section.tsx",
+        "Modified: components/sections/how-it-works-section.tsx",
+        "Modified: components/sections/partners-testimonials-section.tsx"
       ]
     },
     {
-      "version": "422e74a",
-      "date": "2026-05-21T17:55:35.288Z",
+      "version": "3aac135",
+      "date": "2026-05-27T01:45:26.128Z",
+      "branch": "copilot/fix-hero-video-autoplay",
+      "changes": [
+        "Modified: app/page.tsx",
+        "Modified: components/sections/hero-section.tsx"
+      ]
+    },
+    {
+      "version": "b91212e",
+      "date": "2026-05-27T01:46:31.072Z",
+      "branch": "copilot/fix-hero-video-autoplay",
+      "changes": [
+        "Modified: components/sections/hero-section.tsx"
+      ]
+    },
+    {
+      "version": "6a4b006",
+      "date": "2026-05-27T01:51:04.014Z",
       "branch": "main",
       "changes": [
+        "Modified: app/page.tsx",
+        "Modified: components/sections/hero-section.tsx"
+      ]
+    },
+    {
+      "version": "ba8bfd5",
+      "date": "2026-05-27T02:08:39.407Z",
+      "branch": "main",
+      "changes": [
+        "Modified: components/sections/hero-section.tsx"
+      ]
+    },
+    {
+      "version": "a03d7f6",
+      "date": "2026-05-27T02:33:30.102Z",
+      "branch": "main",
+      "changes": [
+        "Modified: app/globals.css"
+      ]
+    },
+    {
+      "version": "5ec0a8a",
+      "date": "2026-05-27T02:34:31.485Z",
+      "branch": "main",
+      "changes": [
+        "Modified: app/globals.css"
+      ]
+    },
+    {
+      "version": "aedce53",
+      "date": "2026-05-27T02:37:06.170Z",
+      "branch": "HEAD",
+      "changes": [
+        "Modified: app/globals.css"
+      ]
+    },
+    {
+      "version": "4cc6fec",
+      "date": "2026-05-27T02:39:31.439Z",
+      "branch": "main",
+      "changes": [
+        "Modified: app/globals.css"
+      ]
+    },
+    {
+      "version": "b846390",
+      "date": "2026-05-27T02:50:26.770Z",
+      "branch": "HEAD",
+      "changes": [
+        "Modified: app/design-tokens.css",
         "Modified: components/sections/anti-counterfeit-section.tsx",
         "Modified: components/sections/app-showcase-section.tsx",
         "Modified: components/sections/call-to-action-section.tsx",
         "Modified: components/sections/ecommunity-roles-section.tsx",
         "Modified: components/sections/for-investors-section.tsx",
         "Modified: components/sections/how-it-works-section.tsx",
-        "Modified: components/sections/partners-testimonials-section.tsx",
         "Modified: components/sections/problem-solution-section.tsx",
         "Modified: components/sections/sustainability-impact-section.tsx"
       ]
     },
     {
-      "version": "08bb333",
-      "date": "2026-05-21T18:10:21.264Z",
+      "version": "6f0e96d",
+      "date": "2026-05-27T02:52:21.648Z",
       "branch": "main",
       "changes": [
-        "Modified: app/page.tsx",
-        "Added: app/template.tsx",
+        "Modified: app/design-tokens.css",
+        "Modified: components/sections/anti-counterfeit-section.tsx",
+        "Modified: components/sections/app-showcase-section.tsx",
+        "Modified: components/sections/call-to-action-section.tsx",
         "Modified: components/sections/ecommunity-roles-section.tsx",
-        "Modified: components/sections/faq-section.tsx",
         "Modified: components/sections/for-investors-section.tsx",
-        "Modified: components/sections/home-navbar.tsx",
-        "Modified: components/sections/sustainability-impact-section.tsx",
-        "Added: components/ui/spotlight-card.tsx"
+        "Modified: components/sections/how-it-works-section.tsx",
+        "Modified: components/sections/problem-solution-section.tsx",
+        "Modified: components/sections/sustainability-impact-section.tsx"
       ]
     },
     {
-      "version": "9e7ec1c",
-      "date": "2026-05-21T18:31:55.104Z",
-      "branch": "main",
+      "version": "4fb13f9",
+      "date": "2026-05-27T08:42:07.315Z",
+      "branch": "HEAD",
       "changes": [
-        "Modified: components/sections/hero-section.tsx"
+        "Modified: components/sections/hero-section.tsx",
+        "Modified: components/sections/home-footer.tsx",
+        "Modified: components/sections/home-navbar.tsx"
       ]
     },
     {
-      "version": "3479f58",
-      "date": "2026-05-21T18:46:52.019Z",
+      "version": "076e9e6",
+      "date": "2026-05-27T08:46:08.013Z",
       "branch": "main",
       "changes": [
-        "Modified: components/sections/hero-section.tsx"
+        "Modified: components/sections/hero-section.tsx",
+        "Modified: components/sections/home-footer.tsx",
+        "Modified: components/sections/home-navbar.tsx"
       ]
     },
     {
-      "version": "7cb679b",
-      "date": "2026-05-21T18:53:47.770Z",
+      "version": "d977c7b",
+      "date": "2026-05-27T09:10:34.519Z",
       "branch": "main",
       "changes": [
-        "Full map regeneration"
-      ]
-    },
-    {
-      "version": "d63d317",
-      "date": "2026-05-21T19:09:07.579Z",
-      "branch": "main",
-      "changes": [
+        "Modified: app/contact/components/hero.tsx",
+        "Modified: app/design-tokens.css",
+        "Modified: app/eco-friendly-cans/components/economic.tsx",
+        "Modified: app/eco-friendly-cans/components/heading.tsx",
+        "Modified: app/eco-friendly-cans/components/operational.tsx",
+        "Modified: app/eco-friendly-cans/page.tsx",
+        "Modified: app/ecocan-market/page.tsx",
         "Modified: app/globals.css",
-        "Added: app/investors/layout.tsx",
-        "Added: app/investors/page.tsx",
-        "Modified: components/sections/for-investors-section.tsx",
-        "Modified: components/sections/hero-section.tsx"
-      ]
-    },
-    {
-      "version": "a16475c",
-      "date": "2026-05-21T20:02:36.281Z",
-      "branch": "main",
-      "changes": [
-        "Full map regeneration"
+        "Modified: app/investors/page.tsx",
+        "Modified: app/news/page.tsx",
+        "Modified: app/page.tsx",
+        "Modified: app/solutions/[section]/page.tsx",
+        "Modified: app/solutions/sections/solutions-content.tsx",
+        "Modified: components/sections/home-navbar.tsx"
       ]
     }
   ]

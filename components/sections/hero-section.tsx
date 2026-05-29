@@ -21,6 +21,7 @@ export default function HeroSection({ onTransitionComplete }: HeroSectionProps) 
     if (!video) return
     video.muted = true
     video.playsInline = true
+    video.defaultMuted = true
 
     const play = () =>
       video.play().catch(() => {
@@ -36,7 +37,7 @@ export default function HeroSection({ onTransitionComplete }: HeroSectionProps) 
       window.removeEventListener("touchstart", onInteract)
       window.removeEventListener("mousedown", onInteract)
     }
-  }, [])
+  }, [videoSrc])
 
   return (
     <div id="hero" className="relative w-full overflow-hidden" style={{ height: "72dvh" }}>
