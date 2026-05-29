@@ -6,13 +6,6 @@ import { ScrollTrigger } from "gsap/ScrollTrigger"
 import { SpotlightCard } from "@/components/ui/spotlight-card"
 import { Handshake, Quote, ArrowRight } from "lucide-react"
 
-const partnersData = {
-  Retailers: ["Jaza", "Naivas", "Quickmart", "Carrefour"],
-  Producers: ["KWAL", "EABL", "Coca-Cola"],
-  Logistics: ["Roam", "BasiGo"],
-  Investors: ["Antler", "Saviu"],
-}
-
 const marqueeLogos = [
   {
     name: "Naivas",
@@ -212,30 +205,6 @@ export default function PartnersTestimonialsSection() {
               </div>
             ))}
           </div>
-        </div>
-
-        {/* Partners Grid Columns representing 3-4 rows */}
-        <div className="ec-reveal mx-auto mb-12 grid max-w-5xl gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {Object.entries(partnersData).map(([category, names]) => (
-            <div
-              key={category}
-              className="flex flex-col gap-4 rounded-2xl border border-[var(--landing-glass-border)] bg-[var(--landing-glass-bg)] p-6"
-            >
-              <span className="border-b border-[var(--landing-divider)] pb-2 font-mono text-[10px] font-bold uppercase tracking-widest text-emerald-400">
-                {category}
-              </span>
-              <div className="flex flex-col gap-2">
-                {names.map((name) => (
-                  <span
-                    key={name}
-                    className="py-1 text-sm font-semibold text-[var(--c-text-subtle)] transition-colors duration-300 hover:text-[var(--c-text)]"
-                  >
-                    {name}
-                  </span>
-                ))}
-              </div>
-            </div>
-          ))}
         </div>
 
         <div className="ec-reveal flex justify-center">
