@@ -166,7 +166,7 @@ export default function AboutPage() {
           >
             We are catalysts of positive change.
           </h1>
-          <p className="about-hero-text mx-auto mb-10 max-w-[46ch] text-base leading-relaxed tracking-wide text-white/55 md:text-lg">
+          <p className="about-hero-text mx-auto mb-10 max-w-[46ch] text-base leading-relaxed tracking-wide text-[var(--c-text-muted)] md:text-lg">
             Re-imagining sustainability for Africa through circular solutions.
           </p>
           <a
@@ -175,7 +175,7 @@ export default function AboutPage() {
               e.preventDefault()
               document.getElementById("story")?.scrollIntoView({ behavior: "smooth" })
             }}
-            className="about-hero-text inline-flex items-center gap-2 rounded-full border border-white/20 px-8 py-3.5 text-xs font-bold uppercase tracking-[0.15em] text-white/80 backdrop-blur-md transition-all duration-300 hover:border-white hover:bg-white hover:text-black"
+            className="about-hero-text inline-flex items-center gap-2 rounded-full border border-[var(--c-border-dark)] px-8 py-3.5 text-xs font-bold uppercase tracking-[0.15em] text-[var(--c-text-muted)] backdrop-blur-md transition-all duration-300 hover:border-emerald-500/30 hover:bg-emerald-500/5 hover:text-emerald-600"
           >
             Our Story <ArrowDown size={14} />
           </a>
@@ -209,7 +209,7 @@ export default function AboutPage() {
                 </div>
 
                 {/* Left side year indicator for desktop */}
-                <div className="font-serif-luxury absolute -left-44 top-0 hidden w-24 text-right text-2xl font-light text-emerald-400 transition-colors duration-300 group-hover:text-white md:block">
+                <div className="font-serif-luxury absolute -left-44 top-0 hidden w-24 text-right text-2xl font-light text-emerald-600 transition-colors duration-300 group-hover:text-emerald-500 md:block">
                   {item.year}
                 </div>
 
@@ -219,10 +219,12 @@ export default function AboutPage() {
                     {item.year}
                   </span>
 
-                  <h3 className="font-serif-luxury mb-3 text-xl font-normal text-white transition-colors group-hover:text-emerald-400">
+                  <h3 className="font-serif-luxury mb-3 text-xl font-normal text-[var(--c-text)] transition-colors group-hover:text-emerald-600">
                     {item.title}
                   </h3>
-                  <p className="text-sm font-normal leading-relaxed text-white/55">{item.desc}</p>
+                  <p className="text-sm font-normal leading-relaxed text-[var(--c-text-muted)]">
+                    {item.desc}
+                  </p>
                 </div>
               </div>
             ))}
@@ -259,10 +261,10 @@ export default function AboutPage() {
                     <span className="mb-6 block flex-shrink-0 select-none text-4xl saturate-100 filter">
                       {item.icon}
                     </span>
-                    <h3 className="font-serif-luxury mb-3 text-xl font-normal text-white">
+                    <h3 className="font-serif-luxury mb-3 text-xl font-normal text-[var(--c-text)]">
                       {item.title}
                     </h3>
-                    <p className="text-[13px] font-normal leading-relaxed text-white/55">
+                    <p className="text-[13px] font-normal leading-relaxed text-[var(--c-text-muted)]">
                       {item.desc}
                     </p>
                   </div>
@@ -299,12 +301,12 @@ export default function AboutPage() {
                   spotlightColor="rgba(16,185,129,0.05)"
                 >
                   <p
-                    className="font-serif-luxury mb-3 text-3xl text-emerald-400"
+                    className="font-serif-luxury mb-3 text-3xl text-emerald-600"
                     style={{ letterSpacing: "-0.02em" }}
                   >
                     {item.title}
                   </p>
-                  <p className="text-[13px] font-normal leading-relaxed text-white/55">
+                  <p className="text-[13px] font-normal leading-relaxed text-[var(--c-text-muted)]">
                     {item.desc}
                   </p>
                 </SpotlightCard>
@@ -328,11 +330,11 @@ export default function AboutPage() {
               className="about-reveal font-serif-luxury text-luxury-gradient text-luxury-glow"
               style={{ fontSize: "clamp(2rem,5vw,3.5rem)", lineHeight: 1.05 }}
             >
-              The people building Africa’s circular future.
+              The people building Africa&apos;s circular future.
             </h2>
           </div>
 
-          <div className="about-reveal relative mx-auto max-w-4xl overflow-hidden rounded-[32px] border border-[var(--c-border)] bg-[var(--c-surface)] p-8 shadow-[0_0_50px_rgba(16,185,129,0.03)] backdrop-blur-xl md:p-12">
+          <div className="about-reveal relative mx-auto max-w-4xl overflow-hidden rounded-[32px] border border-[var(--c-border)] bg-[var(--c-surface)] p-8 shadow-[var(--shadow-lift)] backdrop-blur-xl md:p-12">
             <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-emerald-500/0 via-emerald-500/5 to-emerald-500/0" />
 
             <div className="relative z-10 grid items-center gap-8 md:grid-cols-[1fr_2fr]">
@@ -344,7 +346,7 @@ export default function AboutPage() {
                 <h4 className="text-sm font-semibold uppercase tracking-widest text-emerald-400">
                   Founder &amp; CEO
                 </h4>
-                <p className="font-serif-luxury mt-1 text-[10px] italic text-white/40">
+                <p className="font-serif-luxury mt-1 text-[10px] italic text-[var(--c-text-muted)]">
                   ECOCAN Executive Leadership
                 </p>
               </div>
@@ -352,16 +354,16 @@ export default function AboutPage() {
               {/* Founder Quote */}
               <div className="text-left">
                 <span className="mb-[-12px] block h-6 select-none font-serif text-7xl leading-none text-emerald-400/20">
-                  “
+                  &ldquo;
                 </span>
-                <blockquote className="font-serif-luxury mb-6 text-base font-light italic leading-relaxed tracking-wide text-white/90 md:text-[17px]">
+                <blockquote className="font-serif-luxury mb-6 text-base font-light italic leading-relaxed tracking-wide text-[var(--c-text)] md:text-[17px]">
                   I started ECOCAN after seeing bottles accumulate across our communities and
                   realizing recycling needed to become easier, smarter, and more rewarding. I
                   believed we could build a system that turns waste into value and communities into
                   environmental champions.
                 </blockquote>
                 <div className="mb-4 h-[1px] w-12 bg-emerald-500/30" />
-                <p className="text-xs font-bold uppercase tracking-[0.18em] text-white">
+                <p className="text-xs font-bold uppercase tracking-[0.18em] text-[var(--c-text)]">
                   Founder &amp; CEO
                 </p>
               </div>

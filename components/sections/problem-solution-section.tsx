@@ -70,7 +70,7 @@ export default function ProblemSolutionSection() {
           }}
         />
       </div>
-      <div className="relative z-10 max-w-5xl px-[clamp(1.25rem,4vw,3rem)]">
+      <div className="relative z-10 mx-auto max-w-5xl px-[clamp(1.25rem,4vw,3rem)]">
         <p
           className="ec-reveal font-serif-luxury text-luxury-gradient"
           style={{
