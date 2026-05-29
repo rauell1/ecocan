@@ -1,15 +1,15 @@
 {
   "meta": {
-    "version": "f2dd482",
-    "generatedAt": "2026-05-29T15:43:31.137Z",
+    "version": "8708ff2",
+    "generatedAt": "2026-05-29T16:26:15.621Z",
     "branch": "main",
-    "previousVersion": "93da0a0",
+    "previousVersion": "f2dd482",
     "generator": "scripts/generate-codebase-map.mjs",
     "framework": "Next.js 14",
     "packageManager": "pnpm"
   },
   "changes": [
-    "Modified: components/sections/hero-content-section.tsx"
+    "Modified: components/sections/how-it-works-section.tsx"
   ],
   "affectedHotspots": [],
   "routes": [
@@ -293,7 +293,7 @@
     "components/sections/home-footer.tsx": "01102258d8b6e981fdac346de4b7a27c8d2f570d",
     "components/sections/home-mobile-menu.tsx": "fb3b2ee486bd8fa684435b988f19d3bec1ad9125",
     "components/sections/home-navbar.tsx": "baa35b651e0a3c53f7fec8b181c0d2180b10f9ab",
-    "components/sections/how-it-works-section.tsx": "de4132417399fe0ff5d9e3f7b3d03e9509d3304f",
+    "components/sections/how-it-works-section.tsx": "ddcf4817599d725d18cf2f58d8f070cc1f99efa4",
     "components/sections/partners-testimonials-section.tsx": "bfcf5cc99b537ee6792a30b3bd490661ad820392",
     "components/sections/problem-solution-section.tsx": "2c511a1995a6015d77f240e0c18d36bc7dc3b70f",
     "components/sections/sustainability-impact-section.tsx": "f7ce2a848ae7690418363f182293b531e8b78c94",
@@ -380,30 +380,6 @@
     "tsconfig.json": "5841f1c2f8bba110464eaba24059d47cb59d3b64"
   },
   "changelog": [
-    {
-      "version": "7789620",
-      "date": "2026-05-27T01:01:00.148Z",
-      "branch": "main",
-      "changes": [
-        "Modified: app/about-us/page.tsx",
-        "Modified: app/design-tokens.css",
-        "Modified: app/globals.css",
-        "Modified: components/sections/anti-counterfeit-section.tsx",
-        "Modified: components/sections/app-showcase-section.tsx",
-        "Modified: components/sections/call-to-action-section.tsx",
-        "Modified: components/sections/ecocan-model-section.tsx",
-        "Modified: components/sections/ecommunity-roles-section.tsx",
-        "Modified: components/sections/electric-mobility-section.tsx",
-        "Modified: components/sections/faq-section.tsx",
-        "Modified: components/sections/for-investors-section.tsx",
-        "Modified: components/sections/hero-section.tsx",
-        "Modified: components/sections/home-footer.tsx",
-        "Modified: components/sections/how-it-works-section.tsx",
-        "Modified: components/sections/partners-testimonials-section.tsx",
-        "Modified: components/sections/problem-solution-section.tsx",
-        "Modified: components/sections/sustainability-impact-section.tsx"
-      ]
-    },
     {
       "version": "06d91a6",
       "date": "2026-05-27T01:24:57.470Z",
@@ -634,6 +610,14 @@
       "branch": "main",
       "changes": [
         "Modified: components/sections/hero-content-section.tsx"
+      ]
+    },
+    {
+      "version": "8708ff2",
+      "date": "2026-05-29T16:26:15.621Z",
+      "branch": "main",
+      "changes": [
+        "Modified: components/sections/how-it-works-section.tsx"
       ]
     }
   ]
