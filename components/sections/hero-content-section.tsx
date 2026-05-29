@@ -1,12 +1,17 @@
 "use client"
 
+import Image from "next/image"
 import Link from "next/link"
-import { Smartphone, Handshake, Leaf, MapPin, ShieldCheck } from "lucide-react"
+import { Smartphone, Handshake, Leaf, MapPin } from "lucide-react"
 
-const badges = [
+const trustBadges = [
   { icon: Leaf, label: "EARLY-STAGE\nFUNDED" },
   { icon: MapPin, label: "OPERATIONAL\nIN KENYA" },
-  { icon: ShieldCheck, label: "GDPR\nCOMPLIANT" },
+]
+
+const complianceBadges = [
+  { src: "/assets/images/gdpr-badge.svg", alt: "GDPR Compliant", label: "GDPR Compliant" },
+  { src: "/assets/images/odpc-badge.svg", alt: "ODPC Kenya Compliant", label: "ODPC Compliant" },
 ]
 
 export default function HeroContentSection() {
@@ -70,15 +75,15 @@ export default function HeroContentSection() {
           </Link>
         </div>
 
-        {/* ── Trust badges ─────────────────────────────────── */}
+        {/* ── Trust strip: operational badges ──────────────── */}
         <div
-          className="flex overflow-hidden rounded-2xl"
+          className="mb-3 flex overflow-hidden rounded-2xl"
           style={{
             border: "1px solid rgba(255,255,255,0.08)",
             background: "rgba(255,255,255,0.04)",
           }}
         >
-          {badges.map(({ icon: Icon, label }, i) => (
+          {trustBadges.map(({ icon: Icon, label }, i) => (
             <div
               key={label}
               className="flex flex-1 flex-col items-center justify-center gap-2 px-3 py-5"
@@ -88,6 +93,34 @@ export default function HeroContentSection() {
               <p
                 className="text-center text-[9px] font-bold uppercase leading-tight tracking-[0.12em]"
                 style={{ color: "rgba(255,255,255,0.55)", whiteSpace: "pre-line" }}
+              >
+                {label}
+              </p>
+            </div>
+          ))}
+        </div>
+
+        {/* ── Compliance badge images ───────────────────────── */}
+        <div className="flex gap-3">
+          {complianceBadges.map(({ src, alt, label }) => (
+            <div
+              key={label}
+              className="flex flex-1 items-center justify-center gap-3 overflow-hidden rounded-2xl px-4 py-3"
+              style={{
+                border: "1px solid rgba(255,255,255,0.08)",
+                background: "rgba(255,255,255,0.04)",
+              }}
+            >
+              <Image
+                src={src}
+                alt={alt}
+                width={40}
+                height={40}
+                className="h-10 w-10 shrink-0 object-contain"
+              />
+              <p
+                className="text-[10px] font-bold uppercase leading-tight tracking-[0.1em]"
+                style={{ color: "rgba(255,255,255,0.6)" }}
               >
                 {label}
               </p>
