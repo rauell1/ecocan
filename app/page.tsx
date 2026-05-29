@@ -49,7 +49,7 @@ export default function Home() {
   }, [])
 
   return (
-    <div className="relative overflow-x-hidden" style={{ background: "#0C0E0C" }}>
+    <div className="relative overflow-x-hidden" style={{ background: "var(--c-bg)" }}>
       <HomeNavbar onMenuToggle={() => {}} />
 
       {/* Clean full-bleed video — no text overlay */}

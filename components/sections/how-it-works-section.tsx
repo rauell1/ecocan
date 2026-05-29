@@ -4,7 +4,7 @@ import { useRef, useEffect, useState } from "react"
 import Image from "next/image"
 import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
-import { ShoppingBag, QrCode, Store, Bike, Wallet, Play, ArrowRight } from "lucide-react"
+import { ShoppingBag, QrCode, Store, Bike, Wallet, Play } from "lucide-react"
 
 /* ── Set this to the real ECOCAN YouTube video ID ──────────────────────────
    e.g. for https://youtube.com/watch?v=ABC123  →  YOUTUBE_VIDEO_ID = "ABC123"  */
@@ -143,12 +143,12 @@ export default function HowItWorksSection() {
       id="how-it-works"
       ref={sectionRef}
       className="relative w-full overflow-hidden"
-      style={{ background: "#0C0E0C" }}
+      style={{ background: "var(--c-bg)" }}
     >
       {/* ── 1. INTRO HEADER ──────────────────────────────────────────────── */}
       <div
         className="relative overflow-hidden px-[clamp(1.25rem,4vw,3rem)] py-[clamp(4rem,8vw,7rem)]"
-        style={{ background: "#0C0E0C" }}
+        style={{ background: "var(--c-bg)" }}
       >
         {/* BG image */}
         <div className="pointer-events-none absolute inset-0 z-0">
@@ -156,13 +156,13 @@ export default function HowItWorksSection() {
             src="/images/hero/how_it_works_hero.png"
             alt=""
             aria-hidden="true"
-            className="h-full w-full object-cover opacity-25"
+            className="h-full w-full object-cover opacity-20"
           />
           <div
             className="absolute inset-0"
             style={{
               background:
-                "linear-gradient(to bottom, rgba(12,14,12,0.7) 0%, rgba(12,14,12,0.97) 100%)",
+                "linear-gradient(to bottom, rgba(var(--c-bg-rgb), 0.7) 0%, rgba(var(--c-bg-rgb), 0.97) 100%)",
             }}
           />
         </div>
@@ -170,24 +170,21 @@ export default function HowItWorksSection() {
         <div className="relative z-10 mx-auto grid max-w-6xl items-center gap-10 md:grid-cols-[1fr_auto]">
           {/* Left: copy */}
           <div>
-            <p className="ec-reveal section-overline mb-4 text-emerald-400">HOW IT WORKS</p>
+            <p className="ec-reveal section-overline mb-4 text-[var(--c-green)]">HOW IT WORKS</p>
             <h2
-              className="ec-reveal mb-4 font-bold leading-tight tracking-tight text-white"
+              className="ec-reveal mb-4 font-bold leading-tight tracking-tight text-[var(--c-text)]"
               style={{ fontSize: "clamp(2.2rem,5.5vw,4rem)", letterSpacing: "-0.02em" }}
             >
               From your hand back to the shelf.{" "}
-              <span style={{ color: "#4ade80" }}>Clean. Traceable.</span>
+              <span style={{ color: "var(--c-green)" }}>Clean. Traceable.</span>
             </h2>
-            <p
-              className="ec-reveal max-w-xl text-base leading-relaxed"
-              style={{ color: "rgba(255,255,255,0.60)" }}
-            >
+            <p className="ec-reveal max-w-xl text-base leading-relaxed text-[var(--c-text-muted)]">
               Our simple 5-step journey turns your empty bottle into real impact.
             </p>
           </div>
 
           {/* Right: phone + eco-wallet badge */}
-          <div className="ec-reveal relative mx-auto w-[180px] shrink-0 drop-shadow-[0_0_40px_rgba(74,222,128,0.2)] md:w-[210px]">
+          <div className="ec-reveal relative mx-auto w-[180px] shrink-0 drop-shadow-[0_0_40px_rgba(34,197,94,0.08)] md:w-[210px]">
             <Image
               src="/assets/images/consumer/ecocan-app.png"
               alt="ECOCAN app showing eco-wallet reward"
@@ -199,25 +196,26 @@ export default function HowItWorksSection() {
             <div
               className="absolute -right-5 top-8 z-10 flex min-w-[90px] flex-col items-center gap-1 rounded-2xl px-3 py-3 shadow-2xl"
               style={{
-                background: "rgba(12,14,12,0.95)",
-                border: "1px solid rgba(74,222,128,0.35)",
+                background: "var(--landing-glass-bg)",
+                border: "1px solid var(--c-border)",
               }}
             >
               <p
                 className="text-[8px] font-bold uppercase tracking-[0.2em]"
-                style={{ color: "#4ade80" }}
+                style={{ color: "var(--c-green)" }}
               >
                 ECO-WALLET
               </p>
-              <p className="font-bold text-white" style={{ fontSize: "1.4rem", lineHeight: 1.1 }}>
+              <p
+                className="font-bold text-[var(--c-text)]"
+                style={{ fontSize: "1.4rem", lineHeight: 1.1 }}
+              >
                 KSh 5
               </p>
-              <p className="text-[8px] font-medium" style={{ color: "rgba(255,255,255,0.55)" }}>
-                Added
-              </p>
+              <p className="text-[8px] font-medium text-[var(--c-text-muted)]">Added</p>
               <div
-                className="mt-0.5 flex h-5 w-5 items-center justify-center rounded-full text-[11px] font-bold text-black"
-                style={{ background: "#4ade80" }}
+                className="mt-0.5 flex h-5 w-5 animate-pulse items-center justify-center rounded-full text-[11px] font-bold text-white"
+                style={{ background: "var(--c-green)" }}
               >
                 ✓
               </div>
@@ -232,15 +230,15 @@ export default function HowItWorksSection() {
       {/* ── 3. 5-STEP PROCESS ────────────────────────────────────────────── */}
       <div
         className="px-[clamp(1.25rem,4vw,3rem)] py-[clamp(4rem,8vw,7rem)]"
-        style={{ background: "#0C0E0C" }}
+        style={{ background: "var(--c-bg)" }}
       >
         <div className="mx-auto max-w-7xl">
           <div className="mb-12 text-center">
-            <p className="ec-reveal section-overline mb-3 justify-center text-emerald-400">
+            <p className="ec-reveal section-overline mb-3 justify-center text-[var(--c-green)]">
               THE JOURNEY
             </p>
             <h3
-              className="ec-reveal font-bold text-white"
+              className="ec-reveal font-bold text-[var(--c-text)]"
               style={{ fontSize: "clamp(1.8rem,4vw,3rem)", letterSpacing: "-0.02em" }}
             >
               5 steps. Real rewards.
@@ -253,22 +251,15 @@ export default function HowItWorksSection() {
               const Icon = step.icon
               return (
                 <div key={step.num} className="ec-reveal flex flex-col">
-                  {/* Arrow between steps (desktop) */}
-                  {idx > 0 && (
-                    <div className="mb-2 hidden justify-end pr-1 text-emerald-500/30 md:flex">
-                      {/* rendered by the previous column via absolute won't work in grid; skip */}
-                    </div>
-                  )}
-
                   {/* Card */}
                   <div
-                    className="group relative flex-1 overflow-hidden rounded-2xl transition-all duration-500 hover:ring-1 hover:ring-emerald-500/30"
-                    style={{ border: "1px solid rgba(255,255,255,0.08)" }}
+                    className="hover:ring-[var(--c-green)]/30 group relative flex-1 overflow-hidden rounded-2xl bg-white transition-all duration-500 hover:ring-1"
+                    style={{ border: "1px solid var(--c-border)" }}
                   >
                     {/* Numbered badge */}
                     <div
-                      className="absolute left-3 top-3 z-10 flex h-7 w-7 items-center justify-center rounded-full text-xs font-bold text-black"
-                      style={{ background: "#4ade80" }}
+                      className="absolute left-3 top-3 z-10 flex h-7 w-7 items-center justify-center rounded-full text-xs font-bold text-white shadow-md"
+                      style={{ background: "var(--c-green)" }}
                     >
                       {step.num}
                     </div>
@@ -283,29 +274,29 @@ export default function HowItWorksSection() {
                         sizes="(max-width: 768px) 100vw, 20vw"
                       />
                       {/* Bottom gradient */}
-                      <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-black/70 to-transparent" />
+                      <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-black/50 to-transparent" />
 
                       {/* Icon badge at bottom */}
                       <div
-                        className="absolute bottom-3 left-1/2 flex h-8 w-8 -translate-x-1/2 items-center justify-center rounded-full"
+                        className="absolute bottom-3 left-1/2 flex h-8 w-8 -translate-x-1/2 items-center justify-center rounded-full shadow-lg"
                         style={{
-                          background: "rgba(12,14,12,0.85)",
-                          border: "1px solid #4ade80",
+                          background: "rgba(255, 255, 255, 0.85)",
+                          border: "1px solid var(--c-green)",
                         }}
                       >
-                        <Icon size={14} strokeWidth={2} style={{ color: "#4ade80" }} />
+                        <Icon size={14} strokeWidth={2} style={{ color: "var(--c-green)" }} />
                       </div>
                     </div>
 
                     {/* Label area */}
-                    <div className="px-4 py-4" style={{ background: "rgba(255,255,255,0.03)" }}>
-                      <h4 className="mb-1 font-bold text-white" style={{ fontSize: "0.9rem" }}>
+                    <div className="px-4 py-4" style={{ background: "var(--c-surface)" }}>
+                      <h4
+                        className="mb-1 font-bold text-[var(--c-text)]"
+                        style={{ fontSize: "0.9rem" }}
+                      >
                         {step.title}
                       </h4>
-                      <p
-                        className="text-[12px] leading-relaxed"
-                        style={{ color: "rgba(255,255,255,0.55)" }}
-                      >
+                      <p className="text-[12px] leading-relaxed text-[var(--c-text-muted)]">
                         {step.desc}
                       </p>
                     </div>
@@ -320,13 +311,13 @@ export default function HowItWorksSection() {
             <div
               className="flex h-7 w-7 items-center justify-center rounded-lg"
               style={{
-                background: "rgba(74,222,128,0.08)",
-                border: "1px solid rgba(74,222,128,0.2)",
+                background: "var(--c-green-dim)",
+                border: "1px solid var(--c-border)",
               }}
             >
-              <Store size={13} style={{ color: "#4ade80" }} strokeWidth={1.5} />
+              <Store size={13} style={{ color: "var(--c-green)" }} strokeWidth={1.5} />
             </div>
-            <p className="text-sm" style={{ color: "rgba(255,255,255,0.50)" }}>
+            <p className="text-sm text-[var(--c-text-muted)]">
               Our partners at supermarket counters scan and pay you instantly.
             </p>
           </div>

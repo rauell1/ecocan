@@ -65,7 +65,7 @@ export default function HeroSection({ onTransitionComplete }: HeroSectionProps) 
         aria-hidden
         className="pointer-events-none absolute inset-x-0 bottom-0 h-[30%]"
         style={{
-          background: "linear-gradient(to bottom, transparent 0%, #0C0E0C 100%)",
+          background: "linear-gradient(to bottom, transparent 0%, var(--c-bg) 100%)",
         }}
       />
     </div>
