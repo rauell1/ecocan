@@ -5,15 +5,17 @@
 
 # 🗺️ EcoCan Codebase Map
 
-> **Version:** `3948c36`
-> **Generated:** 2026-05-29T16:48:48.079Z
+> **Version:** `a4e0a65`
+> **Generated:** 2026-05-29T17:14:07.608Z
 > **Branch:** `main`
-> **Previous:** `8708ff2`
+> **Previous:** `3948c36`
 
 ## Changes Since Last Version
 
+- Modified: app/page.tsx
+- Modified: components/sections/hero-content-section.tsx
+- Modified: components/sections/hero-section.tsx
 - Modified: components/sections/how-it-works-section.tsx
-- Modified: next.config.mjs
 
 ---
 
@@ -60,6 +62,7 @@
 
 | Version | Date | Branch | Changes |
 |---|---|---|---|
+| `a4e0a65` | 2026-05-29 | main | Modified: app/page.tsx; Modified: components/sections/hero-content-section.tsx; Modified: components/sections/hero-section.tsx; Modified: components/sections/how-it-works-section.tsx |
 | `3948c36` | 2026-05-29 | main | Modified: components/sections/how-it-works-section.tsx; Modified: next.config.mjs |
 | `8708ff2` | 2026-05-29 | main | Modified: components/sections/how-it-works-section.tsx |
 | `f2dd482` | 2026-05-29 | main | Modified: components/sections/hero-content-section.tsx |
@@ -79,7 +82,6 @@
 | `6a4b006` | 2026-05-27 | main | Modified: app/page.tsx; Modified: components/sections/hero-section.tsx |
 | `b91212e` | 2026-05-27 | copilot/fix-hero-video-autoplay | Modified: components/sections/hero-section.tsx |
 | `3aac135` | 2026-05-27 | copilot/fix-hero-video-autoplay | Modified: app/page.tsx; Modified: components/sections/hero-section.tsx |
-| `833bbea` | 2026-05-27 | main | Modified: app/design-tokens.css; Modified: app/page.tsx; Modified: components/sections/call-to-action-section.tsx; Modified: components/sections/electric-mobility-section.tsx; Modified: components/sections/faq-section.tsx; Modified: components/sections/for-investors-section.tsx; Modified: components/sections/hero-section.tsx; Modified: components/sections/how-it-works-section.tsx; Modified: components/sections/partners-testimonials-section.tsx |
 
 ---
 

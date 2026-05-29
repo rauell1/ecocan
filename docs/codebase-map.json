@@ -1,16 +1,18 @@
 {
   "meta": {
-    "version": "3948c36",
-    "generatedAt": "2026-05-29T16:48:48.079Z",
+    "version": "a4e0a65",
+    "generatedAt": "2026-05-29T17:14:07.608Z",
     "branch": "main",
-    "previousVersion": "8708ff2",
+    "previousVersion": "3948c36",
     "generator": "scripts/generate-codebase-map.mjs",
     "framework": "Next.js 14",
     "packageManager": "pnpm"
   },
   "changes": [
-    "Modified: components/sections/how-it-works-section.tsx",
-    "Modified: next.config.mjs"
+    "Modified: app/page.tsx",
+    "Modified: components/sections/hero-content-section.tsx",
+    "Modified: components/sections/hero-section.tsx",
+    "Modified: components/sections/how-it-works-section.tsx"
   ],
   "affectedHotspots": [],
   "routes": [
@@ -163,7 +165,7 @@
     "app/news/components/partnership-blog-hero.tsx": "63e1bd2a6eaabb86a3438bf67cd62db98fad9058",
     "app/news/layout.tsx": "0098cea1ad4e3b29e8cfdba0cfeb8d7c071e7dbf",
     "app/news/page.tsx": "f57e7f9d90ae9bf562f8c251e69347702b024bba",
-    "app/page.tsx": "b84cc5b3b5e7dabf393db76479146cbd8200aa83",
+    "app/page.tsx": "6636093a8b8a843da6d10529d9043c225ebf3a3c",
     "app/robots.ts": "0ac82ce211b91b4cdf082231be4ad246cef3ddca",
     "app/sitemap.ts": "fec458ba9b30441fdd98ecf1f49e4d0e39f277ec",
     "app/solutions/[section]/page.tsx": "973a8a869480e9f71ba9d9949e53635ac7556f85",
@@ -289,12 +291,12 @@
     "components/sections/electric-mobility-section.tsx": "aad25916397d3625c07e93a9bafb55fe66140cff",
     "components/sections/faq-section.tsx": "e640bdab2ec09531e89500985b847ffdec1eaf0e",
     "components/sections/for-investors-section.tsx": "4e464ee6dc99496ef98a1fba9907d8668715d9fe",
-    "components/sections/hero-content-section.tsx": "e6698226cb23fb866400a2566e3ca0c7d683e33e",
-    "components/sections/hero-section.tsx": "99c1699f81554957875bde450576e44480cf9345",
+    "components/sections/hero-content-section.tsx": "b19947e5479a0d26e31b341a975766b0a1b3d00b",
+    "components/sections/hero-section.tsx": "b95daa784f9ee3076d78c2fd07160fc90831fa69",
     "components/sections/home-footer.tsx": "01102258d8b6e981fdac346de4b7a27c8d2f570d",
     "components/sections/home-mobile-menu.tsx": "fb3b2ee486bd8fa684435b988f19d3bec1ad9125",
     "components/sections/home-navbar.tsx": "baa35b651e0a3c53f7fec8b181c0d2180b10f9ab",
-    "components/sections/how-it-works-section.tsx": "4ba7e25223565089974ea1bceef761e8adc69d98",
+    "components/sections/how-it-works-section.tsx": "1cdc97445d01720d1bf5ca045c5241f62a7267c3",
     "components/sections/partners-testimonials-section.tsx": "bfcf5cc99b537ee6792a30b3bd490661ad820392",
     "components/sections/problem-solution-section.tsx": "2c511a1995a6015d77f240e0c18d36bc7dc3b70f",
     "components/sections/sustainability-impact-section.tsx": "f7ce2a848ae7690418363f182293b531e8b78c94",
@@ -381,22 +383,6 @@
     "tsconfig.json": "5841f1c2f8bba110464eaba24059d47cb59d3b64"
   },
   "changelog": [
-    {
-      "version": "833bbea",
-      "date": "2026-05-27T01:33:01.758Z",
-      "branch": "main",
-      "changes": [
-        "Modified: app/design-tokens.css",
-        "Modified: app/page.tsx",
-        "Modified: components/sections/call-to-action-section.tsx",
-        "Modified: components/sections/electric-mobility-section.tsx",
-        "Modified: components/sections/faq-section.tsx",
-        "Modified: components/sections/for-investors-section.tsx",
-        "Modified: components/sections/hero-section.tsx",
-        "Modified: components/sections/how-it-works-section.tsx",
-        "Modified: components/sections/partners-testimonials-section.tsx"
-      ]
-    },
     {
       "version": "3aac135",
       "date": "2026-05-27T01:45:26.128Z",
@@ -612,6 +598,17 @@
       "changes": [
         "Modified: components/sections/how-it-works-section.tsx",
         "Modified: next.config.mjs"
+      ]
+    },
+    {
+      "version": "a4e0a65",
+      "date": "2026-05-29T17:14:07.608Z",
+      "branch": "main",
+      "changes": [
+        "Modified: app/page.tsx",
+        "Modified: components/sections/hero-content-section.tsx",
+        "Modified: components/sections/hero-section.tsx",
+        "Modified: components/sections/how-it-works-section.tsx"
       ]
     }
   ]
