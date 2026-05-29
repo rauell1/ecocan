@@ -87,12 +87,14 @@ export default function ContactPage() {
     >
       <HomeNavbar onMenuToggle={() => {}} />
 
-      {/* Ambient glow */}
+      {/* Grid Pattern Ambient Overlay */}
       <div
-        className="pointer-events-none absolute inset-x-0 top-0 h-[600px]"
+        className="pointer-events-none absolute inset-x-0 top-0 h-[800px] opacity-[0.04]"
         style={{
-          background:
-            "radial-gradient(ellipse at 50% 0%, rgba(34,197,94,0.06) 0%, transparent 65%)",
+          backgroundImage: `radial-gradient(ellipse at top, var(--c-green) 0%, transparent 60%),
+            linear-gradient(rgba(13,18,13,0.1) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(13,18,13,0.1) 1px, transparent 1px)`,
+          backgroundSize: "100% 100%, 48px 48px, 48px 48px",
         }}
       />
 

@@ -141,14 +141,25 @@ export default function AboutPage() {
       <div
         ref={heroRef}
         id="hero"
-        className="relative flex min-h-screen items-center justify-center overflow-hidden"
-        style={{ background: "var(--c-bg)" }}
+        className="relative flex min-h-screen items-center justify-center overflow-hidden bg-cover bg-center"
+        style={{
+          backgroundImage: "url('/assets/images/about/about-hero.png')",
+        }}
       >
+        {/* Soft light-mode mask overlay to ensure text contrast */}
         <div
-          className="pointer-events-none absolute inset-0"
+          className="absolute inset-0 z-0"
           style={{
             background:
-              "radial-gradient(ellipse at 50% 30%, rgba(34,197,94,0.1) 0%, transparent 65%)",
+              "linear-gradient(to bottom, rgba(var(--c-bg-rgb), 0.35) 0%, rgba(var(--c-bg-rgb), 0.88) 100%)",
+          }}
+        />
+
+        <div
+          className="pointer-events-none absolute inset-0 z-0"
+          style={{
+            background:
+              "radial-gradient(ellipse at 50% 30%, rgba(34,197,94,0.06) 0%, transparent 65%)",
           }}
         />
 
