@@ -52,12 +52,13 @@ const steps = [
    Shows a thumbnail on first render; replaces with iframe on play click.    */
 function YouTubeLite({ videoId }: { videoId: string }) {
   const [active, setActive] = useState(false)
+  const [imgSrc, setImgSrc] = useState(`https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`)
 
   if (active) {
     return (
       <div className="relative w-full" style={{ paddingBottom: "56.25%", background: "#000" }}>
         <iframe
-          src={`https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&rel=0&modestbranding=1`}
+          src={`https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0&modestbranding=1`}
           title="ECOCAN – Circular Bottle Podcast (AI NotebookLM Overview)"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowFullScreen
@@ -74,9 +75,18 @@ function YouTubeLite({ videoId }: { videoId: string }) {
       className="group relative block w-full overflow-hidden focus:outline-none"
       style={{ aspectRatio: "16/9", background: "#000" }}
     >
-      {/* Thumbnail */}
+      {/* Thumbnail with auto-fallback to hqdefault.jpg */}
       <img
-        src={`https://i.ytimg.com/vi/${videoId}/maxresdefault.jpg`}
+        src={imgSrc}
+        onLoad={(e) => {
+          // If YouTube returns its 120x90 placeholder image, naturalWidth is <= 120.
+          if (e.currentTarget.naturalWidth <= 120) {
+            setImgSrc(`https://img.youtube.com/vi/${videoId}/hqdefault.jpg`)
+          }
+        }}
+        onError={() => {
+          setImgSrc(`https://img.youtube.com/vi/${videoId}/hqdefault.jpg`)
+        }}
         alt="ECOCAN explainer video thumbnail"
         className="h-full w-full object-cover opacity-70 transition-opacity duration-500 group-hover:opacity-90"
         loading="lazy"
