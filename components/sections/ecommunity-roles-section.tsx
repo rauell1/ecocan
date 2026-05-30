@@ -10,7 +10,7 @@ const roles = [
     icon: Users,
     title: "Consumer",
     action:
-      "Scan daily circular items to authenticate materials instantly. Recycled deposits convert directly into verified eco-credits in your digital app wallet.",
+      "Buy your drink, return the empty bottle to any ECO-Station, and earn instant cash rewards directly to your M-PESA wallet. Simple, rewarding, and good for the planet.",
   },
   {
     icon: Store,

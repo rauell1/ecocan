@@ -80,7 +80,8 @@ export default function ProblemSolutionSection() {
             textShadow: "0 0 80px rgba(16,185,129,0.15)",
           }}
         >
-          40% of drinks are fake. <br className="hidden md:inline" />
+          12 billion bottles discarded <br className="hidden md:inline" />
+          every year in East Africa.{" "}
           <span className="bg-gradient-to-r from-emerald-400 via-teal-400 to-green-500 bg-clip-text font-sans font-bold text-transparent">
             We fix that.
           </span>

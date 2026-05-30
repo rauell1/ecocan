@@ -8,7 +8,6 @@ import HeroContentSection from "@/components/sections/hero-content-section"
 import ProblemSolutionSection from "@/components/sections/problem-solution-section"
 import HowItWorksSection from "@/components/sections/how-it-works-section"
 import EcommunityRolesSection from "@/components/sections/ecommunity-roles-section"
-import AntiCounterfeitSection from "@/components/sections/anti-counterfeit-section"
 import AppShowcaseSection from "@/components/sections/app-showcase-section"
 import ForInvestorsSection from "@/components/sections/for-investors-section"
 import SustainabilityImpactSection from "@/components/sections/sustainability-impact-section"
@@ -74,12 +73,7 @@ export default function Home() {
           <EcommunityRolesSection />
         </div>
 
-        {/* 4. Anti-counterfeit trust */}
-        <div id="counterfeit">
-          <AntiCounterfeitSection />
-        </div>
-
-        {/* 5. The app */}
+        {/* 4. The app */}
         <div id="app">
           <AppShowcaseSection />
         </div>

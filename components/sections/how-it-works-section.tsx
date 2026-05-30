@@ -4,7 +4,7 @@ import { useRef, useEffect, useState } from "react"
 import Image from "next/image"
 import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
-import { ShoppingBag, QrCode, Store, Bike, Wallet, Play, ArrowRight } from "lucide-react"
+import { ShoppingBag, Store, Bike, Wallet, Play } from "lucide-react"
 
 /* ── Set this to the real ECOCAN YouTube video ID ──────────────────────────
    e.g. for https://youtube.com/watch?v=ABC123  →  YOUTUBE_VIDEO_ID = "ABC123"  */
@@ -20,27 +20,20 @@ const steps = [
   },
   {
     num: "2",
-    title: "Scan",
-    desc: "Verify it's real (3 seconds)",
-    img: "/assets/images/brand/scan-verify.jpg",
-    icon: QrCode,
-  },
-  {
-    num: "3",
     title: "Return",
     desc: "Empty, intact, to any ECO-Station counter or machine",
     img: "/assets/images/brand/return-counter.jpg",
     icon: Store,
   },
   {
-    num: "4",
+    num: "3",
     title: "Collect",
     desc: "We pick up. You've done your part.",
     img: "/assets/images/brand/ebike-collection.jpg",
     icon: Bike,
   },
   {
-    num: "5",
+    num: "4",
     title: "Get rewarded",
     desc: "Instant cash to your wallet – a bonus for doing good",
     img: "/assets/images/brand/recycling-hub.jpg",
@@ -248,7 +241,7 @@ export default function HowItWorksSection() {
           </div>
 
           {/* Steps grid */}
-          <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 md:grid-cols-5 md:gap-3">
+          <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 md:grid-cols-4 md:gap-4">
             {steps.map((step, idx) => {
               const Icon = step.icon
               return (
@@ -327,7 +320,7 @@ export default function HowItWorksSection() {
               <Store size={13} style={{ color: "#4ade80" }} strokeWidth={1.5} />
             </div>
             <p className="text-sm" style={{ color: "rgba(255,255,255,0.50)" }}>
-              Our partners at supermarket counters scan and pay you instantly.
+              Our partners at supermarket counters verify your return and pay you instantly.
             </p>
           </div>
         </div>
