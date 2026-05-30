@@ -12,8 +12,7 @@ const navLinks = [
   { label: "Home", href: "/", isPage: true },
   { label: "How It Works", href: "#how-it-works", isPage: false },
   { label: "ECOmmunity", href: "#ecommunity", isPage: false },
-  { label: "For Producers", href: "#ecocan-model", isPage: false },
-  { label: "Investors", href: "#investors", isPage: false },
+  { label: "Marketplace", href: "/ecocan-market", isPage: true },
   { label: "About", href: "/about-us", isPage: true },
   { label: "Contact", href: "/contact", isPage: true },
 ]

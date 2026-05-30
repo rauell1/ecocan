@@ -5,15 +5,14 @@
 
 # 🗺️ EcoCan Codebase Map
 
-> **Version:** `3948c36`
-> **Generated:** 2026-05-29T16:48:48.079Z
+> **Version:** `f7fe475`
+> **Generated:** 2026-05-30T03:26:09.912Z
 > **Branch:** `main`
-> **Previous:** `8708ff2`
+> **Previous:** `5a543e2`
 
 ## Changes Since Last Version
 
 - Modified: components/sections/how-it-works-section.tsx
-- Modified: next.config.mjs
 
 ---
 
@@ -60,26 +59,26 @@
 
 | Version | Date | Branch | Changes |
 |---|---|---|---|
-| `3948c36` | 2026-05-29 | main | Modified: components/sections/how-it-works-section.tsx; Modified: next.config.mjs |
-| `8708ff2` | 2026-05-29 | main | Modified: components/sections/how-it-works-section.tsx |
-| `f2dd482` | 2026-05-29 | main | Modified: components/sections/hero-content-section.tsx |
-| `93da0a0` | 2026-05-29 | main | Modified: app/about-us/page.tsx; Modified: components/sections/problem-solution-section.tsx |
-| `68211f8` | 2026-05-29 | main | Modified: components/sections/hero-section.tsx; Modified: package.json |
-| `d1fa3bf` | 2026-05-29 | main | Modified: app/about-us/page.tsx; Modified: app/contact/components/hero.tsx; Modified: app/design-tokens.css; Modified: app/eco-friendly-cans/components/economic.tsx; Modified: app/eco-friendly-cans/components/heading.tsx; Modified: app/eco-friendly-cans/components/operational.tsx; Modified: app/eco-friendly-cans/page.tsx; Modified: app/ecocan-market/page.tsx; Modified: app/globals.css; Modified: app/investors/page.tsx; Modified: app/news/page.tsx; Modified: app/solutions/[section]/page.tsx; Modified: app/solutions/sections/solutions-content.tsx; Modified: components/sections/anti-counterfeit-section.tsx; Modified: components/sections/app-showcase-section.tsx; Modified: components/sections/call-to-action-section.tsx; Modified: components/sections/ecocan-model-section.tsx; Modified: components/sections/ecommunity-roles-section.tsx; Modified: components/sections/electric-mobility-section.tsx; Modified: components/sections/faq-section.tsx; Modified: components/sections/for-investors-section.tsx; Modified: components/sections/hero-section.tsx; Modified: components/sections/home-footer.tsx; Modified: components/sections/home-navbar.tsx; Modified: components/sections/how-it-works-section.tsx; Modified: components/sections/partners-testimonials-section.tsx; Modified: components/sections/problem-solution-section.tsx; Modified: components/sections/sustainability-impact-section.tsx |
-| `d977c7b` | 2026-05-27 | main | Modified: app/contact/components/hero.tsx; Modified: app/design-tokens.css; Modified: app/eco-friendly-cans/components/economic.tsx; Modified: app/eco-friendly-cans/components/heading.tsx; Modified: app/eco-friendly-cans/components/operational.tsx; Modified: app/eco-friendly-cans/page.tsx; Modified: app/ecocan-market/page.tsx; Modified: app/globals.css; Modified: app/investors/page.tsx; Modified: app/news/page.tsx; Modified: app/page.tsx; Modified: app/solutions/[section]/page.tsx; Modified: app/solutions/sections/solutions-content.tsx; Modified: components/sections/home-navbar.tsx |
-| `076e9e6` | 2026-05-27 | main | Modified: components/sections/hero-section.tsx; Modified: components/sections/home-footer.tsx; Modified: components/sections/home-navbar.tsx |
-| `4fb13f9` | 2026-05-27 | HEAD | Modified: components/sections/hero-section.tsx; Modified: components/sections/home-footer.tsx; Modified: components/sections/home-navbar.tsx |
-| `6f0e96d` | 2026-05-27 | main | Modified: app/design-tokens.css; Modified: components/sections/anti-counterfeit-section.tsx; Modified: components/sections/app-showcase-section.tsx; Modified: components/sections/call-to-action-section.tsx; Modified: components/sections/ecommunity-roles-section.tsx; Modified: components/sections/for-investors-section.tsx; Modified: components/sections/how-it-works-section.tsx; Modified: components/sections/problem-solution-section.tsx; Modified: components/sections/sustainability-impact-section.tsx |
-| `b846390` | 2026-05-27 | HEAD | Modified: app/design-tokens.css; Modified: components/sections/anti-counterfeit-section.tsx; Modified: components/sections/app-showcase-section.tsx; Modified: components/sections/call-to-action-section.tsx; Modified: components/sections/ecommunity-roles-section.tsx; Modified: components/sections/for-investors-section.tsx; Modified: components/sections/how-it-works-section.tsx; Modified: components/sections/problem-solution-section.tsx; Modified: components/sections/sustainability-impact-section.tsx |
-| `4cc6fec` | 2026-05-27 | main | Modified: app/globals.css |
-| `aedce53` | 2026-05-27 | HEAD | Modified: app/globals.css |
-| `5ec0a8a` | 2026-05-27 | main | Modified: app/globals.css |
-| `a03d7f6` | 2026-05-27 | main | Modified: app/globals.css |
-| `ba8bfd5` | 2026-05-27 | main | Modified: components/sections/hero-section.tsx |
-| `6a4b006` | 2026-05-27 | main | Modified: app/page.tsx; Modified: components/sections/hero-section.tsx |
-| `b91212e` | 2026-05-27 | copilot/fix-hero-video-autoplay | Modified: components/sections/hero-section.tsx |
-| `3aac135` | 2026-05-27 | copilot/fix-hero-video-autoplay | Modified: app/page.tsx; Modified: components/sections/hero-section.tsx |
-| `833bbea` | 2026-05-27 | main | Modified: app/design-tokens.css; Modified: app/page.tsx; Modified: components/sections/call-to-action-section.tsx; Modified: components/sections/electric-mobility-section.tsx; Modified: components/sections/faq-section.tsx; Modified: components/sections/for-investors-section.tsx; Modified: components/sections/hero-section.tsx; Modified: components/sections/how-it-works-section.tsx; Modified: components/sections/partners-testimonials-section.tsx |
+| `f7fe475` | 2026-05-30 | main | Modified: components/sections/how-it-works-section.tsx |
+| `5a543e2` | 2026-05-30 | HEAD | Modified: components/sections/how-it-works-section.tsx |
+| `3d50f91` | 2026-05-30 | main | Modified: components/sections/how-it-works-section.tsx |
+| `79e8adf` | 2026-05-29 | main | Modified: components/sections/call-to-action-section.tsx |
+| `5ac86d2` | 2026-05-29 | HEAD | Modified: components/sections/call-to-action-section.tsx |
+| `432428d` | 2026-05-29 | main | Modified: components/sections/call-to-action-section.tsx |
+| `03430af` | 2026-05-29 | main | Modified: components/sections/ecommunity-roles-section.tsx |
+| `eafefa0` | 2026-05-29 | main | Modified: components/sections/ecommunity-roles-section.tsx |
+| `5eaadf2` | 2026-05-29 | main | Modified: components/sections/ecommunity-roles-section.tsx |
+| `8946dd7` | 2026-05-29 | main | Modified: components/media-viewer.tsx; Modified: components/sections/how-it-works-section.tsx |
+| `90f2914` | 2026-05-29 | main | Modified: components/media-viewer.tsx; Modified: components/sections/how-it-works-section.tsx |
+| `f340248` | 2026-05-29 | main | Modified: components/sections/how-it-works-section.tsx |
+| `7cb7af1` | 2026-05-29 | main | Modified: components/sections/partners-testimonials-section.tsx |
+| `3f23a42` | 2026-05-29 | main | Modified: components/sections/partners-testimonials-section.tsx |
+| `b345457` | 2026-05-29 | main | Modified: components/sections/partners-testimonials-section.tsx |
+| `3c06d38` | 2026-05-29 | main | Modified: components/sections/partners-testimonials-section.tsx |
+| `3289bcf` | 2026-05-29 | main | Modified: components/sections/how-it-works-section.tsx |
+| `ce8c2ca` | 2026-05-29 | main | Modified: components/sections/how-it-works-section.tsx |
+| `881016e` | 2026-05-29 | main | Modified: app/download/page.tsx; Modified: app/page.tsx; Modified: components/sections/home-navbar.tsx |
+| `4301519` | 2026-05-29 | main | Modified: app/download/page.tsx; Modified: app/page.tsx; Modified: components/sections/home-navbar.tsx |
 
 ---
 

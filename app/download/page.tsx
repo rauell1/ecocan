@@ -45,42 +45,49 @@ export default function DownloadRedirect() {
   return (
     <div
       className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden px-6 text-center"
-      style={{ background: "linear-gradient(150deg, #063d27 0%, #0d0d0d 60%, #101010 100%)" }}
+      style={{ background: "var(--c-bg)" }}
     >
       {/* Ambient glow */}
       <div
-        className="pointer-events-none absolute left-1/2 top-1/3 h-[600px] w-[600px] -translate-x-1/2 -translate-y-1/2 rounded-full opacity-20 blur-3xl"
-        style={{ background: "radial-gradient(circle, #22c55e 0%, transparent 70%)" }}
+        className="pointer-events-none absolute left-1/2 top-1/3 h-[600px] w-[600px] -translate-x-1/2 -translate-y-1/2 rounded-full opacity-30 blur-3xl"
+        style={{ background: "radial-gradient(circle, rgba(34,197,94,0.1) 0%, transparent 70%)" }}
+      />
+
+      {/* Grid Pattern Ambient Overlay */}
+      <div
+        className="pointer-events-none absolute inset-0 opacity-[0.03]"
+        style={{
+          backgroundImage: `linear-gradient(rgba(13,18,13,0.1) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(13,18,13,0.1) 1px, transparent 1px)`,
+          backgroundSize: "48px 48px, 48px 48px",
+        }}
       />
 
       <div ref={wrapRef} className="relative z-10 flex flex-col items-center">
         {/* Logo */}
-        <Image
-          src="/images/ecocan-logo.png"
-          alt="ECOCAN"
-          width={120}
-          height={48}
-          className="dl-animate mb-12 opacity-90"
-          priority
-        />
+        <Link href="/" className="dl-animate mb-12 flex items-center">
+          <span className="font-serif-luxury text-2xl font-bold tracking-widest text-[var(--c-text)]">
+            ECOCAN
+          </span>
+        </Link>
 
         {/* App icon badge */}
         <div
-          className="dl-animate mb-8 flex h-20 w-20 items-center justify-center rounded-[22px] shadow-2xl"
+          className="dl-animate mb-8 flex h-20 w-20 items-center justify-center rounded-[22px] shadow-2xl transition-transform duration-300 hover:scale-105"
           style={{ background: "linear-gradient(135deg, #16a34a, #15803d)" }}
         >
           <Smartphone size={36} className="text-white" strokeWidth={1.5} />
         </div>
 
         {/* Copy */}
-        <p className="dl-animate section-overline mb-3 text-white/60">Get the app</p>
+        <p className="dl-animate section-overline mb-3 text-[var(--c-green)]">Get the app</p>
         <h1
-          className="dl-animate mb-4 font-bold text-white"
+          className="dl-animate font-serif-luxury text-luxury-gradient text-luxury-glow mb-4"
           style={{ fontSize: "clamp(32px, 5vw, 56px)", lineHeight: 1.1 }}
         >
           Verify. Recycle. Get paid.
         </h1>
-        <p className="dl-animate mb-10 max-w-[480px] text-lg text-white/65">
+        <p className="dl-animate mb-10 max-w-[480px] text-lg font-normal leading-relaxed text-[var(--c-text-muted)]">
           Verify drinks, find nearby ECO-Stations across Kenya, and collect your recycling reward —
           instantly to M-PESA.
         </p>
@@ -91,10 +98,10 @@ export default function DownloadRedirect() {
             (f) => (
               <span
                 key={f}
-                className="rounded-full px-4 py-1.5 text-sm font-medium text-white/70"
+                className="rounded-full px-4 py-1.5 text-sm font-semibold text-[var(--c-text-muted)]"
                 style={{
-                  background: "rgba(255,255,255,0.08)",
-                  border: "1px solid rgba(255,255,255,0.12)",
+                  background: "var(--c-surface)",
+                  border: "1px solid var(--c-border)",
                 }}
               >
                 {f}
@@ -109,7 +116,8 @@ export default function DownloadRedirect() {
             href={STORE_URLS.appStore}
             target="_blank"
             rel="noopener noreferrer"
-            className="pill-btn pill-btn-white gap-2 !px-8 !py-4 text-base"
+            className="inline-flex items-center gap-2 rounded-full px-8 py-4 text-base font-bold uppercase tracking-wider text-white transition-all duration-300 hover:brightness-110 active:scale-[0.98]"
+            style={{ background: "var(--c-green)" }}
           >
             <Download size={18} />
             App Store
@@ -118,8 +126,11 @@ export default function DownloadRedirect() {
             href={STORE_URLS.playStore}
             target="_blank"
             rel="noopener noreferrer"
-            className="pill-btn gap-2 !border-white/30 !px-8 !py-4 text-base !text-white hover:!bg-white/10"
-            style={{ border: "2px solid rgba(255,255,255,0.3)" }}
+            className="inline-flex items-center gap-2 rounded-full px-8 py-4 text-base font-bold uppercase tracking-wider text-[var(--c-text)] transition-all duration-300 hover:bg-[var(--c-green-dim)] active:scale-[0.98]"
+            style={{
+              border: "1.5px solid var(--c-border-dark)",
+              background: "var(--c-surface)",
+            }}
           >
             <Download size={18} />
             Google Play
@@ -129,7 +140,14 @@ export default function DownloadRedirect() {
         {/* Trust badges */}
         <div className="dl-animate flex flex-wrap justify-center gap-3">
           {["Built for Kenya", "Consumer-first recycling", "ECO-Station rewards"].map((badge) => (
-            <span key={badge} className="glass-pill px-4 py-1.5 text-[13px] text-white/80">
+            <span
+              key={badge}
+              className="rounded-full px-4 py-1.5 text-[13px] font-semibold text-[var(--c-green)]"
+              style={{
+                background: "rgba(34,197,94,0.06)",
+                border: "1px solid rgba(34,197,94,0.12)",
+              }}
+            >
               {badge}
             </span>
           ))}
@@ -138,7 +156,7 @@ export default function DownloadRedirect() {
         {/* Back link */}
         <Link
           href="/"
-          className="dl-animate mt-10 text-sm text-white/35 transition-colors hover:text-white/70"
+          className="dl-animate text-[var(--c-text-muted)]/50 mt-10 text-sm transition-colors hover:text-[var(--c-text)]"
         >
           ← Back to home
         </Link>

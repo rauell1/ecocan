@@ -1,9 +1,11 @@
 "use client"
 
 import { useRef, useEffect } from "react"
-import { Users, Store, Recycle } from "lucide-react"
+import { Users, Store, Recycle, ArrowRight } from "lucide-react"
 import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
+import Link from "next/link"
+import { SpotlightCard } from "@/components/ui/spotlight-card"
 
 const roles = [
   {
@@ -16,17 +18,19 @@ const roles = [
     icon: Store,
     title: "Retailer",
     action:
-      "Become a certified physical deposit station. Drive premium recurring footprint, unlock verified footprint offsets, and anchor retail circularity.",
+      "Partner with us as an official collection point. Attract new customers, increase foot traffic, and earn instant commissions on every bottle returned.",
+    linkText: "Become a Partner",
+    href: "/contact",
   },
   {
     icon: Recycle,
     title: "Recycler",
     action:
-      "Access high-purity pre-sorted feedstock directly from local networks. Streamline processing lines and automate circular verification cycles.",
+      "Access high-purity, fully pre-sorted packaging feedstock. Streamline your supply chain with certified, clean, and 100% traceable materials.",
+    linkText: "Access Feedstock",
+    href: "/solutions/packaging-recycling",
   },
 ]
-
-import { SpotlightCard } from "@/components/ui/spotlight-card"
 
 export default function EcommunityRolesSection() {
   const sectionRef = useRef<HTMLDivElement>(null)
@@ -84,47 +88,67 @@ export default function EcommunityRolesSection() {
           src="/images/hero/community_roles_hero.png"
           alt="Eco-friendly community network"
           aria-hidden="true"
-          className="section-bg-img h-full w-full object-cover opacity-50"
+          className="section-bg-img opacity-12 h-full w-full object-cover"
         />
         <div
           className="absolute inset-0"
           style={{
             background:
-              "linear-gradient(to bottom, rgba(var(--c-bg-rgb), var(--c-overlay-opacity-start, 0.7)) 0%, rgba(var(--c-bg-rgb), var(--c-overlay-opacity-end, 0.92)) 100%)",
+              "linear-gradient(to bottom, rgba(255, 255, 255, 0.96) 0%, rgba(255, 255, 255, 0.88) 100%)",
           }}
         />
       </div>
 
-      <div className="relative z-10 px-[clamp(1.25rem,4vw,3rem)]">
+      <div className="relative z-10 mx-auto max-w-6xl px-[clamp(1.25rem,4vw,3rem)]">
+        <p className="ec-reveal section-overline mb-3 text-xs font-bold uppercase tracking-[0.2em] text-emerald-600">
+          THE ECOSYSTEM
+        </p>
         <h2
-          className="ec-reveal font-serif-luxury text-luxury-gradient mb-16"
+          className="ec-reveal mb-12 font-sans font-bold tracking-tight text-[var(--c-text)]"
           style={{
-            fontSize: "clamp(2.5rem,4vw,4.5rem)",
-            letterSpacing: "-0.02em",
+            fontSize: "clamp(2.2rem,5vw,3.6rem)",
+            letterSpacing: "-0.03em",
             lineHeight: "1.1",
           }}
         >
-          One loop. Three roles.
+          One loop. <span className="text-emerald-600">Three roles.</span>
         </h2>
 
         <div className="grid gap-6 md:grid-cols-3">
           {roles.map((role) => (
-            <div key={role.title} className="ec-reveal">
-              <SpotlightCard className="h-full rounded-3xl border-[var(--c-border)] bg-[var(--c-surface)] p-8 hover:border-emerald-500/20">
-                <role.icon
-                  size={26}
-                  className="text-emerald-400 transition-colors duration-300 group-hover:text-emerald-300"
-                  strokeWidth={1.5}
-                />
-                <h3
-                  className="font-serif-luxury mt-6 text-2xl font-light text-[var(--c-text)]"
-                  style={{ letterSpacing: "-0.01em" }}
-                >
-                  {role.title}
-                </h3>
-                <p className="mt-3 text-[14px] font-normal leading-relaxed text-[var(--c-text-muted)]">
-                  {role.action}
-                </p>
+            <div key={role.title} className="ec-reveal flex flex-col">
+              <SpotlightCard
+                spotlightColor="rgba(16,185,129,0.06)"
+                className="group flex h-full flex-col justify-between rounded-3xl border border-white/60 bg-white/90 p-8 shadow-xl shadow-emerald-950/[0.015] backdrop-blur-xl transition-all duration-500 hover:border-emerald-500/30 hover:shadow-2xl hover:shadow-emerald-950/[0.035]"
+              >
+                <div>
+                  {/* Premium Square-Rounded Icon Badge with Soft Shadow */}
+                  <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-emerald-500/10 text-emerald-600 shadow-[0_4px_20px_rgba(16,185,129,0.12)] transition-transform duration-300 group-hover:scale-105">
+                    <role.icon size={24} strokeWidth={1.75} />
+                  </div>
+
+                  <h3 className="mt-5 font-sans text-xl font-bold tracking-tight text-[var(--c-text)]">
+                    {role.title}
+                  </h3>
+
+                  <p className="mt-3 text-[14px] font-normal leading-relaxed text-[var(--c-text-muted)] text-gray-600/90">
+                    {role.action}
+                  </p>
+                </div>
+
+                {/* Sub-card Action Callout */}
+                <div className="mt-6 border-t border-gray-100 pt-4">
+                  <Link
+                    href={role.href}
+                    className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-emerald-600 transition-colors duration-300 hover:text-emerald-700"
+                  >
+                    <span>{role.linkText}</span>
+                    <ArrowRight
+                      size={13}
+                      className="transition-transform duration-300 group-hover:translate-x-1"
+                    />
+                  </Link>
+                </div>
               </SpotlightCard>
             </div>
           ))}
