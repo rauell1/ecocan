@@ -136,19 +136,21 @@ export default function EcommunityRolesSection() {
                   </p>
                 </div>
 
-                {/* Sub-card Action Callout */}
-                <div className="mt-6 border-t border-gray-100 pt-4">
-                  <Link
-                    href={role.href}
-                    className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-emerald-600 transition-colors duration-300 hover:text-emerald-700"
-                  >
-                    <span>{role.linkText}</span>
-                    <ArrowRight
-                      size={13}
-                      className="transition-transform duration-300 group-hover:translate-x-1"
-                    />
-                  </Link>
-                </div>
+                {/* Sub-card Action Callout — only shown when a link is defined */}
+                {role.href && role.linkText && (
+                  <div className="mt-6 border-t border-gray-100 pt-4">
+                    <Link
+                      href={role.href}
+                      className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-emerald-600 transition-colors duration-300 hover:text-emerald-700"
+                    >
+                      <span>{role.linkText}</span>
+                      <ArrowRight
+                        size={13}
+                        className="transition-transform duration-300 group-hover:translate-x-1"
+                      />
+                    </Link>
+                  </div>
+                )}
               </SpotlightCard>
             </div>
           ))}
