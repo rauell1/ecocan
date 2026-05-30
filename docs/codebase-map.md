@@ -5,42 +5,42 @@
 
 # 🗺️ EcoCan Codebase Map
 
-> **Version:** `3d30ab2`
-> **Generated:** 2026-05-30T14:31:32.091Z
-> **Branch:** `main`
-> **Previous:** `0c46bd9`
+> **Version:** `ebcdd2b`
+> **Generated:** 2026-05-30T16:37:52.974Z
+> **Branch:** `HEAD`
+> **Previous:** `699e766`
 
 ## Changes Since Last Version
 
-- Modified: components/sections/ecommunity-roles-section.tsx
+- Modified: components/sections/partners-testimonials-section.tsx
 
 ---
 
 ## Hotspot Risk Summary
 
-| File | Risk | Reason |
-|---|---|---|
+| File                                      | Risk        | Reason                                        |
+| ----------------------------------------- | ----------- | --------------------------------------------- |
 | `components/shared/heros/HeroSection.tsx` | 🔴 critical | GSAP + Lenis + scroll animation orchestration |
-| `app/page.tsx` | 🔴 critical | Homepage section orchestrator |
-| `app/layout.tsx` | 🔴 critical | Root layout — all routes |
-| `components/shared/navbar/` | 🟠 high | Global nav — all routes |
-| `tailwind.config.ts` | 🟡 medium | Theme tokens cascade everywhere |
-| `app/globals.css` | 🟡 medium | CSS custom properties |
+| `app/page.tsx`                            | 🔴 critical | Homepage section orchestrator                 |
+| `app/layout.tsx`                          | 🔴 critical | Root layout — all routes                      |
+| `components/shared/navbar/`               | 🟠 high     | Global nav — all routes                       |
+| `tailwind.config.ts`                      | 🟡 medium   | Theme tokens cascade everywhere               |
+| `app/globals.css`                         | 🟡 medium   | CSS custom properties                         |
 
 ---
 
 ## Routes
 
-| Route | File | Risk |
-|---|---|---|
-| `/` | `app/page.tsx` | critical |
-| `/about-us` | `app/about-us/page.tsx` | low |
-| `/contact` | `app/contact/page.tsx` | medium |
-| `/download` | `app/download/page.tsx` | low |
-| `/eco-friendly-cans` | `app/eco-friendly-cans/page.tsx` | low |
-| `/ecocan-market` | `app/ecocan-market/page.tsx` | low |
-| `/news` | `app/news/page.tsx` | low |
-| `/solutions` | `app/solutions/page.tsx` | low |
+| Route                | File                             | Risk     |
+| -------------------- | -------------------------------- | -------- |
+| `/`                  | `app/page.tsx`                   | critical |
+| `/about-us`          | `app/about-us/page.tsx`          | low      |
+| `/contact`           | `app/contact/page.tsx`           | medium   |
+| `/download`          | `app/download/page.tsx`          | low      |
+| `/eco-friendly-cans` | `app/eco-friendly-cans/page.tsx` | low      |
+| `/ecocan-market`     | `app/ecocan-market/page.tsx`     | low      |
+| `/news`              | `app/news/page.tsx`              | low      |
+| `/solutions`         | `app/solutions/page.tsx`         | low      |
 
 ---
 
@@ -57,29 +57,29 @@
 
 ## Changelog (last 20)
 
-| Version | Date | Branch | Changes |
-|---|---|---|---|
-| `3d30ab2` | 2026-05-30 | main | Modified: components/sections/ecommunity-roles-section.tsx |
-| `0c46bd9` | 2026-05-30 | main | Modified: app/about-us/page.tsx; Modified: app/contact/components/hero.tsx; Modified: app/download/page.tsx; Modified: app/ecocan-market/page.tsx; Modified: app/news/page.tsx; Modified: app/page.tsx; Modified: components/media-viewer.tsx; Modified: components/sections/call-to-action-section.tsx; Modified: components/sections/ecommunity-roles-section.tsx; Modified: components/sections/hero-content-section.tsx; Modified: components/sections/hero-section.tsx; Modified: components/sections/home-navbar.tsx; Modified: components/sections/how-it-works-section.tsx; Modified: components/sections/partners-testimonials-section.tsx |
-| `f7fe475` | 2026-05-30 | main | Modified: components/sections/how-it-works-section.tsx |
-| `5a543e2` | 2026-05-30 | HEAD | Modified: components/sections/how-it-works-section.tsx |
-| `3d50f91` | 2026-05-30 | main | Modified: components/sections/how-it-works-section.tsx |
-| `79e8adf` | 2026-05-29 | main | Modified: components/sections/call-to-action-section.tsx |
-| `5ac86d2` | 2026-05-29 | HEAD | Modified: components/sections/call-to-action-section.tsx |
-| `432428d` | 2026-05-29 | main | Modified: components/sections/call-to-action-section.tsx |
-| `03430af` | 2026-05-29 | main | Modified: components/sections/ecommunity-roles-section.tsx |
-| `eafefa0` | 2026-05-29 | main | Modified: components/sections/ecommunity-roles-section.tsx |
-| `5eaadf2` | 2026-05-29 | main | Modified: components/sections/ecommunity-roles-section.tsx |
-| `8946dd7` | 2026-05-29 | main | Modified: components/media-viewer.tsx; Modified: components/sections/how-it-works-section.tsx |
-| `90f2914` | 2026-05-29 | main | Modified: components/media-viewer.tsx; Modified: components/sections/how-it-works-section.tsx |
-| `f340248` | 2026-05-29 | main | Modified: components/sections/how-it-works-section.tsx |
-| `7cb7af1` | 2026-05-29 | main | Modified: components/sections/partners-testimonials-section.tsx |
-| `3f23a42` | 2026-05-29 | main | Modified: components/sections/partners-testimonials-section.tsx |
-| `b345457` | 2026-05-29 | main | Modified: components/sections/partners-testimonials-section.tsx |
-| `3c06d38` | 2026-05-29 | main | Modified: components/sections/partners-testimonials-section.tsx |
-| `3289bcf` | 2026-05-29 | main | Modified: components/sections/how-it-works-section.tsx |
-| `ce8c2ca` | 2026-05-29 | main | Modified: components/sections/how-it-works-section.tsx |
+| Version   | Date       | Branch | Changes                                                                                       |
+| --------- | ---------- | ------ | --------------------------------------------------------------------------------------------- |
+| `ebcdd2b` | 2026-05-30 | HEAD   | Modified: components/sections/partners-testimonials-section.tsx                               |
+| `699e766` | 2026-05-30 | main   | Modified: components/sections/partners-testimonials-section.tsx                               |
+| `f7fe475` | 2026-05-30 | main   | Modified: components/sections/how-it-works-section.tsx                                        |
+| `5a543e2` | 2026-05-30 | HEAD   | Modified: components/sections/how-it-works-section.tsx                                        |
+| `3d50f91` | 2026-05-30 | main   | Modified: components/sections/how-it-works-section.tsx                                        |
+| `79e8adf` | 2026-05-29 | main   | Modified: components/sections/call-to-action-section.tsx                                      |
+| `5ac86d2` | 2026-05-29 | HEAD   | Modified: components/sections/call-to-action-section.tsx                                      |
+| `432428d` | 2026-05-29 | main   | Modified: components/sections/call-to-action-section.tsx                                      |
+| `03430af` | 2026-05-29 | main   | Modified: components/sections/ecommunity-roles-section.tsx                                    |
+| `eafefa0` | 2026-05-29 | main   | Modified: components/sections/ecommunity-roles-section.tsx                                    |
+| `5eaadf2` | 2026-05-29 | main   | Modified: components/sections/ecommunity-roles-section.tsx                                    |
+| `8946dd7` | 2026-05-29 | main   | Modified: components/media-viewer.tsx; Modified: components/sections/how-it-works-section.tsx |
+| `90f2914` | 2026-05-29 | main   | Modified: components/media-viewer.tsx; Modified: components/sections/how-it-works-section.tsx |
+| `f340248` | 2026-05-29 | main   | Modified: components/sections/how-it-works-section.tsx                                        |
+| `7cb7af1` | 2026-05-29 | main   | Modified: components/sections/partners-testimonials-section.tsx                               |
+| `3f23a42` | 2026-05-29 | main   | Modified: components/sections/partners-testimonials-section.tsx                               |
+| `b345457` | 2026-05-29 | main   | Modified: components/sections/partners-testimonials-section.tsx                               |
+| `3c06d38` | 2026-05-29 | main   | Modified: components/sections/partners-testimonials-section.tsx                               |
+| `3289bcf` | 2026-05-29 | main   | Modified: components/sections/how-it-works-section.tsx                                        |
+| `ce8c2ca` | 2026-05-29 | main   | Modified: components/sections/how-it-works-section.tsx                                        |
 
 ---
 
-*Full annotated map: see [docs/codebase-map.md](./codebase-map.md) for the complete tree, interaction map, and improvement recommendations.*
+_Full annotated map: see [docs/codebase-map.md](./codebase-map.md) for the complete tree, interaction map, and improvement recommendations._

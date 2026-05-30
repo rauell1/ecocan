@@ -16,54 +16,10 @@ const marqueeLogos = [
     ),
   },
   {
-    name: "Carrefour",
-    element: (
-      <span className="font-sans text-xl font-extrabold tracking-tighter text-[var(--c-text)]">
-        C<span className="text-red-500">arrefour</span>
-      </span>
-    ),
-  },
-  {
     name: "Quickmart",
     element: (
       <span className="font-sans text-xl font-black tracking-tight text-[var(--c-text)]">
         Quick<span className="text-emerald-500">mart</span>
-      </span>
-    ),
-  },
-  {
-    name: "Jaza",
-    element: (
-      <span className="font-sans text-xl font-bold tracking-widest text-[var(--c-text)]">JAZA</span>
-    ),
-  },
-  {
-    name: "Coca-Cola",
-    element: (
-      <span className="font-serif text-2xl font-black italic tracking-tight text-red-500">
-        Coca-Cola
-      </span>
-    ),
-  },
-  {
-    name: "EABL",
-    element: (
-      <span className="font-serif text-xl font-extrabold tracking-wider text-[var(--c-text)]">
-        EABL
-      </span>
-    ),
-  },
-  {
-    name: "KWAL",
-    element: (
-      <span className="font-sans text-xl font-bold tracking-tight text-[var(--c-text)]">KWAL</span>
-    ),
-  },
-  {
-    name: "BasiGo",
-    element: (
-      <span className="font-mono text-lg font-bold text-emerald-500">
-        basi<span className="text-[var(--c-text)]">go</span>
       </span>
     ),
   },
@@ -76,19 +32,157 @@ const marqueeLogos = [
     ),
   },
   {
-    name: "Antler",
+    name: "KWAL",
     element: (
-      <span className="font-sans text-lg font-semibold tracking-widest text-[var(--c-text)]">
-        ▲NTLER
-      </span>
+      <div className="flex items-center gap-2">
+        <svg className="h-7 w-7 text-amber-500" viewBox="0 0 24 24" fill="currentColor">
+          <circle cx="9" cy="8" r="2" />
+          <circle cx="13" cy="8" r="2" />
+          <circle cx="17" cy="8" r="2" />
+          <circle cx="11" cy="12" r="2" />
+          <circle cx="15" cy="12" r="2" />
+          <circle cx="13" cy="16" r="2" />
+          <path d="M13 5c0-1.1-.9-2-2-2h-1v1c0 1.1.9 2 2 2h1z" />
+        </svg>
+        <div className="flex flex-col text-left font-sans leading-none">
+          <span className="text-lg font-black tracking-tight text-[var(--c-text)]">KWAL</span>
+          <span className="text-[7px] font-bold uppercase tracking-widest text-[var(--c-text-muted)]">
+            Kenya Wine Agencies
+          </span>
+        </div>
+      </div>
     ),
   },
   {
-    name: "Saviu",
+    name: "Jaza",
     element: (
-      <span className="font-serif text-xl font-bold tracking-wider text-[var(--c-text)]">
-        SAVIU
-      </span>
+      <div className="flex flex-col items-center leading-none">
+        <div className="relative rounded-xl bg-blue-600 px-4 py-1.5 shadow-sm shadow-blue-500/10">
+          <div className="absolute -left-1.5 -top-1.5 h-3.5 w-3.5 rotate-12 rounded-sm border border-white bg-yellow-400" />
+          <span className="font-sans text-lg font-black tracking-tight text-white">jaza</span>
+        </div>
+        <span className="mt-1 text-[8px] font-extrabold uppercase tracking-wider text-blue-600">
+          Everyday Low Price
+        </span>
+      </div>
+    ),
+  },
+  {
+    name: "254 Brewing Co",
+    element: (
+      <div className="flex items-center gap-2">
+        <svg
+          className="h-8 w-8 text-[var(--c-text)]"
+          viewBox="0 0 100 100"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2.5"
+        >
+          <line x1="20" y1="80" x2="80" y2="20" />
+          <line x1="20" y1="20" x2="80" y2="80" />
+          <path d="M50 15 C68 30, 68 70, 50 85 C32 70, 32 30, 50 15 Z" fill="currentColor" />
+          <text
+            x="50"
+            y="48"
+            fill="white"
+            fontSize="18"
+            fontWeight="900"
+            textAnchor="middle"
+            fontFamily="sans-serif"
+          >
+            254
+          </text>
+          <text
+            x="50"
+            y="62"
+            fill="white"
+            fontSize="6.5"
+            fontWeight="800"
+            textAnchor="middle"
+            fontFamily="sans-serif"
+            letterSpacing="0.5"
+          >
+            BREWING
+          </text>
+          <text
+            x="50"
+            y="70"
+            fill="white"
+            fontSize="5.5"
+            fontWeight="800"
+            textAnchor="middle"
+            fontFamily="sans-serif"
+            letterSpacing="0.5"
+          >
+            CO.
+          </text>
+          <circle cx="50" cy="30" r="1.5" fill="white" />
+          <circle cx="47" cy="24" r="1" fill="white" />
+          <circle cx="52" cy="21" r="0.7" fill="white" />
+        </svg>
+        <div className="flex flex-col text-left font-sans leading-none">
+          <span className="text-sm font-black uppercase tracking-wider text-[var(--c-text)]">
+            254 Brewing
+          </span>
+          <span className="text-[7px] font-bold uppercase tracking-widest text-[var(--c-text-muted)]">
+            Craft Beer Co.
+          </span>
+        </div>
+      </div>
+    ),
+  },
+  {
+    name: "Kenyan Originals",
+    element: (
+      <div className="flex items-center">
+        <div className="relative -rotate-3 rounded border-[1.5px] border-[var(--c-text)] bg-[var(--c-text)] px-3 py-1 font-sans text-xs font-black uppercase tracking-tight text-white">
+          Kenyan
+          <div className="mt-0.5 text-[10px] font-extrabold leading-none tracking-[0.12em] text-emerald-400">
+            Originals
+          </div>
+        </div>
+      </div>
+    ),
+  },
+  {
+    name: "Booch",
+    element: (
+      <div className="flex flex-col items-center leading-none">
+        <div className="relative rounded-lg bg-pink-600 px-3.5 py-1.5 shadow-sm shadow-pink-500/10">
+          <div className="absolute -top-3 left-1/2 flex -translate-x-1/2 animate-pulse flex-col items-center gap-0.5 text-pink-500">
+            <div className="h-1 w-1 rounded-full bg-pink-500" />
+            <div className="h-1.5 w-1.5 rounded-full bg-pink-500" />
+          </div>
+          <span className="font-sans text-sm font-black uppercase tracking-[0.1em] text-white">
+            booch
+          </span>
+        </div>
+        <span className="mt-1 text-[7px] font-bold uppercase tracking-wider text-pink-600">
+          Organic Kombucha
+        </span>
+      </div>
+    ),
+  },
+  {
+    name: "EABL",
+    element: (
+      <div className="flex items-center gap-1.5">
+        <svg
+          className="h-6 w-6 text-emerald-600"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+        >
+          <path d="M12 2C12 2 9 6 9 9C9 12 12 16 12 16C12 16 15 12 15 9C15 6 12 2 12 2Z" />
+          <path d="M12 8C12 8 10.5 10.5 10.5 12.5C10.5 14.5 12 17 12 17C12 17 13.5 14.5 13.5 12.5C13.5 10.5 12 8 12 8Z" />
+          <path d="M12 14C12 14 11.25 15.25 11.25 16.25C11.25 17.25 12 18.5 12 18.5C12 18.5 12.75 17.25 12.75 16.25C12.75 15.25 12 14 12 14Z" />
+          <path d="M12 16v6" />
+        </svg>
+        <span className="font-sans text-lg font-black tracking-wider text-[var(--c-text)]">
+          EABL
+        </span>
+      </div>
     ),
   },
 ]
