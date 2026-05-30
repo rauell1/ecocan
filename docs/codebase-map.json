@@ -1,28 +1,15 @@
 {
   "meta": {
-    "version": "0c46bd9",
-    "generatedAt": "2026-05-30T14:24:49.011Z",
+    "version": "3d30ab2",
+    "generatedAt": "2026-05-30T14:31:32.091Z",
     "branch": "main",
-    "previousVersion": "f7fe475",
+    "previousVersion": "0c46bd9",
     "generator": "scripts/generate-codebase-map.mjs",
     "framework": "Next.js 14",
     "packageManager": "pnpm"
   },
   "changes": [
-    "Modified: app/about-us/page.tsx",
-    "Modified: app/contact/components/hero.tsx",
-    "Modified: app/download/page.tsx",
-    "Modified: app/ecocan-market/page.tsx",
-    "Modified: app/news/page.tsx",
-    "Modified: app/page.tsx",
-    "Modified: components/media-viewer.tsx",
-    "Modified: components/sections/call-to-action-section.tsx",
-    "Modified: components/sections/ecommunity-roles-section.tsx",
-    "Modified: components/sections/hero-content-section.tsx",
-    "Modified: components/sections/hero-section.tsx",
-    "Modified: components/sections/home-navbar.tsx",
-    "Modified: components/sections/how-it-works-section.tsx",
-    "Modified: components/sections/partners-testimonials-section.tsx"
+    "Modified: components/sections/ecommunity-roles-section.tsx"
   ],
   "affectedHotspots": [],
   "routes": [
@@ -297,7 +284,7 @@
     "components/sections/app-showcase-section.tsx": "680be6c73b1ee3364a3bb16d471b7a727aa816e6",
     "components/sections/call-to-action-section.tsx": "91bc18a0a5c7f9834a78dbfb76da329737758e31",
     "components/sections/ecocan-model-section.tsx": "2d6b32694821669e66f0833ce7601cf75a626a73",
-    "components/sections/ecommunity-roles-section.tsx": "10a4f327399a57a48ba232f184ec46dee3573dc7",
+    "components/sections/ecommunity-roles-section.tsx": "4d939723fe5b051896d907cdb61d63b1ea1a32ad",
     "components/sections/electric-mobility-section.tsx": "aad25916397d3625c07e93a9bafb55fe66140cff",
     "components/sections/faq-section.tsx": "e640bdab2ec09531e89500985b847ffdec1eaf0e",
     "components/sections/for-investors-section.tsx": "4e464ee6dc99496ef98a1fba9907d8668715d9fe",
@@ -393,16 +380,6 @@
     "tsconfig.json": "5841f1c2f8bba110464eaba24059d47cb59d3b64"
   },
   "changelog": [
-    {
-      "version": "881016e",
-      "date": "2026-05-29T17:43:11.422Z",
-      "branch": "main",
-      "changes": [
-        "Modified: app/download/page.tsx",
-        "Modified: app/page.tsx",
-        "Modified: components/sections/home-navbar.tsx"
-      ]
-    },
     {
       "version": "ce8c2ca",
       "date": "2026-05-29T18:00:56.770Z",
@@ -568,6 +545,14 @@
         "Modified: components/sections/home-navbar.tsx",
         "Modified: components/sections/how-it-works-section.tsx",
         "Modified: components/sections/partners-testimonials-section.tsx"
+      ]
+    },
+    {
+      "version": "3d30ab2",
+      "date": "2026-05-30T14:31:32.091Z",
+      "branch": "main",
+      "changes": [
+        "Modified: components/sections/ecommunity-roles-section.tsx"
       ]
     }
   ]

@@ -5,27 +5,14 @@
 
 # 🗺️ EcoCan Codebase Map
 
-> **Version:** `0c46bd9`
-> **Generated:** 2026-05-30T14:24:49.011Z
+> **Version:** `3d30ab2`
+> **Generated:** 2026-05-30T14:31:32.091Z
 > **Branch:** `main`
-> **Previous:** `f7fe475`
+> **Previous:** `0c46bd9`
 
 ## Changes Since Last Version
 
-- Modified: app/about-us/page.tsx
-- Modified: app/contact/components/hero.tsx
-- Modified: app/download/page.tsx
-- Modified: app/ecocan-market/page.tsx
-- Modified: app/news/page.tsx
-- Modified: app/page.tsx
-- Modified: components/media-viewer.tsx
-- Modified: components/sections/call-to-action-section.tsx
 - Modified: components/sections/ecommunity-roles-section.tsx
-- Modified: components/sections/hero-content-section.tsx
-- Modified: components/sections/hero-section.tsx
-- Modified: components/sections/home-navbar.tsx
-- Modified: components/sections/how-it-works-section.tsx
-- Modified: components/sections/partners-testimonials-section.tsx
 
 ---
 
@@ -72,6 +59,7 @@
 
 | Version | Date | Branch | Changes |
 |---|---|---|---|
+| `3d30ab2` | 2026-05-30 | main | Modified: components/sections/ecommunity-roles-section.tsx |
 | `0c46bd9` | 2026-05-30 | main | Modified: app/about-us/page.tsx; Modified: app/contact/components/hero.tsx; Modified: app/download/page.tsx; Modified: app/ecocan-market/page.tsx; Modified: app/news/page.tsx; Modified: app/page.tsx; Modified: components/media-viewer.tsx; Modified: components/sections/call-to-action-section.tsx; Modified: components/sections/ecommunity-roles-section.tsx; Modified: components/sections/hero-content-section.tsx; Modified: components/sections/hero-section.tsx; Modified: components/sections/home-navbar.tsx; Modified: components/sections/how-it-works-section.tsx; Modified: components/sections/partners-testimonials-section.tsx |
 | `f7fe475` | 2026-05-30 | main | Modified: components/sections/how-it-works-section.tsx |
 | `5a543e2` | 2026-05-30 | HEAD | Modified: components/sections/how-it-works-section.tsx |
@@ -91,7 +79,6 @@
 | `3c06d38` | 2026-05-29 | main | Modified: components/sections/partners-testimonials-section.tsx |
 | `3289bcf` | 2026-05-29 | main | Modified: components/sections/how-it-works-section.tsx |
 | `ce8c2ca` | 2026-05-29 | main | Modified: components/sections/how-it-works-section.tsx |
-| `881016e` | 2026-05-29 | main | Modified: app/download/page.tsx; Modified: app/page.tsx; Modified: components/sections/home-navbar.tsx |
 
 ---
 
