@@ -5,14 +5,14 @@
 
 # 🗺️ EcoCan Codebase Map
 
-> **Version:** `8738a9c`
-> **Generated:** 2026-05-30T16:54:38.028Z
+> **Version:** `30de3c6`
+> **Generated:** 2026-08-24T11:26:59.025Z
 > **Branch:** `main`
-> **Previous:** `ebcdd2b`
+> **Previous:** `8738a9c`
 
 ## Changes Since Last Version
 
-- Modified: components/sections/partners-testimonials-section.tsx
+- Full map regeneration
 
 ---
 
@@ -59,6 +59,7 @@
 
 | Version | Date | Branch | Changes |
 |---|---|---|---|
+| `30de3c6` | 2026-08-24 | main | Full map regeneration |
 | `8738a9c` | 2026-05-30 | main | Modified: components/sections/partners-testimonials-section.tsx |
 | `ebcdd2b` | 2026-05-30 | HEAD | Modified: components/sections/partners-testimonials-section.tsx |
 | `699e766` | 2026-05-30 | main | Modified: components/sections/partners-testimonials-section.tsx |
@@ -78,7 +79,6 @@
 | `3f23a42` | 2026-05-29 | main | Modified: components/sections/partners-testimonials-section.tsx |
 | `b345457` | 2026-05-29 | main | Modified: components/sections/partners-testimonials-section.tsx |
 | `3c06d38` | 2026-05-29 | main | Modified: components/sections/partners-testimonials-section.tsx |
-| `3289bcf` | 2026-05-29 | main | Modified: components/sections/how-it-works-section.tsx |
 
 ---
 

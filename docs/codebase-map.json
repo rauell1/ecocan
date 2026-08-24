@@ -1,15 +1,15 @@
 {
   "meta": {
-    "version": "8738a9c",
-    "generatedAt": "2026-05-30T16:54:38.028Z",
+    "version": "30de3c6",
+    "generatedAt": "2026-08-24T11:26:59.025Z",
     "branch": "main",
-    "previousVersion": "ebcdd2b",
+    "previousVersion": "8738a9c",
     "generator": "scripts/generate-codebase-map.mjs",
     "framework": "Next.js 14",
     "packageManager": "pnpm"
   },
   "changes": [
-    "Modified: components/sections/partners-testimonials-section.tsx"
+    "Full map regeneration"
   ],
   "affectedHotspots": [],
   "routes": [
@@ -381,14 +381,6 @@
   },
   "changelog": [
     {
-      "version": "3289bcf",
-      "date": "2026-05-29T18:03:09.371Z",
-      "branch": "main",
-      "changes": [
-        "Modified: components/sections/how-it-works-section.tsx"
-      ]
-    },
-    {
       "version": "3c06d38",
       "date": "2026-05-29T18:41:33.005Z",
       "branch": "main",
@@ -540,6 +532,14 @@
       "branch": "main",
       "changes": [
         "Modified: components/sections/partners-testimonials-section.tsx"
+      ]
+    },
+    {
+      "version": "30de3c6",
+      "date": "2026-08-24T11:26:59.025Z",
+      "branch": "main",
+      "changes": [
+        "Full map regeneration"
       ]
     }
   ]
